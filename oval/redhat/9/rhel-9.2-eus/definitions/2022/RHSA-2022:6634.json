@@ -1,0 +1,152 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226634",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:6634: webkit2gtk3 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6634",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6634"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-32893",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-32893"
+      }
+    ],
+    "Description": "WebKitGTK is the port of the portable web rendering engine WebKit to the GTK platform.\n\nThe following packages have been upgraded to a later upstream version: webkit2gtk3 (2.36.7).\n\nSecurity Fix(es):\n\n* webkitgtk: processing maliciously crafted web content may lead to arbitrary code execution (CVE-2022-32893)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-09-20"
+      },
+      "Updated": {
+        "Date": "2022-09-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-32893",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-20-\u003eCWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-32893",
+          "Public": "20220825"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2121645",
+          "ID": "2121645"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:9.2",
+        "cpe:/a:redhat:rhel_eus:9.2::appstream",
+        "cpe:/a:redhat:rhel_eus:9.2::crb",
+        "cpe:/a:redhat:rhel_eus:9.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:9.2::nfv",
+        "cpe:/a:redhat:rhel_eus:9.2::realtime",
+        "cpe:/a:redhat:rhel_eus:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:9.2::sap",
+        "cpe:/a:redhat:rhel_eus:9.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:9.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:9.2",
+        "cpe:/o:redhat:rhel_eus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3 is earlier than 0:2.36.7-1.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634001"
+                  },
+                  {
+                    "Comment": "webkit2gtk3 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-devel is earlier than 0:2.36.7-1.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634003"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-jsc is earlier than 0:2.36.7-1.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634005"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-jsc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-jsc-devel is earlier than 0:2.36.7-1.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634007"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-jsc-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226634008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

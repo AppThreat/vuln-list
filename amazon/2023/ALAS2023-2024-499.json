@@ -1,0 +1,110 @@
+{
+  "id": "ALAS2023-2024-499",
+  "title": "Amazon Linux 2023 - ALAS2023-2024-499: Important priority package update for containerd",
+  "issued": {
+    "date": "2024-01-19 01:31:00"
+  },
+  "updated": {
+    "date": "2024-02-01 17:56:00"
+  },
+  "severity": "Important",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2023-47108:\n\tOpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. Prior to version 0.46.0, the grpc Unary Server Interceptor out of the box adds labels `net.peer.sock.addr` and `net.peer.sock.port` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent. An attacker can easily flood the peer address and port for requests. Version 0.46.0 contains a fix for this issue. As a workaround to stop being affected, a view removing the attributes can be used. The other possibility is to disable grpc metrics instrumentation by passing `otelgrpc.WithMeterProvider` option with `noop.NewMeterProvider`.\n\nCVE-2023-39325:\n\tThe HTTP/2 protocol allows a denial of service (server resource consumption) because request cancellation can reset many streams quickly, as exploited in the wild in August through October 2023.\n",
+  "packages": [
+    {
+      "name": "containerd-stress-debuginfo",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "x86_64",
+      "filename": "Packages/containerd-stress-debuginfo-1.7.11-1.amzn2023.0.1.x86_64.rpm"
+    },
+    {
+      "name": "containerd",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "x86_64",
+      "filename": "Packages/containerd-1.7.11-1.amzn2023.0.1.x86_64.rpm"
+    },
+    {
+      "name": "containerd-stress",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "x86_64",
+      "filename": "Packages/containerd-stress-1.7.11-1.amzn2023.0.1.x86_64.rpm"
+    },
+    {
+      "name": "containerd-debuginfo",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "x86_64",
+      "filename": "Packages/containerd-debuginfo-1.7.11-1.amzn2023.0.1.x86_64.rpm"
+    },
+    {
+      "name": "containerd-debugsource",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "x86_64",
+      "filename": "Packages/containerd-debugsource-1.7.11-1.amzn2023.0.1.x86_64.rpm"
+    },
+    {
+      "name": "containerd-stress-debuginfo",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "aarch64",
+      "filename": "Packages/containerd-stress-debuginfo-1.7.11-1.amzn2023.0.1.aarch64.rpm"
+    },
+    {
+      "name": "containerd-debuginfo",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "aarch64",
+      "filename": "Packages/containerd-debuginfo-1.7.11-1.amzn2023.0.1.aarch64.rpm"
+    },
+    {
+      "name": "containerd-stress",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "aarch64",
+      "filename": "Packages/containerd-stress-1.7.11-1.amzn2023.0.1.aarch64.rpm"
+    },
+    {
+      "name": "containerd",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "aarch64",
+      "filename": "Packages/containerd-1.7.11-1.amzn2023.0.1.aarch64.rpm"
+    },
+    {
+      "name": "containerd-debugsource",
+      "epoch": "0",
+      "version": "1.7.11",
+      "release": "1.amzn2023.0.1",
+      "arch": "aarch64",
+      "filename": "Packages/containerd-debugsource-1.7.11-1.amzn2023.0.1.aarch64.rpm"
+    }
+  ],
+  "references": [
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39325",
+      "id": "CVE-2023-39325",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47108",
+      "id": "CVE-2023-47108",
+      "type": "cve"
+    }
+  ],
+  "cveids": [
+    "CVE-2023-39325",
+    "CVE-2023-47108"
+  ]
+}

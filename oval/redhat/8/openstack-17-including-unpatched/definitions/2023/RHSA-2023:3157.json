@@ -1,0 +1,311 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233157",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:3157: Red Hat OpenStack Platform 17.0 security update (Critical)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 17.0"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3157",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3157"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2088",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2088"
+      }
+    ],
+    "Description": "Security Fix(es):\n\n* EMBARGOED CVE-2023-2088 openstack-cinder: silently access other user's\nvolumes (CVE-2023-2088)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Critical",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-17"
+      },
+      "Updated": {
+        "Date": "2023-05-17"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-2088",
+          "Cvss3": "9.1/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:L",
+          "Cwe": "CWE-440-\u003eCWE-200",
+          "Impact": "critical",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2088",
+          "Public": "20230510:1430"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2179587",
+          "ID": "2179587"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:17.0",
+        "cpe:/a:redhat:openstack:17.0::el9"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20213563006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20213563005"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157001"
+                  },
+                  {
+                    "Comment": "openstack-nova is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-api is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157003"
+                  },
+                  {
+                    "Comment": "openstack-nova-api is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-common is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157005"
+                  },
+                  {
+                    "Comment": "openstack-nova-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-compute is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157007"
+                  },
+                  {
+                    "Comment": "openstack-nova-compute is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-conductor is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157009"
+                  },
+                  {
+                    "Comment": "openstack-nova-conductor is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-migration is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157011"
+                  },
+                  {
+                    "Comment": "openstack-nova-migration is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-novncproxy is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157013"
+                  },
+                  {
+                    "Comment": "openstack-nova-novncproxy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-scheduler is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157015"
+                  },
+                  {
+                    "Comment": "openstack-nova-scheduler is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-serialproxy is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157017"
+                  },
+                  {
+                    "Comment": "openstack-nova-serialproxy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-nova-spicehtml5proxy is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157019"
+                  },
+                  {
+                    "Comment": "openstack-nova-spicehtml5proxy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-nova is earlier than 1:23.2.2-0.20221209190754.7074ac0.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157021"
+                  },
+                  {
+                    "Comment": "python3-nova is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202237394014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tripleo-ansible is earlier than 0:3.3.1-0.20221208161844.fa5422f.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157023"
+                  },
+                  {
+                    "Comment": "tripleo-ansible is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-glance-store is earlier than 0:2.5.1-0.20230509140449.5f1cee6.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157025"
+                  },
+                  {
+                    "Comment": "python3-glance-store is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-os-brick is earlier than 0:4.3.3-0.20220715140803.d09dc9e.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157027"
+                  },
+                  {
+                    "Comment": "python3-os-brick is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-cinder is earlier than 1:18.2.1-0.20230509200451.1776695.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157029"
+                  },
+                  {
+                    "Comment": "openstack-cinder is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231016002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-cinder is earlier than 1:18.2.1-0.20230509200451.1776695.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157031"
+                  },
+                  {
+                    "Comment": "python3-cinder is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231016004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-cinder-common is earlier than 1:18.2.1-0.20230509200451.1776695.el9ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233157033"
+                  },
+                  {
+                    "Comment": "python3-cinder-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231016006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221950",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:1950: dovecot security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1950",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1950"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-33515",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-33515"
+      }
+    ],
+    "Description": "Dovecot is an IMAP server for Linux and other UNIX-like systems, written primarily with security in mind. It also contains a small POP3 server, and supports e-mail in either the maildir or mbox format. The SQL drivers and authentication plug-ins are provided as subpackages. \n\nThe following packages have been upgraded to a later upstream version: dovecot (2.3.16). (BZ#1980014)\n\nSecurity Fix(es):\n\n* dovecot: plaintext commands injection (CVE-2021-33515)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.6 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-10"
+      },
+      "Updated": {
+        "Date": "2022-05-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-33515",
+          "Cvss3": "4.2/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-77",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-33515",
+          "Public": "20210621"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1973610",
+          "ID": "1973610"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dovecot is earlier than 1:2.3.16-2.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221950001"
+                  },
+                  {
+                    "Comment": "dovecot is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20192822002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dovecot-devel is earlier than 1:2.3.16-2.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221950003"
+                  },
+                  {
+                    "Comment": "dovecot-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20192822004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dovecot-mysql is earlier than 1:2.3.16-2.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221950005"
+                  },
+                  {
+                    "Comment": "dovecot-mysql is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20192822006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dovecot-pgsql is earlier than 1:2.3.16-2.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221950007"
+                  },
+                  {
+                    "Comment": "dovecot-pgsql is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20192822008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dovecot-pigeonhole is earlier than 1:2.3.16-2.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221950009"
+                  },
+                  {
+                    "Comment": "dovecot-pigeonhole is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193467010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

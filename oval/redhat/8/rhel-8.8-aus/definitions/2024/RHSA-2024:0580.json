@@ -1,0 +1,591 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240580",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0580: samba security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.8 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0580",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0580"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2127",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2127"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-34966",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-34966"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-34967",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-34967"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-34968",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-34968"
+      }
+    ],
+    "Description": "Samba is an open-source implementation of the Server Message Block (SMB) protocol and the related Common Internet File System (CIFS) protocol, which allow PC-compatible machines to share files, printers, and various information.\n\nSecurity Fix(es):\n\n* samba: out-of-bounds read in winbind AUTH_CRAP (CVE-2022-2127)\n\n* samba: infinite loop in mdssvc RPC service for spotlight (CVE-2023-34966)\n\n* samba: type confusion in mdssvc RPC service for spotlight (CVE-2023-34967)\n\n* samba: spotlight server-side share path disclosure (CVE-2023-34968)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-30"
+      },
+      "Updated": {
+        "Date": "2024-01-30"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2127",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2127",
+          "Public": "20230719"
+        },
+        {
+          "CveID": "CVE-2023-34966",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-835",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-34966",
+          "Public": "20230719"
+        },
+        {
+          "CveID": "CVE-2023-34967",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-843",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-34967",
+          "Public": "20230719"
+        },
+        {
+          "CveID": "CVE-2023-34968",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-34968",
+          "Public": "20230719"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2222791",
+          "ID": "2222791"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2222793",
+          "ID": "2222793"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2222794",
+          "ID": "2222794"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2222795",
+          "ID": "2222795"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ctdb is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580001"
+                  },
+                  {
+                    "Comment": "ctdb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libnetapi is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580003"
+                  },
+                  {
+                    "Comment": "libnetapi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libnetapi-devel is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580005"
+                  },
+                  {
+                    "Comment": "libnetapi-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libsmbclient is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580007"
+                  },
+                  {
+                    "Comment": "libsmbclient is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libsmbclient-devel is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580009"
+                  },
+                  {
+                    "Comment": "libsmbclient-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libwbclient is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580011"
+                  },
+                  {
+                    "Comment": "libwbclient is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libwbclient-devel is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580013"
+                  },
+                  {
+                    "Comment": "libwbclient-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-samba is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580015"
+                  },
+                  {
+                    "Comment": "python3-samba is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-samba-dc is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580017"
+                  },
+                  {
+                    "Comment": "python3-samba-dc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-samba-devel is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580019"
+                  },
+                  {
+                    "Comment": "python3-samba-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-samba-test is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580021"
+                  },
+                  {
+                    "Comment": "python3-samba-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580023"
+                  },
+                  {
+                    "Comment": "samba is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-client is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580025"
+                  },
+                  {
+                    "Comment": "samba-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-client-libs is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580027"
+                  },
+                  {
+                    "Comment": "samba-client-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-common is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580029"
+                  },
+                  {
+                    "Comment": "samba-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-common-libs is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580031"
+                  },
+                  {
+                    "Comment": "samba-common-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-common-tools is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580033"
+                  },
+                  {
+                    "Comment": "samba-common-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-dc-libs is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580035"
+                  },
+                  {
+                    "Comment": "samba-dc-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-dcerpc is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580037"
+                  },
+                  {
+                    "Comment": "samba-dcerpc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-devel is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580039"
+                  },
+                  {
+                    "Comment": "samba-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-krb5-printing is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580041"
+                  },
+                  {
+                    "Comment": "samba-krb5-printing is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-ldb-ldap-modules is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580043"
+                  },
+                  {
+                    "Comment": "samba-ldb-ldap-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-libs is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580045"
+                  },
+                  {
+                    "Comment": "samba-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-pidl is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580047"
+                  },
+                  {
+                    "Comment": "samba-pidl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-test is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580049"
+                  },
+                  {
+                    "Comment": "samba-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-test-libs is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580051"
+                  },
+                  {
+                    "Comment": "samba-test-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-tools is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580053"
+                  },
+                  {
+                    "Comment": "samba-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-usershares is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580055"
+                  },
+                  {
+                    "Comment": "samba-usershares is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232987056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-vfs-iouring is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580057"
+                  },
+                  {
+                    "Comment": "samba-vfs-iouring is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-winbind is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580059"
+                  },
+                  {
+                    "Comment": "samba-winbind is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-winbind-clients is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580061"
+                  },
+                  {
+                    "Comment": "samba-winbind-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-winbind-krb5-locator is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580063"
+                  },
+                  {
+                    "Comment": "samba-winbind-krb5-locator is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-winbind-modules is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580065"
+                  },
+                  {
+                    "Comment": "samba-winbind-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "samba-winexe is earlier than 0:4.17.5-5.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240580067"
+                  },
+                  {
+                    "Comment": "samba-winexe is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20214438050"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

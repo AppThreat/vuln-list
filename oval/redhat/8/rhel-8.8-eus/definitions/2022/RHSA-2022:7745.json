@@ -1,0 +1,165 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20227745",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:7745: freetype security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:7745",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:7745"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27404",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27404"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27405",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27405"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27406",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27406"
+      }
+    ],
+    "Description": "FreeType is a free, high-quality, portable font engine that can open and manage font files. FreeType loads, hints, and renders individual glyphs efficiently.\n\nSecurity Fix(es):\n\n* FreeType: Buffer overflow in sfnt_init_face (CVE-2022-27404)\n\n* FreeType: Segmentation violation via FNT_Size_Request (CVE-2022-27405)\n\n* Freetype: Segmentation violation via FT_Request_Size (CVE-2022-27406)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.7 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-08"
+      },
+      "Updated": {
+        "Date": "2022-11-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-27404",
+          "Cvss3": "7.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27404",
+          "Public": "20220422"
+        },
+        {
+          "CveID": "CVE-2022-27405",
+          "Cvss3": "7.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-824",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27405",
+          "Public": "20220422"
+        },
+        {
+          "CveID": "CVE-2022-27406",
+          "Cvss3": "7.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-824",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27406",
+          "Public": "20220422"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2077985",
+          "ID": "2077985"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2077989",
+          "ID": "2077989"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2077991",
+          "ID": "2077991"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "freetype is earlier than 0:2.9.1-9.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227745001"
+                  },
+                  {
+                    "Comment": "freetype is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204952002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "freetype-devel is earlier than 0:2.9.1-9.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227745003"
+                  },
+                  {
+                    "Comment": "freetype-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204952004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

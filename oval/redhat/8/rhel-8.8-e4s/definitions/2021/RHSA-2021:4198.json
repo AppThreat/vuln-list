@@ -1,0 +1,179 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214198",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4198: edk2 security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4198",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4198"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-14584",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-14584"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-23840",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-23840"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-23841",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-23841"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28210",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28210"
+      }
+    ],
+    "Description": "EDK (Embedded Development Kit) is a project to enable UEFI support for Virtual Machines. This package contains a sample 64-bit UEFI firmware for QEMU and KVM. \n\nThe following packages have been upgraded to a later upstream version: edk2 (20210527gite1999b264f1f). (BZ#1846481, BZ#1938238)\n\nSecurity Fix(es):\n\n* openssl: integer overflow in CipherUpdate (CVE-2021-23840)\n\n* openssl: NULL pointer dereference in X509_issuer_and_serial_hash() (CVE-2021-23841)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-14584",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-14584",
+          "Public": "20201016"
+        },
+        {
+          "CveID": "CVE-2021-23840",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-23840",
+          "Public": "20210216"
+        },
+        {
+          "CveID": "CVE-2021-23841",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-23841",
+          "Public": "20210216"
+        },
+        {
+          "CveID": "CVE-2021-28210",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-674",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28210",
+          "Public": "20201119"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1883552",
+          "ID": "1883552"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1889486",
+          "ID": "1889486"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1930310",
+          "ID": "1930310"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1930324",
+          "ID": "1930324"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "edk2-aarch64 is earlier than 0:20210527gite1999b264f1f-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214198001"
+                  },
+                  {
+                    "Comment": "edk2-aarch64 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190968002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "edk2-ovmf is earlier than 0:20210527gite1999b264f1f-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214198003"
+                  },
+                  {
+                    "Comment": "edk2-ovmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190968004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

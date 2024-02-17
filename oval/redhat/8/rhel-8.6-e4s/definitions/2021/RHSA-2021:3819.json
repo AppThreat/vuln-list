@@ -1,0 +1,245 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213819",
+  "Version": "642",
+  "Metadata": {
+    "Title": "RHSA-2021:3819: .NET 5.0 security and bugfix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3819",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3819"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-41355",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-41355"
+      }
+    ],
+    "Description": ".NET is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nNew versions of .NET that address a security vulnerability are now available. The updated versions are .NET SDK 5.0.208 and .NET Runtime 5.0.11.\n\nSecurity Fix(es):\n\n* dotnet: System.DirectoryServices.Protocols.LdapConnection sends credentials in plaintext if TLS handshake fails (CVE-2021-41355)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-10-12"
+      },
+      "Updated": {
+        "Date": "2021-10-12"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-41355",
+          "Cvss3": "5.7/CVSS:3.1/AV:A/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-319",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-41355",
+          "Public": "20211012:1722"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2011487",
+          "ID": "2011487"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.6",
+        "cpe:/a:redhat:rhel_e4s:8.6::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.6::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.6",
+        "cpe:/o:redhat:rhel_e4s:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819003"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet is earlier than 0:5.0.208-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819005"
+                  },
+                  {
+                    "Comment": "dotnet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819007"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-host is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819009"
+                  },
+                  {
+                    "Comment": "dotnet-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819011"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819013"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-5.0 is earlier than 0:5.0.208-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819015"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-5.0 is earlier than 0:5.0.11-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819017"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-5.0 is earlier than 0:5.0.208-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819019"
+                  },
+                  {
+                    "Comment": "dotnet-templates-5.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210094020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:5.0.208-1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213819021"
+                  },
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747024"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

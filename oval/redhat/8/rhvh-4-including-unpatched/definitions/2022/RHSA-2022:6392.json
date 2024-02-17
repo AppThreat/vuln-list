@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226392",
+  "Version": "639",
+  "Metadata": {
+    "Title": "RHSA-2022:6392: RHV RHEL Host (ovirt-host) [ovirt-4.5.2] security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Virtualization 4 for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6392",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6392"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31129",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31129"
+      }
+    ],
+    "Description": "The ovirt-host package consolidates host package requirements into a single meta package.\n\nSecurity Fix(es):\n\n* moment: inefficient parsing algorithm resulting in DoS (CVE-2022-31129)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* The hosted-engine-ha binaries have been moved from /usr/share to /usr/libexec. As a result, the hosted-engine --clean-metadata command fails. With this release, you must use the new path for the command to succeed: /usr/libexec/ovirt-hosted-engine-ha/ovirt-ha-agent (BZ#2105781)\n\n* A new warning has been added to the vdsm-tool to protect users from using the unsupported user_friendly_names multipath configuration. The following is an example of the output:\n\n$ vdsm-tool is-configured --module multipath\nWARNING: Invalid configuration: 'user_friendly_names' is enabled in multipath configuration:\n  section1 {\n    key1 value1\n    user_friendly_names yes\n    key2 value2\n  }\n  section2 {\n    user_friendly_names yes\n  }\nThis configuration is not supported and may lead to storage domain corruption. (BZ#1793207)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-09-08"
+      },
+      "Updated": {
+        "Date": "2022-09-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-31129",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31129",
+          "Public": "20220706"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2105075",
+          "ID": "2105075"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::hypervisor"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20134280042"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "cockpit-ovirt-dashboard is earlier than 0:0.16.2-1.el8ev",
+            "TestRef": "oval:com.redhat.rhsa:tst:20226392001"
+          },
+          {
+            "Comment": "cockpit-ovirt-dashboard is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20205611002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20134280041"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20204172004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

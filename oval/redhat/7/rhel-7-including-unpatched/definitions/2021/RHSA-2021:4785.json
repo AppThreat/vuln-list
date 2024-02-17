@@ -1,0 +1,228 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214785",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:4785: rpm security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4785",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4785"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-20271",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-20271"
+      }
+    ],
+    "Description": "The RPM Package Manager (RPM) is a command-line driven package management system capable of installing, uninstalling, verifying, querying, and updating software packages.\n\nSecurity Fix(es):\n\n* rpm: Signature checks bypass via corrupted rpm package (CVE-2021-20271)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-23"
+      },
+      "Updated": {
+        "Date": "2021-11-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-20271",
+          "Cvss3": "6.7/CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-345",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-20271",
+          "Public": "20210311:2253"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1934125",
+          "ID": "1934125"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20042779006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20042779005"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785001"
+                  },
+                  {
+                    "Comment": "rpm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-apidocs is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785003"
+                  },
+                  {
+                    "Comment": "rpm-apidocs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-build is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785005"
+                  },
+                  {
+                    "Comment": "rpm-build is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-build-libs is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785007"
+                  },
+                  {
+                    "Comment": "rpm-build-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-cron is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785009"
+                  },
+                  {
+                    "Comment": "rpm-cron is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-devel is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785011"
+                  },
+                  {
+                    "Comment": "rpm-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-libs is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785013"
+                  },
+                  {
+                    "Comment": "rpm-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-plugin-systemd-inhibit is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785015"
+                  },
+                  {
+                    "Comment": "rpm-plugin-systemd-inhibit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202120266018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-python is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785017"
+                  },
+                  {
+                    "Comment": "rpm-python is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rpm-sign is earlier than 0:4.11.3-48.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214785019"
+                  },
+                  {
+                    "Comment": "rpm-sign is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20177500010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

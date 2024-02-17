@@ -1,0 +1,91 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240212",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2024:0212: Red Hat OpenStack Platform 17.1 (python-django) security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 17.1"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0212",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0212"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-36053",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-36053"
+      }
+    ],
+    "Description": "Django is a high-level Python Web framework that encourages rapid\ndevelopment and a clean, pragmatic design. It focuses on automating as much\nas possible and adhering to the DRY (Don't Repeat Yourself) principle.\n\nSecurity Fix(es):\n\n* Potential regular expression denial of service vulnerability in\nEmailValidator/URLValidator (CVE-2023-36053)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-16"
+      },
+      "Updated": {
+        "Date": "2024-01-16"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-36053",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-1333",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-36053",
+          "Public": "20230703:0800"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2218004",
+          "ID": "2218004"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:17.1",
+        "cpe:/a:redhat:openstack:17.1::el9"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20221962004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20221962003"
+          },
+          {
+            "Comment": "python3-django is earlier than 0:2.2.24-5.el9ost",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240212001"
+          },
+          {
+            "Comment": "python3-django is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.cve:tst:202341164002"
+          }
+        ]
+      }
+    ]
+  }
+}

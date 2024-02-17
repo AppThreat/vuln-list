@@ -1,0 +1,180 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20220621",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:0621: openldap security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:0621",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:0621"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-25709",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-25709"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-25710",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-25710"
+      }
+    ],
+    "Description": "OpenLDAP is an open-source suite of Lightweight Directory Access Protocol (LDAP) applications and development tools. LDAP is a set of protocols used to access and maintain distributed directory information services over an IP network. \n\nSecurity Fix(es):\n\n* openldap: assertion failure in Certificate List syntax validation (CVE-2020-25709)\n\n* openldap: assertion failure in CSN normalization with invalid input (CVE-2020-25710)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-02-22"
+      },
+      "Updated": {
+        "Date": "2022-02-22"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-25709",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-617",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-25709",
+          "Public": "20201102"
+        },
+        {
+          "CveID": "CVE-2020-25710",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-617",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-25710",
+          "Public": "20201102"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1899675",
+          "ID": "1899675"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1899678",
+          "ID": "1899678"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20042779006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20042779005"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openldap is earlier than 0:2.4.44-25.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220621001"
+                  },
+                  {
+                    "Comment": "openldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20164984002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openldap-clients is earlier than 0:2.4.44-25.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220621003"
+                  },
+                  {
+                    "Comment": "openldap-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20164984008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openldap-devel is earlier than 0:2.4.44-25.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220621005"
+                  },
+                  {
+                    "Comment": "openldap-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20164984006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openldap-servers is earlier than 0:2.4.44-25.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220621007"
+                  },
+                  {
+                    "Comment": "openldap-servers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20164984004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openldap-servers-sql is earlier than 0:2.4.44-25.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220621009"
+                  },
+                  {
+                    "Comment": "openldap-servers-sql is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20164984010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

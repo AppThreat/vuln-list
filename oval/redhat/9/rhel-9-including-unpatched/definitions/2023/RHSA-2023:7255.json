@@ -1,0 +1,233 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20237255",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:7255: dotnet7.0 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:7255",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:7255"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-36049",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-36049"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-36558",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-36558"
+      }
+    ],
+    "Description": ".NET is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nNew versions of .NET that address a security vulnerability are now available. The updated versions are .NET SDK 7.0.114 and .NET Runtime 7.0.14.\n  \n\nSecurity Fix(es):\n\n* dotnet: Arbitrary File Write and Deletion Vulnerability: FormatFtpCommand (CVE-2023-36049)\n\n* dotnet: ASP.NET Security Feature Bypass Vulnerability in Blazor forms (CVE-2023-36558)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-15"
+      },
+      "Updated": {
+        "Date": "2023-11-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-36049",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-94",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-36049",
+          "Public": "20231114"
+        },
+        {
+          "CveID": "CVE-2023-36558",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-36558",
+          "Public": "20231114"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2247750",
+          "ID": "2247750"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2248883",
+          "ID": "2248883"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255003"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255005"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255007"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255009"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-7.0 is earlier than 0:7.0.114-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255011"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-7.0-source-built-artifacts is earlier than 0:7.0.114-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255013"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-7.0-source-built-artifacts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-7.0 is earlier than 0:7.0.14-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255015"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-7.0 is earlier than 0:7.0.114-1.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237255017"
+                  },
+                  {
+                    "Comment": "dotnet-templates-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346233036"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

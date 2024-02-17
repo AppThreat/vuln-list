@@ -1,0 +1,172 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226439",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:6439: booth security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6439",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6439"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2553",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2553"
+      }
+    ],
+    "Description": "The Booth cluster ticket manager is a component to bridge high availability clusters spanning multiple sites, in particular, to provide decision inputs to local Pacemaker cluster resource managers. It operates as a distributed consensus-based service, presumably on a separate physical network. Tickets facilitated by a Booth formation are the units of authorization that can be bound to certain resources. This will ensure that the resources are run at only one (granted) site at a time.\n\nSecurity Fix(es):\n\n* booth: authfile directive in booth config file is completely ignored. (CVE-2022-2553)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-09-13"
+      },
+      "Updated": {
+        "Date": "2022-09-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2553",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-287",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2553",
+          "Public": "20220701:1320"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2109251",
+          "ID": "2109251"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "booth is earlier than 0:1.0-199.1.ac1d34c.git.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439001"
+                  },
+                  {
+                    "Comment": "booth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "booth-arbitrator is earlier than 0:1.0-199.1.ac1d34c.git.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439003"
+                  },
+                  {
+                    "Comment": "booth-arbitrator is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "booth-core is earlier than 0:1.0-199.1.ac1d34c.git.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439005"
+                  },
+                  {
+                    "Comment": "booth-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "booth-site is earlier than 0:1.0-199.1.ac1d34c.git.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439007"
+                  },
+                  {
+                    "Comment": "booth-site is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "booth-test is earlier than 0:1.0-199.1.ac1d34c.git.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439009"
+                  },
+                  {
+                    "Comment": "booth-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226439010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

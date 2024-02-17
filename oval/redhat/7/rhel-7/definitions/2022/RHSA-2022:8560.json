@@ -1,0 +1,150 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228560",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:8560: hsqldb security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8560",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8560"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-41853",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-41853"
+      }
+    ],
+    "Description": "The hsqldb packages provide a relational database management system written in Java. The Hyper Structured Query Language Database (HSQLDB) contains a JDBC driver to support a subset of ANSI-92 SQL.\n\nSecurity Fix(es):\n\n* hsqldb: Untrusted input may lead to RCE attack (CVE-2022-41853)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-21"
+      },
+      "Updated": {
+        "Date": "2022-11-21"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-41853",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-470",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-41853",
+          "Public": "20221006"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2136141",
+          "ID": "2136141"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "hsqldb is earlier than 1:1.8.1.3-15.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560001"
+                  },
+                  {
+                    "Comment": "hsqldb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "hsqldb-demo is earlier than 1:1.8.1.3-15.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560003"
+                  },
+                  {
+                    "Comment": "hsqldb-demo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "hsqldb-javadoc is earlier than 1:1.8.1.3-15.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560005"
+                  },
+                  {
+                    "Comment": "hsqldb-javadoc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "hsqldb-manual is earlier than 1:1.8.1.3-15.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560007"
+                  },
+                  {
+                    "Comment": "hsqldb-manual is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228560008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

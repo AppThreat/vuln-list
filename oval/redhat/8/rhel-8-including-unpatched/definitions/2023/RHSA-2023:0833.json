@@ -1,0 +1,232 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230833",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:0833: python3 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0833",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0833"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-10735",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-10735"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28861",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28861"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-45061",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-45061"
+      }
+    ],
+    "Description": "Python is an interpreted, interactive, object-oriented programming language, which includes modules, classes, exceptions, very high level dynamic data types and dynamic typing. Python supports interfaces to many system calls and libraries, as well as to various windowing systems.\n\nSecurity Fix(es):\n\n* python: int() type in PyLong_FromString() does not limit amount of digits converting text to int leading to DoS (CVE-2020-10735)\n\n* python: open redirection vulnerability in lib/http/server.py may lead to information disclosure (CVE-2021-28861)\n\n* Python: CPU denial of service via inefficient IDNA decoder (CVE-2022-45061)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-02-21"
+      },
+      "Updated": {
+        "Date": "2023-02-21"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-10735",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-704-\u003eCWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-10735",
+          "Public": "20220902"
+        },
+        {
+          "CveID": "CVE-2021-28861",
+          "Cvss3": "7.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Cwe": "CWE-601",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28861",
+          "Public": "20220822"
+        },
+        {
+          "CveID": "CVE-2022-45061",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-45061",
+          "Public": "20221109"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1834423",
+          "ID": "1834423"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2120642",
+          "ID": "2120642"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2144072",
+          "ID": "2144072"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20052541003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "platform-python is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833001"
+                  },
+                  {
+                    "Comment": "platform-python is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "platform-python-debug is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833003"
+                  },
+                  {
+                    "Comment": "platform-python-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "platform-python-devel is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833005"
+                  },
+                  {
+                    "Comment": "platform-python-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-idle is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833007"
+                  },
+                  {
+                    "Comment": "python3-idle is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-libs is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833009"
+                  },
+                  {
+                    "Comment": "python3-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-test is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833011"
+                  },
+                  {
+                    "Comment": "python3-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-tkinter is earlier than 0:3.6.8-48.el8_7.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230833013"
+                  },
+                  {
+                    "Comment": "python3-tkinter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20199674016"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20234030",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:4030: grafana security update (Critical)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:4030",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:4030"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3128",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3128"
+      }
+    ],
+    "Description": "Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, InfluxDB \u0026 OpenTSDB. \n\nSecurity Fix(es):\n\n* grafana: account takeover possible when using Azure AD OAuth (CVE-2023-3128)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Critical",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-07-12"
+      },
+      "Updated": {
+        "Date": "2023-07-12"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-3128",
+          "Cvss3": "9.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L",
+          "Cwe": "CWE-305",
+          "Impact": "critical",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3128",
+          "Public": "20230622"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2213626",
+          "ID": "2213626"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          },
+          {
+            "Comment": "grafana is earlier than 0:9.0.9-3.el9_2",
+            "TestRef": "oval:com.redhat.rhsa:tst:20234030001"
+          },
+          {
+            "Comment": "grafana is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.cve:tst:202143138002"
+          }
+        ]
+      }
+    ]
+  }
+}

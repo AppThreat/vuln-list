@@ -1,0 +1,150 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226381",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:6381: open-vm-tools security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6381",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6381"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31676",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31676"
+      }
+    ],
+    "Description": "The Open Virtual Machine Tools are the open source implementation of the VMware Tools. They are a set of guest operating system virtualization components that enhance performance and user experience of virtual machines.\n\nSecurity Fix(es):\n\n* open-vm-tools: local root privilege escalation in the virtual machine (CVE-2022-31676)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-09-07"
+      },
+      "Updated": {
+        "Date": "2022-09-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-31676",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-250",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31676",
+          "Public": "20220823"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2118714",
+          "ID": "2118714"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20042779006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20042779005"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "open-vm-tools is earlier than 0:11.0.5-3.el7_9.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226381001"
+                  },
+                  {
+                    "Comment": "open-vm-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20091143006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "open-vm-tools-desktop is earlier than 0:11.0.5-3.el7_9.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226381003"
+                  },
+                  {
+                    "Comment": "open-vm-tools-desktop is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20091143002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "open-vm-tools-devel is earlier than 0:11.0.5-3.el7_9.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226381005"
+                  },
+                  {
+                    "Comment": "open-vm-tools-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20091143004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "open-vm-tools-test is earlier than 0:11.0.5-3.el7_9.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226381007"
+                  },
+                  {
+                    "Comment": "open-vm-tools-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20091143008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

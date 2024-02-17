@@ -1,0 +1,139 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233278",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:3278: kpatch-patch security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.7 Update Services for SAP Solutions"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3278",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3278"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3564",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3564"
+      }
+    ],
+    "Description": "This is a kernel live patch module which is automatically loaded by the RPM post-install script to modify the code of a running kernel.\n\nSecurity Fix(es):\n\n* kernel: use-after-free caused by l2cap_reassemble_sdu() in net/bluetooth/l2cap_core.c (CVE-2022-3564)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-23"
+      },
+      "Updated": {
+        "Date": "2023-05-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3564",
+          "Cvss3": "7.1/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3564",
+          "Public": "20221004"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2150999",
+          "ID": "2150999"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras_sap_e4s:7.7",
+        "cpe:/a:redhat:rhel_extras_sap_hana_e4s:7.7",
+        "cpe:/o:redhat:rhel_e4s:7.7",
+        "cpe:/o:redhat:rhel_e4s:7.7::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel version 0:3.10.0-1062.71.1.el7 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20233278006"
+              },
+              {
+                "Comment": "kernel version 0:3.10.0-1062.71.1.el7 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20233278007"
+              }
+            ]
+          },
+          {
+            "Operator": "AND",
+            "Criterions": [
+              {
+                "Comment": "kernel version equals 0:3.10.0-1062.71.1.el7",
+                "TestRef": "oval:com.redhat.rhsa:tst:20233278001"
+              },
+              {
+                "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+              }
+            ],
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterions": [
+                  {
+                    "Comment": "kpatch-patch not installed for 0:3.10.0-1062.71.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233278003"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kpatch-patch-3_10_0-1062_71_1 is earlier than 0:1-1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20233278004"
+                      },
+                      {
+                        "Comment": "kpatch-patch-3_10_0-1062_71_1 is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20233278005"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

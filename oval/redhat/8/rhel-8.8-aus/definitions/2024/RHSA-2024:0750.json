@@ -1,0 +1,125 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240750",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0750: libmaxminddb security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.8 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0750",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0750"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-28241",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-28241"
+      }
+    ],
+    "Description": "The libmaxminddb package contains the MaxMind DB library.\n\nSecurity Fix(es):\n\n* libmaxminddb: improper initialization in dump_entry_data_list() in maxminddb.c (CVE-2020-28241)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-02-08"
+      },
+      "Updated": {
+        "Date": "2024-02-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-28241",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-665-\u003eCWE-170-\u003eCWE-122",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-28241",
+          "Public": "20200804"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1895379",
+          "ID": "1895379"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libmaxminddb is earlier than 0:1.2.0-10.el8_8.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240750001"
+                  },
+                  {
+                    "Comment": "libmaxminddb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240750002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libmaxminddb-devel is earlier than 0:1.2.0-10.el8_8.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240750003"
+                  },
+                  {
+                    "Comment": "libmaxminddb-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240750004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

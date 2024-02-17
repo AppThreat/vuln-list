@@ -1,0 +1,324 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20120099",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2012:0099: MRG Grid security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise MRG 2"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2012:0099",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2012:0099"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2011-4930",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2011-4930"
+      }
+    ],
+    "Description": "Red Hat Enterprise MRG (Messaging, Realtime, and Grid) is a next-generation\nIT infrastructure for enterprise computing. MRG offers increased\nperformance, reliability, interoperability, and faster computing for\nenterprise customers.\n\nMRG Grid provides high-throughput computing and enables enterprises to\nachieve higher peak computing capacity as well as improved infrastructure\nutilization by leveraging their existing technology to build high\nperformance grids. MRG Grid provides a job-queueing mechanism, scheduling\npolicy, and a priority scheme, as well as resource monitoring and resource\nmanagement. Users submit their jobs to MRG Grid, where they are placed into\na queue. MRG Grid then chooses when and where to run the jobs based upon a\npolicy, carefully monitors their progress, and ultimately informs the user\nupon completion.\n\nMultiple format string flaws were found in Condor. An authenticated Condor\nservice user could use these flaws to prevent other jobs from being\nscheduled and executed or crash the condor_schedd daemon. (CVE-2011-4930)\n\nThese updated packages for Red Hat Enterprise Linux 6 provide enhancements\nand bug fixes for the Grid component of MRG. Some select enhancements and\nfixes include:\n\n* Addition of -sort option to condor_status\n\n* Customized output from condor_q -run for EC2 jobs\n\n* Enhanced the summary line provided by condor_q\n\n* Improved Collector performance around blocking network calls\n\n* Fixed a memory leak associated with python-psycopg2 hit by cumin-data\n\nSpace precludes documenting all of these changes in this advisory. Refer to\nthe Red Hat Enterprise MRG 2 Technical Notes document for information on\nthese changes:\n\nhttps://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_MRG/2/html/Technical_Notes/index.html\n\nAll users of the Grid capabilities of Red Hat Enterprise MRG 2 are advised\nto upgrade to these updated packages, which resolve the issues and add the\nenhancements noted in the Red Hat Enterprise MRG 2 Technical Notes.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2012 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2012-02-06"
+      },
+      "Updated": {
+        "Date": "2012-02-06"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2011-4930",
+          "Cvss2": "5.2/AV:A/AC:L/Au:S/C:P/I:P/A:P",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2011-4930",
+          "Public": "20120206"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/759548",
+          "ID": "759548"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_mrg:2",
+        "cpe:/a:redhat:enterprise_mrg:2:computenode:el6",
+        "cpe:/a:redhat:enterprise_mrg:2:server:el6"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20120496022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20120496021"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-ec2-enhanced is earlier than 0:1.3.0-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099001"
+                  },
+                  {
+                    "Comment": "condor-ec2-enhanced is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-ec2-enhanced-hooks is earlier than 0:1.3.0-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099003"
+                  },
+                  {
+                    "Comment": "condor-ec2-enhanced-hooks is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-condorec2e is earlier than 0:1.3.0-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099005"
+                  },
+                  {
+                    "Comment": "python-condorec2e is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ruby-spqr is earlier than 0:0.3.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099007"
+                  },
+                  {
+                    "Comment": "ruby-spqr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "spqr-gen is earlier than 0:0.3.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099009"
+                  },
+                  {
+                    "Comment": "spqr-gen is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-wallaby-base-db is earlier than 0:1.19-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099011"
+                  },
+                  {
+                    "Comment": "condor-wallaby-base-db is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-wallaby is earlier than 0:0.12.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099013"
+                  },
+                  {
+                    "Comment": "python-wallaby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ruby-wallaby is earlier than 0:0.12.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099015"
+                  },
+                  {
+                    "Comment": "ruby-wallaby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "wallaby is earlier than 0:0.12.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099017"
+                  },
+                  {
+                    "Comment": "wallaby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "wallaby-utils is earlier than 0:0.12.5-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099019"
+                  },
+                  {
+                    "Comment": "wallaby-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099021"
+                  },
+                  {
+                    "Comment": "condor is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-aviary is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099023"
+                  },
+                  {
+                    "Comment": "condor-aviary is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-classads is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099025"
+                  },
+                  {
+                    "Comment": "condor-classads is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-kbdd is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099027"
+                  },
+                  {
+                    "Comment": "condor-kbdd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-plumage is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099029"
+                  },
+                  {
+                    "Comment": "condor-plumage is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-qmf is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099031"
+                  },
+                  {
+                    "Comment": "condor-qmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-vm-gahp is earlier than 0:7.6.5-0.12.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099033"
+                  },
+                  {
+                    "Comment": "condor-vm-gahp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cumin is earlier than 0:0.1.5192-1.el6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099035"
+                  },
+                  {
+                    "Comment": "cumin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250042"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

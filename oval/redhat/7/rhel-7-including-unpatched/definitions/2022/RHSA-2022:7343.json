@@ -1,0 +1,158 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20227343",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:7343: pcs security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:7343",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:7343"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-11358",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-11358"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-11023",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-11023"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-30123",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-30123"
+      }
+    ],
+    "Description": "The pcs packages provide a command-line configuration system for the Pacemaker and Corosync utilities.\n\nSecurity Fix(es):\n\n* rubygem-rack: crafted requests can cause shell escape sequences (CVE-2022-30123)\n\n* jquery: Prototype pollution in object's prototype leading to denial of service, remote code execution, or property injection (CVE-2019-11358)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-02"
+      },
+      "Updated": {
+        "Date": "2022-11-02"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-11358",
+          "Cvss3": "5.6/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-79",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-11358",
+          "Public": "20190327"
+        },
+        {
+          "CveID": "CVE-2020-11023",
+          "Cvss3": "6.1/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+          "Cwe": "CWE-79",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-11023",
+          "Public": "20200429"
+        },
+        {
+          "CveID": "CVE-2022-30123",
+          "Cvss3": "10.0/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-179",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-30123",
+          "Public": "20220527"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1701972",
+          "ID": "1701972"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1850004",
+          "ID": "1850004"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2099524",
+          "ID": "2099524"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20042779006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20042779005"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pcs is earlier than 0:0.9.169-3.el7_9.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227343001"
+                  },
+                  {
+                    "Comment": "pcs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20172661002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pcs-snmp is earlier than 0:0.9.169-3.el7_9.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227343003"
+                  },
+                  {
+                    "Comment": "pcs-snmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20172661006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

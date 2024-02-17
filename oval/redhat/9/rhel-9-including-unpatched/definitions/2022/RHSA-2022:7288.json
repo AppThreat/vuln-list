@@ -1,0 +1,169 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20227288",
+  "Version": "643",
+  "Metadata": {
+    "Title": "RHSA-2022:7288: openssl security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:7288",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:7288"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3602",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3602"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3786",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3786"
+      }
+    ],
+    "Description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, as well as a full strength general purpose cryptography library.\n\nSecurity Fix(es):\n\n* OpenSSL: X.509 Email Address Buffer Overflow (CVE-2022-3602)\n\n* OpenSSL: X.509 Email Address Variable Length Buffer Overflow (CVE-2022-3786)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-01"
+      },
+      "Updated": {
+        "Date": "2022-11-01"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3602",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119-\u003eCWE-121",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3602",
+          "Public": "20221101"
+        },
+        {
+          "CveID": "CVE-2022-3786",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119-\u003eCWE-121-\u003eCWE-193",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3786",
+          "Public": "20221101"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2137723",
+          "ID": "2137723"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2139104",
+          "ID": "2139104"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl is earlier than 1:3.0.1-43.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227288001"
+                  },
+                  {
+                    "Comment": "openssl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20232975004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-devel is earlier than 1:3.0.1-43.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227288003"
+                  },
+                  {
+                    "Comment": "openssl-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20232975008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-libs is earlier than 1:3.0.1-43.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227288005"
+                  },
+                  {
+                    "Comment": "openssl-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20232975002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-perl is earlier than 1:3.0.1-43.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227288007"
+                  },
+                  {
+                    "Comment": "openssl-perl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20232975006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
