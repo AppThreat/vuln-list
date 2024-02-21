@@ -1,0 +1,173 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20212988",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:2988: varnish:6 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:2988",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:2988"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-36740",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-36740"
+      }
+    ],
+    "Description": "Varnish Cache is a high-performance HTTP accelerator. It stores web pages in memory so web servers don't have to create the same web page over and over again, giving the website a significant speed up.\n\nSecurity Fix(es):\n\n* varnish: HTTP/2 request smuggling attack via a large Content-Length header for a POST request (CVE-2021-36740)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-08-02"
+      },
+      "Updated": {
+        "Date": "2021-08-02"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-36740",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-444",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-36740",
+          "Public": "20210713"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1982409",
+          "ID": "1982409"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module varnish:6 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204756009"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "varnish is earlier than 0:6.0.6-2.module+el8.4.0+11921+1a6539fc.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20212988001"
+                          },
+                          {
+                            "Comment": "varnish is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20204756002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "varnish-devel is earlier than 0:6.0.6-2.module+el8.4.0+11921+1a6539fc.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20212988003"
+                          },
+                          {
+                            "Comment": "varnish-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20204756004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "varnish-docs is earlier than 0:6.0.6-2.module+el8.4.0+11921+1a6539fc.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20212988005"
+                          },
+                          {
+                            "Comment": "varnish-docs is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20204756006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "varnish-modules is earlier than 0:0.15.0-5.module+el8.3.0+6843+b3b42fcc",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20204756007"
+                          },
+                          {
+                            "Comment": "varnish-modules is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20204756008"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

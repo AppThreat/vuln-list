@@ -1,0 +1,118 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20232453",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:2453: libtpms security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:2453",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:2453"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-1017",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-1017"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-1018",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-1018"
+      }
+    ],
+    "Description": "The libtpms is a library providing Trusted Platform Module (TPM) functionality for virtual machines.\n\nSecurity Fix(es):\n\n* tpm: TCG TPM2.0 implementations vulnerable to memory corruption (CVE-2023-1017)\n\n* tpm2: TCG TPM2.0 implementations vulnerable to memory corruption (CVE-2023-1018)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.2 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-09"
+      },
+      "Updated": {
+        "Date": "2023-05-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-1017",
+          "Cvss3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-1017",
+          "Public": "20230228"
+        },
+        {
+          "CveID": "CVE-2023-1018",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-125",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-1018",
+          "Public": "20230228"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2149416",
+          "ID": "2149416"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2149420",
+          "ID": "2149420"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          },
+          {
+            "Comment": "libtpms is earlier than 0:0.9.1-3.20211126git1ff6fe1f43.el9_2",
+            "TestRef": "oval:com.redhat.rhsa:tst:20232453001"
+          },
+          {
+            "Comment": "libtpms is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20232453002"
+          }
+        ]
+      }
+    ]
+  }
+}

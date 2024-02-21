@@ -1,0 +1,380 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214251",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2021:4251: openjpeg2 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4251",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4251"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-20845",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-20845"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-20847",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-20847"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-5727",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-5727"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-5785",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-5785"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-12973",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-12973"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-15389",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-15389"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27814",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27814"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27823",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27823"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27824",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27824"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27842",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27842"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27843",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27843"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-27845",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-27845"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-29338",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-29338"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-3575",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-3575"
+      }
+    ],
+    "Description": "OpenJPEG is an open source library for reading and writing image files in JPEG2000 format.\n\nThe following packages have been upgraded to a later upstream version: openjpeg2 (2.4.0).\n\nSecurity Fix(es):\n\n* openjpeg: use-after-free and double-free via a mix of valid and invalid files in a directory operated on by the decompressor (CVE-2020-15389)\n\n* openjpeg: heap-buffer-overflow in lib/openjp2/mqc.c could result in DoS (CVE-2020-27814)\n\n* openjpeg: heap-buffer-overflow write in opj_tcd_dc_level_shift_encode() (CVE-2020-27823)\n\n* openjpeg: heap-buffer-overflow in color.c may lead to DoS or arbitrary code execution (CVE-2021-3575)\n\n* openjpeg: integer overflow in opj_t1_encode_cblks in src/lib/openjp2/t1.c (CVE-2018-5727)\n\n* openjpeg: integer overflow in opj_j2k_setup_encoder function in openjp2/j2k.c (CVE-2018-5785)\n\n* openjpeg: division-by-zero in functions pi_next_pcrl, pi_next_cprl, and pi_next_rpcl in openmj2/pi.c (CVE-2018-20845)\n\n* openjpeg: integer overflow in function opj_get_encoding_parameters in openjp2/pi.c (CVE-2018-20847)\n\n* openjpeg: denial of service in function opj_t1_encode_cblks in openjp2/t1.c (CVE-2019-12973)\n\n* openjpeg: global-buffer-overflow read in opj_dwt_calc_explicit_stepsizes() (CVE-2020-27824)\n\n* openjpeg: null pointer dereference in opj_tgt_reset function in lib/openjp2/tgt.c (CVE-2020-27842)\n\n* openjpeg: out-of-bounds read in opj_t2_encode_packet function in openjp2/t2.c (CVE-2020-27843)\n\n* openjpeg: heap-based buffer overflow in functions opj_pi_next_rlcp, opj_pi_next_rpcl and opj_pi_next_lrcp in openjp2/pi.c (CVE-2020-27845)\n\n* openjpeg: out-of-bounds write due to an integer overflow in opj_compress.c (CVE-2021-29338)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2018-20845",
+          "Cvss3": "5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-369",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-20845",
+          "Public": "20190626"
+        },
+        {
+          "CveID": "CVE-2018-20847",
+          "Cvss3": "4.0/CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-190",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-20847",
+          "Public": "20190626"
+        },
+        {
+          "CveID": "CVE-2018-5727",
+          "Cvss3": "4.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-190",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-5727",
+          "Public": "20180113"
+        },
+        {
+          "CveID": "CVE-2018-5785",
+          "Cvss3": "3.3/CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-190",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-5785",
+          "Public": "20180119"
+        },
+        {
+          "CveID": "CVE-2019-12973",
+          "Cvss3": "3.3/CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-20",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-12973",
+          "Public": "20190626"
+        },
+        {
+          "CveID": "CVE-2020-15389",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-20-\u003eCWE-416",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-15389",
+          "Public": "20200628"
+        },
+        {
+          "CveID": "CVE-2020-27814",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-122",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27814",
+          "Public": "20201123"
+        },
+        {
+          "CveID": "CVE-2020-27823",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-20-\u003eCWE-120-\u003eCWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27823",
+          "Public": "20201125"
+        },
+        {
+          "CveID": "CVE-2020-27824",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-20-\u003eCWE-120-\u003eCWE-125",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27824",
+          "Public": "20201125"
+        },
+        {
+          "CveID": "CVE-2020-27842",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27842",
+          "Public": "20201201"
+        },
+        {
+          "CveID": "CVE-2020-27843",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27843",
+          "Public": "20201202"
+        },
+        {
+          "CveID": "CVE-2020-27845",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-27845",
+          "Public": "20201202"
+        },
+        {
+          "CveID": "CVE-2021-29338",
+          "Cvss3": "6.2/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Cwe": "CWE-190-\u003eCWE-787",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-29338",
+          "Public": "20210324"
+        },
+        {
+          "CveID": "CVE-2021-3575",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-3575",
+          "Public": "20210501"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1536552",
+          "ID": "1536552"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1537758",
+          "ID": "1537758"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1728505",
+          "ID": "1728505"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1728509",
+          "ID": "1728509"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1732270",
+          "ID": "1732270"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1852869",
+          "ID": "1852869"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1901998",
+          "ID": "1901998"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1905723",
+          "ID": "1905723"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1905762",
+          "ID": "1905762"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1907513",
+          "ID": "1907513"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1907516",
+          "ID": "1907516"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1907523",
+          "ID": "1907523"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1950101",
+          "ID": "1950101"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1957616",
+          "ID": "1957616"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20052541003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openjpeg2 is earlier than 0:2.4.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214251001"
+                  },
+                  {
+                    "Comment": "openjpeg2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201820846006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openjpeg2-devel is earlier than 0:2.4.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214251003"
+                  },
+                  {
+                    "Comment": "openjpeg2-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201820846010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openjpeg2-devel-docs is earlier than 0:2.4.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214251005"
+                  },
+                  {
+                    "Comment": "openjpeg2-devel-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201820846004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openjpeg2-tools is earlier than 0:2.4.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214251007"
+                  },
+                  {
+                    "Comment": "openjpeg2-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201820846008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

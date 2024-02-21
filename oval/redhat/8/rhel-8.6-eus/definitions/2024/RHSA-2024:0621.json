@@ -1,0 +1,247 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240621",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0621: tigervnc security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0621",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0621"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-6816",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-6816"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-0229",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-0229"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-21885",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-21885"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-21886",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-21886"
+      }
+    ],
+    "Description": "Virtual Network Computing (VNC) is a remote display system which allows users to view a computing desktop environment not only on the machine where it is running, but from anywhere on the Internet and from a wide variety of machine architectures. TigerVNC is a suite of VNC servers and clients.\n\nSecurity Fix(es):\n\n* xorg-x11-server: Heap buffer overflow in DeviceFocusEvent and ProcXIQueryPointer (CVE-2023-6816)\n\n* xorg-x11-server: reattaching to different master device may lead to out-of-bounds memory access (CVE-2024-0229)\n\n* xorg-x11-server: heap buffer overflow in XISendDeviceHierarchyEvent (CVE-2024-21885)\n\n* xorg-x11-server: heap buffer overflow in DisableDevice (CVE-2024-21886)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-30"
+      },
+      "Updated": {
+        "Date": "2024-01-30"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-6816",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-6816",
+          "Public": "20240116"
+        },
+        {
+          "CveID": "CVE-2024-0229",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-788",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-0229",
+          "Public": "20240116"
+        },
+        {
+          "CveID": "CVE-2024-21885",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-122",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-21885",
+          "Public": "20240116"
+        },
+        {
+          "CveID": "CVE-2024-21886",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-122",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-21886",
+          "Public": "20240116"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2256540",
+          "ID": "2256540"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2256542",
+          "ID": "2256542"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2256690",
+          "ID": "2256690"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2257691",
+          "ID": "2257691"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.6",
+        "cpe:/a:redhat:rhel_eus:8.6::appstream",
+        "cpe:/a:redhat:rhel_eus:8.6::crb",
+        "cpe:/a:redhat:rhel_eus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.6::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.6::sap",
+        "cpe:/a:redhat:rhel_eus:8.6::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.6::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.6",
+        "cpe:/o:redhat:rhel_eus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621001"
+                  },
+                  {
+                    "Comment": "tigervnc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-icons is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621003"
+                  },
+                  {
+                    "Comment": "tigervnc-icons is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-license is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621005"
+                  },
+                  {
+                    "Comment": "tigervnc-license is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-selinux is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621007"
+                  },
+                  {
+                    "Comment": "tigervnc-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20211783008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-server is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621009"
+                  },
+                  {
+                    "Comment": "tigervnc-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-server-minimal is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621011"
+                  },
+                  {
+                    "Comment": "tigervnc-server-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tigervnc-server-module is earlier than 0:1.12.0-6.el8_6.9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240621013"
+                  },
+                  {
+                    "Comment": "tigervnc-server-module is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201497014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

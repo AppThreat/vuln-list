@@ -1,0 +1,332 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230597",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:0597: rh-git227-git security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0597",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0597"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-23521",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-23521"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-41903",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-41903"
+      }
+    ],
+    "Description": "Git is a distributed revision control system with a decentralized architecture. As opposed to centralized version control systems with a client-server model, Git ensures that each working copy of a Git repository is an exact copy with complete revision history. This not only allows the user to work on and contribute to projects without the need to have permission to push the changes to their official repositories, but also makes it possible for the user to work with no network connection.\n\nSecurity Fix(es):\n\n* git: gitattributes parsing integer overflow (CVE-2022-23521)\n\n* git: Heap overflow in `git archive`, `git log --format` leading to RCE (CVE-2022-41903)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-02-06"
+      },
+      "Updated": {
+        "Date": "2023-02-06"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-23521",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-23521",
+          "Public": "20230117"
+        },
+        {
+          "CveID": "CVE-2022-41903",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-41903",
+          "Public": "20230117"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2162055",
+          "ID": "2162055"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2162056",
+          "ID": "2162056"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20190772022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20190772009"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597001"
+                  },
+                  {
+                    "Comment": "rh-git227-git is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-all is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597003"
+                  },
+                  {
+                    "Comment": "rh-git227-git-all is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-core is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597005"
+                  },
+                  {
+                    "Comment": "rh-git227-git-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-core-doc is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597007"
+                  },
+                  {
+                    "Comment": "rh-git227-git-core-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-credential-libsecret is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597009"
+                  },
+                  {
+                    "Comment": "rh-git227-git-credential-libsecret is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-cvs is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597011"
+                  },
+                  {
+                    "Comment": "rh-git227-git-cvs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-daemon is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597013"
+                  },
+                  {
+                    "Comment": "rh-git227-git-daemon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-email is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597015"
+                  },
+                  {
+                    "Comment": "rh-git227-git-email is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-gui is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597017"
+                  },
+                  {
+                    "Comment": "rh-git227-git-gui is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-instaweb is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597019"
+                  },
+                  {
+                    "Comment": "rh-git227-git-instaweb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-p4 is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597021"
+                  },
+                  {
+                    "Comment": "rh-git227-git-p4 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-subtree is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597023"
+                  },
+                  {
+                    "Comment": "rh-git227-git-subtree is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-git-svn is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597025"
+                  },
+                  {
+                    "Comment": "rh-git227-git-svn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-gitk is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597027"
+                  },
+                  {
+                    "Comment": "rh-git227-gitk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-gitweb is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597029"
+                  },
+                  {
+                    "Comment": "rh-git227-gitweb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-perl-Git is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597031"
+                  },
+                  {
+                    "Comment": "rh-git227-perl-Git is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-git227-perl-Git-SVN is earlier than 0:2.27.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597033"
+                  },
+                  {
+                    "Comment": "rh-git227-perl-Git-SVN is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230597034"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

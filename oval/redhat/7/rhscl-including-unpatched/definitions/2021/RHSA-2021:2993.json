@@ -1,0 +1,241 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20212993",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:2993: rh-varnish6-varnish security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7",
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7.7 EUS"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:2993",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:2993"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-36740",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-36740"
+      }
+    ],
+    "Description": "Varnish Cache is a high-performance HTTP accelerator. It stores web pages in memory so web servers don't have to create the same web page over and over again, giving the website a significant speed up.\n\nThe following packages have been upgraded to a later upstream version: rh-varnish6-varnish (6.0.8).\n\nSecurity Fix(es):\n\n* varnish: HTTP/2 request smuggling attack via a large Content-Length header for a POST request (CVE-2021-36740)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-08-03"
+      },
+      "Updated": {
+        "Date": "2021-08-03"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-36740",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-444",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-36740",
+          "Public": "20210713"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1982409",
+          "ID": "1982409"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:200620001020"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:200620001019"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993001"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-devel is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993003"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-docs is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993005"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-libs is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993007"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-modules is earlier than 0:0.15.0-7.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993009"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20202262008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:200620001019"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993001"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-devel is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993003"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-docs is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993005"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-libs is earlier than 0:6.0.8-2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993007"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201920637002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-varnish6-varnish-modules is earlier than 0:0.15.0-7.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20212993009"
+                  },
+                  {
+                    "Comment": "rh-varnish6-varnish-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20202262008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

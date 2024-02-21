@@ -1,0 +1,224 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20235460",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:5460: bind9.16 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:5460",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:5460"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3341",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3341"
+      }
+    ],
+    "Description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain Name System (DNS) protocols. BIND includes a DNS server (named); a resolver library (routines for applications to use when interfacing with DNS); and tools for verifying that the DNS server is operating correctly.\n\nSecurity Fix(es):\n\n* bind: stack exhaustion in control channel code may lead to DoS (CVE-2023-3341)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-10-05"
+      },
+      "Updated": {
+        "Date": "2023-10-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-3341",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3341",
+          "Public": "20230920"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2239621",
+          "ID": "2239621"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20052541003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16 is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460001"
+                  },
+                  {
+                    "Comment": "bind9.16 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-chroot is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460003"
+                  },
+                  {
+                    "Comment": "bind9.16-chroot is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-devel is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460005"
+                  },
+                  {
+                    "Comment": "bind9.16-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-dnssec-utils is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460007"
+                  },
+                  {
+                    "Comment": "bind9.16-dnssec-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-doc is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460009"
+                  },
+                  {
+                    "Comment": "bind9.16-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-libs is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460011"
+                  },
+                  {
+                    "Comment": "bind9.16-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-license is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460013"
+                  },
+                  {
+                    "Comment": "bind9.16-license is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bind9.16-utils is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460015"
+                  },
+                  {
+                    "Comment": "bind9.16-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-bind9.16 is earlier than 32:9.16.23-0.14.el8_8.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235460017"
+                  },
+                  {
+                    "Comment": "python3-bind9.16 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20234408046"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

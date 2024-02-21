@@ -1,0 +1,116 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20224972",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:4972: OpenShift Container Platform 4.9.38 packages and security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:4972",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:4972"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1708",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1708"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing\nKubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container\nPlatform 4.9.38. See the following advisory for the container images for\nthis release:\n\nhttps://access.redhat.com/errata/RHBA-2022:4973\n\nSecurity Fix(es):\n\n* cri-o: memory exhaustion on the node when access to the kube api\n(CVE-2022-1708)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage(s)\nlisted in the References section.\n\nAll OpenShift Container Platform 4.9 users are advised to upgrade to these\nupdated packages and images when they are available in the appropriate\nrelease channel. To check for available updates, use the OpenShift Console\nor the CLI oc command. Instructions for upgrading a cluster are available\nat\nhttps://docs.openshift.com/container-platform/4.9/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-06-14"
+      },
+      "Updated": {
+        "Date": "2022-06-14"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-1708",
+          "Cvss3": "6.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:N/I:N/A:H",
+          "Cwe": "CWE-770",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1708",
+          "Public": "20220606"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2085361",
+          "ID": "2085361"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.9",
+        "cpe:/a:redhat:openshift:4.9::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20220794004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20220794003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "conmon is earlier than 2:2.0.29-3.rhaos4.9.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20224972001"
+                  },
+                  {
+                    "Comment": "conmon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20224972002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cri-o is earlier than 0:1.22.5-3.rhaos4.9.gitb6d3a87.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20224972003"
+                  },
+                  {
+                    "Comment": "cri-o is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220794002"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

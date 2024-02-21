@@ -1,0 +1,289 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214464",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:4464: dnf security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4464",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4464"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-3445",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-3445"
+      }
+    ],
+    "Description": "dnf is a package manager that allows users to manage packages on their systems. It supports RPMs, modules and comps groups \u0026 environments.\n\nSecurity Fix(es):\n\n* libdnf: Signature verification bypass via signature placed in the main RPM header (CVE-2021-3445)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-3445",
+          "Cvss3": "6.4/CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-347",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-3445",
+          "Public": "20210316:1702"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1932079",
+          "ID": "1932079"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20052541003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libdnf is earlier than 0:0.63.0-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464001"
+                  },
+                  {
+                    "Comment": "libdnf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libdnf-devel is earlier than 0:0.63.0-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464003"
+                  },
+                  {
+                    "Comment": "libdnf-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-hawkey is earlier than 0:0.63.0-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464005"
+                  },
+                  {
+                    "Comment": "python3-hawkey is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-libdnf is earlier than 0:0.63.0-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464007"
+                  },
+                  {
+                    "Comment": "python3-libdnf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dnf-plugins-core is earlier than 0:4.0.21-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464009"
+                  },
+                  {
+                    "Comment": "dnf-plugins-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-dnf-plugin-post-transaction-actions is earlier than 0:4.0.21-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464011"
+                  },
+                  {
+                    "Comment": "python3-dnf-plugin-post-transaction-actions is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-dnf-plugin-versionlock is earlier than 0:4.0.21-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464013"
+                  },
+                  {
+                    "Comment": "python3-dnf-plugin-versionlock is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-dnf-plugins-core is earlier than 0:4.0.21-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464015"
+                  },
+                  {
+                    "Comment": "python3-dnf-plugins-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "yum-utils is earlier than 0:4.0.21-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464017"
+                  },
+                  {
+                    "Comment": "yum-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dnf is earlier than 0:4.7.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464019"
+                  },
+                  {
+                    "Comment": "dnf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dnf-automatic is earlier than 0:4.7.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464021"
+                  },
+                  {
+                    "Comment": "dnf-automatic is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dnf-data is earlier than 0:4.7.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464023"
+                  },
+                  {
+                    "Comment": "dnf-data is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-dnf is earlier than 0:4.7.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464025"
+                  },
+                  {
+                    "Comment": "python3-dnf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "yum is earlier than 0:4.7.0-4.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214464027"
+                  },
+                  {
+                    "Comment": "yum is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193583038"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

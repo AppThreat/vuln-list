@@ -1,0 +1,216 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20236679",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:6679: curl security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:6679",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:6679"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-27533",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-27533"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-27534",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-27534"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-27536",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-27536"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-27538",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-27538"
+      }
+    ],
+    "Description": "The curl packages provide the libcurl library and the curl utility for downloading files from servers using various protocols, including HTTP, FTP, and LDAP.\n\nSecurity Fix(es):\n\n* curl: GSS delegation too eager connection re-use (CVE-2023-27536)\n\n* curl: TELNET option IAC injection (CVE-2023-27533)\n\n* curl: SFTP path ~ resolving discrepancy (CVE-2023-27534)\n\n* curl: SSH connection too eager reuse still (CVE-2023-27538)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.3 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-07"
+      },
+      "Updated": {
+        "Date": "2023-11-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-27533",
+          "Cvss3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+          "Cwe": "CWE-75",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-27533",
+          "Public": "20230320"
+        },
+        {
+          "CveID": "CVE-2023-27534",
+          "Cvss3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-22",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-27534",
+          "Public": "20230320"
+        },
+        {
+          "CveID": "CVE-2023-27536",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-305",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-27536",
+          "Public": "20230320"
+        },
+        {
+          "CveID": "CVE-2023-27538",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-305",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-27538",
+          "Public": "20230320"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2179062",
+          "ID": "2179062"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2179069",
+          "ID": "2179069"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2179092",
+          "ID": "2179092"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2179103",
+          "ID": "2179103"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "curl is earlier than 0:7.76.1-26.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236679001"
+                  },
+                  {
+                    "Comment": "curl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346218004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "curl-minimal is earlier than 0:7.76.1-26.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236679003"
+                  },
+                  {
+                    "Comment": "curl-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346218006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl is earlier than 0:7.76.1-26.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236679005"
+                  },
+                  {
+                    "Comment": "libcurl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346218008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-devel is earlier than 0:7.76.1-26.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236679007"
+                  },
+                  {
+                    "Comment": "libcurl-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346218002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-minimal is earlier than 0:7.76.1-26.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236679009"
+                  },
+                  {
+                    "Comment": "libcurl-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202346218010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

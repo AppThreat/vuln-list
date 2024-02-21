@@ -1,0 +1,119 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240293",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2024:0293: OpenShift Container Platform 4.14.10 packages and security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.14"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0293",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0293"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-29406",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-29406"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-29409",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-29409"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.14.10. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHSA-2024:0290\n\nSecurity Fix(es):\n\n* golang: net/http: insufficient sanitization of Host header\n(CVE-2023-29406)\n* golang: crypto/tls: slow verification of certificate chains containing\nlarge RSA keys (CVE-2023-29409)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.14 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.14/updating/updating_a_cluster/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-23"
+      },
+      "Updated": {
+        "Date": "2024-01-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-29406",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-113",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-29406",
+          "Public": "20230711"
+        },
+        {
+          "CveID": "CVE-2023-29409",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-29409",
+          "Public": "20230802"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2222167",
+          "ID": "2222167"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2228743",
+          "ID": "2228743"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.14",
+        "cpe:/a:redhat:openshift:4.14::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20235009011"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "openshift-hyperkube is earlier than 0:4.14.0-202401121302.p0.ge36e183.assembly.stream.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240293001"
+          },
+          {
+            "Comment": "openshift-hyperkube is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20235009004"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20235009009"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20235009010"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

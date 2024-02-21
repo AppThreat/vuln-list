@@ -1,0 +1,205 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20225313",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:5313: curl security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:5313",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:5313"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-22576",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-22576"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27774",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27774"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27776",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27776"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27782",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27782"
+      }
+    ],
+    "Description": "The curl packages provide the libcurl library and the curl utility for downloading files from servers using various protocols, including HTTP, FTP, and LDAP.\n\nSecurity Fix(es):\n\n* curl: OAUTH2 bearer bypass in connection re-use (CVE-2022-22576)\n\n* curl: credential leak on redirect (CVE-2022-27774)\n\n* curl: auth/cookie leak on redirect (CVE-2022-27776)\n\n* curl: TLS and SSH connection too eager reuse (CVE-2022-27782)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-06-30"
+      },
+      "Updated": {
+        "Date": "2022-06-30"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-22576",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+          "Cwe": "CWE-287-\u003eCWE-295",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-22576",
+          "Public": "20220427:0600"
+        },
+        {
+          "CveID": "CVE-2022-27774",
+          "Cvss3": "5.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-522",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27774",
+          "Public": "20220427:0600"
+        },
+        {
+          "CveID": "CVE-2022-27776",
+          "Cvss3": "4.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-522",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27776",
+          "Public": "20220427"
+        },
+        {
+          "CveID": "CVE-2022-27782",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-295",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27782",
+          "Public": "20220511"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2077541",
+          "ID": "2077541"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2077547",
+          "ID": "2077547"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2078408",
+          "ID": "2078408"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2082215",
+          "ID": "2082215"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.6",
+        "cpe:/a:redhat:rhel_e4s:8.6::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.6::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.6",
+        "cpe:/o:redhat:rhel_e4s:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "curl is earlier than 0:7.61.1-22.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225313001"
+                  },
+                  {
+                    "Comment": "curl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193701002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl is earlier than 0:7.61.1-22.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225313003"
+                  },
+                  {
+                    "Comment": "libcurl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193701004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-devel is earlier than 0:7.61.1-22.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225313005"
+                  },
+                  {
+                    "Comment": "libcurl-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193701006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-minimal is earlier than 0:7.61.1-22.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225313007"
+                  },
+                  {
+                    "Comment": "libcurl-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193701008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
