@@ -1,0 +1,136 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20237473",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:7473: OpenShift Container Platform 4.14.4 packages and security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.14"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:7473",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:7473"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-25577",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-25577"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-40225",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-40225"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-46136",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-46136"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.14.4. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHSA-2023:7470\n\nSecurity Fix(es):\n\n* python-werkzeug: high resource usage when parsing multipart form data\nwith many fields (CVE-2023-25577)\n* haproxy: Proxy forwards malformed empty Content-Length headers\n(CVE-2023-40225)\n* python-werkzeug: high resource consumption leading to denial of service\n(CVE-2023-46136)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.14 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.14/updating/updating_a_cluster/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-29"
+      },
+      "Updated": {
+        "Date": "2023-11-29"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-25577",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-770",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-25577",
+          "Public": "20230214"
+        },
+        {
+          "CveID": "CVE-2023-40225",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-40225",
+          "Public": "20230810"
+        },
+        {
+          "CveID": "CVE-2023-46136",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-407",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-46136",
+          "Public": "20231025"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2170242",
+          "ID": "2170242"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2231370",
+          "ID": "2231370"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2246310",
+          "ID": "2246310"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.14",
+        "cpe:/a:redhat:openshift:4.14::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:201714623004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "haproxy26 is earlier than 0:2.6.13-2.rhaos4.14.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20237473001"
+          },
+          {
+            "Comment": "haproxy26 is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20237473002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:201714623003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20235009010"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
