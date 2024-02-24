@@ -1,0 +1,153 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20222205",
+  "Version": "639",
+  "Metadata": {
+    "Title": "RHSA-2022:2205: OpenShift Container Platform 4.9.33 packages and security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:2205",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:2205"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-29036",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-29036"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-29041",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-29041"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-29046",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-29046"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-29047",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-29047"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing\nKubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.9.33. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHBA-2022:2206\n\nSecurity Fix(es):\n\n* Jira: Stored XSS vulnerabilities in Jenkins Jira plugin (CVE-2022-29041)\n* subversion: Stored XSS vulnerabilities in Jenkins subversion plugin\n(CVE-2022-29046)\n* Pipeline Shared Groovy Libraries: Untrusted users can modify some\nPipeline libraries in Pipeline Shared Groovy Libraries Plugin\n(CVE-2022-29047)\n* credentials: Stored XSS vulnerabilities in jenkins plugin\n(CVE-2022-29036)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage(s) listed in the References section.\n\nAll OpenShift Container Platform 4.9 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.9/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-18"
+      },
+      "Updated": {
+        "Date": "2022-05-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-29036",
+          "Cvss3": "6.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+          "Cwe": "CWE-79",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-29036",
+          "Public": "20220412"
+        },
+        {
+          "CveID": "CVE-2022-29041",
+          "Cvss3": "6.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+          "Cwe": "CWE-79",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-29041",
+          "Public": "20220412"
+        },
+        {
+          "CveID": "CVE-2022-29046",
+          "Cvss3": "5.4/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-79",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-29046",
+          "Public": "20220412"
+        },
+        {
+          "CveID": "CVE-2022-29047",
+          "Cvss3": "7.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-288",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-29047",
+          "Public": "20220412"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2074847",
+          "ID": "2074847"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2074850",
+          "ID": "2074850"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2074851",
+          "ID": "2074851"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2074855",
+          "ID": "2074855"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.9",
+        "cpe:/a:redhat:openshift:4.9::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:201714623004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "jenkins-2-plugins is earlier than 0:4.9.1651754460-1.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20222205001"
+          },
+          {
+            "Comment": "jenkins-2-plugins is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhba:tst:20228582002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:201714623003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20220794004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

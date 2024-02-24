@@ -1,0 +1,118 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221478",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:1478: Satellite 6.9.9 Async Bug Fix Update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.9 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1478",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1478"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-27023",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-27023"
+      }
+    ],
+    "Description": "Red Hat Satellite is a system management solution that allows organizations to configure and maintain their systems without the necessity to provide public Internet access to their servers or other client systems. It performs provisioning and configuration management of predefined standard operating environments.\n\nSecurity Fix(es):\n2023859 CVE-2021-27023 - puppet: unsafe HTTP redirect\n\nThis update fixes the following bugs:\n\n1929347\tpulp3: Ensure migration plugin runs in FIPS mode and respects the ALLOWED_CONTENT_CHECKSUMS configuration\n1992267\tIncorrect puppet module count when a content view is added to the composite content view.\n1998796\tPulp 3 migration failed with missing repositories.\n2005392\tIf the migration plan is empty, all repositories get migrated.\n2019563\tMissing fields on MD5 repos in repomd.xml on a FIPS enabled satellite\n2025804\tOption \"Verify Checksum\" not listed under Advanced Sync Options\n2027086\tThe katello:pulp3_migration\u0026quot; reports wrong failed component names if one or all pulp3 related services has failed to start during content-migration process\n2027127\tPulp 2 to 3 migration fails on certain repos during the upgrade with  FileNotFoundError: [Errno 2] No such file or directory: in prepare_metadata_files\n2027250\tCVE-2021-27023 puppetserver: puppet: unsafe HTTP redirect [rhn_satellite_6.9]\n2027253\tCVE-2021-27023 puppet-agent: puppet: unsafe HTTP redirect [rhn_satellite_6.9]\n2032843\tpulp3: 2to3 migration fails with Katello::Errors::Pulp3Error: the cursor;_django_curs_XXXX_XXXX does not exist\n2033951\t[Pulp3] The pulp2-3 migration fails to migrate Alma Linux BaseOS repo with error Katello::Errors::Pulp3Error: No declared artifact with relative path images boot.iso\n2038739\tExtremely difficult to tell what repositories to Verify Checksum on when there are hundreds or thousands of packages listed as corrupted\n2038742\tpulp3 content migration failed with Katello::Errors::Pulp3Error: local variable item referenced before assignment\n2039059\tPulp3: Migration fails with error Katello::Errors::Pulp3Error: Empty variable tag\n2039112\tpulp3 migration stats drastically underestimate migration times\n2043742\tforeman-rake katello:approve_corrupted_migration_content fails with services\n2043933\tThe pulp2-pulp3 migration should fail if not all the errata content has been migrated while upgrading to Satellite 6.10\n2051970\tpulp2to3 migration fails to migrate docker_blob content due to aggregate mongo 100M limit\n2061715\tPublication creation (during migration to pulp3 as well) can fail if pulp is NFS share\n\nUsers of Red Hat Satellite are advised to upgrade to these updated packages, which fix these bugs.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-04-20"
+      },
+      "Updated": {
+        "Date": "2022-04-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-27023",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-200",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-27023",
+          "Public": "20211109"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2023859",
+          "ID": "2023859"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.9",
+        "cpe:/a:redhat:satellite:6.9::el7",
+        "cpe:/a:redhat:satellite_capsule:6.9",
+        "cpe:/a:redhat:satellite_capsule:6.9::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20134120012"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20134120011"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet-agent is earlier than 0:6.26.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221478001"
+                  },
+                  {
+                    "Comment": "puppet-agent is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20221292002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppetserver is earlier than 0:6.18.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221478003"
+                  },
+                  {
+                    "Comment": "puppetserver is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20221471004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
