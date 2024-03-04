@@ -1,0 +1,135 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221708",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:1708: Satellite 6.10.5 Async Bug Fix Update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.10 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1708",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1708"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-27023",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-27023"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-27025",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-27025"
+      }
+    ],
+    "Description": "Red Hat Satellite is a system management solution that allows organizations to configure and maintain their systems without the necessity to provide public Internet access to their servers or other client systems. It performs provisioning and configuration management of predefined standard operating environments.\n\nSecurity Fix(es):\n\n2023859\tpuppet: unsafe HTTP redirect (CVE-2021-27023)\n2023853\tpuppet: silent configuration failure in agent (CVE-2021-27025)\n\nThis update fixes the following bugs:\n\n2070996\tUpgrade to Satellite 6.10 fails at db:migrate stage if there are errata reference present for some ostree\\puppet type repos\n2070991\tWarning: postgresql.service changed on disk, when calling foreman-maintain service restart\n2071004\tConfig report upload failed with No smart proxy server found on [capsule.example.com] and is not in trusted_hosts\n2070984\tUploading external  DISA SCAP content to satellite 6.10 fails with exception Invalid SCAP file type\n2075031\tContent Import does not delete version on failure\n2070985\tUpgrading from Satellite 6.9 to Satellite 6.10.3 fails with error undefined method operatingsystems for nil:NilClass during the db:migrate step\n2070994\tIndex content is creating duplicated errata in katello_erratum table after upgrading to Satellite 6.10\n2070999\tFail to import contents when the connected and disconnected Satellite have different product labels for the same product\n2071002\tError when importing content and same package belongs to multiple repositories\n2071006\tContent not accessible after importing\n2076979\tWrong satellite version on login screen\n2077046\tUpgrade fails during db:migrate with PG::ForeignKeyViolation: ERROR:  update or delete on table katello_errata violates foreign key constraint katello_content_facet_errata_errata_id\n\nUsers of Red Hat Satellite are advised to upgrade to these updated packages, which fix these bugs.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-04"
+      },
+      "Updated": {
+        "Date": "2022-05-04"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-27023",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-200",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-27023",
+          "Public": "20211109"
+        },
+        {
+          "CveID": "CVE-2021-27025",
+          "Cvss3": "6.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-665",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-27025",
+          "Public": "20211109"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2023853",
+          "ID": "2023853"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2023859",
+          "ID": "2023859"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.10",
+        "cpe:/a:redhat:satellite:6.10::el7",
+        "cpe:/a:redhat:satellite_capsule:6.10",
+        "cpe:/a:redhat:satellite_capsule:6.10::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20134120010"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20134120009"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet-agent is earlier than 0:6.26.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221708001"
+                  },
+                  {
+                    "Comment": "puppet-agent is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20221292002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppetserver is earlier than 0:6.18.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221708003"
+                  },
+                  {
+                    "Comment": "puppetserver is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202146877002"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
