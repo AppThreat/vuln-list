@@ -1,0 +1,337 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240449",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2024:0449: linux-firmware security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0449",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0449"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-46329",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-46329"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-20569",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-20569"
+      }
+    ],
+    "Description": "The linux-firmware packages contain all of the firmware files that are required by various devices to operate.\n\nSecurity Fix(es):\n\n* hw: intel: Protection mechanism failure for some Intel(R) PROSet/Wireless WiFi (CVE-2022-46329)\n\n* hw amd: Return Address Predictor vulnerability leading to information disclosure (CVE-2023-20569)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-25"
+      },
+      "Updated": {
+        "Date": "2024-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-46329",
+          "Cvss3": "8.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-693",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-46329",
+          "Public": "20230808"
+        },
+        {
+          "CveID": "CVE-2023-20569",
+          "Cvss3": "5.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-20569",
+          "Public": "20230808:1125"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2207625",
+          "ID": "2207625"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2238961",
+          "ID": "2238961"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:9.2",
+        "cpe:/a:redhat:rhel_eus:9.2::appstream",
+        "cpe:/a:redhat:rhel_eus:9.2::crb",
+        "cpe:/a:redhat:rhel_eus:9.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:9.2::nfv",
+        "cpe:/a:redhat:rhel_eus:9.2::realtime",
+        "cpe:/a:redhat:rhel_eus:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:9.2::sap",
+        "cpe:/a:redhat:rhel_eus:9.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:9.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:9.2",
+        "cpe:/o:redhat:rhel_eus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl100-firmware is earlier than 0:39.31.5.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449001"
+                  },
+                  {
+                    "Comment": "iwl100-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl1000-firmware is earlier than 1:39.31.5.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449003"
+                  },
+                  {
+                    "Comment": "iwl1000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl105-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449005"
+                  },
+                  {
+                    "Comment": "iwl105-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl135-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449007"
+                  },
+                  {
+                    "Comment": "iwl135-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl2000-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449009"
+                  },
+                  {
+                    "Comment": "iwl2000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl2030-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449011"
+                  },
+                  {
+                    "Comment": "iwl2030-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl3160-firmware is earlier than 1:25.30.13.0-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449013"
+                  },
+                  {
+                    "Comment": "iwl3160-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl5000-firmware is earlier than 0:8.83.5.1_1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449015"
+                  },
+                  {
+                    "Comment": "iwl5000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl5150-firmware is earlier than 0:8.24.2.2-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449017"
+                  },
+                  {
+                    "Comment": "iwl5150-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6000g2a-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449019"
+                  },
+                  {
+                    "Comment": "iwl6000g2a-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6000g2b-firmware is earlier than 0:18.168.6.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449021"
+                  },
+                  {
+                    "Comment": "iwl6000g2b-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6050-firmware is earlier than 0:41.28.5.1-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449023"
+                  },
+                  {
+                    "Comment": "iwl6050-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl7260-firmware is earlier than 1:25.30.13.0-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449025"
+                  },
+                  {
+                    "Comment": "iwl7260-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libertas-sd8787-firmware is earlier than 0:20230310-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449027"
+                  },
+                  {
+                    "Comment": "libertas-sd8787-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "linux-firmware is earlier than 0:20230310-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449029"
+                  },
+                  {
+                    "Comment": "linux-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "linux-firmware-whence is earlier than 0:20230310-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449031"
+                  },
+                  {
+                    "Comment": "linux-firmware-whence is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "netronome-firmware is earlier than 0:20230310-138.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240449033"
+                  },
+                  {
+                    "Comment": "netronome-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235068034"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

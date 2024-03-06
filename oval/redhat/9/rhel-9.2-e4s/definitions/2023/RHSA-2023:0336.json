@@ -1,0 +1,228 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230336",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:0336: systemd security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0336",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0336"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3821",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3821"
+      }
+    ],
+    "Description": "The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups. In addition, it supports snapshotting and restoring of the system state, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. It can also work as a drop-in replacement for sysvinit.\n\nSecurity Fix(es):\n\n* systemd: buffer overrun in format_timespan() function (CVE-2022-3821)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-01-23"
+      },
+      "Updated": {
+        "Date": "2023-01-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3821",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-193",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3821",
+          "Public": "20220708"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2139327",
+          "ID": "2139327"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.2",
+        "cpe:/a:redhat:rhel_e4s:9.2::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.2::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.2::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.2::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.2",
+        "cpe:/o:redhat:rhel_e4s:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336001"
+                  },
+                  {
+                    "Comment": "systemd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-container is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336003"
+                  },
+                  {
+                    "Comment": "systemd-container is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-devel is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336005"
+                  },
+                  {
+                    "Comment": "systemd-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-journal-remote is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336007"
+                  },
+                  {
+                    "Comment": "systemd-journal-remote is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-libs is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336009"
+                  },
+                  {
+                    "Comment": "systemd-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-oomd is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336011"
+                  },
+                  {
+                    "Comment": "systemd-oomd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-pam is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336013"
+                  },
+                  {
+                    "Comment": "systemd-pam is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-resolved is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336015"
+                  },
+                  {
+                    "Comment": "systemd-resolved is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-rpm-macros is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336017"
+                  },
+                  {
+                    "Comment": "systemd-rpm-macros is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "systemd-udev is earlier than 0:250-12.el9_1.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336019"
+                  },
+                  {
+                    "Comment": "systemd-udev is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230336020"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

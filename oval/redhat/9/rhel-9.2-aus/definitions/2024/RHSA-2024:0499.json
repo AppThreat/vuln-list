@@ -1,0 +1,131 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240499",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0499: libssh security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0499",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0499"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-48795",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-48795"
+      }
+    ],
+    "Description": "libssh is a library which implements the SSH protocol. It can be used to implement client and server applications.\n\nSecurity Fix(es):\n\n* ssh: Prefix truncation attack on Binary Packet Protocol (BPP) (CVE-2023-48795)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-25"
+      },
+      "Updated": {
+        "Date": "2024-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-48795",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-222",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-48795",
+          "Public": "20231218"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2254210",
+          "ID": "2254210"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh is earlier than 0:0.10.4-9.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499001"
+                  },
+                  {
+                    "Comment": "libssh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh-config is earlier than 0:0.10.4-9.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499003"
+                  },
+                  {
+                    "Comment": "libssh-config is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh-devel is earlier than 0:0.10.4-9.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499005"
+                  },
+                  {
+                    "Comment": "libssh-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240499006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

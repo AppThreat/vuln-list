@@ -1,0 +1,216 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20232626",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2023:2626: emacs security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:2626",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:2626"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-48337",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-48337"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-48338",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-48338"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-48339",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-48339"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2491",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2491"
+      }
+    ],
+    "Description": "GNU Emacs is a powerful, customizable, self-documenting text editor. It provides special code editing features, a scripting language (elisp), and the capability to read e-mail and news.\n\nSecurity Fix(es):\n\n* emacs: Regression of CVE-2023-28617 fixes in the Red Hat Enterprise Linux (CVE-2023-2491)\n\n* emacs: command execution via shell metacharacters (CVE-2022-48337)\n\n* emacs: local command injection in ruby-mode.el (CVE-2022-48338)\n\n* emacs: command injection vulnerability in htmlfontify.el (CVE-2022-48339)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-09"
+      },
+      "Updated": {
+        "Date": "2023-05-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-48337",
+          "Cvss3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-77",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-48337",
+          "Public": "20230221"
+        },
+        {
+          "CveID": "CVE-2022-48338",
+          "Cvss3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-77",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-48338",
+          "Public": "20230221"
+        },
+        {
+          "CveID": "CVE-2022-48339",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-77",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-48339",
+          "Public": "20230221"
+        },
+        {
+          "CveID": "CVE-2023-2491",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-77",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2491",
+          "Public": "20230509"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2171987",
+          "ID": "2171987"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2171988",
+          "ID": "2171988"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2171989",
+          "ID": "2171989"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2192873",
+          "ID": "2192873"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:9.2",
+        "cpe:/a:redhat:rhel_eus:9.2::appstream",
+        "cpe:/a:redhat:rhel_eus:9.2::crb",
+        "cpe:/a:redhat:rhel_eus:9.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:9.2::nfv",
+        "cpe:/a:redhat:rhel_eus:9.2::realtime",
+        "cpe:/a:redhat:rhel_eus:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:9.2::sap",
+        "cpe:/a:redhat:rhel_eus:9.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:9.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:9.2",
+        "cpe:/o:redhat:rhel_eus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "emacs is earlier than 1:27.2-8.el9_2.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232626001"
+                  },
+                  {
+                    "Comment": "emacs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232074002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "emacs-common is earlier than 1:27.2-8.el9_2.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232626003"
+                  },
+                  {
+                    "Comment": "emacs-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232074004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "emacs-filesystem is earlier than 1:27.2-8.el9_2.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232626005"
+                  },
+                  {
+                    "Comment": "emacs-filesystem is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232074006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "emacs-lucid is earlier than 1:27.2-8.el9_2.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232626007"
+                  },
+                  {
+                    "Comment": "emacs-lucid is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232074008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "emacs-nox is earlier than 1:27.2-8.el9_2.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232626009"
+                  },
+                  {
+                    "Comment": "emacs-nox is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232074010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
