@@ -1,0 +1,399 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213063",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2021:3063: rust-toolset:rhel8 security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3063",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3063"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-36323",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-36323"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28875",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28875"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28876",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28876"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28877",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28877"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28878",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28878"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28879",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28879"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-31162",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-31162"
+      }
+    ],
+    "Description": "Rust Toolset provides the Rust programming language compiler rustc, the cargo build tool and dependency manager, and required libraries.\n\nThe following packages have been upgraded to a later upstream version: rust (1.52.1). (BZ#1953002)\n\nSecurity Fix(es):\n\n* rust: optimization for joining strings can cause uninitialized bytes to be exposed (CVE-2020-36323)\n\n* rust: heap-based buffer overflow in read_to_end() because it does not validate the return value from Read in an unsafe context (CVE-2021-28875)\n\n* rust: panic safety issue in Zip implementation (CVE-2021-28876)\n\n* rust: memory safety violation in Zip implementation for nested iter::Zips (CVE-2021-28877)\n\n* rust: memory safety violation in Zip implementation when next_back() and next() are used together (CVE-2021-28878)\n\n* rust: integer overflow in the Zip implementation can lead to a buffer overflow (CVE-2021-28879)\n\n* rust: double free in Vec::from_iter function if freeing the element panics (CVE-2021-31162)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nFor information on usage, see Using Rust Toolset linked in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-08-10"
+      },
+      "Updated": {
+        "Date": "2021-08-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-36323",
+          "Cvss3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-36323",
+          "Public": "20201223"
+        },
+        {
+          "CveID": "CVE-2021-28875",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28875",
+          "Public": "20210110"
+        },
+        {
+          "CveID": "CVE-2021-28876",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28876",
+          "Public": "20210204"
+        },
+        {
+          "CveID": "CVE-2021-28877",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28877",
+          "Public": "20210116"
+        },
+        {
+          "CveID": "CVE-2021-28878",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28878",
+          "Public": "20210307"
+        },
+        {
+          "CveID": "CVE-2021-28879",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-190-\u003eCWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28879",
+          "Public": "20210305"
+        },
+        {
+          "CveID": "CVE-2021-31162",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-31162",
+          "Public": "20210328"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1949194",
+          "ID": "1949194"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1949198",
+          "ID": "1949198"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1949204",
+          "ID": "1949204"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1949207",
+          "ID": "1949207"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1949211",
+          "ID": "1949211"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1950396",
+          "ID": "1950396"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1950398",
+          "ID": "1950398"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.6",
+        "cpe:/a:redhat:rhel_e4s:8.6::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.6::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.6",
+        "cpe:/o:redhat:rhel_e4s:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module rust-toolset:rhel8 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20211935029"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "cargo is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063001"
+                          },
+                          {
+                            "Comment": "cargo is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "cargo-doc is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063003"
+                          },
+                          {
+                            "Comment": "cargo-doc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clippy is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063005"
+                          },
+                          {
+                            "Comment": "clippy is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rls is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063007"
+                          },
+                          {
+                            "Comment": "rls is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935008"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063009"
+                          },
+                          {
+                            "Comment": "rust is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935010"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-analysis is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063011"
+                          },
+                          {
+                            "Comment": "rust-analysis is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935012"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-debugger-common is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063013"
+                          },
+                          {
+                            "Comment": "rust-debugger-common is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935014"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-doc is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063015"
+                          },
+                          {
+                            "Comment": "rust-doc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935016"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-gdb is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063017"
+                          },
+                          {
+                            "Comment": "rust-gdb is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935018"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-lldb is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063019"
+                          },
+                          {
+                            "Comment": "rust-lldb is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935020"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-src is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063021"
+                          },
+                          {
+                            "Comment": "rust-src is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935022"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-std-static is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063023"
+                          },
+                          {
+                            "Comment": "rust-std-static is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935024"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rust-toolset is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063025"
+                          },
+                          {
+                            "Comment": "rust-toolset is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935026"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "rustfmt is earlier than 0:1.52.1-1.module+el8.4.0+11282+0729bac9",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213063027"
+                          },
+                          {
+                            "Comment": "rustfmt is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211935028"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

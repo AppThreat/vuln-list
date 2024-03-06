@@ -1,0 +1,355 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20235733",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2023:5733: java-1.8.0-openjdk security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:5733",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:5733"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-40433",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-40433"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-22067",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-22067"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-22081",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-22081"
+      }
+    ],
+    "Description": "The java-1.8.0-openjdk packages provide the OpenJDK 8 Java Runtime Environment and the OpenJDK 8 Java Software Development Kit.\n\nSecurity Fix(es):\n\n* OpenJDK: segmentation fault in ciMethodBlocks (CVE-2022-40433)\n\n* OpenJDK: IOR deserialization issue in CORBA (8303384) (CVE-2023-22067)\n\n* OpenJDK: certificate path validation issue during client authentication (8309966) (CVE-2023-22081)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* A maximum signature file size property, jdk.jar.maxSignatureFileSize, was introduced in the 8u382 release of OpenJDK by JDK-8300596, with a default of 8 MB. This default proved to be too small for some JAR files. This release, 8u392, increases it to 16 MB. (RHEL-13593)\n\n* The /usr/bin/jfr alternative is now owned by the java-1.8.0-openjdk package (RHEL-13583)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-10-18"
+      },
+      "Updated": {
+        "Date": "2023-10-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-40433",
+          "Cvss3": "4.9/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-40433",
+          "Public": "20230823:1315"
+        },
+        {
+          "CveID": "CVE-2023-22067",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Cwe": "CWE-502",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-22067",
+          "Public": "20231017:2000"
+        },
+        {
+          "CveID": "CVE-2023-22081",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-295",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-22081",
+          "Public": "20231017:2000"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2237709",
+          "ID": "2237709"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2243627",
+          "ID": "2243627"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2243637",
+          "ID": "2243637"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733001"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733003"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo-fastdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733005"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo-fastdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo-slowdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733007"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-demo-slowdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733009"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel-fastdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733011"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel-fastdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel-slowdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733013"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-devel-slowdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-fastdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733015"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-fastdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733017"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless-fastdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733019"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless-fastdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless-slowdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733021"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-headless-slowdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733023"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-javadoc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733025"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-javadoc-zip is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-slowdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733027"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-slowdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733029"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-src is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-src-fastdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733031"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-src-fastdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.8.0-openjdk-src-slowdebug is earlier than 1:1.8.0.392.b08-3.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235733033"
+                  },
+                  {
+                    "Comment": "java-1.8.0-openjdk-src-slowdebug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20222137034"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241139",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1139: keylime security update (Low)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1139",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1139"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3674",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3674"
+      }
+    ],
+    "Description": "Keylime is a TPM based highly scalable remote boot attestation and runtime integrity measurement solution.\n\nSecurity Fix(es):\n\n* keylime: Attestation failure when the quote's signature does not validate (CVE-2023-3674)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Low",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-3674",
+          "Cvss3": "2.3/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:N",
+          "Cwe": "CWE-1283",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3674",
+          "Public": "20230712"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2222903",
+          "ID": "2222903"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20052541004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20052541003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139001"
+                  },
+                  {
+                    "Comment": "keylime is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime-base is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139003"
+                  },
+                  {
+                    "Comment": "keylime-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime-registrar is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139005"
+                  },
+                  {
+                    "Comment": "keylime-registrar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime-selinux is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139007"
+                  },
+                  {
+                    "Comment": "keylime-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime-tenant is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139009"
+                  },
+                  {
+                    "Comment": "keylime-tenant is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "keylime-verifier is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139011"
+                  },
+                  {
+                    "Comment": "keylime-verifier is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-keylime is earlier than 0:7.3.0-13.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241139013"
+                  },
+                  {
+                    "Comment": "python3-keylime is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228444014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

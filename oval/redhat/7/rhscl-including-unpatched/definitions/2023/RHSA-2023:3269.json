@@ -1,0 +1,137 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233269",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2023:3269: devtoolset-12-binutils security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3269",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3269"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-3826",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-3826"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-4285",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-4285"
+      }
+    ],
+    "Description": "The binutils packages provide a collection of binary utilities for the manipulation of object code in various object file formats. It includes the ar, as, gprof, ld, nm, objcopy, objdump, ranlib, readelf, size, strings, strip, and addr2line utilities.\n\nSecurity Fix(es):\n\n* binutils: NULL pointer dereference in _bfd_elf_get_symbol_version_string leads to segfault (CVE-2022-4285)\n\n* libiberty: Heap/stack buffer overflow in the dlang_lname function in d-demangle.c (CVE-2021-3826)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-23"
+      },
+      "Updated": {
+        "Date": "2023-05-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-3826",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-3826",
+          "Public": "20210922"
+        },
+        {
+          "CveID": "CVE-2022-4285",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-4285",
+          "Public": "20221019"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2122627",
+          "ID": "2122627"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2150768",
+          "ID": "2150768"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:200620001020"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:200620001019"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "devtoolset-12-binutils is earlier than 0:2.36.1-6.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233269001"
+                  },
+                  {
+                    "Comment": "devtoolset-12-binutils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233269002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "devtoolset-12-binutils-devel is earlier than 0:2.36.1-6.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233269003"
+                  },
+                  {
+                    "Comment": "devtoolset-12-binutils-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233269004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

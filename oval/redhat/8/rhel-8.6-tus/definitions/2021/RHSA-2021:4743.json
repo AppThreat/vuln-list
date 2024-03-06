@@ -1,0 +1,482 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214743",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4743: llvm-toolset:rhel8 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4743",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4743"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-42574",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-42574"
+      }
+    ],
+    "Description": "LLVM Toolset provides the LLVM compiler infrastructure framework, the Clang compiler for the C and C++ languages, the LLDB debugger, and related tools for code analysis.\n\nSecurity Fix(es):\n\n* Developer environment: Unicode's bidirectional (BiDi) override characters can cause trojan source attacks (CVE-2021-42574)\n\nThe following changes were introduced in clang in order to facilitate detection of BiDi Unicode characters:\n\nclang-tidy now finds identifiers that contain Unicode characters with right-to-left direction, which can be confusing as they may change the understanding of a whole statement.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-18"
+      },
+      "Updated": {
+        "Date": "2021-11-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-42574",
+          "Cvss3": "8.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-838",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-42574",
+          "Public": "20211101"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2005819",
+          "ID": "2005819"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.6",
+        "cpe:/a:redhat:rhel_tus:8.6::appstream",
+        "cpe:/a:redhat:rhel_tus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.6::nfv",
+        "cpe:/a:redhat:rhel_tus:8.6::realtime",
+        "cpe:/o:redhat:rhel_tus:8.6",
+        "cpe:/o:redhat:rhel_tus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module llvm-toolset:rhel8 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214743057"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743001"
+                          },
+                          {
+                            "Comment": "clang is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang-analyzer is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743003"
+                          },
+                          {
+                            "Comment": "clang-analyzer is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang-devel is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743005"
+                          },
+                          {
+                            "Comment": "clang-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang-libs is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743007"
+                          },
+                          {
+                            "Comment": "clang-libs is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743008"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang-resource-filesystem is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743009"
+                          },
+                          {
+                            "Comment": "clang-resource-filesystem is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743010"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "clang-tools-extra is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743011"
+                          },
+                          {
+                            "Comment": "clang-tools-extra is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743012"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "compiler-rt is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743013"
+                          },
+                          {
+                            "Comment": "compiler-rt is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743014"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "git-clang-format is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743015"
+                          },
+                          {
+                            "Comment": "git-clang-format is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743016"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "libomp is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743017"
+                          },
+                          {
+                            "Comment": "libomp is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743018"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "libomp-devel is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743019"
+                          },
+                          {
+                            "Comment": "libomp-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743020"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "libomp-test is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743021"
+                          },
+                          {
+                            "Comment": "libomp-test is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743022"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lld is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743023"
+                          },
+                          {
+                            "Comment": "lld is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743024"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lld-devel is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743025"
+                          },
+                          {
+                            "Comment": "lld-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743026"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lld-libs is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743027"
+                          },
+                          {
+                            "Comment": "lld-libs is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743028"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lld-test is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743029"
+                          },
+                          {
+                            "Comment": "lld-test is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743030"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lldb is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743031"
+                          },
+                          {
+                            "Comment": "lldb is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743032"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "lldb-devel is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743033"
+                          },
+                          {
+                            "Comment": "lldb-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743034"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743035"
+                          },
+                          {
+                            "Comment": "llvm is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743036"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-devel is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743037"
+                          },
+                          {
+                            "Comment": "llvm-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743038"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-doc is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743039"
+                          },
+                          {
+                            "Comment": "llvm-doc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743040"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-googletest is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743041"
+                          },
+                          {
+                            "Comment": "llvm-googletest is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743042"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-libs is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743043"
+                          },
+                          {
+                            "Comment": "llvm-libs is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743044"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-static is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743045"
+                          },
+                          {
+                            "Comment": "llvm-static is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743046"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-test is earlier than 0:12.0.1-2.module+el8.5.0+12488+254d2a07",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743047"
+                          },
+                          {
+                            "Comment": "llvm-test is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743048"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "llvm-toolset is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743049"
+                          },
+                          {
+                            "Comment": "llvm-toolset is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743050"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-clang is earlier than 0:12.0.1-4.module+el8.5.0+13246+cefb5d4c",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743051"
+                          },
+                          {
+                            "Comment": "python3-clang is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743052"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-lit is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743053"
+                          },
+                          {
+                            "Comment": "python3-lit is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743054"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-lldb is earlier than 0:12.0.1-1.module+el8.5.0+11871+08d0eab5",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743055"
+                          },
+                          {
+                            "Comment": "python3-lldb is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20214743056"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

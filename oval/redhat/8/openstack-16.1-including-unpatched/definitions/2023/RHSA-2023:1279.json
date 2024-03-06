@@ -1,0 +1,123 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20231279",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:1279: Synopsis: Red Hat OpenStack Platform (openstack-cinder) security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 16.1"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:1279",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:1279"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-47951",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-47951"
+      }
+    ],
+    "Description": "Cinder is the replacement of nova-volume in Folsom and beyond, used for\nblock storage.\n\nSecurity Fix(es):\n\n* Arbitrary file access through custom VMDK flat descriptor\n(CVE-2022-47951)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-03-15"
+      },
+      "Updated": {
+        "Date": "2023-03-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-47951",
+          "Cvss3": "7.7/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:L",
+          "Cwe": "CWE-552",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-47951",
+          "Public": "20230124:1500"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2161812",
+          "ID": "2161812"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:16.1",
+        "cpe:/a:redhat:openstack:16.1::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20178761012"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20178761011"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20203199004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openstack-cinder is earlier than 1:15.4.0-1.20230206163350.58f0e73.el8ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231279001"
+                  },
+                  {
+                    "Comment": "openstack-cinder is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204283002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-cinder is earlier than 1:15.4.0-1.20230206163350.58f0e73.el8ost",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231279003"
+                  },
+                  {
+                    "Comment": "python3-cinder is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204283004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

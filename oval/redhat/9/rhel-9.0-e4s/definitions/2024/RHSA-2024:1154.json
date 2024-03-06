@@ -1,0 +1,99 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241154",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1154: libfastjson security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.0 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1154",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1154"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-12762",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-12762"
+      }
+    ],
+    "Description": "The libfastjson library provides essential JavaScript Object Notation (JSON) handling functions. The library enables users to construct JSON objects in C, output them as JSON-formatted strings, and convert JSON-formatted strings back to the C representation of JSON objects.\n\nSecurity Fix(es):\n\n* json-c, libfastjson: integer overflow and out-of-bounds write via a large JSON file (CVE-2020-12762)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-12762",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-190-\u003eCWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-12762",
+          "Public": "20200502"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1835253",
+          "ID": "1835253"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.0",
+        "cpe:/a:redhat:rhel_e4s:9.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.0::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.0::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.0::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.0",
+        "cpe:/o:redhat:rhel_e4s:9.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "libfastjson is earlier than 0:0.99.9-3.el9_0.1",
+            "TestRef": "oval:com.redhat.rhsa:tst:20241154001"
+          },
+          {
+            "Comment": "libfastjson is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20241154002"
+          }
+        ]
+      }
+    ]
+  }
+}

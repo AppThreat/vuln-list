@@ -1,0 +1,170 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241108",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1108: gnutls security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1108",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1108"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-0553",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-0553"
+      }
+    ],
+    "Description": "The gnutls packages provide the GNU Transport Layer Security (GnuTLS) library, which implements cryptographic algorithms and protocols such as SSL, TLS, and DTLS.\n\nSecurity Fix(es):\n\n* gnutls: incomplete fix for CVE-2023-5981 (CVE-2024-0553)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-0553",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-1300-\u003eCWE-203",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-0553",
+          "Public": "20240116"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2258412",
+          "ID": "2258412"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.6",
+        "cpe:/a:redhat:rhel_eus:8.6::appstream",
+        "cpe:/a:redhat:rhel_eus:8.6::crb",
+        "cpe:/a:redhat:rhel_eus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.6::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.6::sap",
+        "cpe:/a:redhat:rhel_eus:8.6::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.6::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.6",
+        "cpe:/o:redhat:rhel_eus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls is earlier than 0:3.6.16-5.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241108001"
+                  },
+                  {
+                    "Comment": "gnutls is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193600002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-c++ is earlier than 0:3.6.16-5.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241108003"
+                  },
+                  {
+                    "Comment": "gnutls-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193600004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-dane is earlier than 0:3.6.16-5.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241108005"
+                  },
+                  {
+                    "Comment": "gnutls-dane is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193600006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-devel is earlier than 0:3.6.16-5.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241108007"
+                  },
+                  {
+                    "Comment": "gnutls-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193600008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-utils is earlier than 0:3.6.16-5.el8_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241108009"
+                  },
+                  {
+                    "Comment": "gnutls-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193600010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

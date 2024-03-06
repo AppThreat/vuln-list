@@ -1,0 +1,195 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241130",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1130: openssh security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1130",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1130"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-48795",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-48795"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-51385",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-51385"
+      }
+    ],
+    "Description": "OpenSSH is an SSH protocol implementation supported by a number of Linux, UNIX, and similar operating systems. It includes the core files necessary for both the OpenSSH client and server.\n\nSecurity Fix(es):\n\n* ssh: Prefix truncation attack on Binary Packet Protocol (BPP) (CVE-2023-48795)\n\n* openssh: potential command injection via shell metacharacters (CVE-2023-51385)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-48795",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-222",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-48795",
+          "Public": "20231218"
+        },
+        {
+          "CveID": "CVE-2023-51385",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-78",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-51385",
+          "Public": "20231218"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2254210",
+          "ID": "2254210"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2255271",
+          "ID": "2255271"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh is earlier than 0:8.7p1-34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130001"
+                  },
+                  {
+                    "Comment": "openssh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-askpass is earlier than 0:8.7p1-34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130003"
+                  },
+                  {
+                    "Comment": "openssh-askpass is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-clients is earlier than 0:8.7p1-34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130005"
+                  },
+                  {
+                    "Comment": "openssh-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-keycat is earlier than 0:8.7p1-34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130007"
+                  },
+                  {
+                    "Comment": "openssh-keycat is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-server is earlier than 0:8.7p1-34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130009"
+                  },
+                  {
+                    "Comment": "openssh-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pam_ssh_agent_auth is earlier than 0:0.10.4-5.34.el9_3.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241130011"
+                  },
+                  {
+                    "Comment": "pam_ssh_agent_auth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232645012"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

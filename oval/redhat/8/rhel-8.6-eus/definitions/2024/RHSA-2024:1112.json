@@ -1,0 +1,395 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241112",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2024:1112: linux-firmware security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1112",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1112"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-46329",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-46329"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-20592",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-20592"
+      }
+    ],
+    "Description": "The linux-firmware packages contain all of the firmware files that are required by various devices to operate.\n\nSecurity Fix(es):\n\n* hw: intel: Protection mechanism failure for some Intel(R) PROSet/Wireless WiFi (CVE-2022-46329)\n\n* hw: amd: INVD instruction may lead to a loss of SEV-ES guest machine memory integrity problem (CVE-2023-20592)\n\nBug Fix(es):\n\n* linux-firmware: hw: intel: Protection mechanism failure for some Intel(R) PROSet/Wireless WiFi (RHEL-14257)\n\n* linux-firmware: hw: amd: INVD instruction may lead to a loss of SEV-ES guest machine memory integrity problem (RHEL-13978)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-46329",
+          "Cvss3": "8.2/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-693",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-46329",
+          "Public": "20230808"
+        },
+        {
+          "CveID": "CVE-2023-20592",
+          "Cvss3": "5.3/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:C/C:N/I:H/A:N",
+          "Cwe": "CWE-221",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-20592",
+          "Public": "20231114:0630"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2238961",
+          "ID": "2238961"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2244590",
+          "ID": "2244590"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.6",
+        "cpe:/a:redhat:rhel_eus:8.6::appstream",
+        "cpe:/a:redhat:rhel_eus:8.6::crb",
+        "cpe:/a:redhat:rhel_eus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.6::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.6::sap",
+        "cpe:/a:redhat:rhel_eus:8.6::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.6::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.6",
+        "cpe:/o:redhat:rhel_eus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl100-firmware is earlier than 0:39.31.5.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112001"
+                  },
+                  {
+                    "Comment": "iwl100-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl1000-firmware is earlier than 1:39.31.5.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112003"
+                  },
+                  {
+                    "Comment": "iwl1000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl105-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112005"
+                  },
+                  {
+                    "Comment": "iwl105-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl135-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112007"
+                  },
+                  {
+                    "Comment": "iwl135-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl2000-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112009"
+                  },
+                  {
+                    "Comment": "iwl2000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl2030-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112011"
+                  },
+                  {
+                    "Comment": "iwl2030-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl3160-firmware is earlier than 1:25.30.13.0-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112013"
+                  },
+                  {
+                    "Comment": "iwl3160-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl3945-firmware is earlier than 0:15.32.2.9-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112015"
+                  },
+                  {
+                    "Comment": "iwl3945-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl4965-firmware is earlier than 0:228.61.2.24-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112017"
+                  },
+                  {
+                    "Comment": "iwl4965-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl5000-firmware is earlier than 0:8.83.5.1_1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112019"
+                  },
+                  {
+                    "Comment": "iwl5000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl5150-firmware is earlier than 0:8.24.2.2-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112021"
+                  },
+                  {
+                    "Comment": "iwl5150-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6000-firmware is earlier than 0:9.221.4.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112023"
+                  },
+                  {
+                    "Comment": "iwl6000-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6000g2a-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112025"
+                  },
+                  {
+                    "Comment": "iwl6000g2a-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6000g2b-firmware is earlier than 0:18.168.6.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112027"
+                  },
+                  {
+                    "Comment": "iwl6000g2b-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl6050-firmware is earlier than 0:41.28.5.1-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112029"
+                  },
+                  {
+                    "Comment": "iwl6050-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "iwl7260-firmware is earlier than 1:25.30.13.0-114.el8_6.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112031"
+                  },
+                  {
+                    "Comment": "iwl7260-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libertas-sd8686-firmware is earlier than 0:20220210-114.git6342082c.el8_6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112033"
+                  },
+                  {
+                    "Comment": "libertas-sd8686-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libertas-sd8787-firmware is earlier than 0:20220210-114.git6342082c.el8_6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112035"
+                  },
+                  {
+                    "Comment": "libertas-sd8787-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libertas-usb8388-firmware is earlier than 2:20220210-114.git6342082c.el8_6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112037"
+                  },
+                  {
+                    "Comment": "libertas-usb8388-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libertas-usb8388-olpc-firmware is earlier than 0:20220210-114.git6342082c.el8_6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112039"
+                  },
+                  {
+                    "Comment": "libertas-usb8388-olpc-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "linux-firmware is earlier than 0:20220210-114.git6342082c.el8_6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241112041"
+                  },
+                  {
+                    "Comment": "linux-firmware is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205479042"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

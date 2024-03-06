@@ -1,0 +1,226 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228812",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:8812: dbus security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8812",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8812"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-42010",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-42010"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-42011",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-42011"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-42012",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-42012"
+      }
+    ],
+    "Description": "D-Bus is a system for sending messages between applications. It is used both for the system-wide message bus service, and as a per-user-login-session messaging facility.\n\nSecurity Fix(es):\n\n* dbus: dbus-daemon crashes when receiving message with incorrectly nested parentheses and curly brackets (CVE-2022-42010)\n\n* dbus: dbus-daemon can be crashed by messages with array length inconsistent with element type (CVE-2022-42011)\n\n* dbus: `_dbus_marshal_byteswap` doesn't process fds in messages with \"foreign\" endianness correctly (CVE-2022-42012)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-12-06"
+      },
+      "Updated": {
+        "Date": "2022-12-06"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-42010",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-42010",
+          "Public": "20221005"
+        },
+        {
+          "CveID": "CVE-2022-42011",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-42011",
+          "Public": "20221005"
+        },
+        {
+          "CveID": "CVE-2022-42012",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-42012",
+          "Public": "20221005"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2133616",
+          "ID": "2133616"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2133617",
+          "ID": "2133617"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2133618",
+          "ID": "2133618"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.6",
+        "cpe:/a:redhat:rhel_tus:8.6::appstream",
+        "cpe:/a:redhat:rhel_tus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.6::nfv",
+        "cpe:/a:redhat:rhel_tus:8.6::realtime",
+        "cpe:/o:redhat:rhel_tus:8.6",
+        "cpe:/o:redhat:rhel_tus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812001"
+                  },
+                  {
+                    "Comment": "dbus is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-common is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812003"
+                  },
+                  {
+                    "Comment": "dbus-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-daemon is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812005"
+                  },
+                  {
+                    "Comment": "dbus-daemon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-devel is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812007"
+                  },
+                  {
+                    "Comment": "dbus-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-libs is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812009"
+                  },
+                  {
+                    "Comment": "dbus-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-tools is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812011"
+                  },
+                  {
+                    "Comment": "dbus-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dbus-x11 is earlier than 1:1.12.8-18.el8_6.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228812013"
+                  },
+                  {
+                    "Comment": "dbus-x11 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193707014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
