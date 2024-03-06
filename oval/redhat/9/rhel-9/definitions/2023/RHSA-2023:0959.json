@@ -1,0 +1,101 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230959",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:0959: tar security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0959",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0959"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-48303",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-48303"
+      }
+    ],
+    "Description": "The GNU tar program can save multiple files in an archive and restore files from an archive.\n\nSecurity Fix(es):\n\n* tar: heap buffer overflow at from_header() in list.c via specially crafted checksum (CVE-2022-48303)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-02-28"
+      },
+      "Updated": {
+        "Date": "2023-02-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-48303",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-48303",
+          "Public": "20220430"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2149722",
+          "ID": "2149722"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "tar is earlier than 2:1.34-6.el9_1",
+            "TestRef": "oval:com.redhat.rhsa:tst:20230959001"
+          },
+          {
+            "Comment": "tar is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20230959002"
+          }
+        ]
+      }
+    ]
+  }
+}

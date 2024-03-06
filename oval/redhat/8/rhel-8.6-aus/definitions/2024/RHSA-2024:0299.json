@@ -1,0 +1,104 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240299",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0299: python-requests security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0299",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0299"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-32681",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-32681"
+      }
+    ],
+    "Description": "The python-requests package contains a library designed to make HTTP requests easy for developers.\n\nSecurity Fix(es):\n\n* python-requests: Unintended leak of Proxy-Authorization header (CVE-2023-32681)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-18"
+      },
+      "Updated": {
+        "Date": "2024-01-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-32681",
+          "Cvss3": "6.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Cwe": "CWE-402",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-32681",
+          "Public": "20230523"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2209469",
+          "ID": "2209469"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.6",
+        "cpe:/a:redhat:rhel_aus:8.6::appstream",
+        "cpe:/o:redhat:rhel_aus:8.6",
+        "cpe:/o:redhat:rhel_aus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "python3-requests is earlier than 0:2.20.0-3.el8_6",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240299001"
+          },
+          {
+            "Comment": "python3-requests is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240299002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

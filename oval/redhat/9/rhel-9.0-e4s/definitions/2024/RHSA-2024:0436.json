@@ -1,0 +1,124 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240436",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:0436: libcap security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.0 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0436",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0436"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2603",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2603"
+      }
+    ],
+    "Description": "Libcap is a library for getting and setting POSIX.1e (formerly POSIX 6) draft 15 capabilities.\n\nSecurity Fix(es):\n\n* libcap: Integer Overflow in _libcap_strdup() (CVE-2023-2603)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-25"
+      },
+      "Updated": {
+        "Date": "2024-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-2603",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2603",
+          "Public": "20230516"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2209113",
+          "ID": "2209113"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.0",
+        "cpe:/a:redhat:rhel_e4s:9.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.0::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.0::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.0::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.0",
+        "cpe:/o:redhat:rhel_e4s:9.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcap is earlier than 0:2.48-8.el9_0.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240436001"
+                  },
+                  {
+                    "Comment": "libcap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240436002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcap-devel is earlier than 0:2.48-8.el9_0.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240436003"
+                  },
+                  {
+                    "Comment": "libcap-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240436004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

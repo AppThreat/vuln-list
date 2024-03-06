@@ -1,0 +1,135 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20236549",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2023:6549: libreswan security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:6549",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:6549"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-38710",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-38710"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-38711",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-38711"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-38712",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-38712"
+      }
+    ],
+    "Description": "Libreswan is an implementation of IPsec and IKE for Linux. IPsec is the Internet Protocol Security and uses strong cryptography to provide both authentication and encryption services. These services allow you to build secure tunnels through untrusted networks such as virtual private network (VPN).\n\nSecurity Fix(es):\n\n* libreswan: Invalid IKEv2 REKEY proposal causes restart (CVE-2023-38710)\n\n* libreswan: Invalid IKEv1 Quick Mode ID causes restart (CVE-2023-38711)\n\n* libreswan: Invalid IKEv1 repeat IKE SA delete causes crash and restart (CVE-2023-38712)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.3 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-07"
+      },
+      "Updated": {
+        "Date": "2023-11-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-38710",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-617",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-38710",
+          "Public": "20230808"
+        },
+        {
+          "CveID": "CVE-2023-38711",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-38711",
+          "Public": "20230808"
+        },
+        {
+          "CveID": "CVE-2023-38712",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-38712",
+          "Public": "20230808"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2215952",
+          "ID": "2215952"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2225368",
+          "ID": "2225368"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2225369",
+          "ID": "2225369"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "libreswan is earlier than 0:4.12-1.el9",
+            "TestRef": "oval:com.redhat.rhsa:tst:20236549001"
+          },
+          {
+            "Comment": "libreswan is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20232120002"
+          }
+        ]
+      }
+    ]
+  }
+}

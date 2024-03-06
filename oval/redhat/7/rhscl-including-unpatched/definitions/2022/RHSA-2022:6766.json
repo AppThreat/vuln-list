@@ -1,0 +1,245 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226766",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:6766: rh-python38-python security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6766",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6766"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2015-20107",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2015-20107"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-10735",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-10735"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-28861",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-28861"
+      }
+    ],
+    "Description": "Python is an interpreted, interactive, object-oriented programming language, which includes modules, classes, exceptions, very high level dynamic data types and dynamic typing. Python supports interfaces to many system calls and libraries, as well as to various windowing systems.\n\nThe following packages have been upgraded to a later upstream version: rh-python38-python (3.8.14).\n\nSecurity Fix(es):\n\n* python(mailcap): findmatch() function does not sanitise the second argument (CVE-2015-20107)\n\n* python: int() type in PyLong_FromString() does not limit amount of digits converting text to int leading to DoS (CVE-2020-10735)\n\n* python: an open redirection vulnerability in lib/http/server.py may lead to information disclosure (CVE-2021-28861)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-10-03"
+      },
+      "Updated": {
+        "Date": "2022-10-03"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2015-20107",
+          "Cvss3": "7.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:H/A:L",
+          "Cwe": "CWE-20-\u003eCWE-77",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2015-20107",
+          "Public": "20150802"
+        },
+        {
+          "CveID": "CVE-2020-10735",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-704-\u003eCWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-10735",
+          "Public": "20220902"
+        },
+        {
+          "CveID": "CVE-2021-28861",
+          "Cvss3": "7.4/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "Cwe": "CWE-601",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-28861",
+          "Public": "20220822"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1834423",
+          "ID": "1834423"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2075390",
+          "ID": "2075390"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2120642",
+          "ID": "2120642"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:200620001020"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:200620001019"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766001"
+                  },
+                  {
+                    "Comment": "rh-python38-python is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-debug is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766003"
+                  },
+                  {
+                    "Comment": "rh-python38-python-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-devel is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766005"
+                  },
+                  {
+                    "Comment": "rh-python38-python-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-idle is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766007"
+                  },
+                  {
+                    "Comment": "rh-python38-python-idle is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-libs is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766009"
+                  },
+                  {
+                    "Comment": "rh-python38-python-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-rpm-macros is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766011"
+                  },
+                  {
+                    "Comment": "rh-python38-python-rpm-macros is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-srpm-macros is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766013"
+                  },
+                  {
+                    "Comment": "rh-python38-python-srpm-macros is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-test is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766015"
+                  },
+                  {
+                    "Comment": "rh-python38-python-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-python38-python-tkinter is earlier than 0:3.8.14-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226766017"
+                  },
+                  {
+                    "Comment": "rh-python38-python-tkinter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202327043006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

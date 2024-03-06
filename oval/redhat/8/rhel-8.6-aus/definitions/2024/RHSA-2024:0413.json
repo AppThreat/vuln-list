@@ -1,0 +1,206 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240413",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2024:0413: libxml2 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.6 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0413",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0413"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-40303",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-40303"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-40304",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-40304"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28484",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28484"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-29469",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-29469"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-39615",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-39615"
+      }
+    ],
+    "Description": "The libxml2 library is a development toolbox providing the implementation of various XML standards.\n\nSecurity Fix(es):\n\n* libxml2: integer overflows with XML_PARSE_HUGE (CVE-2022-40303)\n\n* libxml2: dict corruption caused by entity reference cycles (CVE-2022-40304)\n\n* libxml2: NULL dereference in xmlSchemaFixupComplexType (CVE-2023-28484)\n\n* libxml2: Hashing of empty dict strings isn't deterministic (CVE-2023-29469)\n\n* libxml2: crafted xml can cause global buffer overflow (CVE-2023-39615)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-25"
+      },
+      "Updated": {
+        "Date": "2024-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-40303",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-40303",
+          "Public": "20221014"
+        },
+        {
+          "CveID": "CVE-2022-40304",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-415",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-40304",
+          "Public": "20221014"
+        },
+        {
+          "CveID": "CVE-2023-28484",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28484",
+          "Public": "20230411"
+        },
+        {
+          "CveID": "CVE-2023-29469",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-29469",
+          "Public": "20230411"
+        },
+        {
+          "CveID": "CVE-2023-39615",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-39615",
+          "Public": "20230829"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2136266",
+          "ID": "2136266"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2136288",
+          "ID": "2136288"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2185984",
+          "ID": "2185984"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2185994",
+          "ID": "2185994"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2235864",
+          "ID": "2235864"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.6",
+        "cpe:/a:redhat:rhel_aus:8.6::appstream",
+        "cpe:/o:redhat:rhel_aus:8.6",
+        "cpe:/o:redhat:rhel_aus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libxml2 is earlier than 0:2.9.7-13.el8_6.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240413001"
+                  },
+                  {
+                    "Comment": "libxml2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201827002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libxml2-devel is earlier than 0:2.9.7-13.el8_6.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240413003"
+                  },
+                  {
+                    "Comment": "libxml2-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201827004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-libxml2 is earlier than 0:2.9.7-13.el8_6.4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240413005"
+                  },
+                  {
+                    "Comment": "python3-libxml2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201827006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

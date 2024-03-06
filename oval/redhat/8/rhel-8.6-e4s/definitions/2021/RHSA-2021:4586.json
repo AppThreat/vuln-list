@@ -1,0 +1,336 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214586",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4586: gcc-toolset-11-gcc security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4586",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4586"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-42574",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-42574"
+      }
+    ],
+    "Description": "The gcc packages provide compilers for C, C++, Java, Fortran, Objective C, and Ada 95 GNU, as well as related support libraries.\n\nSecurity Fix(es):\n\n* Developer environment: Unicode's bidirectional (BiDi) override characters can cause trojan source attacks (CVE-2021-42574)\n\nThe following changes were introduced in gcc in order to facilitate detection of BiDi Unicode characters:\n\nThis update implements a new warning option -Wbidirectional to warn about possibly dangerous bidirectional characters.\n\nThere are three levels of warning supported by gcc:\n\"-Wbidirectional=unpaired\", which warns about improperly terminated BiDi contexts. (This is the default.)\n\"-Wbidirectional=none\", which turns the warning off.\n\"-Wbidirectional=any\", which warns about any use of bidirectional characters.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-10"
+      },
+      "Updated": {
+        "Date": "2021-11-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-42574",
+          "Cvss3": "8.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-838",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-42574",
+          "Public": "20211101"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2005819",
+          "ID": "2005819"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.6",
+        "cpe:/a:redhat:rhel_e4s:8.6::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.6::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap",
+        "cpe:/a:redhat:rhel_e4s:8.6::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.6",
+        "cpe:/o:redhat:rhel_e4s:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-gcc is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586001"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-gcc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-gcc-c++ is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586003"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-gcc-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-gcc-gdb-plugin is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586005"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-gcc-gdb-plugin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-gcc-gfortran is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586007"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-gcc-gfortran is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-gcc-plugin-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586009"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-gcc-plugin-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libasan-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586011"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libasan-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libatomic-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586013"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libatomic-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586015"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586017"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit-docs is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586019"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libgccjit-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libitm-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586021"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libitm-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-liblsan-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586023"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-liblsan-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libquadmath-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586025"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libquadmath-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libstdc++-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586027"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libstdc++-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libstdc++-docs is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586029"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libstdc++-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libtsan-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586031"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libtsan-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gcc-toolset-11-libubsan-devel is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586033"
+                  },
+                  {
+                    "Comment": "gcc-toolset-11-libubsan-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libasan6 is earlier than 0:11.2.1-1.2.el8_5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214586035"
+                  },
+                  {
+                    "Comment": "libasan6 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214585030"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

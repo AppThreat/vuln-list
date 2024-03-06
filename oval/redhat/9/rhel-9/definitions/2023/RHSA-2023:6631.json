@@ -1,0 +1,199 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20236631",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:6631: glib2 security and bug fix update (Low)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:6631",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:6631"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-29499",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-29499"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-32611",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-32611"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-32665",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-32665"
+      }
+    ],
+    "Description": "GLib provides the core application building blocks for libraries and applications written in C. It provides the core object system used in GNOME, the main loop implementation, and a large set of utility functions for strings and common data structures.\n\nSecurity Fix(es):\n\n* glib: GVariant offset table entry size is not checked in is_normal() (CVE-2023-29499)\n\n* glib: g_variant_byteswap() can take a long time with some non-normal inputs (CVE-2023-32611)\n\n* glib: GVariant deserialisation does not match spec for non-normal data (CVE-2023-32665)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.3 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Low",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-07"
+      },
+      "Updated": {
+        "Date": "2023-11-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-29499",
+          "Cvss3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-29499",
+          "Public": "20221214"
+        },
+        {
+          "CveID": "CVE-2023-32611",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-32611",
+          "Public": "20221214"
+        },
+        {
+          "CveID": "CVE-2023-32665",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-32665",
+          "Public": "20221214"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2211827",
+          "ID": "2211827"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2211828",
+          "ID": "2211828"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2211829",
+          "ID": "2211829"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "glib2 is earlier than 0:2.68.4-11.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631001"
+                  },
+                  {
+                    "Comment": "glib2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "glib2-devel is earlier than 0:2.68.4-11.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631003"
+                  },
+                  {
+                    "Comment": "glib2-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "glib2-doc is earlier than 0:2.68.4-11.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631005"
+                  },
+                  {
+                    "Comment": "glib2-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "glib2-static is earlier than 0:2.68.4-11.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631007"
+                  },
+                  {
+                    "Comment": "glib2-static is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "glib2-tests is earlier than 0:2.68.4-11.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631009"
+                  },
+                  {
+                    "Comment": "glib2-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20236631010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214201",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2021:4201: babel security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4201",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4201"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-20095",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-20095"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-42771",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-42771"
+      }
+    ],
+    "Description": "Babel provides tools to build and work with gettext message catalogs, and a Python interface to the CLDR (Common Locale Data Repository), providing access to various locale display names, localized number and date formatting, etc.\n\nSecurity Fix(es):\n\n* python-babel: Relative path traversal allows attacker to load arbitrary locale files and execute arbitrary code (CVE-2021-20095, CVE-2021-42771)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-20095",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-22",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-20095",
+          "Public": "20210428"
+        },
+        {
+          "CveID": "CVE-2021-42771",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-22",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-42771",
+          "Public": "20210428"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1955615",
+          "ID": "1955615"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.6",
+        "cpe:/a:redhat:rhel_tus:8.6::appstream",
+        "cpe:/a:redhat:rhel_tus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.6::nfv",
+        "cpe:/a:redhat:rhel_tus:8.6::realtime",
+        "cpe:/o:redhat:rhel_tus:8.6",
+        "cpe:/o:redhat:rhel_tus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "python3-babel is earlier than 0:2.5.1-7.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20214201001"
+          },
+          {
+            "Comment": "python3-babel is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20214201002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20225717",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2022:5717: grafana security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:5717",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:5717"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31107",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31107"
+      }
+    ],
+    "Description": "Grafana is an open source, feature rich metrics dashboard and graph editor for\nGraphite, InfluxDB \u0026 OpenTSDB.\n\nSecurity Fix(es):\n\n* grafana: OAuth account takeover (CVE-2022-31107)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE page(s)\nlisted in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-07-26"
+      },
+      "Updated": {
+        "Date": "2022-07-26"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-31107",
+          "Cvss3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:L",
+          "Cwe": "CWE-287",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31107",
+          "Public": "20220714"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2104367",
+          "ID": "2104367"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.6",
+        "cpe:/a:redhat:rhel_eus:8.6::appstream",
+        "cpe:/a:redhat:rhel_eus:8.6::crb",
+        "cpe:/a:redhat:rhel_eus:8.6::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.6::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.6::sap",
+        "cpe:/a:redhat:rhel_eus:8.6::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.6::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.6",
+        "cpe:/o:redhat:rhel_eus:8.6::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "grafana is earlier than 0:7.5.11-3.el8_6",
+            "TestRef": "oval:com.redhat.rhsa:tst:20225717001"
+          },
+          {
+            "Comment": "grafana is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20201659002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

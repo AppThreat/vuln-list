@@ -1,0 +1,137 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20235930",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2023:5930: varnish security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.0 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:5930",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:5930"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-44487",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-44487"
+      }
+    ],
+    "Description": "Varnish Cache is a high-performance HTTP accelerator. It stores web pages in memory so web servers don't have to create the same web page over and over again, giving the website a significant speed up.\n\nSecurity Fix(es):\n\n* HTTP/2: Multiple HTTP/2 enabled web servers are vulnerable to a DDoS attack (Rapid Reset Attack) (CVE-2023-44487)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-10-19"
+      },
+      "Updated": {
+        "Date": "2023-10-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-44487",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-44487",
+          "Public": "20231010"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2242803",
+          "ID": "2242803"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.0",
+        "cpe:/a:redhat:rhel_e4s:9.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.0::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.0::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.0::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.0",
+        "cpe:/o:redhat:rhel_e4s:9.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "varnish is earlier than 0:6.6.2-2.el9_0.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235930001"
+                  },
+                  {
+                    "Comment": "varnish is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228644002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "varnish-devel is earlier than 0:6.6.2-2.el9_0.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235930003"
+                  },
+                  {
+                    "Comment": "varnish-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228644004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "varnish-docs is earlier than 0:6.6.2-2.el9_0.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235930005"
+                  },
+                  {
+                    "Comment": "varnish-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228644006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
