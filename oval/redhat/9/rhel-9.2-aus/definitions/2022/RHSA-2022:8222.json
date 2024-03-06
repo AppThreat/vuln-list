@@ -1,0 +1,110 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228222",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2022:8222: xorg-x11-server-Xwayland security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8222",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8222"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2319",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2319"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2320",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2320"
+      }
+    ],
+    "Description": "Xwayland is an X server for running X clients under Wayland.\n\nSecurity Fix(es):\n\n* xorg-x11-server: X.Org Server ProcXkbSetGeometry out-of-bounds access (CVE-2022-2319)\n\n* xorg-x11-server: out-of-bounds access in ProcXkbSetDeviceInfo request handler of the Xkb extension (CVE-2022-2320)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.1 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-15"
+      },
+      "Updated": {
+        "Date": "2022-11-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2319",
+          "Cvss3": "7.6/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
+          "Cwe": "CWE-1320",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2319",
+          "Public": "20220713"
+        },
+        {
+          "CveID": "CVE-2022-2320",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2320",
+          "Public": "20220712"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2106671",
+          "ID": "2106671"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2106683",
+          "ID": "2106683"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland is earlier than 0:21.1.3-3.el9",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228222001"
+          },
+          {
+            "Comment": "xorg-x11-server-Xwayland is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228222002"
+          }
+        ]
+      }
+    ]
+  }
+}

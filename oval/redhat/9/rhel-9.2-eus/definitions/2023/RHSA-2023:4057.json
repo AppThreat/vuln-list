@@ -1,0 +1,243 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20234057",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2023:4057: .NET 7.0 security, bug fix, and enhancement update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:4057",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:4057"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-33170",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-33170"
+      }
+    ],
+    "Description": ".NET is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nThe following packages have been upgraded to a later upstream version: dotnet7.0 (SDK 7.0.109, Runtime 7.0.9). (BZ#2219634)\n\nSecurity Fix(es):\n\n* dotnet: race condition in Core SignInManager\u003cTUser\u003e PasswordSignInAsync method (CVE-2023-33170)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-07-13"
+      },
+      "Updated": {
+        "Date": "2023-07-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-33170",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-362",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-33170",
+          "Public": "20230711"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2221854",
+          "ID": "2221854"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:9.2",
+        "cpe:/a:redhat:rhel_eus:9.2::appstream",
+        "cpe:/a:redhat:rhel_eus:9.2::crb",
+        "cpe:/a:redhat:rhel_eus:9.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:9.2::nfv",
+        "cpe:/a:redhat:rhel_eus:9.2::realtime",
+        "cpe:/a:redhat:rhel_eus:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:9.2::sap",
+        "cpe:/a:redhat:rhel_eus:9.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:9.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:9.2",
+        "cpe:/o:redhat:rhel_eus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057003"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057005"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-host is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057007"
+                  },
+                  {
+                    "Comment": "dotnet-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225749008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057009"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057011"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-7.0 is earlier than 0:7.0.109-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057013"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-7.0-source-built-artifacts is earlier than 0:7.0.109-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057015"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-7.0-source-built-artifacts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-7.0 is earlier than 0:7.0.9-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057017"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-7.0 is earlier than 0:7.0.109-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057019"
+                  },
+                  {
+                    "Comment": "dotnet-templates-7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228434020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:7.0.109-1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234057021"
+                  },
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225749022"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

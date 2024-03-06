@@ -1,0 +1,144 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241088",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2024:1088: libX11 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1088",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1088"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3138",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3138"
+      }
+    ],
+    "Description": "The libX11 packages contain the core X11 protocol client library.\n\nSecurity Fix(es):\n\n* libX11: InitExt.c can overwrite unintended portions of the Display structure if the extension request leads to a buffer overflow (CVE-2023-3138)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-05"
+      },
+      "Updated": {
+        "Date": "2024-03-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-3138",
+          "Cvss3": "7.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3138",
+          "Public": "20230615"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2213748",
+          "ID": "2213748"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libX11 is earlier than 0:1.7.0-8.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088001"
+                  },
+                  {
+                    "Comment": "libX11 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libX11-common is earlier than 0:1.7.0-8.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088003"
+                  },
+                  {
+                    "Comment": "libX11-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libX11-devel is earlier than 0:1.7.0-8.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088005"
+                  },
+                  {
+                    "Comment": "libX11-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libX11-xcb is earlier than 0:1.7.0-8.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088007"
+                  },
+                  {
+                    "Comment": "libX11-xcb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241088008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,491 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230965",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:0965: php security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0965",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0965"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31628",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31628"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31629",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31629"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31630",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31630"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31631",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31631"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-37454",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-37454"
+      }
+    ],
+    "Description": "PHP is an HTML-embedded scripting language commonly used with the Apache HTTP Server.\n\nThe following packages have been upgraded to a later upstream version: php (8.0.27). (BZ#2161667)\n\nSecurity Fix(es):\n\n* XKCP: buffer overflow in the SHA-3 reference implementation (CVE-2022-37454)\n\n* php: standard insecure cookie could be treated as a `__Host-` or `__Secure-` cookie by PHP applications (CVE-2022-31629)\n\n* php: OOB read due to insufficient input validation in imageloadfont() (CVE-2022-31630)\n\n* php: Due to an integer overflow PDO::quote() may return unquoted string (CVE-2022-31631)\n\n* php: phar wrapper can occur dos when using quine gzip file (CVE-2022-31628)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-02-28"
+      },
+      "Updated": {
+        "Date": "2023-02-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-31628",
+          "Cvss3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-674",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31628",
+          "Public": "20220929"
+        },
+        {
+          "CveID": "CVE-2022-31629",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31629",
+          "Public": "20220929"
+        },
+        {
+          "CveID": "CVE-2022-31630",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Cwe": "CWE-20-\u003eCWE-125",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31630",
+          "Public": "20221027"
+        },
+        {
+          "CveID": "CVE-2022-31631",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31631",
+          "Public": "20230105"
+        },
+        {
+          "CveID": "CVE-2022-37454",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-680",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-37454",
+          "Public": "20221020"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2133687",
+          "ID": "2133687"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2133688",
+          "ID": "2133688"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2139280",
+          "ID": "2139280"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2140200",
+          "ID": "2140200"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2158791",
+          "ID": "2158791"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.2",
+        "cpe:/a:redhat:rhel_e4s:9.2::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.2::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.2::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.2::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.2",
+        "cpe:/o:redhat:rhel_e4s:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965001"
+                  },
+                  {
+                    "Comment": "php is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-bcmath is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965003"
+                  },
+                  {
+                    "Comment": "php-bcmath is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-cli is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965005"
+                  },
+                  {
+                    "Comment": "php-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-common is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965007"
+                  },
+                  {
+                    "Comment": "php-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-dba is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965009"
+                  },
+                  {
+                    "Comment": "php-dba is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-dbg is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965011"
+                  },
+                  {
+                    "Comment": "php-dbg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-devel is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965013"
+                  },
+                  {
+                    "Comment": "php-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-embedded is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965015"
+                  },
+                  {
+                    "Comment": "php-embedded is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-enchant is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965017"
+                  },
+                  {
+                    "Comment": "php-enchant is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-ffi is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965019"
+                  },
+                  {
+                    "Comment": "php-ffi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-fpm is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965021"
+                  },
+                  {
+                    "Comment": "php-fpm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-gd is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965023"
+                  },
+                  {
+                    "Comment": "php-gd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-gmp is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965025"
+                  },
+                  {
+                    "Comment": "php-gmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-intl is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965027"
+                  },
+                  {
+                    "Comment": "php-intl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-ldap is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965029"
+                  },
+                  {
+                    "Comment": "php-ldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-mbstring is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965031"
+                  },
+                  {
+                    "Comment": "php-mbstring is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-mysqlnd is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965033"
+                  },
+                  {
+                    "Comment": "php-mysqlnd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-odbc is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965035"
+                  },
+                  {
+                    "Comment": "php-odbc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-opcache is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965037"
+                  },
+                  {
+                    "Comment": "php-opcache is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-pdo is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965039"
+                  },
+                  {
+                    "Comment": "php-pdo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-pgsql is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965041"
+                  },
+                  {
+                    "Comment": "php-pgsql is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-process is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965043"
+                  },
+                  {
+                    "Comment": "php-process is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-snmp is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965045"
+                  },
+                  {
+                    "Comment": "php-snmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-soap is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965047"
+                  },
+                  {
+                    "Comment": "php-soap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "php-xml is earlier than 0:8.0.27-1.el9_1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230965049"
+                  },
+                  {
+                    "Comment": "php-xml is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225904050"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

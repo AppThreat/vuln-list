@@ -1,0 +1,93 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228126",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:8126: ignition security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8126",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8126"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1706",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1706"
+      }
+    ],
+    "Description": "Ignition is a utility used to manipulate systems during the initramfs. This includes partitioning disks, formatting partitions, writing files (regular files, systemd units, etc.), and configuring users. On first boot, Ignition reads its configuration from a source of truth (remote URL, network metadata service, hypervisor bridge, etc.) and applies the configuration.\n\nThe following packages have been upgraded to a later upstream version: ignition (2.14.0). (BZ#2090647)\n\nSecurity Fix(es):\n\n* ignition: configs are accessible from unprivileged containers in VMs running on VMware products (CVE-2022-1706)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.1 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-15"
+      },
+      "Updated": {
+        "Date": "2022-11-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-1706",
+          "Cvss3": "7.5/CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:C/C:H/I:L/A:L",
+          "Cwe": "CWE-863",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1706",
+          "Public": "20220504"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2082274",
+          "ID": "2082274"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "ignition is earlier than 0:2.14.0-1.el9",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228126001"
+          },
+          {
+            "Comment": "ignition is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228126002"
+          }
+        ]
+      }
+    ]
+  }
+}

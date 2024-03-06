@@ -1,0 +1,166 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20232502",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:2502: dhcp security and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:2502",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:2502"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2928",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2928"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2929",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2929"
+      }
+    ],
+    "Description": "The Dynamic Host Configuration Protocol (DHCP) is a protocol that allows individual devices on an IP network to get their own network configuration information, including an IP address, a subnet mask, and a broadcast address. The dhcp packages provide a relay agent and ISC DHCP service required to enable and administer DHCP on a network.\n\nSecurity Fix(es):\n\n* dhcp: option refcount overflow when leasequery is enabled leading to dhcpd abort (CVE-2022-2928)\n\n* dhcp: DHCP memory leak (CVE-2022-2929)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 9.2 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-09"
+      },
+      "Updated": {
+        "Date": "2023-05-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2928",
+          "Cvss3": "6.5/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2928",
+          "Public": "20221005"
+        },
+        {
+          "CveID": "CVE-2022-2929",
+          "Cvss3": "6.5/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2929",
+          "Public": "20221005"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2132001",
+          "ID": "2132001"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2132002",
+          "ID": "2132002"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.2",
+        "cpe:/a:redhat:rhel_e4s:9.2::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.2::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.2::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.2::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap",
+        "cpe:/a:redhat:rhel_e4s:9.2::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.2",
+        "cpe:/o:redhat:rhel_e4s:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dhcp-client is earlier than 12:4.4.2-18.b1.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232502001"
+                  },
+                  {
+                    "Comment": "dhcp-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228385002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dhcp-common is earlier than 12:4.4.2-18.b1.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232502003"
+                  },
+                  {
+                    "Comment": "dhcp-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228385004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dhcp-relay is earlier than 12:4.4.2-18.b1.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232502005"
+                  },
+                  {
+                    "Comment": "dhcp-relay is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228385006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dhcp-server is earlier than 12:4.4.2-18.b1.el9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232502007"
+                  },
+                  {
+                    "Comment": "dhcp-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228385008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20234354",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:4354: curl security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:4354",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:4354"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28321",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28321"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28322",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28322"
+      }
+    ],
+    "Description": "The curl packages provide the libcurl library and the curl utility for downloading files from servers using various protocols, including HTTP, FTP, and LDAP.\n\nSecurity Fix(es):\n\n* curl: IDN wildcard match may lead to Improper Cerificate Validation (CVE-2023-28321)\n\n* curl: more POST-after-PUT confusion (CVE-2023-28322)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-08-01"
+      },
+      "Updated": {
+        "Date": "2023-08-01"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-28321",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-295",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28321",
+          "Public": "20230517"
+        },
+        {
+          "CveID": "CVE-2023-28322",
+          "Cvss3": "3.7/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-440",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28322",
+          "Public": "20230517"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2196786",
+          "ID": "2196786"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2196793",
+          "ID": "2196793"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "curl is earlier than 0:7.76.1-23.el9_2.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234354001"
+                  },
+                  {
+                    "Comment": "curl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225245002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "curl-minimal is earlier than 0:7.76.1-23.el9_2.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234354003"
+                  },
+                  {
+                    "Comment": "curl-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225245004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl is earlier than 0:7.76.1-23.el9_2.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234354005"
+                  },
+                  {
+                    "Comment": "libcurl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225245006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-devel is earlier than 0:7.76.1-23.el9_2.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234354007"
+                  },
+                  {
+                    "Comment": "libcurl-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225245008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcurl-minimal is earlier than 0:7.76.1-23.el9_2.2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20234354009"
+                  },
+                  {
+                    "Comment": "libcurl-minimal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225245010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

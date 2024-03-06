@@ -1,0 +1,93 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20225716",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:5716: grafana security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:5716",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:5716"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31107",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31107"
+      }
+    ],
+    "Description": "Grafana is an open source, feature rich metrics dashboard and graph editor for\nGraphite, InfluxDB \u0026 OpenTSDB.\n\nSecurity Fix(es):\n\n* grafana: OAuth account takeover (CVE-2022-31107)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE page(s)\nlisted in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-07-26"
+      },
+      "Updated": {
+        "Date": "2022-07-26"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-31107",
+          "Cvss3": "7.1/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:L",
+          "Cwe": "CWE-287",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31107",
+          "Public": "20220714"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2104367",
+          "ID": "2104367"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:9.2",
+        "cpe:/a:redhat:rhel_aus:9.2::appstream",
+        "cpe:/o:redhat:rhel_aus:9.2",
+        "cpe:/o:redhat:rhel_aus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          },
+          {
+            "Comment": "grafana is earlier than 0:7.5.11-5.el9_0",
+            "TestRef": "oval:com.redhat.rhsa:tst:20225716001"
+          },
+          {
+            "Comment": "grafana is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20225716002"
+          }
+        ]
+      }
+    ]
+  }
+}
