@@ -1,0 +1,1382 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20204246",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2020:4246: Red Hat JBoss Enterprise Application Platform 7.3.3 security update on RHEL 7 (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat JBoss Enterprise Application Platform 7.3 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2020:4246",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2020:4246"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-14299",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-14299"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-14338",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-14338"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-14340",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-14340"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-1954",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-1954"
+      }
+    ],
+    "Description": "Red Hat JBoss Enterprise Application Platform 7 is a platform for Java applications based on the WildFly application runtime.\n\nThis release of Red Hat JBoss Enterprise Application Platform 7.3.3 serves as a replacement for Red Hat JBoss Enterprise Application Platform 7.3.2 and includes bug fixes and enhancements. See the Red Hat JBoss Enterprise Application Platform 7.3.3 Release Notes for information about the most significant bug fixes and enhancements included in this release.\n\nSecurity Fix(es):\n\n* picketbox: JBoss EAP reload to admin-only mode allows authentication bypass (CVE-2020-14299)\n\n* wildfly: XML validation manipulation due to incomplete application of use-grammar-pool-only in xercesImpl (CVE-2020-14338)\n\n* xnio: file descriptor leak caused by growing amounts of NIO Selector file handles may lead to DoS (CVE-2020-14340)\n\n* cxf: JMX integration is vulnerable to a MITM attack (CVE-2020-1954)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2020 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2020-10-13"
+      },
+      "Updated": {
+        "Date": "2020-10-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-14299",
+          "Cvss3": "5.7/CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-287",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-14299",
+          "Public": "20201013"
+        },
+        {
+          "CveID": "CVE-2020-14338",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-14338",
+          "Public": "20200827"
+        },
+        {
+          "CveID": "CVE-2020-14340",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-14340",
+          "Public": "20200724"
+        },
+        {
+          "CveID": "CVE-2020-1954",
+          "Cvss3": "5.3/CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-200",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-1954",
+          "Public": "20200401"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1824301",
+          "ID": "1824301"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1848533",
+          "ID": "1848533"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1860054",
+          "ID": "1860054"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1860218",
+          "ID": "1860218"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.2",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.2::el7",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.3",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.3::el7",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.4",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7.4::el7",
+        "cpe:/a:redhat:jboss_enterprise_application_platform:7::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20161332004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:20161332003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-picketlink-bindings is earlier than 0:2.5.5-25.SP12_redhat_00013.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246001"
+                  },
+                  {
+                    "Comment": "eap7-picketlink-bindings is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839098"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-picketlink-wildfly8 is earlier than 0:2.5.5-25.SP12_redhat_00013.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246003"
+                  },
+                  {
+                    "Comment": "eap7-picketlink-wildfly8 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839100"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-picketbox is earlier than 0:5.0.3-8.Final_redhat_00007.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246005"
+                  },
+                  {
+                    "Comment": "eap7-picketbox is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-picketbox-infinispan is earlier than 0:5.0.3-8.Final_redhat_00007.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246007"
+                  },
+                  {
+                    "Comment": "eap7-picketbox-infinispan is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246009"
+                  },
+                  {
+                    "Comment": "eap7-narayana is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171124"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-compensations is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246011"
+                  },
+                  {
+                    "Comment": "eap7-narayana-compensations is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171126"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-jbosstxbridge is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246013"
+                  },
+                  {
+                    "Comment": "eap7-narayana-jbosstxbridge is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171128"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-jbossxts is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246015"
+                  },
+                  {
+                    "Comment": "eap7-narayana-jbossxts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171130"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-jts-idlj is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246017"
+                  },
+                  {
+                    "Comment": "eap7-narayana-jts-idlj is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171132"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-jts-integration is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246019"
+                  },
+                  {
+                    "Comment": "eap7-narayana-jts-integration is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171134"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-restat-api is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246021"
+                  },
+                  {
+                    "Comment": "eap7-narayana-restat-api is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171136"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-restat-bridge is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246023"
+                  },
+                  {
+                    "Comment": "eap7-narayana-restat-bridge is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171138"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-restat-integration is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246025"
+                  },
+                  {
+                    "Comment": "eap7-narayana-restat-integration is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171140"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-restat-util is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246027"
+                  },
+                  {
+                    "Comment": "eap7-narayana-restat-util is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171142"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-narayana-txframework is earlier than 0:5.9.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246029"
+                  },
+                  {
+                    "Comment": "eap7-narayana-txframework is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170171144"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-elytron is earlier than 0:1.10.8-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246031"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-elytron is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20171411072"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-elytron-tool is earlier than 0:1.10.8-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246033"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-elytron-tool is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455378"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246035"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-cli is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246037"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-commons is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246039"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-commons is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-core-client is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246041"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-core-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839058"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-dto is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246043"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-dto is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839060"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-hornetq-protocol is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246045"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-hornetq-protocol is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839062"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-hqclient-protocol is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246047"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-hqclient-protocol is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839064"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-jdbc-store is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246049"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-jdbc-store is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455258"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-jms-client is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246051"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-jms-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839066"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-jms-server is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246053"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-jms-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839068"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-journal is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246055"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-journal is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839070"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-ra is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246057"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-ra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839074"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-selector is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246059"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-selector is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839076"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-server is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246061"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839078"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-service-extensions is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246063"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-service-extensions is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839080"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-tools is earlier than 0:2.9.0-5.redhat_00011.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246065"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137830"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-xerces-j2 is earlier than 0:2.12.0-2.SP03_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246067"
+                  },
+                  {
+                    "Comment": "eap7-xerces-j2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-glassfish-jsf is earlier than 0:2.3.9-11.SP12_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246069"
+                  },
+                  {
+                    "Comment": "eap7-glassfish-jsf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20171835106"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-cxf is earlier than 0:3.3.7-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246071"
+                  },
+                  {
+                    "Comment": "eap7-apache-cxf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-cxf-rt is earlier than 0:3.3.7-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246073"
+                  },
+                  {
+                    "Comment": "eap7-apache-cxf-rt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-cxf-services is earlier than 0:3.3.7-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246075"
+                  },
+                  {
+                    "Comment": "eap7-apache-cxf-services is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-cxf-tools is earlier than 0:3.3.7-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246077"
+                  },
+                  {
+                    "Comment": "eap7-apache-cxf-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-invocation is earlier than 0:1.5.3-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246079"
+                  },
+                  {
+                    "Comment": "eap7-jboss-invocation is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455358"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-commons-codec is earlier than 0:1.14.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246081"
+                  },
+                  {
+                    "Comment": "eap7-apache-commons-codec is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137230"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hibernate is earlier than 0:5.3.18-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246083"
+                  },
+                  {
+                    "Comment": "eap7-hibernate is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hibernate-core is earlier than 0:5.3.18-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246085"
+                  },
+                  {
+                    "Comment": "eap7-hibernate-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hibernate-entitymanager is earlier than 0:5.3.18-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246087"
+                  },
+                  {
+                    "Comment": "eap7-hibernate-entitymanager is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hibernate-envers is earlier than 0:5.3.18-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246089"
+                  },
+                  {
+                    "Comment": "eap7-hibernate-envers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hibernate-java8 is earlier than 0:5.3.18-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246091"
+                  },
+                  {
+                    "Comment": "eap7-hibernate-java8 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-httpcomponents-client is earlier than 0:4.5.12-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246093"
+                  },
+                  {
+                    "Comment": "eap7-httpcomponents-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-httpcomponents-core is earlier than 0:4.4.13-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246095"
+                  },
+                  {
+                    "Comment": "eap7-httpcomponents-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455506"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jberet is earlier than 0:1.3.7-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246097"
+                  },
+                  {
+                    "Comment": "eap7-jberet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jberet-core is earlier than 0:1.3.7-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246099"
+                  },
+                  {
+                    "Comment": "eap7-jberet-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-snakeyaml is earlier than 0:1.26.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246101"
+                  },
+                  {
+                    "Comment": "eap7-snakeyaml is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-velocity is earlier than 0:2.2.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246103"
+                  },
+                  {
+                    "Comment": "eap7-velocity is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137308"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-velocity-engine-core is earlier than 0:2.2.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246105"
+                  },
+                  {
+                    "Comment": "eap7-velocity-engine-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137310"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-transaction-client is earlier than 0:1.1.13-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246107"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-transaction-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455276"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-ws-commons-XmlSchema is earlier than 0:2.2.5-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246109"
+                  },
+                  {
+                    "Comment": "eap7-ws-commons-XmlSchema is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-bouncycastle is earlier than 0:1.65.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246111"
+                  },
+                  {
+                    "Comment": "eap7-bouncycastle is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172808048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-bouncycastle-mail is earlier than 0:1.65.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246113"
+                  },
+                  {
+                    "Comment": "eap7-bouncycastle-mail is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172808050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-bouncycastle-pkix is earlier than 0:1.65.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246115"
+                  },
+                  {
+                    "Comment": "eap7-bouncycastle-pkix is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172808052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-bouncycastle-prov is earlier than 0:1.65.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246117"
+                  },
+                  {
+                    "Comment": "eap7-bouncycastle-prov is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172808054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-activemq-artemis-native is earlier than 1:1.0.2-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246119"
+                  },
+                  {
+                    "Comment": "eap7-activemq-artemis-native is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839072"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-logmanager is earlier than 0:2.1.17-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246121"
+                  },
+                  {
+                    "Comment": "eap7-jboss-logmanager is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172808020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jgroups is earlier than 0:4.1.10-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246123"
+                  },
+                  {
+                    "Comment": "eap7-jgroups is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161332002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-hal-console is earlier than 0:3.2.10-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246125"
+                  },
+                  {
+                    "Comment": "eap7-hal-console is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137832"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-xnio-base is earlier than 0:3.7.9-1.Final_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246127"
+                  },
+                  {
+                    "Comment": "eap7-jboss-xnio-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20162641020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-undertow is earlier than 0:2.0.31-1.SP1_redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246129"
+                  },
+                  {
+                    "Comment": "eap7-undertow is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839102"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-apache-commons-lang is earlier than 0:3.10.0-1.redhat_00001.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246131"
+                  },
+                  {
+                    "Comment": "eap7-apache-commons-lang is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137288"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly is earlier than 0:7.3.3-4.GA_redhat_00004.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246133"
+                  },
+                  {
+                    "Comment": "eap7-wildfly is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839142"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-java-jdk11 is earlier than 0:7.3.3-4.GA_redhat_00004.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246135"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-java-jdk11 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191108308"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-java-jdk8 is earlier than 0:7.3.3-4.GA_redhat_00004.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246137"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-java-jdk8 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191108310"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-javadocs is earlier than 0:7.3.3-4.GA_redhat_00004.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246139"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-javadocs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839140"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-wildfly-modules is earlier than 0:7.3.3-4.GA_redhat_00004.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246141"
+                  },
+                  {
+                    "Comment": "eap7-wildfly-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20161839144"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-artemis-native is earlier than 1:1.0.2-3.redhat_1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246143"
+                  },
+                  {
+                    "Comment": "eap7-artemis-native is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170832138"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-artemis-native-wildfly is earlier than 1:1.0.2-3.redhat_1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246145"
+                  },
+                  {
+                    "Comment": "eap7-artemis-native-wildfly is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20170832140"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246147"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455380"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-cli is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246149"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455382"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-core is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246151"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455384"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap6.4 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246153"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap6.4 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455386"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap6.4-to-eap7.3 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246155"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap6.4-to-eap7.3 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512324"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.0 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246157"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455392"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.1 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246159"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455396"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.2 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246161"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137646"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.2-to-eap7.3 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246163"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.2-to-eap7.3 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512332"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.3-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246165"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-eap7.3-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512334"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly10.0 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246167"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly10.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455398"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly10.1 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246169"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly10.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455402"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly11.0 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246171"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly11.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137656"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly12.0 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246173"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly12.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137660"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly13.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246175"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly13.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190137664"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly14.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246177"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly14.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191420188"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly15.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246179"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly15.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512348"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly16.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246181"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly16.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512350"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly17.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246183"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly17.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512352"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly18.0-server is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246185"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly18.0-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202512354"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly8.2 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246187"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly8.2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455406"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly9.0 is earlier than 0:1.7.2-2.Final_redhat_00002.1.el7eap",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204246189"
+                  },
+                  {
+                    "Comment": "eap7-jboss-server-migration-wildfly9.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20173455412"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

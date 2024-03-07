@@ -1,0 +1,175 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20220051",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHBA-2022:0051: openvswitch2.13 update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Fast Datapath for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2022:0051",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2022:0051"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-3905",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-3905"
+      }
+    ],
+    "Description": "Open vSwitch provides standard network bridging functions and support for the OpenFlow protocol for remote per-flow control of traffic.\n\nBug Fix(es) and Enhancement(s):\n\n* [python-ovs] KeyError raised after ovs probe inactivity (BZ#1980269)\n\n* [21.J RHEL-8] Fast Datapath Release (BZ#2028547)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-01-10"
+      },
+      "Updated": {
+        "Date": "2022-01-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-3905",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-401",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-3905",
+          "Public": "20210929"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2019692",
+          "ID": "2019692"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::fastdatapath"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20158011014"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20158011013"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20205310012"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "network-scripts-openvswitch2.13 is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051001"
+                  },
+                  {
+                    "Comment": "network-scripts-openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13 is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051003"
+                  },
+                  {
+                    "Comment": "openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076058"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-devel is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051005"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-ipsec is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051007"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-ipsec is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-test is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051009"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076060"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-openvswitch2.13 is earlier than 0:2.13.0-139.el8fdp",
+                    "TestRef": "oval:com.redhat.rhba:tst:20220051011"
+                  },
+                  {
+                    "Comment": "python3-openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076044"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

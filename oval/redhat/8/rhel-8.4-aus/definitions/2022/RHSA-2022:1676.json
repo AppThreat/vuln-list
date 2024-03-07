@@ -1,0 +1,104 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221676",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:1676: gzip security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.4 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1676",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1676"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1271",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1271"
+      }
+    ],
+    "Description": "The gzip packages contain the gzip (GNU zip) data compression utility. gzip is used to compress regular files. It replaces them with files containing the .gz extension, while retaining ownership modes, access, and modification times.\n\nSecurity Fix(es):\n\n* gzip: arbitrary-file-write vulnerability (CVE-2022-1271)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-03"
+      },
+      "Updated": {
+        "Date": "2022-05-03"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-1271",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "(CWE-179|CWE-1173)",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1271",
+          "Public": "20220407"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2073310",
+          "ID": "2073310"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.4",
+        "cpe:/a:redhat:rhel_aus:8.4::appstream",
+        "cpe:/o:redhat:rhel_aus:8.4",
+        "cpe:/o:redhat:rhel_aus:8.4::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "gzip is earlier than 0:1.9-13.el8_4",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221676001"
+          },
+          {
+            "Comment": "gzip is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221676002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

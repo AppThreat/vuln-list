@@ -1,0 +1,175 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20231766",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:1766: openvswitch3.1 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Fast Datapath for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:1766",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:1766"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-1668",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-1668"
+      }
+    ],
+    "Description": "Open vSwitch provides standard network bridging functions and support for the OpenFlow protocol for remote per-flow control of traffic.\n\nSecurity Fix(es):\n\n* openvswitch: ip proto 0 triggers incorrect handling (CVE-2023-1668)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* [23.C RHEL-8] Fast Datapath Release (BZ#2177687)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-04-13"
+      },
+      "Updated": {
+        "Date": "2023-04-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-1668",
+          "Cvss3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-670",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-1668",
+          "Public": "20230406"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2137666",
+          "ID": "2137666"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::fastdatapath"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20158011014"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20158011013"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20205310012"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "network-scripts-openvswitch3.1 is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766001"
+                  },
+                  {
+                    "Comment": "network-scripts-openvswitch3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch3.1 is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766003"
+                  },
+                  {
+                    "Comment": "openvswitch3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch3.1-devel is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766005"
+                  },
+                  {
+                    "Comment": "openvswitch3.1-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch3.1-ipsec is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766007"
+                  },
+                  {
+                    "Comment": "openvswitch3.1-ipsec is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966064"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch3.1-test is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766009"
+                  },
+                  {
+                    "Comment": "openvswitch3.1-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-openvswitch3.1 is earlier than 0:3.1.0-17.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231766011"
+                  },
+                  {
+                    "Comment": "python3-openvswitch3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233966026"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

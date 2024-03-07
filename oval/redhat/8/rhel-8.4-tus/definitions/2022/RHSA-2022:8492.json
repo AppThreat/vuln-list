@@ -1,0 +1,586 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228492",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:8492: python39:3.9 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.4 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8492",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8492"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-42919",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-42919"
+      }
+    ],
+    "Description": "Python is an interpreted, interactive, object-oriented programming language, which includes modules, classes, exceptions, very high level dynamic data types and dynamic typing. Python supports interfaces to many system calls and libraries, as well as to various windowing systems.\n\nSecurity Fix(es):\n\n* python: local privilege escalation via the multiprocessing forkserver start method (CVE-2022-42919)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-16"
+      },
+      "Updated": {
+        "Date": "2022-11-16"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-42919",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-269",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-42919",
+          "Public": "20221026"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2138705",
+          "ID": "2138705"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.4",
+        "cpe:/a:redhat:rhel_tus:8.4::appstream",
+        "cpe:/a:redhat:rhel_tus:8.4::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.4::nfv",
+        "cpe:/a:redhat:rhel_tus:8.4::realtime",
+        "cpe:/o:redhat:rhel_tus:8.4",
+        "cpe:/o:redhat:rhel_tus:8.4::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module python39:3.9 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228492073"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39 is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492001"
+                          },
+                          {
+                            "Comment": "python39 is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-PyMySQL is earlier than 0:0.10.1-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492003"
+                          },
+                          {
+                            "Comment": "python39-PyMySQL is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-cffi is earlier than 0:1.14.3-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492005"
+                          },
+                          {
+                            "Comment": "python39-cffi is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-chardet is earlier than 0:3.0.4-19.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492007"
+                          },
+                          {
+                            "Comment": "python39-chardet is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492008"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-cryptography is earlier than 0:3.3.1-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492009"
+                          },
+                          {
+                            "Comment": "python39-cryptography is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492010"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-devel is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492011"
+                          },
+                          {
+                            "Comment": "python39-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492012"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-idle is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492013"
+                          },
+                          {
+                            "Comment": "python39-idle is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492014"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-idna is earlier than 0:2.10-3.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492015"
+                          },
+                          {
+                            "Comment": "python39-idna is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492016"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-libs is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492017"
+                          },
+                          {
+                            "Comment": "python39-libs is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492018"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-lxml is earlier than 0:4.6.2-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492019"
+                          },
+                          {
+                            "Comment": "python39-lxml is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492020"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-mod_wsgi is earlier than 0:4.7.1-4.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492021"
+                          },
+                          {
+                            "Comment": "python39-mod_wsgi is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492022"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-numpy is earlier than 0:1.19.4-2.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492023"
+                          },
+                          {
+                            "Comment": "python39-numpy is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492024"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-numpy-doc is earlier than 0:1.19.4-2.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492025"
+                          },
+                          {
+                            "Comment": "python39-numpy-doc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492026"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-numpy-f2py is earlier than 0:1.19.4-2.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492027"
+                          },
+                          {
+                            "Comment": "python39-numpy-f2py is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492028"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-pip is earlier than 0:20.2.4-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492029"
+                          },
+                          {
+                            "Comment": "python39-pip is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492030"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-pip-wheel is earlier than 0:20.2.4-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492031"
+                          },
+                          {
+                            "Comment": "python39-pip-wheel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492032"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-ply is earlier than 0:3.11-10.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492033"
+                          },
+                          {
+                            "Comment": "python39-ply is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492034"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-psutil is earlier than 0:5.8.0-4.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492035"
+                          },
+                          {
+                            "Comment": "python39-psutil is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492036"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-psycopg2 is earlier than 0:2.8.6-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492037"
+                          },
+                          {
+                            "Comment": "python39-psycopg2 is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492038"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-psycopg2-doc is earlier than 0:2.8.6-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492039"
+                          },
+                          {
+                            "Comment": "python39-psycopg2-doc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492040"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-psycopg2-tests is earlier than 0:2.8.6-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492041"
+                          },
+                          {
+                            "Comment": "python39-psycopg2-tests is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492042"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-pycparser is earlier than 0:2.20-3.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492043"
+                          },
+                          {
+                            "Comment": "python39-pycparser is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492044"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-pysocks is earlier than 0:1.7.1-4.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492045"
+                          },
+                          {
+                            "Comment": "python39-pysocks is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492046"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-pyyaml is earlier than 0:5.4.1-1.module+el8.4.0+10484+27ce8e03",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492047"
+                          },
+                          {
+                            "Comment": "python39-pyyaml is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492048"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-requests is earlier than 0:2.25.0-2.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492049"
+                          },
+                          {
+                            "Comment": "python39-requests is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492050"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-rpm-macros is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492051"
+                          },
+                          {
+                            "Comment": "python39-rpm-macros is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492052"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-scipy is earlier than 0:1.5.4-3.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492053"
+                          },
+                          {
+                            "Comment": "python39-scipy is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492054"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-setuptools is earlier than 0:50.3.2-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492055"
+                          },
+                          {
+                            "Comment": "python39-setuptools is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492056"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-setuptools-wheel is earlier than 0:50.3.2-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492057"
+                          },
+                          {
+                            "Comment": "python39-setuptools-wheel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492058"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-six is earlier than 0:1.15.0-3.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492059"
+                          },
+                          {
+                            "Comment": "python39-six is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492060"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-test is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492061"
+                          },
+                          {
+                            "Comment": "python39-test is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492062"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-tkinter is earlier than 0:3.9.2-2.module+el8.4.0+17197+13952279",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492063"
+                          },
+                          {
+                            "Comment": "python39-tkinter is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492064"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-toml is earlier than 0:0.10.1-5.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492065"
+                          },
+                          {
+                            "Comment": "python39-toml is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492066"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-urllib3 is earlier than 0:1.25.10-3.module+el8.4.0+9822+20bf1249",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492067"
+                          },
+                          {
+                            "Comment": "python39-urllib3 is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492068"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-wheel is earlier than 1:0.35.1-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492069"
+                          },
+                          {
+                            "Comment": "python39-wheel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492070"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python39-wheel-wheel is earlier than 1:0.35.1-3.module+el8.4.0+15042+dc5a279b.1",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492071"
+                          },
+                          {
+                            "Comment": "python39-wheel-wheel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20228492072"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
