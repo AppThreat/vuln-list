@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20236884",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:6884: squid security update (Critical)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 6 Extended Lifecycle Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:6884",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:6884"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-46847",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-46847"
+      }
+    ],
+    "Description": "Squid is a high-performance proxy caching server for web clients, supporting FTP, Gopher, and HTTP data objects.\n\nSecurity Fix(es):\n\n* squid: Denial of Service in HTTP Digest Authentication (CVE-2023-46847)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Critical",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-13"
+      },
+      "Updated": {
+        "Date": "2023-11-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-46847",
+          "Cvss3": "8.6/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Cwe": "CWE-120",
+          "Impact": "critical",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-46847",
+          "Public": "20231019"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2245916",
+          "ID": "2245916"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:6",
+        "cpe:/a:redhat:rhel_extras_hpn:6",
+        "cpe:/a:redhat:rhel_extras_oracle_java:6",
+        "cpe:/a:redhat:rhel_extras_sap:6",
+        "cpe:/a:redhat:rhel_extras_sap_els:6",
+        "cpe:/a:redhat:rhel_extras_sap_hana:6",
+        "cpe:/a:redhat:rhel_extras_sap_hana_els:6",
+        "cpe:/o:redhat:enterprise_linux:6",
+        "cpe:/o:redhat:enterprise_linux:6::client",
+        "cpe:/o:redhat:enterprise_linux:6::computenode",
+        "cpe:/o:redhat:enterprise_linux:6::server",
+        "cpe:/o:redhat:enterprise_linux:6::workstation",
+        "cpe:/o:redhat:rhel_els:6"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20111656004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20111656003"
+          },
+          {
+            "Comment": "squid is earlier than 7:3.1.23-24.el6_10.1",
+            "TestRef": "oval:com.redhat.rhsa:tst:20236884001"
+          },
+          {
+            "Comment": "squid is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20110545002"
+          }
+        ]
+      }
+    ]
+  }
+}

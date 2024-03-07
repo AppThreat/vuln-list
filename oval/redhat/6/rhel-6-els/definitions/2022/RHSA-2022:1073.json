@@ -1,0 +1,153 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221073",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:1073: openssl security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 6 Extended Lifecycle Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1073",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1073"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0778",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0778"
+      }
+    ],
+    "Description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, as well as a full-strength general-purpose cryptography library.\n\nSecurity Fix(es):\n\n* openssl: Infinite loop in BN_mod_sqrt() reachable when parsing certificates (CVE-2022-0778)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-03-28"
+      },
+      "Updated": {
+        "Date": "2022-03-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-0778",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-835",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0778",
+          "Public": "20220315"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2062202",
+          "ID": "2062202"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:6",
+        "cpe:/a:redhat:rhel_extras_hpn:6",
+        "cpe:/a:redhat:rhel_extras_oracle_java:6",
+        "cpe:/a:redhat:rhel_extras_sap:6",
+        "cpe:/a:redhat:rhel_extras_sap_els:6",
+        "cpe:/a:redhat:rhel_extras_sap_hana:6",
+        "cpe:/a:redhat:rhel_extras_sap_hana_els:6",
+        "cpe:/o:redhat:enterprise_linux:6",
+        "cpe:/o:redhat:enterprise_linux:6::client",
+        "cpe:/o:redhat:enterprise_linux:6::computenode",
+        "cpe:/o:redhat:enterprise_linux:6::server",
+        "cpe:/o:redhat:enterprise_linux:6::workstation",
+        "cpe:/o:redhat:rhel_els:6"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20111656004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20111656003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl is earlier than 0:1.0.1e-60.el6_10",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221073001"
+                  },
+                  {
+                    "Comment": "openssl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20100888002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-devel is earlier than 0:1.0.1e-60.el6_10",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221073003"
+                  },
+                  {
+                    "Comment": "openssl-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20100888004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-perl is earlier than 0:1.0.1e-60.el6_10",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221073005"
+                  },
+                  {
+                    "Comment": "openssl-perl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20100888006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssl-static is earlier than 0:1.0.1e-60.el6_10",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221073007"
+                  },
+                  {
+                    "Comment": "openssl-static is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20100888008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20160515",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2016:0515: java-1.7.0-oracle security update (Critical)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Oracle Java for Red Hat Enterprise Linux 6"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2016:0515",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2016:0515"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2016-0636",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2016-0636"
+      }
+    ],
+    "Description": "Oracle Java SE version 7 includes the Oracle Java Runtime Environment and the Oracle Java Software Development Kit.\n\nThis update provides Oracle Java 7 Update 99.\n\nSecurity Fix(es):\n\nThis update fixes one vulnerability in the Oracle Java Runtime Environment and the Oracle Java Software Development Kit. Further information about this flaw can be found on the Oracle Security Alert page listed in the References section. (CVE-2016-0636)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Critical",
+      "Rights": "Copyright 2016 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2016-03-24"
+      },
+      "Updated": {
+        "Date": "2016-03-24"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2016-0636",
+          "Cvss2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P",
+          "Cwe": "CWE-358",
+          "Impact": "critical",
+          "Href": "https://access.redhat.com/security/cve/CVE-2016-0636",
+          "Public": "20160323"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1320650",
+          "ID": "1320650"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:sap_hana",
+        "cpe:/a:redhat:rhel_eus:sap_hana:6",
+        "cpe:/o:redhat:rhel_eus:6.7",
+        "cpe:/o:redhat:rhel_eus:6.7::computenode",
+        "cpe:/o:redhat:rhel_eus:6.7::sap",
+        "cpe:/o:redhat:rhel_eus:6.7::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20111656004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20111656003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515001"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121019002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle-devel is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515003"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121019004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle-javafx is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515005"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle-javafx is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121391006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle-jdbc is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515007"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle-jdbc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121019006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle-plugin is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515009"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle-plugin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121019008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "java-1.7.0-oracle-src is earlier than 1:1.7.0.99-1jpp.1.el6_7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160515011"
+                  },
+                  {
+                    "Comment": "java-1.7.0-oracle-src is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121019010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
