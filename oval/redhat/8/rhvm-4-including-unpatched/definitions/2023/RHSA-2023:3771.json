@@ -1,0 +1,119 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233771",
+  "Version": "640",
+  "Metadata": {
+    "Title": "RHSA-2023:3771: Red Hat Virtualization security and bug fix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Virtualization Engine 4.4"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3771",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3771"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-20860",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-20860"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-20861",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-20861"
+      }
+    ],
+    "Description": "The VDSM service is required by a Virtualization Manager to manage the Linux hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection.\n\nThe following packages have been upgraded to a later upstream version: ovirt-dependencies (4.5.3), ovirt-engine (4.5.3.8), vdsm (4.50.3.8). (BZ#2180717)\n\nSecurity Fix(es):\n\n* springframework: Security Bypass With Un-Prefixed Double Wildcard Pattern (CVE-2023-20860)\n\n* springframework: Spring Expression DoS Vulnerability (CVE-2023-20861)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* Previously, a host with Secure Intel Icelake Server Family could become non-operational because it did not provide the \"taa-no\" CPU feature. \nIn this release, the check has been fixed in the Manager, and such hosts work properly. (BZ#2184623)\n\n* Previously, when creating bonds on a host outside the Manager and adding the host without starting it, the Rx\\Tx drop count is shown as null.\nAs a result, a Null Pointer Exception is thrown in the Administration Portal \u003e Compute \u003e Hosts \u003e Network Interfaces tab.\nWith this release, null values are accepted, and there are no exceptions displayed in the Network Interfaces tab. (BZ#2180230)\n\n* Previously, the Volume Extend Logic method skipped sparse volumes. As a result,  RAW sparse volumes (on file storage) were not extended properly.\nIn this release, RAW sparse volumes are extended as expected. (BZ#2210036)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-06-21"
+      },
+      "Updated": {
+        "Date": "2023-06-21"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-20860",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-155",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-20860",
+          "Public": "20230320"
+        },
+        {
+          "CveID": "CVE-2023-20861",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-770",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-20861",
+          "Public": "20230320"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2180528",
+          "ID": "2180528"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2180530",
+          "ID": "2180530"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhev_manager:4.4",
+        "cpe:/a:redhat:rhev_manager:4.4:el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20166341004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "ovirt-dependencies is earlier than 0:4.5.3-1.el8ev",
+            "TestRef": "oval:com.redhat.rhsa:tst:20233771001"
+          },
+          {
+            "Comment": "ovirt-dependencies is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20225555002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20166341003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20203247050"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

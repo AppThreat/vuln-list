@@ -1,0 +1,175 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20231823",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:1823: openvswitch2.13 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Fast Datapath for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:1823",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:1823"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-1668",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-1668"
+      }
+    ],
+    "Description": "Open vSwitch provides standard network bridging functions and support for\nthe OpenFlow protocol for remote per-flow control of traffic.\n\nSecurity Fix(es):\n\n* openvswitch: ip proto 0 triggers incorrect handling (CVE-2023-1668)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* [23.C RHEL-8] Fast Datapath Release (BZ#2184495)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-04-18"
+      },
+      "Updated": {
+        "Date": "2023-04-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-1668",
+          "Cvss3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+          "Cwe": "CWE-670",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-1668",
+          "Public": "20230406"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2137666",
+          "ID": "2137666"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::fastdatapath"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20158011014"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20158011013"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20205310012"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "network-scripts-openvswitch2.13 is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823001"
+                  },
+                  {
+                    "Comment": "network-scripts-openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13 is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823003"
+                  },
+                  {
+                    "Comment": "openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076058"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-devel is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823005"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-ipsec is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823007"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-ipsec is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openvswitch2.13-test is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823009"
+                  },
+                  {
+                    "Comment": "openvswitch2.13-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076060"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-openvswitch2.13 is earlier than 0:2.13.0-214.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231823011"
+                  },
+                  {
+                    "Comment": "python3-openvswitch2.13 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201925076044"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
