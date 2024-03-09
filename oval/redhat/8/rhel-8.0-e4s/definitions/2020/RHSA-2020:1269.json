@@ -1,0 +1,460 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20201269",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2020:1269: idm:DL1 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.0 Update Services for SAP Solutions"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2020:1269",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2020:1269"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-10195",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-10195"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-14867",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-14867"
+      }
+    ],
+    "Description": "Red Hat Identity Management (IdM) is a centralized authentication, identity management, and authorization solution for both traditional and cloud-based enterprise environments. \n\nSecurity Fix(es):\n\n* ipa: Denial of service in IPA server due to wrong use of ber_scanf() (CVE-2019-14867)\n\n* ipa: Batch API logging user passwords to /var/log/httpd/error_log (CVE-2019-10195)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2020 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2020-04-01"
+      },
+      "Updated": {
+        "Date": "2020-04-01"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-10195",
+          "Cvss3": "5.7/CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-532-\u003eCWE-200",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-10195",
+          "Public": "20191126"
+        },
+        {
+          "CveID": "CVE-2019-14867",
+          "Cvss3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "(CWE-94|CWE-400)",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-14867",
+          "Public": "20190826"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1726223",
+          "ID": "1726223"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1766920",
+          "ID": "1766920"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.0",
+        "cpe:/a:redhat:rhel_e4s:8.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.0::sap",
+        "cpe:/a:redhat:rhel_e4s:8.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.0",
+        "cpe:/o:redhat:rhel_e4s:8.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module idm:DL1 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201269051"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "bind-dyndb-ldap is earlier than 0:11.1-13.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269001"
+                          },
+                          {
+                            "Comment": "bind-dyndb-ldap is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "custodia is earlier than 0:0.6.0-2.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269003"
+                          },
+                          {
+                            "Comment": "custodia is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-client is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269005"
+                          },
+                          {
+                            "Comment": "ipa-client is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-client-common is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269007"
+                          },
+                          {
+                            "Comment": "ipa-client-common is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269008"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-common is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269009"
+                          },
+                          {
+                            "Comment": "ipa-common is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269010"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-idoverride-memberof-plugin is earlier than 0:0.0.4-6.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269011"
+                          },
+                          {
+                            "Comment": "ipa-idoverride-memberof-plugin is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269012"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-python-compat is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269013"
+                          },
+                          {
+                            "Comment": "ipa-python-compat is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269014"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-server is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269015"
+                          },
+                          {
+                            "Comment": "ipa-server is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269016"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-server-common is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269017"
+                          },
+                          {
+                            "Comment": "ipa-server-common is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269018"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-server-dns is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269019"
+                          },
+                          {
+                            "Comment": "ipa-server-dns is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269020"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "ipa-server-trust-ad is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269021"
+                          },
+                          {
+                            "Comment": "ipa-server-trust-ad is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269022"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "opendnssec is earlier than 0:1.4.14-1.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269023"
+                          },
+                          {
+                            "Comment": "opendnssec is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269024"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-custodia is earlier than 0:0.6.0-2.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269025"
+                          },
+                          {
+                            "Comment": "python3-custodia is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269026"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-ipaclient is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269027"
+                          },
+                          {
+                            "Comment": "python3-ipaclient is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269028"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-ipalib is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269029"
+                          },
+                          {
+                            "Comment": "python3-ipalib is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269030"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-ipaserver is earlier than 0:4.7.1-12.module+el8.0.0+5776+863ecd37",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269031"
+                          },
+                          {
+                            "Comment": "python3-ipaserver is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269032"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-jwcrypto is earlier than 0:0.5.0-1.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269033"
+                          },
+                          {
+                            "Comment": "python3-jwcrypto is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269034"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-kdcproxy is earlier than 0:0.4-3.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269035"
+                          },
+                          {
+                            "Comment": "python3-kdcproxy is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269036"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-pyusb is earlier than 0:1.0.0-9.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269037"
+                          },
+                          {
+                            "Comment": "python3-pyusb is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269038"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-qrcode is earlier than 0:5.1-11.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269039"
+                          },
+                          {
+                            "Comment": "python3-qrcode is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269040"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-qrcode-core is earlier than 0:5.1-11.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269041"
+                          },
+                          {
+                            "Comment": "python3-qrcode-core is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269042"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "python3-yubico is earlier than 0:1.3.2-9.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269043"
+                          },
+                          {
+                            "Comment": "python3-yubico is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269044"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "slapi-nis is earlier than 0:0.56.2-7.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269045"
+                          },
+                          {
+                            "Comment": "slapi-nis is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269046"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "softhsm is earlier than 0:2.4.0-2.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269047"
+                          },
+                          {
+                            "Comment": "softhsm is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269048"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "softhsm-devel is earlier than 0:2.4.0-2.module+el8+2555+b334d87b",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269049"
+                          },
+                          {
+                            "Comment": "softhsm-devel is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20201269050"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

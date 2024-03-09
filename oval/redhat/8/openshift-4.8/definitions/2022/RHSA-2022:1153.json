@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221153",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:1153: OpenShift Container Platform 4.8.36 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1153",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1153"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0711",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0711"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing\nKubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.8.36. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHSA-2022:1154\n\nSecurity Fix(es):\n\n* haproxy: Denial of service via set-cookie2 header (CVE-2022-0711)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage(s) listed in the References section.\n\nAll OpenShift Container Platform 4.8 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.8/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-04-11"
+      },
+      "Updated": {
+        "Date": "2022-04-11"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-0711",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-835",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0711",
+          "Public": "20220223:1448"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2053666",
+          "ID": "2053666"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.8",
+        "cpe:/a:redhat:openshift:4.8::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20220793005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "haproxy22 is earlier than 0:2.2.13-3.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221153001"
+          },
+          {
+            "Comment": "haproxy22 is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221153002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20220793003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20220793004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230275",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2023:0275: Red Hat OpenStack Platform 17.0 (openstack-neutron) security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 17.0"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0275",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0275"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3277",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3277"
+      }
+    ],
+    "Description": "OpenStack Networking (neutron) is a virtual network service for OpenStack.\nJust as OpenStack Compute (nova) provides an API to dynamically request and\nconfigure virtual servers, OpenStack Networking provides an API to\ndynamically request and configure virtual networks. These networks connect\n'interfaces' from other OpenStack services (e.g. virtual NICs from Compute\nVMs).  The OpenStack Networking API supports extensions to provide advanced\nnetwork capabilities (e.g. QoS, ACLs, network monitoring, etc.)\n\nSecurity Fix(es):\n\n* unrestricted creation of security groups (CVE-2022-3277)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-01-25"
+      },
+      "Updated": {
+        "Date": "2023-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3277",
+          "Cvss3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3277",
+          "Public": "20220829"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2129193",
+          "ID": "2129193"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:17.0",
+        "cpe:/a:redhat:openstack:17.0::el9"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20213563006"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20213563005"
+          },
+          {
+            "Comment": "openstack-neutron is earlier than 1:18.4.1-0.20221128170741.5258354.el9ost",
+            "TestRef": "oval:com.redhat.rhsa:tst:20230275001"
+          },
+          {
+            "Comment": "openstack-neutron is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20230275002"
+          }
+        ]
+      }
+    ]
+  }
+}

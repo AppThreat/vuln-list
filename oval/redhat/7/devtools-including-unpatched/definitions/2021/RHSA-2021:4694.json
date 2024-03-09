@@ -1,0 +1,266 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214694",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4694: rust-toolset-1.54-rust security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Developer Tools"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4694",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4694"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-42574",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-42574"
+      }
+    ],
+    "Description": "Rust Toolset provides the Rust programming language compiler rustc, the cargo build tool and dependency manager, and required libraries.\n\nSecurity Fix(es):\n\n* Developer environment: Unicode's bidirectional (BiDi) override characters can cause trojan source attacks (CVE-2021-42574)\n\nThe following changes were introduced in rust in order to facilitate detection of BiDi Unicode characters:\n\nRust introduces two new lints to detect and reject code containing the affected codepoints. These new deny-by-default lints detect affected codepoints in string literals and comments. The lints will prevent source code file containing these codepoints from being compiled. If your code has legitimate uses for the codepoints we recommend replacing them with the related escape sequence. The error messages will suggest the right escapes to use.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-16"
+      },
+      "Updated": {
+        "Date": "2021-11-16"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-42574",
+          "Cvss3": "8.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-838",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-42574",
+          "Public": "20211101"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2005819",
+          "ID": "2005819"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:devtools:2",
+        "cpe:/a:redhat:devtools:2018",
+        "cpe:/a:redhat:devtools:2019",
+        "cpe:/a:redhat:devtools:2020",
+        "cpe:/a:redhat:devtools:2021",
+        "cpe:/a:redhat:devtools:2022",
+        "cpe:/a:redhat:devtools:2023",
+        "cpe:/a:redhat:devtools:2023::el7",
+        "cpe:/a:redhat:devtools:2::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:202011987022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:202011987021"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-cargo is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694001"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-cargo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-cargo-doc is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694003"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-cargo-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-clippy is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694005"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-clippy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rls is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694007"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rls is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694009"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-analysis is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694011"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-analysis is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-debugger-common is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694013"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-debugger-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-doc is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694015"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-gdb is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694017"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-gdb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-lldb is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694019"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-lldb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-src is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694021"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-src is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rust-std-static is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694023"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rust-std-static is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rust-toolset-1.54-rustfmt is earlier than 0:1.54.0-4.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694025"
+                  },
+                  {
+                    "Comment": "rust-toolset-1.54-rustfmt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214694026"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

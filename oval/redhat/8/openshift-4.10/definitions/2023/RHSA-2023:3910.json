@@ -1,0 +1,261 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233910",
+  "Version": "642",
+  "Metadata": {
+    "Title": "RHSA-2023:3910: Red Hat OpenShift Enterprise security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.10"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3910",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3910"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-41717",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-41717"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-24540",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-24540"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3089",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3089"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.10.63. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHSA-2023:3911\n\nSecurity Fix(es):\n\n* openshift: OCP \u0026 FIPS mode (CVE-2023-3089)\n\n* golang: html/template: improper handling of JavaScript whitespace (CVE-2023-24540)\n\n* golang: net/http: excessive memory growth in a Go server accepting HTTP/2 requests (CVE-2022-41717)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.10 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.10/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-07-06"
+      },
+      "Updated": {
+        "Date": "2023-07-06"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-41717",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-770",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-41717",
+          "Public": "20221130"
+        },
+        {
+          "CveID": "CVE-2023-24540",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-176",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-24540",
+          "Public": "20230420"
+        },
+        {
+          "CveID": "CVE-2023-3089",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N",
+          "Cwe": "CWE-166-\u003eCWE-693",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3089",
+          "Public": "20230705:1200"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2161274",
+          "ID": "2161274"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2196027",
+          "ID": "2196027"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2212085",
+          "ID": "2212085"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.10",
+        "cpe:/a:redhat:openshift:4.10::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20230898005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230898003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230898004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-hyperkube is earlier than 0:4.10.0-202306170106.p0.g16bcd69.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910001"
+                  },
+                  {
+                    "Comment": "openshift-hyperkube is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220055012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910003"
+                  },
+                  {
+                    "Comment": "podman is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-catatonit is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910005"
+                  },
+                  {
+                    "Comment": "podman-catatonit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-docker is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910007"
+                  },
+                  {
+                    "Comment": "podman-docker is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-plugins is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910009"
+                  },
+                  {
+                    "Comment": "podman-plugins is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-remote is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910011"
+                  },
+                  {
+                    "Comment": "podman-remote is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-tests is earlier than 0:3.2.3-1.1.rhaos4.10.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910013"
+                  },
+                  {
+                    "Comment": "podman-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "containers-common is earlier than 1:1.2.4-1.1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910015"
+                  },
+                  {
+                    "Comment": "containers-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo is earlier than 1:1.2.4-1.1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910017"
+                  },
+                  {
+                    "Comment": "skopeo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo-tests is earlier than 1:1.2.4-1.1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910019"
+                  },
+                  {
+                    "Comment": "skopeo-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233910020"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

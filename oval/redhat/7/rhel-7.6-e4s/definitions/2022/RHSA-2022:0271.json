@@ -1,0 +1,131 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20220271",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:0271: polkit security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.6 Update Services for SAP Solutions"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:0271",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:0271"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4034",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4034"
+      }
+    ],
+    "Description": "The polkit packages provide a component for controlling system-wide privileges. This component provides a uniform and organized way for non-privileged processes to communicate with privileged ones.\n\nSecurity Fix(es):\n\n* polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector (CVE-2021-4034)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-01-25"
+      },
+      "Updated": {
+        "Date": "2022-01-25"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-4034",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "(CWE-125|CWE-787)-\u003eCWE-20",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4034",
+          "Public": "20220125:1700"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2025869",
+          "ID": "2025869"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras_sap_e4s:7.6",
+        "cpe:/a:redhat:rhel_extras_sap_hana_e4s:7.6",
+        "cpe:/o:redhat:rhel_e4s:7.6",
+        "cpe:/o:redhat:rhel_e4s:7.6::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "polkit is earlier than 0:0.112-18.el7_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220271001"
+                  },
+                  {
+                    "Comment": "polkit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160189002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "polkit-devel is earlier than 0:0.112-18.el7_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220271003"
+                  },
+                  {
+                    "Comment": "polkit-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160189004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "polkit-docs is earlier than 0:0.112-18.el7_6.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220271005"
+                  },
+                  {
+                    "Comment": "polkit-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160189006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

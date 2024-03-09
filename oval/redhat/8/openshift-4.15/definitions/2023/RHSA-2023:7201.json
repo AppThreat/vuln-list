@@ -1,0 +1,408 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20237201",
+  "Version": "644",
+  "Metadata": {
+    "Title": "RHSA-2023:7201: OpenShift Container Platform 4.15.0 packages and security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.15"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:7201",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:7201"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-39325",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-39325"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-39326",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-39326"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-45287",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-45287"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-48795",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-48795"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing\nKubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nSecurity Fix(es):\n\n* golang: net/http, x/net/http2: rapid stream resets can cause excessive\nwork (CVE-2023-44487) (CVE-2023-39325)\n* golang: net/http/internal: Denial of Service (DoS) via Resource\nConsumption via HTTP requests (CVE-2023-39326)\n* golang: crypto/tls: Timing Side Channel attack in RSA based TLS key\nexchanges. (CVE-2023-45287)\n* ssh: Prefix truncation attack on Binary Packet Protocol (BPP)\n(CVE-2023-48795)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.15 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.15/updating/updating_a_cluster/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-02-27"
+      },
+      "Updated": {
+        "Date": "2024-02-27"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-39325",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-39325",
+          "Public": "20231010"
+        },
+        {
+          "CveID": "CVE-2023-39326",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-39326",
+          "Public": "20231206"
+        },
+        {
+          "CveID": "CVE-2023-45287",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-208",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-45287",
+          "Public": "20231205"
+        },
+        {
+          "CveID": "CVE-2023-48795",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-222",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-48795",
+          "Public": "20231218"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2243296",
+          "ID": "2243296"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2253193",
+          "ID": "2253193"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2253330",
+          "ID": "2253330"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2254210",
+          "ID": "2254210"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.15",
+        "cpe:/a:redhat:openshift:4.15::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20237201043"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20237201041"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20237201042"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo is earlier than 2:1.11.2-21.1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201001"
+                  },
+                  {
+                    "Comment": "skopeo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo-tests is earlier than 2:1.11.2-21.1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201003"
+                  },
+                  {
+                    "Comment": "skopeo-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cri-tools is earlier than 0:1.28.0-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201005"
+                  },
+                  {
+                    "Comment": "cri-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "runc is earlier than 4:1.1.12-1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201007"
+                  },
+                  {
+                    "Comment": "runc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "buildah is earlier than 1:1.29.1-20.2.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201009"
+                  },
+                  {
+                    "Comment": "buildah is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "buildah-tests is earlier than 1:1.29.1-20.2.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201011"
+                  },
+                  {
+                    "Comment": "buildah-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "containernetworking-plugins is earlier than 1:1.4.0-1.1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201013"
+                  },
+                  {
+                    "Comment": "containernetworking-plugins is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-clients is earlier than 0:4.15.0-202402070507.p0.g48dcf59.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201015"
+                  },
+                  {
+                    "Comment": "openshift-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-clients-redistributable is earlier than 0:4.15.0-202402070507.p0.g48dcf59.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201017"
+                  },
+                  {
+                    "Comment": "openshift-clients-redistributable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "butane is earlier than 0:0.20.0-1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201019"
+                  },
+                  {
+                    "Comment": "butane is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "butane-redistributable is earlier than 0:0.20.0-1.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201021"
+                  },
+                  {
+                    "Comment": "butane-redistributable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cri-o is earlier than 0:1.28.3-14.rhaos4.15.git33aabd8.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201023"
+                  },
+                  {
+                    "Comment": "cri-o is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-hyperkube is earlier than 0:4.15.0-202402142009.p0.g6216ea1.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201025"
+                  },
+                  {
+                    "Comment": "openshift-hyperkube is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201027"
+                  },
+                  {
+                    "Comment": "podman is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-catatonit is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201029"
+                  },
+                  {
+                    "Comment": "podman-catatonit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-docker is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201031"
+                  },
+                  {
+                    "Comment": "podman-docker is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-gvproxy is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201033"
+                  },
+                  {
+                    "Comment": "podman-gvproxy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-plugins is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201035"
+                  },
+                  {
+                    "Comment": "podman-plugins is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-remote is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201037"
+                  },
+                  {
+                    "Comment": "podman-remote is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-tests is earlier than 3:4.4.1-21.rhaos4.15.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201039"
+                  },
+                  {
+                    "Comment": "podman-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237201040"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

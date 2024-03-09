@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20231948",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2023:1948: Red Hat OpenStack Platform 16.2 (openstack-nova) security update (Low)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 16.2"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:1948",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:1948"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-37394",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-37394"
+      }
+    ],
+    "Description": "OpenStack Compute (codename Nova) is open source software designed\nto provision and manage large networks of virtual machines,creating a\nredundant and scalable cloud computing platform. It gives you the software,\ncontrol panels, and APIs required to orchestrate a cloud, including running\ninstances, managing networks, and controlling access through users and\nprojects.OpenStack Compute strives to be both hardware and hypervisor\nagnostic, currently supporting a variety of standard hardware\nconfigurations and seven major hypervisors.\n\nSecurity Fix(es):\n\n* Compute service fails to restart if the vnic_type of a bound port changed\nfrom direct to macvtap (CVE-2022-37394)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Low",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-04-26"
+      },
+      "Updated": {
+        "Date": "2023-04-26"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-37394",
+          "Cvss3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-400",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-37394",
+          "Public": "20220803"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2117333",
+          "ID": "2117333"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:16.2",
+        "cpe:/a:redhat:openstack:16.2::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20213487005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "openstack-nova is earlier than 1:20.6.2-2.20230308185148.fc01371.el8ost",
+            "TestRef": "oval:com.redhat.rhsa:tst:20231948001"
+          },
+          {
+            "Comment": "openstack-nova is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20220999002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20213487003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20213487004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

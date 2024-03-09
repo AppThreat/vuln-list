@@ -1,0 +1,91 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240645",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2024:0645: OpenShift Container Platform 4.14.11 packages and security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.14"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0645",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0645"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-21626",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-21626"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container\nPlatform 4.14.11. See the following advisory for the container images for\nthis release:\n\nhttps://access.redhat.com/errata/RHSA-2024:0642\n\nAll OpenShift Container Platform 4.14 users are advised to upgrade to these\nupdated packages and images when they are available in the appropriate\nrelease channel. To check for available updates, use the OpenShift Console\nor the CLI oc command. Instructions for upgrading a cluster are available\nat\nhttps://docs.openshift.com/container-platform/4.14/updating/updating_a_cluster/updating-cluster-cli.html\n\nSecurity Fix(es):\n\n* runc: file descriptor leak \"Leaky Vessels\" (CVE-2024-21626)\n\nA Red Hat Security Bulletin which addresses further details about the Leaky Vessels flaw is available in the References section.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.14 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.14/updating/updating_a_cluster/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-02-07"
+      },
+      "Updated": {
+        "Date": "2024-02-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-21626",
+          "Cvss3": "8.6/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-200",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-21626",
+          "Public": "20240131:2001"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2258725",
+          "ID": "2258725"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.14",
+        "cpe:/a:redhat:openshift:4.14::el9"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20235008010"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:20235008009"
+          },
+          {
+            "Comment": "runc is earlier than 4:1.1.12-1.rhaos4.14.el9",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240645001"
+          },
+          {
+            "Comment": "runc is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20240645002"
+          }
+        ]
+      }
+    ]
+  }
+}

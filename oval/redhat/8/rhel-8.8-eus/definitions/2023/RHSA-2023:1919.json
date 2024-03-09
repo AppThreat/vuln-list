@@ -1,0 +1,159 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20231919",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:1919: webkit2gtk3 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:1919",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:1919"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28205",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28205"
+      }
+    ],
+    "Description": "WebKitGTK is the port of the portable web rendering engine WebKit to the GTK platform.\n\nSecurity Fix(es):\n\n* WebKitGTK: use-after-free leads to arbitrary code execution (CVE-2023-28205)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-04-20"
+      },
+      "Updated": {
+        "Date": "2023-04-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-28205",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28205",
+          "Public": "20230407"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2185724",
+          "ID": "2185724"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::nfv",
+        "cpe:/a:redhat:rhel_eus:8.8::realtime",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3 is earlier than 0:2.36.7-1.el8_7.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231919001"
+                  },
+                  {
+                    "Comment": "webkit2gtk3 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20194262002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-devel is earlier than 0:2.36.7-1.el8_7.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231919003"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20194262004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-jsc is earlier than 0:2.36.7-1.el8_7.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231919005"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-jsc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20194262006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "webkit2gtk3-jsc-devel is earlier than 0:2.36.7-1.el8_7.3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20231919007"
+                  },
+                  {
+                    "Comment": "webkit2gtk3-jsc-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20194262008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

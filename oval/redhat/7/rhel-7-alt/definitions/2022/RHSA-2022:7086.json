@@ -1,0 +1,202 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20227086",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2022:7086: pki-core security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:7086",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:7086"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2393",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2393"
+      }
+    ],
+    "Description": "The Public Key Infrastructure (PKI) Core contains fundamental packages required by Red Hat Certificate System.\n\nSecurity Fix(es):\n\n* pki-core: When using the caServerKeygen_DirUserCert profile, user can get certificates for other UIDs by entering name in Subject field (CVE-2022-2393)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-10-24"
+      },
+      "Updated": {
+        "Date": "2022-10-24"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2393",
+          "Cvss3": "7.6/CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+          "Cwe": "CWE-287",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2393",
+          "Public": "20220712:1725"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2101046",
+          "ID": "2101046"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-base is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086001"
+                  },
+                  {
+                    "Comment": "pki-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-base-java is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086003"
+                  },
+                  {
+                    "Comment": "pki-base-java is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-ca is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086005"
+                  },
+                  {
+                    "Comment": "pki-ca is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-javadoc is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086007"
+                  },
+                  {
+                    "Comment": "pki-javadoc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-kra is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086009"
+                  },
+                  {
+                    "Comment": "pki-kra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-server is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086011"
+                  },
+                  {
+                    "Comment": "pki-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-symkey is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086013"
+                  },
+                  {
+                    "Comment": "pki-symkey is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pki-tools is earlier than 0:10.5.18-23.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227086015"
+                  },
+                  {
+                    "Comment": "pki-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172335016"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

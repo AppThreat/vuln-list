@@ -1,0 +1,333 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20152587",
+  "Version": "650",
+  "Metadata": {
+    "Title": "RHSA-2015:2587: kernel security, bug fix, and enhancement update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.1 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2015:2587",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2015:2587"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2015-2925",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2015-2925"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2015-5307",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2015-5307"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2015-7613",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2015-7613"
+      }
+    ],
+    "Description": "The kernel packages contain the Linux kernel, the core of any Linux\noperating system.\n\n* A flaw was found in the way the Linux kernel's file system implementation\nhandled rename operations in which the source was inside and the\ndestination was outside of a bind mount. A privileged user inside a\ncontainer could use this flaw to escape the bind mount and, potentially,\nescalate their privileges on the system. (CVE-2015-2925, Important)\n\n* It was found that the x86 ISA (Instruction Set Architecture) is prone to\na denial of service attack inside a virtualized environment in the form of\nan infinite loop in the microcode due to the way (sequential) delivering of\nbenign exceptions such as #AC (alignment check exception) is handled.\nA privileged user inside a guest could use this flaw to create denial of\nservice conditions on the host kernel. (CVE-2015-5307, Important)\n\n* A race condition flaw was found in the way the Linux kernel's IPC\nsubsystem initialized certain fields in an IPC object structure that were\nlater used for permission checking before inserting the object into a\nglobally visible list. A local, unprivileged user could potentially use\nthis flaw to elevate their privileges on the system. (CVE-2015-7613,\nImportant)\n\nRed Hat would like to thank Ben Serebrin of Google Inc. for reporting the\nCVE-2015-5307 issue.\n\nThis update also fixes the following bugs and adds one enhancement:\n\n* When setting up an ESP IPsec connection, the aes_ctr algorithm did not\nwork for ESP on a Power little endian VM host. As a consequence, a kernel\nerror was previously returned and the connection failed to be established.\nA set of patches has been provided to fix this bug, and aes_ctr works for\nESP in the described situation as expected. (BZ#1247127)\n\n* The redistribute3() function distributed entries across 3 nodes. However,\nsome entries were moved an incorrect way, breaking the ordering. As a\nresult, BUG() in the dm-btree-remove.c:shift() function occurred when\nentries were removed from the btree. A patch has been provided to fix this\nbug, and redistribute3() now works as expected. (BZ#1263945)\n\n* When booting an mpt2sas adapter in a huge DDW enabled slot on Power, the\nkernel previously generated a warning followed by a call trace.\nThe provided patch set enhances the Power kernel to be able to support\nIOMMU as a fallback for the cases where the coherent mask of the device is\nnot suitable for direct DMA. As a result, neither the warning nor the call\ntrace occur in this scenario. (BZ#1267133)\n\n* If the client mounted /exports and tried to execute the \"chown -R\"\ncommand across the entire mountpoint, a warning about a circular directory\nstructure was previously returned because mount points all had the same\ninode number. A set of patches has been provided to fix this bug, and mount\npoints are now assigned with unique inode numbers as expected. (BZ#1273239)\n\n* Due to a validation error of in-kernel MMIO tracing, a VM became\npreviously unresponsive when connected to Red Hat Enterprise Virtualization\nHypervisor. The provided patch fixes this bug by dropping the check in MMIO\nhandler, and a VM continues running as expected. (BZ#1275149)\n\n* The NFS client could previously fail to send a CLOSE operation if the\nfile was opened with O_WRONLY and the server restarted after the OPEN.\nConsequently, the server appeared in a state that could block other NFS\noperations from completing. The client's state flags have been modified to\ncatch this condition and correctly CLOSE the file. (BZ#1275298)\n\n* This update sets multicast filters for multicast packets when the\ninterface is not in promiscuous mode. This change has an impact on the RAR\nusage such that SR-IOV has some RARs reserved for its own usage as well.\n(BZ#1265091)\n\nAll kernel users are advised to upgrade to these updated packages, which\ncontain backported patches to correct these issues and add this\nenhancement. The system must be rebooted for this update to take effect.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2015 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2015-12-09"
+      },
+      "Updated": {
+        "Date": "2015-12-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2015-2925",
+          "Cvss2": "6.0/AV:L/AC:H/Au:S/C:C/I:C/A:C",
+          "Cwe": "CWE-22",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2015-2925",
+          "Public": "20150403"
+        },
+        {
+          "CveID": "CVE-2015-5307",
+          "Cvss2": "5.2/AV:A/AC:M/Au:S/C:N/I:N/A:C",
+          "Cwe": "CWE-835",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2015-5307",
+          "Public": "20151110"
+        },
+        {
+          "CveID": "CVE-2015-7613",
+          "Cvss2": "6.2/AV:L/AC:H/Au:N/C:C/I:C/A:C",
+          "Cwe": "CWE-732",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2015-7613",
+          "Public": "20151001"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1209367",
+          "ID": "1209367"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1268270",
+          "ID": "1268270"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1277172",
+          "ID": "1277172"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:rhel_eus:7.1",
+        "cpe:/o:redhat:rhel_eus:7.1::computenode",
+        "cpe:/o:redhat:rhel_eus:7.1::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel earlier than 0:3.10.0-229.24.2.el7 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20152587031"
+              },
+              {
+                "Comment": "kernel earlier than 0:3.10.0-229.24.2.el7 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20152587032"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587001"
+                  },
+                  {
+                    "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-abi-whitelists is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587003"
+                  },
+                  {
+                    "Comment": "kernel-abi-whitelists is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-bootwrapper is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587005"
+                  },
+                  {
+                    "Comment": "kernel-bootwrapper is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587007"
+                  },
+                  {
+                    "Comment": "kernel-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-devel is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587009"
+                  },
+                  {
+                    "Comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-devel is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587011"
+                  },
+                  {
+                    "Comment": "kernel-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-doc is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587013"
+                  },
+                  {
+                    "Comment": "kernel-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-headers is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587015"
+                  },
+                  {
+                    "Comment": "kernel-headers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-kdump is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587017"
+                  },
+                  {
+                    "Comment": "kernel-kdump is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-kdump-devel is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587019"
+                  },
+                  {
+                    "Comment": "kernel-kdump-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587021"
+                  },
+                  {
+                    "Comment": "kernel-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587023"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587025"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "perf is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587027"
+                  },
+                  {
+                    "Comment": "perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-perf is earlier than 0:3.10.0-229.24.2.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20152587029"
+                  },
+                  {
+                    "Comment": "python-perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678030"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

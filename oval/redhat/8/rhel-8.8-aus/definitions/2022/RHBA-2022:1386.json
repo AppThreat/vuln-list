@@ -1,0 +1,216 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20221386",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHBA-2022:1386: .NET Core 3.1 on RHEL 8 bugfix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2022:1386",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2022:1386"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0613",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0613"
+      }
+    ],
+    "Description": ".NET Core is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nBug Fix(es) and Enhancement(s):\n\n* Update .NET Core 3.1 to SDK 3.1.418 and Runtime 3.1.24 [None8.5.0.z] (BZ#2073450)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-04-18"
+      },
+      "Updated": {
+        "Date": "2022-04-18"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-0613",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-178-\u003eCWE-639",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0613",
+          "Public": "20220216"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2055496",
+          "ID": "2055496"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386003"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386005"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386007"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386009"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-3.1 is earlier than 0:3.1.418-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386011"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-3.1-source-built-artifacts is earlier than 0:3.1.418-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386013"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-3.1-source-built-artifacts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-3.1 is earlier than 0:3.1.24-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386015"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-3.1 is earlier than 0:3.1.418-1.el8_5",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386017"
+                  },
+                  {
+                    "Comment": "dotnet-templates-3.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20221386018"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

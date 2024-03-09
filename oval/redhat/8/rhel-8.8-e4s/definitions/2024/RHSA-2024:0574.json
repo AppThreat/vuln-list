@@ -1,0 +1,178 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20240574",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2024:0574: frr security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.8 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:0574",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:0574"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-38406",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-38406"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-38407",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-38407"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-47234",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-47234"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-47235",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-47235"
+      }
+    ],
+    "Description": "FRRouting is free software that manages TCP/IP based routing protocols. It supports BGP4, OSPFv2, OSPFv3, ISIS, RIP, RIPng, PIM, NHRP, PBR, EIGRP and BFD. \n\nSecurity Fix(es):\n\n* ffr: Flowspec overflow in bgpd/bgp_flowspec.c (CVE-2023-38406)\n\n* ffr: Out of bounds read in bgpd/bgp_label.c (CVE-2023-38407)\n\n* frr: crash from specially crafted MP_UNREACH_NLRI-containing BGP UPDATE message (CVE-2023-47234)\n\n* frr: crash from malformed EOR-containing BGP UPDATE message (CVE-2023-47235)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-01-30"
+      },
+      "Updated": {
+        "Date": "2024-01-30"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-38406",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-38406",
+          "Public": "20230224"
+        },
+        {
+          "CveID": "CVE-2023-38407",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-38407",
+          "Public": "20230305"
+        },
+        {
+          "CveID": "CVE-2023-47234",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-47234",
+          "Public": "20231103"
+        },
+        {
+          "CveID": "CVE-2023-47235",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-47235",
+          "Public": "20231103"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2248207",
+          "ID": "2248207"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2248208",
+          "ID": "2248208"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2248526",
+          "ID": "2248526"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2248528",
+          "ID": "2248528"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "frr is earlier than 0:7.5.1-7.el8_8.5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240574001"
+                  },
+                  {
+                    "Comment": "frr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204619002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "frr-selinux is earlier than 0:7.5.1-7.el8_8.5",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240574003"
+                  },
+                  {
+                    "Comment": "frr-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232801004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

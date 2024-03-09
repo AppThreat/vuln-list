@@ -1,0 +1,144 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20220190",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:0190: Satellite 6.10.2 Async Bug Fix Update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.10 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:0190",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:0190"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-21290",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-21290"
+      }
+    ],
+    "Description": "Red Hat Satellite is a system management solution that allows organizations to configure and maintain their systems without the necessity to provide public Internet access to their servers or other client systems. It performs provisioning and configuration management of predefined standard operating environments.\n\nSecurity Fix(es):\n\n1927028 - candlepin: netty: Information disclosure via the local system temporary directory (CVE-2021-21290)\n\nThis update fixes the following bugs:\n\n2016047 - Uploading a duplicate file fails with undefined local variable or method upload_href for #\u003cActions::Pulp3::Repository::CommitUpload:0x00000000134e3f00\u003e\n2027347 - Satellite 6.10 upgrade fails with PG::NotNullViolation: ERROR: column \"subscription_id\" contains null values\n2027354 - Using Satellite with a proxy produces an SELinux alert\n2027358 - Large CRL file operation causes OOM error in Candlepin\n2027817 - [BUG] Upgrading Satellite 6.9 with custom certificates to Satellite 6.10 beta will cause the same problem to occur as BZ# 1961886\n2030445 - Failed at scanning for repository: undefined method `resolve_substitutions' for nil:NilClass\n2030448 - Capsule sync task failed to refresh repo that doesn't have feed url with \"bad argument (expected URI object or URI string)\" error\n\nUsers of Red Hat Satellite are advised to upgrade to these updated packages, which fix these bugs.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-01-19"
+      },
+      "Updated": {
+        "Date": "2022-01-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-21290",
+          "Cvss3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-200",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-21290",
+          "Public": "20210209"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1927028",
+          "ID": "1927028"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.10",
+        "cpe:/a:redhat:satellite:6.10::el7",
+        "cpe:/a:redhat:satellite_capsule:6.10",
+        "cpe:/a:redhat:satellite_capsule:6.10::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20214702030"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:20214702029"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite is earlier than 0:6.10.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190001"
+                  },
+                  {
+                    "Comment": "satellite is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214702012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-capsule is earlier than 0:6.10.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190003"
+                  },
+                  {
+                    "Comment": "satellite-capsule is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214702014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-cli is earlier than 0:6.10.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190005"
+                  },
+                  {
+                    "Comment": "satellite-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-common is earlier than 0:6.10.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190007"
+                  },
+                  {
+                    "Comment": "satellite-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220190008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

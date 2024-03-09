@@ -1,0 +1,258 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20225747",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHBA-2022:5747: .NET 6.0 bugfix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2022:5747",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2022:5747"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1650",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1650"
+      }
+    ],
+    "Description": ".NET Core is a managed-software framework. It implements a subset of the .NET\nframework APIs and several new APIs, and it includes a CLR implementation.\n\nBug Fix(es) and Enhancement(s):\n\n* Update .NET 6.0 to SDK 6.0.107 and Runtime 6.0.7 [rhel-8.6.0.z] (BZ#2105397)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-07-28"
+      },
+      "Updated": {
+        "Date": "2022-07-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-1650",
+          "Cvss3": "9.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:N",
+          "Cwe": "CWE-359",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1650",
+          "Public": "20220512"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2085307",
+          "ID": "2085307"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747003"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet is earlier than 0:6.0.107-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747005"
+                  },
+                  {
+                    "Comment": "dotnet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747007"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-host is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747009"
+                  },
+                  {
+                    "Comment": "dotnet-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747011"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747013"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-6.0 is earlier than 0:6.0.107-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747015"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-6.0-source-built-artifacts is earlier than 0:6.0.107-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747017"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-6.0-source-built-artifacts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-6.0 is earlier than 0:6.0.7-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747019"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-6.0 is earlier than 0:6.0.107-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747021"
+                  },
+                  {
+                    "Comment": "dotnet-templates-6.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:6.0.107-1.el8_6",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747023"
+                  },
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747024"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214782",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2021:4782: openssh security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4782",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4782"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-41617",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-41617"
+      }
+    ],
+    "Description": "OpenSSH is an SSH protocol implementation supported by a number of Linux, UNIX, and similar operating systems. It includes the core files necessary for both the OpenSSH client and server.\n\nSecurity Fix(es):\n\n* openssh: privilege escalation when AuthorizedKeysCommand or AuthorizedPrincipalsCommand are configured (CVE-2021-41617)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-23"
+      },
+      "Updated": {
+        "Date": "2021-11-23"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-41617",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-273",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-41617",
+          "Public": "20210926"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2008291",
+          "ID": "2008291"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782001"
+                  },
+                  {
+                    "Comment": "openssh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-askpass is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782003"
+                  },
+                  {
+                    "Comment": "openssh-askpass is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-cavs is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782005"
+                  },
+                  {
+                    "Comment": "openssh-cavs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172029006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-clients is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782007"
+                  },
+                  {
+                    "Comment": "openssh-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-keycat is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782009"
+                  },
+                  {
+                    "Comment": "openssh-keycat is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-ldap is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782011"
+                  },
+                  {
+                    "Comment": "openssh-ldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-server is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782013"
+                  },
+                  {
+                    "Comment": "openssh-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openssh-server-sysvinit is earlier than 0:7.4p1-22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782015"
+                  },
+                  {
+                    "Comment": "openssh-server-sysvinit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-2.22.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214782017"
+                  },
+                  {
+                    "Comment": "pam_ssh_agent_auth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20150425016"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

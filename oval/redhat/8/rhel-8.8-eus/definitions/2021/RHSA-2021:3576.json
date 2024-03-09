@@ -1,0 +1,215 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213576",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:3576: krb5 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3576",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3576"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-36222",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-36222"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-37750",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-37750"
+      }
+    ],
+    "Description": "Kerberos is a network authentication system, which can improve the security of your network by eliminating the insecure practice of sending passwords over the network in unencrypted form. It allows clients and servers to authenticate to each other with the help of a trusted third party, the Kerberos key distribution center (KDC).\n\nSecurity Fix(es):\n\n* krb5: Sending a request containing PA-ENCRYPTED-CHALLENGE padata element without using FAST could result in NULL dereference in KDC which leads to DoS (CVE-2021-36222)\n\n* krb5: NULL pointer dereference in process_tgs_req() in kdc/do_tgs_req.c via a FAST inner body that lacks server field (CVE-2021-37750)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-09-21"
+      },
+      "Updated": {
+        "Date": "2021-09-21"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-36222",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-36222",
+          "Public": "20210712"
+        },
+        {
+          "CveID": "CVE-2021-37750",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-37750",
+          "Public": "20210819"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1983720",
+          "ID": "1983720"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1996834",
+          "ID": "1996834"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::nfv",
+        "cpe:/a:redhat:rhel_eus:8.8::realtime",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-devel is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576001"
+                  },
+                  {
+                    "Comment": "krb5-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-libs is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576003"
+                  },
+                  {
+                    "Comment": "krb5-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-pkinit is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576005"
+                  },
+                  {
+                    "Comment": "krb5-pkinit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-server is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576007"
+                  },
+                  {
+                    "Comment": "krb5-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-server-ldap is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576009"
+                  },
+                  {
+                    "Comment": "krb5-server-ldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "krb5-workstation is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576011"
+                  },
+                  {
+                    "Comment": "krb5-workstation is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libkadm5 is earlier than 0:1.18.2-8.3.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213576013"
+                  },
+                  {
+                    "Comment": "libkadm5 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20233850014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

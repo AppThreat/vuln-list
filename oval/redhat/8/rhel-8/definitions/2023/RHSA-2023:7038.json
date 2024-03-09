@@ -1,0 +1,189 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20237038",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:7038: flatpak security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:7038",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:7038"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28100",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28100"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-28101",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-28101"
+      }
+    ],
+    "Description": "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux.\n\nThe following packages have been upgraded to a later upstream version: flatpak (1.10.8). (BZ#2222103)\n\nSecurity Fix(es):\n\n* flatpak: TIOCLINUX can send commands outside sandbox if running on a virtual console (CVE-2023-28100)\n\n* flatpak: Metadata with ANSI control codes can cause misleading terminal output (CVE-2023-28101)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.9 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-14"
+      },
+      "Updated": {
+        "Date": "2023-11-14"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-28100",
+          "Cvss3": "6.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28100",
+          "Public": "20230316"
+        },
+        {
+          "CveID": "CVE-2023-28101",
+          "Cvss3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-116",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-28101",
+          "Public": "20230316"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2179219",
+          "ID": "2179219"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2179220",
+          "ID": "2179220"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak is earlier than 0:1.10.8-1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237038001"
+                  },
+                  {
+                    "Comment": "flatpak is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191143002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-devel is earlier than 0:1.10.8-1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237038003"
+                  },
+                  {
+                    "Comment": "flatpak-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221792004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-libs is earlier than 0:1.10.8-1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237038005"
+                  },
+                  {
+                    "Comment": "flatpak-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191143004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-selinux is earlier than 0:1.10.8-1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237038007"
+                  },
+                  {
+                    "Comment": "flatpak-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210304006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-session-helper is earlier than 0:1.10.8-1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237038009"
+                  },
+                  {
+                    "Comment": "flatpak-session-helper is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210304008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

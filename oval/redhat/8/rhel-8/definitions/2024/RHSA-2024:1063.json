@@ -1,0 +1,150 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241063",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2024:1063: edk2 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1063",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1063"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-45230",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-45230"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-45234",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-45234"
+      }
+    ],
+    "Description": "EDK (Embedded Development Kit) is a project to enable UEFI support for Virtual Machines. This package contains a sample 64-bit UEFI firmware for QEMU and KVM. \n\nSecurity Fix(es):\n\n* edk2: Buffer overflow in the DHCPv6 client via a long Server ID option (CVE-2023-45230)\n\n* edk2: Buffer overflow when processing DNS Servers option in a DHCPv6 Advertise message (CVE-2023-45234)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-04"
+      },
+      "Updated": {
+        "Date": "2024-03-04"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-45230",
+          "Cvss3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-45230",
+          "Public": "20240116"
+        },
+        {
+          "CveID": "CVE-2023-45234",
+          "Cvss3": "8.8/CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-45234",
+          "Public": "20240116"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2258685",
+          "ID": "2258685"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2258697",
+          "ID": "2258697"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "edk2-aarch64 is earlier than 0:20220126gitbb1bba3d77-6.el8_9.6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241063001"
+                  },
+                  {
+                    "Comment": "edk2-aarch64 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190968002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "edk2-ovmf is earlier than 0:20220126gitbb1bba3d77-6.el8_9.6",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241063003"
+                  },
+                  {
+                    "Comment": "edk2-ovmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190968004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

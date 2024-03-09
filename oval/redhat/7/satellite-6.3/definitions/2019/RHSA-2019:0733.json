@@ -1,0 +1,183 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20190733",
+  "Version": "642",
+  "Metadata": {
+    "Title": "RHSA-2019:0733: katello-installer-base security and enhancement update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.3 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2019:0733",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2019:0733"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-3845",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-3845"
+      }
+    ],
+    "Description": "The qpid-dispatch-router package provides remote host management functionality and is configured through the katello-installer-base package. Additional packages included contain enhancements to support the fix.\n\nSecurity Fix:\n\n* qpid-dispatch-router: QMF methods were exposed to goferd via qdrouterd (CVE-2019-3845)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nThis issue was discovered by Pavel Moravec (Red Hat).",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2019 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2019-04-09"
+      },
+      "Updated": {
+        "Date": "2019-04-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-3845",
+          "Cvss3": "8.0/CVSS:3.0/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-284",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-3845",
+          "Public": "20190409:1327"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1684275",
+          "ID": "1684275"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.3",
+        "cpe:/a:redhat:satellite:6.3::el7",
+        "cpe:/a:redhat:satellite_capsule:6.3",
+        "cpe:/a:redhat:satellite_capsule:6.3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20180337428"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20180337427"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "foreman-installer-katello is earlier than 0:3.4.5.35-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733001"
+                  },
+                  {
+                    "Comment": "foreman-installer-katello is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336120"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "katello-installer-base is earlier than 0:3.4.5.35-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733003"
+                  },
+                  {
+                    "Comment": "katello-installer-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336122"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite is earlier than 0:6.3.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733005"
+                  },
+                  {
+                    "Comment": "satellite is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-capsule is earlier than 0:6.3.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733007"
+                  },
+                  {
+                    "Comment": "satellite-capsule is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-cli is earlier than 0:6.3.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733009"
+                  },
+                  {
+                    "Comment": "satellite-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-common is earlier than 0:6.3.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733011"
+                  },
+                  {
+                    "Comment": "satellite-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "satellite-debug-tools is earlier than 0:6.3.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190733013"
+                  },
+                  {
+                    "Comment": "satellite-debug-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180336056"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

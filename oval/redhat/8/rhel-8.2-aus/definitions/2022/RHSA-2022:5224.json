@@ -1,0 +1,352 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20225224",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:5224: kernel-rt security and bug fix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:5224",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:5224"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-29368",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-29368"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1012",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1012"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1729",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1729"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1966",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1966"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-27666",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-27666"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-32250",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-32250"
+      }
+    ],
+    "Description": "The kernel-rt packages provide the Real Time Linux Kernel, which enables fine-tuning for systems with extremely high determinism requirements.\n\nSecurity Fix(es):\n\n* kernel: Small table perturb size in the TCP source port generation algorithm can lead to information leak (CVE-2022-1012)\n\n* kernel: race condition in perf_event_open leads to privilege escalation (CVE-2022-1729)\n\n* kernel: a use-after-free write in the netfilter subsystem can lead to privilege escalation to root (CVE-2022-1966)\n\n* kernel: buffer overflow in IPsec ESP transformation code (CVE-2022-27666)\n\n* kernel: the copy-on-write implementation can grant unintended write access because of a race condition in a THP mapcount check (CVE-2020-29368)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* kernel-rt: update RT source tree to the latest RHEL-8.2.z18 Batch (BZ#2081080)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-06-28"
+      },
+      "Updated": {
+        "Date": "2022-06-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-29368",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-362",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-29368",
+          "Public": "20200603"
+        },
+        {
+          "CveID": "CVE-2022-1012",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+          "Cwe": "CWE-200",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1012",
+          "Public": "20220502:0430"
+        },
+        {
+          "CveID": "CVE-2022-1729",
+          "Cvss3": "7.4/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-366",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1729",
+          "Public": "20220520"
+        },
+        {
+          "CveID": "CVE-2022-1966",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1966",
+          "Public": "20220602"
+        },
+        {
+          "CveID": "CVE-2022-27666",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-122",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-27666",
+          "Public": "20220311:0630"
+        },
+        {
+          "CveID": "CVE-2022-32250",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-32250",
+          "Public": "20220531"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1903244",
+          "ID": "1903244"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2061633",
+          "ID": "2061633"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2064604",
+          "ID": "2064604"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2086753",
+          "ID": "2086753"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2092427",
+          "ID": "2092427"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2093146",
+          "ID": "2093146"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.2",
+        "cpe:/a:redhat:rhel_aus:8.2::appstream",
+        "cpe:/o:redhat:rhel_aus:8.2",
+        "cpe:/o:redhat:rhel_aus:8.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel-rt earlier than 0:4.18.0-193.87.1.rt13.137.el8_2 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20225220051"
+              },
+              {
+                "Comment": "kernel-rt earlier than 0:4.18.0-193.87.1.rt13.137.el8_2 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20225224026"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224001"
+                  },
+                  {
+                    "Comment": "kernel-rt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-core is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224003"
+                  },
+                  {
+                    "Comment": "kernel-rt-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224005"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug-core is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224007"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug-devel is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224009"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug-kvm is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224011"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug-kvm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug-modules is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224013"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-debug-modules-extra is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224015"
+                  },
+                  {
+                    "Comment": "kernel-rt-debug-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-devel is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224017"
+                  },
+                  {
+                    "Comment": "kernel-rt-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-kvm is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224019"
+                  },
+                  {
+                    "Comment": "kernel-rt-kvm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-modules is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224021"
+                  },
+                  {
+                    "Comment": "kernel-rt-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-rt-modules-extra is earlier than 0:4.18.0-193.87.1.rt13.137.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225224023"
+                  },
+                  {
+                    "Comment": "kernel-rt-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191174024"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

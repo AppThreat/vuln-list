@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20220810",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:0810: OpenShift Container Platform 4.10.4 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.10"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:0810",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:0810"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0811",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0811"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing\nKubernetes application platform solution designed for on-premise or private\ncloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.10.4. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHBA-2022:0811\n\nSecurity Fix(es):\n\n* CRI-O: Arbitrary code execution in cri-o via abusing “kernel.core_pattern” kernel parameter (CVE-2022-0811)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage(s) listed in the References section.\n\nAll OpenShift Container Platform 4.10 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift Console or the CLI oc command. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.10/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-03-15"
+      },
+      "Updated": {
+        "Date": "2022-03-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-0811",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-94",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0811",
+          "Public": "20220315:1400"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2059475",
+          "ID": "2059475"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.10",
+        "cpe:/a:redhat:openshift:4.10::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20230898005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "cri-o is earlier than 0:1.23.1-12.rhaos4.10.git1607c6e.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20220810001"
+          },
+          {
+            "Comment": "cri-o is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20220055010"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230898003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230898004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

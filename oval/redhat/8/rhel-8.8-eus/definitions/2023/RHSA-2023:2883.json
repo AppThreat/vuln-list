@@ -1,0 +1,162 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20232883",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:2883: libtiff security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:2883",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:2883"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3627",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3627"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3970",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3970"
+      }
+    ],
+    "Description": "The libtiff packages contain a library of functions for manipulating Tagged Image File Format (TIFF) files.\n\nSecurity Fix(es):\n\n* libtiff: out-of-bounds write in _TIFFmemcpy in libtiff/tif_unix.c (CVE-2022-3627)\n\n* libtiff: integer overflow in function TIFFReadRGBATileExt of the file (CVE-2022-3970)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.8 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-05-16"
+      },
+      "Updated": {
+        "Date": "2023-05-16"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3627",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3627",
+          "Public": "20220321"
+        },
+        {
+          "CveID": "CVE-2022-3970",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-680",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3970",
+          "Public": "20221108"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2142742",
+          "ID": "2142742"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2148918",
+          "ID": "2148918"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::nfv",
+        "cpe:/a:redhat:rhel_eus:8.8::realtime",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libtiff is earlier than 0:4.0.9-27.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232883001"
+                  },
+                  {
+                    "Comment": "libtiff is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193419002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libtiff-devel is earlier than 0:4.0.9-27.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232883003"
+                  },
+                  {
+                    "Comment": "libtiff-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193419004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libtiff-tools is earlier than 0:4.0.9-27.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232883005"
+                  },
+                  {
+                    "Comment": "libtiff-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20193419006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

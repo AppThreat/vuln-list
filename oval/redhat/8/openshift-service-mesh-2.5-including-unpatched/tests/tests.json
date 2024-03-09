@@ -1,0 +1,74 @@
+{
+  "RpminfoTests": [
+    {
+      "Check": "at least one",
+      "Comment": "consul is installed",
+      "ID": "oval:com.redhat.cve:tst:20235332001",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20235332001"
+      },
+      "State": {}
+    },
+    {
+      "Check": "at least one",
+      "Comment": "consul is signed with Red Hat redhatrelease2 key",
+      "ID": "oval:com.redhat.cve:tst:20235332002",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20235332001"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20235332001"
+      }
+    },
+    {
+      "Check": "at least one",
+      "Comment": "servicemesh-proxy is installed",
+      "ID": "oval:com.redhat.cve:tst:202423322001",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:202423322001"
+      },
+      "State": {}
+    },
+    {
+      "Check": "at least one",
+      "Comment": "servicemesh-proxy is signed with Red Hat redhatrelease2 key",
+      "ID": "oval:com.redhat.cve:tst:202423322002",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:202423322001"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20235332001"
+      }
+    }
+  ],
+  "RpmverifyfileTests": [
+    {
+      "Check": "at least one",
+      "Comment": "Red Hat Enterprise Linux 8 is installed",
+      "ID": "oval:com.redhat.cve:tst:20235332003",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20235332002"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20235332002"
+      }
+    },
+    {
+      "Check": "none satisfy",
+      "Comment": "Red Hat Enterprise Linux must be installed",
+      "ID": "oval:com.redhat.cve:tst:20235332004",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20235332002"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20235332003"
+      }
+    }
+  ]
+}

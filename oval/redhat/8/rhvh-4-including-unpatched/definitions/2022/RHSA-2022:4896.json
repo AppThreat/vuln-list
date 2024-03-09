@@ -1,0 +1,204 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20224896",
+  "Version": "647",
+  "Metadata": {
+    "Title": "RHSA-2022:4896: Red Hat Virtualization security, bug fix, and enhancement update [ovirt-4.5.0] (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Virtualization 4 for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:4896",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:4896"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-25032",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-25032"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4028",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4028"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4083",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4083"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0778",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0778"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-1271",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-1271"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-24903",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-24903"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-25636",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-25636"
+      }
+    ],
+    "Description": "The redhat-virtualization-host packages provide the Red Hat Virtualization Host. These packages include redhat-release-virtualization-host, ovirt-node, and rhev-hypervisor. Red Hat Virtualization Hosts (RHVH) are installed using a special build of Red Hat Enterprise Linux with only the packages required to host virtual machines. RHVH features a Cockpit user interface for monitoring the host's resources and performing administrative tasks.\n\nSecurity Fix(es):\n\n* kernel: use-after-free in RDMA listen() (CVE-2021-4028)\n\n* kernel: fget: check that the fd still exists after getting a ref to it (CVE-2021-4083)\n\n* kernel: heap out of bounds write in nf_dup_netdev.c (CVE-2022-25636)\n\n* openssl: Infinite loop in BN_mod_sqrt() reachable when parsing certificates (CVE-2022-0778)\n\n* zlib: A flaw found in zlib when compressing (not decompressing) certain inputs (CVE-2018-25032)\n\n* gzip: arbitrary-file-write vulnerability (CVE-2022-1271)\n\n* rsyslog: Heap-based overflow in TCP syslog server (CVE-2022-24903)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fixes:\n\n* elfutils package has been update within RHV-H Channel to match the same version released in RHEL (BZ#2038081)\n\n* Rebase package(s) to version 1.2.24\nFor highlights, important fixes, or notable enhancements: see bugs in \"Depend On\". (BZ#2057338)\n\n* Rebase package(s) to version: 4.5.0\n\nHighlights, important fixes, or notable enhancements: (BZ#2057342)\n\n* Rebase package(s) to version anaconda-33.16.6.6-1.el8\nFor highlights and important bug fixes: include UI change for blocking installation if root password is not set. (BZ#1899821)\n\n* Red hat Virtualization Host has been rebased on Red Hat Enterprise Linux 8.6 (BZ#1997074)\n\n* Previously, concurrent executions of LV refresh (lvchange) failed. This hindered simultaneous starts of virtual machines that have thin-provisioned disks based on the same disk on a block storage domain.\nIn this release, concurrent execution of LV refresh has been fixed in LVM2. (BZ#2020497)\n\n* Red Hat Virtualization Host has been rebased on latest Ceph 4.3 (BZ#2090138)\n\n* In previous releases systemtap package could have been installed on top of RHV-H from RHV-H channel. With 4.4 SP1 systemtap package installation is not supported anymore (BZ#2052963)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-06-03"
+      },
+      "Updated": {
+        "Date": "2022-06-03"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2018-25032",
+          "Cvss3": "8.2/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-25032",
+          "Public": "20180420"
+        },
+        {
+          "CveID": "CVE-2021-4028",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4028",
+          "Public": "20211004"
+        },
+        {
+          "CveID": "CVE-2021-4083",
+          "Cvss3": "7.4/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-362",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4083",
+          "Public": "20211203:0800"
+        },
+        {
+          "CveID": "CVE-2022-0778",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-835",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0778",
+          "Public": "20220315"
+        },
+        {
+          "CveID": "CVE-2022-1271",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "(CWE-179|CWE-1173)",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-1271",
+          "Public": "20220407"
+        },
+        {
+          "CveID": "CVE-2022-24903",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-24903",
+          "Public": "20220505"
+        },
+        {
+          "CveID": "CVE-2022-25636",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-25636",
+          "Public": "20220222"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2027201",
+          "ID": "2027201"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2029923",
+          "ID": "2029923"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2056830",
+          "ID": "2056830"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2062202",
+          "ID": "2062202"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2067945",
+          "ID": "2067945"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2073310",
+          "ID": "2073310"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2081353",
+          "ID": "2081353"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::hypervisor"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20204172005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "redhat-virtualization-host-image-update is earlier than 0:4.5.0-202205291010_8.6",
+            "TestRef": "oval:com.redhat.rhsa:tst:20224896001"
+          },
+          {
+            "Comment": "redhat-virtualization-host-image-update is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20204172002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20204172003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20204172004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

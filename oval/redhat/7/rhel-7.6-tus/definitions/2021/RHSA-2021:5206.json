@@ -1,0 +1,129 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20215206",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:5206: log4j security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.6 Telco Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:5206",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:5206"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4104",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4104"
+      }
+    ],
+    "Description": "Log4j is a tool to help the programmer output log statements to a variety of output targets.\n\nSecurity Fix(es):\n\n* log4j: Remote code execution in Log4j 1.x when application is configured to use JMSAppender (CVE-2021-4104)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-12-20"
+      },
+      "Updated": {
+        "Date": "2021-12-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-4104",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4104",
+          "Public": "20211210"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2031667",
+          "ID": "2031667"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:rhel_tus:7.6",
+        "cpe:/o:redhat:rhel_tus:7.6::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "log4j is earlier than 0:1.2.17-17.el7_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20215206001"
+                  },
+                  {
+                    "Comment": "log4j is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172423002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "log4j-javadoc is earlier than 0:1.2.17-17.el7_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20215206003"
+                  },
+                  {
+                    "Comment": "log4j-javadoc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172423004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "log4j-manual is earlier than 0:1.2.17-17.el7_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20215206005"
+                  },
+                  {
+                    "Comment": "log4j-manual is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20172423006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
