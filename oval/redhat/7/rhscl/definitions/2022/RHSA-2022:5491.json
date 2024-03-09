@@ -1,0 +1,522 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20225491",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:5491: rh-php73-php security and bug fix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:5491",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:5491"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-21703",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-21703"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-21707",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-21707"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31625",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31625"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-31626",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-31626"
+      }
+    ],
+    "Description": "PHP is an HTML-embedded scripting language commonly used with the Apache HTTP Server. \n\nSecurity Fix(es):\n\n* php: password of excessive length triggers buffer overflow leading to RCE (CVE-2022-31626)\n\n* php: Local privilege escalation via PHP-FPM (CVE-2021-21703)\n\n* php: special character breaks path in xml parsing (CVE-2021-21707)\n\n* php: uninitialized array in pg_query_params() leading to RCE (CVE-2022-31625)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* rh-php73: rebase to 7.3.33 (BZ#2100753)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-07-04"
+      },
+      "Updated": {
+        "Date": "2022-07-04"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-21703",
+          "Cvss3": "6.4/CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-21703",
+          "Public": "20211020"
+        },
+        {
+          "CveID": "CVE-2021-21707",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-21707",
+          "Public": "20211115"
+        },
+        {
+          "CveID": "CVE-2022-31625",
+          "Cvss3": "7.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+          "Cwe": "CWE-824",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31625",
+          "Public": "20220516"
+        },
+        {
+          "CveID": "CVE-2022-31626",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-120",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-31626",
+          "Public": "20220516"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2016535",
+          "ID": "2016535"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2026045",
+          "ID": "2026045"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2098521",
+          "ID": "2098521"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2098523",
+          "ID": "2098523"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20190772022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20190772009"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491001"
+                  },
+                  {
+                    "Comment": "rh-php73-php is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-bcmath is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491003"
+                  },
+                  {
+                    "Comment": "rh-php73-php-bcmath is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-cli is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491005"
+                  },
+                  {
+                    "Comment": "rh-php73-php-cli is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-common is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491007"
+                  },
+                  {
+                    "Comment": "rh-php73-php-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-dba is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491009"
+                  },
+                  {
+                    "Comment": "rh-php73-php-dba is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-dbg is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491011"
+                  },
+                  {
+                    "Comment": "rh-php73-php-dbg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-devel is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491013"
+                  },
+                  {
+                    "Comment": "rh-php73-php-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-embedded is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491015"
+                  },
+                  {
+                    "Comment": "rh-php73-php-embedded is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-enchant is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491017"
+                  },
+                  {
+                    "Comment": "rh-php73-php-enchant is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-fpm is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491019"
+                  },
+                  {
+                    "Comment": "rh-php73-php-fpm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-gd is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491021"
+                  },
+                  {
+                    "Comment": "rh-php73-php-gd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-gmp is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491023"
+                  },
+                  {
+                    "Comment": "rh-php73-php-gmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-intl is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491025"
+                  },
+                  {
+                    "Comment": "rh-php73-php-intl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-json is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491027"
+                  },
+                  {
+                    "Comment": "rh-php73-php-json is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-ldap is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491029"
+                  },
+                  {
+                    "Comment": "rh-php73-php-ldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-mbstring is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491031"
+                  },
+                  {
+                    "Comment": "rh-php73-php-mbstring is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-mysqlnd is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491033"
+                  },
+                  {
+                    "Comment": "rh-php73-php-mysqlnd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-odbc is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491035"
+                  },
+                  {
+                    "Comment": "rh-php73-php-odbc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-opcache is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491037"
+                  },
+                  {
+                    "Comment": "rh-php73-php-opcache is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-pdo is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491039"
+                  },
+                  {
+                    "Comment": "rh-php73-php-pdo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-pgsql is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491041"
+                  },
+                  {
+                    "Comment": "rh-php73-php-pgsql is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-process is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491043"
+                  },
+                  {
+                    "Comment": "rh-php73-php-process is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-pspell is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491045"
+                  },
+                  {
+                    "Comment": "rh-php73-php-pspell is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-recode is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491047"
+                  },
+                  {
+                    "Comment": "rh-php73-php-recode is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-snmp is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491049"
+                  },
+                  {
+                    "Comment": "rh-php73-php-snmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-soap is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491051"
+                  },
+                  {
+                    "Comment": "rh-php73-php-soap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-xml is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491053"
+                  },
+                  {
+                    "Comment": "rh-php73-php-xml is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-xmlrpc is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491055"
+                  },
+                  {
+                    "Comment": "rh-php73-php-xmlrpc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-php73-php-zip is earlier than 0:7.3.33-1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225491057"
+                  },
+                  {
+                    "Comment": "rh-php73-php-zip is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20205275058"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

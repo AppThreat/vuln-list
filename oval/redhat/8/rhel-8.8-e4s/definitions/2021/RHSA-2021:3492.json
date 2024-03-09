@@ -1,0 +1,141 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213492",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:3492: cyrus-imapd security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3492",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3492"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-33582",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-33582"
+      }
+    ],
+    "Description": "The Cyrus IMAP server provides access to personal mail, system-wide bulletin boards, news-feeds, calendar and contacts through the IMAP, JMAP, NNTP, CalDAV and CardDAV protocols.\n\nSecurity Fix(es):\n\n* cyrus-imapd: Denial of service via string hashing algorithm collisions (CVE-2021-33582)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-09-13"
+      },
+      "Updated": {
+        "Date": "2021-09-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-33582",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-33582",
+          "Public": "20210901"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1993232",
+          "ID": "1993232"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cyrus-imapd is earlier than 0:3.0.7-20.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213492001"
+                  },
+                  {
+                    "Comment": "cyrus-imapd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191771002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cyrus-imapd-utils is earlier than 0:3.0.7-20.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213492003"
+                  },
+                  {
+                    "Comment": "cyrus-imapd-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191771004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cyrus-imapd-vzic is earlier than 0:3.0.7-20.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213492005"
+                  },
+                  {
+                    "Comment": "cyrus-imapd-vzic is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191771006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

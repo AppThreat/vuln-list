@@ -1,0 +1,120 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221662",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:1662: rh-maven36-maven-shared-utils security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Software Collections for Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1662",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1662"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-29599",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-29599"
+      }
+    ],
+    "Description": "The Apache Maven Shared Utils project aims to be an improved functional replacement for plexus-utils in Maven.\n\nSecurity Fix(es):\n\n* maven-shared-utils: Command injection via Commandline class (CVE-2022-29599)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-02"
+      },
+      "Updated": {
+        "Date": "2022-05-02"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-29599",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-77",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-29599",
+          "Public": "20200529"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2066479",
+          "ID": "2066479"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_software_collections:1",
+        "cpe:/a:redhat:rhel_software_collections:1::el7",
+        "cpe:/a:redhat:rhel_software_collections:2",
+        "cpe:/a:redhat:rhel_software_collections:2::el7",
+        "cpe:/a:redhat:rhel_software_collections:3",
+        "cpe:/a:redhat:rhel_software_collections:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20190772022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20190772009"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-maven36-maven-shared-utils is earlier than 0:3.2.1-0.2.3.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221662001"
+                  },
+                  {
+                    "Comment": "rh-maven36-maven-shared-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221662002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-maven36-maven-shared-utils-javadoc is earlier than 0:3.2.1-0.2.3.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221662003"
+                  },
+                  {
+                    "Comment": "rh-maven36-maven-shared-utils-javadoc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221662004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

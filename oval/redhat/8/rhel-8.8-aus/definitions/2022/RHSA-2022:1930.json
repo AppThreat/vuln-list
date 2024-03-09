@@ -1,0 +1,104 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221930",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:1930: keepalived security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1930",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1930"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-44225",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-44225"
+      }
+    ],
+    "Description": "The keepalived utility provides simple and robust facilities for load balancing and high availability. The load balancing framework relies on the well-known and widely used IP Virtual Server (IPVS) kernel module providing layer-4 (transport layer) load balancing. Keepalived implements a set of checkers to dynamically and adaptively maintain and manage a load balanced server pool according to the health of the servers. Keepalived also implements the Virtual Router Redundancy Protocol (VRRPv2) to achieve high availability with director failover.\n\nSecurity Fix(es):\n\n* keepalived: dbus access control bypass (CVE-2021-44225)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.6 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-10"
+      },
+      "Updated": {
+        "Date": "2022-05-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-44225",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-287",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-44225",
+          "Public": "20211126"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2027156",
+          "ID": "2027156"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "keepalived is earlier than 0:2.1.5-8.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221930001"
+          },
+          {
+            "Comment": "keepalived is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20221930002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233839",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2023:3839: libssh security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3839",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3839"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-1667",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-1667"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2283",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2283"
+      }
+    ],
+    "Description": "libssh is a library which implements the SSH protocol. It can be used to implement client and server applications.\n\nSecurity Fix(es):\n\n* libssh: NULL pointer dereference during rekeying with algorithm guessing (CVE-2023-1667)\n\n* libssh: authorization bypass in pki_verify_data_signature (CVE-2023-2283)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-06-27"
+      },
+      "Updated": {
+        "Date": "2023-06-27"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-1667",
+          "Cvss3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-1667",
+          "Public": "20230430"
+        },
+        {
+          "CveID": "CVE-2023-2283",
+          "Cvss3": "4.8/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+          "Cwe": "CWE-287",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2283",
+          "Public": "20230505"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2182199",
+          "ID": "2182199"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2189736",
+          "ID": "2189736"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh is earlier than 0:0.9.6-10.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233839001"
+                  },
+                  {
+                    "Comment": "libssh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204545002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh-config is earlier than 0:0.9.6-10.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233839003"
+                  },
+                  {
+                    "Comment": "libssh-config is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204545004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libssh-devel is earlier than 0:0.9.6-10.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233839005"
+                  },
+                  {
+                    "Comment": "libssh-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20204545006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

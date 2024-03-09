@@ -1,0 +1,181 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213144",
+  "Version": "638",
+  "Metadata": {
+    "Title": "RHSA-2021:3144: .NET Core 2.1 on Red Hat Enterprise Linux security and bugfix update (Low)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          ".NET Core on Red Hat Enterprise Linux"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3144",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3144"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-34485",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-34485"
+      }
+    ],
+    "Description": ".NET Core is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nNew versions of .NET Core that address a security vulnerability are now available. The updated versions are .NET Core SDK  2.1.525 and .NET Core Runtime 2.1.29.\n\nSecurity Fix(es):\n\n* dotnet: Dump file created world-readable (CVE-2021-34485)\n\nDefault inclusions for applications built with .NET Core have been updated to reference the newest versions and their security fixes.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Low",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-08-11"
+      },
+      "Updated": {
+        "Date": "2021-08-11"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-34485",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-732",
+          "Impact": "low",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-34485",
+          "Public": "20210810:1900"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1990286",
+          "ID": "1990286"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_dotnet:2.1",
+        "cpe:/a:redhat:rhel_dotnet:2.1::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20165419008"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20165419007"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-dotnet is earlier than 0:2.1.525-1.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144001"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-dotnet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20188356006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-dotnet-host is earlier than 0:2.1.29-1.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144003"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-dotnet-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20188356010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-dotnet-runtime-2.1 is earlier than 0:2.1.29-1.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144005"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-dotnet-runtime-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20188356008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-dotnet-sdk-2.1 is earlier than 0:2.1.525-1.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144007"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-dotnet-sdk-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20188356002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-dotnet-sdk-2.1.5xx is earlier than 0:2.1.525-1.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144009"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-dotnet-sdk-2.1.5xx is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20188356014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21 is earlier than 0:2.1-28.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144011"
+                  },
+                  {
+                    "Comment": "rh-dotnet21 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190040012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rh-dotnet21-runtime is earlier than 0:2.1-28.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20213144013"
+                  },
+                  {
+                    "Comment": "rh-dotnet21-runtime is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20190040014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

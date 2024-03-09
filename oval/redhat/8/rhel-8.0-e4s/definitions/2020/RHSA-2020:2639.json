@@ -1,0 +1,167 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20202639",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2020:2639: gnutls security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.0 Update Services for SAP Solutions"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2020:2639",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2020:2639"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-13777",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-13777"
+      }
+    ],
+    "Description": "The gnutls packages provide the GNU Transport Layer Security (GnuTLS) library, which implements cryptographic algorithms and protocols such as SSL, TLS, and DTLS.\n\nSecurity Fix(es):\n\n* gnutls: session resumption works without master key allowing MITM (CVE-2020-13777)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2020 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2020-06-22"
+      },
+      "Updated": {
+        "Date": "2020-06-22"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-13777",
+          "Cvss3": "7.4/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "Cwe": "CWE-345",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-13777",
+          "Public": "20200603"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1843723",
+          "ID": "1843723"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.0",
+        "cpe:/a:redhat:rhel_e4s:8.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.0::sap",
+        "cpe:/a:redhat:rhel_e4s:8.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.0",
+        "cpe:/o:redhat:rhel_e4s:8.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls is earlier than 0:3.6.5-3.el8_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639001"
+                  },
+                  {
+                    "Comment": "gnutls is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-c++ is earlier than 0:3.6.5-3.el8_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639003"
+                  },
+                  {
+                    "Comment": "gnutls-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-dane is earlier than 0:3.6.5-3.el8_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639005"
+                  },
+                  {
+                    "Comment": "gnutls-dane is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-devel is earlier than 0:3.6.5-3.el8_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639007"
+                  },
+                  {
+                    "Comment": "gnutls-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gnutls-utils is earlier than 0:3.6.5-3.el8_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639009"
+                  },
+                  {
+                    "Comment": "gnutls-utils is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20202639010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20235461",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:5461: ImageMagick security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:5461",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:5461"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-40211",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-40211"
+      }
+    ],
+    "Description": "ImageMagick is an image display and manipulation tool for the X Window System that can read and write multiple image formats.\n\nSecurity Fix(es):\n\n* ImageMagick: Division by zero in ReadEnhMetaFile lead to DoS (CVE-2021-40211)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-10-05"
+      },
+      "Updated": {
+        "Date": "2023-10-05"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-40211",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-369",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-40211",
+          "Public": "20230822"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2235480",
+          "ID": "2235480"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras:7",
+        "cpe:/a:redhat:rhel_extras_oracle_java:7",
+        "cpe:/a:redhat:rhel_extras_rt:7",
+        "cpe:/a:redhat:rhel_extras_sap:7",
+        "cpe:/a:redhat:rhel_extras_sap_hana:7",
+        "cpe:/o:redhat:enterprise_linux:7",
+        "cpe:/o:redhat:enterprise_linux:7::client",
+        "cpe:/o:redhat:enterprise_linux:7::computenode",
+        "cpe:/o:redhat:enterprise_linux:7::server",
+        "cpe:/o:redhat:enterprise_linux:7::workstation"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461001"
+                  },
+                  {
+                    "Comment": "ImageMagick is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick-c++ is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461003"
+                  },
+                  {
+                    "Comment": "ImageMagick-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick-c++-devel is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461005"
+                  },
+                  {
+                    "Comment": "ImageMagick-c++-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick-devel is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461007"
+                  },
+                  {
+                    "Comment": "ImageMagick-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick-doc is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461009"
+                  },
+                  {
+                    "Comment": "ImageMagick-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ImageMagick-perl is earlier than 0:6.9.10.68-7.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20235461011"
+                  },
+                  {
+                    "Comment": "ImageMagick-perl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20160726012"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

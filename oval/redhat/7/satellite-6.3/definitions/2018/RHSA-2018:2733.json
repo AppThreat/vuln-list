@@ -1,0 +1,93 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20182733",
+  "Version": "639",
+  "Metadata": {
+    "Title": "RHSA-2018:2733: rubygem-smart_proxy_dynflow security update (Critical)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.3 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2018:2733",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2018:2733"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2018-14643",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2018-14643"
+      }
+    ],
+    "Description": "The rubygem provided by rubygem-smart_proxy_dynflow is a plugin into Foreman's Smart Proxy for running Dynflow actions on the Smart Proxy.\n\nSecurity Fix(es):\n\n* smart_proxy_dynflow: Authentication bypass in Foreman remote execution feature (CVE-2018-14643)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nThis issue was discovered by Ivan Necas (Red Hat).",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Critical",
+      "Rights": "Copyright 2018 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2018-09-20"
+      },
+      "Updated": {
+        "Date": "2018-09-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2018-14643",
+          "Cvss3": "9.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-287",
+          "Impact": "critical",
+          "Href": "https://access.redhat.com/security/cve/CVE-2018-14643",
+          "Public": "20180920"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1629063",
+          "ID": "1629063"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.3",
+        "cpe:/a:redhat:satellite:6.3::el7",
+        "cpe:/a:redhat:satellite_capsule:6.3",
+        "cpe:/a:redhat:satellite_capsule:6.3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20180337428"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20180337427"
+          },
+          {
+            "Comment": "rubygem-smart_proxy_dynflow is earlier than 0:0.1.10.2-1.el7sat",
+            "TestRef": "oval:com.redhat.rhsa:tst:20182733001"
+          },
+          {
+            "Comment": "rubygem-smart_proxy_dynflow is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20180336174"
+          }
+        ]
+      }
+    ]
+  }
+}

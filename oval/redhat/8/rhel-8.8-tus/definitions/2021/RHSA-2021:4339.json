@@ -1,0 +1,128 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214339",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4339: grilo security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4339",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4339"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-39365",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-39365"
+      }
+    ],
+    "Description": "Grilo is a framework that provides access to different sources of multimedia content, using a pluggable system. The grilo package contains the core library and elements.\n\nSecurity Fix(es):\n\n* grilo: missing TLS certificate verification (CVE-2021-39365)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-39365",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-295",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-39365",
+          "Public": "20210621"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1997161",
+          "ID": "1997161"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.8",
+        "cpe:/a:redhat:rhel_tus:8.8::appstream",
+        "cpe:/a:redhat:rhel_tus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.8::nfv",
+        "cpe:/a:redhat:rhel_tus:8.8::realtime",
+        "cpe:/o:redhat:rhel_tus:8.8",
+        "cpe:/o:redhat:rhel_tus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "grilo is earlier than 0:0.3.6-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214339001"
+                  },
+                  {
+                    "Comment": "grilo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214339002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "grilo-devel is earlier than 0:0.3.6-3.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214339003"
+                  },
+                  {
+                    "Comment": "grilo-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214339004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

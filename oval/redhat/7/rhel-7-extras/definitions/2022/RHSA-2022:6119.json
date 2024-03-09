@@ -1,0 +1,132 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20226119",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:6119: podman security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7 Extras"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:6119",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:6119"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2738",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2738"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2739",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2739"
+      }
+    ],
+    "Description": "The podman tool manages pods, container images, and containers. It is part of the libpod library, which is for applications that use container pods. Container pods is a concept in Kubernetes.\n\nSecurity Fix(es):\n\n* podman: Security regression of CVE-2020-8945 due to source code management issue (CVE-2022-2738)\n\n* podman: Security regression of CVE-2020-14370 due to source code management issue (CVE-2022-2739)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* podman-1.6.4-32 prints a `Error: read unixpacket` when running in interactive mode (BZ#2087994)\n\n* systemd managed container doesn't start serving web traffic despite of starting on system startup. (BZ#2096449)\n\n* Can not Add url with podman build (BZ#2112217)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-08-22"
+      },
+      "Updated": {
+        "Date": "2022-08-22"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2738",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2738",
+          "Public": "20220819"
+        },
+        {
+          "CveID": "CVE-2022-2739",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-312",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2739",
+          "Public": "20220819"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2116923",
+          "ID": "2116923"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2116927",
+          "ID": "2116927"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras_other:7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20141977004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20141977003"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman is earlier than 0:1.6.4-36.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226119001"
+                  },
+                  {
+                    "Comment": "podman is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20182796002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "podman-docker is earlier than 0:1.6.4-36.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226119003"
+                  },
+                  {
+                    "Comment": "podman-docker is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191907004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228897",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:8897: Red Hat OpenStack Platform 13.0 (instack-undercloud) security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 13.0 - ELS"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8897",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8897"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3596",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3596"
+      }
+    ],
+    "Description": "Installation tools to install an undercloud via instack\n\nSecurity Fix(es):\n\n* instack-undercloud: rsync leaks information to undercloud (CVE-2022-3596)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE\npage listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-12-08"
+      },
+      "Updated": {
+        "Date": "2022-12-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3596",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-402",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3596",
+          "Public": "20221205"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2136596",
+          "ID": "2136596"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack-optools:13",
+        "cpe:/a:redhat:openstack-optools:13::el7",
+        "cpe:/a:redhat:openstack:13",
+        "cpe:/a:redhat:openstack:13::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20190448068"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20190448067"
+          },
+          {
+            "Comment": "instack-undercloud is earlier than 0:8.4.9-13.el7ost",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228897001"
+          },
+          {
+            "Comment": "instack-undercloud is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhba:tst:20190448028"
+          }
+        ]
+      }
+    ]
+  }
+}

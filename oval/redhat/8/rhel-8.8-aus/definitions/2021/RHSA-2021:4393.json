@@ -1,0 +1,190 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214393",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4393: cups security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4393",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4393"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-10001",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-10001"
+      }
+    ],
+    "Description": "The Common UNIX Printing System (CUPS) provides a portable printing layer for Linux, UNIX, and similar operating systems.\n\nSecurity Fix(es):\n\n* cups: access to uninitialized buffer in ipp.c (CVE-2020-10001)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-10001",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-120",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-10001",
+          "Public": "20210201"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1921680",
+          "ID": "1921680"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393001"
+                  },
+                  {
+                    "Comment": "cups is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-client is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393003"
+                  },
+                  {
+                    "Comment": "cups-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-devel is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393005"
+                  },
+                  {
+                    "Comment": "cups-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-filesystem is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393007"
+                  },
+                  {
+                    "Comment": "cups-filesystem is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-ipptool is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393009"
+                  },
+                  {
+                    "Comment": "cups-ipptool is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-libs is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393011"
+                  },
+                  {
+                    "Comment": "cups-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "cups-lpd is earlier than 1:2.2.6-40.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214393013"
+                  },
+                  {
+                    "Comment": "cups-lpd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20201765014"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20227458",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:7458: flatpak-builder security and bug fix update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:7458",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:7458"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-21682",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-21682"
+      }
+    ],
+    "Description": "Flatpak-builder is a tool for building flatpaks from sources.\n\nSecurity Fix(es):\n\n* flatpak: flatpak-builder --mirror-screenshots-url can access files outside the build directory (CVE-2022-21682)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.7 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-08"
+      },
+      "Updated": {
+        "Date": "2022-11-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-21682",
+          "Cvss3": "7.7/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:N",
+          "Cwe": "CWE-22",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-21682",
+          "Public": "20220112"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2041592",
+          "ID": "2041592"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.8",
+        "cpe:/a:redhat:rhel_tus:8.8::appstream",
+        "cpe:/a:redhat:rhel_tus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.8::nfv",
+        "cpe:/a:redhat:rhel_tus:8.8::realtime",
+        "cpe:/o:redhat:rhel_tus:8.8",
+        "cpe:/o:redhat:rhel_tus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "flatpak-builder is earlier than 0:1.0.14-2.el8",
+            "TestRef": "oval:com.redhat.rhsa:tst:20227458001"
+          },
+          {
+            "Comment": "flatpak-builder is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20227458002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

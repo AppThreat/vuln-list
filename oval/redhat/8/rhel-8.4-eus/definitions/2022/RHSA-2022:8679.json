@@ -1,0 +1,172 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228679",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:8679: usbguard security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.4 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8679",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8679"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-25058",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-25058"
+      }
+    ],
+    "Description": "The USBGuard software framework provides system protection against intrusive USB devices by implementing basic whitelisting and blacklisting capabilities based on device attributes. To enforce a user-defined policy, USBGuard uses the Linux kernel USB device authorization feature.\n\nSecurity Fix(es):\n\n* usbguard: Fix unauthorized access via D-Bus (CVE-2019-25058)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-29"
+      },
+      "Updated": {
+        "Date": "2022-11-29"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-25058",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-863-\u003eCWE-1220",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-25058",
+          "Public": "20220224"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2058465",
+          "ID": "2058465"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.4",
+        "cpe:/a:redhat:rhel_eus:8.4::appstream",
+        "cpe:/a:redhat:rhel_eus:8.4::crb",
+        "cpe:/a:redhat:rhel_eus:8.4::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.4::nfv",
+        "cpe:/a:redhat:rhel_eus:8.4::realtime",
+        "cpe:/a:redhat:rhel_eus:8.4::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.4::sap",
+        "cpe:/a:redhat:rhel_eus:8.4::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.4::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.4",
+        "cpe:/o:redhat:rhel_eus:8.4::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "usbguard is earlier than 0:1.0.0-2.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679001"
+                  },
+                  {
+                    "Comment": "usbguard is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "usbguard-dbus is earlier than 0:1.0.0-2.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679003"
+                  },
+                  {
+                    "Comment": "usbguard-dbus is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "usbguard-notifier is earlier than 0:1.0.0-2.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679005"
+                  },
+                  {
+                    "Comment": "usbguard-notifier is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "usbguard-selinux is earlier than 0:1.0.0-2.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679007"
+                  },
+                  {
+                    "Comment": "usbguard-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "usbguard-tools is earlier than 0:1.0.0-2.el8_4.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679009"
+                  },
+                  {
+                    "Comment": "usbguard-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20228679010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

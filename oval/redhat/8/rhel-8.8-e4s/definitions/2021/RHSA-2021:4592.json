@@ -1,0 +1,107 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214592",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2021:4592: gcc-toolset-10-annobin security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4592",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4592"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-42574",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-42574"
+      }
+    ],
+    "Description": "Annobin provides a compiler plugin to annotate and tools to examine compiled binary files.\n\nSecurity Fix(es):\n\n* Developer environment: Unicode's bidirectional (BiDi) override characters can cause trojan source attacks (CVE-2021-42574)\n\nThe following changes were introduced in annobin in order to facilitate detection of BiDi Unicode characters:\n\nThis update of annobin adds a new annocheck test to detect the presence of multibyte characters in symbol names.\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-10"
+      },
+      "Updated": {
+        "Date": "2021-11-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-42574",
+          "Cvss3": "8.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-838",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-42574",
+          "Public": "20211101"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2005819",
+          "ID": "2005819"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "gcc-toolset-10-annobin is earlier than 0:9.29-1.el8_5.2",
+            "TestRef": "oval:com.redhat.rhsa:tst:20214592001"
+          },
+          {
+            "Comment": "gcc-toolset-10-annobin is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20214592002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

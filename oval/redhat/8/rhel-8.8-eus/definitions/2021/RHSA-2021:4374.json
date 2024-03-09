@@ -1,0 +1,159 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214374",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2021:4374: file security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4374",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4374"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2019-18218",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2019-18218"
+      }
+    ],
+    "Description": "The file command is used to identify a particular file according to the type of data the file contains. It can identify many different file types, including Executable and Linkable Format (ELF) binary files, system libraries, RPM packages, and different graphics formats.\n\nSecurity Fix(es):\n\n* file: heap-based buffer overflow in cdf_read_property_info in cdf.c (CVE-2019-18218)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAdditional Changes:\n\nFor detailed information on changes in this release, see the Red Hat Enterprise Linux 8.5 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-09"
+      },
+      "Updated": {
+        "Date": "2021-11-09"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2019-18218",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-122",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2019-18218",
+          "Public": "20190826"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1765272",
+          "ID": "1765272"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::nfv",
+        "cpe:/a:redhat:rhel_eus:8.8::realtime",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "file is earlier than 0:5.33-20.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374001"
+                  },
+                  {
+                    "Comment": "file is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "file-devel is earlier than 0:5.33-20.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374003"
+                  },
+                  {
+                    "Comment": "file-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "file-libs is earlier than 0:5.33-20.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374005"
+                  },
+                  {
+                    "Comment": "file-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-magic is earlier than 0:5.33-20.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374007"
+                  },
+                  {
+                    "Comment": "python3-magic is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214374008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

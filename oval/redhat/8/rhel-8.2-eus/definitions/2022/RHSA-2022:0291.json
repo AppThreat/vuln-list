@@ -1,0 +1,369 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20220291",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:0291: parfait:0.5 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:0291",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:0291"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4104",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4104"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-23302",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-23302"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-23305",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-23305"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-23307",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-23307"
+      }
+    ],
+    "Description": "Parfait is a Java performance monitoring library that collects metrics and exposes them through a variety of outputs. It provides APIs for extracting performance metrics from the JVM and other sources. It interfaces to Performance Co-Pilot (PCP) using the Memory Mapped Value (MMV) machinery for extremely lightweight instrumentation.\n\nSecurity Fix(es):\n\n* log4j: SQL injection in Log4j 1.x when application is configured to use JDBCAppender (CVE-2022-23305)\n\n* log4j: Unsafe deserialization flaw in Chainsaw log viewer (CVE-2022-23307)\n\n* log4j: Remote code execution in Log4j 1.x when application is configured to use JMSAppender (CVE-2021-4104)\n\n* log4j: Remote code execution in Log4j 1.x when application is configured to use JMSSink (CVE-2022-23302)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-01-26"
+      },
+      "Updated": {
+        "Date": "2022-01-26"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-4104",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4104",
+          "Public": "20211210"
+        },
+        {
+          "CveID": "CVE-2022-23302",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-502",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-23302",
+          "Public": "20220118"
+        },
+        {
+          "CveID": "CVE-2022-23305",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-89",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-23305",
+          "Public": "20220118"
+        },
+        {
+          "CveID": "CVE-2022-23307",
+          "Cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-502",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-23307",
+          "Public": "20220118"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2031667",
+          "ID": "2031667"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2041949",
+          "ID": "2041949"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2041959",
+          "ID": "2041959"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2041967",
+          "ID": "2041967"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.2",
+        "cpe:/a:redhat:rhel_eus:8.2::appstream",
+        "cpe:/a:redhat:rhel_eus:8.2::crb",
+        "cpe:/a:redhat:rhel_eus:8.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.2::nfv",
+        "cpe:/a:redhat:rhel_eus:8.2::realtime",
+        "cpe:/a:redhat:rhel_eus:8.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.2::sap",
+        "cpe:/a:redhat:rhel_eus:8.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.2",
+        "cpe:/o:redhat:rhel_eus:8.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "Module parfait:0.5 is enabled",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20220291031"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "parfait is earlier than 0:0.5.4-4.module+el8.2.0+13999+fa2fb353",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291001"
+                          },
+                          {
+                            "Comment": "parfait is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291002"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "parfait-examples is earlier than 0:0.5.4-4.module+el8.2.0+13999+fa2fb353",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291003"
+                          },
+                          {
+                            "Comment": "parfait-examples is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291004"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "parfait-javadoc is earlier than 0:0.5.4-4.module+el8.2.0+13999+fa2fb353",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291005"
+                          },
+                          {
+                            "Comment": "parfait-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291006"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "pcp-parfait-agent is earlier than 0:0.5.4-4.module+el8.2.0+13999+fa2fb353",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291007"
+                          },
+                          {
+                            "Comment": "pcp-parfait-agent is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291008"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "si-units is earlier than 0:0.6.5-2.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291009"
+                          },
+                          {
+                            "Comment": "si-units is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291010"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "si-units-javadoc is earlier than 0:0.6.5-2.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291011"
+                          },
+                          {
+                            "Comment": "si-units-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291012"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "unit-api is earlier than 0:1.0-5.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291013"
+                          },
+                          {
+                            "Comment": "unit-api is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291014"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "unit-api-javadoc is earlier than 0:1.0-5.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291015"
+                          },
+                          {
+                            "Comment": "unit-api-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291016"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-lib is earlier than 0:1.0.1-6.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291017"
+                          },
+                          {
+                            "Comment": "uom-lib is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291018"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-lib-javadoc is earlier than 0:1.0.1-6.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291019"
+                          },
+                          {
+                            "Comment": "uom-lib-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291020"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-parent is earlier than 0:1.0.3-3.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291021"
+                          },
+                          {
+                            "Comment": "uom-parent is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291022"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-se is earlier than 0:1.0.4-3.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291023"
+                          },
+                          {
+                            "Comment": "uom-se is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291024"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-se-javadoc is earlier than 0:1.0.4-3.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291025"
+                          },
+                          {
+                            "Comment": "uom-se-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291026"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-systems is earlier than 0:0.7-1.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291027"
+                          },
+                          {
+                            "Comment": "uom-systems is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291028"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterions": [
+                          {
+                            "Comment": "uom-systems-javadoc is earlier than 0:0.7-1.module+el8+2463+615f6896",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291029"
+                          },
+                          {
+                            "Comment": "uom-systems-javadoc is signed with Red Hat redhatrelease2 key",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20220291030"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

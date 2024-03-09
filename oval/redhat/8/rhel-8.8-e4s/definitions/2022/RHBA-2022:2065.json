@@ -1,0 +1,128 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20222065",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHBA-2022:2065: libtirpc bug fix and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2022:2065",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2022:2065"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-46828",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-46828"
+      }
+    ],
+    "Description": "For detailed information on changes in this release, see the Red Hat Enterprise Linux 8.6 Release Notes linked from the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-05-10"
+      },
+      "Updated": {
+        "Date": "2022-05-10"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-46828",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-46828",
+          "Public": "20220720"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2109352",
+          "ID": "2109352"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libtirpc is earlier than 0:1.1.4-6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20222065001"
+                  },
+                  {
+                    "Comment": "libtirpc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20222065002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libtirpc-devel is earlier than 0:1.1.4-6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20222065003"
+                  },
+                  {
+                    "Comment": "libtirpc-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20222065004"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

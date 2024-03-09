@@ -1,0 +1,2894 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20180337",
+  "Version": "641",
+  "Metadata": {
+    "Title": "RHBA-2018:0337: Red Hat Satellite 6.3 Base Libraries (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.3 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2018:0337",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2018:0337"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2013-6668",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2013-6668"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2015-3225",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2015-3225"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2016-2166",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2016-2166"
+      }
+    ],
+    "Description": "Red Hat Satellite is a systems management tool for Linux-based infrastructures. It allows for provisioning, remote management and monitoring of multiple Linux deployments with a single, centralized tool. It performs provisioning and configuration management of predefined standard operating environments.\n\nThis update provides the base libraries for Satellite 6.3 packages for Red Hat Enterprise Linux 7 Satellite Server. For the full list of new features provided by Satellite 6.3, see the Release Notes linked to in the references section. See the Satellite 6 Installation Guide for detailed instructions on how to install a new Satellite 6.3 environment, or the Satellite 6 Upgrading and Updating guide for detailed instructions on how to upgrade from prior versions of Satellite 6.\n\nAll users who require Satellite version 6.3 are advised to install these new packages.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2018 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2018-02-21"
+      },
+      "Updated": {
+        "Date": "2018-02-21"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2013-6668",
+          "Cvss2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2013-6668",
+          "Public": "20140218"
+        },
+        {
+          "CveID": "CVE-2015-3225",
+          "Cvss2": "4.3/AV:N/AC:M/Au:N/C:N/I:N/A:P",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2015-3225",
+          "Public": "20150616"
+        },
+        {
+          "CveID": "CVE-2016-2166",
+          "Cvss2": "4.3/AV:N/AC:M/Au:N/C:P/I:N/A:N",
+          "Cwe": "CWE-223",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2016-2166",
+          "Public": "20160309"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1074737",
+          "ID": "1074737"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1232292",
+          "ID": "1232292"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1320842",
+          "ID": "1320842"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.3",
+        "cpe:/a:redhat:satellite:6.3::el7",
+        "cpe:/a:redhat:satellite_capsule:6.3",
+        "cpe:/a:redhat:satellite_capsule:6.3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20180337428"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20180337427"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "SOAPpy is earlier than 0:0.11.6-17.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337001"
+                  },
+                  {
+                    "Comment": "SOAPpy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "createrepo_c is earlier than 0:0.7.4-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337003"
+                  },
+                  {
+                    "Comment": "createrepo_c is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "createrepo_c-libs is earlier than 0:0.7.4-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337005"
+                  },
+                  {
+                    "Comment": "createrepo_c-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "facter is earlier than 1:2.4.6-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337007"
+                  },
+                  {
+                    "Comment": "facter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "hiera is earlier than 0:1.3.1-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337009"
+                  },
+                  {
+                    "Comment": "hiera is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kobo is earlier than 0:0.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337011"
+                  },
+                  {
+                    "Comment": "kobo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libstemmer is earlier than 0:0-2.585svn.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337013"
+                  },
+                  {
+                    "Comment": "libstemmer is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libwebsockets is earlier than 0:2.1.0-3.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337015"
+                  },
+                  {
+                    "Comment": "libwebsockets is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "liquibase is earlier than 0:3.1.0-1.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337017"
+                  },
+                  {
+                    "Comment": "liquibase is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "mod_xsendfile is earlier than 0:0.12-10.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337019"
+                  },
+                  {
+                    "Comment": "mod_xsendfile is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "mongodb is earlier than 0:2.6.11-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337021"
+                  },
+                  {
+                    "Comment": "mongodb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "mongodb-server is earlier than 0:2.6.11-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337023"
+                  },
+                  {
+                    "Comment": "mongodb-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ostree is earlier than 0:2017.1-2.atomic.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337025"
+                  },
+                  {
+                    "Comment": "ostree is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet is earlier than 0:3.8.6-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337027"
+                  },
+                  {
+                    "Comment": "puppet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet-server is earlier than 0:3.8.6-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337029"
+                  },
+                  {
+                    "Comment": "puppet-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppetlabs-stdlib is earlier than 0:4.2.1-1.20140510git08b00d9.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337031"
+                  },
+                  {
+                    "Comment": "puppetlabs-stdlib is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-amqp is earlier than 0:1.4.9-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337033"
+                  },
+                  {
+                    "Comment": "python-amqp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-anyjson is earlier than 0:0.3.3-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337035"
+                  },
+                  {
+                    "Comment": "python-anyjson is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-billiard is earlier than 1:3.3.0.20-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337037"
+                  },
+                  {
+                    "Comment": "python-billiard is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-blinker is earlier than 0:1.3-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337039"
+                  },
+                  {
+                    "Comment": "python-blinker is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-celery is earlier than 0:3.1.17-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337041"
+                  },
+                  {
+                    "Comment": "python-celery is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-crane is earlier than 0:2.1.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337043"
+                  },
+                  {
+                    "Comment": "python-crane is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-django is earlier than 0:1.6.11-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337045"
+                  },
+                  {
+                    "Comment": "python-django is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-django-bash-completion is earlier than 0:1.6.11-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337047"
+                  },
+                  {
+                    "Comment": "python-django-bash-completion is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-flask is earlier than 1:0.10.1-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337049"
+                  },
+                  {
+                    "Comment": "python-flask is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-fpconst is earlier than 0:0.7.3-12.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337051"
+                  },
+                  {
+                    "Comment": "python-fpconst is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-gnupg is earlier than 0:0.3.7-1.el7ui",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337053"
+                  },
+                  {
+                    "Comment": "python-gnupg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-httplib2 is earlier than 0:0.6.0-6.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337055"
+                  },
+                  {
+                    "Comment": "python-httplib2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-isodate is earlier than 0:0.5.0-5.pulp.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337057"
+                  },
+                  {
+                    "Comment": "python-isodate is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337058"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-itsdangerous is earlier than 0:0.23-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337059"
+                  },
+                  {
+                    "Comment": "python-itsdangerous is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337060"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-jinja2 is earlier than 0:2.7.2-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337061"
+                  },
+                  {
+                    "Comment": "python-jinja2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337062"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-kid is earlier than 0:0.9.6-11.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337063"
+                  },
+                  {
+                    "Comment": "python-kid is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337064"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-kombu is earlier than 1:3.0.33-8.pulp.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337065"
+                  },
+                  {
+                    "Comment": "python-kombu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337066"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-mongoengine is earlier than 0:0.10.5-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337067"
+                  },
+                  {
+                    "Comment": "python-mongoengine is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337068"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-nectar is earlier than 0:1.5.4-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337069"
+                  },
+                  {
+                    "Comment": "python-nectar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337070"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-oauth2 is earlier than 0:1.5.211-8.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337071"
+                  },
+                  {
+                    "Comment": "python-oauth2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337072"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-okaara is earlier than 0:1.0.32-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337073"
+                  },
+                  {
+                    "Comment": "python-okaara is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337074"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-bson is earlier than 0:3.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337075"
+                  },
+                  {
+                    "Comment": "python-bson is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337076"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-pymongo is earlier than 0:3.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337077"
+                  },
+                  {
+                    "Comment": "python-pymongo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337078"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-pymongo-gridfs is earlier than 0:3.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337079"
+                  },
+                  {
+                    "Comment": "python-pymongo-gridfs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337080"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-qpid is earlier than 0:1.35.0-5.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337081"
+                  },
+                  {
+                    "Comment": "python-qpid is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337082"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-semantic_version is earlier than 0:2.2.0-6.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337083"
+                  },
+                  {
+                    "Comment": "python-semantic_version is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337084"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-simplejson is earlier than 0:3.2.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337085"
+                  },
+                  {
+                    "Comment": "python-simplejson is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337086"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-twisted-core is earlier than 0:12.2.0-4.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337087"
+                  },
+                  {
+                    "Comment": "python-twisted-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337088"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-twisted-web is earlier than 0:12.1.0-5.el7_2",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337089"
+                  },
+                  {
+                    "Comment": "python-twisted-web is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337090"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-werkzeug is earlier than 0:0.9.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337091"
+                  },
+                  {
+                    "Comment": "python-werkzeug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337092"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-zope-interface is earlier than 0:4.0.5-4.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337093"
+                  },
+                  {
+                    "Comment": "python-zope-interface is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337094"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-qpid-qmf is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337095"
+                  },
+                  {
+                    "Comment": "python-qpid-qmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337096"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-cpp-client is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337097"
+                  },
+                  {
+                    "Comment": "qpid-cpp-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337098"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-cpp-client-devel is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337099"
+                  },
+                  {
+                    "Comment": "qpid-cpp-client-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337100"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-cpp-server is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337101"
+                  },
+                  {
+                    "Comment": "qpid-cpp-server is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337102"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-cpp-server-linearstore is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337103"
+                  },
+                  {
+                    "Comment": "qpid-cpp-server-linearstore is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337104"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-qmf is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337105"
+                  },
+                  {
+                    "Comment": "qpid-qmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337106"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-tools is earlier than 0:1.36.0-9.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337107"
+                  },
+                  {
+                    "Comment": "qpid-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337108"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-dispatch-router is earlier than 0:0.8.0-16.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337109"
+                  },
+                  {
+                    "Comment": "qpid-dispatch-router is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337110"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-dispatch-tools is earlier than 0:0.8.0-16.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337111"
+                  },
+                  {
+                    "Comment": "qpid-dispatch-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337112"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-qpid-proton is earlier than 0:0.16.0-7.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337113"
+                  },
+                  {
+                    "Comment": "python-qpid-proton is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337114"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "qpid-proton-c is earlier than 0:0.16.0-7.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337115"
+                  },
+                  {
+                    "Comment": "qpid-proton-c is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337116"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "repoview is earlier than 0:0.6.6-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337117"
+                  },
+                  {
+                    "Comment": "repoview is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337118"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ruby-augeas is earlier than 0:0.5.0-1.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337119"
+                  },
+                  {
+                    "Comment": "ruby-augeas is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337120"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ruby-rgen is earlier than 0:0.6.5-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337121"
+                  },
+                  {
+                    "Comment": "ruby-rgen is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337122"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ruby-shadow is earlier than 0:1.4.1-21.el7",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337123"
+                  },
+                  {
+                    "Comment": "ruby-shadow is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337124"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-ansi is earlier than 0:1.4.3-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337125"
+                  },
+                  {
+                    "Comment": "rubygem-ansi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337126"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-bundler_ext is earlier than 0:0.4.1-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337127"
+                  },
+                  {
+                    "Comment": "rubygem-bundler_ext is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337128"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-clamp is earlier than 0:1.0.0-8.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337129"
+                  },
+                  {
+                    "Comment": "rubygem-clamp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337130"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-concurrent-ruby is earlier than 1:1.0.3-2.fm1_15.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337131"
+                  },
+                  {
+                    "Comment": "rubygem-concurrent-ruby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337132"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-fast_gettext is earlier than 0:1.1.0-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337133"
+                  },
+                  {
+                    "Comment": "rubygem-fast_gettext is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337134"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-ffi is earlier than 0:1.4.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337135"
+                  },
+                  {
+                    "Comment": "rubygem-ffi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337136"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-gssapi is earlier than 0:1.1.2-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337137"
+                  },
+                  {
+                    "Comment": "rubygem-gssapi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337138"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-hashie is earlier than 0:2.0.5-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337139"
+                  },
+                  {
+                    "Comment": "rubygem-hashie is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337140"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-highline is earlier than 0:1.6.21-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337141"
+                  },
+                  {
+                    "Comment": "rubygem-highline is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337142"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-little-plugger is earlier than 0:1.1.3-21.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337143"
+                  },
+                  {
+                    "Comment": "rubygem-little-plugger is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337144"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-logging is earlier than 0:1.8.2-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337145"
+                  },
+                  {
+                    "Comment": "rubygem-logging is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337146"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-mime-types is earlier than 0:1.19-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337147"
+                  },
+                  {
+                    "Comment": "rubygem-mime-types is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337148"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-multi_json is earlier than 0:1.10.1-3.git.1551.b3eae6f.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337149"
+                  },
+                  {
+                    "Comment": "rubygem-multi_json is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337150"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-netrc is earlier than 0:0.7.7-9.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337151"
+                  },
+                  {
+                    "Comment": "rubygem-netrc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337152"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-newt is earlier than 0:0.9.6-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337153"
+                  },
+                  {
+                    "Comment": "rubygem-newt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337154"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-oauth is earlier than 0:0.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337155"
+                  },
+                  {
+                    "Comment": "rubygem-oauth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337156"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-openscap is earlier than 0:0.4.7-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337157"
+                  },
+                  {
+                    "Comment": "rubygem-openscap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337158"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "mod_passenger is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337159"
+                  },
+                  {
+                    "Comment": "mod_passenger is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337160"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-passenger is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337161"
+                  },
+                  {
+                    "Comment": "rubygem-passenger is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337162"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-passenger-native is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337163"
+                  },
+                  {
+                    "Comment": "rubygem-passenger-native is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337164"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-passenger-native-libs is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337165"
+                  },
+                  {
+                    "Comment": "rubygem-passenger-native-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337166"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-powerbar is earlier than 0:1.0.17-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337167"
+                  },
+                  {
+                    "Comment": "rubygem-powerbar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337168"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rack is earlier than 1:1.6.4-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337169"
+                  },
+                  {
+                    "Comment": "rubygem-rack is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337170"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rack-protection is earlier than 0:1.5.3-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337171"
+                  },
+                  {
+                    "Comment": "rubygem-rack-protection is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337172"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rake is earlier than 0:0.9.2.2-41.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337173"
+                  },
+                  {
+                    "Comment": "rubygem-rake is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337174"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rb-inotify is earlier than 0:0.9.7-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337175"
+                  },
+                  {
+                    "Comment": "rubygem-rb-inotify is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337176"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rest-client is earlier than 0:1.6.7-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337177"
+                  },
+                  {
+                    "Comment": "rubygem-rest-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337178"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rkerberos is earlier than 0:0.1.3-2.2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337179"
+                  },
+                  {
+                    "Comment": "rubygem-rkerberos is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337180"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-rubyipmi is earlier than 0:0.10.0-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337181"
+                  },
+                  {
+                    "Comment": "rubygem-rubyipmi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337182"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-sinatra is earlier than 1:1.4.7-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337183"
+                  },
+                  {
+                    "Comment": "rubygem-sinatra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337184"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rubygem-tilt is earlier than 0:1.3.7-2.git.0.3b416c9.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337185"
+                  },
+                  {
+                    "Comment": "rubygem-tilt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337186"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-saslwrapper is earlier than 0:0.22-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337187"
+                  },
+                  {
+                    "Comment": "python-saslwrapper is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337188"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "saslwrapper is earlier than 0:0.22-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337189"
+                  },
+                  {
+                    "Comment": "saslwrapper is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337190"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-runtime is earlier than 0:3.2-11.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337191"
+                  },
+                  {
+                    "Comment": "tfm-runtime is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337192"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-activerecord-session_store is earlier than 0:0.1.2-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337193"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-activerecord-session_store is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337194"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-addressable is earlier than 0:2.3.6-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337195"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-addressable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337196"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-algebrick is earlier than 0:0.7.3-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337197"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-algebrick is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337198"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ancestry is earlier than 0:2.2.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337199"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ancestry is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337200"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-anemone is earlier than 0:0.7.2-14.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337201"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-anemone is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337202"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-angular-rails-templates is earlier than 1:1.0.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337203"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-angular-rails-templates is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337204"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-apipie-bindings is earlier than 0:0.2.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337205"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-apipie-bindings is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337206"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-apipie-params is earlier than 0:0.0.5-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337207"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-apipie-params is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337208"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-apipie-rails is earlier than 0:0.5.6-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337209"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-apipie-rails is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337210"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-audited is earlier than 0:4.4.1-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337211"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-audited is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337212"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-autoparse is earlier than 0:0.3.3-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337213"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-autoparse is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337214"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-awesome_print is earlier than 0:1.7.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337215"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-awesome_print is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337216"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-bundler_ext is earlier than 0:0.4.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337217"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-bundler_ext is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337218"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-clamp is earlier than 0:1.0.0-8.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337219"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-clamp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337220"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-concurrent-ruby is earlier than 1:1.0.3-1.fm1_15.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337221"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-concurrent-ruby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337222"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-concurrent-ruby-edge is earlier than 1:0.2.3-1.fm1_15.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337223"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-concurrent-ruby-edge is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337224"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-css_parser is earlier than 0:1.4.7-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337225"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-css_parser is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337226"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-daemons is earlier than 0:1.2.3-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337227"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-daemons is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337228"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-deacon is earlier than 0:1.0.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337229"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-deacon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337230"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-deep_cloneable is earlier than 0:2.2.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337231"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-deep_cloneable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337232"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-deface is earlier than 0:1.2.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337233"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-deface is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337234"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-diffy is earlier than 0:3.0.1-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337235"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-diffy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337236"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-docker-api is earlier than 0:1.28.0-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337237"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-docker-api is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337238"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-domain_name is earlier than 0:0.5.20160310-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337239"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-domain_name is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337240"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-dynflow is earlier than 0:0.8.34-1.fm1_15.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337241"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-dynflow is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337242"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-excon is earlier than 0:0.51.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337243"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-excon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337244"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-extlib is earlier than 0:0.9.16-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337245"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-extlib is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337246"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-facter is earlier than 0:2.4.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337247"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-facter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337248"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-faraday is earlier than 0:0.9.1-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337249"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-faraday is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337250"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fast_gettext is earlier than 0:1.4.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337251"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fast_gettext is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337252"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ffi is earlier than 0:1.4.0-10.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337253"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ffi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337254"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog is earlier than 0:1.38.0-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337255"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337256"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-aws is earlier than 0:1.2.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337257"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-aws is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337258"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-core is earlier than 0:1.42.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337259"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337260"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-google is earlier than 0:0.1.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337261"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-google is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337262"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-json is earlier than 0:1.0.2-6.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337263"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-json is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337264"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-libvirt is earlier than 0:0.2.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337265"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-libvirt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337266"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-openstack is earlier than 0:0.1.18-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337267"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-openstack is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337268"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-rackspace is earlier than 0:0.1.4-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337269"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-rackspace is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337270"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-vsphere is earlier than 0:1.7.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337271"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-vsphere is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337272"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-xenserver is earlier than 0:0.2.3-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337273"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-xenserver is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337274"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-fog-xml is earlier than 0:0.1.2-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337275"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-fog-xml is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337276"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-formatador is earlier than 0:0.2.1-9.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337277"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-formatador is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337278"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-friendly_id is earlier than 0:5.1.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337279"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-friendly_id is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337280"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-get_process_mem is earlier than 0:0.2.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337281"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-get_process_mem is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337282"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-gettext_i18n_rails is earlier than 0:1.2.1-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337283"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-gettext_i18n_rails is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337284"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-git is earlier than 0:1.2.5-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337285"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-git is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337286"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-google-api-client is earlier than 0:0.8.2-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337287"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-google-api-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337288"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-gssapi is earlier than 0:1.2.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337289"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-gssapi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337290"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-hashie is earlier than 0:2.0.5-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337291"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-hashie is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337292"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-highline is earlier than 0:1.7.8-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337293"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-highline is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337294"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-http-cookie is earlier than 0:1.0.2-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337295"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-http-cookie is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337296"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ipaddress is earlier than 0:0.8.0-9.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337297"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ipaddress is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337298"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-jgrep is earlier than 0:1.3.3-8.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337299"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-jgrep is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337300"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-jwt is earlier than 0:1.2.0-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337301"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-jwt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337302"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-launchy is earlier than 0:2.4.3-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337303"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-launchy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337304"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ldap_fluff is earlier than 0:0.4.7-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337305"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ldap_fluff is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337306"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-little-plugger is earlier than 0:1.1.3-21.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337307"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-little-plugger is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337308"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-locale is earlier than 0:2.0.9-11.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337309"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-locale is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337310"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-logging is earlier than 0:1.8.2-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337311"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-logging is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337312"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-multipart-post is earlier than 0:1.2.0-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337313"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-multipart-post is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337314"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-net-ldap is earlier than 0:0.15.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337315"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-net-ldap is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337316"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-net-ping is earlier than 0:2.0.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337317"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-net-ping is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337318"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-net-scp is earlier than 0:1.1.0-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337319"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-net-scp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337320"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-net-ssh is earlier than 0:4.0.1-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337321"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-net-ssh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337322"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-net-ssh-krb is earlier than 0:0.4.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337323"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-net-ssh-krb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337324"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-netrc is earlier than 0:0.7.7-8.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337325"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-netrc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337326"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-oauth is earlier than 0:0.5.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337327"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-oauth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337328"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-parse-cron is earlier than 0:0.1.4-2.fm1_15.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337329"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-parse-cron is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337330"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-passenger is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337331"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-passenger is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337332"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-passenger-native is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337333"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-passenger-native is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337334"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-passenger-native-libs is earlier than 0:4.0.18-23.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337335"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-passenger-native-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337336"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-pg is earlier than 0:0.15.1-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337337"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-pg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337338"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-powerbar is earlier than 0:1.0.17-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337339"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-powerbar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337340"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-qpid_messaging is earlier than 0:1.36.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337341"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-qpid_messaging is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337342"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rabl is earlier than 0:0.12.0-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337343"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rabl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337344"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rack-jsonp is earlier than 0:1.3.1-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337345"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rack-jsonp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337346"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rails-i18n is earlier than 0:4.0.9-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337347"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rails-i18n is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337348"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rainbow is earlier than 0:2.2.1-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337349"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rainbow is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337350"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rbovirt is earlier than 0:0.1.4-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337351"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rbovirt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337352"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rbvmomi is earlier than 0:1.10.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337353"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rbvmomi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337354"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-redhat_access_lib is earlier than 0:1.1.4-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337355"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-redhat_access_lib is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337356"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-responders is earlier than 0:2.3.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337357"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-responders is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337358"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-rest-client is earlier than 0:1.8.0-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337359"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-rest-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337360"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-retriable is earlier than 0:1.4.1-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337361"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-retriable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337362"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-roadie is earlier than 0:3.2.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337363"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-roadie is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337364"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-roadie-rails is earlier than 0:1.1.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337365"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-roadie-rails is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337366"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-robotex is earlier than 0:1.0.0-19.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337367"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-robotex is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337368"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ruby-libvirt is earlier than 0:0.5.2-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337369"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ruby-libvirt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337370"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ruby2ruby is earlier than 0:2.1.3-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337371"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ruby2ruby is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337372"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-ruby_parser is earlier than 0:3.6.3-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337373"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-ruby_parser is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337374"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-safemode is earlier than 0:1.3.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337375"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-safemode is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337376"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-scoped_search is earlier than 0:4.1.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337377"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-scoped_search is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337378"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-secure_headers is earlier than 0:3.4.1-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337379"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-secure_headers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337380"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-sequel is earlier than 0:4.20.0-6.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337381"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-sequel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337382"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-sexp_processor is earlier than 0:4.4.4-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337383"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-sexp_processor is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337384"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-signet is earlier than 0:0.6.0-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337385"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-signet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337386"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-sshkey is earlier than 0:1.9.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337387"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-sshkey is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337388"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-trollop is earlier than 0:2.1.2-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337389"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-trollop is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337390"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-unf is earlier than 0:0.1.3-5.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337391"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-unf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337392"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-unf_ext is earlier than 0:0.0.6-6.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337393"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-unf_ext is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337394"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-unicode-display_width is earlier than 0:1.0.5-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337395"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-unicode-display_width is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337396"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-useragent is earlier than 0:0.16.8-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337397"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-useragent is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337398"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-validates_lengths_from_database is earlier than 0:0.5.0-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337399"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-validates_lengths_from_database is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337400"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-webpack-rails is earlier than 0:0.9.8-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337401"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-webpack-rails is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337402"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-wicked is earlier than 0:1.1.0-4.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337403"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-wicked is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337404"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-will_paginate is earlier than 0:3.1.5-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337405"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-will_paginate is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337406"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-x-editable-rails is earlier than 0:1.5.5-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337407"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-x-editable-rails is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337408"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "v8 is earlier than 1:3.14.5.10-19.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337409"
+                  },
+                  {
+                    "Comment": "v8 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337410"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "yaml-cpp is earlier than 0:0.5.1-7.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337411"
+                  },
+                  {
+                    "Comment": "yaml-cpp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337412"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "redhat-access-insights-puppet is earlier than 0:0.0.9-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337413"
+                  },
+                  {
+                    "Comment": "redhat-access-insights-puppet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337414"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "tfm-rubygem-runcible is earlier than 0:1.12.0.3-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337415"
+                  },
+                  {
+                    "Comment": "tfm-rubygem-runcible is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337416"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet-agent is earlier than 0:1.10.9-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337417"
+                  },
+                  {
+                    "Comment": "puppet-agent is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337418"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppet-agent-oauth is earlier than 0:0.5.1-2.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337419"
+                  },
+                  {
+                    "Comment": "puppet-agent-oauth is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337420"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "puppetserver is earlier than 0:2.8.0-1.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337421"
+                  },
+                  {
+                    "Comment": "puppetserver is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337422"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-gofer is earlier than 0:2.7.7-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337423"
+                  },
+                  {
+                    "Comment": "python-gofer is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337424"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-gofer-qpid is earlier than 0:2.7.7-3.el7sat",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337425"
+                  },
+                  {
+                    "Comment": "python-gofer-qpid is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20180337426"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

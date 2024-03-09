@@ -1,0 +1,639 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213523",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:3523: kpatch-patch security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.7 Update Services for SAP Solutions"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3523",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3523"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-22555",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-22555"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-32399",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-32399"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-3347",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-3347"
+      }
+    ],
+    "Description": "This is a kernel live patch module which is automatically loaded by the RPM post-install script to modify the code of a running kernel.\n\nSecurity Fix(es):\n\n* kernel: Use after free via PI futex state (CVE-2021-3347)\n* kernel: out-of-bounds write in xt_compat_target_from_user() in net/netfilter/x_tables.c (CVE-2021-22555)\n* kernel: race condition for removal of the HCI controller (CVE-2021-32399)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-09-14"
+      },
+      "Updated": {
+        "Date": "2021-09-14"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-22555",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-22555",
+          "Public": "20210707"
+        },
+        {
+          "CveID": "CVE-2021-32399",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-362",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-32399",
+          "Public": "20210511"
+        },
+        {
+          "CveID": "CVE-2021-3347",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-3347",
+          "Public": "20210128"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1922249",
+          "ID": "1922249"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1970807",
+          "ID": "1970807"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1980101",
+          "ID": "1980101"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras_sap_e4s:7.7",
+        "cpe:/a:redhat:rhel_extras_sap_hana_e4s:7.7",
+        "cpe:/o:redhat:rhel_e4s:7.7",
+        "cpe:/o:redhat:rhel_e4s:7.7::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.36.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031042"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.36.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523007"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.36.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031038"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.36.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211031039"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_36_1 is earlier than 0:1-5.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523004"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_36_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211031041"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.37.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031048"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.37.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523013"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.37.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031044"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.37.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211031045"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_37_1 is earlier than 0:1-5.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523010"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_37_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211031047"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.40.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031054"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.40.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523019"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.40.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031050"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.40.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211031051"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_40_1 is earlier than 0:1-5.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523016"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_40_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211031053"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.43.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031060"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.43.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523025"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.43.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031056"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.43.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211031057"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_43_1 is earlier than 0:1-5.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523022"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_43_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211031059"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.45.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031066"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.45.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523031"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.45.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211031062"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.45.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211031063"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_45_1 is earlier than 0:1-5.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523028"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_45_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211031065"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.46.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211532066"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.46.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523037"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.46.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20211532062"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.46.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20211532063"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_46_1 is earlier than 0:1-4.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523034"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_46_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20211532065"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.49.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20212729066"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.49.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523043"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.49.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20212729062"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.49.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20212729063"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_49_1 is earlier than 0:1-2.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523040"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_49_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20212729065"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.51.1.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20212729072"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.51.1.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523049"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.51.1.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20212729068"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.51.1.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20212729069"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_51_1 is earlier than 0:1-2.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523046"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_51_1 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20212729071"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.52.2.el7 is currently running",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523054"
+                      },
+                      {
+                        "Comment": "kernel version 0:3.10.0-1062.52.2.el7 is set to boot up on next boot",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523055"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kernel version equals 0:3.10.0-1062.52.2.el7",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20213523050"
+                      },
+                      {
+                        "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                      }
+                    ],
+                    "Criterias": [
+                      {
+                        "Operator": "OR",
+                        "Criterions": [
+                          {
+                            "Comment": "kpatch-patch not installed for 0:3.10.0-1062.52.2.el7",
+                            "TestRef": "oval:com.redhat.rhsa:tst:20213523051"
+                          }
+                        ],
+                        "Criterias": [
+                          {
+                            "Operator": "AND",
+                            "Criterions": [
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_52_2 is earlier than 0:1-1.el7",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523052"
+                              },
+                              {
+                                "Comment": "kpatch-patch-3_10_0-1062_52_2 is signed with Red Hat redhatrelease2 key",
+                                "TestRef": "oval:com.redhat.rhsa:tst:20213523053"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

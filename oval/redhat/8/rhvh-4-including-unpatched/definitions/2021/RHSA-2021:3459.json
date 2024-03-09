@@ -1,0 +1,119 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20213459",
+  "Version": "640",
+  "Metadata": {
+    "Title": "RHSA-2021:3459: Red Hat Virtualization Host security and bug fix update [ovirt-4.4.8] (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Virtualization 4 for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:3459",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:3459"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2020-28500",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2020-28500"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-23337",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-23337"
+      }
+    ],
+    "Description": "The VDSM service is required by a Virtualization Manager to manage the Linux hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection.\n\nSecurity Fix(es):\n\n* nodejs-lodash: command injection via template (CVE-2021-23337)\n\n* nodejs-lodash: ReDoS via the toNumber, trim and trimEnd functions (CVE-2020-28500)\n\nFor more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.\n\nBug Fix(es):\n\n* An update in libvirt has changed the way block threshold events are submitted.\nAs a result, the VDSM was confused by the libvirt event, and tried to look up a drive, logging a warning about a missing drive.\nIn this release, the VDSM has been adapted to handle the new libvirt behavior, and does not log warnings about missing drives. (BZ#1948177)\n\n* Previously, when a virtual machine was powered off on the source host of a live migration and the migration finished successfully at the same time, the two events  interfered with each other, and sometimes prevented migration cleanup resulting in additional migrations from the host being blocked. \nIn this release, additional migrations are not blocked. (BZ#1959436)\n\n* Previously, when failing to execute a snapshot and re-executing it later, the second try would fail due to using the previous execution data. In this release, this data will be used only when needed, in recovery mode. (BZ#1984209)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-09-08"
+      },
+      "Updated": {
+        "Date": "2021-09-08"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2020-28500",
+          "Cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "Cwe": "CWE-400",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2020-28500",
+          "Public": "20210215"
+        },
+        {
+          "CveID": "CVE-2021-23337",
+          "Cvss3": "7.2/CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-78",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-23337",
+          "Public": "20210215"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1928937",
+          "ID": "1928937"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/1928954",
+          "ID": "1928954"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::hypervisor"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20204172005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "cockpit-ovirt-dashboard is earlier than 0:0.15.1-2.el8ev",
+            "TestRef": "oval:com.redhat.rhsa:tst:20213459001"
+          },
+          {
+            "Comment": "cockpit-ovirt-dashboard is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20205611002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20204172003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20204172004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

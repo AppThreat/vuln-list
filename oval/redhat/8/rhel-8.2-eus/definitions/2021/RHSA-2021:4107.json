@@ -1,0 +1,159 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20214107",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2021:4107: flatpak security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2021:4107",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2021:4107"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-41133",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-41133"
+      }
+    ],
+    "Description": "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux.\n\nSecurity Fix(es):\n\n* flatpak: Sandbox bypass via recent VFS-manipulating syscalls (CVE-2021-41133)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2021 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2021-11-02"
+      },
+      "Updated": {
+        "Date": "2021-11-02"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-41133",
+          "Cvss3": "8.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-20",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-41133",
+          "Public": "20211008"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2012245",
+          "ID": "2012245"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.2",
+        "cpe:/a:redhat:rhel_eus:8.2::appstream",
+        "cpe:/a:redhat:rhel_eus:8.2::crb",
+        "cpe:/a:redhat:rhel_eus:8.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.2::nfv",
+        "cpe:/a:redhat:rhel_eus:8.2::realtime",
+        "cpe:/a:redhat:rhel_eus:8.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.2::sap",
+        "cpe:/a:redhat:rhel_eus:8.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.2",
+        "cpe:/o:redhat:rhel_eus:8.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak is earlier than 0:1.6.2-6.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214107001"
+                  },
+                  {
+                    "Comment": "flatpak is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191143002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-libs is earlier than 0:1.6.2-6.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214107003"
+                  },
+                  {
+                    "Comment": "flatpak-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191143004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-selinux is earlier than 0:1.6.2-6.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214107005"
+                  },
+                  {
+                    "Comment": "flatpak-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210307006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "flatpak-session-helper is earlier than 0:1.6.2-6.el8_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20214107007"
+                  },
+                  {
+                    "Comment": "flatpak-session-helper is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20210307008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

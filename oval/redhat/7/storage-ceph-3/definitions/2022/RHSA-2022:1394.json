@@ -1,0 +1,402 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221394",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2022:1394: Red Hat Ceph Storage 3 Security and Bug Fix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Ceph Storage 3 - ELS"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1394",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1394"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-20288",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-20288"
+      }
+    ],
+    "Description": "Red Hat Ceph Storage is a scalable, open, software-defined storage platform that combines the most stable version of the Ceph storage system with a Ceph management platform, deployment utilities, and support services.\n\nSecurity Fix(es):\n\n* ceph: Unauthorized global_id reuse in cephx (CVE-2021-20288)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-04-19"
+      },
+      "Updated": {
+        "Date": "2022-04-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-20288",
+          "Cvss3": "8.0/CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-287",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-20288",
+          "Public": "20210414"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/1938031",
+          "ID": "1938031"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:ceph_storage:3",
+        "cpe:/a:redhat:ceph_storage:3::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20180546050"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:20180546049"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-base is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394001"
+                  },
+                  {
+                    "Comment": "ceph-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-common is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394003"
+                  },
+                  {
+                    "Comment": "ceph-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-fuse is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394005"
+                  },
+                  {
+                    "Comment": "ceph-fuse is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-mds is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394007"
+                  },
+                  {
+                    "Comment": "ceph-mds is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-mgr is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394009"
+                  },
+                  {
+                    "Comment": "ceph-mgr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-mon is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394011"
+                  },
+                  {
+                    "Comment": "ceph-mon is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-osd is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394013"
+                  },
+                  {
+                    "Comment": "ceph-osd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-radosgw is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394015"
+                  },
+                  {
+                    "Comment": "ceph-radosgw is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-selinux is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394017"
+                  },
+                  {
+                    "Comment": "ceph-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ceph-test is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394019"
+                  },
+                  {
+                    "Comment": "ceph-test is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcephfs-devel is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394021"
+                  },
+                  {
+                    "Comment": "libcephfs-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libcephfs2 is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394023"
+                  },
+                  {
+                    "Comment": "libcephfs2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librados-devel is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394025"
+                  },
+                  {
+                    "Comment": "librados-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librados2 is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394027"
+                  },
+                  {
+                    "Comment": "librados2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libradosstriper1 is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394029"
+                  },
+                  {
+                    "Comment": "libradosstriper1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librbd-devel is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394031"
+                  },
+                  {
+                    "Comment": "librbd-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librbd1 is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394033"
+                  },
+                  {
+                    "Comment": "librbd1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librgw-devel is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394035"
+                  },
+                  {
+                    "Comment": "librgw-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "librgw2 is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394037"
+                  },
+                  {
+                    "Comment": "librgw2 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-cephfs is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394039"
+                  },
+                  {
+                    "Comment": "python-cephfs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-rados is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394041"
+                  },
+                  {
+                    "Comment": "python-rados is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-rbd is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394043"
+                  },
+                  {
+                    "Comment": "python-rbd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-rgw is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394045"
+                  },
+                  {
+                    "Comment": "python-rgw is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rbd-mirror is earlier than 2:12.2.12-141.el7cp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221394047"
+                  },
+                  {
+                    "Comment": "rbd-mirror is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20180546048"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

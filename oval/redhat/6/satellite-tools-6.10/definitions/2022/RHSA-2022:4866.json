@@ -1,0 +1,108 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20224866",
+  "Version": "639",
+  "Metadata": {
+    "Title": "RHSA-2022:4866: Satellite Tools 6.10.5 Async Bug Fix Update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Satellite Tools 6.10 for RHEL 6.ELS"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:4866",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:4866"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-27023",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-27023"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-27025",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-27025"
+      }
+    ],
+    "Description": "Red Hat Satellite is a system management solution that allows organizations to configure and maintain their systems without the necessity to provide public Internet access to their servers or other client systems. It performs provisioning and configuration management of predefined standard operating environments.\n\nBugs Fixed:\n2023853 CVE-2021-27025 puppet: silent configuration failure in agent \n2023859 CVE-2021-27023 puppet: unsafe HTTP redirect \n2027254 CVE-2021-27025 CVE-2021-27023 CVE-2021-27025 puppet: multiple flaws in Satellite Tools [rhn_satellite_6.10]  \n\nSecurity Fix(es):\n* Puppet Agent: Unsafe HTTP redirect (CVE-2021-27023)\n* Puppet Agent: Silent configuration failure in agent (CVE-2021-27025)\n\nUsers of Red Hat Satellite Tools on all Red Hat Enterprise Linux versions are advised to upgrade to these updated packages.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-06-01"
+      },
+      "Updated": {
+        "Date": "2022-06-01"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-27023",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-200",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-27023",
+          "Public": "20211109"
+        },
+        {
+          "CveID": "CVE-2021-27025",
+          "Cvss3": "6.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-665",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-27025",
+          "Public": "20211109"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2023853",
+          "ID": "2023853"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2023859",
+          "ID": "2023859"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_satellite_tools:6.10",
+        "cpe:/a:redhat:rhel_satellite_tools:6.10::el6"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20224866004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:20224866003"
+          },
+          {
+            "Comment": "puppet-agent is earlier than 0:6.26.0-1.el6sat",
+            "TestRef": "oval:com.redhat.rhsa:tst:20224866001"
+          },
+          {
+            "Comment": "puppet-agent is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20224866002"
+          }
+        ]
+      }
+    ]
+  }
+}

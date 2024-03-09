@@ -1,0 +1,276 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20237294",
+  "Version": "636",
+  "Metadata": {
+    "Title": "RHSA-2023:7294: kernel security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7.6 Advanced Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:7294",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:7294"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3609",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3609"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3776",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3776"
+      }
+    ],
+    "Description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* kernel: net/sched: cls_u32 component reference counter leak if tcf_change_indev() fails (CVE-2023-3609)\n\n* kernel: net/sched: cls_fw component can be exploited as result of failure in tcf_change_indev function (CVE-2023-3776)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-11-15"
+      },
+      "Updated": {
+        "Date": "2023-11-15"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-3609",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-415",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3609",
+          "Public": "20230721"
+        },
+        {
+          "CveID": "CVE-2023-3776",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3776",
+          "Public": "20230706"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2225097",
+          "ID": "2225097"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2225201",
+          "ID": "2225201"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:rhel_aus:7.6",
+        "cpe:/o:redhat:rhel_aus:7.6::server"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20150364028"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20150364027"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel earlier than 0:3.10.0-957.108.1.el7 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20237294025"
+              },
+              {
+                "Comment": "kernel earlier than 0:3.10.0-957.108.1.el7 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20237294026"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bpftool is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294001"
+                  },
+                  {
+                    "Comment": "bpftool is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20183083002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294003"
+                  },
+                  {
+                    "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-abi-whitelists is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294005"
+                  },
+                  {
+                    "Comment": "kernel-abi-whitelists is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294007"
+                  },
+                  {
+                    "Comment": "kernel-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-devel is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294009"
+                  },
+                  {
+                    "Comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-devel is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294011"
+                  },
+                  {
+                    "Comment": "kernel-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-doc is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294013"
+                  },
+                  {
+                    "Comment": "kernel-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294015"
+                  },
+                  {
+                    "Comment": "kernel-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294017"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294019"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "perf is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294021"
+                  },
+                  {
+                    "Comment": "perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python-perf is earlier than 0:3.10.0-957.108.1.el7",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237294023"
+                  },
+                  {
+                    "Comment": "python-perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20140678030"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

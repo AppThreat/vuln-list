@@ -1,0 +1,167 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20221643",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2022:1643: xmlrpc-c security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:1643",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:1643"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-25235",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-25235"
+      }
+    ],
+    "Description": "XML-RPC is a remote procedure call (RPC) protocol that uses XML to encode its calls and HTTP as a transport mechanism. The xmlrpc-c packages provide a network protocol to allow a client program to make a simple RPC (remote procedure call) over the Internet. It converts an RPC into an XML document, sends it to a remote server using HTTP, and gets back the response in XML.\n\nSecurity Fix(es):\n\n* expat: Malformed 2- and 3-byte UTF-8 sequences can lead to arbitrary code execution (CVE-2022-25235)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-04-28"
+      },
+      "Updated": {
+        "Date": "2022-04-28"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-25235",
+          "Cvss3": "9.8/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-838",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-25235",
+          "Public": "20220219"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2056366",
+          "ID": "2056366"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_tus:8.8",
+        "cpe:/a:redhat:rhel_tus:8.8::appstream",
+        "cpe:/a:redhat:rhel_tus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_tus:8.8::nfv",
+        "cpe:/a:redhat:rhel_tus:8.8::realtime",
+        "cpe:/o:redhat:rhel_tus:8.8",
+        "cpe:/o:redhat:rhel_tus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "xmlrpc-c is earlier than 0:1.51.0-5.el8_5.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643001"
+                  },
+                  {
+                    "Comment": "xmlrpc-c is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "xmlrpc-c-c++ is earlier than 0:1.51.0-5.el8_5.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643003"
+                  },
+                  {
+                    "Comment": "xmlrpc-c-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "xmlrpc-c-client is earlier than 0:1.51.0-5.el8_5.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643005"
+                  },
+                  {
+                    "Comment": "xmlrpc-c-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "xmlrpc-c-client++ is earlier than 0:1.51.0-5.el8_5.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643007"
+                  },
+                  {
+                    "Comment": "xmlrpc-c-client++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "xmlrpc-c-devel is earlier than 0:1.51.0-5.el8_5.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643009"
+                  },
+                  {
+                    "Comment": "xmlrpc-c-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20221643010"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

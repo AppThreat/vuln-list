@@ -1,0 +1,171 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20230123",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2023:0123: kpatch-patch security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:0123",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:0123"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-2964",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-2964"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-4139",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-4139"
+      }
+    ],
+    "Description": "This is a kernel live patch module which is automatically loaded by the RPM post-install script to modify the code of a running kernel.\n\nSecurity Fix(es):\n\n* kernel: memory corruption in AX88179_178A based USB ethernet device. (CVE-2022-2964)\n\n* kernel: i915: Incorrect GPU TLB flush can lead to random memory access (CVE-2022-4139)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-01-12"
+      },
+      "Updated": {
+        "Date": "2023-01-12"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-2964",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-119",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-2964",
+          "Public": "20220321"
+        },
+        {
+          "CveID": "CVE-2022-4139",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-281-\u003eCWE-401",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-4139",
+          "Public": "20221130"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2067482",
+          "ID": "2067482"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2147572",
+          "ID": "2147572"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:8.8",
+        "cpe:/a:redhat:rhel_eus:8.8::appstream",
+        "cpe:/a:redhat:rhel_eus:8.8::crb",
+        "cpe:/a:redhat:rhel_eus:8.8::highavailability",
+        "cpe:/a:redhat:rhel_eus:8.8::nfv",
+        "cpe:/a:redhat:rhel_eus:8.8::realtime",
+        "cpe:/a:redhat:rhel_eus:8.8::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:8.8::sap",
+        "cpe:/a:redhat:rhel_eus:8.8::sap_hana",
+        "cpe:/a:redhat:rhel_eus:8.8::supplementary",
+        "cpe:/o:redhat:rhel_eus:8.8",
+        "cpe:/o:redhat:rhel_eus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel version 0:4.18.0-425.3.1.el8 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20230123006"
+              },
+              {
+                "Comment": "kernel version 0:4.18.0-425.3.1.el8 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20230123007"
+              }
+            ]
+          },
+          {
+            "Operator": "AND",
+            "Criterions": [
+              {
+                "Comment": "kernel version equals 0:4.18.0-425.3.1.el8",
+                "TestRef": "oval:com.redhat.rhsa:tst:20230123001"
+              },
+              {
+                "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                "TestRef": "oval:com.redhat.rhsa:tst:20191167004"
+              }
+            ],
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterions": [
+                  {
+                    "Comment": "kpatch-patch not installed for 0:4.18.0-425.3.1.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20230123003"
+                  }
+                ],
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterions": [
+                      {
+                        "Comment": "kpatch-patch-4_18_0-425_3_1 is earlier than 0:1-2.el8",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20230123004"
+                      },
+                      {
+                        "Comment": "kpatch-patch-4_18_0-425_3_1 is signed with Red Hat redhatrelease2 key",
+                        "TestRef": "oval:com.redhat.rhsa:tst:20230123005"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228532",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2022:8532: Satellite 6.9.10 Async Security Update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Satellite 6.9 for RHEL 7"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8532",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8532"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-24790",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-24790"
+      }
+    ],
+    "Description": "Red Hat Satellite is a system management solution that allows organizations to configure and maintain their systems without the necessity to provide public Internet access to their servers or other client systems. It performs provisioning and configuration management of predefined standard operating environments.\n\nSecurity Fix(es):\n* tfm-rubygem-puma: http request smuggling vulnerabilities (CVE-2022-24790)\n\nThis update fixes the following bugs:\n* 2038995: When executing the content migration (pre-upgrade process), there is a PG query created by pulp that will be sitting forever\n* 2074099: The errata migration continues to fail with \"pymongo.errors.DocumentTooLarge: BSON document too large\" error even after upgrading to Satellite 6.9.8\n* 2081560: ForeignKeyViolation Error with docker_meta_tags\n* 2091438: Use of content.count() in app/models/repository.py seems to hit an error\n* 2093829: 'foreman-maintain content migration-stats' command stucks and consume all memory\n* 2098221: Pulp 3 migration stats timing is too low for very large deployments\n* 2141348: It appears that the egg is downloaded every time\n\nUsers of Red Hat Satellite are advised to upgrade to these updated packages, which fix these bugs.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-11-17"
+      },
+      "Updated": {
+        "Date": "2022-11-17"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-24790",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+          "Cwe": "CWE-444",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-24790",
+          "Public": "20220330"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2071616",
+          "ID": "2071616"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:satellite:6.9",
+        "cpe:/a:redhat:satellite:6.9::el7",
+        "cpe:/a:redhat:satellite_capsule:6.9",
+        "cpe:/a:redhat:satellite_capsule:6.9::el7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:202113131083"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.rhsa:tst:202113131082"
+          },
+          {
+            "Comment": "tfm-rubygem-puma is earlier than 0:4.3.12-1.el7sat",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228532001"
+          },
+          {
+            "Comment": "tfm-rubygem-puma is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20211313744"
+          }
+        ]
+      }
+    ]
+  }
+}

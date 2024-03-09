@@ -1,0 +1,102 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20228796",
+  "Version": "640",
+  "Metadata": {
+    "Title": "RHSA-2022:8796: Red Hat OpenStack 16.1.9 (openstack-tripleo-heat-templates) security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenStack Platform 16.1"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2022:8796",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2022:8796"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-4180",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-4180"
+      }
+    ],
+    "Description": "Heat templates for TripleO\n\nSecurity Fix(es):\n\n* data leak of internal URL through keystone_authtoken (CVE-2021-4180)\n\nOther fixes:\n\n* Before this update, NTP validation did not occur during deployments. Some users reported issues with cloud authentication failing with invalid tokens due to time not being synchronized between nodes. With this update, NTP synchronization validation during deployment has been re-enabled. Hosts must be able to connect to the defined NTP server list. If you previously performed a deployment with invalid or unreachable NTP servers, after update, the deployment might fail when NTP is validated. Ensure that you have valid and reachable NTP servers before updating. (BZ#2034095)\n\n* With this update, director supports specifying overrides for NVSv4 ID mapping when using a CephFS-NFS back end with the Shared File Systems service (manila). Ceph-NFS with the Shared File Systems service only allows client access through NFSv4.1+. With NFSv4.1, usernames and group names are sent over the wire and translated by both the server and the client. Deployers might want to customize their domain settings to better represent organization users who can access Shared File Systems service shares from multiple clients. Director supports customizing NFS ID mapping settings through these parameters:\n- ManilaCephFSNFSIdmapOverrides: Allows specifying configuration objects for override with the default idmapd.conf file used by the NFS service\n- ManilaCephFSNFSIdmapConf: Allows specifying a custom idmapd.conf file for the NFS service (BZ#1917356)\n\n* Before this update, the ceilometer-agent-compute container could not read the /var/run/libvirt directory because of an improper volume mount to /var/run/libvirt in the ceilometer-agent-compute container, resulting in the inability to poll for CPU metrics on Compute nodes. With this update, the appropriate global permissions have been applied to the /var/run/libvirt directory, and you can poll for CPU telemetry with the ceilometer-agent-compute container on the Compute nodes. CPU telemetry data is available through the Compute service (nova). (BZ#2103971)\n\n* Before this update, the libvirt service started after the ceilometer-agent-compute service and the ceilometer-agent-compute service did not communicate with libvirt, resulting in missing libvirt metrics. With this update, the ceilometer-agent-compute service starts after the libvirt service and can poll libvirt metrics without \"Permission denied\" errors. (BZ#2130078)\n\n* Before this update, a Telemetry service (ceilometer) user had insufficient privileges to poll objects from the Object Storage service (swift). The Object Storage service client did not allow the Telemetry service user to fetch object details. With this update, the Telemetry service user is associated with the ResellerAdmin role.\n+\nExecute the following command to workaround this issue manually:\n+\n----\n$ openstack role add --user ceilometer --project service ResellerAdmin\n----\n+\nThe associated Telemetry service user can poll Object Storage service object metrics successfully. (BZ#2130849)\n\n* Before this update, systemd stopped the Load-balancing services (octavia) during shutdown, leaving resources in the PENDING_UPDATE status. With this update, the graceful shutdown duration of the Load-balancing services is increased, preventing the services from being stopped by systemd. (BZ#2063031)\n\n* In Red Hat OpenStack Platform (RHOSP) 16.1.9, the collectd processes plugin is removed from the default list of plugins. Loading the plugin can cause flooding issues and does not provide value when running in a containerized environment because it only recognizes the collectd and sensubility processes rather than the expected system processes. Bug fixes and support will be provided through the end of the 16.1.9 lifecycle but no new feature enhancements will be made. (BZ#2101949)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2022 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2022-12-07"
+      },
+      "Updated": {
+        "Date": "2022-12-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-4180",
+          "Cvss3": "4.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "Cwe": "CWE-200",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-4180",
+          "Public": "20211220"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2035793",
+          "ID": "2035793"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openstack:16.1",
+        "cpe:/a:redhat:openstack:16.1::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhsa:tst:20203199005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "openstack-tripleo-heat-templates is earlier than 0:11.3.2-1.20221013153262.el8ost",
+            "TestRef": "oval:com.redhat.rhsa:tst:20228796001"
+          },
+          {
+            "Comment": "openstack-tripleo-heat-templates is signed with Red Hat redhatrelease2 key",
+            "TestRef": "oval:com.redhat.rhsa:tst:20203199002"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20203199003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhsa:tst:20203199004"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

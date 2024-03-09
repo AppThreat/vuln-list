@@ -1,0 +1,195 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20121169",
+  "Version": "634",
+  "Metadata": {
+    "Title": "RHSA-2012:1169: condor security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise MRG 2"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2012:1169",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2012:1169"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2012-3416",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2012-3416"
+      }
+    ],
+    "Description": "Condor is a specialized workload management system for compute-intensive\njobs. It provides a job queuing mechanism, scheduling policy, priority\nscheme, and resource monitoring and management.\n\nCondor installations that rely solely upon host-based authentication were\nvulnerable to an attacker who controls an IP, its reverse-DNS entry and has\nknowledge of a target site's security configuration. With this control and\nknowledge, the attacker could bypass the target site's host-based\nauthentication and be authorized to perform privileged actions (i.e.\nactions requiring ALLOW_ADMINISTRATOR or ALLOW_WRITE). Condor deployments\nusing host-based authentication that contain no hostnames (IPs or IP globs\nonly) or use authentication stronger than host-based are not vulnerable.\n(CVE-2012-3416)\n\nNote: Condor will not run jobs as root; therefore, this flaw cannot lead to\na compromise of the root user account.\n\nRed Hat would like to thank Ken Hahn and Dan Bradley for reporting this\nissue.\n\nAll Red Hat Enterprise MRG 2.1 users are advised to upgrade to these\nupdated packages, which contain a backported patch to correct this issue.\nCondor must be restarted for the update to take effect.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2012 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2012-08-14"
+      },
+      "Updated": {
+        "Date": "2012-08-14"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2012-3416",
+          "Cvss2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P",
+          "Cwe": "CWE-284",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2012-3416",
+          "Public": "20120814"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/841175",
+          "ID": "841175"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_mrg:2",
+        "cpe:/a:redhat:enterprise_mrg:2:computenode:el6",
+        "cpe:/a:redhat:enterprise_mrg:2:server:el6"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20120496022"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 6 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20120496021"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169001"
+                  },
+                  {
+                    "Comment": "condor is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-aviary is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169003"
+                  },
+                  {
+                    "Comment": "condor-aviary is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-classads is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169005"
+                  },
+                  {
+                    "Comment": "condor-classads is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-deltacloud-gahp is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169007"
+                  },
+                  {
+                    "Comment": "condor-deltacloud-gahp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-kbdd is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169009"
+                  },
+                  {
+                    "Comment": "condor-kbdd is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-plumage is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169011"
+                  },
+                  {
+                    "Comment": "condor-plumage is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20120099030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-qmf is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169013"
+                  },
+                  {
+                    "Comment": "condor-qmf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "condor-vm-gahp is earlier than 0:7.6.5-0.14.2.el6_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20121169015"
+                  },
+                  {
+                    "Comment": "condor-vm-gahp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20111250040"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
