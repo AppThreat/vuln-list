@@ -1,0 +1,193 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241270",
+  "Version": "640",
+  "Metadata": {
+    "Title": "RHSA-2024:1270: docker security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 7 Extras"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1270",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1270"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-21626",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-21626"
+      }
+    ],
+    "Description": "Docker is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that runs virtually anywhere. \n\nSecurity Fix(es):\n\n* runc: file descriptor leak (CVE-2024-21626)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-12"
+      },
+      "Updated": {
+        "Date": "2024-03-12"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-21626",
+          "Cvss3": "8.6/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "Cwe": "CWE-200",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-21626",
+          "Public": "20240131:2001"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2258725",
+          "ID": "2258725"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_extras_other:7"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20140047030"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 7 is installed",
+            "TestRef": "oval:com.redhat.cve:tst:20140047029"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270001"
+                  },
+                  {
+                    "Comment": "docker is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-client is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270003"
+                  },
+                  {
+                    "Comment": "docker-client is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-common is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270005"
+                  },
+                  {
+                    "Comment": "docker-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-logrotate is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270007"
+                  },
+                  {
+                    "Comment": "docker-logrotate is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-lvm-plugin is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270009"
+                  },
+                  {
+                    "Comment": "docker-lvm-plugin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-novolume-plugin is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270011"
+                  },
+                  {
+                    "Comment": "docker-novolume-plugin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-rhel-push-plugin is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270013"
+                  },
+                  {
+                    "Comment": "docker-rhel-push-plugin is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "docker-v1.10-migrator is earlier than 2:1.13.1-210.git7d71120.el7_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241270015"
+                  },
+                  {
+                    "Comment": "docker-v1.10-migrator is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20140047002"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
