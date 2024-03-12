@@ -1,1 +1,73 @@
-{}
+{
+  "RpminfoTests": [
+    {
+      "Check": "at least one",
+      "Comment": "vdsm is installed",
+      "ID": "oval:com.redhat.cve:tst:20134280001",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20134280001"
+      },
+      "State": {}
+    },
+    {
+      "Check": "at least one",
+      "Comment": "vdsm is signed with Red Hat redhatrelease2 key",
+      "ID": "oval:com.redhat.cve:tst:20134280002",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20134280001"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20134280001"
+      }
+    },
+    {
+      "Check": "at least one",
+      "Comment": "libvirt is installed",
+      "ID": "oval:com.redhat.unaffected:tst:20172635001",
+      "Version": "635",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.unaffected:obj:20172635001"
+      },
+      "State": {}
+    },
+    {
+      "Check": "at least one",
+      "Comment": "libvirt is not installed",
+      "ID": "oval:com.redhat.unaffected:tst:20172635002",
+      "Version": "635",
+      "CheckExistence": "none_exist",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.unaffected:obj:20172635001"
+      },
+      "State": {}
+    }
+  ],
+  "RpmverifyfileTests": [
+    {
+      "Check": "at least one",
+      "Comment": "Red Hat Enterprise Linux 6 is installed",
+      "ID": "oval:com.redhat.cve:tst:20134280003",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20134280002"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20134280002"
+      }
+    },
+    {
+      "Check": "none satisfy",
+      "Comment": "Red Hat Enterprise Linux must be installed",
+      "ID": "oval:com.redhat.cve:tst:20134280004",
+      "Version": "636",
+      "Object": {
+        "ObjectRef": "oval:com.redhat.cve:obj:20134280002"
+      },
+      "State": {
+        "StateRef": "oval:com.redhat.cve:ste:20134280003"
+      }
+    }
+  ]
+}
