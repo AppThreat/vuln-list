@@ -1,0 +1,698 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241304",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1304: kernel security, bug fix, and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.2 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1304",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1304"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-0480",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-0480"
+      }
+    ],
+    "Description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* kernel: memcg does not limit the number of POSIX file locks allowing memory exhaustion (CVE-2022-0480)\n\nBug Fix(es):\n\n* [RHEL9] Add various *.peak control files to cgroup v2 (JIRA:RHEL-22850)\n\n* RHEL9 Guest on Google Cloud panics on reading pvpanic device capabilities (JIRA:RHEL-23858)\n\n* raid5: read data is wrong when recovery happens  (JIRA:RHEL-23882)\n\n* md/raid5: release batch_last before waiting for another stripe_head (JIRA:RHEL-24512)\n\n* [regression][ext4][xfstests generic/094] Error reading from file with invalid argument (JIRA:RHEL-25436)\n\n* bpf: Fix elem_size not being set for inner maps (JIRA:RHEL-25764)\n\n* Backport \"crypto: rsa - allow only odd e and restrict value in FIPS mode\" (JIRA:RHEL-26078)\n\n* kernel: memcg does not limit the number of POSIX file locks allowing memory exhaustion (JIRA:RHEL-8911)\n\n* [HPEMC RHEL 9.3 BUG] tools/power/x86 intel-speed-select crashes on systems with more than 8 sockets (JIRA:RHEL-17907)\n\n* IPoIB: fix PKEY creation (JIRA:RHEL-22221)\n\n* Memory corruption when using dm-crypt or dm-verity on RHEL-9 (JIRA:RHEL-26095)\n\n* backport smartpqi: fix disable_managed_interrupts (JIRA:RHEL-26143)\n\n* ffdhe* algortihms introduced in 0a2e5b909023 as .fips_allowed=1 lack pairwise consistency tests (JIRA:RHEL-27007)\n\nEnhancement(s):\n\n* s390/qeth: Fix vipa deletion (JIRA:RHEL-25813)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-13"
+      },
+      "Updated": {
+        "Date": "2024-03-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-0480",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-770",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-0480",
+          "Public": "20220103"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2049700",
+          "ID": "2049700"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_eus:9.2",
+        "cpe:/a:redhat:rhel_eus:9.2::appstream",
+        "cpe:/a:redhat:rhel_eus:9.2::crb",
+        "cpe:/a:redhat:rhel_eus:9.2::highavailability",
+        "cpe:/a:redhat:rhel_eus:9.2::nfv",
+        "cpe:/a:redhat:rhel_eus:9.2::realtime",
+        "cpe:/a:redhat:rhel_eus:9.2::resilientstorage",
+        "cpe:/a:redhat:rhel_eus:9.2::sap",
+        "cpe:/a:redhat:rhel_eus:9.2::sap_hana",
+        "cpe:/a:redhat:rhel_eus:9.2::supplementary",
+        "cpe:/o:redhat:rhel_eus:9.2",
+        "cpe:/o:redhat:rhel_eus:9.2::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel earlier than 0:5.14.0-284.57.1.el9_2 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20241303029"
+              },
+              {
+                "Comment": "kernel earlier than 0:5.14.0-284.57.1.el9_2 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20241304092"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bpftool is earlier than 0:7.0.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304001"
+                  },
+                  {
+                    "Comment": "bpftool is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304003"
+                  },
+                  {
+                    "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225214002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304005"
+                  },
+                  {
+                    "Comment": "kernel-64k is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304007"
+                  },
+                  {
+                    "Comment": "kernel-64k-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304009"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304011"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304013"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-devel-matched is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304015"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-devel-matched is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-modules is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304017"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-modules-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304019"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-modules-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-debug-modules-extra is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304021"
+                  },
+                  {
+                    "Comment": "kernel-64k-debug-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304023"
+                  },
+                  {
+                    "Comment": "kernel-64k-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-devel-matched is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304025"
+                  },
+                  {
+                    "Comment": "kernel-64k-devel-matched is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-modules is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304027"
+                  },
+                  {
+                    "Comment": "kernel-64k-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-modules-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304029"
+                  },
+                  {
+                    "Comment": "kernel-64k-modules-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-64k-modules-extra is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304031"
+                  },
+                  {
+                    "Comment": "kernel-64k-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-abi-stablelists is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304033"
+                  },
+                  {
+                    "Comment": "kernel-abi-stablelists is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304035"
+                  },
+                  {
+                    "Comment": "kernel-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304037"
+                  },
+                  {
+                    "Comment": "kernel-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304039"
+                  },
+                  {
+                    "Comment": "kernel-debug-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304041"
+                  },
+                  {
+                    "Comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-devel-matched is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304043"
+                  },
+                  {
+                    "Comment": "kernel-debug-devel-matched is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-modules is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304045"
+                  },
+                  {
+                    "Comment": "kernel-debug-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-modules-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304047"
+                  },
+                  {
+                    "Comment": "kernel-debug-modules-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-modules-extra is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304049"
+                  },
+                  {
+                    "Comment": "kernel-debug-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-uki-virt is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304051"
+                  },
+                  {
+                    "Comment": "kernel-debug-uki-virt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304053"
+                  },
+                  {
+                    "Comment": "kernel-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-devel-matched is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304055"
+                  },
+                  {
+                    "Comment": "kernel-devel-matched is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-modules is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304057"
+                  },
+                  {
+                    "Comment": "kernel-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-modules-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304059"
+                  },
+                  {
+                    "Comment": "kernel-modules-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458066"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-modules-extra is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304061"
+                  },
+                  {
+                    "Comment": "kernel-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304063"
+                  },
+                  {
+                    "Comment": "kernel-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304065"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304067"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-uki-virt is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304069"
+                  },
+                  {
+                    "Comment": "kernel-uki-virt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458076"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304071"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304073"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-devel is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304075"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-devel-matched is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304077"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-devel-matched is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-modules is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304079"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-modules-core is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304081"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-modules-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458088"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-zfcpdump-modules-extra is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304083"
+                  },
+                  {
+                    "Comment": "kernel-zfcpdump-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "perf is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304085"
+                  },
+                  {
+                    "Comment": "perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-perf is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304087"
+                  },
+                  {
+                    "Comment": "python3-perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20225249056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "rtla is earlier than 0:5.14.0-284.57.1.el9_2",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241304089"
+                  },
+                  {
+                    "Comment": "rtla is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20232458096"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
