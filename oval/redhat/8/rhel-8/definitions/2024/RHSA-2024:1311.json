@@ -1,0 +1,301 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241311",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2024:1311: .NET 8.0 security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1311",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1311"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-21392",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-21392"
+      }
+    ],
+    "Description": ".NET is a managed-software framework. It implements a subset of the .NET framework APIs and several new APIs, and it includes a CLR implementation.\n\nNew versions of .NET that address a security vulnerability are now available. The updated versions are .NET SDK 8.0.103 and .NET Runtime 8.0.3.\n\nSecurity Fix(es):\n\n* dotnet: DoS in .NET Core / YARP HTTP / 2 WebSocket support (CVE-2024-21392)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-13"
+      },
+      "Updated": {
+        "Date": "2024-03-13"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-21392",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-21392",
+          "Public": "20240312"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2268266",
+          "ID": "2268266"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:8",
+        "cpe:/a:redhat:enterprise_linux:8::appstream",
+        "cpe:/a:redhat:enterprise_linux:8::crb",
+        "cpe:/a:redhat:enterprise_linux:8::highavailability",
+        "cpe:/a:redhat:enterprise_linux:8::nfv",
+        "cpe:/a:redhat:enterprise_linux:8::realtime",
+        "cpe:/a:redhat:enterprise_linux:8::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:8::sap",
+        "cpe:/a:redhat:enterprise_linux:8::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:8::supplementary",
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311001"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-runtime-dbg-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311003"
+                  },
+                  {
+                    "Comment": "aspnetcore-runtime-dbg-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240827004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "aspnetcore-targeting-pack-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311005"
+                  },
+                  {
+                    "Comment": "aspnetcore-targeting-pack-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311007"
+                  },
+                  {
+                    "Comment": "dotnet is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-apphost-pack-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311009"
+                  },
+                  {
+                    "Comment": "dotnet-apphost-pack-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-host is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311011"
+                  },
+                  {
+                    "Comment": "dotnet-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-hostfxr-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311013"
+                  },
+                  {
+                    "Comment": "dotnet-hostfxr-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311015"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-runtime-dbg-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311017"
+                  },
+                  {
+                    "Comment": "dotnet-runtime-dbg-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240827018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-8.0 is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311019"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-8.0-source-built-artifacts is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311021"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-8.0-source-built-artifacts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-sdk-dbg-8.0 is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311023"
+                  },
+                  {
+                    "Comment": "dotnet-sdk-dbg-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20240827024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-targeting-pack-8.0 is earlier than 0:8.0.3-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311025"
+                  },
+                  {
+                    "Comment": "dotnet-targeting-pack-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "dotnet-templates-8.0 is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311027"
+                  },
+                  {
+                    "Comment": "dotnet-templates-8.0 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20237254022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is earlier than 0:8.0.103-1.el8_9",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241311029"
+                  },
+                  {
+                    "Comment": "netstandard-targeting-pack-2.1 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20225747024"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
