@@ -1,0 +1,149 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241386",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2024:1386: ovn22.12 security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Fast Datapath for Red Hat Enterprise Linux 8"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1386",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1386"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-2182",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-2182"
+      }
+    ],
+    "Description": "OVN, the Open Virtual Network, is a system to support virtual network\nabstraction.  OVN complements the existing capabilities of OVS to add\nnative support for virtual network abstractions, such as virtual L2 and L3\noverlays and security groups.\n\nSecurity fix(es):\n\n* ovn22.12: insufficient validation of BFD packets may lead to denial of service (CVE-2024-2182)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-19"
+      },
+      "Updated": {
+        "Date": "2024-03-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-2182",
+          "Cvss3": "6.5/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-346",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-2182",
+          "Public": "20240312"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2267840",
+          "ID": "2267840"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/o:redhat:enterprise_linux:8",
+        "cpe:/o:redhat:enterprise_linux:8::fastdatapath"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:20158011014"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:20158011013"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20205310012"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ovn22.12 is earlier than 0:22.12.1-94.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241386001"
+                  },
+                  {
+                    "Comment": "ovn22.12 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233153018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ovn22.12-central is earlier than 0:22.12.1-94.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241386003"
+                  },
+                  {
+                    "Comment": "ovn22.12-central is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233153044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ovn22.12-host is earlier than 0:22.12.1-94.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241386005"
+                  },
+                  {
+                    "Comment": "ovn22.12-host is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233153002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "ovn22.12-vtep is earlier than 0:22.12.1-94.el8fdp",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241386007"
+                  },
+                  {
+                    "Comment": "ovn22.12-vtep is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20233153060"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
