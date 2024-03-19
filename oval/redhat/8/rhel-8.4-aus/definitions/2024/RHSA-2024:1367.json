@@ -1,0 +1,528 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241367",
+  "Version": "642",
+  "Metadata": {
+    "Title": "RHSA-2024:1367: kernel security and bug fix update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.4 Advanced Mission Critical Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1367",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1367"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-3545",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-3545"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-38096",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-38096"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2022-41858",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2022-41858"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2166",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2166"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-2176",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-2176"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-31436",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-31436"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-3611",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-3611"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-4459",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-4459"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-6817",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-6817"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-7192",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-7192"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-0646",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-0646"
+      }
+    ],
+    "Description": "The kernel packages contain the Linux kernel, the core of any Linux operating system.\n\nSecurity Fix(es):\n\n* kernel: vmwgfx: NULL pointer dereference in vmw_cmd_dx_define_query (CVE-2022-38096)\n\n* kernel: null-ptr-deref vulnerabilities in sl_tx_timeout in drivers/net/slip (CVE-2022-41858)\n\n* kernel: nfp: use-after-free in area_cache_get() (CVE-2022-3545)\n\n* kernel: NULL pointer dereference in can_rcv_filter (CVE-2023-2166)\n\n* kernel: Slab-out-of-bound read in compare_netdev_and_ip (CVE-2023-2176)\n\n* kernel: out-of-bounds write in qfq_change_class function (CVE-2023-31436)\n\n* kernel: vmxnet3: NULL pointer dereference in vmxnet3_rq_cleanup() (CVE-2023-4459)\n\n* kernel: net/sched: sch_qfq component can be exploited if in qfq_change_agg function happens qfq_enqueue overhead (CVE-2023-3611)\n\n* kernel: ktls overwrites readonly memory pages when using function splice with a ktls socket as destination (CVE-2024-0646)\n\n* kernel: inactive elements in nft_pipapo_walk (CVE-2023-6817)\n\n* kernel: refcount leak in ctnetlink_create_conntrack() (CVE-2023-7192)\n\nBug Fix(es):\n\n* kernel: out-of-bounds write in qfq_change_class function (JIRA:RHEL-12696)\n\n* kernel: vmxnet3: NULL pointer dereference in vmxnet3_rq_cleanup() (JIRA:RHEL-18194)\n\n* kernel: refcount leak in ctnetlink_create_conntrack() (JIRA:RHEL-20296)\n\n* kernel: inactive elements in nft_pipapo_walk (JIRA:RHEL-20695)\n\n* kernel: ktls overwrites readonly memory pages when using function splice with a ktls socket as destination (JIRA:RHEL-22088)\n\n* kernel: null-ptr-deref vulnerabilities in sl_tx_timeout in drivers/net/slip (JIRA:RHEL-18580)\n\n* ipoib mcast lockup fix (JIRA:RHEL-19696)\n\n* dm multipath device suspend deadlocks waiting on a flush request (JIRA:RHEL-19108)\n\n* kernel: Slab-out-of-bound read in compare_netdev_and_ip (JIRA:RHEL-19325)\n\n* kernel: A flaw leading to a use-after-free in area_cache_get() (JIRA:RHEL-19449)\n\n* kernel: vmxgfx: NULL pointer dereference in vmw_cmd_dx_define_query (JIRA:RHEL-22763)\n\n* RHEL 8.5: Backport upstream memory cgroup commits up to v5.12 (JIRA:RHEL-9162)\n\n* kernel: NULL pointer dereference in can_rcv_filter (JIRA:RHEL-19459)\n\n* ceph: several cap and snap fixes (JIRA:RHEL-20906)\n\n* kernel NULL pointer at RIP: 0010:kyber_has_work+0x1c/0x60 (JIRA:RHEL-21782)\n\n* rbd: don't move requests to the running list on errors [8.x] (JIRA:RHEL-24201)",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-19"
+      },
+      "Updated": {
+        "Date": "2024-03-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2022-3545",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-3545",
+          "Public": "20220811:0630"
+        },
+        {
+          "CveID": "CVE-2022-38096",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-38096",
+          "Public": "20220909"
+        },
+        {
+          "CveID": "CVE-2022-41858",
+          "Cvss3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2022-41858",
+          "Public": "20220405:1530"
+        },
+        {
+          "CveID": "CVE-2023-2166",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2166",
+          "Public": "20221206:0630"
+        },
+        {
+          "CveID": "CVE-2023-2176",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-125",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-2176",
+          "Public": "20221211:0530"
+        },
+        {
+          "CveID": "CVE-2023-31436",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-31436",
+          "Public": "20230413"
+        },
+        {
+          "CveID": "CVE-2023-3611",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-787",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-3611",
+          "Public": "20230721"
+        },
+        {
+          "CveID": "CVE-2023-4459",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-476",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-4459",
+          "Public": "20220514"
+        },
+        {
+          "CveID": "CVE-2023-6817",
+          "Cvss3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-416",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-6817",
+          "Public": "20231218"
+        },
+        {
+          "CveID": "CVE-2023-7192",
+          "Cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-401",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-7192",
+          "Public": "20230210"
+        },
+        {
+          "CveID": "CVE-2024-0646",
+          "Cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-0646",
+          "Public": "20231207:0630"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2133452",
+          "ID": "2133452"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2144379",
+          "ID": "2144379"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2161310",
+          "ID": "2161310"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2187813",
+          "ID": "2187813"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2187931",
+          "ID": "2187931"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2192671",
+          "ID": "2192671"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2219268",
+          "ID": "2219268"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2225191",
+          "ID": "2225191"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2253908",
+          "ID": "2253908"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2255139",
+          "ID": "2255139"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2256279",
+          "ID": "2256279"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.4",
+        "cpe:/a:redhat:rhel_aus:8.4::appstream",
+        "cpe:/o:redhat:rhel_aus:8.4",
+        "cpe:/o:redhat:rhel_aus:8.4::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "kernel earlier than 0:4.18.0-305.125.1.el8_4 is currently running",
+                "TestRef": "oval:com.redhat.rhsa:tst:20241367039"
+              },
+              {
+                "Comment": "kernel earlier than 0:4.18.0-305.125.1.el8_4 is set to boot up on next boot",
+                "TestRef": "oval:com.redhat.rhsa:tst:20241367040"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "bpftool is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367001"
+                  },
+                  {
+                    "Comment": "bpftool is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367003"
+                  },
+                  {
+                    "Comment": "kernel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-abi-stablelists is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367005"
+                  },
+                  {
+                    "Comment": "kernel-abi-stablelists is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20211578006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-core is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367007"
+                  },
+                  {
+                    "Comment": "kernel-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-cross-headers is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367009"
+                  },
+                  {
+                    "Comment": "kernel-cross-headers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367011"
+                  },
+                  {
+                    "Comment": "kernel-debug is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-core is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367013"
+                  },
+                  {
+                    "Comment": "kernel-debug-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-devel is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367015"
+                  },
+                  {
+                    "Comment": "kernel-debug-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-modules is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367017"
+                  },
+                  {
+                    "Comment": "kernel-debug-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-debug-modules-extra is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367019"
+                  },
+                  {
+                    "Comment": "kernel-debug-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-devel is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367021"
+                  },
+                  {
+                    "Comment": "kernel-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-doc is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367023"
+                  },
+                  {
+                    "Comment": "kernel-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-headers is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367025"
+                  },
+                  {
+                    "Comment": "kernel-headers is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-modules is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367027"
+                  },
+                  {
+                    "Comment": "kernel-modules is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-modules-extra is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367029"
+                  },
+                  {
+                    "Comment": "kernel-modules-extra is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367031"
+                  },
+                  {
+                    "Comment": "kernel-tools is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "kernel-tools-libs is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367033"
+                  },
+                  {
+                    "Comment": "kernel-tools-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "perf is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367035"
+                  },
+                  {
+                    "Comment": "perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "python3-perf is earlier than 0:4.18.0-305.125.1.el8_4",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241367037"
+                  },
+                  {
+                    "Comment": "python3-perf is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20191167050"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
