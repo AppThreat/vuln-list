@@ -1,0 +1,138 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241412",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1412: gmp update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.8 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1412",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1412"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2021-43618",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2021-43618"
+      }
+    ],
+    "Description": "The gmp packages contain GNU MP, a library for arbitrary precision arithmetics, signed integers operations, rational numbers, and floating point numbers.\n\nSecurity Fix(es):\n\n* gmp: Integer overflow and resultant buffer overflow via crafted input\n(CVE-2021-43618)\n\nFor more details about the security issue(s), including the impact, a CVSS\nscore, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-19"
+      },
+      "Updated": {
+        "Date": "2024-03-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2021-43618",
+          "Cvss3": "6.2/CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-190",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2021-43618",
+          "Public": "20211115"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2024904",
+          "ID": "2024904"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_aus:8.8",
+        "cpe:/a:redhat:rhel_aus:8.8::appstream",
+        "cpe:/o:redhat:rhel_aus:8.8",
+        "cpe:/o:redhat:rhel_aus:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gmp is earlier than 1:6.1.2-11.el8_8.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412001"
+                  },
+                  {
+                    "Comment": "gmp is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gmp-c++ is earlier than 1:6.1.2-11.el8_8.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412003"
+                  },
+                  {
+                    "Comment": "gmp-c++ is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "gmp-devel is earlier than 1:6.1.2-11.el8_8.1",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412005"
+                  },
+                  {
+                    "Comment": "gmp-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241412006"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

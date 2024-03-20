@@ -1,0 +1,219 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241411",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1411: opencryptoki security update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 8.8 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1411",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1411"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-0914",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-0914"
+      }
+    ],
+    "Description": "The opencryptoki packages contain version 2.11 of the PKCS#11 API, implemented for IBM Cryptocards, such as IBM 4764 and 4765 crypto cards. These packages includes support for the IBM 4758 Cryptographic CoProcessor (with the PKCS#11 firmware loaded), the IBM eServer Cryptographic Accelerator (FC 4960 on IBM eServer System p), the IBM Crypto Express2 (FC 0863 or FC 0870 on IBM System z), and the IBM CP Assist for Cryptographic Function (FC 3863 on IBM System z). The opencryptoki packages also bring a software token implementation that can be used without any cryptographic hardware. These packages contain the Slot Daemon (pkcsslotd) and general utilities.\n\nSecurity Fix(es):\n\n* opencryptoki: timing side-channel in handling of RSA PKCS#1 v1.5 padded ciphertexts (Marvin) (CVE-2024-0914)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-19"
+      },
+      "Updated": {
+        "Date": "2024-03-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-0914",
+          "Cvss3": "5.9/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "Cwe": "CWE-385-\u003eCWE-208-\u003eCWE-203",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-0914",
+          "Public": "20240125"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2260407",
+          "ID": "2260407"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:8.8",
+        "cpe:/a:redhat:rhel_e4s:8.8::appstream",
+        "cpe:/a:redhat:rhel_e4s:8.8::highavailability",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap",
+        "cpe:/a:redhat:rhel_e4s:8.8::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:8.8",
+        "cpe:/o:redhat:rhel_e4s:8.8::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20191992005"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20191992004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411001"
+                  },
+                  {
+                    "Comment": "opencryptoki is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-ccatok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411003"
+                  },
+                  {
+                    "Comment": "opencryptoki-ccatok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-devel is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411005"
+                  },
+                  {
+                    "Comment": "opencryptoki-devel is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-ep11tok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411007"
+                  },
+                  {
+                    "Comment": "opencryptoki-ep11tok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-icatok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411009"
+                  },
+                  {
+                    "Comment": "opencryptoki-icatok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-icsftok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411011"
+                  },
+                  {
+                    "Comment": "opencryptoki-icsftok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-libs is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411013"
+                  },
+                  {
+                    "Comment": "opencryptoki-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-swtok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411015"
+                  },
+                  {
+                    "Comment": "opencryptoki-swtok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "opencryptoki-tpmtok is earlier than 0:3.19.0-3.el8_8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241411017"
+                  },
+                  {
+                    "Comment": "opencryptoki-tpmtok is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20213054018"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
