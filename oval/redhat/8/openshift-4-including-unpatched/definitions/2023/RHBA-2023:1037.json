@@ -1,0 +1,149 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhba:def:20231037",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHBA-2023:1037: Red Hat build of MicroShift 4.12.6 bug fix and enhancement update (Moderate)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.12"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHBA-2023:1037",
+        "RefURL": "https://access.redhat.com/errata/RHBA-2023:1037"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-0229",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-0229"
+      }
+    ],
+    "Description": "Red Hat build of MicroShift is Red Hat's light-weight Kubernetes\norchestration solution designed for edge device deployments and is built\nfrom the edge capabilities of Red Hat OpenShift. MicroShift is an\napplication that is deployed on top of Red Hat Enterprise Linux devices at\nthe edge, providing an efficient way to operate single-node clusters in\nthese low-resource environments.\n\nThis advisory contains the RPM packages for Red Hat build of MicroShift\n4.12.6. See the following advisory for the container images for this\nrelease:\n\nhttps://access.redhat.com/errata/RHBA-2023:1034\n\nAll of the bug fixes may not be documented in this advisory. See the\nfollowing release notes documentation for details about these changes:\n\nhttps://access.redhat.com/documentation/en-us/microshift/4.12/html/release_notes/index\n\nAll Red Hat build of MicroShift 4.12 users are advised to use these updated\npackages and images when they are available in the RPM repository.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Moderate",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-03-07"
+      },
+      "Updated": {
+        "Date": "2023-03-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-0229",
+          "Cvss3": "6.3/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+          "Cwe": "CWE-20",
+          "Impact": "moderate",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-0229",
+          "Public": "20230112"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2160349",
+          "ID": "2160349"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.12",
+        "cpe:/a:redhat:openshift:4.12::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:201714623004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:201714623003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230452004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "microshift is earlier than 0:4.12.6-202303012057.p0.g50997a2.assembly.4.12.6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037001"
+                  },
+                  {
+                    "Comment": "microshift is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:20223162004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "microshift-networking is earlier than 0:4.12.6-202303012057.p0.g50997a2.assembly.4.12.6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037003"
+                  },
+                  {
+                    "Comment": "microshift-networking is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "microshift-release-info is earlier than 0:4.12.6-202303012057.p0.g50997a2.assembly.4.12.6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037005"
+                  },
+                  {
+                    "Comment": "microshift-release-info is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "microshift-selinux is earlier than 0:4.12.6-202303012057.p0.g50997a2.assembly.4.12.6.el8",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037007"
+                  },
+                  {
+                    "Comment": "microshift-selinux is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhba:tst:20231037008"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
