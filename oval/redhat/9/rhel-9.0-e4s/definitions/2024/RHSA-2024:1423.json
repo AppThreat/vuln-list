@@ -1,0 +1,2429 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241423",
+  "Version": "639",
+  "Metadata": {
+    "Title": "RHSA-2024:1423: libreoffice security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9.0 Extended Update Support"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1423",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1423"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-6185",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-6185"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-6186",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-6186"
+      }
+    ],
+    "Description": "LibreOffice is an open source, community-developed office productivity suite. It includes key desktop applications, such as a word processor, a spreadsheet, a presentation manager, a formula editor, and a drawing program. LibreOffice replaces OpenOffice and provides a similar but enhanced and extended office suite.\n\nBug Fix(es):\n\n* CVE-2023-6186 libreoffice: various flaws (JIRA:RHEL-20655)\n* CVE-2023-6185 libreoffice: various flaws (JIRA:RHEL-20655)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-19"
+      },
+      "Updated": {
+        "Date": "2024-03-19"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-6185",
+          "Cvss3": "8.3/CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:C/C:L/I:H/A:H",
+          "Cwe": "CWE-250",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-6185",
+          "Public": "20231211"
+        },
+        {
+          "CveID": "CVE-2023-6186",
+          "Cvss3": "8.3/CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:C/C:L/I:H/A:H",
+          "Cwe": "CWE-250",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-6186",
+          "Public": "20231211"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2254003",
+          "ID": "2254003"
+        },
+        {
+          "Href": "https://bugzilla.redhat.com/2254005",
+          "ID": "2254005"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:rhel_e4s:9.0",
+        "cpe:/a:redhat:rhel_e4s:9.0::appstream",
+        "cpe:/a:redhat:rhel_e4s:9.0::highavailability",
+        "cpe:/a:redhat:rhel_e4s:9.0::nfv",
+        "cpe:/a:redhat:rhel_e4s:9.0::realtime",
+        "cpe:/a:redhat:rhel_e4s:9.0::resilientstorage",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap",
+        "cpe:/a:redhat:rhel_e4s:9.0::sap_hana",
+        "cpe:/o:redhat:rhel_e4s:9.0",
+        "cpe:/o:redhat:rhel_e4s:9.0::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-af is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423001"
+                  },
+                  {
+                    "Comment": "autocorr-af is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-bg is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423003"
+                  },
+                  {
+                    "Comment": "autocorr-bg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ca is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423005"
+                  },
+                  {
+                    "Comment": "autocorr-ca is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-cs is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423007"
+                  },
+                  {
+                    "Comment": "autocorr-cs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-da is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423009"
+                  },
+                  {
+                    "Comment": "autocorr-da is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423010"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-de is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423011"
+                  },
+                  {
+                    "Comment": "autocorr-de is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423012"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-dsb is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423013"
+                  },
+                  {
+                    "Comment": "autocorr-dsb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423014"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-el is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423015"
+                  },
+                  {
+                    "Comment": "autocorr-el is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423016"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-en is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423017"
+                  },
+                  {
+                    "Comment": "autocorr-en is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423018"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-es is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423019"
+                  },
+                  {
+                    "Comment": "autocorr-es is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423020"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-fa is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423021"
+                  },
+                  {
+                    "Comment": "autocorr-fa is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423022"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-fi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423023"
+                  },
+                  {
+                    "Comment": "autocorr-fi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423024"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-fr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423025"
+                  },
+                  {
+                    "Comment": "autocorr-fr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423026"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ga is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423027"
+                  },
+                  {
+                    "Comment": "autocorr-ga is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423028"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-hr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423029"
+                  },
+                  {
+                    "Comment": "autocorr-hr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423030"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-hsb is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423031"
+                  },
+                  {
+                    "Comment": "autocorr-hsb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423032"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-hu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423033"
+                  },
+                  {
+                    "Comment": "autocorr-hu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423034"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-is is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423035"
+                  },
+                  {
+                    "Comment": "autocorr-is is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423036"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-it is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423037"
+                  },
+                  {
+                    "Comment": "autocorr-it is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423038"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ja is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423039"
+                  },
+                  {
+                    "Comment": "autocorr-ja is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423040"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ko is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423041"
+                  },
+                  {
+                    "Comment": "autocorr-ko is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423042"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-lb is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423043"
+                  },
+                  {
+                    "Comment": "autocorr-lb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423044"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-lt is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423045"
+                  },
+                  {
+                    "Comment": "autocorr-lt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423046"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-mn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423047"
+                  },
+                  {
+                    "Comment": "autocorr-mn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423048"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-nl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423049"
+                  },
+                  {
+                    "Comment": "autocorr-nl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423050"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-pl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423051"
+                  },
+                  {
+                    "Comment": "autocorr-pl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423052"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-pt is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423053"
+                  },
+                  {
+                    "Comment": "autocorr-pt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423054"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ro is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423055"
+                  },
+                  {
+                    "Comment": "autocorr-ro is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423056"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-ru is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423057"
+                  },
+                  {
+                    "Comment": "autocorr-ru is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423058"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-sk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423059"
+                  },
+                  {
+                    "Comment": "autocorr-sk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423060"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-sl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423061"
+                  },
+                  {
+                    "Comment": "autocorr-sl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423062"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-sr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423063"
+                  },
+                  {
+                    "Comment": "autocorr-sr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423064"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-sv is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423065"
+                  },
+                  {
+                    "Comment": "autocorr-sv is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423066"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-tr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423067"
+                  },
+                  {
+                    "Comment": "autocorr-tr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423068"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-vi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423069"
+                  },
+                  {
+                    "Comment": "autocorr-vi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423070"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-vro is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423071"
+                  },
+                  {
+                    "Comment": "autocorr-vro is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423072"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "autocorr-zh is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423073"
+                  },
+                  {
+                    "Comment": "autocorr-zh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423074"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-base is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423075"
+                  },
+                  {
+                    "Comment": "libreoffice-base is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423076"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-calc is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423077"
+                  },
+                  {
+                    "Comment": "libreoffice-calc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423078"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-core is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423079"
+                  },
+                  {
+                    "Comment": "libreoffice-core is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423080"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-data is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423081"
+                  },
+                  {
+                    "Comment": "libreoffice-data is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423082"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-draw is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423083"
+                  },
+                  {
+                    "Comment": "libreoffice-draw is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423084"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-emailmerge is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423085"
+                  },
+                  {
+                    "Comment": "libreoffice-emailmerge is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423086"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-filters is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423087"
+                  },
+                  {
+                    "Comment": "libreoffice-filters is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423088"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-gdb-debug-support is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423089"
+                  },
+                  {
+                    "Comment": "libreoffice-gdb-debug-support is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423090"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-graphicfilter is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423091"
+                  },
+                  {
+                    "Comment": "libreoffice-graphicfilter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423092"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-gtk3 is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423093"
+                  },
+                  {
+                    "Comment": "libreoffice-gtk3 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423094"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ar is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423095"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423096"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-bg is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423097"
+                  },
+                  {
+                    "Comment": "libreoffice-help-bg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423098"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-bn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423099"
+                  },
+                  {
+                    "Comment": "libreoffice-help-bn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423100"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ca is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423101"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ca is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423102"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-cs is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423103"
+                  },
+                  {
+                    "Comment": "libreoffice-help-cs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423104"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-da is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423105"
+                  },
+                  {
+                    "Comment": "libreoffice-help-da is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423106"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-de is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423107"
+                  },
+                  {
+                    "Comment": "libreoffice-help-de is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423108"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-dz is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423109"
+                  },
+                  {
+                    "Comment": "libreoffice-help-dz is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423110"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-el is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423111"
+                  },
+                  {
+                    "Comment": "libreoffice-help-el is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423112"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-en is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423113"
+                  },
+                  {
+                    "Comment": "libreoffice-help-en is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423114"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-eo is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423115"
+                  },
+                  {
+                    "Comment": "libreoffice-help-eo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423116"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-es is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423117"
+                  },
+                  {
+                    "Comment": "libreoffice-help-es is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423118"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-et is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423119"
+                  },
+                  {
+                    "Comment": "libreoffice-help-et is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423120"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-eu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423121"
+                  },
+                  {
+                    "Comment": "libreoffice-help-eu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423122"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-fi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423123"
+                  },
+                  {
+                    "Comment": "libreoffice-help-fi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423124"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-fr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423125"
+                  },
+                  {
+                    "Comment": "libreoffice-help-fr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423126"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-gl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423127"
+                  },
+                  {
+                    "Comment": "libreoffice-help-gl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423128"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-gu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423129"
+                  },
+                  {
+                    "Comment": "libreoffice-help-gu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423130"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-he is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423131"
+                  },
+                  {
+                    "Comment": "libreoffice-help-he is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423132"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-hi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423133"
+                  },
+                  {
+                    "Comment": "libreoffice-help-hi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423134"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-hr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423135"
+                  },
+                  {
+                    "Comment": "libreoffice-help-hr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423136"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-hu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423137"
+                  },
+                  {
+                    "Comment": "libreoffice-help-hu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423138"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-id is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423139"
+                  },
+                  {
+                    "Comment": "libreoffice-help-id is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423140"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-it is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423141"
+                  },
+                  {
+                    "Comment": "libreoffice-help-it is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423142"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ja is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423143"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ja is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423144"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ko is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423145"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ko is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423146"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-lt is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423147"
+                  },
+                  {
+                    "Comment": "libreoffice-help-lt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423148"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-lv is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423149"
+                  },
+                  {
+                    "Comment": "libreoffice-help-lv is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423150"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-nb is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423151"
+                  },
+                  {
+                    "Comment": "libreoffice-help-nb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423152"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-nl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423153"
+                  },
+                  {
+                    "Comment": "libreoffice-help-nl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423154"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-nn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423155"
+                  },
+                  {
+                    "Comment": "libreoffice-help-nn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423156"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-pl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423157"
+                  },
+                  {
+                    "Comment": "libreoffice-help-pl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423158"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-pt-BR is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423159"
+                  },
+                  {
+                    "Comment": "libreoffice-help-pt-BR is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423160"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-pt-PT is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423161"
+                  },
+                  {
+                    "Comment": "libreoffice-help-pt-PT is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423162"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ro is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423163"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ro is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423164"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ru is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423165"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ru is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423166"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-si is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423167"
+                  },
+                  {
+                    "Comment": "libreoffice-help-si is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423168"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-sk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423169"
+                  },
+                  {
+                    "Comment": "libreoffice-help-sk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423170"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-sl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423171"
+                  },
+                  {
+                    "Comment": "libreoffice-help-sl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423172"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-sv is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423173"
+                  },
+                  {
+                    "Comment": "libreoffice-help-sv is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423174"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-ta is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423175"
+                  },
+                  {
+                    "Comment": "libreoffice-help-ta is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423176"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-tr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423177"
+                  },
+                  {
+                    "Comment": "libreoffice-help-tr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423178"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-uk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423179"
+                  },
+                  {
+                    "Comment": "libreoffice-help-uk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423180"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-zh-Hans is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423181"
+                  },
+                  {
+                    "Comment": "libreoffice-help-zh-Hans is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423182"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-help-zh-Hant is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423183"
+                  },
+                  {
+                    "Comment": "libreoffice-help-zh-Hant is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423184"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-impress is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423185"
+                  },
+                  {
+                    "Comment": "libreoffice-impress is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423186"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-af is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423187"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-af is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423188"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ar is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423189"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ar is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423190"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-as is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423191"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-as is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423192"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-bg is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423193"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-bg is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423194"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-bn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423195"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-bn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423196"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-br is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423197"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-br is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423198"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ca is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423199"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ca is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423200"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-cs is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423201"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-cs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423202"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-cy is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423203"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-cy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423204"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-da is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423205"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-da is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423206"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-de is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423207"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-de is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423208"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-dz is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423209"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-dz is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423210"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-el is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423211"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-el is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423212"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-en is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423213"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-en is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423214"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-eo is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423215"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-eo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423216"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-es is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423217"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-es is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423218"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-et is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423219"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-et is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423220"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-eu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423221"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-eu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423222"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-fa is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423223"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-fa is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423224"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-fi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423225"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-fi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423226"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-fr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423227"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-fr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423228"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-fy is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423229"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-fy is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423230"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ga is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423231"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ga is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423232"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-gl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423233"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-gl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423234"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-gu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423235"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-gu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423236"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-he is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423237"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-he is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423238"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-hi is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423239"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-hi is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423240"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-hr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423241"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-hr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423242"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-hu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423243"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-hu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423244"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-id is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423245"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-id is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423246"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-it is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423247"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-it is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423248"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ja is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423249"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ja is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423250"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-kk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423251"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-kk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423252"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-kn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423253"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-kn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423254"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ko is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423255"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ko is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423256"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-lt is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423257"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-lt is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423258"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-lv is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423259"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-lv is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423260"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-mai is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423261"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-mai is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423262"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ml is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423263"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ml is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423264"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-mr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423265"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-mr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423266"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-nb is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423267"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-nb is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423268"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-nl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423269"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-nl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423270"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-nn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423271"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-nn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423272"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-nr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423273"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-nr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423274"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-nso is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423275"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-nso is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423276"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-or is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423277"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-or is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423278"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-pa is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423279"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-pa is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423280"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-pl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423281"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-pl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423282"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-pt-BR is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423283"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-pt-BR is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423284"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-pt-PT is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423285"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-pt-PT is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423286"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ro is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423287"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ro is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423288"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ru is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423289"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ru is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423290"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-si is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423291"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-si is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423292"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-sk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423293"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-sk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423294"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-sl is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423295"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-sl is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423296"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-sr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423297"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-sr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423298"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ss is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423299"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ss is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423300"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-st is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423301"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-st is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423302"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-sv is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423303"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-sv is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423304"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ta is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423305"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ta is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423306"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-te is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423307"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-te is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423308"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-th is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423309"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-th is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423310"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-tn is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423311"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-tn is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423312"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-tr is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423313"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-tr is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423314"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ts is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423315"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423316"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-uk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423317"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-uk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423318"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-ve is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423319"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-ve is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423320"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-xh is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423321"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-xh is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423322"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-zh-Hans is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423323"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-zh-Hans is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423324"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-zh-Hant is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423325"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-zh-Hant is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423326"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-langpack-zu is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423327"
+                  },
+                  {
+                    "Comment": "libreoffice-langpack-zu is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423328"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-math is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423329"
+                  },
+                  {
+                    "Comment": "libreoffice-math is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423330"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-ogltrans is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423331"
+                  },
+                  {
+                    "Comment": "libreoffice-ogltrans is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423332"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-opensymbol-fonts is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423333"
+                  },
+                  {
+                    "Comment": "libreoffice-opensymbol-fonts is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423334"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-pdfimport is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423335"
+                  },
+                  {
+                    "Comment": "libreoffice-pdfimport is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423336"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-pyuno is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423337"
+                  },
+                  {
+                    "Comment": "libreoffice-pyuno is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423338"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-sdk is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423339"
+                  },
+                  {
+                    "Comment": "libreoffice-sdk is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423340"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-sdk-doc is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423341"
+                  },
+                  {
+                    "Comment": "libreoffice-sdk-doc is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423342"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-ure is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423343"
+                  },
+                  {
+                    "Comment": "libreoffice-ure is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423344"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-ure-common is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423345"
+                  },
+                  {
+                    "Comment": "libreoffice-ure-common is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423346"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-wiki-publisher is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423347"
+                  },
+                  {
+                    "Comment": "libreoffice-wiki-publisher is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423348"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-writer is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423349"
+                  },
+                  {
+                    "Comment": "libreoffice-writer is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423350"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-x11 is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423351"
+                  },
+                  {
+                    "Comment": "libreoffice-x11 is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423352"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreoffice-xsltfilter is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423353"
+                  },
+                  {
+                    "Comment": "libreoffice-xsltfilter is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423354"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "libreofficekit is earlier than 1:7.1.8.1-12.el9_0",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423355"
+                  },
+                  {
+                    "Comment": "libreofficekit is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241423356"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
