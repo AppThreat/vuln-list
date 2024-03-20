@@ -1,0 +1,188 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20233409",
+  "Version": "637",
+  "Metadata": {
+    "Title": "RHSA-2023:3409: OpenShift Container Platform 4.12.20 packages and security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat OpenShift Container Platform 4.12"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2023:3409",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2023:3409"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2023-24540",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2023-24540"
+      }
+    ],
+    "Description": "Red Hat OpenShift Container Platform is Red Hat's cloud computing Kubernetes application platform solution designed for on-premise or private cloud deployments.\n\nThis advisory contains the RPM packages for Red Hat OpenShift Container Platform 4.12.20. See the following advisory for the container images for this release:\n\nhttps://access.redhat.com/errata/RHSA-2023:3410\n\nSecurity Fix(es):\n\n* golang: html/template: improper handling of JavaScript whitespace (CVE-2023-24540)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\n\nAll OpenShift Container Platform 4.12 users are advised to upgrade to these updated packages and images when they are available in the appropriate release channel. To check for available updates, use the OpenShift CLI (oc) or web console. Instructions for upgrading a cluster are available at https://docs.openshift.com/container-platform/4.12/updating/updating-cluster-cli.html",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2023 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2023-06-07"
+      },
+      "Updated": {
+        "Date": "2023-06-07"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2023-24540",
+          "Cvss3": "8.1/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "Cwe": "CWE-176",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2023-24540",
+          "Public": "20230420"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2196027",
+          "ID": "2196027"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:openshift:4.12",
+        "cpe:/a:redhat:openshift:4.12::el8"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.cve:tst:201714623004"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterions": [
+              {
+                "Comment": "Red Hat Enterprise Linux 8 is installed",
+                "TestRef": "oval:com.redhat.cve:tst:201714623003"
+              },
+              {
+                "Comment": "Red Hat CoreOS 4 is installed",
+                "TestRef": "oval:com.redhat.rhba:tst:20230452004"
+              }
+            ]
+          },
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "buildah is earlier than 1:1.23.4-4.1.rhaos4.12.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409001"
+                  },
+                  {
+                    "Comment": "buildah is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202120206002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "buildah-tests is earlier than 1:1.23.4-4.1.rhaos4.12.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409003"
+                  },
+                  {
+                    "Comment": "buildah-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227398298"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-hyperkube is earlier than 0:4.12.0-202305301919.p0.g3fe2906.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409005"
+                  },
+                  {
+                    "Comment": "openshift-hyperkube is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227398322"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-clients is earlier than 0:4.12.0-202305301015.p0.g97c75d0.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409007"
+                  },
+                  {
+                    "Comment": "openshift-clients is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:201714623002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "openshift-clients-redistributable is earlier than 0:4.12.0-202305301015.p0.g97c75d0.assembly.stream.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409009"
+                  },
+                  {
+                    "Comment": "openshift-clients-redistributable is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227398326"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo is earlier than 2:1.9.4-2.1.rhaos4.12.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409011"
+                  },
+                  {
+                    "Comment": "skopeo is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.cve:tst:202129482004"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "skopeo-tests is earlier than 2:1.9.4-2.1.rhaos4.12.el8",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20233409013"
+                  },
+                  {
+                    "Comment": "skopeo-tests is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20227398054"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
