@@ -1,0 +1,165 @@
+{
+  "Class": "patch",
+  "ID": "oval:com.redhat.rhsa:def:20241438",
+  "Version": "635",
+  "Metadata": {
+    "Title": "RHSA-2024:1438: nodejs security update (Important)",
+    "AffectedList": [
+      {
+        "Family": "unix",
+        "Platforms": [
+          "Red Hat Enterprise Linux 9"
+        ]
+      }
+    ],
+    "References": [
+      {
+        "Source": "RHSA",
+        "RefID": "RHSA-2024:1438",
+        "RefURL": "https://access.redhat.com/errata/RHSA-2024:1438"
+      },
+      {
+        "Source": "CVE",
+        "RefID": "CVE-2024-22019",
+        "RefURL": "https://access.redhat.com/security/cve/CVE-2024-22019"
+      }
+    ],
+    "Description": "Node.js is a software development platform for building fast and scalable network applications in the JavaScript programming language. \n\nSecurity Fix(es):\n\n* nodejs: reading unprocessed HTTP request with unbounded chunk extension allows DoS attacks (CVE-2024-22019)\n\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+    "Advisory": {
+      "From": "secalert@redhat.com",
+      "Severity": "Important",
+      "Rights": "Copyright 2024 Red Hat, Inc.",
+      "Issued": {
+        "Date": "2024-03-20"
+      },
+      "Updated": {
+        "Date": "2024-03-20"
+      },
+      "Cves": [
+        {
+          "CveID": "CVE-2024-22019",
+          "Cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "Cwe": "CWE-400",
+          "Impact": "important",
+          "Href": "https://access.redhat.com/security/cve/CVE-2024-22019",
+          "Public": "20240216"
+        }
+      ],
+      "Bugzilla": [
+        {
+          "Href": "https://bugzilla.redhat.com/2264574",
+          "ID": "2264574"
+        }
+      ],
+      "AffectedCpeList": [
+        "cpe:/a:redhat:enterprise_linux:9",
+        "cpe:/a:redhat:enterprise_linux:9::appstream",
+        "cpe:/a:redhat:enterprise_linux:9::crb",
+        "cpe:/a:redhat:enterprise_linux:9::highavailability",
+        "cpe:/a:redhat:enterprise_linux:9::nfv",
+        "cpe:/a:redhat:enterprise_linux:9::realtime",
+        "cpe:/a:redhat:enterprise_linux:9::resilientstorage",
+        "cpe:/a:redhat:enterprise_linux:9::sap",
+        "cpe:/a:redhat:enterprise_linux:9::sap_hana",
+        "cpe:/a:redhat:enterprise_linux:9::supplementary",
+        "cpe:/o:redhat:enterprise_linux:9",
+        "cpe:/o:redhat:enterprise_linux:9::baseos"
+      ],
+      "Affected": {
+        "Resolution": {}
+      }
+    }
+  },
+  "Criteria": {
+    "Operator": "OR",
+    "Criterions": [
+      {
+        "Comment": "Red Hat Enterprise Linux must be installed",
+        "TestRef": "oval:com.redhat.rhba:tst:20225749024"
+      }
+    ],
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterions": [
+          {
+            "Comment": "Red Hat Enterprise Linux 9 is installed",
+            "TestRef": "oval:com.redhat.rhba:tst:20225749023"
+          }
+        ],
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "nodejs is earlier than 1:16.20.2-4.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241438001"
+                  },
+                  {
+                    "Comment": "nodejs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20237252002"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "nodejs-docs is earlier than 1:16.20.2-4.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241438003"
+                  },
+                  {
+                    "Comment": "nodejs-docs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20237252006"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "nodejs-full-i18n is earlier than 1:16.20.2-4.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241438005"
+                  },
+                  {
+                    "Comment": "nodejs-full-i18n is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20237252008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "nodejs-libs is earlier than 1:16.20.2-4.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241438007"
+                  },
+                  {
+                    "Comment": "nodejs-libs is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20226595008"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterions": [
+                  {
+                    "Comment": "npm is earlier than 1:8.19.4-1.16.20.2.4.el9_3",
+                    "TestRef": "oval:com.redhat.rhsa:tst:20241438009"
+                  },
+                  {
+                    "Comment": "npm is signed with Red Hat redhatrelease2 key",
+                    "TestRef": "oval:com.redhat.rhea:tst:20237252016"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
