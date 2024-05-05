@@ -31,13 +31,58 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Container bci/php-fpm:8-2024-1446,Container bci/php:8-2024-1446,SUSE-2024-1446,SUSE-SLE-Module-Web-Scripting-15-SP5-2024-1446,openSUSE-SLE-15.5-2024-1446",
+      "Text": "Container bci/php-apache:8-2024-1446,Container bci/php-fpm:8-2024-1446,Container bci/php:8-2024-1446,SUSE-2024-1446,SUSE-SLE-Module-Web-Scripting-15-SP5-2024-1446,openSUSE-SLE-15.5-2024-1446",
       "Title": "Patchnames",
       "Type": "Details"
     }
   ],
   "ProductTree": {
     "Relationships": [
+      {
+        "ProductReference": "apache2-mod_php8-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-cli-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-curl-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-mbstring-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-openssl-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-phar-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-zip-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "php8-zlib-8.0.30-150400.4.40.1",
+        "RelatesToProductReference": "Container bci/php-apache:8",
+        "RelationType": "Default Component Of"
+      },
       {
         "ProductReference": "php8-8.0.30-150400.4.40.1",
         "RelatesToProductReference": "Container bci/php-fpm:8",
@@ -678,7 +723,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2024-2756",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "Due to an incomplete fix to  CVE-2022-31629 https://github.com/advisories/GHSA-c43m-486j-j32p , network and same-site attackers can set a standard insecure cookie in the victim's browser which is treated as a __Host- or __Secure- cookie by PHP applications. \n",
       "Threats": [
         {
           "Type": "Impact",
@@ -699,6 +744,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:8:apache2-mod_php8-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-cli-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-curl-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-mbstring-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-openssl-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-phar-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-zip-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-zlib-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-cli-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-curl-8.0.30-150400.4.40.1",
@@ -827,7 +881,7 @@
     },
     {
       "CVE": "CVE-2024-3096",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In PHP  version 8.1.* before 8.1.28, 8.2.* before 8.2.18, 8.3.* before 8.3.5, if a password stored with password_hash() starts with a null byte (\\x00), testing a blank string as the password via password_verify() will incorrectly return true.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -848,6 +902,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:8:apache2-mod_php8-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-cli-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-curl-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-mbstring-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-openssl-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-phar-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-zip-8.0.30-150400.4.40.1",
+            "Container bci/php-apache:8:php8-zlib-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-cli-8.0.30-150400.4.40.1",
             "Container bci/php-fpm:8:php8-curl-8.0.30-150400.4.40.1",
