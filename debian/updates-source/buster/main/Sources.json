@@ -55904,6 +55904,9 @@
     "Directory": [
       "pool/updates/main/s/shim"
     ],
+    "Extra-Source-Only": [
+      "yes"
+    ],
     "Files": [
       "213000f32bcde7205e357c9cece8d69f 2326 shim_15.7-1~deb10u1.dsc 63486ab76be78a51e8491136ef2e0183 1334863 shim_15.7.orig.tar.bz2 14e2b46cbeba2c11b66eb6aae432ea32 35232 shim_15.7-1~deb10u1.debian.tar.xz"
     ],
@@ -55943,22 +55946,75 @@
   },
   {
     "Architecture": [
+      "amd64 arm64 i386"
+    ],
+    "Binary": [
+      "shim-unsigned, shim-helpers-amd64-signed-template, shim-helpers-i386-signed-template, shim-helpers-arm64-signed-template"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 9), sbsigntool, openssl, libelf-dev, gcc-8, dos2unix, pesign (\u003e= 0.112-5), xxd, libefivar-dev"
+    ],
+    "Checksums-Sha256": [
+      "5e82fdf15f33fc68eca2ef995c788c092df3512a8c35273d2494a0d62af595ea 2326 shim_15.8-1~deb10u1.dsc a79f0a9b89f3681ab384865b1a46ab3f79d88b11b4ca59aa040ab03fffae80a9 2315201 shim_15.8.orig.tar.bz2 c76ea4b6db6db0f290483e54bcca679b46d6dbfbb66c43019ffb765152df098d 34676 shim_15.8-1~deb10u1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/updates/main/s/shim"
+    ],
+    "Files": [
+      "ee8d6c9a7be8d839086b359f6d4d4d31 2326 shim_15.8-1~deb10u1.dsc a9452c2e6fafe4e1b87ab2e1cac9ec00 2315201 shim_15.8.orig.tar.bz2 083c62cc33687d05a9fecafd814f9c20 34676 shim_15.8-1~deb10u1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Maintainer": [
+      "Debian EFI team \u003cdebian-efi@lists.debian.org\u003e"
+    ],
+    "Package": [
+      "shim"
+    ],
+    "Package-List": [
+      "shim-helpers-amd64-signed-template deb admin optional arch=amd64 shim-helpers-arm64-signed-template deb admin optional arch=arm64 shim-helpers-i386-signed-template deb admin optional arch=i386 shim-unsigned deb admin optional arch=amd64,arm64,i386"
+    ],
+    "Priority": [
+      "extra"
+    ],
+    "Section": [
+      "misc"
+    ],
+    "Standards-Version": [
+      "4.3.0"
+    ],
+    "Uploaders": [
+      "Steve Langasek \u003cvorlon@debian.org\u003e, Steve McIntyre \u003c93sam@debian.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/efi-team/shim"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/efi-team/shim.git"
+    ],
+    "Version": [
+      "15.8-1~deb10u1"
+    ]
+  },
+  {
+    "Architecture": [
       "amd64"
     ],
     "Binary": [
       "shim-helpers-amd64-signed"
     ],
     "Build-Depends": [
-      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.7-1~deb10u1)"
+      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.8-1~deb10u1)"
     ],
     "Checksums-Sha256": [
-      "33974579deff5f6cb861649dd70bf64613f79e1ac80f26017fff2b7a1d9fee4e 1621 shim-helpers-amd64-signed_1+15.7+1~deb10u1.dsc 19544a906ef4e8d6ab6e58a7b60e6af16f83804595ab87049592c147ceb1c5ba 4880 shim-helpers-amd64-signed_1+15.7+1~deb10u1.tar.xz"
+      "3aa785b45a08d54ee6c85a98f072a96a97974ef5ec890cd680799fca5adb805c 1621 shim-helpers-amd64-signed_1+15.8+1~deb10u1.dsc f6d5b21709c3d32864129c424b578ee486f0f00ab3899eafa03860b617b81a35 4884 shim-helpers-amd64-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Directory": [
       "pool/updates/main/s/shim-helpers-amd64-signed"
     ],
     "Files": [
-      "350f5fe378915a3fc935e5b6d6f45a4e 1621 shim-helpers-amd64-signed_1+15.7+1~deb10u1.dsc 95de5f1e6a5bba8aec3b5076fd1e1bb8 4880 shim-helpers-amd64-signed_1+15.7+1~deb10u1.tar.xz"
+      "4849589a0dedf4686ee034d1b64c3e68 1621 shim-helpers-amd64-signed_1+15.8+1~deb10u1.dsc e23079013fd4381771d8d0e647204e99 4884 shim-helpers-amd64-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Format": [
       "3.0 (native)"
@@ -55982,7 +56038,7 @@
       "4.3.0"
     ],
     "Version": [
-      "1+15.7+1~deb10u1"
+      "1+15.8+1~deb10u1"
     ]
   },
   {
@@ -55993,16 +56049,16 @@
       "shim-helpers-arm64-signed"
     ],
     "Build-Depends": [
-      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.7-1~deb10u1)"
+      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.8-1~deb10u1)"
     ],
     "Checksums-Sha256": [
-      "61c347e67678fd3e852b6cc554d498125507e4f0b269310a9e1e978a423f981b 1621 shim-helpers-arm64-signed_1+15.7+1~deb10u1.dsc 9b4fbf78fad83ae30de786b4cee2dc82daf1e4dcdd10fd91f5349d9b3dc9a2f7 4876 shim-helpers-arm64-signed_1+15.7+1~deb10u1.tar.xz"
+      "756593b39b40cddda1741f1df00cb226fac3c8dbdacdf60ca31f87e796abb13f 1621 shim-helpers-arm64-signed_1+15.8+1~deb10u1.dsc 2c244915d69f505f477714715bc6c9436996e8cf8568c918a0831e49fdef6dc0 4876 shim-helpers-arm64-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Directory": [
       "pool/updates/main/s/shim-helpers-arm64-signed"
     ],
     "Files": [
-      "3f8ab847bb11ce46076072422ce83f7f 1621 shim-helpers-arm64-signed_1+15.7+1~deb10u1.dsc c6c3acbe4138facea0ce3fd1d520ee42 4876 shim-helpers-arm64-signed_1+15.7+1~deb10u1.tar.xz"
+      "247747cb237dd3d11e68a5703f0ca91a 1621 shim-helpers-arm64-signed_1+15.8+1~deb10u1.dsc 6521e6d9c642ba9509edca3108355d3b 4876 shim-helpers-arm64-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Format": [
       "3.0 (native)"
@@ -56026,7 +56082,7 @@
       "4.3.0"
     ],
     "Version": [
-      "1+15.7+1~deb10u1"
+      "1+15.8+1~deb10u1"
     ]
   },
   {
@@ -56037,16 +56093,16 @@
       "shim-helpers-i386-signed"
     ],
     "Build-Depends": [
-      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.7-1~deb10u1)"
+      "debhelper (\u003e= 10.1~), sbsigntool [amd64 arm64 i386], shim-unsigned (= 15.8-1~deb10u1)"
     ],
     "Checksums-Sha256": [
-      "0544f6ccf96f8bd1f407dc485b39ff4e5d67cfde0553a024dc676923b214640d 1613 shim-helpers-i386-signed_1+15.7+1~deb10u1.dsc 206982bae4d6bda6ae07eaa110c461fe3b1bdd33ffc1d114cfd3c440e831c09a 4876 shim-helpers-i386-signed_1+15.7+1~deb10u1.tar.xz"
+      "4d8c5d6a4cd028d9c8ec83e8b3ca098e7eeb6baea02f684f56148658ab94f20d 1613 shim-helpers-i386-signed_1+15.8+1~deb10u1.dsc 823213d2c698d2df671218e405dd8b177594bc31b54ff7129a6fff0c51290e19 4880 shim-helpers-i386-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Directory": [
       "pool/updates/main/s/shim-helpers-i386-signed"
     ],
     "Files": [
-      "aeb03e5e86c452dc4a59f9ac72684c52 1613 shim-helpers-i386-signed_1+15.7+1~deb10u1.dsc 7b6c931c403d836bf6ecf4d80f92a2cd 4876 shim-helpers-i386-signed_1+15.7+1~deb10u1.tar.xz"
+      "2736b1fd8b41f1517416e3d79bbd8d27 1613 shim-helpers-i386-signed_1+15.8+1~deb10u1.dsc 5be623904a9b06b705f0d20488580dac 4880 shim-helpers-i386-signed_1+15.8+1~deb10u1.tar.xz"
     ],
     "Format": [
       "3.0 (native)"
@@ -56070,7 +56126,7 @@
       "4.3.0"
     ],
     "Version": [
-      "1+15.7+1~deb10u1"
+      "1+15.8+1~deb10u1"
     ]
   },
   {
