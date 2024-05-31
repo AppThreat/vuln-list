@@ -5,10 +5,10 @@
     "date": "2022-09-01 21:09"
   },
   "updated": {
-    "date": "2022-09-14 00:02"
+    "date": "2024-05-23 22:04"
   },
   "severity": "important",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2022-1552:\n\tA flaw was found in PostgreSQL. There is an issue with incomplete efforts to operate safely when a privileged user is maintaining another user's objects. The Autovacuum, REINDEX, CREATE INDEX, REFRESH MATERIALIZED VIEW, CLUSTER, and pg_amcheck commands activated relevant protections too late or not at all during the process. This flaw allows an attacker with permission to create non-temporary objects in at least one schema to execute arbitrary SQL functions under a superuser identity.\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2023-5869:\n\tWhile modifying certain SQL array values, missing overflow checks let authenticated database users write arbitrary bytes to a memory area that facilitates arbitrary code execution. Missing overflow checks also let authenticated database users read a wide area of server memory. The CVE-2021-32027 fix covered some attacks of this description, but it missed others.\n\nCVE-2022-1552:\n\tA flaw was found in PostgreSQL. There is an issue with incomplete efforts to operate safely when a privileged user is maintaining another user's objects. The Autovacuum, REINDEX, CREATE INDEX, REFRESH MATERIALIZED VIEW, CLUSTER, and pg_amcheck commands activated relevant protections too late or not at all during the process. This flaw allows an attacker with permission to create non-temporary objects in at least one schema to execute arbitrary SQL functions under a superuser identity.\n\nCVE-2021-32027:\n\tA flaw was found in postgresql. While modifying certain SQL array values, missing bounds checks let authenticated database users write arbitrary bytes to a wide area of server memory. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.\n",
   "packages": [
     {
       "name": "postgresql",
@@ -325,12 +325,24 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32027",
+      "id": "CVE-2021-32027",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1552",
       "id": "CVE-2022-1552",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5869",
+      "id": "CVE-2023-5869",
       "type": "cve"
     }
   ],
   "cveids": [
-    "CVE-2022-1552"
+    "CVE-2021-32027",
+    "CVE-2022-1552",
+    "CVE-2023-5869"
   ]
 }
