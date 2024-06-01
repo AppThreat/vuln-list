@@ -1,0 +1,161 @@
+{
+  "Title": "Security update for python-requests",
+  "Tracking": {
+    "ID": "SUSE-SU-2024:1880-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2024-05-31T06:45:22Z",
+    "CurrentReleaseDate": "2024-05-31T06:45:22Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2024-05-31T06:45:22Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for python-requests",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for python-requests fixes the following issues:\n\n- CVE-2024-35195: Fixed cert verification regardless of changes to the value of `verify` (bsc#1224788).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container suse/manager/4.3/proxy-tftpd:latest-2024-1880,SUSE-2024-1880,SUSE-SLE-Micro-5.3-2024-1880,SUSE-SLE-Micro-5.4-2024-1880,SUSE-SLE-Micro-5.5-2024-1880,SUSE-SLE-Module-Basesystem-15-SP5-2024-1880,SUSE-SLE-Module-Basesystem-15-SP6-2024-1880,SUSE-SUSE-MicroOS-5.1-2024-1880,SUSE-SUSE-MicroOS-5.2-2024-1880,openSUSE-Leap-Micro-5.3-2024-1880,openSUSE-Leap-Micro-5.4-2024-1880,openSUSE-SLE-15.5-2024-1880",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "Container suse/manager/4.3/proxy-tftpd:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.1",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "openSUSE Leap Micro 5.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-requests-2.25.1-150300.3.9.1",
+        "RelatesToProductReference": "openSUSE Leap Micro 5.4",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2024/suse-su-20241880-1/",
+      "Description": "Link for SUSE-SU-2024:1880-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-updates/2024-May/035430.html",
+      "Description": "E-Mail link for SUSE-SU-2024:1880-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224788",
+      "Description": "SUSE Bug 1224788"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-35195/",
+      "Description": "SUSE CVE CVE-2024-35195 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-35195",
+      "Description": "Requests is a HTTP library. Prior to 2.32.0, when making requests through a Requests `Session`, if the first request is made with `verify=False` to disable cert verification, all subsequent requests to the same host will continue to ignore cert verification regardless of changes to the value of `verify`. This behavior will continue for the lifecycle of the connection in the connection pool. This vulnerability is fixed in 2.32.0.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-35195.html",
+          "Description": "CVE-2024-35195"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1224788",
+          "Description": "SUSE Bug 1224788"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container suse/manager/4.3/proxy-tftpd:latest:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Micro 5.1:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Micro 5.2:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Micro 5.3:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Micro 5.4:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Micro 5.5:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP5:python3-requests-2.25.1-150300.3.9.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:python3-requests-2.25.1-150300.3.9.1",
+            "openSUSE Leap 15.5:python3-requests-2.25.1-150300.3.9.1",
+            "openSUSE Leap Micro 5.3:python3-requests-2.25.1-150300.3.9.1",
+            "openSUSE Leap Micro 5.4:python3-requests-2.25.1-150300.3.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
