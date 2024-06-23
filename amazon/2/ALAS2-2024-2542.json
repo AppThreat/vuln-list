@@ -2,10 +2,10 @@
   "id": "ALAS2-2024-2542",
   "title": "Amazon Linux 2 2017.12 - ALAS2-2024-2542: important priority package update for kernel",
   "issued": {
-    "date": "2024-05-09 19:16"
+    "date": "2024-05-09 19:16:00"
   },
   "updated": {
-    "date": "2024-05-15 19:24"
+    "date": "2024-05-15 19:24:00"
   },
   "severity": "important",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2023-52628:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nftables: exthdr: fix 4-byte stack OOB write\n\nIf priv-\u003elen is a multiple of 4, then dst[len / 4] can write past\nthe destination array which leads to stack corruption.\n\nThis construct is necessary to clean the remainder of the register\nin case -\u003elen is NOT a multiple of the register size, so make it\nconditional just like nft_payload.c does.\n\nThe bug was added in 4.1 cycle and then copied/inherited when\ntcp/sctp and ip option support was added.\n\nBug reported by Zero Day Initiative project (ZDI-CAN-21950,\nZDI-CAN-21951, ZDI-CAN-21961).\n",

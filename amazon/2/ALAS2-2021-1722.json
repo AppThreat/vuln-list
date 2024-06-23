@@ -2,10 +2,10 @@
   "id": "ALAS2-2021-1722",
   "title": "Amazon Linux 2 2017.12 - ALAS2-2021-1722: critical priority package update for nss nss-util nss-softokn nspr",
   "issued": {
-    "date": "2021-12-01 07:11"
+    "date": "2021-12-01 07:11:00"
   },
   "updated": {
-    "date": "2021-12-01 20:14"
+    "date": "2021-12-01 20:14:00"
   },
   "severity": "critical",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2021-43527:\n\tNSS (Network Security Services) up to and including 3.73 is vulnerable to a heap overflow when handling DER-encoded DSA or RSA-PSS signatures. Applications using NSS for handling signatures encoded within CMS, S/MIME, PKCS \\#7, or PKCS \\#12 are likely to be impacted. Applications using NSS for certificate validation or other TLS, X.509, OCSP or CRL functionality may be impacted, depending on how they configure NSS.\nWhen verifying a DER-encoded signature, NSS decodes the signature into a fixed-size buffer and passes the buffer to the underlying PKCS \\#11 module. The length of the signature is not correctly checked when processing DSA and RSA-PSS signatures. DSA and RSA-PSS signatures larger than 16384 bits will overflow the buffer in VFYContextStr. The vulnerable code is located within secvfy.c:vfy_CreateContext.\n",

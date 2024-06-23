@@ -2,10 +2,10 @@
   "id": "ALAS2-2022-1816",
   "title": "Amazon Linux 2 2017.12 - ALAS2-2022-1816: medium priority package update for rust",
   "issued": {
-    "date": "2022-07-06 03:15"
+    "date": "2022-07-06 03:15:00"
   },
   "updated": {
-    "date": "2022-07-14 22:26"
+    "date": "2022-07-14 22:26:00"
   },
   "severity": "medium",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2021-31162:\n\tIn the standard library in Rust before 1.52.0, a double free can occur in the Vec::from_iter function if freeing the element panics.\n\nCVE-2021-28879:\n\tIn the standard library in Rust before 1.52.0, the Zip implementation can report an incorrect size due to an integer overflow. This bug can lead to a buffer overflow when a consumed Zip iterator is used again.\n\nCVE-2021-28878:\n\tIn the standard library in Rust before 1.52.0, the Zip implementation calls __iterator_get_unchecked() more than once for the same index (under certain conditions) when next_back() and next() are used together. This bug could lead to a memory safety violation due to an unmet safety requirement for the TrustedRandomAccess trait.\n\nCVE-2021-28876:\n\tIn the standard library in Rust before 1.52.0, the Zip implementation has a panic safety issue. It calls __iterator_get_unchecked() more than once for the same index when the underlying iterator panics (in certain conditions). This bug could lead to a memory safety violation due to an unmet safety requirement for the TrustedRandomAccess trait.\n\nCVE-2020-36323:\n\tIn the standard library in Rust before 1.52.0, there is an optimization for joining strings that can cause uninitialized bytes to be exposed (or the program to crash) if the borrowed string changes after its length is checked.\n",

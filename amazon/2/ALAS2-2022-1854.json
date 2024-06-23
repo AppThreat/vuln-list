@@ -2,10 +2,10 @@
   "id": "ALAS2-2022-1854",
   "title": "Amazon Linux 2 2017.12 - ALAS2-2022-1854: important priority package update for systemd",
   "issued": {
-    "date": "2022-09-30 07:04"
+    "date": "2022-09-30 07:04:00"
   },
   "updated": {
-    "date": "2022-10-10 21:54"
+    "date": "2022-10-10 21:54:00"
   },
   "severity": "important",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2022-2526:\n\tA use-after-free vulnerability was found in systemd. This issue occurs due to the on_stream_io() function and dns_stream_complete() function in resolved-dns-stream.c not incrementing the reference counting for the\n DnsStream object. Therefore, other functions and callbacks called can dereference the DNSStream object, causing the use-after-free when the reference is still used later.\n\nCVE-2020-13776:\n\tA flaw was found in systemd, where it mishandles numerical usernames beginning with decimal digits, or \"0x\" followed by hexadecimal digits. When the usernames are used by systemd, for example in service units, an unexpected user may be used instead. In some particular configurations, this flaw allows local attackers to elevate their privileges.\n\nCVE-2020-13529:\n\tAn exploitable denial of service vulnerability exists in systemd which does not fully implement RFC3203, as it does not support authentication of FORCERENEW packets. A specially crafted DHCP FORCERENEW packet can cause a system, running the DHCP client, to be vulnerable to a DHCP ACK spoofing attack. An attacker can forge a pair of FORCERENEW and DCHPACK packets to reconfigure the system with arbitrary network settings.\n\nCVE-2019-3842:\n\tIt was discovered that pam_systemd does not properly sanitize the environment before using the XDG_SEAT variable. It is possible for an attacker, in some particular configurations, to set a XDG_SEAT environment variable which allows for commands to be checked against polkit policies using the \"allow_active\" element rather than \"allow_any\".\n",

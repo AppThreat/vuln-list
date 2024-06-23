@@ -5,10 +5,10 @@
     "date": "2024-02-15 02:51:00"
   },
   "updated": {
-    "date": "2024-05-23 21:49:00"
+    "date": "2024-06-06 20:47:00"
   },
   "severity": "Important",
-  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-26668:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nft_limit: reject configurations that cause integer overflow\n\nCVE-2024-26625:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nllc: call sock_orphan() at release time\n\nCVE-2024-23849:\n\tIn rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.\n\nCVE-2024-1086:\n\tA use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\n\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.\n",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-26668:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nft_limit: reject configurations that cause integer overflow\n\nCVE-2024-26625:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nllc: call sock_orphan() at release time\n\nCVE-2024-26614:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp: make sure init the accept_queue's spinlocks once\n\nCVE-2024-26612:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfs, fscache: Prevent Oops in fscache_put_cache()\n\nCVE-2024-23849:\n\tIn rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.\n\nCVE-2024-1086:\n\tA use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\n\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.\n\nCVE-2023-52672:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\npipe: wakeup wr_wait after setting max_usage\n\nCVE-2023-52498:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nPM: sleep: Fix possible deadlocks in core system-wide PM code\n\nCVE-2023-52492:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndmaengine: fix NULL pointer in channel unregistration function\n\nCVE-2023-52489:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nmm/sparsemem: fix race in accessing memory_section-\u003eusage\n\nCVE-2023-52486:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndrm: Don't unref the same fb many times by mistake due to deadlock handling\n",
   "packages": [
     {
       "name": "kernel-tools-debuginfo",
@@ -333,6 +333,31 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52486",
+      "id": "CVE-2023-52486",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52489",
+      "id": "CVE-2023-52489",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52492",
+      "id": "CVE-2023-52492",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52498",
+      "id": "CVE-2023-52498",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52672",
+      "id": "CVE-2023-52672",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1086",
       "id": "CVE-2024-1086",
       "type": "cve"
@@ -340,6 +365,16 @@
     {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23849",
       "id": "CVE-2024-23849",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26612",
+      "id": "CVE-2024-26612",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26614",
+      "id": "CVE-2024-26614",
       "type": "cve"
     },
     {
@@ -354,8 +389,15 @@
     }
   ],
   "cveids": [
+    "CVE-2023-52486",
+    "CVE-2023-52489",
+    "CVE-2023-52492",
+    "CVE-2023-52498",
+    "CVE-2023-52672",
     "CVE-2024-1086",
     "CVE-2024-23849",
+    "CVE-2024-26612",
+    "CVE-2024-26614",
     "CVE-2024-26625",
     "CVE-2024-26668"
   ]

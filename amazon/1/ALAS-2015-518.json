@@ -2,10 +2,10 @@
   "id": "ALAS-2015-518",
   "title": "Amazon Linux AMI 2014.03 - ALAS-2015-518: medium priority package update for krb5",
   "issued": {
-    "date": "2015-05-05 15:44"
+    "date": "2015-05-05 15:44:00"
   },
   "updated": {
-    "date": "2015-05-05 16:14"
+    "date": "2015-05-05 16:14:00"
   },
   "severity": "medium",
   "description": "Package updates are available for Amazon Linux AMI that fix the following vulnerabilities:\nCVE-2014-9422:\n\tIt was found that the MIT Kerberos administration server (kadmind) incorrectly accepted certain authentication requests for two-component server principal names. A remote attacker able to acquire a key with a particularly named principal (such as \"kad/x\") could use this flaw to impersonate any user to kadmind, and perform administrative actions as that user.\n\nCVE-2014-9421:\n\tA double-free flaw was found in the way MIT Kerberos handled invalid External Data Representation (XDR) data. An authenticated user could use this flaw to crash the MIT Kerberos administration server (kadmind), or other applications using Kerberos libraries, via specially crafted XDR packets.\n\nCVE-2014-5355:\n\tIt was found that the krb5_read_message() function of MIT Kerberos did not correctly sanitize input, and could create invalid krb5_data objects. A remote, unauthenticated attacker could use this flaw to crash a Kerberos child process via a specially crafted request.\n\nCVE-2014-5353:\n\tIf kadmind were used with an LDAP back end for the KDC database, a remote, authenticated attacker who has the permissions to set the password policy could crash kadmind by attempting to use a named ticket policy object as a password policy for a principal.\n\nCVE-2014-5352:\n\tA use-after-free flaw was found in the way the MIT Kerberos libgssapi_krb5 library processed valid context deletion tokens. An attacker able to make an application using the GSS-API library (libgssapi) could call the gss_process_context_token() function and use this flaw to crash that application.\n",

@@ -2,10 +2,10 @@
   "id": "ALAS2-2023-1981",
   "title": "Amazon Linux 2 2017.12 - ALAS2-2023-1981: important priority package update for emacs",
   "issued": {
-    "date": "2023-03-02 22:35"
+    "date": "2023-03-02 22:35:00"
   },
   "updated": {
-    "date": "2023-03-07 00:20"
+    "date": "2023-03-07 00:20:00"
   },
   "severity": "important",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2022-48339:\n\tAn issue was discovered in GNU Emacs through 28.2. htmlfontify.el has a command injection vulnerability. In the hfy-istext-command function, the parameter file and parameter srcdir come from external input, and parameters are not escaped. If a file name or directory name contains shell metacharacters, code may be executed.\n\nCVE-2022-48338:\n\tAn issue was discovered in GNU Emacs through 28.2. In ruby-mode.el, the ruby-find-library-file function has a local command injection vulnerability. The ruby-find-library-file function is an interactive function, and bound to C-c C-f. Inside the function, the external command gem is called through shell-command-to-string, but the feature-name parameters are not escaped. Thus, malicious Ruby source files may cause commands to be executed.\n\nCVE-2022-48337:\n\tGNU Emacs through 28.2 allows attackers to execute commands via shell metacharacters in the name of a source-code file, because lib-src/etags.c uses the system C library function in its implementation of the etags program. For example, a victim may use the \"etags -u *\" command (suggested in the etags documentation) in a situation where the current working directory has contents that depend on untrusted input.\n",
