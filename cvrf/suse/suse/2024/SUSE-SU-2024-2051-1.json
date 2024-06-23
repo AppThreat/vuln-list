@@ -31,7 +31,7 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Container bci/bci-init:latest-2024-2051,Container bci/bci-sle15-kernel-module-devel:latest-2024-2051,Container bci/golang:1.20-openssl-2024-2051,Container bci/golang:1.21-2024-2051,Container bci/golang:latest-2024-2051,Container bci/node:18-2024-2051,Container bci/nodejs:latest-2024-2051,Container bci/openjdk-devel:11-2024-2051,Container bci/openjdk:11-2024-2051,Container bci/openjdk:latest-2024-2051,Container bci/php-apache:latest-2024-2051,Container bci/php-fpm:latest-2024-2051,Container bci/php:latest-2024-2051,Container bci/python:3-2024-2051,Container bci/python:latest-2024-2051,Container bci/ruby:latest-2024-2051,Container bci/rust:1.77-2024-2051,Container bci/rust:latest-2024-2051,Container suse/389-ds:latest-2024-2051,Container suse/git:latest-2024-2051,Container suse/helm:latest-2024-2051,Container suse/nginx:latest-2024-2051,Container suse/pcp:latest-2024-2051,Container suse/postgres:15-2024-2051,Container suse/postgres:latest-2024-2051,Container suse/registry:latest-2024-2051,Container suse/rmt-mariadb-client:latest-2024-2051,Container suse/rmt-server:latest-2024-2051,Container suse/sle-micro/5.5/toolbox:latest-2024-2051,Container suse/sle-micro/5.5:latest-2024-2051,Container suse/sle-micro/base-5.5:latest-2024-2051,Container suse/sle15:15.5-2024-2051,SUSE-2024-2051,SUSE-SLE-Micro-5.5-2024-2051,SUSE-SLE-Module-Basesystem-15-SP5-2024-2051,openSUSE-SLE-15.5-2024-2051",
+      "Text": "Container bci/bci-init:latest-2024-2051,Container bci/bci-sle15-kernel-module-devel:latest-2024-2051,Container bci/golang:1.20-openssl-2024-2051,Container bci/golang:1.21-2024-2051,Container bci/golang:latest-2024-2051,Container bci/node:18-2024-2051,Container bci/nodejs:latest-2024-2051,Container bci/openjdk-devel:11-2024-2051,Container bci/openjdk-devel:latest-2024-2051,Container bci/openjdk:11-2024-2051,Container bci/openjdk:latest-2024-2051,Container bci/php-apache:latest-2024-2051,Container bci/php-fpm:latest-2024-2051,Container bci/php:latest-2024-2051,Container bci/python:3-2024-2051,Container bci/python:latest-2024-2051,Container bci/ruby:latest-2024-2051,Container bci/rust:1.77-2024-2051,Container bci/rust:latest-2024-2051,Container suse/389-ds:latest-2024-2051,Container suse/git:latest-2024-2051,Container suse/helm:latest-2024-2051,Container suse/nginx:latest-2024-2051,Container suse/pcp:latest-2024-2051,Container suse/postgres:15-2024-2051,Container suse/postgres:latest-2024-2051,Container suse/registry:latest-2024-2051,Container suse/rmt-mariadb-client:latest-2024-2051,Container suse/rmt-mariadb:latest-2024-2051,Container suse/rmt-server:latest-2024-2051,Container suse/sle-micro/5.5/toolbox:latest-2024-2051,Container suse/sle-micro/5.5:latest-2024-2051,Container suse/sle-micro/base-5.5:latest-2024-2051,Container suse/sle15:15.5-2024-2051,SUSE-2024-2051,SUSE-SLE-Micro-5.5-2024-2051,SUSE-SLE-Module-Basesystem-15-SP5-2024-2051,openSUSE-SLE-15.5-2024-2051",
       "Title": "Patchnames",
       "Type": "Details"
     }
@@ -146,6 +146,21 @@
       {
         "ProductReference": "openssl-1_1-1.1.1l-150500.17.31.1",
         "RelatesToProductReference": "Container bci/openjdk-devel:11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1l-150500.17.31.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-1_1-1.1.1l-150500.17.31.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:latest",
         "RelationType": "Default Component Of"
       },
       {
@@ -356,6 +371,16 @@
       {
         "ProductReference": "libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
         "RelatesToProductReference": "Container suse/rmt-mariadb-client:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1l-150500.17.31.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
         "RelationType": "Default Component Of"
       },
       {
@@ -587,6 +612,9 @@
             "Container bci/openjdk-devel:11:libopenssl1_1-1.1.1l-150500.17.31.1",
             "Container bci/openjdk-devel:11:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
             "Container bci/openjdk-devel:11:openssl-1_1-1.1.1l-150500.17.31.1",
+            "Container bci/openjdk-devel:latest:libopenssl1_1-1.1.1l-150500.17.31.1",
+            "Container bci/openjdk-devel:latest:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
+            "Container bci/openjdk-devel:latest:openssl-1_1-1.1.1l-150500.17.31.1",
             "Container bci/openjdk:11:libopenssl1_1-1.1.1l-150500.17.31.1",
             "Container bci/openjdk:11:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
             "Container bci/openjdk:11:openssl-1_1-1.1.1l-150500.17.31.1",
@@ -629,6 +657,8 @@
             "Container suse/registry:latest:openssl-1_1-1.1.1l-150500.17.31.1",
             "Container suse/rmt-mariadb-client:latest:libopenssl1_1-1.1.1l-150500.17.31.1",
             "Container suse/rmt-mariadb-client:latest:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
+            "Container suse/rmt-mariadb:latest:libopenssl1_1-1.1.1l-150500.17.31.1",
+            "Container suse/rmt-mariadb:latest:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
             "Container suse/rmt-server:latest:libopenssl1_1-1.1.1l-150500.17.31.1",
             "Container suse/rmt-server:latest:libopenssl1_1-hmac-1.1.1l-150500.17.31.1",
             "Container suse/sle-micro/5.5/toolbox:latest:libopenssl1_1-1.1.1l-150500.17.31.1",
