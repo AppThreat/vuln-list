@@ -31,7 +31,7 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Image SLES12-SP5-Azure-HPC-On-Demand-2024-975,SUSE-2024-975,SUSE-SLE-SERVER-12-SP5-2024-975",
+      "Text": "Image SLES12-SP5-Azure-Basic-On-Demand-2024-975,Image SLES12-SP5-Azure-HPC-On-Demand-2024-975,Image SLES12-SP5-Azure-Standard-On-Demand-2024-975,SUSE-2024-975,SUSE-SLE-SERVER-12-SP5-2024-975",
       "Title": "Patchnames",
       "Type": "Details"
     }
@@ -40,7 +40,17 @@
     "Relationships": [
       {
         "ProductReference": "kernel-azure-4.12.14-16.173.1",
+        "RelatesToProductReference": "Image SLES12-SP5-Azure-Basic-On-Demand",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-azure-4.12.14-16.173.1",
         "RelatesToProductReference": "Image SLES12-SP5-Azure-HPC-On-Demand",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-azure-4.12.14-16.173.1",
+        "RelatesToProductReference": "Image SLES12-SP5-Azure-Standard-On-Demand",
         "RelationType": "Default Component Of"
       },
       {
@@ -587,7 +597,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -628,7 +640,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -669,7 +683,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -718,7 +734,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -759,7 +777,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -800,7 +820,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -820,7 +842,7 @@
     },
     {
       "CVE": "CVE-2021-46921",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nlocking/qrwlock: Fix ordering in queued_write_lock_slowpath()\n\nWhile this code is executed with the wait_lock held, a reader can\nacquire the lock without holding wait_lock.  The writer side loops\nchecking the value with the atomic_cond_read_acquire(), but only truly\nacquires the lock when the compare-and-exchange is completed\nsuccessfully which isn’t ordered. This exposes the window between the\nacquire and the cmpxchg to an A-B-A problem which allows reads\nfollowing the lock acquisition to observe values speculatively before\nthe write lock is truly acquired.\n\nWe've seen a problem in epoll where the reader does a xchg while\nholding the read lock, but the writer can see a value change out from\nunder it.\n\n  Writer                                | Reader\n  --------------------------------------------------------------------------------\n  ep_scan_ready_list()                  |\n  |- write_lock_irq()                   |\n      |- queued_write_lock_slowpath()   |\n\t|- atomic_cond_read_acquire()   |\n\t\t\t\t        | read_lock_irqsave(\u0026ep-\u003elock, flags);\n     --\u003e (observes value before unlock) |  chain_epi_lockless()\n     |                                  |    epi-\u003enext = xchg(\u0026ep-\u003eovflist, epi);\n     |                                  | read_unlock_irqrestore(\u0026ep-\u003elock, flags);\n     |                                  |\n     |     atomic_cmpxchg_relaxed()     |\n     |-- READ_ONCE(ep-\u003eovflist);        |\n\nA core can order the read of the ovflist ahead of the\natomic_cmpxchg_relaxed(). Switching the cmpxchg to use acquire\nsemantics addresses this issue at which point the atomic_cond_read can\nbe switched to use relaxed semantics.\n\n[peterz: use try_cmpxchg()]",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nlocking/qrwlock: Fix ordering in queued_write_lock_slowpath()\n\nWhile this code is executed with the wait_lock held, a reader can\nacquire the lock without holding wait_lock.  The writer side loops\nchecking the value with the atomic_cond_read_acquire(), but only truly\nacquires the lock when the compare-and-exchange is completed\nsuccessfully which isn't ordered. This exposes the window between the\nacquire and the cmpxchg to an A-B-A problem which allows reads\nfollowing the lock acquisition to observe values speculatively before\nthe write lock is truly acquired.\n\nWe've seen a problem in epoll where the reader does a xchg while\nholding the read lock, but the writer can see a value change out from\nunder it.\n\n  Writer                                | Reader\n  --------------------------------------------------------------------------------\n  ep_scan_ready_list()                  |\n  |- write_lock_irq()                   |\n      |- queued_write_lock_slowpath()   |\n\t|- atomic_cond_read_acquire()   |\n\t\t\t\t        | read_lock_irqsave(\u0026ep-\u003elock, flags);\n     --\u003e (observes value before unlock) |  chain_epi_lockless()\n     |                                  |    epi-\u003enext = xchg(\u0026ep-\u003eovflist, epi);\n     |                                  | read_unlock_irqrestore(\u0026ep-\u003elock, flags);\n     |                                  |\n     |     atomic_cmpxchg_relaxed()     |\n     |-- READ_ONCE(ep-\u003eovflist);        |\n\nA core can order the read of the ovflist ahead of the\natomic_cmpxchg_relaxed(). Switching the cmpxchg to use acquire\nsemantics addresses this issue at which point the atomic_cond_read can\nbe switched to use relaxed semantics.\n\n[peterz: use try_cmpxchg()]",
       "Threats": [
         {
           "Type": "Impact",
@@ -841,7 +863,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -882,7 +906,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -931,7 +957,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -972,7 +1000,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1013,7 +1043,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1054,7 +1086,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1095,7 +1129,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1136,7 +1172,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1177,7 +1215,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1218,7 +1258,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1259,7 +1301,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1300,7 +1344,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1341,7 +1387,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1390,7 +1438,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1431,7 +1481,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1476,7 +1528,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1521,7 +1575,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1562,7 +1618,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1611,7 +1669,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1652,7 +1712,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1693,7 +1755,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1738,7 +1802,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1758,7 +1824,7 @@
     },
     {
       "CVE": "CVE-2023-52449",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: Fix gluebi NULL pointer dereference caused by ftl notifier\n\nIf both ftl.ko and gluebi.ko are loaded, the notifier of ftl\ntriggers NULL pointer dereference when trying to access\n‘gluebi-\u003edesc’ in gluebi_read().\n\nubi_gluebi_init\n  ubi_register_volume_notifier\n    ubi_enumerate_volumes\n      ubi_notify_all\n        gluebi_notify    nb-\u003enotifier_call()\n          gluebi_create\n            mtd_device_register\n              mtd_device_parse_register\n                add_mtd_device\n                  blktrans_notify_add   not-\u003eadd()\n                    ftl_add_mtd         tr-\u003eadd_mtd()\n                      scan_header\n                        mtd_read\n                          mtd_read_oob\n                            mtd_read_oob_std\n                              gluebi_read   mtd-\u003eread()\n                                gluebi-\u003edesc - NULL\n\nDetailed reproduction information available at the Link [1],\n\nIn the normal case, obtain gluebi-\u003edesc in the gluebi_get_device(),\nand access gluebi-\u003edesc in the gluebi_read(). However,\ngluebi_get_device() is not executed in advance in the\nftl_add_mtd() process, which leads to NULL pointer dereference.\n\nThe solution for the gluebi module is to run jffs2 on the UBI\nvolume without considering working with ftl or mtdblock [2].\nTherefore, this problem can be avoided by preventing gluebi from\ncreating the mtdblock device after creating mtd partition of the\ntype MTD_UBIVOLUME.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: Fix gluebi NULL pointer dereference caused by ftl notifier\n\nIf both ftl.ko and gluebi.ko are loaded, the notifier of ftl\ntriggers NULL pointer dereference when trying to access\n'gluebi-\u003edesc' in gluebi_read().\n\nubi_gluebi_init\n  ubi_register_volume_notifier\n    ubi_enumerate_volumes\n      ubi_notify_all\n        gluebi_notify    nb-\u003enotifier_call()\n          gluebi_create\n            mtd_device_register\n              mtd_device_parse_register\n                add_mtd_device\n                  blktrans_notify_add   not-\u003eadd()\n                    ftl_add_mtd         tr-\u003eadd_mtd()\n                      scan_header\n                        mtd_read\n                          mtd_read_oob\n                            mtd_read_oob_std\n                              gluebi_read   mtd-\u003eread()\n                                gluebi-\u003edesc - NULL\n\nDetailed reproduction information available at the Link [1],\n\nIn the normal case, obtain gluebi-\u003edesc in the gluebi_get_device(),\nand access gluebi-\u003edesc in the gluebi_read(). However,\ngluebi_get_device() is not executed in advance in the\nftl_add_mtd() process, which leads to NULL pointer dereference.\n\nThe solution for the gluebi module is to run jffs2 on the UBI\nvolume without considering working with ftl or mtdblock [2].\nTherefore, this problem can be avoided by preventing gluebi from\ncreating the mtdblock device after creating mtd partition of the\ntype MTD_UBIVOLUME.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1779,7 +1845,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1820,7 +1888,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1861,7 +1931,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1902,7 +1974,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1943,7 +2017,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -1984,7 +2060,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2033,7 +2111,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2074,7 +2154,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2115,7 +2197,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2156,7 +2240,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2197,7 +2283,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2238,7 +2326,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2279,7 +2369,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2320,7 +2412,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2361,7 +2455,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2402,7 +2498,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2443,7 +2541,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2484,7 +2584,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2525,7 +2627,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2566,7 +2670,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2615,7 +2721,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2656,7 +2764,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2697,7 +2807,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",
@@ -2746,7 +2858,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES12-SP5-Azure-Basic-On-Demand:kernel-azure-4.12.14-16.173.1",
             "Image SLES12-SP5-Azure-HPC-On-Demand:kernel-azure-4.12.14-16.173.1",
+            "Image SLES12-SP5-Azure-Standard-On-Demand:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-base-4.12.14-16.173.1",
             "SUSE Linux Enterprise Server 12 SP5:kernel-azure-devel-4.12.14-16.173.1",

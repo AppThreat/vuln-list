@@ -1,0 +1,119 @@
+{
+  "Title": "Security update for less",
+  "Tracking": {
+    "ID": "SUSE-SU-2024:2060-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2024-06-18T11:11:48Z",
+    "CurrentReleaseDate": "2024-06-18T11:11:48Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2024-06-18T11:11:48Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for less",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for less fixes the following issues:\n\n- CVE-2024-32487: Fixed OS command injection via a newline character in the file name. (bsc#1222849)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container bci/openjdk-devel:21-2024-2060,Container bci/python:3-2024-2060,SUSE-2024-2060,SUSE-SLE-Module-Basesystem-15-SP6-2024-2060,openSUSE-SLE-15.6-2024-2060",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "less-643-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "less-643-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/python:3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "less-643-150600.3.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "less-643-150600.3.3.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2024/suse-su-20242060-1/",
+      "Description": "Link for SUSE-SU-2024:2060-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-updates/2024-June/035617.html",
+      "Description": "E-Mail link for SUSE-SU-2024:2060-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1222849",
+      "Description": "SUSE Bug 1222849"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-32487/",
+      "Description": "SUSE CVE CVE-2024-32487 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-32487",
+      "Description": "less through 653 allows OS command execution via a newline character in the name of a file, because quoting is mishandled in filename.c. Exploitation typically requires use with attacker-controlled file names, such as the files extracted from an untrusted archive. Exploitation also requires the LESSOPEN environment variable, but this is set by default in many common cases.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-32487.html",
+          "Description": "CVE-2024-32487"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1222849",
+          "Description": "SUSE Bug 1222849"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container bci/openjdk-devel:21:less-643-150600.3.3.1",
+            "Container bci/python:3:less-643-150600.3.3.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:less-643-150600.3.3.1",
+            "openSUSE Leap 15.6:less-643-150600.3.3.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

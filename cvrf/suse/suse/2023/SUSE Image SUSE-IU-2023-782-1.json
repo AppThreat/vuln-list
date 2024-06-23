@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-06-03T08:24:27Z",
+        "Date": "2024-06-22T09:06:31Z",
         "Description": "current"
       }
     ]
@@ -599,7 +599,7 @@
     },
     {
       "CVE": "CVE-2023-0459",
-      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit 74e19ef0ff8061ef55957c3abd71614ef0f42f47",
+      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit 74e19ef0ff8061ef55957c3abd71614ef0f42f47",
       "Threats": [
         {
           "Type": "Impact",
@@ -635,7 +635,7 @@
     },
     {
       "CVE": "CVE-2023-1206",
-      "Description": "A hash collision flaw was found in the IPv6 connection lookup table in the Linux kernel’s IPv6 functionality when a user makes a new kind of SYN flood attack. A user located in the local network or with a high bandwidth connection can increase the CPU usage of the server that accepts IPV6 connections up to 95%.",
+      "Description": "A hash collision flaw was found in the IPv6 connection lookup table in the Linux kernel's IPv6 functionality when a user makes a new kind of SYN flood attack. A user located in the local network or with a high bandwidth connection can increase the CPU usage of the server that accepts IPV6 connections up to 95%.",
       "Threats": [
         {
           "Type": "Impact",
@@ -653,7 +653,7 @@
     },
     {
       "CVE": "CVE-2023-1829",
-      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
+      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -743,7 +743,7 @@
     },
     {
       "CVE": "CVE-2023-20588",
-      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
+      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -761,7 +761,7 @@
     },
     {
       "CVE": "CVE-2023-20593",
-      "Description": "\nAn issue in “Zen 2” CPUs, under specific microarchitectural circumstances, may allow an attacker to potentially access sensitive information.\n\n\n\n\n\n\n",
+      "Description": "\nAn issue in \"Zen 2\" CPUs, under specific microarchitectural circumstances, may allow an attacker to potentially access sensitive information.\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1067,7 +1067,7 @@
     },
     {
       "CVE": "CVE-2023-3390",
-      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.",
+      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1139,7 +1139,7 @@
     },
     {
       "CVE": "CVE-2023-34325",
-      "Description": "\n[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nlibfsimage contains parsing code for several filesystems, most of them based on\ngrub-legacy code.  libfsimage is used by pygrub to inspect guest disks.\n\nPygrub runs as the same user as the toolstack (root in a priviledged domain).\n\nAt least one issue has been reported to the Xen Security Team that allows an\nattacker to trigger a stack buffer overflow in libfsimage.  After further\nanalisys the Xen Security Team is no longer confident in the suitability of\nlibfsimage when run against guest controlled input with super user priviledges.\n\nIn order to not affect current deployments that rely on pygrub patches are\nprovided in the resolution section of the advisory that allow running pygrub in\ndeprivileged mode.\n\nCVE-2023-4949 refers to the original issue in the upstream grub\nproject (\"An attacker with local access to a system (either through a\ndisk or external drive) can present a modified XFS partition to\ngrub-legacy in such a way to exploit a memory corruption in grub’s XFS\nfile system implementation.\")  CVE-2023-34325 refers specifically to\nthe vulnerabilities in Xen's copy of libfsimage, which is decended\nfrom a very old version of grub.\n",
+      "Description": "\n[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nlibfsimage contains parsing code for several filesystems, most of them based on\ngrub-legacy code.  libfsimage is used by pygrub to inspect guest disks.\n\nPygrub runs as the same user as the toolstack (root in a priviledged domain).\n\nAt least one issue has been reported to the Xen Security Team that allows an\nattacker to trigger a stack buffer overflow in libfsimage.  After further\nanalisys the Xen Security Team is no longer confident in the suitability of\nlibfsimage when run against guest controlled input with super user priviledges.\n\nIn order to not affect current deployments that rely on pygrub patches are\nprovided in the resolution section of the advisory that allow running pygrub in\ndeprivileged mode.\n\nCVE-2023-4949 refers to the original issue in the upstream grub\nproject (\"An attacker with local access to a system (either through a\ndisk or external drive) can present a modified XFS partition to\ngrub-legacy in such a way to exploit a memory corruption in grub's XFS\nfile system implementation.\")  CVE-2023-34325 refers specifically to\nthe vulnerabilities in Xen's copy of libfsimage, which is decended\nfrom a very old version of grub.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1247,7 +1247,7 @@
     },
     {
       "CVE": "CVE-2023-35945",
-      "Description": "Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy’s HTTP/2 codec may leak a header map and bookkeeping structures upon receiving `RST_STREAM` immediately followed by the `GOAWAY` frames from an upstream server. In nghttp2, cleanup of pending requests due to receipt of the `GOAWAY` frame skips de-allocation of the bookkeeping structure and pending compressed header. The error return [code path] is taken if connection is already marked for not sending more requests due to `GOAWAY` frame. The clean-up code is right after the return statement, causing memory leak. Denial of service through memory exhaustion. This vulnerability was patched in versions(s) 1.26.3, 1.25.8, 1.24.9, 1.23.11.",
+      "Description": "Envoy is a cloud-native high-performance edge/middle/service proxy. Envoy's HTTP/2 codec may leak a header map and bookkeeping structures upon receiving `RST_STREAM` immediately followed by the `GOAWAY` frames from an upstream server. In nghttp2, cleanup of pending requests due to receipt of the `GOAWAY` frame skips de-allocation of the bookkeeping structure and pending compressed header. The error return [code path] is taken if connection is already marked for not sending more requests due to `GOAWAY` frame. The clean-up code is right after the return statement, causing memory leak. Denial of service through memory exhaustion. This vulnerability was patched in versions(s) 1.26.3, 1.25.8, 1.24.9, 1.23.11.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1355,7 +1355,7 @@
     },
     {
       "CVE": "CVE-2023-3772",
-      "Description": "A flaw was found in the Linux kernel’s IP framework for transforming packets (XFRM subsystem). This issue may allow a malicious user with CAP_NET_ADMIN privileges to directly dereference a NULL pointer in xfrm_update_ae_params(), leading to a possible kernel crash and denial of service.",
+      "Description": "A flaw was found in the Linux kernel's IP framework for transforming packets (XFRM subsystem). This issue may allow a malicious user with CAP_NET_ADMIN privileges to directly dereference a NULL pointer in xfrm_update_ae_params(), leading to a possible kernel crash and denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1409,7 +1409,7 @@
     },
     {
       "CVE": "CVE-2023-3812",
-      "Description": "An out-of-bounds memory access flaw was found in the Linux kernel’s TUN/TAP device driver functionality in how a user generates a malicious (too big) networking packet when napi frags is enabled. This flaw allows a local user to crash or potentially escalate their privileges on the system.",
+      "Description": "An out-of-bounds memory access flaw was found in the Linux kernel's TUN/TAP device driver functionality in how a user generates a malicious (too big) networking packet when napi frags is enabled. This flaw allows a local user to crash or potentially escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1589,7 +1589,7 @@
     },
     {
       "CVE": "CVE-2023-4016",
-      "Description": "Under some circumstances, this weakness allows a user who has access to run the “ps” utility on a machine, the ability to write almost unlimited amounts of unfiltered data into the process heap.",
+      "Description": "Under some circumstances, this weakness allows a user who has access to run the \"ps\" utility on a machine, the ability to write almost unlimited amounts of unfiltered data into the process heap.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1697,7 +1697,7 @@
     },
     {
       "CVE": "CVE-2023-4147",
-      "Description": "A use-after-free flaw was found in the Linux kernel’s Netfilter functionality when adding a rule with NFTA_RULE_CHAIN_ID. This flaw allows a local user to crash or escalate their privileges on the system.",
+      "Description": "A use-after-free flaw was found in the Linux kernel's Netfilter functionality when adding a rule with NFTA_RULE_CHAIN_ID. This flaw allows a local user to crash or escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",

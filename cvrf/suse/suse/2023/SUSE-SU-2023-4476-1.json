@@ -174,6 +174,11 @@
         "RelationType": "Default Component Of"
       },
       {
+        "ProductReference": "xen-tools-domU-4.16.5_08-150400.4.40.1",
+        "RelatesToProductReference": "Image SLES15-SP4-Manager-Proxy-4-3-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
         "ProductReference": "xen-libs-4.16.5_08-150400.4.40.1",
         "RelatesToProductReference": "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-Azure",
         "RelationType": "Default Component Of"
@@ -195,11 +200,6 @@
       },
       {
         "ProductReference": "xen-libs-4.16.5_08-150400.4.40.1",
-        "RelatesToProductReference": "Image SLES15-SP4-Manager-Server-4-3",
-        "RelationType": "Default Component Of"
-      },
-      {
-        "ProductReference": "xen-tools-domU-4.16.5_08-150400.4.40.1",
         "RelatesToProductReference": "Image SLES15-SP4-Manager-Server-4-3",
         "RelationType": "Default Component Of"
       },
@@ -691,7 +691,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2023-20588",
-      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
+      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -743,6 +743,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -755,7 +756,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -885,6 +885,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -897,7 +898,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -975,7 +975,7 @@
     },
     {
       "CVE": "CVE-2023-34325",
-      "Description": "\n[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nlibfsimage contains parsing code for several filesystems, most of them based on\ngrub-legacy code.  libfsimage is used by pygrub to inspect guest disks.\n\nPygrub runs as the same user as the toolstack (root in a priviledged domain).\n\nAt least one issue has been reported to the Xen Security Team that allows an\nattacker to trigger a stack buffer overflow in libfsimage.  After further\nanalisys the Xen Security Team is no longer confident in the suitability of\nlibfsimage when run against guest controlled input with super user priviledges.\n\nIn order to not affect current deployments that rely on pygrub patches are\nprovided in the resolution section of the advisory that allow running pygrub in\ndeprivileged mode.\n\nCVE-2023-4949 refers to the original issue in the upstream grub\nproject (\"An attacker with local access to a system (either through a\ndisk or external drive) can present a modified XFS partition to\ngrub-legacy in such a way to exploit a memory corruption in grub’s XFS\nfile system implementation.\")  CVE-2023-34325 refers specifically to\nthe vulnerabilities in Xen's copy of libfsimage, which is decended\nfrom a very old version of grub.\n",
+      "Description": "\n[This CNA information record relates to multiple CVEs; the\ntext explains which aspects/vulnerabilities correspond to which CVE.]\n\nlibfsimage contains parsing code for several filesystems, most of them based on\ngrub-legacy code.  libfsimage is used by pygrub to inspect guest disks.\n\nPygrub runs as the same user as the toolstack (root in a priviledged domain).\n\nAt least one issue has been reported to the Xen Security Team that allows an\nattacker to trigger a stack buffer overflow in libfsimage.  After further\nanalisys the Xen Security Team is no longer confident in the suitability of\nlibfsimage when run against guest controlled input with super user priviledges.\n\nIn order to not affect current deployments that rely on pygrub patches are\nprovided in the resolution section of the advisory that allow running pygrub in\ndeprivileged mode.\n\nCVE-2023-4949 refers to the original issue in the upstream grub\nproject (\"An attacker with local access to a system (either through a\ndisk or external drive) can present a modified XFS partition to\ngrub-legacy in such a way to exploit a memory corruption in grub's XFS\nfile system implementation.\")  CVE-2023-34325 refers specifically to\nthe vulnerabilities in Xen's copy of libfsimage, which is decended\nfrom a very old version of grub.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1027,6 +1027,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1039,7 +1040,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -1169,6 +1169,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1181,7 +1182,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -1311,6 +1311,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1323,7 +1324,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -1453,6 +1453,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1465,7 +1466,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -1595,6 +1595,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1607,7 +1608,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
@@ -1737,6 +1737,7 @@
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS-GCE:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-libs-4.16.5_08-150400.4.40.1",
+            "Image SLES15-SP4-Manager-Proxy-4-3-BYOS:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-llc:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-Azure-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
@@ -1749,7 +1750,6 @@
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3-EC2-ltd:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Manager-Server-4-3:xen-libs-4.16.5_08-150400.4.40.1",
-            "Image SLES15-SP4-Manager-Server-4-3:xen-tools-domU-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-Azure:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-libs-4.16.5_08-150400.4.40.1",
             "Image SLES15-SP4-Micro-5-3-BYOS-EC2:xen-tools-domU-4.16.5_08-150400.4.40.1",

@@ -228,6 +228,10 @@
         {
           "URL": "https://bugzilla.suse.com/1205663",
           "Description": "SUSE Bug 1205663"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1225628",
+          "Description": "SUSE Bug 1225628"
         }
       ],
       "ProductStatuses": [
@@ -245,7 +249,7 @@
     },
     {
       "CVE": "CVE-2021-41174",
-      "Description": "Grafana is an open-source platform for monitoring and observability. In affected versions if an attacker is able to convince a victim to visit a URL referencing a vulnerable page, arbitrary JavaScript content may be executed within the context of the victim's browser. The user visiting the malicious link must be unauthenticated and the link must be for a page that contains the login button in the menu bar. The url has to be crafted to exploit AngularJS rendering and contain the interpolation binding for AngularJS expressions. AngularJS uses double curly braces for interpolation binding: {{ }} ex: {{constructor.constructor(‘alert(1)’)()}}. When the user follows the link and the page renders, the login button will contain the original link with a query parameter to force a redirect to the login page. The URL is not validated and the AngularJS rendering engine will execute the JavaScript expression contained in the URL. Users are advised to upgrade as soon as possible. If for some reason you cannot upgrade, you can use a reverse proxy or similar to block access to block the literal string {{ in the path.",
+      "Description": "Grafana is an open-source platform for monitoring and observability. In affected versions if an attacker is able to convince a victim to visit a URL referencing a vulnerable page, arbitrary JavaScript content may be executed within the context of the victim's browser. The user visiting the malicious link must be unauthenticated and the link must be for a page that contains the login button in the menu bar. The url has to be crafted to exploit AngularJS rendering and contain the interpolation binding for AngularJS expressions. AngularJS uses double curly braces for interpolation binding: {{ }} ex: {{constructor.constructor('alert(1)')()}}. When the user follows the link and the page renders, the login button will contain the original link with a query parameter to force a redirect to the login page. The URL is not validated and the AngularJS rendering engine will execute the JavaScript expression contained in the URL. Users are advised to upgrade as soon as possible. If for some reason you cannot upgrade, you can use a reverse proxy or similar to block access to block the literal string {{ in the path.",
       "Threats": [
         {
           "Type": "Impact",
@@ -277,7 +281,7 @@
     },
     {
       "CVE": "CVE-2021-41244",
-      "Description": "Grafana is an open-source platform for monitoring and observability. In affected versions when the fine-grained access control beta feature is enabled and there is more than one organization in the Grafana instance admins are able to access users from other organizations. Grafana 8.0 introduced a mechanism which allowed users with the Organization Admin role to list, add, remove, and update users’ roles in other organizations in which they are not an admin. With fine-grained access control enabled, organization admins can list, add, remove and update users' roles in another organization, where they do not have organization admin role. All installations between v8.0 and v8.2.3 that have fine-grained access control beta enabled and more than one organization should be upgraded as soon as possible. If you cannot upgrade, you should turn off the fine-grained access control using a feature flag.",
+      "Description": "Grafana is an open-source platform for monitoring and observability. In affected versions when the fine-grained access control beta feature is enabled and there is more than one organization in the Grafana instance admins are able to access users from other organizations. Grafana 8.0 introduced a mechanism which allowed users with the Organization Admin role to list, add, remove, and update users' roles in other organizations in which they are not an admin. With fine-grained access control enabled, organization admins can list, add, remove and update users' roles in another organization, where they do not have organization admin role. All installations between v8.0 and v8.2.3 that have fine-grained access control beta enabled and more than one organization should be upgraded as soon as possible. If you cannot upgrade, you should turn off the fine-grained access control using a feature flag.",
       "Threats": [
         {
           "Type": "Impact",
@@ -409,7 +413,7 @@
     },
     {
       "CVE": "CVE-2022-29170",
-      "Description": "Grafana is an open-source platform for monitoring and observability. In Grafana Enterprise, the Request security feature allows list allows to configure Grafana in a way so that the instance doesn’t call or only calls specific hosts. The vulnerability present starting with version 7.4.0-beta1 and prior to versions 7.5.16 and 8.5.3 allows someone to bypass these security configurations if a malicious datasource (running on an allowed host) returns an HTTP redirect to a forbidden host. The vulnerability only impacts Grafana Enterprise when the Request security allow list is used and there is a possibility to add a custom datasource to Grafana which returns HTTP redirects. In this scenario, Grafana would blindly follow the redirects and potentially give secure information to the clients. Grafana Cloud is not impacted by this vulnerability. Versions 7.5.16 and 8.5.3 contain a patch for this issue. There are currently no known workarounds.",
+      "Description": "Grafana is an open-source platform for monitoring and observability. In Grafana Enterprise, the Request security feature allows list allows to configure Grafana in a way so that the instance doesn't call or only calls specific hosts. The vulnerability present starting with version 7.4.0-beta1 and prior to versions 7.5.16 and 8.5.3 allows someone to bypass these security configurations if a malicious datasource (running on an allowed host) returns an HTTP redirect to a forbidden host. The vulnerability only impacts Grafana Enterprise when the Request security allow list is used and there is a possibility to add a custom datasource to Grafana which returns HTTP redirects. In this scenario, Grafana would blindly follow the redirects and potentially give secure information to the clients. Grafana Cloud is not impacted by this vulnerability. Versions 7.5.16 and 8.5.3 contain a patch for this issue. There are currently no known workarounds.",
       "Threats": [
         {
           "Type": "Impact",
