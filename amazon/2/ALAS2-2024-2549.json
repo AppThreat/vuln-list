@@ -5,10 +5,10 @@
     "date": "2024-05-23 22:04:00"
   },
   "updated": {
-    "date": "2024-06-06 20:17:00"
+    "date": "2024-06-19 19:15:00"
   },
   "severity": "medium",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2024-26898:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naoe: fix the potential use-after-free problem in aoecmd_cfg_pkts\n\nCVE-2024-26625:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nllc: call sock_orphan() at release time\n\nCVE-2024-0607:\n\tnetfilter: nf_tables: fix pointer math issue in nft_byteorder_eval()\n\nCVE-2023-52698:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ncalipso: fix memory leak in netlbl_calipso_add_pass()\n\nCVE-2023-52486:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndrm: Don't unref the same fb many times by mistake due to deadlock handling\n\nCVE-2023-52464:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nEDAC/thunderx: Fix possible out-of-bounds string access\n\nEnabling -Wstringop-overflow globally exposes a warning for a common bug\nin the usage of strncat():\n\n  drivers/edac/thunderx_edac.c: In function 'thunderx_ocx_com_threaded_isr':\n  drivers/edac/thunderx_edac.c:1136:17: error: 'strncat' specified bound 1024 equals destination size [-Werror=stringop-overflow=]\n   1136 |                 strncat(msg, other, OCX_MESSAGE_SIZE);\n        |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   ...\n   1145 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n   ...\n   1150 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n\n   ...\n\nApparently the author of this driver expected strncat() to behave the\nway that strlcat() does, which uses the size of the destination buffer\nas its third argument rather than the length of the source buffer. The\nresult is that there is no check on the size of the allocated buffer.\n\nChange it to strlcat().\n\n  [ bp: Trim compiler output, fixup commit message. ]\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2024-26898:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naoe: fix the potential use-after-free problem in aoecmd_cfg_pkts\n\nCVE-2024-26625:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nllc: call sock_orphan() at release time\n\nCVE-2024-0607:\n\tnetfilter: nf_tables: fix pointer math issue in nft_byteorder_eval()\n\nCVE-2023-52698:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ncalipso: fix memory leak in netlbl_calipso_add_pass()\n\nCVE-2023-52486:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndrm: Don't unref the same fb many times by mistake due to deadlock handling\n\nCVE-2023-52464:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nEDAC/thunderx: Fix possible out-of-bounds string access\n\nEnabling -Wstringop-overflow globally exposes a warning for a common bug\nin the usage of strncat():\n\n  drivers/edac/thunderx_edac.c: In function 'thunderx_ocx_com_threaded_isr':\n  drivers/edac/thunderx_edac.c:1136:17: error: 'strncat' specified bound 1024 equals destination size [-Werror=stringop-overflow=]\n   1136 |                 strncat(msg, other, OCX_MESSAGE_SIZE);\n        |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   ...\n   1145 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n   ...\n   1150 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n\n   ...\n\nApparently the author of this driver expected strncat() to behave the\nway that strlcat() does, which uses the size of the destination buffer\nas its third argument rather than the length of the source buffer. The\nresult is that there is no check on the size of the allocated buffer.\n\nChange it to strlcat().\n\n  [ bp: Trim compiler output, fixup commit message. ]\n\nCVE-2023-46838:\n\tA flaw has been found in Xen. An unprivileged guest can cause Denial of Service (DoS) of the host by sending network packets to the backend, causing the backend to crash.\n",
   "packages": [
     {
       "name": "kernel",
@@ -221,6 +221,11 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46838",
+      "id": "CVE-2023-46838",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52464",
       "id": "CVE-2023-52464",
       "type": "cve"
@@ -252,6 +257,7 @@
     }
   ],
   "cveids": [
+    "CVE-2023-46838",
     "CVE-2023-52464",
     "CVE-2023-52486",
     "CVE-2023-52698",
