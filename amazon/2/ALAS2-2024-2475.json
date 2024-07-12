@@ -5,10 +5,10 @@
     "date": "2024-02-29 10:03:00"
   },
   "updated": {
-    "date": "2024-03-04 12:00:00"
+    "date": "2024-07-03 20:05:00"
   },
   "severity": "important",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2024-23849:\n\tIn rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.\n\nCVE-2023-6270:\n\tA flaw was found in the ATA over Ethernet (AoE) driver in the Linux kernel. The aoecmd_cfg_pkts() function improperly updates the refcnt on `struct net_device`, and a use-after-free can be triggered by racing between the free on the struct and the access through the `skbtxq` global queue. This could lead to a denial of service condition or potential code execution.\n\nCVE-2023-52429:\n\tdm_table_create in drivers/md/dm-table.c in the Linux kernel through 6.7.4 can attempt to (in alloc_targets) allocate more than INT_MAX bytes, and crash, because of a missing check for struct dm_ioctl.target_count.\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2024-23851:\n\tcopy_params in drivers/md/dm-ioctl.c in the Linux kernel through 6.7.1 can attempt to allocate more than INT_MAX bytes, and crash, because of a missing param_kernel-\u003edata_size check. This is related to ctl_ioctl.\n\nCVE-2024-23849:\n\tIn rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.\n\nCVE-2023-6270:\n\tA flaw was found in the ATA over Ethernet (AoE) driver in the Linux kernel. The aoecmd_cfg_pkts() function improperly updates the refcnt on `struct net_device`, and a use-after-free can be triggered by racing between the free on the struct and the access through the `skbtxq` global queue. This could lead to a denial of service condition or potential code execution.\n\nCVE-2023-52429:\n\tdm_table_create in drivers/md/dm-table.c in the Linux kernel through 6.7.4 can attempt to (in alloc_targets) allocate more than INT_MAX bytes, and crash, because of a missing check for struct dm_ioctl.target_count.\n",
   "packages": [
     {
       "name": "kernel",
@@ -234,11 +234,17 @@
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23849",
       "id": "CVE-2024-23849",
       "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23851",
+      "id": "CVE-2024-23851",
+      "type": "cve"
     }
   ],
   "cveids": [
     "CVE-2023-52429",
     "CVE-2023-6270",
-    "CVE-2024-23849"
+    "CVE-2024-23849",
+    "CVE-2024-23851"
   ]
 }
