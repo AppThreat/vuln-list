@@ -31,7 +31,7 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Image SLES12-SP5-Azure-BYOS-2024-1428,Image SLES12-SP5-Azure-Basic-On-Demand-2024-1428,Image SLES12-SP5-Azure-HPC-BYOS-2024-1428,Image SLES12-SP5-Azure-HPC-On-Demand-2024-1428,Image SLES12-SP5-Azure-SAP-BYOS-2024-1428,Image SLES12-SP5-Azure-SAP-On-Demand-2024-1428,Image SLES12-SP5-Azure-Standard-On-Demand-2024-1428,Image SLES12-SP5-EC2-BYOS-2024-1428,Image SLES12-SP5-EC2-On-Demand-2024-1428,Image SLES12-SP5-EC2-SAP-BYOS-2024-1428,Image SLES12-SP5-EC2-SAP-On-Demand-2024-1428,Image SLES12-SP5-GCE-BYOS-2024-1428,Image SLES12-SP5-GCE-On-Demand-2024-1428,Image SLES12-SP5-GCE-SAP-BYOS-2024-1428,Image SLES12-SP5-GCE-SAP-On-Demand-2024-1428,Image SLES12-SP5-SAP-Azure-LI-BYOS-Production-2024-1428,Image SLES12-SP5-SAP-Azure-VLI-BYOS-Production-2024-1428,SUSE-2024-1428,SUSE-SLE-Module-Public-Cloud-12-2024-1428,SUSE-SLE-SERVER-12-SP5-2024-1428",
+      "Text": "Image SLES12-SP5-Azure-BYOS-2024-1428,Image SLES12-SP5-Azure-Basic-On-Demand-2024-1428,Image SLES12-SP5-Azure-HPC-BYOS-2024-1428,Image SLES12-SP5-Azure-HPC-On-Demand-2024-1428,Image SLES12-SP5-Azure-SAP-BYOS-2024-1428,Image SLES12-SP5-Azure-SAP-On-Demand-2024-1428,Image SLES12-SP5-Azure-Standard-On-Demand-2024-1428,Image SLES12-SP5-EC2-BYOS-2024-1428,Image SLES12-SP5-EC2-ECS-On-Demand-2024-1428,Image SLES12-SP5-EC2-On-Demand-2024-1428,Image SLES12-SP5-EC2-SAP-BYOS-2024-1428,Image SLES12-SP5-EC2-SAP-On-Demand-2024-1428,Image SLES12-SP5-GCE-BYOS-2024-1428,Image SLES12-SP5-GCE-On-Demand-2024-1428,Image SLES12-SP5-GCE-SAP-BYOS-2024-1428,Image SLES12-SP5-GCE-SAP-On-Demand-2024-1428,Image SLES12-SP5-SAP-Azure-LI-BYOS-Production-2024-1428,Image SLES12-SP5-SAP-Azure-VLI-BYOS-Production-2024-1428,SUSE-2024-1428,SUSE-SLE-Module-Public-Cloud-12-2024-1428,SUSE-SLE-SERVER-12-SP5-2024-1428",
       "Title": "Patchnames",
       "Type": "Details"
     }
@@ -101,6 +101,16 @@
       {
         "ProductReference": "python3-idna-2.5-3.13.1",
         "RelatesToProductReference": "Image SLES12-SP5-EC2-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python-idna-2.5-3.13.1",
+        "RelatesToProductReference": "Image SLES12-SP5-EC2-ECS-On-Demand",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-idna-2.5-3.13.1",
+        "RelatesToProductReference": "Image SLES12-SP5-EC2-ECS-On-Demand",
         "RelationType": "Default Component Of"
       },
       {
@@ -235,7 +245,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2024-3651",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A vulnerability was identified in the kjd/idna library, specifically within the `idna.encode()` function, affecting version 3.6. The issue arises from the function's handling of crafted input strings, which can lead to quadratic complexity and consequently, a denial of service condition. This vulnerability is triggered by a crafted input that causes the `idna.encode()` function to process the input with considerable computational load, significantly increasing the processing time in a quadratic manner relative to the input size.",
       "Threats": [
         {
           "Type": "Impact",
@@ -269,6 +279,8 @@
             "Image SLES12-SP5-Azure-Standard-On-Demand:python3-idna-2.5-3.13.1",
             "Image SLES12-SP5-EC2-BYOS:python-idna-2.5-3.13.1",
             "Image SLES12-SP5-EC2-BYOS:python3-idna-2.5-3.13.1",
+            "Image SLES12-SP5-EC2-ECS-On-Demand:python-idna-2.5-3.13.1",
+            "Image SLES12-SP5-EC2-ECS-On-Demand:python3-idna-2.5-3.13.1",
             "Image SLES12-SP5-EC2-On-Demand:python-idna-2.5-3.13.1",
             "Image SLES12-SP5-EC2-On-Demand:python3-idna-2.5-3.13.1",
             "Image SLES12-SP5-EC2-SAP-BYOS:python-idna-2.5-3.13.1",
