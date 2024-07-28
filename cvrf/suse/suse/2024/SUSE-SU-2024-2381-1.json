@@ -986,8 +986,8 @@
       "Description": "SUSE CVE CVE-2023-52809 page"
     },
     {
-      "URL": "https://www.suse.com/security/cve/CVE-2023-5281/",
-      "Description": "SUSE CVE CVE-2023-5281 page"
+      "URL": "https://www.suse.com/security/cve/CVE-2023-52811/",
+      "Description": "SUSE CVE CVE-2023-52811 page"
     },
     {
       "URL": "https://www.suse.com/security/cve/CVE-2023-52832/",
@@ -3636,18 +3636,22 @@
       "CVSSScoreSets": {}
     },
     {
-      "CVE": "CVE-2023-5281",
-      "Description": "A vulnerability was found in SourceCodester Engineers Online Portal 1.0. It has been classified as critical. This affects an unknown part of the file remove_inbox_message.php. The manipulation of the argument id leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-240909 was assigned to this vulnerability.",
+      "CVE": "CVE-2023-52811",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: ibmvfc: Remove BUG_ON in the case of an empty event pool\n\nIn practice the driver should never send more commands than are allocated\nto a queue's event pool. In the unlikely event that this happens, the code\nasserts a BUG_ON, and in the case that the kernel is not configured to\ncrash on panic returns a junk event pointer from the empty event list\ncausing things to spiral from there. This BUG_ON is a historical artifact\nof the ibmvfc driver first being upstreamed, and it is well known now that\nthe use of BUG_ON is bad practice except in the most unrecoverable\nscenario. There is nothing about this scenario that prevents the driver\nfrom recovering and carrying on.\n\nRemove the BUG_ON in question from ibmvfc_get_event() and return a NULL\npointer in the case of an empty event pool. Update all call sites to\nibmvfc_get_event() to check for a NULL pointer and perfrom the appropriate\nfailure or recovery action.",
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "critical"
+          "Severity": "moderate"
         }
       ],
       "References": [
         {
-          "URL": "https://www.suse.com/security/cve/CVE-2023-5281.html",
-          "Description": "CVE-2023-5281"
+          "URL": "https://www.suse.com/security/cve/CVE-2023-52811.html",
+          "Description": "CVE-2023-52811"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1225559",
+          "Description": "SUSE Bug 1225559"
         }
       ],
       "ProductStatuses": [
