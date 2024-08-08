@@ -1,0 +1,671 @@
+{
+  "Title": "Security update for shadow",
+  "Tracking": {
+    "ID": "SUSE-SU-2024:2808-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2024-08-07T07:49:33Z",
+    "CurrentReleaseDate": "2024-08-07T07:49:33Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2024-08-07T07:49:33Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for shadow",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for shadow fixes the following issues:\n\n- Fixed not copying of skel files (bsc#1228770)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container bci/bci-init:latest-2024-2808,Container bci/bci-sle15-kernel-module-devel:latest-2024-2808,Container bci/nodejs:latest-2024-2808,Container bci/openjdk-devel:latest-2024-2808,Container bci/php-apache:latest-2024-2808,Container bci/php-fpm:latest-2024-2808,Container bci/ruby:latest-2024-2808,Container bci/spack:latest-2024-2808,Container containers/apache-tomcat:10-jre21-2024-2808,Container suse/389-ds:latest-2024-2808,Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest-2024-2808,Container suse/nginx:latest-2024-2808,Container suse/pcp:latest-2024-2808,Container suse/postgres:latest-2024-2808,Container suse/registry:latest-2024-2808,Container suse/rmt-mariadb-client:latest-2024-2808,Container suse/rmt-mariadb:latest-2024-2808,Container suse/rmt-server:latest-2024-2808,Image SLES15-SP6-2024-2808,Image SLES15-SP6-BYOS-2024-2808,Image SLES15-SP6-BYOS-GCE-2024-2808,Image SLES15-SP6-CHOST-BYOS-2024-2808,Image SLES15-SP6-CHOST-BYOS-Aliyun-2024-2808,Image SLES15-SP6-CHOST-BYOS-Azure-2024-2808,Image SLES15-SP6-CHOST-BYOS-EC2-2024-2808,Image SLES15-SP6-CHOST-BYOS-GCE-2024-2808,Image SLES15-SP6-CHOST-BYOS-SAP-CCloud-2024-2808,Image SLES15-SP6-GCE-2024-2808,Image SLES15-SP6-HPC-BYOS-2024-2808,Image SLES15-SP6-HPC-BYOS-GCE-2024-2808,Image SLES15-SP6-HPC-GCE-2024-2808,Image SLES15-SP6-Hardened-BYOS-2024-2808,Image SLES15-SP6-Hardened-BYOS-GCE-2024-2808,Image SLES15-SP6-SAP-2024-2808,Image SLES15-SP6-SAP-BYOS-2024-2808,Image SLES15-SP6-SAP-BYOS-GCE-2024-2808,Image SLES15-SP6-SAP-GCE-2024-2808,Image SLES15-SP6-SAP-Hardened-2024-2808,Image SLES15-SP6-SAP-Hardened-BYOS-2024-2808,Image SLES15-SP6-SAP-Hardened-BYOS-EC2-2024-2808,Image SLES15-SP6-SAP-Hardened-BYOS-GCE-2024-2808,Image SLES15-SP6-SAP-Hardened-EC2-2024-2808,Image SLES15-SP6-SAP-Hardened-GCE-2024-2808,Image SLES15-SP6-SAPCAL-2024-2808,Image SLES15-SP6-SAPCAL-GCE-2024-2808,Image tomcat_15_6-2024-2808,SUSE-2024-2808,SUSE-SLE-Module-Basesystem-15-SP6-2024-2808,openSUSE-SLE-15.6-2024-2808",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/bci-init:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/bci-init:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/bci-sle15-kernel-module-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/bci-sle15-kernel-module-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/nodejs:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/nodejs:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/php-apache:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/php-apache:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/php-fpm:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/php-fpm:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/ruby:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/ruby:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/spack:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container bci/spack:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10-jre21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10-jre21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/389-ds:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/389-ds:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/nginx:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/nginx:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/pcp:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/pcp:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/postgres:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/postgres:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/registry:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/registry:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb-client:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb-client:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-server:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Container suse/rmt-server:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-Aliyun",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-Aliyun",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Hardened-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Hardened-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAPCAL",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAPCAL",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAPCAL-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image SLES15-SP6-SAPCAL-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image tomcat_15_6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "Image tomcat_15_6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "login_defs-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shadow-4.8.1-150600.17.6.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2024/suse-su-20242808-1/",
+      "Description": "Link for SUSE-SU-2024:2808-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-updates/2024-August/036348.html",
+      "Description": "E-Mail link for SUSE-SU-2024:2808-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1228770",
+      "Description": "SUSE Bug 1228770"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2013-4235/",
+      "Description": "SUSE CVE CVE-2013-4235 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2013-4235",
+      "Description": "shadow: TOCTOU (time-of-check time-of-use) race condition when copying and removing directory trees",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2013-4235.html",
+          "Description": "CVE-2013-4235"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/916845",
+          "Description": "SUSE Bug 916845"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container bci/bci-init:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/bci-init:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/bci-sle15-kernel-module-devel:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/bci-sle15-kernel-module-devel:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/nodejs:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/nodejs:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/openjdk-devel:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/openjdk-devel:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/php-apache:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/php-apache:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/php-fpm:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/php-fpm:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/ruby:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/ruby:latest:shadow-4.8.1-150600.17.6.1",
+            "Container bci/spack:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container bci/spack:latest:shadow-4.8.1-150600.17.6.1",
+            "Container containers/apache-tomcat:10-jre21:login_defs-4.8.1-150600.17.6.1",
+            "Container containers/apache-tomcat:10-jre21:shadow-4.8.1-150600.17.6.1",
+            "Container suse/389-ds:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/389-ds:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/nginx:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/nginx:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/pcp:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/pcp:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/postgres:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/postgres:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/registry:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/registry:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/rmt-mariadb-client:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/rmt-mariadb-client:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/rmt-mariadb:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/rmt-mariadb:latest:shadow-4.8.1-150600.17.6.1",
+            "Container suse/rmt-server:latest:login_defs-4.8.1-150600.17.6.1",
+            "Container suse/rmt-server:latest:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-Aliyun:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-Aliyun:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-Azure:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-Azure:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-EC2:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-EC2:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-SAP-CCloud:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS-SAP-CCloud:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-CHOST-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-HPC-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-Hardened-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-Hardened-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-Hardened-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-Hardened-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS-EC2:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS-EC2:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-BYOS:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-EC2:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-EC2:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP-Hardened:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAP:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAPCAL-GCE:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAPCAL-GCE:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAPCAL:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6-SAPCAL:shadow-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6:login_defs-4.8.1-150600.17.6.1",
+            "Image SLES15-SP6:shadow-4.8.1-150600.17.6.1",
+            "Image tomcat_15_6:login_defs-4.8.1-150600.17.6.1",
+            "Image tomcat_15_6:shadow-4.8.1-150600.17.6.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:login_defs-4.8.1-150600.17.6.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:shadow-4.8.1-150600.17.6.1",
+            "openSUSE Leap 15.6:login_defs-4.8.1-150600.17.6.1",
+            "openSUSE Leap 15.6:shadow-4.8.1-150600.17.6.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
