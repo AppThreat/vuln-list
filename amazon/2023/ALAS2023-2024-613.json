@@ -5,10 +5,10 @@
     "date": "2024-05-09 17:16:00"
   },
   "updated": {
-    "date": "2024-08-01 04:06:00"
+    "date": "2024-08-14 19:14:00"
   },
   "severity": "Medium",
-  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-26928:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nsmb: client: fix potential UAF in cifs_debug_files_proc_show()\n\nCVE-2024-26925:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: release mutex after nft_gc_seq_end from abort path\n\nThe commit mutex should not be released during the critical section\nbetween nft_gc_seq_begin() and nft_gc_seq_end(), otherwise, async GC\nworker could collect expired objects and get the released commit lock\nwithin the same GC sequence.\n\nnf_tables_module_autoload() temporarily releases the mutex to load\nmodule dependencies, then it goes back to replay the transaction again.\nMove it at the end of the abort phase after nft_gc_seq_end() is called.\n\nCVE-2024-26923:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naf_unix: Fix garbage collector racing against connect()\n",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-27393:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nxen-netfront: Add missing skb_mark_for_recycle\n\nCVE-2024-26928:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nsmb: client: fix potential UAF in cifs_debug_files_proc_show()\n\nCVE-2024-26925:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: release mutex after nft_gc_seq_end from abort path\n\nThe commit mutex should not be released during the critical section\nbetween nft_gc_seq_begin() and nft_gc_seq_end(), otherwise, async GC\nworker could collect expired objects and get the released commit lock\nwithin the same GC sequence.\n\nnf_tables_module_autoload() temporarily releases the mutex to load\nmodule dependencies, then it goes back to replay the transaction again.\nMove it at the end of the abort phase after nft_gc_seq_end() is called.\n\nCVE-2024-26923:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naf_unix: Fix garbage collector racing against connect()\n\nCVE-2024-26921:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ninet: inet_defrag: prevent sk release while still in use\n",
   "packages": [
     {
       "name": "bpftool",
@@ -333,6 +333,11 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26921",
+      "id": "CVE-2024-26921",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26923",
       "id": "CVE-2024-26923",
       "type": "cve"
@@ -346,11 +351,18 @@
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26928",
       "id": "CVE-2024-26928",
       "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27393",
+      "id": "CVE-2024-27393",
+      "type": "cve"
     }
   ],
   "cveids": [
+    "CVE-2024-26921",
     "CVE-2024-26923",
     "CVE-2024-26925",
-    "CVE-2024-26928"
+    "CVE-2024-26928",
+    "CVE-2024-27393"
   ]
 }
