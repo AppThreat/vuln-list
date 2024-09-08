@@ -31,13 +31,23 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Container suse/ltss/sle15.4/sle15:15.4-2024-3086,Container suse/manager/4.3/proxy-httpd:latest-2024-3086,Container suse/manager/4.3/proxy-salt-broker:latest-2024-3086,Container suse/sle-micro-rancher/5.3:latest-2024-3086,Container suse/sle-micro-rancher/5.4:latest-2024-3086,Container suse/sle-micro/5.3/toolbox:latest-2024-3086,Container suse/sle-micro/5.4/toolbox:latest-2024-3086,Container suse/sle-micro/5.5:latest-2024-3086,Container suse/sle-micro/kvm-5.5:latest-2024-3086,Container suse/sle-micro/rt-5.5:latest-2024-3086,SUSE-2024-3086,SUSE-SLE-Micro-5.3-2024-3086,SUSE-SLE-Micro-5.4-2024-3086,SUSE-SLE-Micro-5.5-2024-3086,SUSE-SLE-Module-Basesystem-15-SP5-2024-3086,openSUSE-Leap-Micro-5.5-2024-3086,openSUSE-SLE-15.5-2024-3086",
+      "Text": "Container bci/openjdk-devel:11-2024-3086,Container bci/openjdk:11-2024-3086,Container suse/ltss/sle15.4/sle15:15.4-2024-3086,Container suse/manager/4.3/proxy-httpd:latest-2024-3086,Container suse/manager/4.3/proxy-salt-broker:latest-2024-3086,Container suse/sle-micro-rancher/5.3:latest-2024-3086,Container suse/sle-micro-rancher/5.4:latest-2024-3086,Container suse/sle-micro/5.3/toolbox:latest-2024-3086,Container suse/sle-micro/5.4/toolbox:latest-2024-3086,Container suse/sle-micro/5.5/toolbox:latest-2024-3086,Container suse/sle-micro/5.5:latest-2024-3086,Container suse/sle-micro/base-5.5:latest-2024-3086,Container suse/sle-micro/kvm-5.5:latest-2024-3086,Container suse/sle-micro/rt-5.5:latest-2024-3086,Container suse/sle15:15.5-2024-3086,SUSE-2024-3086,SUSE-SLE-Micro-5.3-2024-3086,SUSE-SLE-Micro-5.4-2024-3086,SUSE-SLE-Micro-5.5-2024-3086,SUSE-SLE-Module-Basesystem-15-SP5-2024-3086,openSUSE-Leap-Micro-5.5-2024-3086,openSUSE-SLE-15.5-2024-3086",
       "Title": "Patchnames",
       "Type": "Details"
     }
   ],
   "ProductTree": {
     "Relationships": [
+      {
+        "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container bci/openjdk-devel:11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container bci/openjdk:11",
+        "RelationType": "Default Component Of"
+      },
       {
         "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
         "RelatesToProductReference": "Container suse/ltss/sle15.4/sle15:15.4",
@@ -144,6 +154,16 @@
         "RelationType": "Default Component Of"
       },
       {
+        "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container suse/sle-micro/5.5/toolbox:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgmodule-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container suse/sle-micro/5.5/toolbox:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
         "ProductReference": "glib2-tools-2.70.5-150400.3.14.1",
         "RelatesToProductReference": "Container suse/sle-micro/5.5:latest",
         "RelationType": "Default Component Of"
@@ -169,6 +189,11 @@
         "RelationType": "Default Component Of"
       },
       {
+        "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container suse/sle-micro/base-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
         "ProductReference": "glib2-tools-2.70.5-150400.3.14.1",
         "RelatesToProductReference": "Container suse/sle-micro/kvm-5.5:latest",
         "RelationType": "Default Component Of"
@@ -216,6 +241,11 @@
       {
         "ProductReference": "libgobject-2_0-0-2.70.5-150400.3.14.1",
         "RelatesToProductReference": "Container suse/sle-micro/rt-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libglib-2_0-0-2.70.5-150400.3.14.1",
+        "RelatesToProductReference": "Container suse/sle15:15.5",
         "RelationType": "Default Component Of"
       },
       {
@@ -521,6 +551,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/openjdk-devel:11:libglib-2_0-0-2.70.5-150400.3.14.1",
+            "Container bci/openjdk:11:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/ltss/sle15.4/sle15:15.4:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/manager/4.3/proxy-httpd:latest:glib2-tools-2.70.5-150400.3.14.1",
             "Container suse/manager/4.3/proxy-httpd:latest:libgio-2_0-0-2.70.5-150400.3.14.1",
@@ -542,11 +574,14 @@
             "Container suse/sle-micro/5.3/toolbox:latest:libgmodule-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.4/toolbox:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.4/toolbox:latest:libgmodule-2_0-0-2.70.5-150400.3.14.1",
+            "Container suse/sle-micro/5.5/toolbox:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
+            "Container suse/sle-micro/5.5/toolbox:latest:libgmodule-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.5:latest:glib2-tools-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.5:latest:libgio-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.5:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.5:latest:libgmodule-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/5.5:latest:libgobject-2_0-0-2.70.5-150400.3.14.1",
+            "Container suse/sle-micro/base-5.5:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/kvm-5.5:latest:glib2-tools-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/kvm-5.5:latest:libgio-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/kvm-5.5:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
@@ -557,6 +592,7 @@
             "Container suse/sle-micro/rt-5.5:latest:libglib-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/rt-5.5:latest:libgmodule-2_0-0-2.70.5-150400.3.14.1",
             "Container suse/sle-micro/rt-5.5:latest:libgobject-2_0-0-2.70.5-150400.3.14.1",
+            "Container suse/sle15:15.5:libglib-2_0-0-2.70.5-150400.3.14.1",
             "SUSE Linux Enterprise Micro 5.3:glib2-tools-2.70.5-150400.3.14.1",
             "SUSE Linux Enterprise Micro 5.3:libgio-2_0-0-2.70.5-150400.3.14.1",
             "SUSE Linux Enterprise Micro 5.3:libglib-2_0-0-2.70.5-150400.3.14.1",
