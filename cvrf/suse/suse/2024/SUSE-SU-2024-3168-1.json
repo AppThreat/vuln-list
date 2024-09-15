@@ -31,13 +31,23 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "SUSE-2024-3168,SUSE-SLE-Module-Basesystem-15-SP5-2024-3168,SUSE-SLE-Module-Server-Applications-15-SP5-2024-3168,SUSE-SLE-Product-HPC-15-SP3-LTSS-2024-3168,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2024-3168,SUSE-SLE-Product-HPC-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLED-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLES-15-SP3-LTSS-2024-3168,SUSE-SLE-Product-SLES-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLES_SAP-15-SP3-2024-3168,SUSE-SLE-Product-SLES_SAP-15-SP4-2024-3168,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-2024-3168,SUSE-SLE-Product-SUSE-Manager-Server-4.3-2024-3168,SUSE-Storage-7.1-2024-3168,openSUSE-SLE-15.5-2024-3168",
+      "Text": "Container suse/postgres:15-2024-3168,SUSE-2024-3168,SUSE-SLE-Module-Basesystem-15-SP5-2024-3168,SUSE-SLE-Module-Server-Applications-15-SP5-2024-3168,SUSE-SLE-Product-HPC-15-SP3-LTSS-2024-3168,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2024-3168,SUSE-SLE-Product-HPC-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLED-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLES-15-SP3-LTSS-2024-3168,SUSE-SLE-Product-SLES-15-SP4-LTSS-2024-3168,SUSE-SLE-Product-SLES_SAP-15-SP3-2024-3168,SUSE-SLE-Product-SLES_SAP-15-SP4-2024-3168,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-2024-3168,SUSE-SLE-Product-SUSE-Manager-Server-4.3-2024-3168,SUSE-Storage-7.1-2024-3168,openSUSE-SLE-15.5-2024-3168",
       "Title": "Patchnames",
       "Type": "Details"
     }
   ],
   "ProductTree": {
     "Relationships": [
+      {
+        "ProductReference": "postgresql15-15.8-150200.5.30.1",
+        "RelatesToProductReference": "Container suse/postgres:15",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql15-server-15.8-150200.5.30.1",
+        "RelatesToProductReference": "Container suse/postgres:15",
+        "RelationType": "Default Component Of"
+      },
       {
         "ProductReference": "postgresql15-15.8-150200.5.30.1",
         "RelatesToProductReference": "SUSE Enterprise Storage 7.1",
@@ -641,6 +651,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container suse/postgres:15:postgresql15-15.8-150200.5.30.1",
+            "Container suse/postgres:15:postgresql15-server-15.8-150200.5.30.1",
             "SUSE Enterprise Storage 7.1:postgresql15-15.8-150200.5.30.1",
             "SUSE Enterprise Storage 7.1:postgresql15-contrib-15.8-150200.5.30.1",
             "SUSE Enterprise Storage 7.1:postgresql15-devel-15.8-150200.5.30.1",
