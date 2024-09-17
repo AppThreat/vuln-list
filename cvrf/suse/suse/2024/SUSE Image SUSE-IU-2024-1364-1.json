@@ -1,27 +1,27 @@
 {
-  "Title": "SUSE-IU-2024:1217-1",
+  "Title": "SUSE-IU-2024:1364-1",
   "Tracking": {
-    "ID": "SUSE Image SUSE-IU-2024:1217-1",
+    "ID": "SUSE Image SUSE-IU-2024:1364-1",
     "Status": "Interim",
     "Version": "1",
-    "InitialReleaseDate": "2024-09-13T01:00:00Z",
-    "CurrentReleaseDate": "2024-09-13T01:00:00Z",
+    "InitialReleaseDate": "2024-09-16T01:00:00Z",
+    "CurrentReleaseDate": "2024-09-16T01:00:00Z",
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-09-17T10:41:40Z",
+        "Date": "2024-09-17T10:42:16Z",
         "Description": "current"
       }
     ]
   },
   "Notes": [
     {
-      "Text": "Image update for SUSE-IU-2024:1217-1 / google/sle-micro-5-1-byos-v20240913-x86-64",
+      "Text": "Image update for SUSE-IU-2024:1364-1 / google/sle-micro-5-2-byos-v20240916-x86-64",
       "Title": "Topic",
       "Type": "Summary"
     },
     {
-      "Text": "This image update for google/sle-micro-5-1-byos-v20240913-x86-64 contains the following changes:\nPackage 000release-packages:SUSE-MicroOS-release was updated:\n\nPackage ca-certificates-mozilla was updated:\n\n- Updated to 2.68 state of Mozilla SSL root CAs (bsc#1227525)  - Added: FIRMAPROFESIONAL CA ROOT-A WEB\n  - Distrust: GLOBALTRUST 2020\n\n- Updated to 2.66 state of Mozilla SSL root CAs (bsc#1220356)\n  Added:\n  - CommScope Public Trust ECC Root-01\n  - CommScope Public Trust ECC Root-02\n  - CommScope Public Trust RSA Root-01\n  - CommScope Public Trust RSA Root-02\n  - D-Trust SBR Root CA 1 2022\n  - D-Trust SBR Root CA 2 2022\n  - Telekom Security SMIME ECC Root 2021\n  - Telekom Security SMIME RSA Root 2023\n  - Telekom Security TLS ECC Root 2020\n  - Telekom Security TLS RSA Root 2023\n  - TrustAsia Global Root CA G3\n  - TrustAsia Global Root CA G4\n  Removed:\n  - Autoridad de Certificacion Firmaprofesional CIF A62634068\n  - Chambers of Commerce Root - 2008\n  - Global Chambersign Root - 2008\n  - Security Communication Root CA\n  - Symantec Class 1 Public Primary Certification Authority - G6\n  - Symantec Class 2 Public Primary Certification Authority - G6\n  - TrustCor ECA-1\n  - TrustCor RootCert CA-1\n  - TrustCor RootCert CA-2\n  - VeriSign Class 1 Public Primary Certification Authority - G3\n  - VeriSign Class 2 Public Primary Certification Authority - G3\n- remove-trustcor.patch: removed, now upstream\n- do a versioned obsoletes of \u0026quot;openssl-certs\u0026quot;.\n\nPackage containerd was updated:\n\n- Update to containerd v1.7.21. Upstream release notes:  \u0026lt;https://github.com/containerd/containerd/releases/tag/v1.7.21\u0026gt;\n  Fixes CVE-2023-47108. bsc#1217070\n  Fixes CVE-2023-45142. bsc#1228553\n- Rebase patches:\n  * 0001-BUILD-SLE12-revert-btrfs-depend-on-kernel-UAPI-inste.patch\n\nPackage curl was updated:\n\n- Security fix: [bsc#1230093, CVE-2024-8096]  * curl: OCSP stapling bypass with GnuTLS\n  * Add curl-CVE-2024-8096.patch\n\n- Security fix: [bsc#1228535, CVE-2024-7264]\n  * curl: ASN.1 date parser overread\n  * Add curl-CVE-2024-7264.patch\n\nPackage glib2 was updated:\n\n- Add glib2-gdbusmessage-cache-arg0.patch: cache the arg0 value in  a dbus message. Fixes a possible use after free (boo#1224044).\n\nPackage glibc was updated:\n\n- s390x-wcsncmp.patch: s390x: Fix segfault in wcsncmp (bsc#1228043, BZ  [#31934])\n\nPackage kernel-default was updated:\n\n- Update patches.suse/usb-f_fs-Fix-use-after-free-for-epfile.patch  (git-fixes bsc#1228040 CVE-2022-48822).\n- commit 2c8d4da\n\n- ima: Fix use-after-free on a dentry's dname.name (bsc#1227716\n  CVE-2024-39494).\n- commit f6c5c97\n\n- ASoC: topology: Fix route memory corruption (CVE-2024-41069\n  bsc#1228644).\n- commit f66560f\n\n- IB/core: Implement a limit on UMAD receive List (bsc#1228743 CVE-2024-42145)\n- commit f02f32a\n\n- ASoC: topology: Fix references to freed memory (CVE-2024-41069\n  bsc#1228644).\n- commit 92df0ca\n\n- hfsplus: fix uninit-value in copy_name (bsc#1228561\n  CVE-2024-41059).\n- commit 97ed148\n\n- dmaengine: idxd: Fix possible Use-After-Free in\n  irq_process_work_list (CVE-2024-40956 bsc#1227810).\n- commit 26f1077\n\n- ocfs2: fix DIO failure due to insufficient transaction credits\n  (bsc#1216834).\n- commit 300f953\n\n- SUNRPC: Fix UAF in svc_tcp_listen_data_ready() (CVE-2023-52885\n  bsc#1227750).\n- commit e97b8a4\n\n- scsi: pm8001: Fix use-after-free for aborted SSP/STP sas_task\n  (bsc#1228013 CVE-2022-48792).\n- commit e1a6b29\n\n- tap: add missing verification for short frame (CVE-2024-41090\n  bsc#1228328).\n- commit ebf78ce\n\n- ipv6: fix another slab-out-of-bounds in fib6_nh_flush_exceptions\n  (CVE-2021-47291 bsc#1224918).\n- ipv6: Fix KASAN: slab-out-of-bounds Read in\n  fib6_nh_flush_exceptions (bsc#1224918 CVE-2021-47126\n  bsc#1221539).\n- commit 8e8ce7c\n\n- drm/amdkfd: don't allow mapping the MMIO HDP page with large\n  pages (CVE-2024-41011 bsc#1228115).\n- commit 71f4e95\n\n- sch_cake: do not call cake_destroy() from cake_init()\n  (CVE-2021-47598 bsc#1226574).\n- commit bd20b3c\n\n- scsi: scsi_debug: Fix type in min_t to avoid stack OOB\n  (bsc#1226550 CVE-2021-47580).\n- scsi: scsi_debug: Fix out-of-bound read in resp_report_tgtpgs()\n  (bsc#1222824 CVE-2021-47219).\n- commit 2e165bd\n\n- X.509: Fix the parser of extended key usage for length\n  (bsc#1218820 bsc#1226666).\n- commit 2d78310\n\n- gve: Clear napi-\u0026gt;skb before dev_kfree_skb_any() (CVE-2024-40937\n  bsc#1227836).\n- commit 2df93fe\n\n- Update References\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit d06a0d0\n\n- Update\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit 9cfc088\n\n- misc: fastrpc: avoid double fput() on failed usercopy\n  (CVE-2022-48821 bsc#1227976).\n- commit 57e770a\n\n- Update\n  patches.suse/tls-fix-use-after-free-on-failed-backlog-decryption.patch\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186\n  CVE-2024-26800 bsc#1222728).\n- commit 72c3b29\n\n- Update\n  patches.suse/powerpc-powernv-Add-a-null-pointer-check-in-opal_eve.patch\n  (bsc#1065729 CVE-2023-52686 bsc#1224682).\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226758 CVE-2024-38559 bsc#1226785).\n- commit 53c517e\n\n- nfsd: fix use-after-free due to delegation race (CVE-2021-47506\n  bsc#1225404 bsc#1227497).\n- commit b195c7b\n\n- Update\n  patches.suse/net-tls-factor-out-tls_-crypt_async_wait.patch.\n- fix build warning\n- commit 7f81dcf\n\n- Fix spurious WARNING caused by a qxl driver patch (bsc#1227213)\n  Refresh patches.suse/drm-qxl-fix-UAF-on-handle-creation.patch\n- commit e245863\n\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226785 CVE-2024-38559).\n  Fix incorrect bug reference.\n- commit 7bd70b9\n\n- can: pch_can: pch_can_rx_normal: fix use after free (bsc#1225431\n  CVE-2021-47520).\n- commit 0094102\n\n- powerpc/rtas: Prevent Spectre v1 gadget construction in\n  sys_rtas() (bsc#1227487).\n- commit 74bce38\n\n- blacklist.conf:\n- commit cdd4002\n\n- NFS: Don't overfill uncached readdir pages (bsc#1226662).\n- commit d0f2933\n\n- tls: fix use-after-free on failed backlog decryption\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: separate no-async decryption request handling from async\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: decrement decrypt_pending if no async completion will be\n  called (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: handle backlogging of crypto requests (CVE-2024-26584\n  bsc#1220186).\n- tls: fix race between tx work scheduling and socket close\n  (CVE-2024-26585 bsc#1220187).\n- tls: fix race between async notify and socket close\n  (CVE-2024-26583 bsc#1220185).\n- net: tls: factor out tls_*crypt_async_wait() (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: fix async vs NIC crypto offload (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: use async as an in-out argument (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: assume crypto always calls our callback (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't track the async count (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: simplify async wait (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- tls: rx: wrap decryption arguments in a structure\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't report text length from the bowels of decrypt\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: drop unnecessary arguments from tls_setup_from_iter()\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net/tls: race causes kernel panic (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- commit cf4818b\n\n- Delete\n  patches.suse/tls-fix-race-between-tx-work-scheduling-and-socket-c.patch.\n  Will be replaced with refreshed version once all conflicting patches are in.\n- commit e1dd229\n\n- dm btree remove: fix use after free in rebalance_children()\n  (CVE-2021-47600, bsc#1226575).\n- commit 088e9db\n\nPackage openssl-1_1 was updated:\n\n- Security fix: [bsc#1227138, CVE-2024-5535]  * SSL_select_next_proto buffer overread\n  * Add openssl-CVE-2024-5535.patch\n\nPackage snapper was updated:\n\n- handle content-length of stomp in zypper plugin  (gh#openSUSE/snapper#918) (bsc#1229142)\n  * added pr919.patch\n  * added pr920.patch\n\nPackage libsolv was updated:\n\n- removed dependency on external find program in the repo2solv tool- bindings: fix return value of repodata.add_solv()\n- new SOLVER_FLAG_FOCUS_NEW flag\n- bump version to 0.7.30\n\nPackage libzypp was updated:\n\n- Make sure not to statically linked installed tools (bsc#1228787)- version 17.35.8 (35)\n\n- MediaPluginType must be resolved to a valid MediaHandler\n  (bsc#1228208)\n- version 17.35.7 (35)\n\n- Export CredentialManager for legacy YAST versions (bsc#1228420)\n- version 17.35.6 (35)\n\n- Export asSolvable for YAST (bsc#1228420)\n- Fix 4 typos in zypp.conf.\n- version 17.35.5 (35)\n\n- Fix typo in the geoip update pipeline (bsc#1228206)\n- Export RepoVariablesStringReplacer for yast2 (bsc#1228138)\n- version 17.35.4 (35)\n\n- Translation: updated .pot file.\n- Conflict with python zypp-plugin \u0026lt; 0.6.4 (bsc#1227793)\n  Older zypp-plugins reject stomp headers including a '-'. Like the\n  'content-length' header we may send.\n- Fix int overflow in Provider (fixes #559)\n  This patch fixes an issue in safe_strtonum which caused\n  timestamps to overflow in the Provider message parser.\n- Fix error reporting on repoindex.xml parse error (bsc#1227625)\n- version 17.35.3 (35)\n\n- Keep UrlResolverPlugin API public (fixes #560)\n- Blacklist /snap executables for 'zypper ps' (bsc#1226014)\n- Fix handling of buddies when applying locks (bsc#1225267)\n  Buddy pairs (like -release package and product) internally share\n  the same status object. When applying locks from query results\n  the locked bit must be set if either item is locked.\n- version 17.35.2 (35)\n\n- Install zypp/APIConfig.h legacy include (fixes #557)\n- version 17.35.1 (35)\n\n- Update soname due to RepoManager refactoring and cleanup.\n- version 17.35.0 (35)\n\n- Workaround broken libsolv-tools-base requirements (fixes\n  openSUSE/zypper#551)\n- Strip ssl_clientkey from repo urls (bsc#1226030)\n- Remove protobuf build dependency.\n- Lazily attach medium during refresh workflows (bsc#1223094)\n- Refactor RepoManager and add Service workflows.\n- version 17.34.2 (34)\n\nPackage pam was updated:\n\n- Prevent cursor escape from the login prompt [bsc#1194818]  * Added: pam-bsc1194818-cursor-escape.patch\n\nPackage python-PyYAML was updated:\n\nPackage python-setuptools was updated:\n\n- Add patch CVE-2024-6345-code-execution-via-download-funcs.patch:  * Sanitize any VCS URL we download. (CVE-2024-6345, bsc#1228105)\n\nPackage zypp-plugin was updated:\n\n- Fix stomp header regex to include '-' (bsc#1227793)- version 0.6.4\n\n- singlespec in Tumbleweed must support multiple python3 flavors\n  in the future gh#openSUSE/python-rpm-macros#66\n\n- Provide python3-zypp-plugin down to SLE12 (bsc#1081596)\n\n- Provide python3-zypp-plugin in SLE12-SP3 (bsc#1081596)\n\nPackage runc was updated:\n\n[ This was only ever released for SLES and Leap. ]- Update to runc v1.1.14. Upstream changelog is available from\n  \u0026lt;https://github.com/opencontainers/runc/releases/tag/v1.1.14\u0026gt;.\n  Includes the patch for CVE-2024-45310. bsc#1230092\n- Rebase patches:\n  * 0001-bsc1221050-libct-seccomp-patchbpf-rm-duplicated-code.patch\n  * 0002-bsc1221050-seccomp-patchbpf-rename-nativeArch-linuxA.patch\n  * 0003-bsc1221050-seccomp-patchbpf-always-include-native-ar.patch\n  * 0004-bsc1214960-nsenter-cloned_binary-remove-bindfd-logic.patch\n\nPackage selinux-policy was updated:\n\n- Update to version 20210716+git64.0c11a3fb:  * Fix mkhomedir_helper label to match on sbin (bsc#1229701)\n  * allow init to run bpf programs. We do this during early startup (bsc#1215423)\n  * Allow sysadm_t run kernel bpf programs\n\n- Packaging rework. Move policy to git repository\n  Please use `osc service manualrun` to update this OBS package to the\n  newest git version.\n  * Added _service and _servicedata file that pulls from selinux-policy and tar it\n  * Replaced old tar file: fedora-policy-20210716.tar.bz2\n    with tar file generated via OBS service: selinux-policy-20210716+git59.29f0685b.tar.xz\n  * Updated selinux-policy.spec to build selinux-policy with\n    container-selinux\n  * Removed suse specific modules as they are now covered by git commits\n  * packagekit.te packagekit.if packagekit.fc\n  * rebootmgr.te rebootmgr.if rebootmgr.fc\n  * rtorrent.te rtorrent.if rtorrent.fc\n  * wicked.te wicked.if wicked.fc\n  * Removed *.patch as they are now covered by git commits:\n  * fix_djbdns.patch\n  * fix_dbus.patch\n  * fix_java.patch\n  * fix_hadoop.patch\n  * fix_thunderbird.patch\n  * fix_postfix.patch\n  * fix_nscd.patch\n  * fix_sysnetwork.patch\n  * fix_logging.patch\n  * fix_xserver.patch\n  * fix_miscfiles.patch\n  * fix_init.patch\n  * fix_locallogin.patch\n  * fix_iptables.patch\n  * fix_irqbalance.patch\n  * fix_ntp.patch\n  * fix_fwupd.patch\n  * fix_firewalld.patch\n  * fix_logrotate.patch\n  * fix_selinuxutil.patch\n  * fix_corecommand.patch\n  * fix_snapper.patch\n  * fix_systemd.patch\n  * fix_unconfined.patch\n  * fix_unconfineduser.patch\n  * fix_chronyd.patch\n  * fix_networkmanager.patch\n  * fix_accountsd.patch\n  * fix_automount.patch\n  * fix_colord.patch\n  * fix_mcelog.patch\n  * fix_sslh.patch\n  * fix_nagios.patch\n  * fix_openvpn.patch\n  * fix_cron.patch\n  * fix_usermanage.patch\n  * fix_smartmon.patch\n  * fix_geoclue.patch\n  * fix_authlogin.patch\n  * fix_screen.patch\n  * fix_unprivuser.patch\n  * fix_rpm.patch\n  * fix_apache.patch\n  * fix_nis.patch\n  * fix_libraries.patch\n  * fix_dovecot.patch\n  * fix_cockpit.patch\n  * fix_systemd_watch.patch\n  * fix_kernel_sysctl.patch\n  * fix_auditd.patch\n  * fix_hypervkvp.patch\n  * systemd_domain_dyntrans_type.patch\n  * fix_cloudform.patch\n  * sedoctool.patch\n  * init_watch_unallocated_ttys.patch\n- Move update.sh to selinux-devel-tools git repository (does not need\n  to be tracked by OBS since it is an internal tool for package update)\n\nPackage supportutils was updated:\n\n- Changes to version 3.2.8  + Avoid getting duplicate kernel verifications in boot.text (pr#190)\n  + lvm: suppress file descriptor leak warnings from lvm commands (pr#191)\n  + docker_info: Add timestamps to container logs (pr#196)\n  + Key value pairs and container log timestamps (bsc#1222021 PED-8211, pr#198)\n  + Update supportconfig get pam.d sorted (pr#199)\n  + yast_files: Exclude .zcat (pr#201)\n  + Sanitize grub bootloader (bsc#1227127, pr#203)\n  + Sanitize regcodes (pr#204)\n  + Improve product detection (pr#205)\n  + Add read_values for s390x (bsc#1228265, pr#206)\n  + hardware_info: Remove old alsa ver check (pr#209)\n  + drbd_info: Fix incorrect escape of quotes (pr#210)\n\nPackage suse-build-key was updated:\n\n- extended 2048 bit SUSE SLE 12, 15 GA-SP5 key until 2028. (bsc#1229339)  - gpg-pubkey-39db7c82-5f68629b.asc\n  + gpg-pubkey-39db7c82-66c5d91a.asc\n\nPackage xen was updated:\n\n- bsc#1228574 - VUL-0: CVE-2024-31145: xen: error handling in x86  IOMMU identity mapping (XSA-460)\n  xsa460.patch\n- bsc#1228575 - VUL-0: CVE-2024-31146: xen: PCI device pass-through\n  with shared resources (XSA-461)\n  xsa461.patch\n\nPackage zypper was updated:\n\n- Show rpm install size before installing (bsc#1224771)  If filesystem snapshots are taken before the installation (e.g.\n  by snapper) no disk space is freed by removing old packages. In\n  this case the install size of all packages is a hint how much\n  additional disk space is needed by the new packages static\n  content.\n- version 1.14.76\n\n- Fix readline setup to handle Ctrl-C and Ctrl-D corrrectly\n  (bsc#1227205)\n- version 1.14.75\n\n- Let_readline_abort_on_Ctrl-C (bsc#1226493)\n- packages: add '--system' to show @System packages (bsc#222971)\n- version 1.14.74\n\n",
+      "Text": "This image update for google/sle-micro-5-2-byos-v20240916-x86-64 contains the following changes:\nPackage 000release-packages:SUSE-MicroOS-release was updated:\n\nPackage ca-certificates-mozilla was updated:\n\n- Updated to 2.68 state of Mozilla SSL root CAs (bsc#1227525)  - Added: FIRMAPROFESIONAL CA ROOT-A WEB\n  - Distrust: GLOBALTRUST 2020\n\n- Updated to 2.66 state of Mozilla SSL root CAs (bsc#1220356)\n  Added:\n  - CommScope Public Trust ECC Root-01\n  - CommScope Public Trust ECC Root-02\n  - CommScope Public Trust RSA Root-01\n  - CommScope Public Trust RSA Root-02\n  - D-Trust SBR Root CA 1 2022\n  - D-Trust SBR Root CA 2 2022\n  - Telekom Security SMIME ECC Root 2021\n  - Telekom Security SMIME RSA Root 2023\n  - Telekom Security TLS ECC Root 2020\n  - Telekom Security TLS RSA Root 2023\n  - TrustAsia Global Root CA G3\n  - TrustAsia Global Root CA G4\n  Removed:\n  - Autoridad de Certificacion Firmaprofesional CIF A62634068\n  - Chambers of Commerce Root - 2008\n  - Global Chambersign Root - 2008\n  - Security Communication Root CA\n  - Symantec Class 1 Public Primary Certification Authority - G6\n  - Symantec Class 2 Public Primary Certification Authority - G6\n  - TrustCor ECA-1\n  - TrustCor RootCert CA-1\n  - TrustCor RootCert CA-2\n  - VeriSign Class 1 Public Primary Certification Authority - G3\n  - VeriSign Class 2 Public Primary Certification Authority - G3\n- remove-trustcor.patch: removed, now upstream\n- do a versioned obsoletes of \u0026quot;openssl-certs\u0026quot;.\n\nPackage containerd was updated:\n\n- Update to containerd v1.7.21. Upstream release notes:  \u0026lt;https://github.com/containerd/containerd/releases/tag/v1.7.21\u0026gt;\n  Fixes CVE-2023-47108. bsc#1217070\n  Fixes CVE-2023-45142. bsc#1228553\n- Rebase patches:\n  * 0001-BUILD-SLE12-revert-btrfs-depend-on-kernel-UAPI-inste.patch\n\nPackage curl was updated:\n\n- Security fix: [bsc#1230093, CVE-2024-8096]  * curl: OCSP stapling bypass with GnuTLS\n  * Add curl-CVE-2024-8096.patch\n\n- Security fix: [bsc#1228535, CVE-2024-7264]\n  * curl: ASN.1 date parser overread\n  * Add curl-CVE-2024-7264.patch\n\nPackage glib2 was updated:\n\n- Add glib2-gdbusmessage-cache-arg0.patch: cache the arg0 value in  a dbus message. Fixes a possible use after free (boo#1224044).\n\nPackage glibc was updated:\n\n- s390x-wcsncmp.patch: s390x: Fix segfault in wcsncmp (bsc#1228043, BZ  [#31934])\n\nPackage grub2 was updated:\n\n- Fix btrfs subvolume for platform modules not mounting at runtime when the  default subvolume is the topmost root tree (bsc#1228124)\n  * grub2-btrfs-06-subvol-mount.patch\n- Rediff\n  * 0001-Unify-the-check-to-enable-btrfs-relative-path.patch\n\nPackage kernel-default was updated:\n\n- Update patches.suse/usb-f_fs-Fix-use-after-free-for-epfile.patch  (git-fixes bsc#1228040 CVE-2022-48822).\n- commit 2c8d4da\n\n- ima: Fix use-after-free on a dentry's dname.name (bsc#1227716\n  CVE-2024-39494).\n- commit f6c5c97\n\n- ASoC: topology: Fix route memory corruption (CVE-2024-41069\n  bsc#1228644).\n- commit f66560f\n\n- IB/core: Implement a limit on UMAD receive List (bsc#1228743 CVE-2024-42145)\n- commit f02f32a\n\n- ASoC: topology: Fix references to freed memory (CVE-2024-41069\n  bsc#1228644).\n- commit 92df0ca\n\n- hfsplus: fix uninit-value in copy_name (bsc#1228561\n  CVE-2024-41059).\n- commit 97ed148\n\n- dmaengine: idxd: Fix possible Use-After-Free in\n  irq_process_work_list (CVE-2024-40956 bsc#1227810).\n- commit 26f1077\n\n- ocfs2: fix DIO failure due to insufficient transaction credits\n  (bsc#1216834).\n- commit 300f953\n\n- SUNRPC: Fix UAF in svc_tcp_listen_data_ready() (CVE-2023-52885\n  bsc#1227750).\n- commit e97b8a4\n\n- scsi: pm8001: Fix use-after-free for aborted SSP/STP sas_task\n  (bsc#1228013 CVE-2022-48792).\n- commit e1a6b29\n\n- tap: add missing verification for short frame (CVE-2024-41090\n  bsc#1228328).\n- commit ebf78ce\n\n- ipv6: fix another slab-out-of-bounds in fib6_nh_flush_exceptions\n  (CVE-2021-47291 bsc#1224918).\n- ipv6: Fix KASAN: slab-out-of-bounds Read in\n  fib6_nh_flush_exceptions (bsc#1224918 CVE-2021-47126\n  bsc#1221539).\n- commit 8e8ce7c\n\n- drm/amdkfd: don't allow mapping the MMIO HDP page with large\n  pages (CVE-2024-41011 bsc#1228115).\n- commit 71f4e95\n\n- sch_cake: do not call cake_destroy() from cake_init()\n  (CVE-2021-47598 bsc#1226574).\n- commit bd20b3c\n\n- scsi: scsi_debug: Fix type in min_t to avoid stack OOB\n  (bsc#1226550 CVE-2021-47580).\n- scsi: scsi_debug: Fix out-of-bound read in resp_report_tgtpgs()\n  (bsc#1222824 CVE-2021-47219).\n- commit 2e165bd\n\n- X.509: Fix the parser of extended key usage for length\n  (bsc#1218820 bsc#1226666).\n- commit 2d78310\n\n- gve: Clear napi-\u0026gt;skb before dev_kfree_skb_any() (CVE-2024-40937\n  bsc#1227836).\n- commit 2df93fe\n\n- Update References\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit d06a0d0\n\n- Update\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit 9cfc088\n\n- misc: fastrpc: avoid double fput() on failed usercopy\n  (CVE-2022-48821 bsc#1227976).\n- commit 57e770a\n\n- Update\n  patches.suse/tls-fix-use-after-free-on-failed-backlog-decryption.patch\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186\n  CVE-2024-26800 bsc#1222728).\n- commit 72c3b29\n\n- Update\n  patches.suse/powerpc-powernv-Add-a-null-pointer-check-in-opal_eve.patch\n  (bsc#1065729 CVE-2023-52686 bsc#1224682).\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226758 CVE-2024-38559 bsc#1226785).\n- commit 53c517e\n\n- nfsd: fix use-after-free due to delegation race (CVE-2021-47506\n  bsc#1225404 bsc#1227497).\n- commit b195c7b\n\n- Update\n  patches.suse/net-tls-factor-out-tls_-crypt_async_wait.patch.\n- fix build warning\n- commit 7f81dcf\n\n- Fix spurious WARNING caused by a qxl driver patch (bsc#1227213)\n  Refresh patches.suse/drm-qxl-fix-UAF-on-handle-creation.patch\n- commit e245863\n\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226785 CVE-2024-38559).\n  Fix incorrect bug reference.\n- commit 7bd70b9\n\n- can: pch_can: pch_can_rx_normal: fix use after free (bsc#1225431\n  CVE-2021-47520).\n- commit 0094102\n\n- powerpc/rtas: Prevent Spectre v1 gadget construction in\n  sys_rtas() (bsc#1227487).\n- commit 74bce38\n\n- blacklist.conf:\n- commit cdd4002\n\n- NFS: Don't overfill uncached readdir pages (bsc#1226662).\n- commit d0f2933\n\n- tls: fix use-after-free on failed backlog decryption\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: separate no-async decryption request handling from async\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: decrement decrypt_pending if no async completion will be\n  called (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: handle backlogging of crypto requests (CVE-2024-26584\n  bsc#1220186).\n- tls: fix race between tx work scheduling and socket close\n  (CVE-2024-26585 bsc#1220187).\n- tls: fix race between async notify and socket close\n  (CVE-2024-26583 bsc#1220185).\n- net: tls: factor out tls_*crypt_async_wait() (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: fix async vs NIC crypto offload (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: use async as an in-out argument (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: assume crypto always calls our callback (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't track the async count (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: simplify async wait (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- tls: rx: wrap decryption arguments in a structure\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't report text length from the bowels of decrypt\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: drop unnecessary arguments from tls_setup_from_iter()\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net/tls: race causes kernel panic (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- commit cf4818b\n\n- Delete\n  patches.suse/tls-fix-race-between-tx-work-scheduling-and-socket-c.patch.\n  Will be replaced with refreshed version once all conflicting patches are in.\n- commit e1dd229\n\n- dm btree remove: fix use after free in rebalance_children()\n  (CVE-2021-47600, bsc#1226575).\n- commit 088e9db\n\nPackage util-linux was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\nPackage openssl-1_1 was updated:\n\n- Security fix: [bsc#1227138, CVE-2024-5535]  * SSL_select_next_proto buffer overread\n  * Add openssl-CVE-2024-5535.patch\n\nPackage snapper was updated:\n\n- handle content-length of stomp in zypper plugin  (gh#openSUSE/snapper#918) (bsc#1229142)\n  * added pr919.patch\n  * added pr920.patch\n\nPackage libsolv was updated:\n\n- removed dependency on external find program in the repo2solv tool- bindings: fix return value of repodata.add_solv()\n- new SOLVER_FLAG_FOCUS_NEW flag\n- bump version to 0.7.30\n\nPackage libzypp was updated:\n\n- Make sure not to statically linked installed tools (bsc#1228787)- version 17.35.8 (35)\n\n- MediaPluginType must be resolved to a valid MediaHandler\n  (bsc#1228208)\n- version 17.35.7 (35)\n\n- Export CredentialManager for legacy YAST versions (bsc#1228420)\n- version 17.35.6 (35)\n\n- Export asSolvable for YAST (bsc#1228420)\n- Fix 4 typos in zypp.conf.\n- version 17.35.5 (35)\n\n- Fix typo in the geoip update pipeline (bsc#1228206)\n- Export RepoVariablesStringReplacer for yast2 (bsc#1228138)\n- version 17.35.4 (35)\n\n- Translation: updated .pot file.\n- Conflict with python zypp-plugin \u0026lt; 0.6.4 (bsc#1227793)\n  Older zypp-plugins reject stomp headers including a '-'. Like the\n  'content-length' header we may send.\n- Fix int overflow in Provider (fixes #559)\n  This patch fixes an issue in safe_strtonum which caused\n  timestamps to overflow in the Provider message parser.\n- Fix error reporting on repoindex.xml parse error (bsc#1227625)\n- version 17.35.3 (35)\n\n- Keep UrlResolverPlugin API public (fixes #560)\n- Blacklist /snap executables for 'zypper ps' (bsc#1226014)\n- Fix handling of buddies when applying locks (bsc#1225267)\n  Buddy pairs (like -release package and product) internally share\n  the same status object. When applying locks from query results\n  the locked bit must be set if either item is locked.\n- version 17.35.2 (35)\n\n- Install zypp/APIConfig.h legacy include (fixes #557)\n- version 17.35.1 (35)\n\n- Update soname due to RepoManager refactoring and cleanup.\n- version 17.35.0 (35)\n\n- Workaround broken libsolv-tools-base requirements (fixes\n  openSUSE/zypper#551)\n- Strip ssl_clientkey from repo urls (bsc#1226030)\n- Remove protobuf build dependency.\n- Lazily attach medium during refresh workflows (bsc#1223094)\n- Refactor RepoManager and add Service workflows.\n- version 17.34.2 (34)\n\nPackage pam was updated:\n\n- Prevent cursor escape from the login prompt [bsc#1194818]  * Added: pam-bsc1194818-cursor-escape.patch\n\nPackage python-PyYAML was updated:\n\nPackage python-setuptools was updated:\n\n- Add patch CVE-2024-6345-code-execution-via-download-funcs.patch:  * Sanitize any VCS URL we download. (CVE-2024-6345, bsc#1228105)\n\nPackage zypp-plugin was updated:\n\n- Fix stomp header regex to include '-' (bsc#1227793)- version 0.6.4\n\n- singlespec in Tumbleweed must support multiple python3 flavors\n  in the future gh#openSUSE/python-rpm-macros#66\n\n- Provide python3-zypp-plugin down to SLE12 (bsc#1081596)\n\n- Provide python3-zypp-plugin in SLE12-SP3 (bsc#1081596)\n\nPackage runc was updated:\n\n[ This was only ever released for SLES and Leap. ]- Update to runc v1.1.14. Upstream changelog is available from\n  \u0026lt;https://github.com/opencontainers/runc/releases/tag/v1.1.14\u0026gt;.\n  Includes the patch for CVE-2024-45310. bsc#1230092\n- Rebase patches:\n  * 0001-bsc1221050-libct-seccomp-patchbpf-rm-duplicated-code.patch\n  * 0002-bsc1221050-seccomp-patchbpf-rename-nativeArch-linuxA.patch\n  * 0003-bsc1221050-seccomp-patchbpf-always-include-native-ar.patch\n  * 0004-bsc1214960-nsenter-cloned_binary-remove-bindfd-logic.patch\n\nPackage selinux-policy was updated:\n\n- Update to version 20210716+git63.fcc8cf99:  * Fix mkhomedir_helper label to match on sbin (bsc#1229701)\n  * allow init to run bpf programs. We do this during early startup (bsc#1215423)\n  * Allow sysadm_t run kernel bpf programs\n\n- Packaging rework. Move policy to git repository\n  Please use `osc service manualrun` to update this OBS package to the\n  newest git version.\n  * Added _service and _servicedata file that pulls from selinux-policy and tar it\n  * Replaced old tar file: fedora-policy-20210716.tar.bz2\n    with tar file generated via OBS service: selinux-policy-20210716+git58.9a9cb7dc.tar.xz\n  * Updated selinux-policy.spec to build selinux-policy with\n    container-selinux\n  * Removed suse specific modules as they are now covered by git commits\n  * packagekit.te packagekit.if packagekit.fc\n  * rebootmgr.te rebootmgr.if rebootmgr.fc\n  * rtorrent.te rtorrent.if rtorrent.fc\n  * wicked.te wicked.if wicked.fc\n  * Removed *.patch as they are now covered by git commits:\n  * fix_djbdns.patch\n  * fix_dbus.patch\n  * fix_java.patch\n  * fix_hadoop.patch\n  * fix_thunderbird.patch\n  * fix_postfix.patch\n  * fix_nscd.patch\n  * fix_sysnetwork.patch\n  * fix_logging.patch\n  * fix_xserver.patch\n  * fix_miscfiles.patch\n  * fix_init.patch\n  * fix_locallogin.patch\n  * fix_iptables.patch\n  * fix_irqbalance.patch\n  * fix_ntp.patch\n  * fix_fwupd.patch\n  * fix_firewalld.patch\n  * fix_logrotate.patch\n  * fix_selinuxutil.patch\n  * fix_corecommand.patch\n  * fix_snapper.patch\n  * fix_systemd.patch\n  * fix_unconfined.patch\n  * fix_unconfineduser.patch\n  * fix_chronyd.patch\n  * fix_networkmanager.patch\n  * fix_accountsd.patch\n  * fix_automount.patch\n  * fix_colord.patch\n  * fix_mcelog.patch\n  * fix_sslh.patch\n  * fix_nagios.patch\n  * fix_openvpn.patch\n  * fix_cron.patch\n  * fix_usermanage.patch\n  * fix_smartmon.patch\n  * fix_geoclue.patch\n  * fix_authlogin.patch\n  * fix_screen.patch\n  * fix_unprivuser.patch\n  * fix_rpm.patch\n  * fix_apache.patch\n  * fix_nis.patch\n  * fix_libraries.patch\n  * fix_dovecot.patch\n  * fix_cockpit.patch\n  * fix_systemd_watch.patch\n  * fix_kernel_sysctl.patch\n  * fix_auditd.patch\n  * fix_hypervkvp.patch\n  * systemd_domain_dyntrans_type.patch\n  * fix_cloudform.patch\n  * sedoctool.patch\n  * init_watch_unallocated_ttys.patch\n- Move update.sh to selinux-devel-tools git repository (does not need\n  to be tracked by OBS since it is an internal tool for package update)\n\nPackage supportutils was updated:\n\n- Changes to version 3.2.8  + Avoid getting duplicate kernel verifications in boot.text (pr#190)\n  + lvm: suppress file descriptor leak warnings from lvm commands (pr#191)\n  + docker_info: Add timestamps to container logs (pr#196)\n  + Key value pairs and container log timestamps (bsc#1222021 PED-8211, pr#198)\n  + Update supportconfig get pam.d sorted (pr#199)\n  + yast_files: Exclude .zcat (pr#201)\n  + Sanitize grub bootloader (bsc#1227127, pr#203)\n  + Sanitize regcodes (pr#204)\n  + Improve product detection (pr#205)\n  + Add read_values for s390x (bsc#1228265, pr#206)\n  + hardware_info: Remove old alsa ver check (pr#209)\n  + drbd_info: Fix incorrect escape of quotes (pr#210)\n\nPackage suse-build-key was updated:\n\n- extended 2048 bit SUSE SLE 12, 15 GA-SP5 key until 2028. (bsc#1229339)  - gpg-pubkey-39db7c82-5f68629b.asc\n  + gpg-pubkey-39db7c82-66c5d91a.asc\n\nPackage util-linux-systemd was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\n- fix Xen virtualization type misidentification bsc#1215918\n  lscpu-fix-parameter-order-for-ul_prefix_fopen.patch\n\nPackage xen was updated:\n\n- bsc#1228574 - VUL-0: CVE-2024-31145: xen: error handling in x86  IOMMU identity mapping (XSA-460)\n  xsa460.patch\n- bsc#1228575 - VUL-0: CVE-2024-31146: xen: PCI device pass-through\n  with shared resources (XSA-461)\n  xsa461.patch\n\nPackage zypper was updated:\n\n- Show rpm install size before installing (bsc#1224771)  If filesystem snapshots are taken before the installation (e.g.\n  by snapper) no disk space is freed by removing old packages. In\n  this case the install size of all packages is a hint how much\n  additional disk space is needed by the new packages static\n  content.\n- version 1.14.76\n\n- Fix readline setup to handle Ctrl-C and Ctrl-D corrrectly\n  (bsc#1227205)\n- version 1.14.75\n\n- Let_readline_abort_on_Ctrl-C (bsc#1226493)\n- packages: add '--system' to show @System packages (bsc#222971)\n- version 1.14.74\n\n",
       "Title": "Details",
       "Type": "General"
     },
@@ -35,179 +35,229 @@
     "Relationships": [
       {
         "ProductReference": "ca-certificates-mozilla-2.68-150200.33.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "containerd-1.7.21-150000.117.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "curl-7.66.0-150200.4.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "docker-25.0.6_ce-150000.207.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glib2-tools-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-locale-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-locale-base-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-2.04-150300.22.46.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-i386-pc-2.04-150300.22.46.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-x86_64-efi-2.04-150300.22.46.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "kernel-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libblkid1-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libcurl4-7.66.0-150200.4.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libfdisk1-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgio-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libglib-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgmodule-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgobject-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libmount1-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libopenssl1_1-1.1.1d-150200.11.94.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libsmartcols1-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsnapper5-0.8.16-150300.3.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsolv-tools-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsolv-tools-base-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libuuid1-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyaml-0-2-0.1.7-150000.3.2.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libzypp-17.35.8-150200.121.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "openssl-1_1-1.1.1d-150200.11.94.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "pam-1.3.0-150000.6.71.2",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-PyYAML-5.4.1-150300.3.3.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-setuptools-40.5.0-150100.6.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-zypp-plugin-0.6.4-150200.9.3.2",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "runc-1.1.14-150000.70.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
-        "ProductReference": "selinux-policy-20210716+git64.0c11a3fb-150300.5.19.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "ProductReference": "selinux-policy-20210716+git63.fcc8cf99-150300.13.13.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
-        "ProductReference": "selinux-policy-targeted-20210716+git64.0c11a3fb-150300.5.19.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "ProductReference": "selinux-policy-targeted-20210716+git63.fcc8cf99-150300.13.13.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "snapper-0.8.16-150300.3.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "supportutils-3.2.8-150300.7.35.33.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "suse-build-key-12.0-150000.8.52.3",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "util-linux-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "util-linux-systemd-2.36.2-150300.4.47.4",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "xen-libs-4.14.6_18-150300.3.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "zypper-1.14.76-150200.88.10",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "zypper-needs-restarting-1.14.76-150200.88.10",
-        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-1-byos-v20240913-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-5-2-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       }
     ]
   },
   "References": [
     {
-      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sle-micro-5-1-byos-v20240913-x86-64/",
+      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sle-micro-5-2-byos-v20240916-x86-64/",
       "Description": "Public Cloud Image Info"
     },
     {
@@ -300,7 +350,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -336,7 +386,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,

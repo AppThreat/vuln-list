@@ -1,27 +1,27 @@
 {
-  "Title": "SUSE-IU-2024:1301-1",
+  "Title": "SUSE-IU-2024:1365-1",
   "Tracking": {
-    "ID": "SUSE Image SUSE-IU-2024:1301-1",
+    "ID": "SUSE Image SUSE-IU-2024:1365-1",
     "Status": "Interim",
     "Version": "1",
-    "InitialReleaseDate": "2024-09-15T01:00:00Z",
-    "CurrentReleaseDate": "2024-09-15T01:00:00Z",
+    "InitialReleaseDate": "2024-09-16T01:00:00Z",
+    "CurrentReleaseDate": "2024-09-16T01:00:00Z",
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-09-17T10:42:12Z",
+        "Date": "2024-09-17T10:42:18Z",
         "Description": "current"
       }
     ]
   },
   "Notes": [
     {
-      "Text": "Image update for SUSE-IU-2024:1301-1 / google/sles-15-sp3-sap-byos-v20240915-x86-64",
+      "Text": "Image update for SUSE-IU-2024:1365-1 / google/sles-15-sp3-sap-byos-v20240916-x86-64",
       "Title": "Topic",
       "Type": "Summary"
     },
     {
-      "Text": "This image update for google/sles-15-sp3-sap-byos-v20240915-x86-64 contains the following changes:\nPackage binutils was updated:\n\n- Update to current 2.43.1 branch [PED-10474]:  * PR32109 - fuzzing problem\n  * PR32083 - LTO vs overridden common symbols\n  * PR32067 - crash with LTO-plugin and --oformat=binary\n  * PR31956 - LTO vs wrapper symbols\n  * riscv - add Zimop and Zcmop extensions\n- Adjusted binutils-2.43-branch.diff.gz.\n\n- Update to version 2.43:\n  * new .base64 pseudo-op, allowing base64 encoded data as strings\n  * Intel APX: add support for CFCMOV, CCMP, CTEST, zero-upper, NF\n    (APX_F now fully supported)\n  * x86 Intel syntax now warns about more mnemonic suffixes\n  * macros and .irp/.irpc/.rept bodies can use \\+ to get at number\n    of times the macro/body was executed\n  * aarch64: support 'armv9.5-a' for -march, add support for LUT\n    and LUT2\n  * s390: base register operand in D(X,B) and D(L,B) can now be\n    omitted (ala 'D(X,)'); warn when register type doesn't match\n    operand type (use option\n    'warn-regtype-mismatch=[strict|relaxed|no]' to adjust)\n  * riscv: support various extensions: Zacas, Zcmp, Zfbfmin,\n    Zvfbfmin, Zvfbfwma, Smcsrind/Sscsrind, XCvMem, XCvBi, XCvElw,\n    XSfCease, all at version 1.0;\n    remove support for assembly of privileged spec 1.9.1 (linking\n    support remains)\n  * arm: remove support for some old co-processors: Maverick and FPA\n  * mips: '--trap' now causes either trap or breakpoint instructions\n    to be emitted as per current ISA, instead of always using trap\n    insn and failing when current ISA was incompatible with that\n  * LoongArch: accept .option pseudo-op for fine-grained control\n    of assembly code options; add support for DT_RELR\n  * readelf: now displays RELR relocations in full detail;\n    add -j/--display-section to show just those section(s) content\n    according to their type\n  * objdump/readelf now dump also .eh_frame_hdr (when present) when\n    dumping .eh_frame\n  * gprofng: add event types for AMD Zen3/Zen4 and Intel Ice Lake\n    processors; add minimal support for riscv\n  * linker:\n  - put .got and .got.plt into relro segment\n  - add -z isa-level-report=[none|all|needed|used] to the x86 ELF\n    linker to report needed and used x86-64 ISA levels\n  - add --rosegment option which changes the -z separate-code\n    option so that only one read-only segment is created (instead\n    of two)\n  - add --section-ordering-file \u0026lt;FILE\u0026gt; option to add extra\n    mapping of input sections to output sections\n  - add -plugin-save-temps to store plugin intermediate files\n    permanently\n- Removed binutils-2.42.tar.bz2, binutils-2.42-branch.diff.gz.\n- Added binutils-2.43.tar.bz2, binutils-2.43-branch.diff.gz.\n- Removed upstream patch riscv-no-relax.patch.\n- Rebased ld-relro.diff and binutils-revert-rela.diff.\n\n- binutils-pr22868.diff: Remove obsolete patch\n- Undefine _FORTIFY_SOURCE when running checks\n\n- Allow to disable profiling\n\n- Use %patch -P N instead of deprecated %patchN.\n\n- riscv-no-relax.patch: RISC-V: Don't generate branch/jump relocation if\n  symbol is local when no-relax\n\n- Add binutils-disable-code-arch-error.diff to demote an\n  error about swapped .arch/.code directives to a warning.\n  It happens in the wild.\n\n- Update to version 2.42:\n  * Add support for many aarch64 extensions: SVE2.1, SME2.1, B16B16,\n  RASv2, LSE128, GCS, CHK, SPECRES2, LRCPC3, THE, ITE, D128, XS and\n  flags to enable them: '+fcma', '+jscvt', '+frintts', '+flagm2',\n  '+rcpc2' and '+wfxt'\n  * Add experimantal support for GAS to synthesize call-frame-info for\n  some hand-written asm (--scfi=experimental) on x86-64.\n  * Add support for more x86-64 extensions: APX: 32 GPRs, NDD, PUSH2/POP2,\n  PUSHP/POPP; USER_MSR, AVX10.1, PBNDKB, SM4, SM3, SHA512, AVX-VNNI-INT16.\n  * Add support for more RISC-V extensions: T-Head v2.3.0, CORE-V v1.0,\n  SiFive VCIX v1.0.\n  * BPF assembler: ';' separates statements now, and does not introduce\n  line comments anymore (use '#' or '//' for this).\n  * x86-64 ld: Add '-z mark-plt/-z nomark-plt' to mark PLT entries with\n  dynamic tags.\n  * risc-v ld: Add '--[no-]check-uleb128'.\n  * New linker script directive: REVERSE, to be combined with SORT_BY_NAME\n  or SORT_BY_INIT_PRIORITY, reverses the generated order.\n  * New linker options --warn-execstack-objects (warn only about execstack\n  when input object files request it), and --error-execstack plus\n  - -error-rxw-segments to convert the existing warnings into errors.\n  * objdump: Add -Z/--decompress to be used with -s/--full-contents to\n  decompress section contents before displaying.\n  * readelf: Add --extra-sym-info to be used with --symbols (currently\n  prints section name of references section index).\n  * objcopy: Add --set-section-flags for x86_64 to include\n  SHF_X86_64_LARGE.\n  * s390 disassembly: add target-specific disasm option 'insndesc',\n  as in \u0026quot;objdump -M insndesc\u0026quot; to display an instruction description\n  as comment along with the disassembly.\n- Add binutils-2.42-branch.diff.gz.\n- Rebased s390-biarch.diff.\n- Adjusted binutils-revert-hlasm-insns.diff,\n  binutils-revert-plt32-in-branches.diff and binutils-revert-rela.diff\n  for upstream changes.\n- Removed binutils-2.41-branch.diff.gz, binutils-2.41.tar.bz2,\n  binutils-2.41-branch.diff.gz.\n- Removed binutils-use-less-memory.diff, binutils-old-makeinfo.diff\n  and riscv-relro.patch (all upstreamed).\n- Removed add-ulp-section.diff, we use a different mechanism\n  for live patching since a long time.\n\n- Add binutils-use-less-memory.diff to be a little nicer to 32bit\n  userspace and huge links.  [bsc#1216908]\n\n- riscv-relro.patch: RISC-V: Protect .got with relro\n\n- Add libzstd-devel to Requires of binutils-devel. (bsc#1215341)\n\nPackage ca-certificates-mozilla was updated:\n\n- Updated to 2.68 state of Mozilla SSL root CAs (bsc#1227525)  - Added: FIRMAPROFESIONAL CA ROOT-A WEB\n  - Distrust: GLOBALTRUST 2020\n\n- Updated to 2.66 state of Mozilla SSL root CAs (bsc#1220356)\n  Added:\n  - CommScope Public Trust ECC Root-01\n  - CommScope Public Trust ECC Root-02\n  - CommScope Public Trust RSA Root-01\n  - CommScope Public Trust RSA Root-02\n  - D-Trust SBR Root CA 1 2022\n  - D-Trust SBR Root CA 2 2022\n  - Telekom Security SMIME ECC Root 2021\n  - Telekom Security SMIME RSA Root 2023\n  - Telekom Security TLS ECC Root 2020\n  - Telekom Security TLS RSA Root 2023\n  - TrustAsia Global Root CA G3\n  - TrustAsia Global Root CA G4\n  Removed:\n  - Autoridad de Certificacion Firmaprofesional CIF A62634068\n  - Chambers of Commerce Root - 2008\n  - Global Chambersign Root - 2008\n  - Security Communication Root CA\n  - Symantec Class 1 Public Primary Certification Authority - G6\n  - Symantec Class 2 Public Primary Certification Authority - G6\n  - TrustCor ECA-1\n  - TrustCor RootCert CA-1\n  - TrustCor RootCert CA-2\n  - VeriSign Class 1 Public Primary Certification Authority - G3\n  - VeriSign Class 2 Public Primary Certification Authority - G3\n- remove-trustcor.patch: removed, now upstream\n- do a versioned obsoletes of \u0026quot;openssl-certs\u0026quot;.\n\nPackage cloud-regionsrv-client was updated:\n\n- Update to 10.3.4  + Modify the message when network access over a specific IP version does\n    not work. This is an informational message and should not look like\n    an error\n  + Inform the user that LTSS registration takes a little longer\n  + Add fix-for-sles12-no-trans_update.patch\n    + SLE 12 family has no products with transactional-update we do not\n    need to look for this condition\n- From 10.3.3 (bsc#1229472)\n  + Handle changes in process structure to properly identify the running\n    zypper parent process and only check for 1 PID\n- From 10.3.2\n  + Remove rgnsrv-clnt-fix-docker-setup.patch included upstream\n- From 10.3.1 (jsc#PCT-400)\n  + Add support for LTSS registration\n  + Add fix-for-sles12-disable-registry.patch\n    ~ No container support in SLE 12\n\n- Add rgnsrv-clnt-fix-docker-setup.patch (bsc#1229137)\n  + The entry for the update infrastructure registry mirror was written\n    incorrectly causing docker daemon startup to fail.\n\n- Update to version 10.3.0 (bsc#1227308, bsc#1222985)\n  + Add support for sidecar registry\n    Podman and rootless Docker support to set up the necessary\n    configuration for the container engines to run as defined\n  + Add running command as root through sudoers file\n\n- Update to version 10.2.0 (bsc#1223571, bsc#1224014, bsc#1224016)\n  + In addition to logging, write message to stderr when registration fails\n  + Detect transactional-update system with read only setup and use\n    the transactional-update command to register\n  + Handle operation in a different target root directory for credentials\n    checking\n\nPackage kernel-default was updated:\n\n- Update patches.suse/usb-f_fs-Fix-use-after-free-for-epfile.patch  (git-fixes bsc#1228040 CVE-2022-48822).\n- commit 2c8d4da\n\n- ima: Fix use-after-free on a dentry's dname.name (bsc#1227716\n  CVE-2024-39494).\n- commit f6c5c97\n\n- ASoC: topology: Fix route memory corruption (CVE-2024-41069\n  bsc#1228644).\n- commit f66560f\n\n- IB/core: Implement a limit on UMAD receive List (bsc#1228743 CVE-2024-42145)\n- commit f02f32a\n\n- ASoC: topology: Fix references to freed memory (CVE-2024-41069\n  bsc#1228644).\n- commit 92df0ca\n\n- hfsplus: fix uninit-value in copy_name (bsc#1228561\n  CVE-2024-41059).\n- commit 97ed148\n\n- dmaengine: idxd: Fix possible Use-After-Free in\n  irq_process_work_list (CVE-2024-40956 bsc#1227810).\n- commit 26f1077\n\n- ocfs2: fix DIO failure due to insufficient transaction credits\n  (bsc#1216834).\n- commit 300f953\n\n- SUNRPC: Fix UAF in svc_tcp_listen_data_ready() (CVE-2023-52885\n  bsc#1227750).\n- commit e97b8a4\n\n- scsi: pm8001: Fix use-after-free for aborted SSP/STP sas_task\n  (bsc#1228013 CVE-2022-48792).\n- commit e1a6b29\n\n- tap: add missing verification for short frame (CVE-2024-41090\n  bsc#1228328).\n- commit ebf78ce\n\n- ipv6: fix another slab-out-of-bounds in fib6_nh_flush_exceptions\n  (CVE-2021-47291 bsc#1224918).\n- ipv6: Fix KASAN: slab-out-of-bounds Read in\n  fib6_nh_flush_exceptions (bsc#1224918 CVE-2021-47126\n  bsc#1221539).\n- commit 8e8ce7c\n\n- drm/amdkfd: don't allow mapping the MMIO HDP page with large\n  pages (CVE-2024-41011 bsc#1228115).\n- commit 71f4e95\n\n- sch_cake: do not call cake_destroy() from cake_init()\n  (CVE-2021-47598 bsc#1226574).\n- commit bd20b3c\n\n- scsi: scsi_debug: Fix type in min_t to avoid stack OOB\n  (bsc#1226550 CVE-2021-47580).\n- scsi: scsi_debug: Fix out-of-bound read in resp_report_tgtpgs()\n  (bsc#1222824 CVE-2021-47219).\n- commit 2e165bd\n\n- X.509: Fix the parser of extended key usage for length\n  (bsc#1218820 bsc#1226666).\n- commit 2d78310\n\n- gve: Clear napi-\u0026gt;skb before dev_kfree_skb_any() (CVE-2024-40937\n  bsc#1227836).\n- commit 2df93fe\n\n- Update References\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit d06a0d0\n\n- Update\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit 9cfc088\n\n- misc: fastrpc: avoid double fput() on failed usercopy\n  (CVE-2022-48821 bsc#1227976).\n- commit 57e770a\n\n- Update\n  patches.suse/tls-fix-use-after-free-on-failed-backlog-decryption.patch\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186\n  CVE-2024-26800 bsc#1222728).\n- commit 72c3b29\n\n- Update\n  patches.suse/powerpc-powernv-Add-a-null-pointer-check-in-opal_eve.patch\n  (bsc#1065729 CVE-2023-52686 bsc#1224682).\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226758 CVE-2024-38559 bsc#1226785).\n- commit 53c517e\n\n- nfsd: fix use-after-free due to delegation race (CVE-2021-47506\n  bsc#1225404 bsc#1227497).\n- commit b195c7b\n\n- Update\n  patches.suse/net-tls-factor-out-tls_-crypt_async_wait.patch.\n- fix build warning\n- commit 7f81dcf\n\n- Fix spurious WARNING caused by a qxl driver patch (bsc#1227213)\n  Refresh patches.suse/drm-qxl-fix-UAF-on-handle-creation.patch\n- commit e245863\n\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226785 CVE-2024-38559).\n  Fix incorrect bug reference.\n- commit 7bd70b9\n\n- can: pch_can: pch_can_rx_normal: fix use after free (bsc#1225431\n  CVE-2021-47520).\n- commit 0094102\n\n- powerpc/rtas: Prevent Spectre v1 gadget construction in\n  sys_rtas() (bsc#1227487).\n- commit 74bce38\n\n- blacklist.conf:\n- commit cdd4002\n\n- NFS: Don't overfill uncached readdir pages (bsc#1226662).\n- commit d0f2933\n\n- tls: fix use-after-free on failed backlog decryption\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: separate no-async decryption request handling from async\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: decrement decrypt_pending if no async completion will be\n  called (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: handle backlogging of crypto requests (CVE-2024-26584\n  bsc#1220186).\n- tls: fix race between tx work scheduling and socket close\n  (CVE-2024-26585 bsc#1220187).\n- tls: fix race between async notify and socket close\n  (CVE-2024-26583 bsc#1220185).\n- net: tls: factor out tls_*crypt_async_wait() (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: fix async vs NIC crypto offload (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: use async as an in-out argument (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: assume crypto always calls our callback (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't track the async count (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: simplify async wait (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- tls: rx: wrap decryption arguments in a structure\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't report text length from the bowels of decrypt\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: drop unnecessary arguments from tls_setup_from_iter()\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net/tls: race causes kernel panic (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- commit cf4818b\n\n- Delete\n  patches.suse/tls-fix-race-between-tx-work-scheduling-and-socket-c.patch.\n  Will be replaced with refreshed version once all conflicting patches are in.\n- commit e1dd229\n\n- dm btree remove: fix use after free in rebalance_children()\n  (CVE-2021-47600, bsc#1226575).\n- commit 088e9db\n\nPackage containerd was updated:\n\n- Update to containerd v1.7.21. Upstream release notes:  \u0026lt;https://github.com/containerd/containerd/releases/tag/v1.7.21\u0026gt;\n  Fixes CVE-2023-47108. bsc#1217070\n  Fixes CVE-2023-45142. bsc#1228553\n- Rebase patches:\n  * 0001-BUILD-SLE12-revert-btrfs-depend-on-kernel-UAPI-inste.patch\n\nPackage cups was updated:\n\n- cups-branch-2.2-commit-b643d6ba92f00752aa5e74ff86ad3974334914c1.diff  is https://github.com/OpenPrinting/cups/commit/b643d6ba92f00752aa5e74ff86ad3974334914c1\n  which was added in CUPS 2.2.8 that\n  fixed a parsing bug in cups_auth_find() in cups/auth.c\n  which lead to cupsd failing to authenticate users\n  when group membership is required by cupsd configuration\n  like 'Require user @GROUP' which lead to CUPS related commands\n  requesting password from group users even if it is not needed\n  (bsc#1226227)\n- In cups.changes replaced one place where UTF-8 characters\n  were used in the entry dated \u0026quot;Sat Sep 30 08:52:42 UTC 2017\u0026quot;\n  for what should be ' - ' by ASCII to avoid RPMLINT warning\n  about 'non-break-space' which \u0026quot;can lead to obscure errors\u0026quot;.\n\nPackage curl was updated:\n\n- Security fix: [bsc#1230093, CVE-2024-8096]  * curl: OCSP stapling bypass with GnuTLS\n  * Add curl-CVE-2024-8096.patch\n\n- Security fix: [bsc#1228535, CVE-2024-7264]\n  * curl: ASN.1 date parser overread\n  * Add curl-CVE-2024-7264.patch\n\nPackage deltarpm was updated:\n\n- update to deltarpm-3.6.4  * support for threaded zstd\n  * use a tmp file instead of memory to hold the incore data\n    [bsc#1228948]\n- dropped patches:\n  * deltarpm-b7987f6aa4211df3df03dcfc55a00b2ce7472e0a.patch\n\n- deltarpm-b7987f6aa4211df3df03dcfc55a00b2ce7472e0a.patch: fixed\n  some C bugs ( incorrect sized memset() , memcpy instead of strcpy,\n  unsigned int)\n\n- update to deltarpm-3.6.3\n  * support for threaded zstd compression\n\n- Actually enable zstd compression\n\n- update to deltarpm-3.6.2\n  * support for zstd compression\n\nPackage glib2 was updated:\n\n- Add glib2-gdbusmessage-cache-arg0.patch: cache the arg0 value in  a dbus message. Fixes a possible use after free (boo#1224044).\n\nPackage glibc was updated:\n\n- s390x-wcsncmp.patch: s390x: Fix segfault in wcsncmp (bsc#1228043, BZ  [#31934])\n\nPackage grub2 was updated:\n\n- Fix btrfs subvolume for platform modules not mounting at runtime when the  default subvolume is the topmost root tree (bsc#1228124)\n  * grub2-btrfs-06-subvol-mount.patch\n- Rediff\n  * 0001-Unify-the-check-to-enable-btrfs-relative-path.patch\n\nPackage gtk2 was updated:\n\n- Add CVE-2024-6655.patch: CVE-2024-6655 Stop looking for modules  in cwd (bsc#1228120).\n\nPackage libqt5-qtbase was updated:\n\n- Added a patch from upstream to prepare the code so that the  following patch can be applied (which fixes QTBUG-95277):\n  * 0001-H2-emit-encrypted-for-at-least-the-first-reply_-similar-to.patch\n- Add rebased upstream patch to delay any HTTP2 communication until\n  encrypted() can be responded to (bsc#1227426, CVE-2024-39936).\n  * 0001-HTTP2-Delay-any-communication-until-encrypted-can-be.patch\n- Add upstream patch to fix a NULL pointer dereference via the\n  function QXcbConnection::initializeAllAtoms() when there is\n  anomalous behavior from the X server (bsc#1222120,\n  CVE-2023-45935):\n  * 0001-xcb-guard-a-pointer-before-usage.patch\n\n- Add patch from upstream to fix a regression in the ODBC driver\n  (bsc#1227513, QTBUG-112375):\n  * 0001-QSQL-ODBC-fix-regression-trailing-NUL.patch\n  * 0002-SQL-ODBC-Pass-correct-length-to-SQLColAttribute.patch\n\n- Add upstream patches to fix an incorrect integer overflow check\n  (boo#1218413, CVE-2023-51714):\n  * 0001-HPack-fix-a-Yoda-Condition.patch\n  * 0002-HPack-fix-incorrect-integer-overflow-check.patch\n- Add upstream patch to fix a potential overflow in\n  assemble_hpack_block():\n  * 0001-Http2-fix-potential-overflow-in-assemble_hpack_block.patch\n\n- use pkgconfig(icu-18n) to select current icu\n\n- Add patches from upstream that fixes a buffer overflow in\n  QXmlStreamReader (bsc#1214327, CVE-2023-37369, QTBUG-91889):\n  * 0001-Dont-parse-XML-symbols-longer-than-4096-characters.patch\n  * CVE-2023-37369-qtbase-5.15.diff\n\nPackage util-linux was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\nPackage mozilla-nss was updated:\n\n- Updated nss-fips-approved-crypto-non-ec.patch to enforce  approved curves with the CKK_EC_MONTGOMERY key type (bsc#1224113).\n\nPackage openssl-1_1 was updated:\n\n- Security fix: [bsc#1227138, CVE-2024-5535]  * SSL_select_next_proto buffer overread\n  * Add openssl-CVE-2024-5535.patch\n\nPackage libsolv was updated:\n\n- removed dependency on external find program in the repo2solv tool- bindings: fix return value of repodata.add_solv()\n- new SOLVER_FLAG_FOCUS_NEW flag\n- bump version to 0.7.30\n\nPackage tiff was updated:\n\n- security update:  * CVE-2024-7006 [bsc#1228924]\n    Fix pointer deref in tif_dirinfo.c\n    + tiff-CVE-2024-7006.patch\n\nPackage libzypp was updated:\n\n- Make sure not to statically linked installed tools (bsc#1228787)- version 17.35.8 (35)\n\n- MediaPluginType must be resolved to a valid MediaHandler\n  (bsc#1228208)\n- version 17.35.7 (35)\n\n- Export CredentialManager for legacy YAST versions (bsc#1228420)\n- version 17.35.6 (35)\n\n- Export asSolvable for YAST (bsc#1228420)\n- Fix 4 typos in zypp.conf.\n- version 17.35.5 (35)\n\n- Fix typo in the geoip update pipeline (bsc#1228206)\n- Export RepoVariablesStringReplacer for yast2 (bsc#1228138)\n- version 17.35.4 (35)\n\n- Translation: updated .pot file.\n- Conflict with python zypp-plugin \u0026lt; 0.6.4 (bsc#1227793)\n  Older zypp-plugins reject stomp headers including a '-'. Like the\n  'content-length' header we may send.\n- Fix int overflow in Provider (fixes #559)\n  This patch fixes an issue in safe_strtonum which caused\n  timestamps to overflow in the Provider message parser.\n- Fix error reporting on repoindex.xml parse error (bsc#1227625)\n- version 17.35.3 (35)\n\n- Keep UrlResolverPlugin API public (fixes #560)\n- Blacklist /snap executables for 'zypper ps' (bsc#1226014)\n- Fix handling of buddies when applying locks (bsc#1225267)\n  Buddy pairs (like -release package and product) internally share\n  the same status object. When applying locks from query results\n  the locked bit must be set if either item is locked.\n- version 17.35.2 (35)\n\n- Install zypp/APIConfig.h legacy include (fixes #557)\n- version 17.35.1 (35)\n\n- Update soname due to RepoManager refactoring and cleanup.\n- version 17.35.0 (35)\n\n- Workaround broken libsolv-tools-base requirements (fixes\n  openSUSE/zypper#551)\n- Strip ssl_clientkey from repo urls (bsc#1226030)\n- Remove protobuf build dependency.\n- Lazily attach medium during refresh workflows (bsc#1223094)\n- Refactor RepoManager and add Service workflows.\n- version 17.34.2 (34)\n\nPackage pam was updated:\n\n- Prevent cursor escape from the login prompt [bsc#1194818]  * Added: pam-bsc1194818-cursor-escape.patch\n\nPackage python-PyYAML was updated:\n\nPackage python-setuptools was updated:\n\n- Add patch CVE-2024-6345-code-execution-via-download-funcs.patch:  * Sanitize any VCS URL we download. (CVE-2024-6345, bsc#1228105)\n\nPackage zypp-plugin was updated:\n\n- Fix stomp header regex to include '-' (bsc#1227793)- version 0.6.4\n\n- singlespec in Tumbleweed must support multiple python3 flavors\n  in the future gh#openSUSE/python-rpm-macros#66\n\n- Provide python3-zypp-plugin down to SLE12 (bsc#1081596)\n\n- Provide python3-zypp-plugin in SLE12-SP3 (bsc#1081596)\n\nPackage regionServiceClientConfigGCE was updated:\n\n- Version 4.2.0 (jsc#PCT-361)  + Add IPv6 certs to supprt access of the update infrastructure via\n    IPv6 on GCE instances.\n\n- Update to version 4.1.0 (bsc#1217538)\n  + Replace 162.222.182.90 and 35.187.193.56 (length 4096):\n    rgnsrv-gce-asia-northeast1 -\u0026gt; 162.222.182.90 expires in 9 years\n    rgnsrv-gce-us-central1 -\u0026gt; 35.187.193.56 expires in 10 years\n\nPackage runc was updated:\n\n[ This was only ever released for SLES and Leap. ]- Update to runc v1.1.14. Upstream changelog is available from\n  \u0026lt;https://github.com/opencontainers/runc/releases/tag/v1.1.14\u0026gt;.\n  Includes the patch for CVE-2024-45310. bsc#1230092\n- Rebase patches:\n  * 0001-bsc1221050-libct-seccomp-patchbpf-rm-duplicated-code.patch\n  * 0002-bsc1221050-seccomp-patchbpf-rename-nativeArch-linuxA.patch\n  * 0003-bsc1221050-seccomp-patchbpf-always-include-native-ar.patch\n  * 0004-bsc1214960-nsenter-cloned_binary-remove-bindfd-logic.patch\n\nPackage saptune was updated:\n\n- update package version of saptune to 3.1.3  * remove note 1868829 from solution S4HANA-APPSERVER as it is a\n    HANA DB note and was added by accident\n    (bsc#1226093)\n  * for verify and simulate output table - wrap content of the\n    columns 'actual', 'expected' and 'override', if they exceed a\n    width of 30 characters (e.g. net.ipv4.ip_local_reserved_ports)\n  * support inline comments in /etc/sysconfig/saptune\n  * change handling of the performance options.\n    Check, if the settings are supported in the get-Functions too.\n    This should fix the problem with some special Azure VMs\n    (E20d_v5) on newer SLES SPs\n    (jsc#SAPSOL-110)\n  * SAP Note 2578899 updated to Version 48\n    setting kernel.pid_max to 4194304 and\n    start sysctl-logger service\n\n- add require of package sysctl-logger for 15SP4 and 15SP5 too\n  (jsc#PED-6220)\n\nPackage 000release-packages:sle-ha-release was updated:\n\nPackage 000release-packages:sle-module-basesystem-release was updated:\n\nPackage 000release-packages:sle-module-desktop-applications-release was updated:\n\nPackage 000release-packages:sle-module-development-tools-release was updated:\n\nPackage 000release-packages:sle-module-public-cloud-release was updated:\n\nPackage 000release-packages:sle-module-sap-applications-release was updated:\n\nPackage 000release-packages:sle-module-server-applications-release was updated:\n\nPackage strace was updated:\n\n- Change the license to the correct LGPL-2.1-or-later  (bsc#1228216).\n\nPackage supportutils was updated:\n\n- Changes to version 3.2.8  + Avoid getting duplicate kernel verifications in boot.text (pr#190)\n  + lvm: suppress file descriptor leak warnings from lvm commands (pr#191)\n  + docker_info: Add timestamps to container logs (pr#196)\n  + Key value pairs and container log timestamps (bsc#1222021 PED-8211, pr#198)\n  + Update supportconfig get pam.d sorted (pr#199)\n  + yast_files: Exclude .zcat (pr#201)\n  + Sanitize grub bootloader (bsc#1227127, pr#203)\n  + Sanitize regcodes (pr#204)\n  + Improve product detection (pr#205)\n  + Add read_values for s390x (bsc#1228265, pr#206)\n  + hardware_info: Remove old alsa ver check (pr#209)\n  + drbd_info: Fix incorrect escape of quotes (pr#210)\n\nPackage suse-build-key was updated:\n\n- extended 2048 bit SUSE SLE 12, 15 GA-SP5 key until 2028. (bsc#1229339)  - gpg-pubkey-39db7c82-5f68629b.asc\n  + gpg-pubkey-39db7c82-66c5d91a.asc\n\nPackage unzip was updated:\n\n- Use %patch -P N instead of deprecated %patchN.\n- Build unzip-rcc using multibuild and update unzip-rcc.spec file\n\nPackage util-linux-systemd was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\n- fix Xen virtualization type misidentification bsc#1215918\n  lscpu-fix-parameter-order-for-ul_prefix_fopen.patch\n\nPackage xen was updated:\n\n- bsc#1228574 - VUL-0: CVE-2024-31145: xen: error handling in x86  IOMMU identity mapping (XSA-460)\n  xsa460.patch\n- bsc#1228575 - VUL-0: CVE-2024-31146: xen: PCI device pass-through\n  with shared resources (XSA-461)\n  xsa461.patch\n\nPackage zypper was updated:\n\n- Show rpm install size before installing (bsc#1224771)  If filesystem snapshots are taken before the installation (e.g.\n  by snapper) no disk space is freed by removing old packages. In\n  this case the install size of all packages is a hint how much\n  additional disk space is needed by the new packages static\n  content.\n- version 1.14.76\n\n- Fix readline setup to handle Ctrl-C and Ctrl-D corrrectly\n  (bsc#1227205)\n- version 1.14.75\n\n- Let_readline_abort_on_Ctrl-C (bsc#1226493)\n- packages: add '--system' to show @System packages (bsc#222971)\n- version 1.14.74\n\n",
+      "Text": "This image update for google/sles-15-sp3-sap-byos-v20240916-x86-64 contains the following changes:\nPackage binutils was updated:\n\n- Update to current 2.43.1 branch [PED-10474]:  * PR32109 - fuzzing problem\n  * PR32083 - LTO vs overridden common symbols\n  * PR32067 - crash with LTO-plugin and --oformat=binary\n  * PR31956 - LTO vs wrapper symbols\n  * riscv - add Zimop and Zcmop extensions\n- Adjusted binutils-2.43-branch.diff.gz.\n\n- Update to version 2.43:\n  * new .base64 pseudo-op, allowing base64 encoded data as strings\n  * Intel APX: add support for CFCMOV, CCMP, CTEST, zero-upper, NF\n    (APX_F now fully supported)\n  * x86 Intel syntax now warns about more mnemonic suffixes\n  * macros and .irp/.irpc/.rept bodies can use \\+ to get at number\n    of times the macro/body was executed\n  * aarch64: support 'armv9.5-a' for -march, add support for LUT\n    and LUT2\n  * s390: base register operand in D(X,B) and D(L,B) can now be\n    omitted (ala 'D(X,)'); warn when register type doesn't match\n    operand type (use option\n    'warn-regtype-mismatch=[strict|relaxed|no]' to adjust)\n  * riscv: support various extensions: Zacas, Zcmp, Zfbfmin,\n    Zvfbfmin, Zvfbfwma, Smcsrind/Sscsrind, XCvMem, XCvBi, XCvElw,\n    XSfCease, all at version 1.0;\n    remove support for assembly of privileged spec 1.9.1 (linking\n    support remains)\n  * arm: remove support for some old co-processors: Maverick and FPA\n  * mips: '--trap' now causes either trap or breakpoint instructions\n    to be emitted as per current ISA, instead of always using trap\n    insn and failing when current ISA was incompatible with that\n  * LoongArch: accept .option pseudo-op for fine-grained control\n    of assembly code options; add support for DT_RELR\n  * readelf: now displays RELR relocations in full detail;\n    add -j/--display-section to show just those section(s) content\n    according to their type\n  * objdump/readelf now dump also .eh_frame_hdr (when present) when\n    dumping .eh_frame\n  * gprofng: add event types for AMD Zen3/Zen4 and Intel Ice Lake\n    processors; add minimal support for riscv\n  * linker:\n  - put .got and .got.plt into relro segment\n  - add -z isa-level-report=[none|all|needed|used] to the x86 ELF\n    linker to report needed and used x86-64 ISA levels\n  - add --rosegment option which changes the -z separate-code\n    option so that only one read-only segment is created (instead\n    of two)\n  - add --section-ordering-file \u0026lt;FILE\u0026gt; option to add extra\n    mapping of input sections to output sections\n  - add -plugin-save-temps to store plugin intermediate files\n    permanently\n- Removed binutils-2.42.tar.bz2, binutils-2.42-branch.diff.gz.\n- Added binutils-2.43.tar.bz2, binutils-2.43-branch.diff.gz.\n- Removed upstream patch riscv-no-relax.patch.\n- Rebased ld-relro.diff and binutils-revert-rela.diff.\n\n- binutils-pr22868.diff: Remove obsolete patch\n- Undefine _FORTIFY_SOURCE when running checks\n\n- Allow to disable profiling\n\n- Use %patch -P N instead of deprecated %patchN.\n\n- riscv-no-relax.patch: RISC-V: Don't generate branch/jump relocation if\n  symbol is local when no-relax\n\n- Add binutils-disable-code-arch-error.diff to demote an\n  error about swapped .arch/.code directives to a warning.\n  It happens in the wild.\n\n- Update to version 2.42:\n  * Add support for many aarch64 extensions: SVE2.1, SME2.1, B16B16,\n  RASv2, LSE128, GCS, CHK, SPECRES2, LRCPC3, THE, ITE, D128, XS and\n  flags to enable them: '+fcma', '+jscvt', '+frintts', '+flagm2',\n  '+rcpc2' and '+wfxt'\n  * Add experimantal support for GAS to synthesize call-frame-info for\n  some hand-written asm (--scfi=experimental) on x86-64.\n  * Add support for more x86-64 extensions: APX: 32 GPRs, NDD, PUSH2/POP2,\n  PUSHP/POPP; USER_MSR, AVX10.1, PBNDKB, SM4, SM3, SHA512, AVX-VNNI-INT16.\n  * Add support for more RISC-V extensions: T-Head v2.3.0, CORE-V v1.0,\n  SiFive VCIX v1.0.\n  * BPF assembler: ';' separates statements now, and does not introduce\n  line comments anymore (use '#' or '//' for this).\n  * x86-64 ld: Add '-z mark-plt/-z nomark-plt' to mark PLT entries with\n  dynamic tags.\n  * risc-v ld: Add '--[no-]check-uleb128'.\n  * New linker script directive: REVERSE, to be combined with SORT_BY_NAME\n  or SORT_BY_INIT_PRIORITY, reverses the generated order.\n  * New linker options --warn-execstack-objects (warn only about execstack\n  when input object files request it), and --error-execstack plus\n  - -error-rxw-segments to convert the existing warnings into errors.\n  * objdump: Add -Z/--decompress to be used with -s/--full-contents to\n  decompress section contents before displaying.\n  * readelf: Add --extra-sym-info to be used with --symbols (currently\n  prints section name of references section index).\n  * objcopy: Add --set-section-flags for x86_64 to include\n  SHF_X86_64_LARGE.\n  * s390 disassembly: add target-specific disasm option 'insndesc',\n  as in \u0026quot;objdump -M insndesc\u0026quot; to display an instruction description\n  as comment along with the disassembly.\n- Add binutils-2.42-branch.diff.gz.\n- Rebased s390-biarch.diff.\n- Adjusted binutils-revert-hlasm-insns.diff,\n  binutils-revert-plt32-in-branches.diff and binutils-revert-rela.diff\n  for upstream changes.\n- Removed binutils-2.41-branch.diff.gz, binutils-2.41.tar.bz2,\n  binutils-2.41-branch.diff.gz.\n- Removed binutils-use-less-memory.diff, binutils-old-makeinfo.diff\n  and riscv-relro.patch (all upstreamed).\n- Removed add-ulp-section.diff, we use a different mechanism\n  for live patching since a long time.\n\n- Add binutils-use-less-memory.diff to be a little nicer to 32bit\n  userspace and huge links.  [bsc#1216908]\n\n- riscv-relro.patch: RISC-V: Protect .got with relro\n\n- Add libzstd-devel to Requires of binutils-devel. (bsc#1215341)\n\nPackage ca-certificates-mozilla was updated:\n\n- Updated to 2.68 state of Mozilla SSL root CAs (bsc#1227525)  - Added: FIRMAPROFESIONAL CA ROOT-A WEB\n  - Distrust: GLOBALTRUST 2020\n\n- Updated to 2.66 state of Mozilla SSL root CAs (bsc#1220356)\n  Added:\n  - CommScope Public Trust ECC Root-01\n  - CommScope Public Trust ECC Root-02\n  - CommScope Public Trust RSA Root-01\n  - CommScope Public Trust RSA Root-02\n  - D-Trust SBR Root CA 1 2022\n  - D-Trust SBR Root CA 2 2022\n  - Telekom Security SMIME ECC Root 2021\n  - Telekom Security SMIME RSA Root 2023\n  - Telekom Security TLS ECC Root 2020\n  - Telekom Security TLS RSA Root 2023\n  - TrustAsia Global Root CA G3\n  - TrustAsia Global Root CA G4\n  Removed:\n  - Autoridad de Certificacion Firmaprofesional CIF A62634068\n  - Chambers of Commerce Root - 2008\n  - Global Chambersign Root - 2008\n  - Security Communication Root CA\n  - Symantec Class 1 Public Primary Certification Authority - G6\n  - Symantec Class 2 Public Primary Certification Authority - G6\n  - TrustCor ECA-1\n  - TrustCor RootCert CA-1\n  - TrustCor RootCert CA-2\n  - VeriSign Class 1 Public Primary Certification Authority - G3\n  - VeriSign Class 2 Public Primary Certification Authority - G3\n- remove-trustcor.patch: removed, now upstream\n- do a versioned obsoletes of \u0026quot;openssl-certs\u0026quot;.\n\nPackage cloud-regionsrv-client was updated:\n\n- Update to 10.3.4  + Modify the message when network access over a specific IP version does\n    not work. This is an informational message and should not look like\n    an error\n  + Inform the user that LTSS registration takes a little longer\n  + Add fix-for-sles12-no-trans_update.patch\n    + SLE 12 family has no products with transactional-update we do not\n    need to look for this condition\n- From 10.3.3 (bsc#1229472)\n  + Handle changes in process structure to properly identify the running\n    zypper parent process and only check for 1 PID\n- From 10.3.2\n  + Remove rgnsrv-clnt-fix-docker-setup.patch included upstream\n- From 10.3.1 (jsc#PCT-400)\n  + Add support for LTSS registration\n  + Add fix-for-sles12-disable-registry.patch\n    ~ No container support in SLE 12\n\n- Add rgnsrv-clnt-fix-docker-setup.patch (bsc#1229137)\n  + The entry for the update infrastructure registry mirror was written\n    incorrectly causing docker daemon startup to fail.\n\n- Update to version 10.3.0 (bsc#1227308, bsc#1222985)\n  + Add support for sidecar registry\n    Podman and rootless Docker support to set up the necessary\n    configuration for the container engines to run as defined\n  + Add running command as root through sudoers file\n\n- Update to version 10.2.0 (bsc#1223571, bsc#1224014, bsc#1224016)\n  + In addition to logging, write message to stderr when registration fails\n  + Detect transactional-update system with read only setup and use\n    the transactional-update command to register\n  + Handle operation in a different target root directory for credentials\n    checking\n\nPackage kernel-default was updated:\n\n- Update patches.suse/usb-f_fs-Fix-use-after-free-for-epfile.patch  (git-fixes bsc#1228040 CVE-2022-48822).\n- commit 2c8d4da\n\n- ima: Fix use-after-free on a dentry's dname.name (bsc#1227716\n  CVE-2024-39494).\n- commit f6c5c97\n\n- ASoC: topology: Fix route memory corruption (CVE-2024-41069\n  bsc#1228644).\n- commit f66560f\n\n- IB/core: Implement a limit on UMAD receive List (bsc#1228743 CVE-2024-42145)\n- commit f02f32a\n\n- ASoC: topology: Fix references to freed memory (CVE-2024-41069\n  bsc#1228644).\n- commit 92df0ca\n\n- hfsplus: fix uninit-value in copy_name (bsc#1228561\n  CVE-2024-41059).\n- commit 97ed148\n\n- dmaengine: idxd: Fix possible Use-After-Free in\n  irq_process_work_list (CVE-2024-40956 bsc#1227810).\n- commit 26f1077\n\n- ocfs2: fix DIO failure due to insufficient transaction credits\n  (bsc#1216834).\n- commit 300f953\n\n- SUNRPC: Fix UAF in svc_tcp_listen_data_ready() (CVE-2023-52885\n  bsc#1227750).\n- commit e97b8a4\n\n- scsi: pm8001: Fix use-after-free for aborted SSP/STP sas_task\n  (bsc#1228013 CVE-2022-48792).\n- commit e1a6b29\n\n- tap: add missing verification for short frame (CVE-2024-41090\n  bsc#1228328).\n- commit ebf78ce\n\n- ipv6: fix another slab-out-of-bounds in fib6_nh_flush_exceptions\n  (CVE-2021-47291 bsc#1224918).\n- ipv6: Fix KASAN: slab-out-of-bounds Read in\n  fib6_nh_flush_exceptions (bsc#1224918 CVE-2021-47126\n  bsc#1221539).\n- commit 8e8ce7c\n\n- drm/amdkfd: don't allow mapping the MMIO HDP page with large\n  pages (CVE-2024-41011 bsc#1228115).\n- commit 71f4e95\n\n- sch_cake: do not call cake_destroy() from cake_init()\n  (CVE-2021-47598 bsc#1226574).\n- commit bd20b3c\n\n- scsi: scsi_debug: Fix type in min_t to avoid stack OOB\n  (bsc#1226550 CVE-2021-47580).\n- scsi: scsi_debug: Fix out-of-bound read in resp_report_tgtpgs()\n  (bsc#1222824 CVE-2021-47219).\n- commit 2e165bd\n\n- X.509: Fix the parser of extended key usage for length\n  (bsc#1218820 bsc#1226666).\n- commit 2d78310\n\n- gve: Clear napi-\u0026gt;skb before dev_kfree_skb_any() (CVE-2024-40937\n  bsc#1227836).\n- commit 2df93fe\n\n- Update References\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit d06a0d0\n\n- Update\n  patches.suse/Bluetooth-SMP-Fail-if-remote-and-local-public-keys-a.patch\n  (bsc#1186463 CVE-2021-0129 CVE-2020-26558 bsc#1179610\n  CVE-2020-26558).\n- commit 9cfc088\n\n- misc: fastrpc: avoid double fput() on failed usercopy\n  (CVE-2022-48821 bsc#1227976).\n- commit 57e770a\n\n- Update\n  patches.suse/tls-fix-use-after-free-on-failed-backlog-decryption.patch\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186\n  CVE-2024-26800 bsc#1222728).\n- commit 72c3b29\n\n- Update\n  patches.suse/powerpc-powernv-Add-a-null-pointer-check-in-opal_eve.patch\n  (bsc#1065729 CVE-2023-52686 bsc#1224682).\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226758 CVE-2024-38559 bsc#1226785).\n- commit 53c517e\n\n- nfsd: fix use-after-free due to delegation race (CVE-2021-47506\n  bsc#1225404 bsc#1227497).\n- commit b195c7b\n\n- Update\n  patches.suse/net-tls-factor-out-tls_-crypt_async_wait.patch.\n- fix build warning\n- commit 7f81dcf\n\n- Fix spurious WARNING caused by a qxl driver patch (bsc#1227213)\n  Refresh patches.suse/drm-qxl-fix-UAF-on-handle-creation.patch\n- commit e245863\n\n- Update\n  patches.suse/scsi-qedf-Ensure-the-copied-buf-is-NUL-terminated.patch\n  (bsc#1226785 CVE-2024-38559).\n  Fix incorrect bug reference.\n- commit 7bd70b9\n\n- can: pch_can: pch_can_rx_normal: fix use after free (bsc#1225431\n  CVE-2021-47520).\n- commit 0094102\n\n- powerpc/rtas: Prevent Spectre v1 gadget construction in\n  sys_rtas() (bsc#1227487).\n- commit 74bce38\n\n- blacklist.conf:\n- commit cdd4002\n\n- NFS: Don't overfill uncached readdir pages (bsc#1226662).\n- commit d0f2933\n\n- tls: fix use-after-free on failed backlog decryption\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: separate no-async decryption request handling from async\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: decrement decrypt_pending if no async completion will be\n  called (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: handle backlogging of crypto requests (CVE-2024-26584\n  bsc#1220186).\n- tls: fix race between tx work scheduling and socket close\n  (CVE-2024-26585 bsc#1220187).\n- tls: fix race between async notify and socket close\n  (CVE-2024-26583 bsc#1220185).\n- net: tls: factor out tls_*crypt_async_wait() (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net: tls: fix async vs NIC crypto offload (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: use async as an in-out argument (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: assume crypto always calls our callback (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't track the async count (CVE-2024-26583\n  CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: simplify async wait (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- tls: rx: wrap decryption arguments in a structure\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: don't report text length from the bowels of decrypt\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- tls: rx: drop unnecessary arguments from tls_setup_from_iter()\n  (CVE-2024-26583 CVE-2024-26584 bsc#1220185 bsc#1220186).\n- net/tls: race causes kernel panic (CVE-2024-26583 CVE-2024-26584\n  bsc#1220185 bsc#1220186).\n- commit cf4818b\n\n- Delete\n  patches.suse/tls-fix-race-between-tx-work-scheduling-and-socket-c.patch.\n  Will be replaced with refreshed version once all conflicting patches are in.\n- commit e1dd229\n\n- dm btree remove: fix use after free in rebalance_children()\n  (CVE-2021-47600, bsc#1226575).\n- commit 088e9db\n\nPackage containerd was updated:\n\n- Update to containerd v1.7.21. Upstream release notes:  \u0026lt;https://github.com/containerd/containerd/releases/tag/v1.7.21\u0026gt;\n  Fixes CVE-2023-47108. bsc#1217070\n  Fixes CVE-2023-45142. bsc#1228553\n- Rebase patches:\n  * 0001-BUILD-SLE12-revert-btrfs-depend-on-kernel-UAPI-inste.patch\n\nPackage cups was updated:\n\n- cups-branch-2.2-commit-b643d6ba92f00752aa5e74ff86ad3974334914c1.diff  is https://github.com/OpenPrinting/cups/commit/b643d6ba92f00752aa5e74ff86ad3974334914c1\n  which was added in CUPS 2.2.8 that\n  fixed a parsing bug in cups_auth_find() in cups/auth.c\n  which lead to cupsd failing to authenticate users\n  when group membership is required by cupsd configuration\n  like 'Require user @GROUP' which lead to CUPS related commands\n  requesting password from group users even if it is not needed\n  (bsc#1226227)\n- In cups.changes replaced one place where UTF-8 characters\n  were used in the entry dated \u0026quot;Sat Sep 30 08:52:42 UTC 2017\u0026quot;\n  for what should be ' - ' by ASCII to avoid RPMLINT warning\n  about 'non-break-space' which \u0026quot;can lead to obscure errors\u0026quot;.\n\nPackage curl was updated:\n\n- Security fix: [bsc#1230093, CVE-2024-8096]  * curl: OCSP stapling bypass with GnuTLS\n  * Add curl-CVE-2024-8096.patch\n\n- Security fix: [bsc#1228535, CVE-2024-7264]\n  * curl: ASN.1 date parser overread\n  * Add curl-CVE-2024-7264.patch\n\nPackage deltarpm was updated:\n\n- update to deltarpm-3.6.4  * support for threaded zstd\n  * use a tmp file instead of memory to hold the incore data\n    [bsc#1228948]\n- dropped patches:\n  * deltarpm-b7987f6aa4211df3df03dcfc55a00b2ce7472e0a.patch\n\n- deltarpm-b7987f6aa4211df3df03dcfc55a00b2ce7472e0a.patch: fixed\n  some C bugs ( incorrect sized memset() , memcpy instead of strcpy,\n  unsigned int)\n\n- update to deltarpm-3.6.3\n  * support for threaded zstd compression\n\n- Actually enable zstd compression\n\n- update to deltarpm-3.6.2\n  * support for zstd compression\n\nPackage glib2 was updated:\n\n- Add glib2-gdbusmessage-cache-arg0.patch: cache the arg0 value in  a dbus message. Fixes a possible use after free (boo#1224044).\n\nPackage glibc was updated:\n\n- s390x-wcsncmp.patch: s390x: Fix segfault in wcsncmp (bsc#1228043, BZ  [#31934])\n\nPackage grub2 was updated:\n\n- Fix btrfs subvolume for platform modules not mounting at runtime when the  default subvolume is the topmost root tree (bsc#1228124)\n  * grub2-btrfs-06-subvol-mount.patch\n- Rediff\n  * 0001-Unify-the-check-to-enable-btrfs-relative-path.patch\n\nPackage gtk2 was updated:\n\n- Add CVE-2024-6655.patch: CVE-2024-6655 Stop looking for modules  in cwd (bsc#1228120).\n\nPackage libqt5-qtbase was updated:\n\n- Added a patch from upstream to prepare the code so that the  following patch can be applied (which fixes QTBUG-95277):\n  * 0001-H2-emit-encrypted-for-at-least-the-first-reply_-similar-to.patch\n- Add rebased upstream patch to delay any HTTP2 communication until\n  encrypted() can be responded to (bsc#1227426, CVE-2024-39936).\n  * 0001-HTTP2-Delay-any-communication-until-encrypted-can-be.patch\n- Add upstream patch to fix a NULL pointer dereference via the\n  function QXcbConnection::initializeAllAtoms() when there is\n  anomalous behavior from the X server (bsc#1222120,\n  CVE-2023-45935):\n  * 0001-xcb-guard-a-pointer-before-usage.patch\n\n- Add patch from upstream to fix a regression in the ODBC driver\n  (bsc#1227513, QTBUG-112375):\n  * 0001-QSQL-ODBC-fix-regression-trailing-NUL.patch\n  * 0002-SQL-ODBC-Pass-correct-length-to-SQLColAttribute.patch\n\n- Add upstream patches to fix an incorrect integer overflow check\n  (boo#1218413, CVE-2023-51714):\n  * 0001-HPack-fix-a-Yoda-Condition.patch\n  * 0002-HPack-fix-incorrect-integer-overflow-check.patch\n- Add upstream patch to fix a potential overflow in\n  assemble_hpack_block():\n  * 0001-Http2-fix-potential-overflow-in-assemble_hpack_block.patch\n\n- use pkgconfig(icu-18n) to select current icu\n\n- Add patches from upstream that fixes a buffer overflow in\n  QXmlStreamReader (bsc#1214327, CVE-2023-37369, QTBUG-91889):\n  * 0001-Dont-parse-XML-symbols-longer-than-4096-characters.patch\n  * CVE-2023-37369-qtbase-5.15.diff\n\nPackage util-linux was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\nPackage mozilla-nss was updated:\n\n- Updated nss-fips-approved-crypto-non-ec.patch to enforce  approved curves with the CKK_EC_MONTGOMERY key type (bsc#1224113).\n\nPackage openssl-1_1 was updated:\n\n- Security fix: [bsc#1227138, CVE-2024-5535]  * SSL_select_next_proto buffer overread\n  * Add openssl-CVE-2024-5535.patch\n\nPackage libsolv was updated:\n\n- removed dependency on external find program in the repo2solv tool- bindings: fix return value of repodata.add_solv()\n- new SOLVER_FLAG_FOCUS_NEW flag\n- bump version to 0.7.30\n\nPackage tiff was updated:\n\n- security update:  * CVE-2024-7006 [bsc#1228924]\n    Fix pointer deref in tif_dirinfo.c\n    + tiff-CVE-2024-7006.patch\n\nPackage libzypp was updated:\n\n- Make sure not to statically linked installed tools (bsc#1228787)- version 17.35.8 (35)\n\n- MediaPluginType must be resolved to a valid MediaHandler\n  (bsc#1228208)\n- version 17.35.7 (35)\n\n- Export CredentialManager for legacy YAST versions (bsc#1228420)\n- version 17.35.6 (35)\n\n- Export asSolvable for YAST (bsc#1228420)\n- Fix 4 typos in zypp.conf.\n- version 17.35.5 (35)\n\n- Fix typo in the geoip update pipeline (bsc#1228206)\n- Export RepoVariablesStringReplacer for yast2 (bsc#1228138)\n- version 17.35.4 (35)\n\n- Translation: updated .pot file.\n- Conflict with python zypp-plugin \u0026lt; 0.6.4 (bsc#1227793)\n  Older zypp-plugins reject stomp headers including a '-'. Like the\n  'content-length' header we may send.\n- Fix int overflow in Provider (fixes #559)\n  This patch fixes an issue in safe_strtonum which caused\n  timestamps to overflow in the Provider message parser.\n- Fix error reporting on repoindex.xml parse error (bsc#1227625)\n- version 17.35.3 (35)\n\n- Keep UrlResolverPlugin API public (fixes #560)\n- Blacklist /snap executables for 'zypper ps' (bsc#1226014)\n- Fix handling of buddies when applying locks (bsc#1225267)\n  Buddy pairs (like -release package and product) internally share\n  the same status object. When applying locks from query results\n  the locked bit must be set if either item is locked.\n- version 17.35.2 (35)\n\n- Install zypp/APIConfig.h legacy include (fixes #557)\n- version 17.35.1 (35)\n\n- Update soname due to RepoManager refactoring and cleanup.\n- version 17.35.0 (35)\n\n- Workaround broken libsolv-tools-base requirements (fixes\n  openSUSE/zypper#551)\n- Strip ssl_clientkey from repo urls (bsc#1226030)\n- Remove protobuf build dependency.\n- Lazily attach medium during refresh workflows (bsc#1223094)\n- Refactor RepoManager and add Service workflows.\n- version 17.34.2 (34)\n\nPackage pam was updated:\n\n- Prevent cursor escape from the login prompt [bsc#1194818]  * Added: pam-bsc1194818-cursor-escape.patch\n\nPackage python-PyYAML was updated:\n\nPackage python-setuptools was updated:\n\n- Add patch CVE-2024-6345-code-execution-via-download-funcs.patch:  * Sanitize any VCS URL we download. (CVE-2024-6345, bsc#1228105)\n\nPackage zypp-plugin was updated:\n\n- Fix stomp header regex to include '-' (bsc#1227793)- version 0.6.4\n\n- singlespec in Tumbleweed must support multiple python3 flavors\n  in the future gh#openSUSE/python-rpm-macros#66\n\n- Provide python3-zypp-plugin down to SLE12 (bsc#1081596)\n\n- Provide python3-zypp-plugin in SLE12-SP3 (bsc#1081596)\n\nPackage regionServiceClientConfigGCE was updated:\n\n- Version 4.2.0 (jsc#PCT-361)  + Add IPv6 certs to supprt access of the update infrastructure via\n    IPv6 on GCE instances.\n\n- Update to version 4.1.0 (bsc#1217538)\n  + Replace 162.222.182.90 and 35.187.193.56 (length 4096):\n    rgnsrv-gce-asia-northeast1 -\u0026gt; 162.222.182.90 expires in 9 years\n    rgnsrv-gce-us-central1 -\u0026gt; 35.187.193.56 expires in 10 years\n\nPackage runc was updated:\n\n[ This was only ever released for SLES and Leap. ]- Update to runc v1.1.14. Upstream changelog is available from\n  \u0026lt;https://github.com/opencontainers/runc/releases/tag/v1.1.14\u0026gt;.\n  Includes the patch for CVE-2024-45310. bsc#1230092\n- Rebase patches:\n  * 0001-bsc1221050-libct-seccomp-patchbpf-rm-duplicated-code.patch\n  * 0002-bsc1221050-seccomp-patchbpf-rename-nativeArch-linuxA.patch\n  * 0003-bsc1221050-seccomp-patchbpf-always-include-native-ar.patch\n  * 0004-bsc1214960-nsenter-cloned_binary-remove-bindfd-logic.patch\n\nPackage saptune was updated:\n\n- update package version of saptune to 3.1.3  * remove note 1868829 from solution S4HANA-APPSERVER as it is a\n    HANA DB note and was added by accident\n    (bsc#1226093)\n  * for verify and simulate output table - wrap content of the\n    columns 'actual', 'expected' and 'override', if they exceed a\n    width of 30 characters (e.g. net.ipv4.ip_local_reserved_ports)\n  * support inline comments in /etc/sysconfig/saptune\n  * change handling of the performance options.\n    Check, if the settings are supported in the get-Functions too.\n    This should fix the problem with some special Azure VMs\n    (E20d_v5) on newer SLES SPs\n    (jsc#SAPSOL-110)\n  * SAP Note 2578899 updated to Version 48\n    setting kernel.pid_max to 4194304 and\n    start sysctl-logger service\n\n- add require of package sysctl-logger for 15SP4 and 15SP5 too\n  (jsc#PED-6220)\n\nPackage 000release-packages:sle-ha-release was updated:\n\nPackage 000release-packages:sle-module-basesystem-release was updated:\n\nPackage 000release-packages:sle-module-desktop-applications-release was updated:\n\nPackage 000release-packages:sle-module-development-tools-release was updated:\n\nPackage 000release-packages:sle-module-public-cloud-release was updated:\n\nPackage 000release-packages:sle-module-sap-applications-release was updated:\n\nPackage 000release-packages:sle-module-server-applications-release was updated:\n\nPackage strace was updated:\n\n- Change the license to the correct LGPL-2.1-or-later  (bsc#1228216).\n\nPackage supportutils was updated:\n\n- Changes to version 3.2.8  + Avoid getting duplicate kernel verifications in boot.text (pr#190)\n  + lvm: suppress file descriptor leak warnings from lvm commands (pr#191)\n  + docker_info: Add timestamps to container logs (pr#196)\n  + Key value pairs and container log timestamps (bsc#1222021 PED-8211, pr#198)\n  + Update supportconfig get pam.d sorted (pr#199)\n  + yast_files: Exclude .zcat (pr#201)\n  + Sanitize grub bootloader (bsc#1227127, pr#203)\n  + Sanitize regcodes (pr#204)\n  + Improve product detection (pr#205)\n  + Add read_values for s390x (bsc#1228265, pr#206)\n  + hardware_info: Remove old alsa ver check (pr#209)\n  + drbd_info: Fix incorrect escape of quotes (pr#210)\n\nPackage suse-build-key was updated:\n\n- extended 2048 bit SUSE SLE 12, 15 GA-SP5 key until 2028. (bsc#1229339)  - gpg-pubkey-39db7c82-5f68629b.asc\n  + gpg-pubkey-39db7c82-66c5d91a.asc\n\nPackage unzip was updated:\n\n- Use %patch -P N instead of deprecated %patchN.\n- Build unzip-rcc using multibuild and update unzip-rcc.spec file\n\nPackage util-linux-systemd was updated:\n\n- agetty: Prevent login cursor escape (bsc#1194818,  util-linux-agetty-prevent-cursor-escape.patch).\n\n- fix Xen virtualization type misidentification bsc#1215918\n  lscpu-fix-parameter-order-for-ul_prefix_fopen.patch\n\nPackage xen was updated:\n\n- bsc#1228574 - VUL-0: CVE-2024-31145: xen: error handling in x86  IOMMU identity mapping (XSA-460)\n  xsa460.patch\n- bsc#1228575 - VUL-0: CVE-2024-31146: xen: PCI device pass-through\n  with shared resources (XSA-461)\n  xsa461.patch\n\nPackage zypper was updated:\n\n- Show rpm install size before installing (bsc#1224771)  If filesystem snapshots are taken before the installation (e.g.\n  by snapper) no disk space is freed by removing old packages. In\n  this case the install size of all packages is a hint how much\n  additional disk space is needed by the new packages static\n  content.\n- version 1.14.76\n\n- Fix readline setup to handle Ctrl-C and Ctrl-D corrrectly\n  (bsc#1227205)\n- version 1.14.75\n\n- Let_readline_abort_on_Ctrl-C (bsc#1226493)\n- packages: add '--system' to show @System packages (bsc#222971)\n- version 1.14.74\n\n",
       "Title": "Details",
       "Type": "General"
     },
@@ -35,414 +35,414 @@
     "Relationships": [
       {
         "ProductReference": "binutils-2.43-150100.7.49.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "ca-certificates-mozilla-2.68-150200.33.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "cloud-regionsrv-client-10.3.4-150300.13.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "cloud-regionsrv-client-plugin-gce-1.0.0-150300.13.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "cluster-md-kmp-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "containerd-1.7.21-150000.117.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "cups-config-2.2.7-150000.3.65.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "curl-7.66.0-150200.4.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "deltarpm-3.6.4-150000.5.3.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "dlm-kmp-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "docker-25.0.6_ce-150000.207.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "gfs2-kmp-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glib2-tools-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-32bit-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-i18ndata-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-locale-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "glibc-locale-base-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "grub2-2.04-150300.22.46.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "grub2-i386-pc-2.04-150300.22.46.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "grub2-x86_64-efi-2.04-150300.22.46.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "gtk2-tools-2.24.32+67-150200.4.3.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "kernel-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libQt5Core5-5.12.7-150200.4.29.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libQt5DBus5-5.12.7-150200.4.29.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libQt5Gui5-5.12.7-150200.4.29.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libQt5Network5-5.12.7-150200.4.29.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libQt5Widgets5-5.12.7-150200.4.29.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libblkid1-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libctf-nobfd0-2.43-150100.7.49.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libctf0-2.43-150100.7.49.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libcups2-2.2.7-150000.3.65.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libcurl4-7.66.0-150200.4.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libfdisk1-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libfreebl3-3.101.2-150000.3.123.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgio-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libglib-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgmodule-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgobject-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgthread-2_0-0-2.62.6-150200.3.21.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libgtk-2_0-0-2.24.32+67-150200.4.3.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libmount1-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libopenssl1_1-1.1.1d-150200.11.94.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsmartcols1-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsoftokn3-3.101.2-150000.3.123.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsolv-tools-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libsolv-tools-base-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libtiff5-4.0.9-150000.45.47.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libuuid1-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libwebp7-1.0.3-150200.3.12.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyaml-0-2-0.1.7-150000.3.2.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyui-ncurses-pkg15-4.1.5-150300.3.14.9",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyui-ncurses15-4.1.5-150300.3.14.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyui-qt15-4.1.5-150300.3.14.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libyui15-4.1.5-150300.3.14.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "libzypp-17.35.8-150200.121.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "mozilla-nss-3.101.2-150000.3.123.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "mozilla-nss-certs-3.101.2-150000.3.123.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "mozilla-nss-tools-3.101.2-150000.3.123.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "nscd-2.31-150300.86.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "ocfs2-kmp-default-5.3.18-150300.59.170.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "openssl-1_1-1.1.1d-150200.11.94.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "pam-1.3.0-150000.6.71.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-PyYAML-5.4.1-150300.3.3.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-setuptools-40.5.0-150100.6.9.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-solv-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "python3-zypp-plugin-0.6.4-150200.9.3.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "regionServiceClientConfigGCE-4.2.0-150000.4.15.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "ruby-solv-0.7.30-150200.37.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "runc-1.1.14-150000.70.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "saptune-3.1.3-150100.8.38.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "strace-5.3-150200.3.3.2",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "supportutils-3.2.8-150300.7.35.33.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "suse-build-key-12.0-150000.8.52.3",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "unzip-6.00-150000.4.14.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "util-linux-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "util-linux-systemd-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "uuidd-2.36.2-150300.4.47.4",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "xen-libs-4.14.6_18-150300.3.78.1",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "yast2-pkg-bindings-4.3.13-150300.3.12.15",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       },
       {
         "ProductReference": "zypper-1.14.76-150200.88.10",
-        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64",
+        "RelatesToProductReference": "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64",
         "RelationType": "Default Component Of"
       }
     ]
   },
   "References": [
     {
-      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sles-15-sp3-sap-byos-v20240915-x86-64/",
+      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sles-15-sp3-sap-byos-v20240916-x86-64/",
       "Description": "Public Cloud Image Info"
     },
     {
@@ -465,11 +465,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -492,11 +492,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -519,11 +519,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -543,11 +543,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -567,11 +567,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -591,11 +591,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -615,11 +615,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -639,11 +639,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -663,11 +663,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -687,11 +687,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -711,11 +711,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -735,11 +735,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -759,11 +759,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -783,11 +783,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
           ]
         }
       ],
@@ -807,7 +807,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:containerd-1.7.21-150000.117.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:containerd-1.7.21-150000.117.1"
           ]
         }
       ],
@@ -827,11 +827,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
           ]
         }
       ],
@@ -851,7 +851,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:containerd-1.7.21-150000.117.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:containerd-1.7.21-150000.117.1"
           ]
         }
       ],
@@ -871,11 +871,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
           ]
         }
       ],
@@ -895,11 +895,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -919,11 +919,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -943,11 +943,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -967,11 +967,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -991,11 +991,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1015,11 +1015,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1039,7 +1039,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:xen-libs-4.14.6_18-150300.3.78.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:xen-libs-4.14.6_18-150300.3.78.1"
           ]
         }
       ],
@@ -1059,7 +1059,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:xen-libs-4.14.6_18-150300.3.78.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:xen-libs-4.14.6_18-150300.3.78.1"
           ]
         }
       ],
@@ -1079,11 +1079,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1103,11 +1103,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1127,11 +1127,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Core5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5DBus5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Gui5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Network5-5.12.7-150200.4.29.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libQt5Widgets5-5.12.7-150200.4.29.1"
           ]
         }
       ],
@@ -1151,11 +1151,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1175,11 +1175,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1199,11 +1199,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1223,11 +1223,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1247,11 +1247,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1271,11 +1271,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1295,11 +1295,11 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:kernel-default-5.3.18-150300.59.170.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:cluster-md-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:dlm-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gfs2-kmp-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:kernel-default-5.3.18-150300.59.170.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:ocfs2-kmp-default-5.3.18-150300.59.170.1"
           ]
         }
       ],
@@ -1319,7 +1319,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:runc-1.1.14-150000.70.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:runc-1.1.14-150000.70.1"
           ]
         }
       ],
@@ -1339,8 +1339,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libopenssl1_1-1.1.1d-150200.11.94.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:openssl-1_1-1.1.1d-150200.11.94.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libopenssl1_1-1.1.1d-150200.11.94.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:openssl-1_1-1.1.1d-150200.11.94.1"
           ]
         }
       ],
@@ -1360,7 +1360,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:python3-setuptools-40.5.0-150100.6.9.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:python3-setuptools-40.5.0-150100.6.9.1"
           ]
         }
       ],
@@ -1380,8 +1380,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:gtk2-tools-2.24.32+67-150200.4.3.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libgtk-2_0-0-2.24.32+67-150200.4.3.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:gtk2-tools-2.24.32+67-150200.4.3.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libgtk-2_0-0-2.24.32+67-150200.4.3.1"
           ]
         }
       ],
@@ -1401,7 +1401,7 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libtiff5-4.0.9-150000.45.47.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libtiff5-4.0.9-150000.45.47.1"
           ]
         }
       ],
@@ -1421,8 +1421,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:curl-7.66.0-150200.4.78.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libcurl4-7.66.0-150200.4.78.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:curl-7.66.0-150200.4.78.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libcurl4-7.66.0-150200.4.78.1"
           ]
         }
       ],
@@ -1442,8 +1442,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:curl-7.66.0-150200.4.78.1",
-            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240915-x86-64:libcurl4-7.66.0-150200.4.78.1"
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:curl-7.66.0-150200.4.78.1",
+            "Public Cloud Image google/sles-15-sp3-sap-byos-v20240916-x86-64:libcurl4-7.66.0-150200.4.78.1"
           ]
         }
       ],
