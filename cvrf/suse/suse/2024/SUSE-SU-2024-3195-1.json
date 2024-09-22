@@ -3998,6 +3998,10 @@
         {
           "URL": "https://www.suse.com/security/cve/CVE-2023-52766.html",
           "Description": "CVE-2023-52766"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1230620",
+          "Description": "SUSE Bug 1230620"
         }
       ],
       "ProductStatuses": [
@@ -4053,6 +4057,10 @@
         {
           "URL": "https://www.suse.com/security/cve/CVE-2023-52800.html",
           "Description": "CVE-2023-52800"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1230600",
+          "Description": "SUSE Bug 1230600"
         }
       ],
       "ProductStatuses": [
@@ -13770,7 +13778,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -18561,7 +18569,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -19749,7 +19757,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -22880,7 +22888,7 @@
     },
     {
       "CVE": "CVE-2024-43816",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Revise lpfc_prep_embed_io routine with proper endian macro usages\n\nOn big endian architectures, it is possible to run into a memory out of\nbounds pointer dereference when FCP targets are zoned.\n\nIn lpfc_prep_embed_io, the memcpy(ptr, fcp_cmnd, sgl-\u003esge_len) is\nreferencing a little endian formatted sgl-\u003esge_len value.  So, the memcpy\ncan cause big endian systems to crash.\n\nRedefine the *sgl ptr as a struct sli4_sge_le to make it clear that we are\nreferring to a little endian formatted data structure.  And, update the\nroutine with proper le32_to_cpu macro usages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -22998,7 +23006,7 @@
     },
     {
       "CVE": "CVE-2024-43818",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nASoC: amd: Adjust error handling in case of absent codec device\n\nacpi_get_first_physical_node() can return NULL in several cases (no such\ndevice, ACPI table error, reference count drop to 0, etc).\nExisting check just emit error message, but doesn't perform return.\nThen this NULL pointer is passed to devm_acpi_dev_add_driver_gpios()\nwhere it is dereferenced.\n\nAdjust this error handling by adding error code return.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23057,7 +23065,7 @@
     },
     {
       "CVE": "CVE-2024-43819",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nkvm: s390: Reject memory region operations for ucontrol VMs\n\nThis change rejects the KVM_SET_USER_MEMORY_REGION and\nKVM_SET_USER_MEMORY_REGION2 ioctls when called on a ucontrol VM.\nThis is necessary since ucontrol VMs have kvm-\u003earch.gmap set to 0 and\nwould thus result in a null pointer dereference further in.\nMemory management needs to be performed in userspace and using the\nioctls KVM_S390_UCAS_MAP and KVM_S390_UCAS_UNMAP.\n\nAlso improve s390 specific documentation for KVM_SET_USER_MEMORY_REGION\nand KVM_SET_USER_MEMORY_REGION2.\n\n[frankja@linux.ibm.com: commit message spelling fix, subject prefix fix]",
       "Threats": [
         {
           "Type": "Impact",
@@ -23116,7 +23124,7 @@
     },
     {
       "CVE": "CVE-2024-43821",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Fix a possible null pointer dereference\n\nIn function lpfc_xcvr_data_show, the memory allocation with kmalloc might\nfail, thereby making rdp_context a null pointer. In the following context\nand functions that use this pointer, there are dereferencing operations,\nleading to null pointer dereference.\n\nTo fix this issue, a null pointer check should be added. If it is null,\nuse scnprintf to notify the user and return len.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23175,7 +23183,7 @@
     },
     {
       "CVE": "CVE-2024-43823",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI: keystone: Fix NULL pointer dereference in case of DT error in ks_pcie_setup_rc_app_regs()\n\nIf IORESOURCE_MEM is not provided in Device Tree due to\nany error, resource_list_first_type() will return NULL and\npci_parse_request_of_pci_ranges() will just emit a warning.\n\nThis will cause a NULL pointer dereference. Fix this bug by adding NULL\nreturn check.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23234,7 +23242,7 @@
     },
     {
       "CVE": "CVE-2024-43824",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI: endpoint: pci-epf-test: Make use of cached 'epc_features' in pci_epf_test_core_init()\n\nInstead of getting the epc_features from pci_epc_get_features() API, use\nthe cached pci_epf_test::epc_features value to avoid the NULL check. Since\nthe NULL check is already performed in pci_epf_test_bind(), having one more\ncheck in pci_epf_test_core_init() is redundant and it is not possible to\nhit the NULL pointer dereference.\n\nAlso with commit a01e7214bef9 (\"PCI: endpoint: Remove \"core_init_notifier\"\nflag\"), 'epc_features' got dereferenced without the NULL check, leading to\nthe following false positive Smatch warning:\n\n  drivers/pci/endpoint/functions/pci-epf-test.c:784 pci_epf_test_core_init() error: we previously assumed 'epc_features' could be null (see line 747)\n\nThus, remove the redundant NULL check and also use the epc_features::\n{msix_capable/msi_capable} flags directly to avoid local variables.\n\n[kwilczynski: commit log]",
       "Threats": [
         {
           "Type": "Impact",
@@ -23293,7 +23301,7 @@
     },
     {
       "CVE": "CVE-2024-43825",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\niio: Fix the sorting functionality in iio_gts_build_avail_time_table\n\nThe sorting in iio_gts_build_avail_time_table is not working as intended.\nIt could result in an out-of-bounds access when the time is zero.\n\nHere are more details:\n\n1. When the gts-\u003eitime_table[i].time_us is zero, e.g., the time\nsequence is `3, 0, 1`, the inner for-loop will not terminate and do\nout-of-bound writes. This is because once `times[j] \u003e new`, the value\n`new` will be added in the current position and the `times[j]` will be\nmoved to `j+1` position, which makes the if-condition always hold.\nMeanwhile, idx will be added one, making the loop keep running without\ntermination and out-of-bound write.\n2. If none of the gts-\u003eitime_table[i].time_us is zero, the elements\nwill just be copied without being sorted as described in the comment\n\"Sort times from all tables to one and remove duplicates\".\n\nFor more details, please refer to\nhttps://lore.kernel.org/all/6dd0d822-046c-4dd2-9532-79d7ab96ec05@gmail.com.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23352,7 +23360,7 @@
     },
     {
       "CVE": "CVE-2024-43826",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfs: pass explicit offset/count to trace events\n\nnfs_folio_length is unsafe to use without having the folio locked and a\ncheck for a NULL -\u003ef_mapping that protects against truncations and can\nlead to kernel crashes.  E.g. when running xfstests generic/065 with\nall nfs trace points enabled.\n\nFollow the model of the XFS trace points and pass in an explіcit offset\nand length.  This has the additional benefit that these values can\nbe more accurate as some of the users touch partial folio ranges.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23529,7 +23537,7 @@
     },
     {
       "CVE": "CVE-2024-43831",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: mediatek: vcodec: Handle invalid decoder vsi\n\nHandle an invalid decoder vsi in vpu_dec_init to ensure the decoder vsi\nis valid for future use.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23588,7 +23596,7 @@
     },
     {
       "CVE": "CVE-2024-43833",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: v4l: async: Fix NULL pointer dereference in adding ancillary links\n\nIn v4l2_async_create_ancillary_links(), ancillary links are created for\nlens and flash sub-devices. These are sub-device to sub-device links and\nif the async notifier is related to a V4L2 device, the source sub-device\nof the ancillary link is NULL, leading to a NULL pointer dereference.\nCheck the notifier's sd field is non-NULL in\nv4l2_async_create_ancillary_links().\n\n[Sakari Ailus: Reword the subject and commit messages slightly.]",
       "Threats": [
         {
           "Type": "Impact",
@@ -23706,7 +23714,7 @@
     },
     {
       "CVE": "CVE-2024-43837",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix null pointer dereference in resolve_prog_type() for BPF_PROG_TYPE_EXT\n\nWhen loading a EXT program without specifying `attr-\u003eattach_prog_fd`,\nthe `prog-\u003eaux-\u003edst_prog` will be null. At this time, calling\nresolve_prog_type() anywhere will result in a null pointer dereference.\n\nExample stack trace:\n\n[    8.107863] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000004\n[    8.108262] Mem abort info:\n[    8.108384]   ESR = 0x0000000096000004\n[    8.108547]   EC = 0x25: DABT (current EL), IL = 32 bits\n[    8.108722]   SET = 0, FnV = 0\n[    8.108827]   EA = 0, S1PTW = 0\n[    8.108939]   FSC = 0x04: level 0 translation fault\n[    8.109102] Data abort info:\n[    8.109203]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000\n[    8.109399]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0\n[    8.109614]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0\n[    8.109836] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000101354000\n[    8.110011] [0000000000000004] pgd=0000000000000000, p4d=0000000000000000\n[    8.112624] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP\n[    8.112783] Modules linked in:\n[    8.113120] CPU: 0 PID: 99 Comm: may_access_dire Not tainted 6.10.0-rc3-next-20240613-dirty #1\n[    8.113230] Hardware name: linux,dummy-virt (DT)\n[    8.113390] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)\n[    8.113429] pc : may_access_direct_pkt_data+0x24/0xa0\n[    8.113746] lr : add_subprog_and_kfunc+0x634/0x8e8\n[    8.113798] sp : ffff80008283b9f0\n[    8.113813] x29: ffff80008283b9f0 x28: ffff800082795048 x27: 0000000000000001\n[    8.113881] x26: ffff0000c0bb2600 x25: 0000000000000000 x24: 0000000000000000\n[    8.113897] x23: ffff0000c1134000 x22: 000000000001864f x21: ffff0000c1138000\n[    8.113912] x20: 0000000000000001 x19: ffff0000c12b8000 x18: ffffffffffffffff\n[    8.113929] x17: 0000000000000000 x16: 0000000000000000 x15: 0720072007200720\n[    8.113944] x14: 0720072007200720 x13: 0720072007200720 x12: 0720072007200720\n[    8.113958] x11: 0720072007200720 x10: 0000000000f9fca4 x9 : ffff80008021f4e4\n[    8.113991] x8 : 0101010101010101 x7 : 746f72705f6d656d x6 : 000000001e0e0f5f\n[    8.114006] x5 : 000000000001864f x4 : ffff0000c12b8000 x3 : 000000000000001c\n[    8.114020] x2 : 0000000000000002 x1 : 0000000000000000 x0 : 0000000000000000\n[    8.114126] Call trace:\n[    8.114159]  may_access_direct_pkt_data+0x24/0xa0\n[    8.114202]  bpf_check+0x3bc/0x28c0\n[    8.114214]  bpf_prog_load+0x658/0xa58\n[    8.114227]  __sys_bpf+0xc50/0x2250\n[    8.114240]  __arm64_sys_bpf+0x28/0x40\n[    8.114254]  invoke_syscall.constprop.0+0x54/0xf0\n[    8.114273]  do_el0_svc+0x4c/0xd8\n[    8.114289]  el0_svc+0x3c/0x140\n[    8.114305]  el0t_64_sync_handler+0x134/0x150\n[    8.114331]  el0t_64_sync+0x168/0x170\n[    8.114477] Code: 7100707f 54000081 f9401c00 f9403800 (b9400403)\n[    8.118672] ---[ end trace 0000000000000000 ]---\n\nOne way to fix it is by forcing `attach_prog_fd` non-empty when\nbpf_prog_load(). But this will lead to `libbpf_probe_bpf_prog_type`\nAPI broken which use verifier log to probe prog type and will log\nnothing if we reject invalid EXT prog before bpf_check().\n\nAnother way is by adding null check in resolve_prog_type().\n\nThe issue was introduced by commit 4a9c7bbe2ed4 (\"bpf: Resolve to\nprog-\u003eaux-\u003edst_prog-\u003etype only for BPF_PROG_TYPE_EXT\") which wanted\nto correct type resolution for BPF_PROG_TYPE_TRACING programs. Before\nthat, the type resolution of BPF_PROG_TYPE_EXT prog actually follows\nthe logic below:\n\n  prog-\u003eaux-\u003edst_prog ? prog-\u003eaux-\u003edst_prog-\u003etype : prog-\u003etype;\n\nIt implies that when EXT program is not yet attached to `dst_prog`,\nthe prog type should be EXT itself. This code worked fine in the past.\nSo just keep using it.\n\nFix this by returning `prog-\u003etype` for BPF_PROG_TYPE_EXT if `dst_prog`\nis not present in resolve_prog_type().",
       "Threats": [
         {
           "Type": "Impact",
@@ -23824,7 +23832,7 @@
     },
     {
       "CVE": "CVE-2024-43840",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf, arm64: Fix trampoline for BPF_TRAMP_F_CALL_ORIG\n\nWhen BPF_TRAMP_F_CALL_ORIG is set, the trampoline calls\n__bpf_tramp_enter() and __bpf_tramp_exit() functions, passing them\nthe struct bpf_tramp_image *im pointer as an argument in R0.\n\nThe trampoline generation code uses emit_addr_mov_i64() to emit\ninstructions for moving the bpf_tramp_image address into R0, but\nemit_addr_mov_i64() assumes the address to be in the vmalloc() space\nand uses only 48 bits. Because bpf_tramp_image is allocated using\nkzalloc(), its address can use more than 48-bits, in this case the\ntrampoline will pass an invalid address to __bpf_tramp_enter/exit()\ncausing a kernel crash.\n\nFix this by using emit_a64_mov_i64() in place of emit_addr_mov_i64()\nas it can work with addresses that are greater than 48-bits.",
       "Threats": [
         {
           "Type": "Impact",
@@ -23942,7 +23950,7 @@
     },
     {
       "CVE": "CVE-2024-43842",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: rtw89: Fix array index mistake in rtw89_sta_info_get_iter()\n\nIn rtw89_sta_info_get_iter() 'status-\u003ehe_gi' is compared to array size.\nBut then 'rate-\u003ehe_gi' is used as array index instead of 'status-\u003ehe_gi'.\nThis can lead to go beyond array boundaries in case of 'rate-\u003ehe_gi' is\nnot equal to 'status-\u003ehe_gi' and is bigger than array size. Looks like\n\"copy-paste\" mistake.\n\nFix this mistake by replacing 'rate-\u003ehe_gi' with 'status-\u003ehe_gi'.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -24060,7 +24068,7 @@
     },
     {
       "CVE": "CVE-2024-43847",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: ath12k: fix invalid memory access while processing fragmented packets\n\nThe monitor ring and the reo reinject ring share the same ring mask index.\nWhen the driver receives an interrupt for the reo reinject ring, the\nmonitor ring is also processed, leading to invalid memory access. Since\nmonitor support is not yet enabled in ath12k, the ring mask for the monitor\nring should be removed.\n\nTested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.1.1-00209-QCAHKSWPL_SILICONZ-1",
       "Threats": [
         {
           "Type": "Impact",
@@ -24178,7 +24186,7 @@
     },
     {
       "CVE": "CVE-2024-43850",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsoc: qcom: icc-bwmon: Fix refcount imbalance seen during bwmon_remove\n\nThe following warning is seen during bwmon_remove due to refcount\nimbalance, fix this by releasing the OPPs after use.\n\nLogs:\nWARNING: at drivers/opp/core.c:1640 _opp_table_kref_release+0x150/0x158\nHardware name: Qualcomm Technologies, Inc. X1E80100 CRD (DT)\n...\nCall trace:\n_opp_table_kref_release+0x150/0x158\ndev_pm_opp_remove_table+0x100/0x1b4\ndevm_pm_opp_of_table_release+0x10/0x1c\ndevm_action_release+0x14/0x20\ndevres_release_all+0xa4/0x104\ndevice_unbind_cleanup+0x18/0x60\ndevice_release_driver_internal+0x1ec/0x228\ndriver_detach+0x50/0x98\nbus_remove_driver+0x6c/0xbc\ndriver_unregister+0x30/0x60\nplatform_driver_unregister+0x14/0x20\nbwmon_driver_exit+0x18/0x524 [icc_bwmon]\n__arm64_sys_delete_module+0x184/0x264\ninvoke_syscall+0x48/0x118\nel0_svc_common.constprop.0+0xc8/0xe8\ndo_el0_svc+0x20/0x2c\nel0_svc+0x34/0xdc\nel0t_64_sync_handler+0x13c/0x158\nel0t_64_sync+0x190/0x194\n--[ end trace 0000000000000000 ]---",
       "Threats": [
         {
           "Type": "Impact",
@@ -24237,7 +24245,7 @@
     },
     {
       "CVE": "CVE-2024-43851",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsoc: xilinx: rename cpu_number1 to dummy_cpu_number\n\nThe per cpu variable cpu_number1 is passed to xlnx_event_handler as\nargument \"dev_id\", but it is not used in this function. So drop the\ninitialization of this variable and rename it to dummy_cpu_number.\nThis patch is to fix the following call trace when the kernel option\nCONFIG_DEBUG_ATOMIC_SLEEP is enabled:\n\nBUG: sleeping function called from invalid context at include/linux/sched/mm.h:274\n    in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 1, name: swapper/0\n    preempt_count: 1, expected: 0\n    CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.1.0 #53\n    Hardware name: Xilinx Versal vmk180 Eval board rev1.1 (QSPI) (DT)\n    Call trace:\n     dump_backtrace+0xd0/0xe0\n     show_stack+0x18/0x40\n     dump_stack_lvl+0x7c/0xa0\n     dump_stack+0x18/0x34\n     __might_resched+0x10c/0x140\n     __might_sleep+0x4c/0xa0\n     __kmem_cache_alloc_node+0xf4/0x168\n     kmalloc_trace+0x28/0x38\n     __request_percpu_irq+0x74/0x138\n     xlnx_event_manager_probe+0xf8/0x298\n     platform_probe+0x68/0xd8",
       "Threats": [
         {
           "Type": "Impact",
@@ -24414,7 +24422,7 @@
     },
     {
       "CVE": "CVE-2024-43855",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmd: fix deadlock between mddev_suspend and flush bio\n\nDeadlock occurs when mddev is being suspended while some flush bio is in\nprogress. It is a complex issue.\n\nT1. the first flush is at the ending stage, it clears 'mddev-\u003eflush_bio'\n    and tries to submit data, but is blocked because mddev is suspended\n    by T4.\nT2. the second flush sets 'mddev-\u003eflush_bio', and attempts to queue\n    md_submit_flush_data(), which is already running (T1) and won't\n    execute again if on the same CPU as T1.\nT3. the third flush inc active_io and tries to flush, but is blocked because\n    'mddev-\u003eflush_bio' is not NULL (set by T2).\nT4. mddev_suspend() is called and waits for active_io dec to 0 which is inc\n    by T3.\n\n  T1\t\tT2\t\tT3\t\tT4\n  (flush 1)\t(flush 2)\t(third 3)\t(suspend)\n  md_submit_flush_data\n   mddev-\u003eflush_bio = NULL;\n   .\n   .\t \tmd_flush_request\n   .\t  \t mddev-\u003eflush_bio = bio\n   .\t  \t queue submit_flushes\n   .\t\t .\n   .\t\t .\t\tmd_handle_request\n   .\t\t .\t\t active_io + 1\n   .\t\t .\t\t md_flush_request\n   .\t\t .\t\t  wait !mddev-\u003eflush_bio\n   .\t\t .\n   .\t\t .\t\t\t\tmddev_suspend\n   .\t\t .\t\t\t\t wait !active_io\n   .\t\t .\n   .\t\t submit_flushes\n   .\t\t queue_work md_submit_flush_data\n   .\t\t //md_submit_flush_data is already running (T1)\n   .\n   md_handle_request\n    wait resume\n\nThe root issue is non-atomic inc/dec of active_io during flush process.\nactive_io is dec before md_submit_flush_data is queued, and inc soon\nafter md_submit_flush_data() run.\n  md_flush_request\n    active_io + 1\n    submit_flushes\n      active_io - 1\n      md_submit_flush_data\n        md_handle_request\n        active_io + 1\n          make_request\n        active_io - 1\n\nIf active_io is dec after md_handle_request() instead of within\nsubmit_flushes(), make_request() can be called directly intead of\nmd_handle_request() in md_submit_flush_data(), and active_io will\nonly inc and dec once in the whole flush process. Deadlock will be\nfixed.\n\nAdditionally, the only difference between fixing the issue and before is\nthat there is no return error handling of make_request(). But after\nprevious patch cleaned md_write_start(), make_requst() only return error\nin raid5_make_request() by dm-raid, see commit 41425f96d7aa (\"dm-raid456,\nmd/raid456: fix a deadlock for dm-raid456 while io concurrent with\nreshape)\". Since dm always splits data and flush operation into two\nseparate io, io size of flush submitted by dm always is 0, make_request()\nwill not be called in md_submit_flush_data(). To prevent future\nmodifications from introducing issues, add WARN_ON to ensure\nmake_request() no error is returned in this context.",
       "Threats": [
         {
           "Type": "Impact",
@@ -25543,7 +25551,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [

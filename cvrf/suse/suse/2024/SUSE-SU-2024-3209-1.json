@@ -5955,7 +5955,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -12439,7 +12439,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -16275,7 +16275,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": [
@@ -18853,7 +18853,7 @@
     },
     {
       "CVE": "CVE-2024-43816",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Revise lpfc_prep_embed_io routine with proper endian macro usages\n\nOn big endian architectures, it is possible to run into a memory out of\nbounds pointer dereference when FCP targets are zoned.\n\nIn lpfc_prep_embed_io, the memcpy(ptr, fcp_cmnd, sgl-\u003esge_len) is\nreferencing a little endian formatted sgl-\u003esge_len value.  So, the memcpy\ncan cause big endian systems to crash.\n\nRedefine the *sgl ptr as a struct sli4_sge_le to make it clear that we are\nreferring to a little endian formatted data structure.  And, update the\nroutine with proper le32_to_cpu macro usages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -18919,7 +18919,7 @@
     },
     {
       "CVE": "CVE-2024-43818",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nASoC: amd: Adjust error handling in case of absent codec device\n\nacpi_get_first_physical_node() can return NULL in several cases (no such\ndevice, ACPI table error, reference count drop to 0, etc).\nExisting check just emit error message, but doesn't perform return.\nThen this NULL pointer is passed to devm_acpi_dev_add_driver_gpios()\nwhere it is dereferenced.\n\nAdjust this error handling by adding error code return.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -18985,7 +18985,7 @@
     },
     {
       "CVE": "CVE-2024-43819",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nkvm: s390: Reject memory region operations for ucontrol VMs\n\nThis change rejects the KVM_SET_USER_MEMORY_REGION and\nKVM_SET_USER_MEMORY_REGION2 ioctls when called on a ucontrol VM.\nThis is necessary since ucontrol VMs have kvm-\u003earch.gmap set to 0 and\nwould thus result in a null pointer dereference further in.\nMemory management needs to be performed in userspace and using the\nioctls KVM_S390_UCAS_MAP and KVM_S390_UCAS_UNMAP.\n\nAlso improve s390 specific documentation for KVM_SET_USER_MEMORY_REGION\nand KVM_SET_USER_MEMORY_REGION2.\n\n[frankja@linux.ibm.com: commit message spelling fix, subject prefix fix]",
       "Threats": [
         {
           "Type": "Impact",
@@ -19051,7 +19051,7 @@
     },
     {
       "CVE": "CVE-2024-43821",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Fix a possible null pointer dereference\n\nIn function lpfc_xcvr_data_show, the memory allocation with kmalloc might\nfail, thereby making rdp_context a null pointer. In the following context\nand functions that use this pointer, there are dereferencing operations,\nleading to null pointer dereference.\n\nTo fix this issue, a null pointer check should be added. If it is null,\nuse scnprintf to notify the user and return len.",
       "Threats": [
         {
           "Type": "Impact",
@@ -19117,7 +19117,7 @@
     },
     {
       "CVE": "CVE-2024-43823",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI: keystone: Fix NULL pointer dereference in case of DT error in ks_pcie_setup_rc_app_regs()\n\nIf IORESOURCE_MEM is not provided in Device Tree due to\nany error, resource_list_first_type() will return NULL and\npci_parse_request_of_pci_ranges() will just emit a warning.\n\nThis will cause a NULL pointer dereference. Fix this bug by adding NULL\nreturn check.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -19315,7 +19315,7 @@
     },
     {
       "CVE": "CVE-2024-43831",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: mediatek: vcodec: Handle invalid decoder vsi\n\nHandle an invalid decoder vsi in vpu_dec_init to ensure the decoder vsi\nis valid for future use.",
       "Threats": [
         {
           "Type": "Impact",
@@ -19447,7 +19447,7 @@
     },
     {
       "CVE": "CVE-2024-43837",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix null pointer dereference in resolve_prog_type() for BPF_PROG_TYPE_EXT\n\nWhen loading a EXT program without specifying `attr-\u003eattach_prog_fd`,\nthe `prog-\u003eaux-\u003edst_prog` will be null. At this time, calling\nresolve_prog_type() anywhere will result in a null pointer dereference.\n\nExample stack trace:\n\n[    8.107863] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000004\n[    8.108262] Mem abort info:\n[    8.108384]   ESR = 0x0000000096000004\n[    8.108547]   EC = 0x25: DABT (current EL), IL = 32 bits\n[    8.108722]   SET = 0, FnV = 0\n[    8.108827]   EA = 0, S1PTW = 0\n[    8.108939]   FSC = 0x04: level 0 translation fault\n[    8.109102] Data abort info:\n[    8.109203]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000\n[    8.109399]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0\n[    8.109614]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0\n[    8.109836] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000101354000\n[    8.110011] [0000000000000004] pgd=0000000000000000, p4d=0000000000000000\n[    8.112624] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP\n[    8.112783] Modules linked in:\n[    8.113120] CPU: 0 PID: 99 Comm: may_access_dire Not tainted 6.10.0-rc3-next-20240613-dirty #1\n[    8.113230] Hardware name: linux,dummy-virt (DT)\n[    8.113390] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)\n[    8.113429] pc : may_access_direct_pkt_data+0x24/0xa0\n[    8.113746] lr : add_subprog_and_kfunc+0x634/0x8e8\n[    8.113798] sp : ffff80008283b9f0\n[    8.113813] x29: ffff80008283b9f0 x28: ffff800082795048 x27: 0000000000000001\n[    8.113881] x26: ffff0000c0bb2600 x25: 0000000000000000 x24: 0000000000000000\n[    8.113897] x23: ffff0000c1134000 x22: 000000000001864f x21: ffff0000c1138000\n[    8.113912] x20: 0000000000000001 x19: ffff0000c12b8000 x18: ffffffffffffffff\n[    8.113929] x17: 0000000000000000 x16: 0000000000000000 x15: 0720072007200720\n[    8.113944] x14: 0720072007200720 x13: 0720072007200720 x12: 0720072007200720\n[    8.113958] x11: 0720072007200720 x10: 0000000000f9fca4 x9 : ffff80008021f4e4\n[    8.113991] x8 : 0101010101010101 x7 : 746f72705f6d656d x6 : 000000001e0e0f5f\n[    8.114006] x5 : 000000000001864f x4 : ffff0000c12b8000 x3 : 000000000000001c\n[    8.114020] x2 : 0000000000000002 x1 : 0000000000000000 x0 : 0000000000000000\n[    8.114126] Call trace:\n[    8.114159]  may_access_direct_pkt_data+0x24/0xa0\n[    8.114202]  bpf_check+0x3bc/0x28c0\n[    8.114214]  bpf_prog_load+0x658/0xa58\n[    8.114227]  __sys_bpf+0xc50/0x2250\n[    8.114240]  __arm64_sys_bpf+0x28/0x40\n[    8.114254]  invoke_syscall.constprop.0+0x54/0xf0\n[    8.114273]  do_el0_svc+0x4c/0xd8\n[    8.114289]  el0_svc+0x3c/0x140\n[    8.114305]  el0t_64_sync_handler+0x134/0x150\n[    8.114331]  el0t_64_sync+0x168/0x170\n[    8.114477] Code: 7100707f 54000081 f9401c00 f9403800 (b9400403)\n[    8.118672] ---[ end trace 0000000000000000 ]---\n\nOne way to fix it is by forcing `attach_prog_fd` non-empty when\nbpf_prog_load(). But this will lead to `libbpf_probe_bpf_prog_type`\nAPI broken which use verifier log to probe prog type and will log\nnothing if we reject invalid EXT prog before bpf_check().\n\nAnother way is by adding null check in resolve_prog_type().\n\nThe issue was introduced by commit 4a9c7bbe2ed4 (\"bpf: Resolve to\nprog-\u003eaux-\u003edst_prog-\u003etype only for BPF_PROG_TYPE_EXT\") which wanted\nto correct type resolution for BPF_PROG_TYPE_TRACING programs. Before\nthat, the type resolution of BPF_PROG_TYPE_EXT prog actually follows\nthe logic below:\n\n  prog-\u003eaux-\u003edst_prog ? prog-\u003eaux-\u003edst_prog-\u003etype : prog-\u003etype;\n\nIt implies that when EXT program is not yet attached to `dst_prog`,\nthe prog type should be EXT itself. This code worked fine in the past.\nSo just keep using it.\n\nFix this by returning `prog-\u003etype` for BPF_PROG_TYPE_EXT if `dst_prog`\nis not present in resolve_prog_type().",
       "Threats": [
         {
           "Type": "Impact",
@@ -19645,7 +19645,7 @@
     },
     {
       "CVE": "CVE-2024-43842",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: rtw89: Fix array index mistake in rtw89_sta_info_get_iter()\n\nIn rtw89_sta_info_get_iter() 'status-\u003ehe_gi' is compared to array size.\nBut then 'rate-\u003ehe_gi' is used as array index instead of 'status-\u003ehe_gi'.\nThis can lead to go beyond array boundaries in case of 'rate-\u003ehe_gi' is\nnot equal to 'status-\u003ehe_gi' and is bigger than array size. Looks like\n\"copy-paste\" mistake.\n\nFix this mistake by replacing 'rate-\u003ehe_gi' with 'status-\u003ehe_gi'.\n\nFound by Linux Verification Center (linuxtesting.org) with SVACE.",
       "Threats": [
         {
           "Type": "Impact",
@@ -20775,7 +20775,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [

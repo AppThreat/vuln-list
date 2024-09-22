@@ -4413,7 +4413,7 @@
     },
     {
       "CVE": "CVE-2024-43819",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nkvm: s390: Reject memory region operations for ucontrol VMs\n\nThis change rejects the KVM_SET_USER_MEMORY_REGION and\nKVM_SET_USER_MEMORY_REGION2 ioctls when called on a ucontrol VM.\nThis is necessary since ucontrol VMs have kvm-\u003earch.gmap set to 0 and\nwould thus result in a null pointer dereference further in.\nMemory management needs to be performed in userspace and using the\nioctls KVM_S390_UCAS_MAP and KVM_S390_UCAS_UNMAP.\n\nAlso improve s390 specific documentation for KVM_SET_USER_MEMORY_REGION\nand KVM_SET_USER_MEMORY_REGION2.\n\n[frankja@linux.ibm.com: commit message spelling fix, subject prefix fix]",
       "Threats": [
         {
           "Type": "Impact",
@@ -4453,7 +4453,7 @@
     },
     {
       "CVE": "CVE-2024-43831",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: mediatek: vcodec: Handle invalid decoder vsi\n\nHandle an invalid decoder vsi in vpu_dec_init to ensure the decoder vsi\nis valid for future use.",
       "Threats": [
         {
           "Type": "Impact",
