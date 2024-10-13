@@ -11255,7 +11255,7 @@
     },
     {
       "CVE": "CVE-2024-36917",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nblock: fix overflow in blk_ioctl_discard()\n\nThere is no check for overflow of 'start + len' in blk_ioctl_discard().\nHung task occurs if submit an discard ioctl with the following param:\n  start = 0x80000000000ff000, len = 0x8000000000fff000;\nAdd the overflow validation now.",
       "Threats": [
         {
           "Type": "Impact",
