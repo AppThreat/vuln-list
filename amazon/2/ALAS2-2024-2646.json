@@ -5,7 +5,7 @@
     "date": "2024-09-25 22:07:00"
   },
   "updated": {
-    "date": "2024-09-25 22:07:00"
+    "date": "2024-10-02 14:30:00"
   },
   "severity": "medium",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2023-31147:\n\tInsufficient randomness in generation of DNS query IDs\n\nWhen /dev/urandom or RtlGenRandom() are unavailable, c-ares uses rand() to generate random numbers used for DNS query ids. This is not a CSPRNG, and it is also not seeded by srand() so will generate predictable output.\nInput from the random number generator is fed into a non-compilant RC4 implementation and may not be as strong as the original RC4 implementation.\nNo attempt is made to look for modern OS-provided CSPRNGs like arc4random() that is widely available.\n",
