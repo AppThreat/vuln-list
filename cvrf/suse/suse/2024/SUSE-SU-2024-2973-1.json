@@ -41278,7 +41278,7 @@
     },
     {
       "CVE": "CVE-2024-36893",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: typec: tcpm: Check for port partner validity before consuming it\n\ntypec_register_partner() does not guarantee partner registration\nto always succeed. In the event of failure, port-\u003epartner is set\nto the error value or NULL. Given that port-\u003epartner validity is\nnot checked, this results in the following crash:\n\nUnable to handle kernel NULL pointer dereference at virtual address xx\n pc : run_state_machine+0x1bc8/0x1c08\n lr : run_state_machine+0x1b90/0x1c08\n..\n Call trace:\n   run_state_machine+0x1bc8/0x1c08\n   tcpm_state_machine_work+0x94/0xe4\n   kthread_worker_fn+0x118/0x328\n   kthread+0x1d0/0x23c\n   ret_from_fork+0x10/0x20\n\nTo prevent the crash, check for port-\u003epartner validity before\nderefencing it in all the call sites.",
       "Threats": [
         {
           "Type": "Impact",
