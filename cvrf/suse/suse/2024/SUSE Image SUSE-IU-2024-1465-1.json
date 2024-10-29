@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-10-28T11:17:23Z",
+        "Date": "2024-10-29T11:27:57Z",
         "Description": "current"
       }
     ]
@@ -7651,7 +7651,7 @@
     },
     {
       "CVE": "CVE-2024-43885",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbtrfs: fix double inode unlock for direct IO sync writes\n\nIf we do a direct IO sync write, at btrfs_sync_file(), and we need to skip\ninode logging or we get an error starting a transaction or an error when\nflushing delalloc, we end up unlocking the inode when we shouldn't under\nthe 'out_release_extents' label, and then unlock it again at\nbtrfs_direct_write().\n\nFix that by checking if we have to skip inode unlocking under that label.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
