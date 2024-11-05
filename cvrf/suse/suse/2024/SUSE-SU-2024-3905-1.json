@@ -1,0 +1,315 @@
+{
+  "Title": "Security update for openssl-1_1",
+  "Tracking": {
+    "ID": "SUSE-SU-2024:3905-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2024-11-04T12:39:03Z",
+    "CurrentReleaseDate": "2024-11-04T12:39:03Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2024-11-04T12:39:03Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for openssl-1_1",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for openssl-1_1 fixes the following issues:\n\nSecurity fixes:\n\n- CVE-2023-50782: Implicit rejection in PKCS#1 v1.5 (bsc#1220262)\n\nOther fixes:\n\n- FIPS: AES GCM external IV implementation (bsc#1228618)\n- FIPS: Mark PBKDF2 and HKDF HMAC input keys with size \u003e= 112 bits as approved in the SLI. (bsc#1228623)\n- FIPS: Enforce KDF in FIPS style (bsc#1224270)\n- FIPS: Mark HKDF and TLSv1.3 KDF as approved in the SLI (bsc#1228619)\n- FIPS: The X9.31 scheme is not approved for RSA signature operations in FIPS 186-5. (bsc#1224269)\n- FIPS: Differentiate the PSS length requirements (bsc#1224275)\n- FIPS: Mark sigGen and sigVer primitives as non-approved (bsc#1224272)\n- FIPS: Disable PKCSv1.5 and shake in FIPS mode (bsc#1224271)\n- FIPS: Mark SHA1 as non-approved in the SLI (bsc#1224266)\n- FIPS: DH FIPS selftest and safe prime group (bsc#1224264)\n- FIPS: Remove not needed FIPS DRBG files (bsc#1224268)\n- FIPS: Add Pair-wise Consistency Test when generating DH key (bsc#1224265)\n- FIPS: Disallow non-approved KDF types (bsc#1224267)\n- FIPS: Disallow RSA sigVer with 1024 and ECDSA sigVer/keyVer P-192 (bsc#1224273)\n- FIPS: DRBG component chaining (bsc#1224258)\n- FIPS: Align CRNGT_BUFSIZ with Jitter RNG output size (bsc#1224260)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container bci/bci-base-fips:latest-2024-3905,Container bci/bci-sle15-kernel-module-devel:latest-2024-3905,Container bci/dotnet-aspnet:6.0-2024-3905,Container bci/dotnet-aspnet:latest-2024-3905,Container bci/dotnet-runtime:6.0-2024-3905,Container bci/dotnet-runtime:latest-2024-3905,Container bci/dotnet-sdk:6.0-2024-3905,Container bci/dotnet-sdk:latest-2024-3905,Container bci/kiwi:latest-2024-3905,Container bci/python:3-2024-3905,Container bci/ruby:latest-2024-3905,Container bci/rust:latest-2024-3905,Container bci/spack:latest-2024-3905,Container suse/389-ds:latest-2024-3905,Container suse/rmt-mariadb:latest-2024-3905,Container suse/rmt-server:latest-2024-3905,SUSE-2024-3905,SUSE-SLE-Module-Basesystem-15-SP6-2024-3905,SUSE-SLE-Module-Development-Tools-15-SP6-2024-3905,SUSE-SLE-Module-Legacy-15-SP6-2024-3905,openSUSE-SLE-15.6-2024-3905",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/bci-base-fips:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/bci-sle15-kernel-module-devel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-aspnet:6.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-aspnet:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-runtime:6.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-runtime:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-sdk:6.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/dotnet-sdk:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/kiwi:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/python:3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/ruby:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/rust:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container bci/spack:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container suse/389-ds:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "Container suse/rmt-server:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-32bit-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl-1_1-devel-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Development Tools 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Legacy 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl-1_1-devel-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl-1_1-devel-32bit-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl1_1-32bit-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-1_1-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-1_1-doc-1.1.1w-150600.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2024/suse-su-20243905-1/",
+      "Description": "Link for SUSE-SU-2024:3905-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2024-November/019774.html",
+      "Description": "E-Mail link for SUSE-SU-2024:3905-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1220262",
+      "Description": "SUSE Bug 1220262"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224258",
+      "Description": "SUSE Bug 1224258"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224260",
+      "Description": "SUSE Bug 1224260"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224264",
+      "Description": "SUSE Bug 1224264"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224265",
+      "Description": "SUSE Bug 1224265"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224266",
+      "Description": "SUSE Bug 1224266"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224267",
+      "Description": "SUSE Bug 1224267"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224268",
+      "Description": "SUSE Bug 1224268"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224269",
+      "Description": "SUSE Bug 1224269"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224270",
+      "Description": "SUSE Bug 1224270"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224271",
+      "Description": "SUSE Bug 1224271"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224272",
+      "Description": "SUSE Bug 1224272"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224273",
+      "Description": "SUSE Bug 1224273"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1224275",
+      "Description": "SUSE Bug 1224275"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1228618",
+      "Description": "SUSE Bug 1228618"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1228619",
+      "Description": "SUSE Bug 1228619"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1228623",
+      "Description": "SUSE Bug 1228623"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2023-50782/",
+      "Description": "SUSE CVE CVE-2023-50782 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2023-50782",
+      "Description": "A flaw was found in the python-cryptography package. This issue may allow a remote attacker to decrypt captured messages in TLS servers that use RSA key exchanges, which may lead to exposure of confidential or sensitive data.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2023-50782.html",
+          "Description": "CVE-2023-50782"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1218043",
+          "Description": "SUSE Bug 1218043"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container bci/bci-base-fips:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/bci-sle15-kernel-module-devel:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-aspnet:6.0:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-aspnet:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-runtime:6.0:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-runtime:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-sdk:6.0:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/dotnet-sdk:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/kiwi:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/python:3:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/ruby:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/rust:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container bci/spack:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container suse/389-ds:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container suse/rmt-mariadb:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "Container suse/rmt-server:latest:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libopenssl1_1-32bit-1.1.1w-150600.5.9.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:libopenssl-1_1-devel-1.1.1w-150600.5.9.1",
+            "SUSE Linux Enterprise Module for Legacy 15 SP6:openssl-1_1-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:libopenssl-1_1-devel-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:libopenssl-1_1-devel-32bit-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:libopenssl1_1-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:libopenssl1_1-32bit-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:openssl-1_1-1.1.1w-150600.5.9.1",
+            "openSUSE Leap 15.6:openssl-1_1-doc-1.1.1w-150600.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
