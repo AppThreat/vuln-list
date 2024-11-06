@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-11-03T20:08:38Z",
+        "Date": "2024-11-06T12:11:10Z",
         "Description": "current"
       }
     ]
@@ -6055,7 +6055,7 @@
     },
     {
       "CVE": "CVE-2024-36890",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/slab: make __free(kfree) accept error pointers\n\nCurrently, if an automatically freed allocation is an error pointer that\nwill lead to a crash.  An example of this is in wm831x_gpio_dbg_show().\n\n   171\tchar *label __free(kfree) = gpiochip_dup_line_label(chip, i);\n   172\tif (IS_ERR(label)) {\n   173\t\tdev_err(wm831x-\u003edev, \"Failed to duplicate label\\n\");\n   174\t\tcontinue;\n   175  }\n\nThe auto clean up function should check for error pointers as well,\notherwise we're going to keep hitting issues like this.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6091,7 +6091,7 @@
     },
     {
       "CVE": "CVE-2024-36899",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpiolib: cdev: Fix use after free in lineinfo_changed_notify\n\nThe use-after-free issue occurs as follows: when the GPIO chip device file\nis being closed by invoking gpio_chrdev_release(), watched_lines is freed\nby bitmap_free(), but the unregistration of lineinfo_changed_nb notifier\nchain failed due to waiting write rwsem. Additionally, one of the GPIO\nchip's lines is also in the release process and holds the notifier chain's\nread rwsem. Consequently, a race condition leads to the use-after-free of\nwatched_lines.\n\nHere is the typical stack when issue happened:\n\n[free]\ngpio_chrdev_release()\n  --\u003e bitmap_free(cdev-\u003ewatched_lines)                  \u003c-- freed\n  --\u003e blocking_notifier_chain_unregister()\n    --\u003e down_write(\u0026nh-\u003erwsem)                          \u003c-- waiting rwsem\n          --\u003e __down_write_common()\n            --\u003e rwsem_down_write_slowpath()\n                  --\u003e schedule_preempt_disabled()\n                    --\u003e schedule()\n\n[use]\nst54spi_gpio_dev_release()\n  --\u003e gpio_free()\n    --\u003e gpiod_free()\n      --\u003e gpiod_free_commit()\n        --\u003e gpiod_line_state_notify()\n          --\u003e blocking_notifier_call_chain()\n            --\u003e down_read(\u0026nh-\u003erwsem);                  \u003c-- held rwsem\n            --\u003e notifier_call_chain()\n              --\u003e lineinfo_changed_notify()\n                --\u003e test_bit(xxxx, cdev-\u003ewatched_lines) \u003c-- use after free\n\nThe side effect of the use-after-free issue is that a GPIO line event is\nbeing generated for userspace where it shouldn't. However, since the chrdev\nis being closed, userspace won't have the chance to read that event anyway.\n\nTo fix the issue, call the bitmap_free() function after the unregistration\nof lineinfo_changed_nb notifier chain.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6109,7 +6109,7 @@
     },
     {
       "CVE": "CVE-2024-36900",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: hns3: fix kernel crash when devlink reload during initialization\n\nThe devlink reload process will access the hardware resources,\nbut the register operation is done before the hardware is initialized.\nSo, processing the devlink reload during initialization may lead to kernel\ncrash.\n\nThis patch fixes this by registering the devlink after\nhardware initialization.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6181,7 +6181,7 @@
     },
     {
       "CVE": "CVE-2024-36909",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Don't free ring buffers that couldn't be re-encrypted\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus ring buffer code could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the struct\nvmbus_gpadl for the ring buffers to decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6199,7 +6199,7 @@
     },
     {
       "CVE": "CVE-2024-36910",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nuio_hv_generic: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus device UIO driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6217,7 +6217,7 @@
     },
     {
       "CVE": "CVE-2024-36911",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nhv_netvsc: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe netvsc driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6235,7 +6235,7 @@
     },
     {
       "CVE": "CVE-2024-36912",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Track decrypted status in vmbus_gpadl\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nIn order to make sure callers of vmbus_establish_gpadl() and\nvmbus_teardown_gpadl() don't return decrypted/shared pages to\nallocators, add a field in struct vmbus_gpadl to keep track of the\ndecryption status of the buffers. This will allow the callers to\nknow if they should free or leak the pages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6253,7 +6253,7 @@
     },
     {
       "CVE": "CVE-2024-36913",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Leak pages if set_memory_encrypted() fails\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nVMBus code could free decrypted pages if set_memory_encrypted()/decrypted()\nfails. Leak the pages if this happens.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6271,7 +6271,7 @@
     },
     {
       "CVE": "CVE-2024-36914",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Skip on writeback when it's not applicable\n\n[WHY]\ndynamic memory safety error detector (KASAN) catches and generates error\nmessages \"BUG: KASAN: slab-out-of-bounds\" as writeback connector does not\nsupport certain features which are not initialized.\n\n[HOW]\nSkip them when connector type is DRM_MODE_CONNECTOR_WRITEBACK.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6361,7 +6361,7 @@
     },
     {
       "CVE": "CVE-2024-36923",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/9p: fix uninitialized values during inode evict\n\nIf an iget fails due to not being able to retrieve information\nfrom the server then the inode structure is only partially\ninitialized.  When the inode gets evicted, references to\nuninitialized structures (like fscache cookies) were being\nmade.\n\nThis patch checks for a bad_inode before doing anything other\nthan clearing the inode from the cache.  Since the inode is\nbad, it shouldn't have any state associated with it that needs\nto be written back (and there really isn't a way to complete\nthose anyways).",
       "Threats": [
         {
           "Type": "Impact",
@@ -6379,7 +6379,7 @@
     },
     {
       "CVE": "CVE-2024-36924",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Release hbalock before calling lpfc_worker_wake_up()\n\nlpfc_worker_wake_up() calls the lpfc_work_done() routine, which takes the\nhbalock.  Thus, lpfc_worker_wake_up() should not be called while holding the\nhbalock to avoid potential deadlock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6397,7 +6397,7 @@
     },
     {
       "CVE": "CVE-2024-36926",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/iommu: LPAR panics during boot up with a frozen PE\n\nAt the time of LPAR boot up, partition firmware provides Open Firmware\nproperty ibm,dma-window for the PE. This property is provided on the PCI\nbus the PE is attached to.\n\nThere are execptions where the partition firmware might not provide this\nproperty for the PE at the time of LPAR boot up. One of the scenario is\nwhere the firmware has frozen the PE due to some error condition. This\nPE is frozen for 24 hours or unless the whole system is reinitialized.\n\nWithin this time frame, if the LPAR is booted, the frozen PE will be\npresented to the LPAR but ibm,dma-window property could be missing.\n\nToday, under these circumstances, the LPAR oopses with NULL pointer\ndereference, when configuring the PCI bus the PE is attached to.\n\n  BUG: Kernel NULL pointer dereference on read at 0x000000c8\n  Faulting instruction address: 0xc0000000001024c0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  LE PAGE_SIZE=64K MMU=Radix SMP NR_CPUS=2048 NUMA pSeries\n  Modules linked in:\n  Supported: Yes\n  CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.4.0-150600.9-default #1\n  Hardware name: IBM,9043-MRX POWER10 (raw) 0x800200 0xf000006 of:IBM,FW1060.00 (NM1060_023) hv:phyp pSeries\n  NIP:  c0000000001024c0 LR: c0000000001024b0 CTR: c000000000102450\n  REGS: c0000000037db5c0 TRAP: 0300   Not tainted  (6.4.0-150600.9-default)\n  MSR:  8000000002009033 \u003cSF,VEC,EE,ME,IR,DR,RI,LE\u003e  CR: 28000822  XER: 00000000\n  CFAR: c00000000010254c DAR: 00000000000000c8 DSISR: 00080000 IRQMASK: 0\n  ...\n  NIP [c0000000001024c0] pci_dma_bus_setup_pSeriesLP+0x70/0x2a0\n  LR [c0000000001024b0] pci_dma_bus_setup_pSeriesLP+0x60/0x2a0\n  Call Trace:\n    pci_dma_bus_setup_pSeriesLP+0x60/0x2a0 (unreliable)\n    pcibios_setup_bus_self+0x1c0/0x370\n    __of_scan_bus+0x2f8/0x330\n    pcibios_scan_phb+0x280/0x3d0\n    pcibios_init+0x88/0x12c\n    do_one_initcall+0x60/0x320\n    kernel_init_freeable+0x344/0x3e4\n    kernel_init+0x34/0x1d0\n    ret_from_kernel_user_thread+0x14/0x1c",
       "Threats": [
         {
           "Type": "Impact",
@@ -6433,7 +6433,7 @@
     },
     {
       "CVE": "CVE-2024-36937",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxdp: use flags field to disambiguate broadcast redirect\n\nWhen redirecting a packet using XDP, the bpf_redirect_map() helper will set\nup the redirect destination information in struct bpf_redirect_info (using\nthe __bpf_xdp_redirect_map() helper function), and the xdp_do_redirect()\nfunction will read this information after the XDP program returns and pass\nthe frame on to the right redirect destination.\n\nWhen using the BPF_F_BROADCAST flag to do multicast redirect to a whole\nmap, __bpf_xdp_redirect_map() sets the 'map' pointer in struct\nbpf_redirect_info to point to the destination map to be broadcast. And\nxdp_do_redirect() reacts to the value of this map pointer to decide whether\nit's dealing with a broadcast or a single-value redirect. However, if the\ndestination map is being destroyed before xdp_do_redirect() is called, the\nmap pointer will be cleared out (by bpf_clear_redirect_map()) without\nwaiting for any XDP programs to stop running. This causes xdp_do_redirect()\nto think that the redirect was to a single target, but the target pointer\nis also NULL (since broadcast redirects don't have a single target), so\nthis causes a crash when a NULL pointer is passed to dev_map_enqueue().\n\nTo fix this, change xdp_do_redirect() to react directly to the presence of\nthe BPF_F_BROADCAST flag in the 'flags' value in struct bpf_redirect_info\nto disambiguate between a single-target and a broadcast redirect. And only\nread the 'map' pointer if the broadcast flag is set, aborting if that has\nbeen cleared out in the meantime. This prevents the crash, while keeping\nthe atomic (cmpxchg-based) clearing of the map pointer itself, and without\nadding any more checks in the non-broadcast fast path.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6505,7 +6505,7 @@
     },
     {
       "CVE": "CVE-2024-36942",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: qca: fix firmware check error path\n\nA recent commit fixed the code that parses the firmware files before\ndownloading them to the controller but introduced a memory leak in case\nthe sanity checks ever fail.\n\nMake sure to free the firmware buffer before returning on errors.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6523,7 +6523,7 @@
     },
     {
       "CVE": "CVE-2024-36944",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nReapply \"drm/qxl: simplify qxl_fence_wait\"\n\nThis reverts commit 07ed11afb68d94eadd4ffc082b97c2331307c5ea.\n\nStephen Rostedt reports:\n \"I went to run my tests on my VMs and the tests hung on boot up.\n  Unfortunately, the most I ever got out was:\n\n  [   93.607888] Testing event system initcall: OK\n  [   93.667730] Running tests on all trace events:\n  [   93.669757] Testing all events: OK\n  [   95.631064] ------------[ cut here ]------------\n  Timed out after 60 seconds\"\n\nand further debugging points to a possible circular locking dependency\nbetween the console_owner locking and the worker pool locking.\n\nReverting the commit allows Steve's VM to boot to completion again.\n\n[ This may obviously result in the \"[TTM] Buffer eviction failed\"\n  messages again, which was the reason for that original revert. But at\n  this point this seems preferable to a non-booting system... ]",
       "Threats": [
         {
           "Type": "Impact",
@@ -6541,7 +6541,7 @@
     },
     {
       "CVE": "CVE-2024-36945",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: fix neighbour and rtable leak in smc_ib_find_route()\n\nIn smc_ib_find_route(), the neighbour found by neigh_lookup() and rtable\nresolved by ip_route_output_flow() are not released or put before return.\nIt may cause the refcount leak, so fix it.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6577,7 +6577,7 @@
     },
     {
       "CVE": "CVE-2024-36947",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nqibfs: fix dentry leak\n\nsimple_recursive_removal() drops the pinning references to all positives\nin subtree.  For the cases when its argument has been kept alive by\nthe pinning alone that's exactly the right thing to do, but here\nthe argument comes from dcache lookup, that needs to be balanced by\nexplicit dput().\n\nFucked-up-by: Al Viro \u003cviro@zeniv.linux.org.uk\u003e",
       "Threats": [
         {
           "Type": "Impact",
@@ -6595,7 +6595,7 @@
     },
     {
       "CVE": "CVE-2024-36949",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\namd/amdkfd: sync all devices to wait all processes being evicted\n\nIf there are more than one device doing reset in parallel, the first\ndevice will call kfd_suspend_all_processes() to evict all processes\non all devices, this call takes time to finish. other device will\nstart reset and recover without waiting. if the process has not been\nevicted before doing recover, it will be restored, then caused page\nfault.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6631,7 +6631,7 @@
     },
     {
       "CVE": "CVE-2024-36952",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Move NPIV's transport unregistration to after resource clean up\n\nThere are cases after NPIV deletion where the fabric switch still believes\nthe NPIV is logged into the fabric.  This occurs when a vport is\nunregistered before the Remove All DA_ID CT and LOGO ELS are sent to the\nfabric.\n\nCurrently fc_remove_host(), which calls dev_loss_tmo for all D_IDs including\nthe fabric D_ID, removes the last ndlp reference and frees the ndlp rport\nobject.  This sometimes causes the race condition where the final DA_ID and\nLOGO are skipped from being sent to the fabric switch.\n\nFix by moving the fc_remove_host() and scsi_remove_host() calls after DA_ID\nand LOGO are sent.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6649,7 +6649,7 @@
     },
     {
       "CVE": "CVE-2024-36955",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: hda: intel-sdw-acpi: fix usage of device_get_named_child_node()\n\nThe documentation for device_get_named_child_node() mentions this\nimportant point:\n\n\"\nThe caller is responsible for calling fwnode_handle_put() on the\nreturned fwnode pointer.\n\"\n\nAdd fwnode_handle_put() to avoid a leaked reference.",
       "Threats": [
         {
           "Type": "Impact",

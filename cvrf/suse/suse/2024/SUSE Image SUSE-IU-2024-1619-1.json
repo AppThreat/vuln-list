@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-11-03T20:10:25Z",
+        "Date": "2024-11-06T12:12:37Z",
         "Description": "current"
       }
     ]
@@ -1797,7 +1797,7 @@
     },
     {
       "CVE": "CVE-2022-48896",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nixgbe: fix pci device refcount leak\n\nAs the comment of pci_get_domain_bus_and_slot() says, it\nreturns a PCI device with refcount incremented, when finish\nusing it, the caller must decrement the reference count by\ncalling pci_dev_put().\n\nIn ixgbe_get_first_secondary_devfn() and ixgbe_x550em_a_has_mii(),\npci_dev_put() is called to avoid leak.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1817,7 +1817,7 @@
     },
     {
       "CVE": "CVE-2022-48899",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/virtio: Fix GEM handle creation UAF\n\nUserspace can guess the handle value and try to race GEM object creation\nwith handle close, resulting in a use-after-free if we dereference the\nobject after dropping the handle's reference.  For that reason, dropping\nthe handle's reference must be done *after* we are done dereferencing\nthe object.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3254,7 +3254,7 @@
     },
     {
       "CVE": "CVE-2024-36924",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Release hbalock before calling lpfc_worker_wake_up()\n\nlpfc_worker_wake_up() calls the lpfc_work_done() routine, which takes the\nhbalock.  Thus, lpfc_worker_wake_up() should not be called while holding the\nhbalock to avoid potential deadlock.",
       "Threats": [
         {
           "Type": "Impact",

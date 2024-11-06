@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2024-11-04T12:09:09Z",
+        "Date": "2024-11-06T12:16:13Z",
         "Description": "current"
       }
     ]
@@ -12981,7 +12981,7 @@
     },
     {
       "CVE": "CVE-2024-36896",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nUSB: core: Fix access violation during port device removal\n\nTesting with KASAN and syzkaller revealed a bug in port.c:disable_store():\nusb_hub_to_struct_hub() can return NULL if the hub that the port belongs to\nis concurrently removed, but the function does not check for this\npossibility before dereferencing the returned value.\n\nIt turns out that the first dereference is unnecessary, since hub-\u003eintfdev\nis the parent of the port device, so it can be changed easily.  Adding a\ncheck for hub == NULL prevents further problems.\n\nThe same bug exists in the disable_show() routine, and it can be fixed the\nsame way.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13005,7 +13005,7 @@
     },
     {
       "CVE": "CVE-2024-36897",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Atom Integrated System Info v2_2 for DCN35\n\nNew request from KMD/VBIOS in order to support new UMA carveout\nmodel. This fixes a null dereference from accessing\nCtx-\u003edc_bios-\u003eintegrated_info while it was NULL.\n\nDAL parses through the BIOS and extracts the necessary\nintegrated_info but was missing a case for the new BIOS\nversion 2.3.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13029,7 +13029,7 @@
     },
     {
       "CVE": "CVE-2024-36906",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nARM: 9381/1: kasan: clear stale stack poison\n\nWe found below OOB crash:\n\n[   33.452494] ==================================================================\n[   33.453513] BUG: KASAN: stack-out-of-bounds in refresh_cpu_vm_stats.constprop.0+0xcc/0x2ec\n[   33.454660] Write of size 164 at addr c1d03d30 by task swapper/0/0\n[   33.455515]\n[   33.455767] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G           O       6.1.25-mainline #1\n[   33.456880] Hardware name: Generic DT based system\n[   33.457555]  unwind_backtrace from show_stack+0x18/0x1c\n[   33.458326]  show_stack from dump_stack_lvl+0x40/0x4c\n[   33.459072]  dump_stack_lvl from print_report+0x158/0x4a4\n[   33.459863]  print_report from kasan_report+0x9c/0x148\n[   33.460616]  kasan_report from kasan_check_range+0x94/0x1a0\n[   33.461424]  kasan_check_range from memset+0x20/0x3c\n[   33.462157]  memset from refresh_cpu_vm_stats.constprop.0+0xcc/0x2ec\n[   33.463064]  refresh_cpu_vm_stats.constprop.0 from tick_nohz_idle_stop_tick+0x180/0x53c\n[   33.464181]  tick_nohz_idle_stop_tick from do_idle+0x264/0x354\n[   33.465029]  do_idle from cpu_startup_entry+0x20/0x24\n[   33.465769]  cpu_startup_entry from rest_init+0xf0/0xf4\n[   33.466528]  rest_init from arch_post_acpi_subsys_init+0x0/0x18\n[   33.467397]\n[   33.467644] The buggy address belongs to stack of task swapper/0/0\n[   33.468493]  and is located at offset 112 in frame:\n[   33.469172]  refresh_cpu_vm_stats.constprop.0+0x0/0x2ec\n[   33.469917]\n[   33.470165] This frame has 2 objects:\n[   33.470696]  [32, 76) 'global_zone_diff'\n[   33.470729]  [112, 276) 'global_node_diff'\n[   33.471294]\n[   33.472095] The buggy address belongs to the physical page:\n[   33.472862] page:3cd72da8 refcount:1 mapcount:0 mapping:00000000 index:0x0 pfn:0x41d03\n[   33.473944] flags: 0x1000(reserved|zone=0)\n[   33.474565] raw: 00001000 ed741470 ed741470 00000000 00000000 00000000 ffffffff 00000001\n[   33.475656] raw: 00000000\n[   33.476050] page dumped because: kasan: bad access detected\n[   33.476816]\n[   33.477061] Memory state around the buggy address:\n[   33.477732]  c1d03c00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[   33.478630]  c1d03c80: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 00 00\n[   33.479526] \u003ec1d03d00: 00 04 f2 f2 f2 f2 00 00 00 00 00 00 f1 f1 f1 f1\n[   33.480415]                                                ^\n[   33.481195]  c1d03d80: 00 00 00 00 00 00 00 00 00 00 04 f3 f3 f3 f3 f3\n[   33.482088]  c1d03e00: f3 f3 f3 f3 00 00 00 00 00 00 00 00 00 00 00 00\n[   33.482978] ==================================================================\n\nWe find the root cause of this OOB is that arm does not clear stale stack\npoison in the case of cpuidle.\n\nThis patch refer to arch/arm64/kernel/sleep.S to resolve this issue.\n\nFrom cited commit [1] that explain the problem\n\nFunctions which the compiler has instrumented for KASAN place poison on\nthe stack shadow upon entry and remove this poison prior to returning.\n\nIn the case of cpuidle, CPUs exit the kernel a number of levels deep in\nC code.  Any instrumented functions on this critical path will leave\nportions of the stack shadow poisoned.\n\nIf CPUs lose context and return to the kernel via a cold path, we\nrestore a prior context saved in __cpu_suspend_enter are forgotten, and\nwe never remove the poison they placed in the stack shadow area by\nfunctions calls between this and the actual exit of the kernel.\n\nThus, (depending on stackframe layout) subsequent calls to instrumented\nfunctions may hit this stale poison, resulting in (spurious) KASAN\nsplats to the console.\n\nTo avoid this, clear any stale poison from the idle thread for a CPU\nprior to bringing a CPU online.\n\nFrom cited commit [2]\n\nExtend to check for CONFIG_KASAN_STACK\n\n[1] commit 0d97e6d8024c (\"arm64: kasan: clear stale stack poison\")\n[2] commit d56a9ef84bd0 (\"kasan, arm64: unpoison stack only with CONFIG_KASAN_STACK\")",
       "Threats": [
         {
           "Type": "Impact",
@@ -13053,7 +13053,7 @@
     },
     {
       "CVE": "CVE-2024-36924",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Release hbalock before calling lpfc_worker_wake_up()\n\nlpfc_worker_wake_up() calls the lpfc_work_done() routine, which takes the\nhbalock.  Thus, lpfc_worker_wake_up() should not be called while holding the\nhbalock to avoid potential deadlock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13077,7 +13077,7 @@
     },
     {
       "CVE": "CVE-2024-36926",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/iommu: LPAR panics during boot up with a frozen PE\n\nAt the time of LPAR boot up, partition firmware provides Open Firmware\nproperty ibm,dma-window for the PE. This property is provided on the PCI\nbus the PE is attached to.\n\nThere are execptions where the partition firmware might not provide this\nproperty for the PE at the time of LPAR boot up. One of the scenario is\nwhere the firmware has frozen the PE due to some error condition. This\nPE is frozen for 24 hours or unless the whole system is reinitialized.\n\nWithin this time frame, if the LPAR is booted, the frozen PE will be\npresented to the LPAR but ibm,dma-window property could be missing.\n\nToday, under these circumstances, the LPAR oopses with NULL pointer\ndereference, when configuring the PCI bus the PE is attached to.\n\n  BUG: Kernel NULL pointer dereference on read at 0x000000c8\n  Faulting instruction address: 0xc0000000001024c0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  LE PAGE_SIZE=64K MMU=Radix SMP NR_CPUS=2048 NUMA pSeries\n  Modules linked in:\n  Supported: Yes\n  CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.4.0-150600.9-default #1\n  Hardware name: IBM,9043-MRX POWER10 (raw) 0x800200 0xf000006 of:IBM,FW1060.00 (NM1060_023) hv:phyp pSeries\n  NIP:  c0000000001024c0 LR: c0000000001024b0 CTR: c000000000102450\n  REGS: c0000000037db5c0 TRAP: 0300   Not tainted  (6.4.0-150600.9-default)\n  MSR:  8000000002009033 \u003cSF,VEC,EE,ME,IR,DR,RI,LE\u003e  CR: 28000822  XER: 00000000\n  CFAR: c00000000010254c DAR: 00000000000000c8 DSISR: 00080000 IRQMASK: 0\n  ...\n  NIP [c0000000001024c0] pci_dma_bus_setup_pSeriesLP+0x70/0x2a0\n  LR [c0000000001024b0] pci_dma_bus_setup_pSeriesLP+0x60/0x2a0\n  Call Trace:\n    pci_dma_bus_setup_pSeriesLP+0x60/0x2a0 (unreliable)\n    pcibios_setup_bus_self+0x1c0/0x370\n    __of_scan_bus+0x2f8/0x330\n    pcibios_scan_phb+0x280/0x3d0\n    pcibios_init+0x88/0x12c\n    do_one_initcall+0x60/0x320\n    kernel_init_freeable+0x344/0x3e4\n    kernel_init+0x34/0x1d0\n    ret_from_kernel_user_thread+0x14/0x1c",
       "Threats": [
         {
           "Type": "Impact",
@@ -13101,7 +13101,7 @@
     },
     {
       "CVE": "CVE-2024-36928",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/qeth: Fix kernel panic after setting hsuid\n\nSymptom:\nWhen the hsuid attribute is set for the first time on an IQD Layer3\ndevice while the corresponding network interface is already UP,\nthe kernel will try to execute a napi function pointer that is NULL.\n\nExample:\n---------------------------------------------------------------------------\n[ 2057.572696] illegal operation: 0001 ilc:1 [#1] SMP\n[ 2057.572702] Modules linked in: af_iucv qeth_l3 zfcp scsi_transport_fc sunrpc nft_fib_inet nft_fib_ipv4 nft_fib_ipv6 nft_fib nft_reject_inet nf_reject_ipv4 nf_reject_ipv6\nnft_reject nft_ct nf_tables_set nft_chain_nat nf_nat nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nf_tables libcrc32c nfnetlink ghash_s390 prng xts aes_s390 des_s390 de\ns_generic sha3_512_s390 sha3_256_s390 sha512_s390 vfio_ccw vfio_mdev mdev vfio_iommu_type1 eadm_sch vfio ext4 mbcache jbd2 qeth_l2 bridge stp llc dasd_eckd_mod qeth dasd_mod\n qdio ccwgroup pkey zcrypt\n[ 2057.572739] CPU: 6 PID: 60182 Comm: stress_client Kdump: loaded Not tainted 4.18.0-541.el8.s390x #1\n[ 2057.572742] Hardware name: IBM 3931 A01 704 (LPAR)\n[ 2057.572744] Krnl PSW : 0704f00180000000 0000000000000002 (0x2)\n[ 2057.572748]            R:0 T:1 IO:1 EX:1 Key:0 M:1 W:0 P:0 AS:3 CC:3 PM:0 RI:0 EA:3\n[ 2057.572751] Krnl GPRS: 0000000000000004 0000000000000000 00000000a3b008d8 0000000000000000\n[ 2057.572754]            00000000a3b008d8 cb923a29c779abc5 0000000000000000 00000000814cfd80\n[ 2057.572756]            000000000000012c 0000000000000000 00000000a3b008d8 00000000a3b008d8\n[ 2057.572758]            00000000bab6d500 00000000814cfd80 0000000091317e46 00000000814cfc68\n[ 2057.572762] Krnl Code:#0000000000000000: 0000                illegal\n                         \u003e0000000000000002: 0000                illegal\n                          0000000000000004: 0000                illegal\n                          0000000000000006: 0000                illegal\n                          0000000000000008: 0000                illegal\n                          000000000000000a: 0000                illegal\n                          000000000000000c: 0000                illegal\n                          000000000000000e: 0000                illegal\n[ 2057.572800] Call Trace:\n[ 2057.572801] ([\u003c00000000ec639700\u003e] 0xec639700)\n[ 2057.572803]  [\u003c00000000913183e2\u003e] net_rx_action+0x2ba/0x398\n[ 2057.572809]  [\u003c0000000091515f76\u003e] __do_softirq+0x11e/0x3a0\n[ 2057.572813]  [\u003c0000000090ce160c\u003e] do_softirq_own_stack+0x3c/0x58\n[ 2057.572817] ([\u003c0000000090d2cbd6\u003e] do_softirq.part.1+0x56/0x60)\n[ 2057.572822]  [\u003c0000000090d2cc60\u003e] __local_bh_enable_ip+0x80/0x98\n[ 2057.572825]  [\u003c0000000091314706\u003e] __dev_queue_xmit+0x2be/0xd70\n[ 2057.572827]  [\u003c000003ff803dd6d6\u003e] afiucv_hs_send+0x24e/0x300 [af_iucv]\n[ 2057.572830]  [\u003c000003ff803dd88a\u003e] iucv_send_ctrl+0x102/0x138 [af_iucv]\n[ 2057.572833]  [\u003c000003ff803de72a\u003e] iucv_sock_connect+0x37a/0x468 [af_iucv]\n[ 2057.572835]  [\u003c00000000912e7e90\u003e] __sys_connect+0xa0/0xd8\n[ 2057.572839]  [\u003c00000000912e9580\u003e] sys_socketcall+0x228/0x348\n[ 2057.572841]  [\u003c0000000091514e1a\u003e] system_call+0x2a6/0x2c8\n[ 2057.572843] Last Breaking-Event-Address:\n[ 2057.572844]  [\u003c0000000091317e44\u003e] __napi_poll+0x4c/0x1d8\n[ 2057.572846]\n[ 2057.572847] Kernel panic - not syncing: Fatal exception in interrupt\n-------------------------------------------------------------------------------------------\n\nAnalysis:\nThere is one napi structure per out_q: card-\u003eqdio.out_qs[i].napi\nThe napi.poll functions are set during qeth_open().\n\nSince\ncommit 1cfef80d4c2b (\"s390/qeth: Don't call dev_close/dev_open (DOWN/UP)\")\nqeth_set_offline()/qeth_set_online() no longer call dev_close()/\ndev_open(). So if qeth_free_qdio_queues() cleared\ncard-\u003eqdio.out_qs[i].napi.poll while the network interface was UP and the\ncard was offline, they are not set again.\n\nReproduction:\nchzdev -e $devno layer2=0\nip link set dev $network_interface up\necho 0 \u003e /sys/bus/ccw\n---truncated---",
       "Threats": [
         {
           "Type": "Impact",
@@ -13125,7 +13125,7 @@
     },
     {
       "CVE": "CVE-2024-36931",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/cio: Ensure the copied buf is NUL terminated\n\nCurrently, we allocate a lbuf-sized kernel buffer and copy lbuf from\nuserspace to that buffer. Later, we use scanf on this buffer but we don't\nensure that the string is terminated inside the buffer, this can lead to\nOOB read when using scanf. Fix this issue by using memdup_user_nul instead.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13221,7 +13221,7 @@
     },
     {
       "CVE": "CVE-2024-36942",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: qca: fix firmware check error path\n\nA recent commit fixed the code that parses the firmware files before\ndownloading them to the controller but introduced a memory leak in case\nthe sanity checks ever fail.\n\nMake sure to free the firmware buffer before returning on errors.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13245,7 +13245,7 @@
     },
     {
       "CVE": "CVE-2024-36944",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nReapply \"drm/qxl: simplify qxl_fence_wait\"\n\nThis reverts commit 07ed11afb68d94eadd4ffc082b97c2331307c5ea.\n\nStephen Rostedt reports:\n \"I went to run my tests on my VMs and the tests hung on boot up.\n  Unfortunately, the most I ever got out was:\n\n  [   93.607888] Testing event system initcall: OK\n  [   93.667730] Running tests on all trace events:\n  [   93.669757] Testing all events: OK\n  [   95.631064] ------------[ cut here ]------------\n  Timed out after 60 seconds\"\n\nand further debugging points to a possible circular locking dependency\nbetween the console_owner locking and the worker pool locking.\n\nReverting the commit allows Steve's VM to boot to completion again.\n\n[ This may obviously result in the \"[TTM] Buffer eviction failed\"\n  messages again, which was the reason for that original revert. But at\n  this point this seems preferable to a non-booting system... ]",
       "Threats": [
         {
           "Type": "Impact",
@@ -13269,7 +13269,7 @@
     },
     {
       "CVE": "CVE-2024-36947",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nqibfs: fix dentry leak\n\nsimple_recursive_removal() drops the pinning references to all positives\nin subtree.  For the cases when its argument has been kept alive by\nthe pinning alone that's exactly the right thing to do, but here\nthe argument comes from dcache lookup, that needs to be balanced by\nexplicit dput().\n\nFucked-up-by: Al Viro \u003cviro@zeniv.linux.org.uk\u003e",
       "Threats": [
         {
           "Type": "Impact",
@@ -13317,7 +13317,7 @@
     },
     {
       "CVE": "CVE-2024-36952",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Move NPIV's transport unregistration to after resource clean up\n\nThere are cases after NPIV deletion where the fabric switch still believes\nthe NPIV is logged into the fabric.  This occurs when a vport is\nunregistered before the Remove All DA_ID CT and LOGO ELS are sent to the\nfabric.\n\nCurrently fc_remove_host(), which calls dev_loss_tmo for all D_IDs including\nthe fabric D_ID, removes the last ndlp reference and frees the ndlp rport\nobject.  This sometimes causes the race condition where the final DA_ID and\nLOGO are skipped from being sent to the fabric switch.\n\nFix by moving the fc_remove_host() and scsi_remove_host() calls after DA_ID\nand LOGO are sent.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13341,7 +13341,7 @@
     },
     {
       "CVE": "CVE-2024-36955",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: hda: intel-sdw-acpi: fix usage of device_get_named_child_node()\n\nThe documentation for device_get_named_child_node() mentions this\nimportant point:\n\n\"\nThe caller is responsible for calling fwnode_handle_put() on the\nreturned fwnode pointer.\n\"\n\nAdd fwnode_handle_put() to avoid a leaked reference.",
       "Threats": [
         {
           "Type": "Impact",
