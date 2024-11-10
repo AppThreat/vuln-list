@@ -10886,7 +10886,7 @@
     },
     {
       "CVE": "CVE-2024-36890",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/slab: make __free(kfree) accept error pointers\n\nCurrently, if an automatically freed allocation is an error pointer that\nwill lead to a crash.  An example of this is in wm831x_gpio_dbg_show().\n\n   171\tchar *label __free(kfree) = gpiochip_dup_line_label(chip, i);\n   172\tif (IS_ERR(label)) {\n   173\t\tdev_err(wm831x-\u003edev, \"Failed to duplicate label\\n\");\n   174\t\tcontinue;\n   175  }\n\nThe auto clean up function should check for error pointers as well,\notherwise we're going to keep hitting issues like this.",
       "Threats": [
         {
           "Type": "Impact",
@@ -10992,7 +10992,7 @@
     },
     {
       "CVE": "CVE-2024-36899",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpiolib: cdev: Fix use after free in lineinfo_changed_notify\n\nThe use-after-free issue occurs as follows: when the GPIO chip device file\nis being closed by invoking gpio_chrdev_release(), watched_lines is freed\nby bitmap_free(), but the unregistration of lineinfo_changed_nb notifier\nchain failed due to waiting write rwsem. Additionally, one of the GPIO\nchip's lines is also in the release process and holds the notifier chain's\nread rwsem. Consequently, a race condition leads to the use-after-free of\nwatched_lines.\n\nHere is the typical stack when issue happened:\n\n[free]\ngpio_chrdev_release()\n  --\u003e bitmap_free(cdev-\u003ewatched_lines)                  \u003c-- freed\n  --\u003e blocking_notifier_chain_unregister()\n    --\u003e down_write(\u0026nh-\u003erwsem)                          \u003c-- waiting rwsem\n          --\u003e __down_write_common()\n            --\u003e rwsem_down_write_slowpath()\n                  --\u003e schedule_preempt_disabled()\n                    --\u003e schedule()\n\n[use]\nst54spi_gpio_dev_release()\n  --\u003e gpio_free()\n    --\u003e gpiod_free()\n      --\u003e gpiod_free_commit()\n        --\u003e gpiod_line_state_notify()\n          --\u003e blocking_notifier_call_chain()\n            --\u003e down_read(\u0026nh-\u003erwsem);                  \u003c-- held rwsem\n            --\u003e notifier_call_chain()\n              --\u003e lineinfo_changed_notify()\n                --\u003e test_bit(xxxx, cdev-\u003ewatched_lines) \u003c-- use after free\n\nThe side effect of the use-after-free issue is that a GPIO line event is\nbeing generated for userspace where it shouldn't. However, since the chrdev\nis being closed, userspace won't have the chance to read that event anyway.\n\nTo fix the issue, call the bitmap_free() function after the unregistration\nof lineinfo_changed_nb notifier chain.",
       "Threats": [
         {
           "Type": "Impact",
@@ -11047,7 +11047,7 @@
     },
     {
       "CVE": "CVE-2024-36900",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: hns3: fix kernel crash when devlink reload during initialization\n\nThe devlink reload process will access the hardware resources,\nbut the register operation is done before the hardware is initialized.\nSo, processing the devlink reload during initialization may lead to kernel\ncrash.\n\nThis patch fixes this by registering the devlink after\nhardware initialization.",
       "Threats": [
         {
           "Type": "Impact",
@@ -11408,7 +11408,7 @@
     },
     {
       "CVE": "CVE-2024-36937",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxdp: use flags field to disambiguate broadcast redirect\n\nWhen redirecting a packet using XDP, the bpf_redirect_map() helper will set\nup the redirect destination information in struct bpf_redirect_info (using\nthe __bpf_xdp_redirect_map() helper function), and the xdp_do_redirect()\nfunction will read this information after the XDP program returns and pass\nthe frame on to the right redirect destination.\n\nWhen using the BPF_F_BROADCAST flag to do multicast redirect to a whole\nmap, __bpf_xdp_redirect_map() sets the 'map' pointer in struct\nbpf_redirect_info to point to the destination map to be broadcast. And\nxdp_do_redirect() reacts to the value of this map pointer to decide whether\nit's dealing with a broadcast or a single-value redirect. However, if the\ndestination map is being destroyed before xdp_do_redirect() is called, the\nmap pointer will be cleared out (by bpf_clear_redirect_map()) without\nwaiting for any XDP programs to stop running. This causes xdp_do_redirect()\nto think that the redirect was to a single target, but the target pointer\nis also NULL (since broadcast redirects don't have a single target), so\nthis causes a crash when a NULL pointer is passed to dev_map_enqueue().\n\nTo fix this, change xdp_do_redirect() to react directly to the presence of\nthe BPF_F_BROADCAST flag in the 'flags' value in struct bpf_redirect_info\nto disambiguate between a single-target and a broadcast redirect. And only\nread the 'map' pointer if the broadcast flag is set, aborting if that has\nbeen cleared out in the meantime. This prevents the crash, while keeping\nthe atomic (cmpxchg-based) clearing of the map pointer itself, and without\nadding any more checks in the non-broadcast fast path.",
       "Threats": [
         {
           "Type": "Impact",
@@ -11514,7 +11514,7 @@
     },
     {
       "CVE": "CVE-2024-36945",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: fix neighbour and rtable leak in smc_ib_find_route()\n\nIn smc_ib_find_route(), the neighbour found by neigh_lookup() and rtable\nresolved by ip_route_output_flow() are not released or put before return.\nIt may cause the refcount leak, so fix it.",
       "Threats": [
         {
           "Type": "Impact",
@@ -11565,7 +11565,7 @@
     },
     {
       "CVE": "CVE-2024-36949",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\namd/amdkfd: sync all devices to wait all processes being evicted\n\nIf there are more than one device doing reset in parallel, the first\ndevice will call kfd_suspend_all_processes() to evict all processes\non all devices, this call takes time to finish. other device will\nstart reset and recover without waiting. if the process has not been\nevicted before doing recover, it will be restored, then caused page\nfault.",
       "Threats": [
         {
           "Type": "Impact",

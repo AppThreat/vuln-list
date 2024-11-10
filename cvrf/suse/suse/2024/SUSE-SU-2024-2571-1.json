@@ -40931,7 +40931,7 @@
     },
     {
       "CVE": "CVE-2024-36887",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ne1000e: change usleep_range to udelay in PHY mdic access\n\nThis is a partial revert of commit 6dbdd4de0362 (\"e1000e: Workaround\nfor sporadic MDI error on Meteor Lake systems\"). The referenced commit\nused usleep_range inside the PHY access routines, which are sometimes\ncalled from an atomic context. This can lead to a kernel panic in some\nscenarios, such as cable disconnection and reconnection on vPro systems.\n\nSolve this by changing the usleep_range calls back to udelay.",
       "Threats": [
         {
           "Type": "Impact",
@@ -41165,7 +41165,7 @@
     },
     {
       "CVE": "CVE-2024-36899",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpiolib: cdev: Fix use after free in lineinfo_changed_notify\n\nThe use-after-free issue occurs as follows: when the GPIO chip device file\nis being closed by invoking gpio_chrdev_release(), watched_lines is freed\nby bitmap_free(), but the unregistration of lineinfo_changed_nb notifier\nchain failed due to waiting write rwsem. Additionally, one of the GPIO\nchip's lines is also in the release process and holds the notifier chain's\nread rwsem. Consequently, a race condition leads to the use-after-free of\nwatched_lines.\n\nHere is the typical stack when issue happened:\n\n[free]\ngpio_chrdev_release()\n  --\u003e bitmap_free(cdev-\u003ewatched_lines)                  \u003c-- freed\n  --\u003e blocking_notifier_chain_unregister()\n    --\u003e down_write(\u0026nh-\u003erwsem)                          \u003c-- waiting rwsem\n          --\u003e __down_write_common()\n            --\u003e rwsem_down_write_slowpath()\n                  --\u003e schedule_preempt_disabled()\n                    --\u003e schedule()\n\n[use]\nst54spi_gpio_dev_release()\n  --\u003e gpio_free()\n    --\u003e gpiod_free()\n      --\u003e gpiod_free_commit()\n        --\u003e gpiod_line_state_notify()\n          --\u003e blocking_notifier_call_chain()\n            --\u003e down_read(\u0026nh-\u003erwsem);                  \u003c-- held rwsem\n            --\u003e notifier_call_chain()\n              --\u003e lineinfo_changed_notify()\n                --\u003e test_bit(xxxx, cdev-\u003ewatched_lines) \u003c-- use after free\n\nThe side effect of the use-after-free issue is that a GPIO line event is\nbeing generated for userspace where it shouldn't. However, since the chrdev\nis being closed, userspace won't have the chance to read that event anyway.\n\nTo fix the issue, call the bitmap_free() function after the unregistration\nof lineinfo_changed_nb notifier chain.",
       "Threats": [
         {
           "Type": "Impact",
@@ -41403,7 +41403,7 @@
     },
     {
       "CVE": "CVE-2024-36900",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: hns3: fix kernel crash when devlink reload during initialization\n\nThe devlink reload process will access the hardware resources,\nbut the register operation is done before the hardware is initialized.\nSo, processing the devlink reload during initialization may lead to kernel\ncrash.\n\nThis patch fixes this by registering the devlink after\nhardware initialization.",
       "Threats": [
         {
           "Type": "Impact",
@@ -41637,7 +41637,7 @@
     },
     {
       "CVE": "CVE-2024-36903",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: Fix potential uninit-value access in __ip6_make_skb()\n\nAs it was done in commit fc1092f51567 (\"ipv4: Fix uninit-value access in\n__ip_make_skb()\") for IPv4, check FLOWI_FLAG_KNOWN_NH on fl6-\u003eflowi6_flags\ninstead of testing HDRINCL on the socket to avoid a race condition which\ncauses uninit-value access.",
       "Threats": [
         {
           "Type": "Impact",
@@ -43045,7 +43045,7 @@
     },
     {
       "CVE": "CVE-2024-36923",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/9p: fix uninitialized values during inode evict\n\nIf an iget fails due to not being able to retrieve information\nfrom the server then the inode structure is only partially\ninitialized.  When the inode gets evicted, references to\nuninitialized structures (like fscache cookies) were being\nmade.\n\nThis patch checks for a bad_inode before doing anything other\nthan clearing the inode from the cache.  Since the inode is\nbad, it shouldn't have any state associated with it that needs\nto be written back (and there really isn't a way to complete\nthose anyways).",
       "Threats": [
         {
           "Type": "Impact",
@@ -43279,7 +43279,7 @@
     },
     {
       "CVE": "CVE-2024-36924",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Release hbalock before calling lpfc_worker_wake_up()\n\nlpfc_worker_wake_up() calls the lpfc_work_done() routine, which takes the\nhbalock.  Thus, lpfc_worker_wake_up() should not be called while holding the\nhbalock to avoid potential deadlock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -43513,7 +43513,7 @@
     },
     {
       "CVE": "CVE-2024-36926",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/iommu: LPAR panics during boot up with a frozen PE\n\nAt the time of LPAR boot up, partition firmware provides Open Firmware\nproperty ibm,dma-window for the PE. This property is provided on the PCI\nbus the PE is attached to.\n\nThere are execptions where the partition firmware might not provide this\nproperty for the PE at the time of LPAR boot up. One of the scenario is\nwhere the firmware has frozen the PE due to some error condition. This\nPE is frozen for 24 hours or unless the whole system is reinitialized.\n\nWithin this time frame, if the LPAR is booted, the frozen PE will be\npresented to the LPAR but ibm,dma-window property could be missing.\n\nToday, under these circumstances, the LPAR oopses with NULL pointer\ndereference, when configuring the PCI bus the PE is attached to.\n\n  BUG: Kernel NULL pointer dereference on read at 0x000000c8\n  Faulting instruction address: 0xc0000000001024c0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  LE PAGE_SIZE=64K MMU=Radix SMP NR_CPUS=2048 NUMA pSeries\n  Modules linked in:\n  Supported: Yes\n  CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.4.0-150600.9-default #1\n  Hardware name: IBM,9043-MRX POWER10 (raw) 0x800200 0xf000006 of:IBM,FW1060.00 (NM1060_023) hv:phyp pSeries\n  NIP:  c0000000001024c0 LR: c0000000001024b0 CTR: c000000000102450\n  REGS: c0000000037db5c0 TRAP: 0300   Not tainted  (6.4.0-150600.9-default)\n  MSR:  8000000002009033 \u003cSF,VEC,EE,ME,IR,DR,RI,LE\u003e  CR: 28000822  XER: 00000000\n  CFAR: c00000000010254c DAR: 00000000000000c8 DSISR: 00080000 IRQMASK: 0\n  ...\n  NIP [c0000000001024c0] pci_dma_bus_setup_pSeriesLP+0x70/0x2a0\n  LR [c0000000001024b0] pci_dma_bus_setup_pSeriesLP+0x60/0x2a0\n  Call Trace:\n    pci_dma_bus_setup_pSeriesLP+0x60/0x2a0 (unreliable)\n    pcibios_setup_bus_self+0x1c0/0x370\n    __of_scan_bus+0x2f8/0x330\n    pcibios_scan_phb+0x280/0x3d0\n    pcibios_init+0x88/0x12c\n    do_one_initcall+0x60/0x320\n    kernel_init_freeable+0x344/0x3e4\n    kernel_init+0x34/0x1d0\n    ret_from_kernel_user_thread+0x14/0x1c",
       "Threats": [
         {
           "Type": "Impact",
@@ -43981,7 +43981,7 @@
     },
     {
       "CVE": "CVE-2024-36935",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nice: ensure the copied buf is NUL terminated\n\nCurrently, we allocate a count-sized kernel buffer and copy count bytes\nfrom userspace to that buffer. Later, we use sscanf on this buffer but we\ndon't ensure that the string is terminated inside the buffer, this can lead\nto OOB read when using sscanf. Fix this issue by using memdup_user_nul\ninstead of memdup_user.",
       "Threats": [
         {
           "Type": "Impact",
@@ -44215,7 +44215,7 @@
     },
     {
       "CVE": "CVE-2024-36937",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nxdp: use flags field to disambiguate broadcast redirect\n\nWhen redirecting a packet using XDP, the bpf_redirect_map() helper will set\nup the redirect destination information in struct bpf_redirect_info (using\nthe __bpf_xdp_redirect_map() helper function), and the xdp_do_redirect()\nfunction will read this information after the XDP program returns and pass\nthe frame on to the right redirect destination.\n\nWhen using the BPF_F_BROADCAST flag to do multicast redirect to a whole\nmap, __bpf_xdp_redirect_map() sets the 'map' pointer in struct\nbpf_redirect_info to point to the destination map to be broadcast. And\nxdp_do_redirect() reacts to the value of this map pointer to decide whether\nit's dealing with a broadcast or a single-value redirect. However, if the\ndestination map is being destroyed before xdp_do_redirect() is called, the\nmap pointer will be cleared out (by bpf_clear_redirect_map()) without\nwaiting for any XDP programs to stop running. This causes xdp_do_redirect()\nto think that the redirect was to a single target, but the target pointer\nis also NULL (since broadcast redirects don't have a single target), so\nthis causes a crash when a NULL pointer is passed to dev_map_enqueue().\n\nTo fix this, change xdp_do_redirect() to react directly to the presence of\nthe BPF_F_BROADCAST flag in the 'flags' value in struct bpf_redirect_info\nto disambiguate between a single-target and a broadcast redirect. And only\nread the 'map' pointer if the broadcast flag is set, aborting if that has\nbeen cleared out in the meantime. This prevents the crash, while keeping\nthe atomic (cmpxchg-based) clearing of the map pointer itself, and without\nadding any more checks in the non-broadcast fast path.",
       "Threats": [
         {
           "Type": "Impact",
@@ -44683,7 +44683,7 @@
     },
     {
       "CVE": "CVE-2024-36945",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: fix neighbour and rtable leak in smc_ib_find_route()\n\nIn smc_ib_find_route(), the neighbour found by neigh_lookup() and rtable\nresolved by ip_route_output_flow() are not released or put before return.\nIt may cause the refcount leak, so fix it.",
       "Threats": [
         {
           "Type": "Impact",
@@ -44917,7 +44917,7 @@
     },
     {
       "CVE": "CVE-2024-36952",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Move NPIV's transport unregistration to after resource clean up\n\nThere are cases after NPIV deletion where the fabric switch still believes\nthe NPIV is logged into the fabric.  This occurs when a vport is\nunregistered before the Remove All DA_ID CT and LOGO ELS are sent to the\nfabric.\n\nCurrently fc_remove_host(), which calls dev_loss_tmo for all D_IDs including\nthe fabric D_ID, removes the last ndlp reference and frees the ndlp rport\nobject.  This sometimes causes the race condition where the final DA_ID and\nLOGO are skipped from being sent to the fabric switch.\n\nFix by moving the fc_remove_host() and scsi_remove_host() calls after DA_ID\nand LOGO are sent.",
       "Threats": [
         {
           "Type": "Impact",

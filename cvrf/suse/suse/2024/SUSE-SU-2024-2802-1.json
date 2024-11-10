@@ -12947,7 +12947,7 @@
     },
     {
       "CVE": "CVE-2024-36909",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Don't free ring buffers that couldn't be re-encrypted\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus ring buffer code could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the struct\nvmbus_gpadl for the ring buffers to decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13181,7 +13181,7 @@
     },
     {
       "CVE": "CVE-2024-36910",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nuio_hv_generic: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus device UIO driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13415,7 +13415,7 @@
     },
     {
       "CVE": "CVE-2024-36911",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nhv_netvsc: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe netvsc driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13649,7 +13649,7 @@
     },
     {
       "CVE": "CVE-2024-36912",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Track decrypted status in vmbus_gpadl\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nIn order to make sure callers of vmbus_establish_gpadl() and\nvmbus_teardown_gpadl() don't return decrypted/shared pages to\nallocators, add a field in struct vmbus_gpadl to keep track of the\ndecryption status of the buffers. This will allow the callers to\nknow if they should free or leak the pages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -13883,7 +13883,7 @@
     },
     {
       "CVE": "CVE-2024-36913",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Leak pages if set_memory_encrypted() fails\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nVMBus code could free decrypted pages if set_memory_encrypted()/decrypted()\nfails. Leak the pages if this happens.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14117,7 +14117,7 @@
     },
     {
       "CVE": "CVE-2024-36914",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Skip on writeback when it's not applicable\n\n[WHY]\ndynamic memory safety error detector (KASAN) catches and generates error\nmessages \"BUG: KASAN: slab-out-of-bounds\" as writeback connector does not\nsupport certain features which are not initialized.\n\n[HOW]\nSkip them when connector type is DRM_MODE_CONNECTOR_WRITEBACK.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14351,7 +14351,7 @@
     },
     {
       "CVE": "CVE-2024-36922",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: iwlwifi: read txq-\u003eread_ptr under lock\n\nIf we read txq-\u003eread_ptr without lock, we can read the same\nvalue twice, then obtain the lock, and reclaim from there\nto two different places, but crucially reclaim the same\nentry twice, resulting in the WARN_ONCE() a little later.\nFix that by reading txq-\u003eread_ptr under lock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14585,7 +14585,7 @@
     },
     {
       "CVE": "CVE-2024-36930",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nspi: fix null pointer dereference within spi_sync\n\nIf spi_sync() is called with the non-empty queue and the same spi_message\nis then reused, the complete callback for the message remains set while\nthe context is cleared, leading to a null pointer dereference when the\ncallback is invoked from spi_finalize_current_message().\n\nWith function inlining disabled, the call stack might look like this:\n\n  _raw_spin_lock_irqsave from complete_with_flags+0x18/0x58\n  complete_with_flags from spi_complete+0x8/0xc\n  spi_complete from spi_finalize_current_message+0xec/0x184\n  spi_finalize_current_message from spi_transfer_one_message+0x2a8/0x474\n  spi_transfer_one_message from __spi_pump_transfer_message+0x104/0x230\n  __spi_pump_transfer_message from __spi_transfer_message_noqueue+0x30/0xc4\n  __spi_transfer_message_noqueue from __spi_sync+0x204/0x248\n  __spi_sync from spi_sync+0x24/0x3c\n  spi_sync from mcp251xfd_regmap_crc_read+0x124/0x28c [mcp251xfd]\n  mcp251xfd_regmap_crc_read [mcp251xfd] from _regmap_raw_read+0xf8/0x154\n  _regmap_raw_read from _regmap_bus_read+0x44/0x70\n  _regmap_bus_read from _regmap_read+0x60/0xd8\n  _regmap_read from regmap_read+0x3c/0x5c\n  regmap_read from mcp251xfd_alloc_can_err_skb+0x1c/0x54 [mcp251xfd]\n  mcp251xfd_alloc_can_err_skb [mcp251xfd] from mcp251xfd_irq+0x194/0xe70 [mcp251xfd]\n  mcp251xfd_irq [mcp251xfd] from irq_thread_fn+0x1c/0x78\n  irq_thread_fn from irq_thread+0x118/0x1f4\n  irq_thread from kthread+0xd8/0xf4\n  kthread from ret_from_fork+0x14/0x28\n\nFix this by also setting message-\u003ecomplete to NULL when the transfer is\ncomplete.",
       "Threats": [
         {
           "Type": "Impact",
@@ -15291,7 +15291,7 @@
     },
     {
       "CVE": "CVE-2024-36942",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: qca: fix firmware check error path\n\nA recent commit fixed the code that parses the firmware files before\ndownloading them to the controller but introduced a memory leak in case\nthe sanity checks ever fail.\n\nMake sure to free the firmware buffer before returning on errors.",
       "Threats": [
         {
           "Type": "Impact",
@@ -15525,7 +15525,7 @@
     },
     {
       "CVE": "CVE-2024-36944",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nReapply \"drm/qxl: simplify qxl_fence_wait\"\n\nThis reverts commit 07ed11afb68d94eadd4ffc082b97c2331307c5ea.\n\nStephen Rostedt reports:\n \"I went to run my tests on my VMs and the tests hung on boot up.\n  Unfortunately, the most I ever got out was:\n\n  [   93.607888] Testing event system initcall: OK\n  [   93.667730] Running tests on all trace events:\n  [   93.669757] Testing all events: OK\n  [   95.631064] ------------[ cut here ]------------\n  Timed out after 60 seconds\"\n\nand further debugging points to a possible circular locking dependency\nbetween the console_owner locking and the worker pool locking.\n\nReverting the commit allows Steve's VM to boot to completion again.\n\n[ This may obviously result in the \"[TTM] Buffer eviction failed\"\n  messages again, which was the reason for that original revert. But at\n  this point this seems preferable to a non-booting system... ]",
       "Threats": [
         {
           "Type": "Impact",
@@ -15993,7 +15993,7 @@
     },
     {
       "CVE": "CVE-2024-36947",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nqibfs: fix dentry leak\n\nsimple_recursive_removal() drops the pinning references to all positives\nin subtree.  For the cases when its argument has been kept alive by\nthe pinning alone that's exactly the right thing to do, but here\nthe argument comes from dcache lookup, that needs to be balanced by\nexplicit dput().\n\nFucked-up-by: Al Viro \u003cviro@zeniv.linux.org.uk\u003e",
       "Threats": [
         {
           "Type": "Impact",
@@ -16227,7 +16227,7 @@
     },
     {
       "CVE": "CVE-2024-36949",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\namd/amdkfd: sync all devices to wait all processes being evicted\n\nIf there are more than one device doing reset in parallel, the first\ndevice will call kfd_suspend_all_processes() to evict all processes\non all devices, this call takes time to finish. other device will\nstart reset and recover without waiting. if the process has not been\nevicted before doing recover, it will be restored, then caused page\nfault.",
       "Threats": [
         {
           "Type": "Impact",
@@ -16695,7 +16695,7 @@
     },
     {
       "CVE": "CVE-2024-36951",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: range check cp bad op exception interrupts\n\nDue to a CP interrupt bug, bad packet garbage exception codes are raised.\nDo a range check so that the debugger and runtime do not receive garbage\ncodes.\nUpdate the user api to guard exception code type checking as well.",
       "Threats": [
         {
           "Type": "Impact",
@@ -16929,7 +16929,7 @@
     },
     {
       "CVE": "CVE-2024-36955",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: hda: intel-sdw-acpi: fix usage of device_get_named_child_node()\n\nThe documentation for device_get_named_child_node() mentions this\nimportant point:\n\n\"\nThe caller is responsible for calling fwnode_handle_put() on the\nreturned fwnode pointer.\n\"\n\nAdd fwnode_handle_put() to avoid a leaked reference.",
       "Threats": [
         {
           "Type": "Impact",

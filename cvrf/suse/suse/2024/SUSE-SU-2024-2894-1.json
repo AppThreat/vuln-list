@@ -14083,7 +14083,7 @@
     },
     {
       "CVE": "CVE-2024-36909",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Don't free ring buffers that couldn't be re-encrypted\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus ring buffer code could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the struct\nvmbus_gpadl for the ring buffers to decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14149,7 +14149,7 @@
     },
     {
       "CVE": "CVE-2024-36910",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nuio_hv_generic: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe VMBus device UIO driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14215,7 +14215,7 @@
     },
     {
       "CVE": "CVE-2024-36911",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nhv_netvsc: Don't free decrypted memory\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nThe netvsc driver could free decrypted/shared pages if\nset_memory_decrypted() fails. Check the decrypted field in the gpadl\nto decide whether to free the memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14281,7 +14281,7 @@
     },
     {
       "CVE": "CVE-2024-36912",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Track decrypted status in vmbus_gpadl\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nIn order to make sure callers of vmbus_establish_gpadl() and\nvmbus_teardown_gpadl() don't return decrypted/shared pages to\nallocators, add a field in struct vmbus_gpadl to keep track of the\ndecryption status of the buffers. This will allow the callers to\nknow if they should free or leak the pages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14347,7 +14347,7 @@
     },
     {
       "CVE": "CVE-2024-36913",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nDrivers: hv: vmbus: Leak pages if set_memory_encrypted() fails\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_encrypted() or set_memory_decrypted() to fail such that an\nerror is returned and the resulting memory is shared. Callers need to\ntake care to handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional or security\nissues.\n\nVMBus code could free decrypted pages if set_memory_encrypted()/decrypted()\nfails. Leak the pages if this happens.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14413,7 +14413,7 @@
     },
     {
       "CVE": "CVE-2024-36914",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Skip on writeback when it's not applicable\n\n[WHY]\ndynamic memory safety error detector (KASAN) catches and generates error\nmessages \"BUG: KASAN: slab-out-of-bounds\" as writeback connector does not\nsupport certain features which are not initialized.\n\n[HOW]\nSkip them when connector type is DRM_MODE_CONNECTOR_WRITEBACK.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14545,7 +14545,7 @@
     },
     {
       "CVE": "CVE-2024-36923",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/9p: fix uninitialized values during inode evict\n\nIf an iget fails due to not being able to retrieve information\nfrom the server then the inode structure is only partially\ninitialized.  When the inode gets evicted, references to\nuninitialized structures (like fscache cookies) were being\nmade.\n\nThis patch checks for a bad_inode before doing anything other\nthan clearing the inode from the cache.  Since the inode is\nbad, it shouldn't have any state associated with it that needs\nto be written back (and there really isn't a way to complete\nthose anyways).",
       "Threats": [
         {
           "Type": "Impact",
@@ -14611,7 +14611,7 @@
     },
     {
       "CVE": "CVE-2024-36924",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Release hbalock before calling lpfc_worker_wake_up()\n\nlpfc_worker_wake_up() calls the lpfc_work_done() routine, which takes the\nhbalock.  Thus, lpfc_worker_wake_up() should not be called while holding the\nhbalock to avoid potential deadlock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14677,7 +14677,7 @@
     },
     {
       "CVE": "CVE-2024-36926",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/iommu: LPAR panics during boot up with a frozen PE\n\nAt the time of LPAR boot up, partition firmware provides Open Firmware\nproperty ibm,dma-window for the PE. This property is provided on the PCI\nbus the PE is attached to.\n\nThere are execptions where the partition firmware might not provide this\nproperty for the PE at the time of LPAR boot up. One of the scenario is\nwhere the firmware has frozen the PE due to some error condition. This\nPE is frozen for 24 hours or unless the whole system is reinitialized.\n\nWithin this time frame, if the LPAR is booted, the frozen PE will be\npresented to the LPAR but ibm,dma-window property could be missing.\n\nToday, under these circumstances, the LPAR oopses with NULL pointer\ndereference, when configuring the PCI bus the PE is attached to.\n\n  BUG: Kernel NULL pointer dereference on read at 0x000000c8\n  Faulting instruction address: 0xc0000000001024c0\n  Oops: Kernel access of bad area, sig: 7 [#1]\n  LE PAGE_SIZE=64K MMU=Radix SMP NR_CPUS=2048 NUMA pSeries\n  Modules linked in:\n  Supported: Yes\n  CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.4.0-150600.9-default #1\n  Hardware name: IBM,9043-MRX POWER10 (raw) 0x800200 0xf000006 of:IBM,FW1060.00 (NM1060_023) hv:phyp pSeries\n  NIP:  c0000000001024c0 LR: c0000000001024b0 CTR: c000000000102450\n  REGS: c0000000037db5c0 TRAP: 0300   Not tainted  (6.4.0-150600.9-default)\n  MSR:  8000000002009033 \u003cSF,VEC,EE,ME,IR,DR,RI,LE\u003e  CR: 28000822  XER: 00000000\n  CFAR: c00000000010254c DAR: 00000000000000c8 DSISR: 00080000 IRQMASK: 0\n  ...\n  NIP [c0000000001024c0] pci_dma_bus_setup_pSeriesLP+0x70/0x2a0\n  LR [c0000000001024b0] pci_dma_bus_setup_pSeriesLP+0x60/0x2a0\n  Call Trace:\n    pci_dma_bus_setup_pSeriesLP+0x60/0x2a0 (unreliable)\n    pcibios_setup_bus_self+0x1c0/0x370\n    __of_scan_bus+0x2f8/0x330\n    pcibios_scan_phb+0x280/0x3d0\n    pcibios_init+0x88/0x12c\n    do_one_initcall+0x60/0x320\n    kernel_init_freeable+0x344/0x3e4\n    kernel_init+0x34/0x1d0\n    ret_from_kernel_user_thread+0x14/0x1c",
       "Threats": [
         {
           "Type": "Impact",
@@ -14875,7 +14875,7 @@
     },
     {
       "CVE": "CVE-2024-36942",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: qca: fix firmware check error path\n\nA recent commit fixed the code that parses the firmware files before\ndownloading them to the controller but introduced a memory leak in case\nthe sanity checks ever fail.\n\nMake sure to free the firmware buffer before returning on errors.",
       "Threats": [
         {
           "Type": "Impact",
@@ -14941,7 +14941,7 @@
     },
     {
       "CVE": "CVE-2024-36944",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nReapply \"drm/qxl: simplify qxl_fence_wait\"\n\nThis reverts commit 07ed11afb68d94eadd4ffc082b97c2331307c5ea.\n\nStephen Rostedt reports:\n \"I went to run my tests on my VMs and the tests hung on boot up.\n  Unfortunately, the most I ever got out was:\n\n  [   93.607888] Testing event system initcall: OK\n  [   93.667730] Running tests on all trace events:\n  [   93.669757] Testing all events: OK\n  [   95.631064] ------------[ cut here ]------------\n  Timed out after 60 seconds\"\n\nand further debugging points to a possible circular locking dependency\nbetween the console_owner locking and the worker pool locking.\n\nReverting the commit allows Steve's VM to boot to completion again.\n\n[ This may obviously result in the \"[TTM] Buffer eviction failed\"\n  messages again, which was the reason for that original revert. But at\n  this point this seems preferable to a non-booting system... ]",
       "Threats": [
         {
           "Type": "Impact",
@@ -15073,7 +15073,7 @@
     },
     {
       "CVE": "CVE-2024-36947",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nqibfs: fix dentry leak\n\nsimple_recursive_removal() drops the pinning references to all positives\nin subtree.  For the cases when its argument has been kept alive by\nthe pinning alone that's exactly the right thing to do, but here\nthe argument comes from dcache lookup, that needs to be balanced by\nexplicit dput().\n\nFucked-up-by: Al Viro \u003cviro@zeniv.linux.org.uk\u003e",
       "Threats": [
         {
           "Type": "Impact",
@@ -15205,7 +15205,7 @@
     },
     {
       "CVE": "CVE-2024-36952",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: lpfc: Move NPIV's transport unregistration to after resource clean up\n\nThere are cases after NPIV deletion where the fabric switch still believes\nthe NPIV is logged into the fabric.  This occurs when a vport is\nunregistered before the Remove All DA_ID CT and LOGO ELS are sent to the\nfabric.\n\nCurrently fc_remove_host(), which calls dev_loss_tmo for all D_IDs including\nthe fabric D_ID, removes the last ndlp reference and frees the ndlp rport\nobject.  This sometimes causes the race condition where the final DA_ID and\nLOGO are skipped from being sent to the fabric switch.\n\nFix by moving the fc_remove_host() and scsi_remove_host() calls after DA_ID\nand LOGO are sent.",
       "Threats": [
         {
           "Type": "Impact",
@@ -15271,7 +15271,7 @@
     },
     {
       "CVE": "CVE-2024-36955",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: hda: intel-sdw-acpi: fix usage of device_get_named_child_node()\n\nThe documentation for device_get_named_child_node() mentions this\nimportant point:\n\n\"\nThe caller is responsible for calling fwnode_handle_put() on the\nreturned fwnode pointer.\n\"\n\nAdd fwnode_handle_put() to avoid a leaked reference.",
       "Threats": [
         {
           "Type": "Impact",

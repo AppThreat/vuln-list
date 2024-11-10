@@ -3928,7 +3928,7 @@
     },
     {
       "CVE": "CVE-2022-48886",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nice: Add check for kzalloc\n\nAdd the check for the return value of kzalloc in order to avoid\nNULL pointer dereference.\nMoreover, use the goto-label to share the clean code.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3979,7 +3979,7 @@
     },
     {
       "CVE": "CVE-2022-48887",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/vmwgfx: Remove rcu locks from user resources\n\nUser resource lookups used rcu to avoid two extra atomics. Unfortunately\nthe rcu paths were buggy and it was easy to make the driver crash by\nsubmitting command buffers from two different threads. Because the\nlookups never show up in performance profiles replace them with a\nregular spin lock which fixes the races in accesses to those shared\nresources.\n\nFixes kernel oops'es in IGT's vmwgfx execution_buffer stress test and\nseen crashes with apps using shared resources.",
       "Threats": [
         {
           "Type": "Impact",
@@ -4030,7 +4030,7 @@
     },
     {
       "CVE": "CVE-2022-48888",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/msm/dpu: Fix memory leak in msm_mdss_parse_data_bus_icc_path\n\nof_icc_get() alloc resources for path1, we should release it when not\nneed anymore. Early return when IS_ERR_OR_NULL(path0) may leak path1.\nDefer getting path1 to fix this.\n\nPatchwork: https://patchwork.freedesktop.org/patch/514264/",
       "Threats": [
         {
           "Type": "Impact",
@@ -4081,7 +4081,7 @@
     },
     {
       "CVE": "CVE-2022-48889",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nASoC: Intel: sof-nau8825: fix module alias overflow\n\nThe maximum name length for a platform_device_id entry is 20 characters\nincluding the trailing NUL byte. The sof_nau8825.c file exceeds that,\nwhich causes an obscure error message:\n\nsound/soc/intel/boards/snd-soc-sof_nau8825.mod.c:35:45: error: illegal character encoding in string literal [-Werror,-Winvalid-source-encoding]\nMODULE_ALIAS(\"platform:adl_max98373_nau8825\u003cU+0018\u003e\u003cAA\u003e\");\n                                                   ^~~~\ninclude/linux/module.h:168:49: note: expanded from macro 'MODULE_ALIAS'\n                                                ^~~~~~\ninclude/linux/module.h:165:56: note: expanded from macro 'MODULE_INFO'\n                                                       ^~~~\ninclude/linux/moduleparam.h:26:47: note: expanded from macro '__MODULE_INFO'\n                = __MODULE_INFO_PREFIX __stringify(tag) \"=\" info\n\nI could not figure out how to make the module handling robust enough\nto handle this better, but as a quick fix, using slightly shorter\nnames that are still unique avoids the build issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -4132,7 +4132,7 @@
     },
     {
       "CVE": "CVE-2022-48890",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: storvsc: Fix swiotlb bounce buffer leak in confidential VM\n\nstorvsc_queuecommand() maps the scatter/gather list using scsi_dma_map(),\nwhich in a confidential VM allocates swiotlb bounce buffers. If the I/O\nsubmission fails in storvsc_do_io(), the I/O is typically retried by higher\nlevel code, but the bounce buffer memory is never freed.  The mostly like\ncause of I/O submission failure is a full VMBus channel ring buffer, which\nis not uncommon under high I/O loads.  Eventually enough bounce buffer\nmemory leaks that the confidential VM can't do any I/O. The same problem\ncan arise in a non-confidential VM with kernel boot parameter\nswiotlb=force.\n\nFix this by doing scsi_dma_unmap() in the case of an I/O submission\nerror, which frees the bounce buffer memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -4183,7 +4183,7 @@
     },
     {
       "CVE": "CVE-2022-48891",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nregulator: da9211: Use irq handler when ready\n\nIf the system does not come from reset (like when it is kexec()), the\nregulator might have an IRQ waiting for us.\n\nIf we enable the IRQ handler before its structures are ready, we crash.\n\nThis patch fixes:\n\n[    1.141839] Unable to handle kernel read from unreadable memory at virtual address 0000000000000078\n[    1.316096] Call trace:\n[    1.316101]  blocking_notifier_call_chain+0x20/0xa8\n[    1.322757] cpu cpu0: dummy supplies not allowed for exclusive requests\n[    1.327823]  regulator_notifier_call_chain+0x1c/0x2c\n[    1.327825]  da9211_irq_handler+0x68/0xf8\n[    1.327829]  irq_thread+0x11c/0x234\n[    1.327833]  kthread+0x13c/0x154",
       "Threats": [
         {
           "Type": "Impact",
@@ -4234,7 +4234,7 @@
     },
     {
       "CVE": "CVE-2022-48893",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/i915/gt: Cleanup partial engine discovery failures\n\nIf we abort driver initialisation in the middle of gt/engine discovery,\nsome engines will be fully setup and some not. Those incompletely setup\nengines only have 'engine-\u003erelease == NULL' and so will leak any of the\ncommon objects allocated.\n\nv2:\n - Drop the destroy_pinned_context() helper for now.  It's not really\n   worth it with just a single callsite at the moment.  (Janusz)",
       "Threats": [
         {
           "Type": "Impact",
@@ -4285,7 +4285,7 @@
     },
     {
       "CVE": "CVE-2022-48896",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nixgbe: fix pci device refcount leak\n\nAs the comment of pci_get_domain_bus_and_slot() says, it\nreturns a PCI device with refcount incremented, when finish\nusing it, the caller must decrement the reference count by\ncalling pci_dev_put().\n\nIn ixgbe_get_first_secondary_devfn() and ixgbe_x550em_a_has_mii(),\npci_dev_put() is called to avoid leak.",
       "Threats": [
         {
           "Type": "Impact",
@@ -4336,7 +4336,7 @@
     },
     {
       "CVE": "CVE-2022-48898",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/msm/dp: do not complete dp_aux_cmd_fifo_tx() if irq is not for aux transfer\n\nThere are 3 possible interrupt sources are handled by DP controller,\nHPDstatus, Controller state changes and Aux read/write transaction.\nAt every irq, DP controller have to check isr status of every interrupt\nsources and service the interrupt if its isr status bits shows interrupts\nare pending. There is potential race condition may happen at current aux\nisr handler implementation since it is always complete dp_aux_cmd_fifo_tx()\neven irq is not for aux read or write transaction. This may cause aux read\ntransaction return premature if host aux data read is in the middle of\nwaiting for sink to complete transferring data to host while irq happen.\nThis will cause host's receiving buffer contains unexpected data. This\npatch fixes this problem by checking aux isr and return immediately at\naux isr handler if there are no any isr status bits set.\n\nCurrent there is a bug report regrading eDP edid corruption happen during\nsystem booting up. After lengthy debugging to found that VIDEO_READY\ninterrupt was continuously firing during system booting up which cause\ndp_aux_isr() to complete dp_aux_cmd_fifo_tx() prematurely to retrieve data\nfrom aux hardware buffer which is not yet contains complete data transfer\nfrom sink. This cause edid corruption.\n\nFollows are the signature at kernel logs when problem happen,\nEDID has corrupt header\npanel-simple-dp-aux aux-aea0000.edp: Couldn't identify panel via EDID\n\nChanges in v2:\n-- do complete if (ret == IRQ_HANDLED) ay dp-aux_isr()\n-- add more commit text\n\nChanges in v3:\n-- add Stephen suggested\n-- dp_aux_isr() return IRQ_XXX back to caller\n-- dp_ctrl_isr() return IRQ_XXX back to caller\n\nChanges in v4:\n-- split into two patches\n\nChanges in v5:\n-- delete empty line between tags\n\nChanges in v6:\n-- remove extra \"that\" and fixed line more than 75 char at commit text\n\nPatchwork: https://patchwork.freedesktop.org/patch/516121/",
       "Threats": [
         {
           "Type": "Impact",
@@ -4387,7 +4387,7 @@
     },
     {
       "CVE": "CVE-2022-48899",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/virtio: Fix GEM handle creation UAF\n\nUserspace can guess the handle value and try to race GEM object creation\nwith handle close, resulting in a use-after-free if we dereference the\nobject after dropping the handle's reference.  For that reason, dropping\nthe handle's reference must be done *after* we are done dereferencing\nthe object.",
       "Threats": [
         {
           "Type": "Impact",
