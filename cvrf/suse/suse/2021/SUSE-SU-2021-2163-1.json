@@ -31,13 +31,23 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "SUSE-2021-2163,SUSE-SLE-Module-Development-Tools-15-SP2-2021-2163,SUSE-SLE-Module-Development-Tools-15-SP3-2021-2163",
+      "Text": "Container containers/apache-pulsar:3.3-2021-2163,SUSE-2021-2163,SUSE-SLE-Module-Development-Tools-15-SP2-2021-2163,SUSE-SLE-Module-Development-Tools-15-SP3-2021-2163",
       "Title": "Patchnames",
       "Type": "Details"
     }
   ],
   "ProductTree": {
     "Relationships": [
+      {
+        "ProductReference": "bouncycastle-1.64-3.3.1",
+        "RelatesToProductReference": "Container containers/apache-pulsar:3.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "bouncycastle-pkix-1.64-3.3.1",
+        "RelatesToProductReference": "Container containers/apache-pulsar:3.3",
+        "RelationType": "Default Component Of"
+      },
       {
         "ProductReference": "bouncycastle-1.64-3.3.1",
         "RelatesToProductReference": "SUSE Linux Enterprise Module for Development Tools 15 SP2",
@@ -106,6 +116,8 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container containers/apache-pulsar:3.3:bouncycastle-1.64-3.3.1",
+            "Container containers/apache-pulsar:3.3:bouncycastle-pkix-1.64-3.3.1",
             "SUSE Linux Enterprise Module for Development Tools 15 SP2:bouncycastle-1.64-3.3.1",
             "SUSE Linux Enterprise Module for Development Tools 15 SP2:bouncycastle-pg-1.64-3.3.1",
             "SUSE Linux Enterprise Module for Development Tools 15 SP3:bouncycastle-1.64-3.3.1",
