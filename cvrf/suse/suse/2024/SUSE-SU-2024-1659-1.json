@@ -19974,7 +19974,7 @@
     },
     {
       "CVE": "CVE-2022-48700",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nvfio/type1: Unpin zero pages\n\nThere's currently a reference count leak on the zero page.  We increment\nthe reference via pin_user_pages_remote(), but the page is later handled\nas an invalid/reserved page, therefore it's not accounted against the\nuser and not unpinned by our put_pfn().\n\nIntroducing special zero page handling in put_pfn() would resolve the\nleak, but without accounting of the zero page, a single user could\nstill create enough mappings to generate a reference count overflow.\n\nThe zero page is always resident, so for our purposes there's no reason\nto keep it pinned.  Therefore, add a loop to walk pages returned from\npin_user_pages_remote() and unpin any zero pages.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -39067,7 +39067,7 @@
     },
     {
       "CVE": "CVE-2024-26848",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nafs: Fix endless loop in directory parsing\n\nIf a directory has a block with only \".__afsXXXX\" files in it (from\nuncompleted silly-rename), these .__afsXXXX files are skipped but without\nadvancing the file position in the dir_context.  This leads to\nafs_dir_iterate() repeating the block again and again.\n\nFix this by making the code that skips the .__afsXXXX file also manually\nadvance the file position.\n\nThe symptoms are a soft lookup:\n\n        watchdog: BUG: soft lockup - CPU#3 stuck for 52s! [check:5737]\n        ...\n        RIP: 0010:afs_dir_iterate_block+0x39/0x1fd\n        ...\n         ? watchdog_timer_fn+0x1a6/0x213\n        ...\n         ? asm_sysvec_apic_timer_interrupt+0x16/0x20\n         ? afs_dir_iterate_block+0x39/0x1fd\n         afs_dir_iterate+0x10a/0x148\n         afs_readdir+0x30/0x4a\n         iterate_dir+0x93/0xd3\n         __do_sys_getdents64+0x6b/0xd4\n\nThis is almost certainly the actual fix for:\n\n        https://bugzilla.kernel.org/show_bug.cgi?id=218496",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -47401,7 +47401,7 @@
     },
     {
       "CVE": "CVE-2024-26972",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nubifs: ubifs_symlink: Fix memleak of inode-\u003ei_link in error path\n\nFor error handling path in ubifs_symlink(), inode will be marked as\nbad first, then iput() is invoked. If inode-\u003ei_link is initialized by\nfscrypt_encrypt_symlink() in encryption scenario, inode-\u003ei_link won't\nbe freed by callchain ubifs_free_inode -\u003e fscrypt_free_inode in error\nhandling path, because make_bad_inode() has changed 'inode-\u003ei_mode' as\n'S_IFREG'.\nFollowing kmemleak is easy to be reproduced by injecting error in\nubifs_jnl_update() when doing symlink in encryption scenario:\n unreferenced object 0xffff888103da3d98 (size 8):\n  comm \"ln\", pid 1692, jiffies 4294914701 (age 12.045s)\n  backtrace:\n   kmemdup+0x32/0x70\n   __fscrypt_encrypt_symlink+0xed/0x1c0\n   ubifs_symlink+0x210/0x300 [ubifs]\n   vfs_symlink+0x216/0x360\n   do_symlinkat+0x11a/0x190\n   do_syscall_64+0x3b/0xe0\nThere are two ways fixing it:\n 1. Remove make_bad_inode() in error handling path. We can do that\n    because ubifs_evict_inode() will do same processes for good\n    symlink inode and bad symlink inode, for inode-\u003ei_nlink checking\n    is before is_bad_inode().\n 2. Free inode-\u003ei_link before marking inode bad.\nMethod 2 is picked, it has less influence, personally, I think.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",

@@ -5701,7 +5701,7 @@
     },
     {
       "CVE": "CVE-2022-48700",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nvfio/type1: Unpin zero pages\n\nThere's currently a reference count leak on the zero page.  We increment\nthe reference via pin_user_pages_remote(), but the page is later handled\nas an invalid/reserved page, therefore it's not accounted against the\nuser and not unpinned by our put_pfn().\n\nIntroducing special zero page handling in put_pfn() would resolve the\nleak, but without accounting of the zero page, a single user could\nstill create enough mappings to generate a reference count overflow.\n\nThe zero page is always resident, so for our purposes there's no reason\nto keep it pinned.  Therefore, add a loop to walk pages returned from\npin_user_pages_remote() and unpin any zero pages.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6800,7 +6800,7 @@
     },
     {
       "CVE": "CVE-2024-2201",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A cross-privilege Spectre v2 vulnerability allows attackers to bypass all deployed mitigations, including the recent Fine(IBT), and to leak arbitrary Linux kernel memory on Intel systems.",
       "Threats": [
         {
           "Type": "Impact",
@@ -10708,7 +10708,7 @@
     },
     {
       "CVE": "CVE-2024-26972",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nubifs: ubifs_symlink: Fix memleak of inode-\u003ei_link in error path\n\nFor error handling path in ubifs_symlink(), inode will be marked as\nbad first, then iput() is invoked. If inode-\u003ei_link is initialized by\nfscrypt_encrypt_symlink() in encryption scenario, inode-\u003ei_link won't\nbe freed by callchain ubifs_free_inode -\u003e fscrypt_free_inode in error\nhandling path, because make_bad_inode() has changed 'inode-\u003ei_mode' as\n'S_IFREG'.\nFollowing kmemleak is easy to be reproduced by injecting error in\nubifs_jnl_update() when doing symlink in encryption scenario:\n unreferenced object 0xffff888103da3d98 (size 8):\n  comm \"ln\", pid 1692, jiffies 4294914701 (age 12.045s)\n  backtrace:\n   kmemdup+0x32/0x70\n   __fscrypt_encrypt_symlink+0xed/0x1c0\n   ubifs_symlink+0x210/0x300 [ubifs]\n   vfs_symlink+0x216/0x360\n   do_symlinkat+0x11a/0x190\n   do_syscall_64+0x3b/0xe0\nThere are two ways fixing it:\n 1. Remove make_bad_inode() in error handling path. We can do that\n    because ubifs_evict_inode() will do same processes for good\n    symlink inode and bad symlink inode, for inode-\u003ei_nlink checking\n    is before is_bad_inode().\n 2. Free inode-\u003ei_link before marking inode bad.\nMethod 2 is picked, it has less influence, personally, I think.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",

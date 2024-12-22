@@ -4129,7 +4129,7 @@
     },
     {
       "CVE": "CVE-2024-26720",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/writeback: fix possible divide-by-zero in wb_dirty_limits(), again\n\n(struct dirty_throttle_control *)-\u003ethresh is an unsigned long, but is\npassed as the u32 divisor argument to div_u64().  On architectures where\nunsigned long is 64 bytes, the argument will be implicitly truncated.\n\nUse div64_u64() instead of div_u64() so that the value used in the \"is\nthis a safe division\" check is the same as the divisor.\n\nAlso, remove redundant cast of the numerator to u64, as that should happen\nimplicitly.\n\nThis would be difficult to exploit in memcg domain, given the ratio-based\narithmetic domain_drity_limits() uses, but is much easier in global\nwriteback domain with a BDI_CAP_STRICTLIMIT-backing device, using e.g. \nvm.dirty_bytes=(1\u003c\u003c32)*PAGE_SIZE so that dtc-\u003ethresh == (1\u003c\u003c32)",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
