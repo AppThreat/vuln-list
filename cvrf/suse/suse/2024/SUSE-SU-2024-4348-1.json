@@ -31,13 +31,28 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "SUSE-2024-4348,SUSE-SUSE-MicroOS-5.2-2024-4348",
+      "Text": "Image SLES15-SP3-SAP-BYOS-Azure-2024-4348,Image SLES15-SP3-SAP-BYOS-EC2-HVM-2024-4348,Image SLES15-SP3-SAP-BYOS-GCE-2024-4348,SUSE-2024-4348,SUSE-SUSE-MicroOS-5.2-2024-4348",
       "Title": "Patchnames",
       "Type": "Details"
     }
   ],
   "ProductTree": {
     "Relationships": [
+      {
+        "ProductReference": "socat-1.7.3.2-150000.6.3.1",
+        "RelatesToProductReference": "Image SLES15-SP3-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "socat-1.7.3.2-150000.6.3.1",
+        "RelatesToProductReference": "Image SLES15-SP3-SAP-BYOS-EC2-HVM",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "socat-1.7.3.2-150000.6.3.1",
+        "RelatesToProductReference": "Image SLES15-SP3-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
       {
         "ProductReference": "socat-1.7.3.2-150000.6.3.1",
         "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.2",
@@ -70,7 +85,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2024-54661",
-      "Description": "readline.sh in socat through 1.8.0.1 relies on the /tmp/$USER/stderr2 file.",
+      "Description": "readline.sh in socat before1.8.0.2 relies on the /tmp/$USER/stderr2 file.",
       "Threats": [
         {
           "Type": "Impact",
@@ -91,6 +106,9 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Image SLES15-SP3-SAP-BYOS-Azure:socat-1.7.3.2-150000.6.3.1",
+            "Image SLES15-SP3-SAP-BYOS-EC2-HVM:socat-1.7.3.2-150000.6.3.1",
+            "Image SLES15-SP3-SAP-BYOS-GCE:socat-1.7.3.2-150000.6.3.1",
             "SUSE Linux Enterprise Micro 5.2:socat-1.7.3.2-150000.6.3.1"
           ]
         }
