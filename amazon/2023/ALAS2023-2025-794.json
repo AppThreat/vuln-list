@@ -5,10 +5,10 @@
     "date": "2025-01-06 19:21:00"
   },
   "updated": {
-    "date": "2025-01-09 13:05:00"
+    "date": "2025-01-16 23:13:00"
   },
   "severity": "Important",
-  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-50083:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp: fix mptcp DSS corruption due to large pmtu xmit\n",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-50186:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: explicitly clear the sk pointer, when pf-\u003ecreate fails\n\nCVE-2024-50155:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnetdevsim: use cond_resched() in nsim_dev_trap_report_work()\n\nCVE-2024-50154:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp/dccp: Don't use timer_pending() in reqsk_queue_unlink().\n\nCVE-2024-50151:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nsmb: client: fix OOBs when building SMB2_IOCTL request\n\nCVE-2024-50150:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nusb: typec: altmode should keep reference to parent\n\nCVE-2024-50143:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nudf: fix uninit-value use in udf_get_fileshortad\n\nCVE-2024-50131:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntracing: Consider the NULL character when validating the event length\n\nCVE-2024-50128:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: wwan: fix global oob in wwan_rtnl_policy\n\nCVE-2024-50127:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: sched: fix use-after-free in taprio_change()\n\nCVE-2024-50088:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbtrfs: fix uninitialized pointer free in add_inode_ref()\n\nCVE-2024-50083:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp: fix mptcp DSS corruption due to large pmtu xmit\n\nCVE-2024-49983:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: drop ppath from ext4_ext_replay_update_ex() to avoid double-free\n\nCVE-2024-49936:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet/xen-netback: prevent UAF in xenvif_flush_hash()\n\nCVE-2024-49889:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: avoid use-after-free in ext4_ext_show_leaf()\n\nCVE-2024-49884:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: fix slab-use-after-free in ext4_split_extent_at()\n\nCVE-2024-49883:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: aovid use-after-free in ext4_ext_insert_extent()\n\nCVE-2024-49882:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: fix double brelse() the buffer of the extents path\n\nCVE-2024-49860:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nACPI: sysfs: validate return type of _STR method\n\nCVE-2024-49855:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnbd: fix race between timeout and normal completion\n\nCVE-2024-47742:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nfirmware_loader: Block path traversal\n\nCVE-2024-47701:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: avoid OOB when system.data xattr changes underneath the filesystem\n\nCVE-2024-47685:\n\tsyzbot reported that nf_reject_ip6_tcphdr_put() was possibly sending garbage on the four reserved tcp bits (th-\u003eres1)\n\nUse skb_put_zero() to clear the whole TCP header, as done in nf_reject_ip_tcphdr_put()\n\nCVE-2024-46695:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nselinux,smack: don't bypass permissions check in inode_setsecctx hook\n\nCVE-2024-38632:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nvfio/pci: fix potential memory leak in vfio_intx_enable()\n\nCVE-2024-35963:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: hci_sock: Fix not validating setsockopt user input\n\nCVE-2023-52751:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nsmb: client: fix use-after-free in smb2_query_info_compound()\n",
   "packages": [
     {
       "name": "bpftool-debuginfo",
@@ -333,12 +333,162 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52751",
+      "id": "CVE-2023-52751",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35963",
+      "id": "CVE-2024-35963",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38632",
+      "id": "CVE-2024-38632",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46695",
+      "id": "CVE-2024-46695",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47685",
+      "id": "CVE-2024-47685",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47701",
+      "id": "CVE-2024-47701",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47742",
+      "id": "CVE-2024-47742",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49855",
+      "id": "CVE-2024-49855",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49860",
+      "id": "CVE-2024-49860",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49882",
+      "id": "CVE-2024-49882",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49883",
+      "id": "CVE-2024-49883",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49884",
+      "id": "CVE-2024-49884",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49889",
+      "id": "CVE-2024-49889",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49936",
+      "id": "CVE-2024-49936",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49983",
+      "id": "CVE-2024-49983",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50083",
       "id": "CVE-2024-50083",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50088",
+      "id": "CVE-2024-50088",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50127",
+      "id": "CVE-2024-50127",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50128",
+      "id": "CVE-2024-50128",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50131",
+      "id": "CVE-2024-50131",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50143",
+      "id": "CVE-2024-50143",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50150",
+      "id": "CVE-2024-50150",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50151",
+      "id": "CVE-2024-50151",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50154",
+      "id": "CVE-2024-50154",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50155",
+      "id": "CVE-2024-50155",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50186",
+      "id": "CVE-2024-50186",
       "type": "cve"
     }
   ],
   "cveids": [
-    "CVE-2024-50083"
+    "CVE-2023-52751",
+    "CVE-2024-35963",
+    "CVE-2024-38632",
+    "CVE-2024-46695",
+    "CVE-2024-47685",
+    "CVE-2024-47701",
+    "CVE-2024-47742",
+    "CVE-2024-49855",
+    "CVE-2024-49860",
+    "CVE-2024-49882",
+    "CVE-2024-49883",
+    "CVE-2024-49884",
+    "CVE-2024-49889",
+    "CVE-2024-49936",
+    "CVE-2024-49983",
+    "CVE-2024-50083",
+    "CVE-2024-50088",
+    "CVE-2024-50127",
+    "CVE-2024-50128",
+    "CVE-2024-50131",
+    "CVE-2024-50143",
+    "CVE-2024-50150",
+    "CVE-2024-50151",
+    "CVE-2024-50154",
+    "CVE-2024-50155",
+    "CVE-2024-50186"
   ]
 }
