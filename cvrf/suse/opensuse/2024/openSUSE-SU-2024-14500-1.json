@@ -4849,7 +4849,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -4860,6 +4860,10 @@
         {
           "URL": "https://bugzilla.suse.com/1232193",
           "Description": "SUSE Bug 1232193"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1236571",
+          "Description": "SUSE Bug 1236571"
         }
       ],
       "ProductStatuses": [
@@ -7113,7 +7117,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -7145,7 +7149,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -8505,7 +8509,7 @@
     },
     {
       "CVE": "CVE-2024-49967",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\next4: no need to continue when the number of entries is 1",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -9221,7 +9225,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -10125,11 +10129,11 @@
     },
     {
       "CVE": "CVE-2024-50018",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: napi: Prevent overflow of napi_defer_hard_irqs\n\nIn commit 6f8b12d661d0 (\"net: napi: add hard irqs deferral feature\")\nnapi_defer_irqs was added to net_device and napi_defer_irqs_count was\nadded to napi_struct, both as type int.\n\nThis value never goes below zero, so there is not reason for it to be a\nsigned int. Change the type for both from int to u32, and add an\noverflow check to sysfs to limit the value to S32_MAX.\n\nThe limit of S32_MAX was chosen because the practical limit before this\npatch was S32_MAX (anything larger was an overflow) and thus there are\nno behavioral changes introduced. If the extra bit is needed in the\nfuture, the limit can be raised.\n\nBefore this patch:\n\n$ sudo bash -c 'echo 2147483649 \u003e /sys/class/net/eth4/napi_defer_hard_irqs'\n$ cat /sys/class/net/eth4/napi_defer_hard_irqs\n-2147483647\n\nAfter this patch:\n\n$ sudo bash -c 'echo 2147483649 \u003e /sys/class/net/eth4/napi_defer_hard_irqs'\nbash: line 0: echo: write error: Numerical result out of range\n\nSimilarly, /sys/class/net/XXXXX/tx_queue_len is defined as unsigned:\n\ninclude/linux/netdevice.h:      unsigned int            tx_queue_len;\n\nAnd has an overflow check:\n\ndev_change_tx_queue_len(..., unsigned long new_len):\n\n  if (new_len != (unsigned int)new_len)\n          return -ERANGE;",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "low"
         }
       ],
       "References": [
@@ -12249,11 +12253,11 @@
     },
     {
       "CVE": "CVE-2024-50089",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nunicode: Don't special case ignorable code points\n\nWe don't need to handle them separately. Instead, just let them\ndecompose/casefold to themselves.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -13089,7 +13093,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -13381,7 +13385,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -13417,7 +13421,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -13485,7 +13489,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -13777,7 +13781,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "low"
         }
       ],
       "References": [
@@ -14353,7 +14357,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -15253,7 +15257,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -15861,7 +15865,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -15961,7 +15965,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -16573,7 +16577,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "low"
         }
       ],
       "References": [
@@ -17277,7 +17281,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -17505,7 +17509,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -17573,7 +17577,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
@@ -17641,7 +17645,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": [
