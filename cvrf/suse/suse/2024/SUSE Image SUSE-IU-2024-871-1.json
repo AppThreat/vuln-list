@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-04T12:53:14Z",
+        "Date": "2025-02-07T11:35:09Z",
         "Description": "current"
       }
     ]
@@ -8100,7 +8100,7 @@
     },
     {
       "CVE": "CVE-2021-47536",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: fix wrong list_del in smc_lgr_cleanup_early\n\nsmc_lgr_cleanup_early() meant to delete the link\ngroup from the link group list, but it deleted\nthe list head by mistake.\n\nThis may cause memory corruption since we didn't\nremove the real link group from the list and later\nmemseted the link group structure.\nWe got a list corruption panic when testing:\n\n[  231.277259] list_del corruption. prev-\u003enext should be ffff8881398a8000, but was 0000000000000000\n[  231.278222] ------------[ cut here ]------------\n[  231.278726] kernel BUG at lib/list_debug.c:53!\n[  231.279326] invalid opcode: 0000 [#1] SMP NOPTI\n[  231.279803] CPU: 0 PID: 5 Comm: kworker/0:0 Not tainted 5.10.46+ #435\n[  231.280466] Hardware name: Alibaba Cloud ECS, BIOS 8c24b4c 04/01/2014\n[  231.281248] Workqueue: events smc_link_down_work\n[  231.281732] RIP: 0010:__list_del_entry_valid+0x70/0x90\n[  231.282258] Code: 4c 60 82 e8 7d cc 6a 00 0f 0b 48 89 fe 48 c7 c7 88 4c\n60 82 e8 6c cc 6a 00 0f 0b 48 89 fe 48 c7 c7 c0 4c 60 82 e8 5b cc 6a 00 \u003c0f\u003e\n0b 48 89 fe 48 c7 c7 00 4d 60 82 e8 4a cc 6a 00 0f 0b cc cc cc\n[  231.284146] RSP: 0018:ffffc90000033d58 EFLAGS: 00010292\n[  231.284685] RAX: 0000000000000054 RBX: ffff8881398a8000 RCX: 0000000000000000\n[  231.285415] RDX: 0000000000000001 RSI: ffff88813bc18040 RDI: ffff88813bc18040\n[  231.286141] RBP: ffffffff8305ad40 R08: 0000000000000003 R09: 0000000000000001\n[  231.286873] R10: ffffffff82803da0 R11: ffffc90000033b90 R12: 0000000000000001\n[  231.287606] R13: 0000000000000000 R14: ffff8881398a8000 R15: 0000000000000003\n[  231.288337] FS:  0000000000000000(0000) GS:ffff88813bc00000(0000) knlGS:0000000000000000\n[  231.289160] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n[  231.289754] CR2: 0000000000e72058 CR3: 000000010fa96006 CR4: 00000000003706f0\n[  231.290485] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000\n[  231.291211] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400\n[  231.291940] Call Trace:\n[  231.292211]  smc_lgr_terminate_sched+0x53/0xa0\n[  231.292677]  smc_switch_conns+0x75/0x6b0\n[  231.293085]  ? update_load_avg+0x1a6/0x590\n[  231.293517]  ? ttwu_do_wakeup+0x17/0x150\n[  231.293907]  ? update_load_avg+0x1a6/0x590\n[  231.294317]  ? newidle_balance+0xca/0x3d0\n[  231.294716]  smcr_link_down+0x50/0x1a0\n[  231.295090]  ? __wake_up_common_lock+0x77/0x90\n[  231.295534]  smc_link_down_work+0x46/0x60\n[  231.295933]  process_one_work+0x18b/0x350",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: fix wrong list_del in smc_lgr_cleanup_early\n\nsmc_lgr_cleanup_early() meant to delete the link\ngroup from the link group list, but it deleted\nthe list head by mistake.\n\nThis may cause memory corruption since we didn't\nremove the real link group from the list and later\nmemseted the link group structure.\nWe got a list corruption panic when testing:\n\n[  231.277259] list_del corruption. prev-\u003enext should be ffff8881398a8000, but was 0000000000000000\n[  231.278222] ------------[ cut here ]------------\n[  231.278726] kernel BUG at lib/list_debug.c:53!\n[  231.279326] invalid opcode: 0000 [#1] SMP NOPTI\n[  231.279803] CPU: 0 PID: 5 Comm: kworker/0:0 Not tainted 5.10.46+ #435\n[  231.280466] Hardware name: Alibaba Cloud ECS, BIOS 8c24b4c 04/01/2014\n[  231.281248] Workqueue: events smc_link_down_work\n[  231.281732] RIP: 0010:__list_del_entry_valid+0x70/0x90\n[  231.282258] Code: 4c 60 82 e8 7d cc 6a 00 0f 0b 48 89 fe 48 c7 c7 88 4c\n60 82 e8 6c cc 6a 00 0f 0b 48 89 fe 48 c7 c7 c0 4c 60 82 e8 5b cc 6a 00 \u003c0f\u003e\n0b 48 89 fe 48 c7 c7 00 4d 60 82 e8 4a cc 6a 00 0f 0b cc cc cc\n[  231.284146] RSP: 0018:ffffc90000033d58 EFLAGS: 00010292\n[  231.284685] RAX: 0000000000000054 RBX: ffff8881398a8000 RCX: 0000000000000000\n[  231.285415] RDX: 0000000000000001 RSI: ffff88813bc18040 RDI: ffff88813bc18040\n[  231.286141] RBP: ffffffff8305ad40 R08: 0000000000000003 R09: 0000000000000001\n[  231.286873] R10: ffffffff82803da0 R11: ffffc90000033b90 R12: 0000000000000001\n[  231.287606] R13: 0000000000000000 R14: ffff8881398a8000 R15: 0000000000000003\n[  231.288337] FS:  0000000000000000(0000) GS:ffff88813bc00000(0000) knlGS:0000000000000000\n[  231.289160] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n[  231.289754] CR2: 0000000000e72058 CR3: 000000010fa96006 CR4: 00000000003706f0\n[  231.290485] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000\n[  231.291211] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400\n[  231.291940] Call Trace:\n[  231.292211]  smc_lgr_terminate_sched+0x53/0xa0\n[  231.292677]  smc_switch_conns+0x75/0x6b0\n[  231.293085]  ? update_load_avg+0x1a6/0x590\n[  231.293517]  ? ttwu_do_wakeup+0x17/0x150\n[  231.293907]  ? update_load_avg+0x1a6/0x590\n[  231.294317]  ? newidle_balance+0xca/0x3d0\n[  231.294716]  smcr_link_down+0x50/0x1a0\n[  231.295090]  ? __wake_up_common_lock+0x77/0x90\n[  231.295534]  smc_link_down_work+0x46/0x60\n[  231.295933]  process_one_work+0x18b/0x350",
       "Threats": [
         {
           "Type": "Impact",
@@ -8795,7 +8795,7 @@
     },
     {
       "CVE": "CVE-2022-2196",
-      "Description": "A regression exists in the Linux Kernel within KVM: nVMX that allowed for speculative execution attacks. L2 can carry out Spectre v2 attacks on L1 due to L1 thinking it doesn't need retpolines or IBPB after running L2 due to KVM (L0) advertising eIBRS support to L1. An attacker at L2 with code execution can execute code on an indirect branch on the host machine. We recommend upgrading to Kernel 6.2 or past commit 2e7eab81425a\n",
+      "Description": "A regression exists in the Linux Kernel within KVM: nVMX that allowed for speculative execution attacks. L2 can carry out Spectre v2 attacks on L1 due to L1 thinking it doesn't need retpolines or IBPB after running L2 due to KVM (L0) advertising eIBRS support to L1. An attacker at L2 with code execution can execute code on an indirect branch on the host machine. We recommend upgrading to Kernel 6.2 or past commit 2e7eab81425a\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -12055,7 +12055,7 @@
     },
     {
       "CVE": "CVE-2023-0045",
-      "Description": "The current implementation of the prctl syscall does not issue an IBPB immediately during the syscall. The ib_prctl_set  function updates the Thread Information Flags (TIFs) for the task and updates the SPEC_CTRL MSR on the function __speculation_ctrl_update, but the IBPB is only issued on the next schedule, when the TIF bits are checked. This leaves the victim vulnerable to values already injected on the BTB, prior to the prctl syscall.  The patch that added the support for the conditional mitigation via prctl (ib_prctl_set) dates back to the kernel 4.9.176.\n\nWe recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96\n\n",
+      "Description": "The current implementation of the prctl syscall does not issue an IBPB immediately during the syscall. The ib_prctl_set  function updates the Thread Information Flags (TIFs) for the task and updates the SPEC_CTRL MSR on the function __speculation_ctrl_update, but the IBPB is only issued on the next schedule, when the TIF bits are checked. This leaves the victim vulnerable to values already injected on the BTB, prior to the prctl syscall.  The patch that added the support for the conditional mitigation via prctl (ib_prctl_set) dates back to the kernel 4.9.176.\n\nWe recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -12219,7 +12219,7 @@
     },
     {
       "CVE": "CVE-2023-0266",
-      "Description": "A use after free vulnerability exists in the ALSA PCM package in the Linux Kernel. SNDRV_CTL_IOCTL_ELEM_{READ|WRITE}32 is missing locks that can be used in a use-after-free that can result in a priviledge escalation to gain ring0 access from the system user. We recommend upgrading past commit 56b88b50565cd8b946a2d00b0c83927b7ebb055e\n",
+      "Description": "A use after free vulnerability exists in the ALSA PCM package in the Linux Kernel. SNDRV_CTL_IOCTL_ELEM_{READ|WRITE}32 is missing locks that can be used in a use-after-free that can result in a priviledge escalation to gain ring0 access from the system user. We recommend upgrading past commit 56b88b50565cd8b946a2d00b0c83927b7ebb055e\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -12322,7 +12322,7 @@
     },
     {
       "CVE": "CVE-2023-0459",
-      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit 74e19ef0ff8061ef55957c3abd71614ef0f42f47",
+      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit 74e19ef0ff8061ef55957c3abd71614ef0f42f47",
       "Threats": [
         {
           "Type": "Impact",
@@ -12342,7 +12342,7 @@
     },
     {
       "CVE": "CVE-2023-0461",
-      "Description": "There is a use-after-free vulnerability in the Linux Kernel which can be exploited to achieve local privilege escalation. To reach the vulnerability kernel configuration flag CONFIG_TLS or CONFIG_XFRM_ESPINTCP has to be configured, but the operation does not require any privilege.\n\nThere is a use-after-free bug of icsk_ulp_data of a struct inet_connection_sock.\n\nWhen CONFIG_TLS is enabled, user can install a tls context (struct tls_context) on a connected tcp socket. The context is not cleared if this socket is disconnected and reused as a listener. If a new socket is created from the listener, the context is inherited and vulnerable.\n\nThe setsockopt TCP_ULP operation does not require any privilege.\n\nWe recommend upgrading past commit 2c02d41d71f90a5168391b6a5f2954112ba2307c",
+      "Description": "There is a use-after-free vulnerability in the Linux Kernel which can be exploited to achieve local privilege escalation. To reach the vulnerability kernel configuration flag CONFIG_TLS or CONFIG_XFRM_ESPINTCP has to be configured, but the operation does not require any privilege.\n\nThere is a use-after-free bug of icsk_ulp_data of a struct inet_connection_sock.\n\nWhen CONFIG_TLS is enabled, user can install a tls context (struct tls_context) on a connected tcp socket. The context is not cleared if this socket is disconnected and reused as a listener. If a new socket is created from the listener, the context is inherited and vulnerable.\n\nThe setsockopt TCP_ULP operation does not require any privilege.\n\nWe recommend upgrading past commit 2c02d41d71f90a5168391b6a5f2954112ba2307c",
       "Threats": [
         {
           "Type": "Impact",
@@ -12861,7 +12861,7 @@
     },
     {
       "CVE": "CVE-2023-1281",
-      "Description": "Use After Free vulnerability in Linux kernel traffic control index filter (tcindex) allows Privilege Escalation. The imperfect hash area can be updated while packets are traversing, which will cause a use-after-free when 'tcf_exts_exec()' is called with the destroyed tcf_ext. A local attacker user can use this vulnerability to elevate its privileges to root.\nThis issue affects Linux Kernel: from 4.14 before git commit ee059170b1f7e94e55fa6cadee544e176a6e59c2.\n\n",
+      "Description": "Use After Free vulnerability in Linux kernel traffic control index filter (tcindex) allows Privilege Escalation. The imperfect hash area can be updated while packets are traversing, which will cause a use-after-free when 'tcf_exts_exec()' is called with the destroyed tcf_ext. A local attacker user can use this vulnerability to elevate its privileges to root.\nThis issue affects Linux Kernel: from 4.14 before git commit ee059170b1f7e94e55fa6cadee544e176a6e59c2.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -13104,7 +13104,7 @@
     },
     {
       "CVE": "CVE-2023-1829",
-      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
+      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -13409,7 +13409,7 @@
     },
     {
       "CVE": "CVE-2023-20588",
-      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
+      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -13595,7 +13595,7 @@
     },
     {
       "CVE": "CVE-2023-2163",
-      "Description": "Incorrect verifier pruning in BPF in Linux Kernel \u003e=5.4 leads to unsafe\ncode paths being incorrectly marked as safe, resulting in arbitrary read/write in\nkernel memory, lateral privilege escalation, and container escape.",
+      "Description": "Incorrect verifier pruning in BPF in Linux Kernel \u003e=5.4 leads to unsafe\ncode paths being incorrectly marked as safe, resulting in arbitrary read/write in\nkernel memory, lateral privilege escalation, and container escape.",
       "Threats": [
         {
           "Type": "Impact",
@@ -15060,7 +15060,7 @@
     },
     {
       "CVE": "CVE-2023-3090",
-      "Description": "A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.\n\nThe out-of-bounds write is caused by missing skb-\u003ecb  initialization in the ipvlan network driver. The vulnerability is reachable if CONFIG_IPVLAN is enabled.\n\n\nWe recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.\n\n",
+      "Description": "A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.\n\nThe out-of-bounds write is caused by missing skb-\u003ecb  initialization in the ipvlan network driver. The vulnerability is reachable if CONFIG_IPVLAN is enabled.\n\n\nWe recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -15592,7 +15592,7 @@
     },
     {
       "CVE": "CVE-2023-3390",
-      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.",
+      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.",
       "Threats": [
         {
           "Type": "Impact",
@@ -15612,7 +15612,7 @@
     },
     {
       "CVE": "CVE-2023-34049",
-      "Description": "The Salt-SSH pre-flight option copies the script to the target at a predictable path, which allows an attacker to force Salt-SSH to run their script. If an attacker has access to the target VM and knows the path to the pre-flight script before it runs they can ensure Salt-SSH runs their script with the privileges of the user running Salt-SSH. Do not make the copy path on the target predictable and ensure we check return codes of the scp command if the copy fails.",
+      "Description": "The Salt-SSH pre-flight option copies the script to the target at a predictable path, which allows an attacker to force Salt-SSH to run their script. If an attacker has access to the target VM and knows the path to the pre-flight script before it runs they can ensure Salt-SSH runs their script with the privileges of the user running Salt-SSH. Do not make the copy path on the target predictable and ensure we check return codes of the scp command if the copy fails.",
       "Threats": [
         {
           "Type": "Impact",
@@ -20097,7 +20097,7 @@
     },
     {
       "CVE": "CVE-2024-22231",
-      "Description": "Syndic cache directory creation is vulnerable to a directory traversal attack in salt project which can lead a malicious attacker to create an arbitrary directory on a Salt master.",
+      "Description": "Syndic cache directory creation is vulnerable to a directory traversal attack in salt project which can lead a malicious attacker to create an arbitrary directory on a Salt master.",
       "Threats": [
         {
           "Type": "Impact",

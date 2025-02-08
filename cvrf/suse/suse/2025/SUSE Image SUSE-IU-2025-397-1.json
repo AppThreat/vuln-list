@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-04T12:56:33Z",
+        "Date": "2025-02-07T11:39:17Z",
         "Description": "current"
       }
     ]
@@ -1519,7 +1519,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1537,7 +1537,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -3769,7 +3769,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -4975,7 +4975,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -5857,7 +5857,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -6753,7 +6753,7 @@
     },
     {
       "CVE": "CVE-2024-50022",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndevice-dax: correct pgoff align in dax_set_mapping()\n\npgoff should be aligned using ALIGN_DOWN() instead of ALIGN().  Otherwise,\nvmf-\u003eaddress not aligned to fault_size will be aligned to the next\nalignment, that can result in memory failure getting the wrong address.\n\nIt's a subtle situation that only can be observed in\npage_mapped_in_vma() after the page is page fault handled by\ndev_dax_huge_fault.  Generally, there is little chance to perform\npage_mapped_in_vma in dev-dax's page unless in specific error injection\nto the dax device to trigger an MCE - memory-failure.  In that case,\npage_mapped_in_vma() will be triggered to determine which task is\naccessing the failure address and kill that task in the end.\n\n\nWe used self-developed dax device (which is 2M aligned mapping) , to\nperform error injection to random address.  It turned out that error\ninjected to non-2M-aligned address was causing endless MCE until panic.\nBecause page_mapped_in_vma() kept resulting wrong address and the task\naccessing the failure address was never killed properly:\n\n\n[ 3783.719419] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.049006] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.049190] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.448042] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.448186] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.792026] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.792179] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.162502] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.162633] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.461116] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.461247] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.764730] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.764859] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.042128] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.042259] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.464293] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.464423] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.818090] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.818217] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3787.085297] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3787.085424] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n\nIt took us several weeks to pinpoint this problem,  but we eventually\nused bpftrace to trace the page fault and mce address and successfully\nidentified the issue.\n\n\nJoao added:\n\n; Likely we never reproduce in production because we always pin\n: device-dax regions in the region align they provide (Qemu does\n: similarly with prealloc in hugetlb/file backed memory).  I think this\n: bug requires that we touch *unpinned* device-dax regions unaligned to\n: the device-dax selected alignment (page size i.e.  4K/2M/1G)",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndevice-dax: correct pgoff align in dax_set_mapping()\n\npgoff should be aligned using ALIGN_DOWN() instead of ALIGN().  Otherwise,\nvmf-\u003eaddress not aligned to fault_size will be aligned to the next\nalignment, that can result in memory failure getting the wrong address.\n\nIt's a subtle situation that only can be observed in\npage_mapped_in_vma() after the page is page fault handled by\ndev_dax_huge_fault.  Generally, there is little chance to perform\npage_mapped_in_vma in dev-dax's page unless in specific error injection\nto the dax device to trigger an MCE - memory-failure.  In that case,\npage_mapped_in_vma() will be triggered to determine which task is\naccessing the failure address and kill that task in the end.\n\n\nWe used self-developed dax device (which is 2M aligned mapping) , to\nperform error injection to random address.  It turned out that error\ninjected to non-2M-aligned address was causing endless MCE until panic.\nBecause page_mapped_in_vma() kept resulting wrong address and the task\naccessing the failure address was never killed properly:\n\n\n[ 3783.719419] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.049006] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.049190] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.448042] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.448186] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3784.792026] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3784.792179] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.162502] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.162633] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.461116] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.461247] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3785.764730] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3785.764859] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.042128] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.042259] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.464293] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.464423] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3786.818090] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3786.818217] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n[ 3787.085297] mce: Uncorrected hardware memory error in user-access at \n200c9742380\n[ 3787.085424] Memory failure: 0x200c9742: recovery action for dax page: \nRecovered\n\nIt took us several weeks to pinpoint this problem,  but we eventually\nused bpftrace to trace the page fault and mce address and successfully\nidentified the issue.\n\n\nJoao added:\n\n; Likely we never reproduce in production because we always pin\n: device-dax regions in the region align they provide (Qemu does\n: similarly with prealloc in hugetlb/file backed memory).  I think this\n: bug requires that we touch *unpinned* device-dax regions unaligned to\n: the device-dax selected alignment (page size i.e.  4K/2M/1G)",
       "Threats": [
         {
           "Type": "Impact",
@@ -7297,7 +7297,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -10411,7 +10411,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -11775,7 +11775,7 @@
     },
     {
       "CVE": "CVE-2024-56576",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: i2c: tc358743: Fix crash in the probe error path when using polling\n\nIf an error occurs in the probe() function, we should remove the polling\ntimer that was alarmed earlier, otherwise the timer is called with\narguments that are already freed, which results in a crash.\n\n------------[ cut here ]------------\nWARNING: CPU: 3 PID: 0 at kernel/time/timer.c:1830 __run_timers+0x244/0x268\nModules linked in:\nCPU: 3 UID: 0 PID: 0 Comm: swapper/3 Not tainted 6.11.0 #226\nHardware name: Diasom DS-RK3568-SOM-EVB (DT)\npstate: 804000c9 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)\npc : __run_timers+0x244/0x268\nlr : __run_timers+0x1d4/0x268\nsp : ffffff80eff2baf0\nx29: ffffff80eff2bb50 x28: 7fffffffffffffff x27: ffffff80eff2bb00\nx26: ffffffc080f669c0 x25: ffffff80efef6bf0 x24: ffffff80eff2bb00\nx23: 0000000000000000 x22: dead000000000122 x21: 0000000000000000\nx20: ffffff80efef6b80 x19: ffffff80041c8bf8 x18: ffffffffffffffff\nx17: ffffffc06f146000 x16: ffffff80eff27dc0 x15: 000000000000003e\nx14: 0000000000000000 x13: 00000000000054da x12: 0000000000000000\nx11: 00000000000639c0 x10: 000000000000000c x9 : 0000000000000009\nx8 : ffffff80eff2cb40 x7 : ffffff80eff2cb40 x6 : ffffff8002bee480\nx5 : ffffffc080cb2220 x4 : ffffffc080cb2150 x3 : 00000000000f4240\nx2 : 0000000000000102 x1 : ffffff80eff2bb00 x0 : ffffff80041c8bf0\nCall trace:\n __run_timers+0x244/0x268\n timer_expire_remote+0x50/0x68\n tmigr_handle_remote+0x388/0x39c\n run_timer_softirq+0x38/0x44\n handle_softirqs+0x138/0x298\n __do_softirq+0x14/0x20\n ____do_softirq+0x10/0x1c\n call_on_irq_stack+0x24/0x4c\n do_softirq_own_stack+0x1c/0x2c\n irq_exit_rcu+0x9c/0xcc\n el1_interrupt+0x48/0xc0\n el1h_64_irq_handler+0x18/0x24\n el1h_64_irq+0x7c/0x80\n default_idle_call+0x34/0x68\n do_idle+0x23c/0x294\n cpu_startup_entry+0x38/0x3c\n secondary_start_kernel+0x128/0x160\n __secondary_switched+0xb8/0xbc\n---[ end trace 0000000000000000 ]---",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: i2c: tc358743: Fix crash in the probe error path when using polling\n\nIf an error occurs in the probe() function, we should remove the polling\ntimer that was alarmed earlier, otherwise the timer is called with\narguments that are already freed, which results in a crash.\n\n------------[ cut here ]------------\nWARNING: CPU: 3 PID: 0 at kernel/time/timer.c:1830 __run_timers+0x244/0x268\nModules linked in:\nCPU: 3 UID: 0 PID: 0 Comm: swapper/3 Not tainted 6.11.0 #226\nHardware name: Diasom DS-RK3568-SOM-EVB (DT)\npstate: 804000c9 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)\npc : __run_timers+0x244/0x268\nlr : __run_timers+0x1d4/0x268\nsp : ffffff80eff2baf0\nx29: ffffff80eff2bb50 x28: 7fffffffffffffff x27: ffffff80eff2bb00\nx26: ffffffc080f669c0 x25: ffffff80efef6bf0 x24: ffffff80eff2bb00\nx23: 0000000000000000 x22: dead000000000122 x21: 0000000000000000\nx20: ffffff80efef6b80 x19: ffffff80041c8bf8 x18: ffffffffffffffff\nx17: ffffffc06f146000 x16: ffffff80eff27dc0 x15: 000000000000003e\nx14: 0000000000000000 x13: 00000000000054da x12: 0000000000000000\nx11: 00000000000639c0 x10: 000000000000000c x9 : 0000000000000009\nx8 : ffffff80eff2cb40 x7 : ffffff80eff2cb40 x6 : ffffff8002bee480\nx5 : ffffffc080cb2220 x4 : ffffffc080cb2150 x3 : 00000000000f4240\nx2 : 0000000000000102 x1 : ffffff80eff2bb00 x0 : ffffff80041c8bf0\nCall trace:\n __run_timers+0x244/0x268\n timer_expire_remote+0x50/0x68\n tmigr_handle_remote+0x388/0x39c\n run_timer_softirq+0x38/0x44\n handle_softirqs+0x138/0x298\n __do_softirq+0x14/0x20\n ____do_softirq+0x10/0x1c\n call_on_irq_stack+0x24/0x4c\n do_softirq_own_stack+0x1c/0x2c\n irq_exit_rcu+0x9c/0xcc\n el1_interrupt+0x48/0xc0\n el1h_64_irq_handler+0x18/0x24\n el1h_64_irq+0x7c/0x80\n default_idle_call+0x34/0x68\n do_idle+0x23c/0x294\n cpu_startup_entry+0x38/0x3c\n secondary_start_kernel+0x128/0x160\n __secondary_switched+0xb8/0xbc\n---[ end trace 0000000000000000 ]---",
       "Threats": [
         {
           "Type": "Impact",
