@@ -1,0 +1,467 @@
+{
+  "Title": "Security update for crypto-policies, krb5",
+  "Tracking": {
+    "ID": "SUSE-SU-2025:0401-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2025-02-10T09:38:29Z",
+    "CurrentReleaseDate": "2025-02-10T09:38:29Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2025-02-10T09:38:29Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for crypto-policies, krb5",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for crypto-policies and krb5 fixes the following issues:\n\nSecurity issue fixed:\n\n- CVE-2025-24528: Fixed out-of-bounds write caused by overflow when calculating ulog block size can lead to process crash (bsc#1236619).\n\nFeature addition:\n\n- Add crypto-policies support; (jsc#PED-12018)\n\n  * The default krb5.conf has been updated to include config\n    snippets in the krb5.conf.d directory, where crypto-policies\n    drops its.\n\n- Allow to use KRB5KDF in FIPS mode; (jsc#PED-12018); \n\n  * This key derivation function is used by AES256-CTS-HMAC-SHA1-96 \n    and AES128-CTS-HMAC-SHA1-96 encryption types, used by Active\n    directory. If these encryption types are allowed or not in \n    FIPS mode is enforced now by the FIPS:AD-SUPPORT subpolicy.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container bci/bci-base-fips:15.7-2025-401,Container bci/bci-base-fips:latest-2025-401,Container containers/apache-tomcat:10.1-openjdk11-2025-401,Container containers/apache-tomcat:10.1-openjdk17-2025-401,Container containers/apache-tomcat:10.1-openjdk21-2025-401,Container containers/apache-tomcat:9-openjdk11-2025-401,Container containers/apache-tomcat:9-openjdk17-2025-401,Container containers/apache-tomcat:9-openjdk21-2025-401,Container containers/apache-tomcat:9-openjdk8-2025-401,Container containers/milvus:2.4-2025-401,Container containers/ollama:0.3-2025-401,Container suse/389-ds:latest-2025-401,Container suse/git:latest-2025-401,Container suse/helm:latest-2025-401,Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest-2025-401,Container suse/postgres:16-2025-401,Container suse/postgres:latest-2025-401,Container suse/registry:latest-2025-401,Container suse/rmt-mariadb-client:latest-2025-401,Container suse/rmt-mariadb:latest-2025-401,Container suse/stunnel:latest-2025-401,SUSE-2025-401,SUSE-SLE-Module-Basesystem-15-SP6-2025-401,SUSE-SLE-Module-Server-Applications-15-SP6-2025-401,openSUSE-SLE-15.6-2025-401",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/bci-base-fips:15.7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/bci-base-fips:15.7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/bci-base-fips:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container bci/bci-base-fips:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk17",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk17",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:10.1-openjdk21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk11",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk17",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk17",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk21",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/apache-tomcat:9-openjdk8",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/milvus:2.4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/milvus:2.4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container containers/ollama:0.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container containers/ollama:0.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-client-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/389-ds:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/git:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/git:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/helm:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/postgres:16",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/postgres:16",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/postgres:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/postgres:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/registry:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/registry:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb-client:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb-client:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/rmt-mariadb:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "Container suse/stunnel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "Container suse/stunnel:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-32bit-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-client-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-devel-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-preauth-otp-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-preauth-pkinit-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-kdb-ldap-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Server Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-server-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Server Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-32bit-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-client-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-devel-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-devel-32bit-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-kdb-ldap-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-preauth-otp-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-preauth-pkinit-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-plugin-preauth-spake-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "krb5-server-1.20.1-150600.11.8.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2025/suse-su-20250401-1/",
+      "Description": "Link for SUSE-SU-2025:0401-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2025-February/020299.html",
+      "Description": "E-Mail link for SUSE-SU-2025:0401-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1236619",
+      "Description": "SUSE Bug 1236619"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-24528/",
+      "Description": "SUSE CVE CVE-2025-24528 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-24528",
+      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-24528.html",
+          "Description": "CVE-2025-24528"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1236619",
+          "Description": "SUSE Bug 1236619"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container bci/bci-base-fips:15.7:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container bci/bci-base-fips:15.7:crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+            "Container bci/bci-base-fips:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container bci/bci-base-fips:latest:crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:10.1-openjdk11:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:10.1-openjdk11:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:10.1-openjdk17:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:10.1-openjdk17:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:10.1-openjdk21:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:10.1-openjdk21:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:9-openjdk11:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:9-openjdk11:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:9-openjdk17:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:9-openjdk17:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:9-openjdk21:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:9-openjdk21:krb5-1.20.1-150600.11.8.1",
+            "Container containers/apache-tomcat:9-openjdk8:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/apache-tomcat:9-openjdk8:krb5-1.20.1-150600.11.8.1",
+            "Container containers/milvus:2.4:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/milvus:2.4:krb5-1.20.1-150600.11.8.1",
+            "Container containers/ollama:0.3:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container containers/ollama:0.3:krb5-1.20.1-150600.11.8.1",
+            "Container suse/389-ds:latest:krb5-client-1.20.1-150600.11.8.1",
+            "Container suse/git:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/git:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/helm:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/hpc/warewulf4-x86_64/sle-hpc-node:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/postgres:16:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/postgres:16:krb5-1.20.1-150600.11.8.1",
+            "Container suse/postgres:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/postgres:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/registry:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/registry:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/rmt-mariadb-client:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/rmt-mariadb-client:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/rmt-mariadb:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/rmt-mariadb:latest:krb5-1.20.1-150600.11.8.1",
+            "Container suse/stunnel:latest:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "Container suse/stunnel:latest:krb5-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-32bit-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-client-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-devel-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-plugin-preauth-otp-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:krb5-plugin-preauth-pkinit-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:krb5-plugin-kdb-ldap-1.20.1-150600.11.8.1",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:krb5-server-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:crypto-policies-20230920.570ea89-150600.3.3.1",
+            "openSUSE Leap 15.6:crypto-policies-scripts-20230920.570ea89-150600.3.3.1",
+            "openSUSE Leap 15.6:krb5-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-32bit-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-client-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-devel-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-devel-32bit-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-plugin-kdb-ldap-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-plugin-preauth-otp-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-plugin-preauth-pkinit-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-plugin-preauth-spake-1.20.1-150600.11.8.1",
+            "openSUSE Leap 15.6:krb5-server-1.20.1-150600.11.8.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
