@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-10T01:01:05Z",
+        "Date": "2025-02-15T12:45:37Z",
         "Description": "current"
       }
     ]
@@ -158,7 +158,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2024-10524",
-      "Description": "Applications that use Wget to access a remote resource using shorthand URLs and pass arbitrary user credentials in the URL are vulnerable. In these cases attackers can enter crafted credentials which will cause Wget to access an arbitrary host.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -178,7 +178,7 @@
     },
     {
       "CVE": "CVE-2024-11168",
-      "Description": "The urllib.parse.urlsplit() and urlparse() functions improperly validated bracketed hosts (`[]`), allowing hosts that weren't IPv6 or IPvFuture. This behavior was not conformant to RFC 3986 and potentially enabled SSRF if a URL is processed by more than one URL parser.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -198,7 +198,7 @@
     },
     {
       "CVE": "CVE-2024-24806",
-      "Description": "libuv is a multi-platform support library with a focus on asynchronous I/O. The `uv_getaddrinfo` function in `src/unix/getaddrinfo.c` (and its windows counterpart `src/win/getaddrinfo.c`), truncates hostnames to 256 characters before calling `getaddrinfo`. This behavior can be exploited to create addresses like `0x00007f000001`, which are considered valid by `getaddrinfo` and could allow an attacker to craft payloads that resolve to unintended IP addresses, bypassing developer checks. The vulnerability arises due to how the `hostname_ascii` variable (with a length of 256 bytes) is handled in `uv_getaddrinfo` and subsequently in `uv__idna_toascii`. When the hostname exceeds 256 characters, it gets truncated without a terminating null byte. As a result attackers may be able to access internal APIs or for websites (similar to MySpace) that allows users to have `username.example.com` pages. Internal services that crawl or cache these user pages can be exposed to SSRF attacks if a malicious user chooses a long vulnerable username. This issue has been addressed in release version 1.48.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -218,7 +218,7 @@
     },
     {
       "CVE": "CVE-2024-43374",
-      "Description": "The UNIX editor Vim prior to version 9.1.0678 has a use-after-free error in argument list handling. When adding a new file to the argument list, this triggers `Buf*` autocommands. If in such an autocommand the buffer that was just opened is closed (including the window where it is shown), this causes the window structure to be freed which contains a reference to the argument list that we are actually modifying. Once the autocommands are completed, the references to the window and argument list are no longer valid and as such cause an use-after-free. Impact is low since the user must either intentionally add some unusual autocommands that wipe a buffer during creation (either manually or by sourcing a malicious plugin), but it will crash Vim. The issue has been fixed as of Vim patch v9.1.0678.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -239,7 +239,7 @@
     },
     {
       "CVE": "CVE-2024-47814",
-      "Description": "Vim is an open source, command line text editor. A use-after-free was found in Vim \u003c 9.1.0764. When closing a buffer (visible in a window) a BufWinLeave auto command can cause an use-after-free if this auto command happens to re-open the same buffer in a new split window. Impact is low since the user must have intentionally set up such a strange auto command and run some buffer unload commands. However this may lead to a crash. This issue has been addressed in version 9.1.0764 and all users are advised to upgrade. There are no known workarounds for this vulnerability.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -260,7 +260,7 @@
     },
     {
       "CVE": "CVE-2024-50602",
-      "Description": "An issue was discovered in libexpat before 2.6.4. There is a crash within the XML_ResumeParser function because XML_StopParser can stop/suspend an unstarted parser.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -280,7 +280,7 @@
     },
     {
       "CVE": "CVE-2024-52533",
-      "Description": "gio/gsocks4aproxy.c in GNOME GLib before 2.82.1 has an off-by-one error and resultant buffer overflow because SOCKS4_CONN_MSG_LEN is not sufficient for a trailing '\\0' character.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -300,7 +300,7 @@
     },
     {
       "CVE": "CVE-2024-54661",
-      "Description": "readline.sh in socat before1.8.0.2 relies on the /tmp/$USER/stderr2 file.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",

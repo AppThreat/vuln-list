@@ -1,0 +1,208 @@
+{
+  "Title": "SUSE-IU-2025:570-1",
+  "Tracking": {
+    "ID": "SUSE Image SUSE-IU-2025:570-1",
+    "Status": "Interim",
+    "Version": "1",
+    "InitialReleaseDate": "2025-02-10T01:00:00Z",
+    "CurrentReleaseDate": "2025-02-10T01:00:00Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2025-02-15T12:51:13Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Image update for SUSE-IU-2025:570-1 / google/sle-micro-6-1-byos-v20250210-arm64",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This image update for google/sle-micro-6-1-byos-v20250210-arm64 contains the following changes:\nPackage iptables was updated:\n\n- Add iptables-1.8.9-fix-checking-existence-of-rule.patch  * Fixes checking existence of rules. Fixes issues with rule creation\n    with podman/netavark. (bsc#1235088, bsc#1234996)\n\nPackage libzypp was updated:\n\n- Url: queryparams without value should not have a trailing \u0026quot;=\u0026quot;.- version 17.35.16 (35)\n\n- Url query part: `=` is a safe char in value (bsc#1234304)\n- RpmDb: Recognize rpmdb.sqlite as database file (#593)\n- Fix typo (fixes #592)\n- cmake: check location of fcgi header and adjust include\n  accordingly. On Debian and derivatives the fcgi headers\n  are not stored in a fastcgi/ subdirectory.(#590)\n- version 17.35.15 (35)\n\n- The 20MB download limit must not apply to non-metadata files like\n  package URLs provided via the CLI (bsc#1233393).\n- version 17.35.14 (35)\n\n- BuildCache: Don't try to retrieve missing raw metadata if no\n  permission to write the cache (bsc#1225451)\n- RepoManager: throw RepoNoPermissionException if the user has no\n  permission to update(write) the caches (bsc#1225451)\n- version 17.35.13 (35)\n\nPackage rsync was updated:\n\n- Bump protocol version to 32 - make it easier to show server is patched.  * Add rsync-protocol-version-32.patch\n\n- Fix FLAG_GOT_DIR_FLIST collission with FLAG_HLINKED\n  * Added rsync-fix-FLAG_GOT_DIR_FLIST.patch\n\n- Security update,CVE-2024-12747, bsc#1235475 race condition in handling symbolic links\n  * Added rsync-CVE-2024-12747.patch\n\n- Security update, fix multiple vulnerabilities:\n  * CVE-2024-12084, bsc#1234100 - Heap Buffer Overflow in Checksum Parsing\n  * CVE-2024-12085, bsc#1234101 - Info Leak via uninitialized Stack contents defeats ASLR\n  * CVE-2024-12086, bsc#1234102 - Server leaks arbitrary client files\n  * CVE-2024-12087, bsc#1234103 - Server can make client write files outside of destination directory using symbolic links\n  * CVE-2024-12088, bsc#1234104 - --safe-links Bypass\n  * Added rsync-CVE-2024-12084-overflow-01.patch\n  * Added rsync-CVE-2024-12084-overflow-02.patch\n  * Added rsync-CVE-2024-12085.patch\n  * Added rsync-CVE-2024-12086_01.patch\n  * Added rsync-CVE-2024-12086_02.patch\n  * Added rsync-CVE-2024-12086_03.patch\n  * Added rsync-CVE-2024-12086_04.patch\n  * Added rsync-CVE-2024-12087_01.patch\n  * Added rsync-CVE-2024-12087_02.patch\n  * Added rsync-CVE-2024-12088.patch\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "SL-Micro-release-6.1-slfo.1.11.2",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "iptables-1.8.9-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-default-6.4.0-24.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libip4tc2-1.8.9-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libip6tc2-1.8.9-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libxtables12-1.8.9-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libzypp-17.35.16-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-requests-2.32.3-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "rsync-3.3.0-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "xtables-plugins-1.8.9-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20250210-arm64",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sle-micro-6-1-byos-v20250210-arm64/",
+      "Description": "Public Cloud Image Info"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-12084",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "critical"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-12085",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-12086",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-12087",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-12088",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-12747",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

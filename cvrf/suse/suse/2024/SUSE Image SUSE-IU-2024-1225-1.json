@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-10T00:58:42Z",
+        "Date": "2025-02-15T12:43:20Z",
         "Description": "current"
       }
     ]
@@ -358,7 +358,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2023-45142",
-      "Description": "OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. A handler wrapper out of the box adds labels `http.user_agent` and `http.method` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent to it. HTTP header User-Agent or HTTP method for requests can be easily set by an attacker to be random and long. The library internally uses `httpconv.ServerRequest` that records every value for HTTP `method` and `User-Agent`. In order to be affected, a program has to use the `otelhttp.NewHandler` wrapper and not filter any unknown HTTP methods or User agents on the level of CDN, LB, previous middleware, etc. Version 0.44.0 fixed this issue when the values collected for attribute `http.request.method` were changed to be restricted to a set of well-known values and other high cardinality attributes were removed. As a workaround to stop being affected, `otelhttp.WithFilter()` can be used, but it requires manual careful configuration to not log certain requests entirely. For convenience and safe usage of this library, it should by default mark with the label `unknown` non-standard HTTP methods and User agents to show that such requests were made but do not increase cardinality. In case someone wants to stay with the current behavior, library API should allow to enable it.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -378,7 +378,7 @@
     },
     {
       "CVE": "CVE-2023-47108",
-      "Description": "OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. Prior to version 0.46.0, the grpc Unary Server Interceptor out of the box adds labels `net.peer.sock.addr` and `net.peer.sock.port` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent. An attacker can easily flood the peer address and port for requests. Version 0.46.0 contains a fix for this issue. As a workaround to stop being affected, a view removing the attributes can be used. The other possibility is to disable grpc metrics instrumentation by passing `otelgrpc.WithMeterProvider` option with `noop.NewMeterProvider`.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -398,7 +398,7 @@
     },
     {
       "CVE": "CVE-2023-7256",
-      "Description": "In affected libpcap versions during the setup of a remote packet capture the internal function sock_initaddress() calls getaddrinfo() and possibly freeaddrinfo(), but does not clearly indicate to the caller function whether freeaddrinfo() still remains to be called after the function returns.  This makes it possible in some scenarios that both the function and its caller call freeaddrinfo() for the same allocated memory block.  A similar problem was reported in Apple libpcap, to which Apple assigned CVE-2023-40400.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -418,7 +418,7 @@
     },
     {
       "CVE": "CVE-2024-31145",
-      "Description": "Certain PCI devices in a system might be assigned Reserved Memory\nRegions (specified via Reserved Memory Region Reporting, \"RMRR\") for\nIntel VT-d or Unity Mapping ranges for AMD-Vi.  These are typically used\nfor platform tasks such as legacy USB emulation.\n\nSince the precise purpose of these regions is unknown, once a device\nassociated with such a region is active, the mappings of these regions\nneed to remain continuouly accessible by the device.  In the logic\nestablishing these mappings, error handling was flawed, resulting in\nsuch mappings to potentially remain in place when they should have been\nremoved again.  Respective guests would then gain access to memory\nregions which they aren't supposed to have access to.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -438,7 +438,7 @@
     },
     {
       "CVE": "CVE-2024-31146",
-      "Description": "When multiple devices share resources and one of them is to be passed\nthrough to a guest, security of the entire system and of respective\nguests individually cannot really be guaranteed without knowing\ninternals of any of the involved guests.  Therefore such a configuration\ncannot really be security-supported, yet making that explicit was so far\nmissing.\n\nResources the sharing of which is known to be problematic include, but\nare not limited to\n- - PCI Base Address Registers (BARs) of multiple devices mapping to the\n  same page (4k on x86),\n- - INTx lines.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -458,7 +458,7 @@
     },
     {
       "CVE": "CVE-2024-45310",
-      "Description": "runc is a CLI tool for spawning and running containers according to the OCI specification. runc 1.1.13 and earlier, as well as 1.2.0-rc2 and earlier, can be tricked into creating empty files or directories in arbitrary locations in the host filesystem by sharing a volume between two containers and exploiting a race with `os.MkdirAll`. While this could be used to create empty files, existing files would not be truncated. An attacker must have the ability to start containers using some kind of custom volume configuration. Containers using user namespaces are still affected, but the scope of places an attacker can create inodes can be significantly reduced. Sufficiently strict LSM policies (SELinux/Apparmor) can also in principle block this attack -- we suspect the industry standard SELinux policy may restrict this attack's scope but the exact scope of protection hasn't been analysed. This is exploitable using runc directly as well as through Docker and Kubernetes. The issue is fixed in runc v1.1.14 and v1.2.0-rc3.\n\nSome workarounds are available. Using user namespaces restricts this attack fairly significantly such that the attacker can only create inodes in directories that the remapped root user/group has write access to. Unless the root user is remapped to an actual\nuser on the host (such as with rootless containers that don't use `/etc/sub[ug]id`), this in practice means that an attacker would only be able to create inodes in world-writable directories. A strict enough SELinux or AppArmor policy could in principle also restrict the scope if a specific label is applied to the runc runtime, though neither the extent to which the standard existing policies block this attack nor what exact policies are needed to sufficiently restrict this attack have been thoroughly tested.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -478,7 +478,7 @@
     },
     {
       "CVE": "CVE-2024-45490",
-      "Description": "An issue was discovered in libexpat before 2.6.3. xmlparse.c does not reject a negative length for XML_ParseBuffer.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -499,7 +499,7 @@
     },
     {
       "CVE": "CVE-2024-45491",
-      "Description": "An issue was discovered in libexpat before 2.6.3. dtdCopy in xmlparse.c can have an integer overflow for nDefaultAtts on 32-bit platforms (where UINT_MAX equals SIZE_MAX).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -520,7 +520,7 @@
     },
     {
       "CVE": "CVE-2024-45492",
-      "Description": "An issue was discovered in libexpat before 2.6.3. nextScaffoldPart in xmlparse.c can have an integer overflow for m_groupSize on 32-bit platforms (where UINT_MAX equals SIZE_MAX).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -541,7 +541,7 @@
     },
     {
       "CVE": "CVE-2024-6345",
-      "Description": "A vulnerability in the package_index module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -561,7 +561,7 @@
     },
     {
       "CVE": "CVE-2024-7006",
-      "Description": "A null pointer dereference flaw was found in Libtiff via `tif_dirinfo.c`. This issue may allow an attacker to trigger memory allocation failures through certain means, such as restricting the heap space size or injecting faults, causing a segmentation fault. This can cause an application crash, eventually leading to a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -581,7 +581,7 @@
     },
     {
       "CVE": "CVE-2024-7264",
-      "Description": "libcurl's ASN1 parser code has the `GTime2str()` function, used for parsing an\nASN.1 Generalized Time field. If given an syntactically incorrect field, the\nparser might end up using -1 for the length of the *time fraction*, leading to\na `strlen()` getting performed on a pointer to a heap buffer area that is not\n(purposely) null terminated.\n\nThis flaw most likely leads to a crash, but can also lead to heap contents\ngetting returned to the application when\n[CURLINFO_CERTINFO](https://curl.se/libcurl/c/CURLINFO_CERTINFO.html) is used.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -602,7 +602,7 @@
     },
     {
       "CVE": "CVE-2024-8006",
-      "Description": "Remote packet capture support is disabled by default in libpcap.  When a user builds libpcap with remote packet capture support enabled, one of the functions that become available is pcap_findalldevs_ex().  One of the function arguments can be a filesystem path, which normally means a directory with input data files.  When the specified path cannot be used as a directory, the function receives NULL from opendir(), but does not check the return value and passes the NULL value to readdir(), which causes a NULL pointer derefence.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -622,7 +622,7 @@
     },
     {
       "CVE": "CVE-2024-8096",
-      "Description": "When curl is told to use the Certificate Status Request TLS extension, often referred to as OCSP stapling, to verify that the server certificate is valid, it might fail to detect some OCSP problems and instead wrongly consider the response as fine.  If the returned status reports another error than 'revoked' (like for example 'unauthorized') it is not treated as a bad certficate.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",

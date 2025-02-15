@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-10T01:01:47Z",
+        "Date": "2025-02-15T12:46:09Z",
         "Description": "current"
       }
     ]
@@ -848,7 +848,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2019-25162",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ni2c: Fix a potential use after free\n\nFree the adap structure only after we are done using it.\nThis patch just moves the put_device() down a bit to avoid the\nuse after free.\n\n[wsa: added comment to the code, added Fixes tag]",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -868,7 +868,7 @@
     },
     {
       "CVE": "CVE-2020-12912",
-      "Description": "A potential vulnerability in the AMD extension to Linux \"hwmon\" service may allow an attacker to use the Linux-based Running Average Power Limit (RAPL) interface to show various side channel attacks. In line with industry partners, AMD has updated the RAPL interface to require privileged access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -891,7 +891,7 @@
     },
     {
       "CVE": "CVE-2020-26555",
-      "Description": "Bluetooth legacy BR/EDR PIN code pairing in Bluetooth Core Specification 1.0B through 5.2 may permit an unauthenticated nearby device to spoof the BD_ADDR of the peer device to complete pairing without knowledge of the PIN.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -914,7 +914,7 @@
     },
     {
       "CVE": "CVE-2020-8694",
-      "Description": "Insufficient access control in the Linux kernel driver for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -937,7 +937,7 @@
     },
     {
       "CVE": "CVE-2020-8695",
-      "Description": "Observable discrepancy in the RAPL interface for some Intel(R) Processors may allow a privileged user to potentially enable information disclosure via local access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -960,7 +960,7 @@
     },
     {
       "CVE": "CVE-2021-33631",
-      "Description": "Integer Overflow or Wraparound vulnerability in openEuler kernel on Linux (filesystem modules) allows Forced Integer Overflow.This issue affects openEuler kernel: from 4.19.90 before 4.19.90-2401.3, from 5.10.0-60.18.0 before 5.10.0-183.0.0.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -980,7 +980,7 @@
     },
     {
       "CVE": "CVE-2021-46923",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/mount_setattr: always cleanup mount_kattr\n\nMake sure that finish_mount_kattr() is called after mount_kattr was\nsuccesfully built in both the success and failure case to prevent\nleaking any references we took when we built it.  We returned early if\npath lookup failed thereby risking to leak an additional reference we\ntook when building mount_kattr when an idmapped mount was requested.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1000,7 +1000,7 @@
     },
     {
       "CVE": "CVE-2021-46924",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nNFC: st21nfca: Fix memory leak in device probe and remove\n\n'phy-\u003epending_skb' is alloced when device probe, but forgot to free\nin the error handling path and remove path, this cause memory leak\nas follows:\n\nunreferenced object 0xffff88800bc06800 (size 512):\n  comm \"8\", pid 11775, jiffies 4295159829 (age 9.032s)\n  hex dump (first 32 bytes):\n    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................\n    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................\n  backtrace:\n    [\u003c00000000d66c09ce\u003e] __kmalloc_node_track_caller+0x1ed/0x450\n    [\u003c00000000c93382b3\u003e] kmalloc_reserve+0x37/0xd0\n    [\u003c000000005fea522c\u003e] __alloc_skb+0x124/0x380\n    [\u003c0000000019f29f9a\u003e] st21nfca_hci_i2c_probe+0x170/0x8f2\n\nFix it by freeing 'pending_skb' in error and remove.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1020,7 +1020,7 @@
     },
     {
       "CVE": "CVE-2021-46932",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: appletouch - initialize work before device registration\n\nSyzbot has reported warning in __flush_work(). This warning is caused by\nwork-\u003efunc == NULL, which means missing work initialization.\n\nThis may happen, since input_dev-\u003eclose() calls\ncancel_work_sync(\u0026dev-\u003ework), but dev-\u003ework initalization happens _after_\ninput_register_device() call.\n\nSo this patch moves dev-\u003ework initialization before registering input\ndevice",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1040,7 +1040,7 @@
     },
     {
       "CVE": "CVE-2022-1210",
-      "Description": "A vulnerability classified as problematic was found in LibTIFF 4.3.0. Affected by this vulnerability is the TIFF File Handler of tiff2ps. Opening a malicious file leads to a denial of service. The attack can be launched remotely but requires user interaction. The exploit has been disclosed to the public and may be used.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1063,7 +1063,7 @@
     },
     {
       "CVE": "CVE-2022-1622",
-      "Description": "LibTIFF master branch has an out-of-bounds read in LZWDecode in libtiff/tif_lzw.c:619, allowing attackers to cause a denial-of-service via a crafted tiff file. For users that compile libtiff from sources, the fix is available with commit b4e79bfa.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1086,7 +1086,7 @@
     },
     {
       "CVE": "CVE-2022-40090",
-      "Description": "An issue was discovered in function TIFFReadDirectory libtiff before 4.4.0 allows attackers to cause a denial of service via crafted TIFF file.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1106,7 +1106,7 @@
     },
     {
       "CVE": "CVE-2023-1667",
-      "Description": "A NULL pointer dereference was found In libssh during re-keying with algorithm guessing. This issue may allow an authenticated client to cause a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1128,7 +1128,7 @@
     },
     {
       "CVE": "CVE-2023-1916",
-      "Description": "A flaw was found in tiffcrop, a program distributed by the libtiff package. A specially crafted tiff file can lead to an out-of-bounds read in the extractImageSection function in tools/tiffcrop.c, resulting in a denial of service and limited information disclosure. This issue affects libtiff versions 4.x.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1148,7 +1148,7 @@
     },
     {
       "CVE": "CVE-2023-2283",
-      "Description": "A vulnerability was found in libssh, where the authentication check of the connecting client can be bypassed in the`pki_verify_data_signature` function in memory allocation problems. This issue may happen if there is insufficient memory or the memory usage is limited. The problem is caused by the return value `rc,` which is initialized to SSH_ERROR and later rewritten to save the return value of the function call `pki_key_check_hash_compatible.` The value of the variable is not changed between this point and the cryptographic verification. Therefore any error between them calls `goto error` returning SSH_OK.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1170,7 +1170,7 @@
     },
     {
       "CVE": "CVE-2023-26965",
-      "Description": "loadImage() in tools/tiffcrop.c in LibTIFF through 4.5.0 has a heap-based use after free via a crafted TIFF image.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1190,7 +1190,7 @@
     },
     {
       "CVE": "CVE-2023-27043",
-      "Description": "The email module of Python through 3.11.3 incorrectly parses e-mail addresses that contain a special character. The wrong portion of an RFC2822 header is identified as the value of the addr-spec. In some applications, an attacker can bypass a protection mechanism in which application access is granted only after verifying receipt of e-mail to a specific domain (e.g., only @company.example.com addresses may be used for signup). This occurs in email/_parseaddr.py in recent versions of Python.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1211,7 +1211,7 @@
     },
     {
       "CVE": "CVE-2023-2731",
-      "Description": "A NULL pointer dereference flaw was found in Libtiff's LZWDecode() function in the libtiff/tif_lzw.c file. This flaw allows a local attacker to craft specific input data that can cause the program to dereference a NULL pointer when decompressing a TIFF format file, resulting in a program crash or denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1231,7 +1231,7 @@
     },
     {
       "CVE": "CVE-2023-28746",
-      "Description": "Information exposure through microarchitectural state after transient execution from some register files for some Intel(R) Atom(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1251,7 +1251,7 @@
     },
     {
       "CVE": "CVE-2023-33850",
-      "Description": "IBM GSKit-Crypto could allow a remote attacker to obtain sensitive information, caused by a timing-based side channel in the RSA Decryption implementation. By sending an overly large number of trial messages for decryption, an attacker could exploit this vulnerability to obtain sensitive information.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1273,7 +1273,7 @@
     },
     {
       "CVE": "CVE-2023-38472",
-      "Description": "A vulnerability was found in Avahi. A reachable assertion exists in the avahi_rdata_parse() function.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1294,7 +1294,7 @@
     },
     {
       "CVE": "CVE-2023-39804",
-      "Description": "In GNU tar before 1.35, mishandled extension attributes in a PAX archive can lead to an application crash in xheader.c.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1314,7 +1314,7 @@
     },
     {
       "CVE": "CVE-2023-42465",
-      "Description": "Sudo before 1.9.15 might allow row hammer attacks (for authentication bypass or privilege escalation) because application logic sometimes is based on not equaling an error value (instead of equaling a success value), and because the values do not resist flips of a single bit.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1334,7 +1334,7 @@
     },
     {
       "CVE": "CVE-2023-42822",
-      "Description": " xrdp is an open source remote desktop protocol server. Access to the font glyphs in xrdp_painter.c is not bounds-checked . Since some of this data is controllable by the user, this can result in an out-of-bounds read within the xrdp executable. The vulnerability allows an out-of-bounds read within a potentially privileged process. On non-Debian platforms, xrdp tends to run as root. Potentially an out-of-bounds write can follow the out-of-bounds read. There is no denial-of-service impact, providing xrdp is running in forking mode. This issue has been addressed in release 0.9.23.1. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1354,7 +1354,7 @@
     },
     {
       "CVE": "CVE-2023-4408",
-      "Description": "The DNS message parsing code in `named` includes a section whose computational complexity is overly high. It does not cause problems for typical DNS traffic, but crafted queries and responses may cause excessive CPU load on the affected `named` instance by exploiting this flaw. This issue affects both authoritative servers and recursive resolvers.\nThis issue affects BIND 9 versions 9.0.0 through 9.16.45, 9.18.0 through 9.18.21, 9.19.0 through 9.19.19, 9.9.3-S1 through 9.11.37-S1, 9.16.8-S1 through 9.16.45-S1, and 9.18.11-S1 through 9.18.21-S1.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1375,7 +1375,7 @@
     },
     {
       "CVE": "CVE-2023-46835",
-      "Description": "The current setup of the quarantine page tables assumes that the\nquarantine domain (dom_io) has been initialized with an address width\nof DEFAULT_DOMAIN_ADDRESS_WIDTH (48) and hence 4 page table levels.\n\nHowever dom_io being a PV domain gets the AMD-Vi IOMMU page tables\nlevels based on the maximum (hot pluggable) RAM address, and hence on\nsystems with no RAM above the 512GB mark only 3 page-table levels are\nconfigured in the IOMMU.\n\nOn systems without RAM above the 512GB boundary\namd_iommu_quarantine_init() will setup page tables for the scratch\npage with 4 levels, while the IOMMU will be configured to use 3 levels\nonly, resulting in the last page table directory (PDE) effectively\nbecoming a page table entry (PTE), and hence a device in quarantine\nmode gaining write access to the page destined to be a PDE.\n\nDue to this page table level mismatch, the sink page the device gets\nread/write access to is no longer cleared between device assignment,\npossibly leading to data leaks.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1395,7 +1395,7 @@
     },
     {
       "CVE": "CVE-2023-46836",
-      "Description": "The fixes for XSA-422 (Branch Type Confusion) and XSA-434 (Speculative\nReturn Stack Overflow) are not IRQ-safe.  It was believed that the\nmitigations always operated in contexts with IRQs disabled.\n\nHowever, the original XSA-254 fix for Meltdown (XPTI) deliberately left\ninterrupts enabled on two entry paths; one unconditionally, and one\nconditionally on whether XPTI was active.\n\nAs BTC/SRSO and Meltdown affect different CPU vendors, the mitigations\nare not active together by default.  Therefore, there is a race\ncondition whereby a malicious PV guest can bypass BTC/SRSO protections\nand launch a BTC/SRSO attack against Xen.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1415,7 +1415,7 @@
     },
     {
       "CVE": "CVE-2023-46838",
-      "Description": "Transmit requests in Xen's virtual network protocol can consist of\nmultiple parts.  While not really useful, except for the initial part\nany of them may be of zero length, i.e. carry no data at all.  Besides a\ncertain initial portion of the to be transferred data, these parts are\ndirectly translated into what Linux calls SKB fragments.  Such converted\nrequest parts can, when for a particular SKB they are all of length\nzero, lead to a de-reference of NULL in core networking code.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1435,7 +1435,7 @@
     },
     {
       "CVE": "CVE-2023-46839",
-      "Description": "PCI devices can make use of a functionality called phantom functions,\nthat when enabled allows the device to generate requests using the IDs\nof functions that are otherwise unpopulated.  This allows a device to\nextend the number of outstanding requests.\n\nSuch phantom functions need an IOMMU context setup, but failure to\nsetup the context is not fatal when the device is assigned.  Not\nfailing device assignment when such failure happens can lead to the\nprimary device being assigned to a guest, while some of the phantom\nfunctions are assigned to a different domain.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1455,7 +1455,7 @@
     },
     {
       "CVE": "CVE-2023-46840",
-      "Description": "Incorrect placement of a preprocessor directive in source code results\nin logic that doesn't operate as intended when support for HVM guests is\ncompiled out of Xen.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1475,7 +1475,7 @@
     },
     {
       "CVE": "CVE-2023-46841",
-      "Description": "Recent x86 CPUs offer functionality named Control-flow Enforcement\nTechnology (CET).  A sub-feature of this are Shadow Stacks (CET-SS).\nCET-SS is a hardware feature designed to protect against Return Oriented\nProgramming attacks. When enabled, traditional stacks holding both data\nand return addresses are accompanied by so called \"shadow stacks\",\nholding little more than return addresses.  Shadow stacks aren't\nwritable by normal instructions, and upon function returns their\ncontents are used to check for possible manipulation of a return address\ncoming from the traditional stack.\n\nIn particular certain memory accesses need intercepting by Xen.  In\nvarious cases the necessary emulation involves kind of replaying of\nthe instruction.  Such replaying typically involves filling and then\ninvoking of a stub.  Such a replayed instruction may raise an\nexceptions, which is expected and dealt with accordingly.\n\nUnfortunately the interaction of both of the above wasn't right:\nRecovery involves removal of a call frame from the (traditional) stack.\nThe counterpart of this operation for the shadow stack was missing.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1495,7 +1495,7 @@
     },
     {
       "CVE": "CVE-2023-47233",
-      "Description": "The brcm80211 component in the Linux kernel through 6.5.10 has a brcmf_cfg80211_detach use-after-free in the device unplugging (disconnect the USB by hotplug) code. For physically proximate attackers with local access, this \"could be exploited in a real world scenario.\" This is related to brcmf_cfg80211_escan_timeout_worker in drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1515,7 +1515,7 @@
     },
     {
       "CVE": "CVE-2023-48795",
-      "Description": "The SSH transport protocol with certain OpenSSH extensions, found in OpenSSH before 9.6 and other products, allows remote attackers to bypass integrity checks such that some packets are omitted (from the extension negotiation message), and a client and server may consequently end up with a connection for which some security features have been downgraded or disabled, aka a Terrapin attack. This occurs because the SSH Binary Packet Protocol (BPP), implemented by these extensions, mishandles the handshake phase and mishandles use of sequence numbers. For example, there is an effective attack against SSH's use of ChaCha20-Poly1305 (and CBC with Encrypt-then-MAC). The bypass occurs in chacha20-poly1305@openssh.com and (if CBC is used) the -etm@openssh.com MAC algorithms. This also affects Maverick Synergy Java SSH API before 3.1.0-SNAPSHOT, Dropbear through 2022.83, Ssh before 5.1.1 in Erlang/OTP, PuTTY before 0.80, AsyncSSH before 2.14.2, golang.org/x/crypto before 0.17.0, libssh before 0.10.6, libssh2 through 1.11.0, Thorn Tech SFTP Gateway before 3.4.6, Tera Term before 5.1, Paramiko before 3.4.0, jsch before 0.2.15, SFTPGo before 2.5.6, Netgate pfSense Plus through 23.09.1, Netgate pfSense CE through 2.7.2, HPN-SSH through 18.2.0, ProFTPD before 1.3.8b (and before 1.3.9rc2), ORYX CycloneSSH before 2.3.4, NetSarang XShell 7 before Build 0144, CrushFTP before 10.6.0, ConnectBot SSH library before 2.2.22, Apache MINA sshd through 2.11.0, sshj through 0.37.0, TinySSH through 20230101, trilead-ssh2 6401, LANCOM LCOS and LANconfig, FileZilla before 3.66.4, Nova before 11.8, PKIX-SSH before 14.4, SecureCRT before 9.4.3, Transmit5 before 5.10.4, Win32-OpenSSH before 9.5.0.0p1-Beta, WinSCP before 6.2.2, Bitvise SSH Server before 9.32, Bitvise SSH Client before 9.33, KiTTY through 0.76.1.13, the net-ssh gem 7.2.0 for Ruby, the mscdex ssh2 module before 1.15.0 for Node.js, the thrussh library before 0.35.1 for Rust, and the Russh crate before 0.40.2 for Rust.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1542,7 +1542,7 @@
     },
     {
       "CVE": "CVE-2023-49083",
-      "Description": "cryptography is a package designed to expose cryptographic primitives and recipes to Python developers. Calling `load_pem_pkcs7_certificates` or `load_der_pkcs7_certificates` could lead to a NULL-pointer dereference and segfault. Exploitation of this vulnerability poses a serious risk of Denial of Service (DoS) for any application attempting to deserialize a PKCS7 blob/certificate. The consequences extend to potential disruptions in system availability and stability. This vulnerability has been patched in version 41.0.6.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1562,7 +1562,7 @@
     },
     {
       "CVE": "CVE-2023-4921",
-      "Description": "A use-after-free vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.\n\nWhen the plug qdisc is used as a class of the qfq qdisc, sending network packets triggers use-after-free in qfq_dequeue() due to the incorrect .peek handler of sch_plug and lack of error checking in agg_dequeue().\n\nWe recommend upgrading past commit 8fc134fee27f2263988ae38920bc03da416b03d8.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1582,7 +1582,7 @@
     },
     {
       "CVE": "CVE-2023-50387",
-      "Description": "Certain DNSSEC aspects of the DNS protocol (in RFC 4033, 4034, 4035, 6840, and related RFCs) allow remote attackers to cause a denial of service (CPU consumption) via one or more DNSSEC responses, aka the \"KeyTrap\" issue. One of the concerns is that, when there is a zone with many DNSKEY and RRSIG records, the protocol specification implies that an algorithm must evaluate all combinations of DNSKEY and RRSIG records.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1603,7 +1603,7 @@
     },
     {
       "CVE": "CVE-2023-50495",
-      "Description": "NCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1628,7 +1628,7 @@
     },
     {
       "CVE": "CVE-2023-50868",
-      "Description": "The Closest Encloser Proof aspect of the DNS protocol (in RFC 5155 when RFC 9276 guidance is skipped) allows remote attackers to cause a denial of service (CPU consumption for SHA-1 computations) via DNSSEC responses in a random subdomain attack, aka the \"NSEC3\" issue. The RFC 5155 specification implies that an algorithm must perform thousands of iterations of a hash function in certain situations.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1649,7 +1649,7 @@
     },
     {
       "CVE": "CVE-2023-51042",
-      "Description": "In the Linux kernel before 6.4.12, amdgpu_cs_wait_all_fences in drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c has a fence use-after-free.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1669,7 +1669,7 @@
     },
     {
       "CVE": "CVE-2023-51043",
-      "Description": "In the Linux kernel before 6.4.5, drivers/gpu/drm/drm_atomic.c has a use-after-free during a race condition between a nonblocking atomic commit and a driver unload.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1689,7 +1689,7 @@
     },
     {
       "CVE": "CVE-2023-51385",
-      "Description": "In ssh in OpenSSH before 9.6, OS command injection might occur if a user name or host name has shell metacharacters, and this name is referenced by an expansion token in certain situations. For example, an untrusted Git repository can have a submodule with shell metacharacters in a user name or host name.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1712,7 +1712,7 @@
     },
     {
       "CVE": "CVE-2023-51779",
-      "Description": "bt_sock_recvmsg in net/bluetooth/af_bluetooth.c in the Linux kernel through 6.6.8 has a use-after-free because of a bt_sock_ioctl race condition.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1732,7 +1732,7 @@
     },
     {
       "CVE": "CVE-2023-51780",
-      "Description": "An issue was discovered in the Linux kernel before 6.6.8. do_vcc_ioctl in net/atm/ioctl.c has a use-after-free because of a vcc_recvmsg race condition.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1752,7 +1752,7 @@
     },
     {
       "CVE": "CVE-2023-51782",
-      "Description": "An issue was discovered in the Linux kernel before 6.6.8. rose_ioctl in net/rose/af_rose.c has a use-after-free because of a rose_accept race condition.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1772,7 +1772,7 @@
     },
     {
       "CVE": "CVE-2023-5197",
-      "Description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nAddition and removal of rules from chain bindings within the same transaction causes leads to use-after-free.\n\nWe recommend upgrading past commit f15f29fd4779be8a418b66e9d52979bb6d6c2325.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1792,7 +1792,7 @@
     },
     {
       "CVE": "CVE-2023-52340",
-      "Description": "The IPv6 implementation in the Linux kernel before 6.3 has a net/ipv6/route.c max_size threshold that can be consumed easily, e.g., leading to a denial of service (network is unreachable errors) when IPv6 packets are sent in a loop via a raw socket.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1812,7 +1812,7 @@
     },
     {
       "CVE": "CVE-2023-52356",
-      "Description": "A segment fault (SEGV) flaw was found in libtiff that could be triggered by passing a crafted tiff file to the TIFFReadRGBATileExt() API. This flaw allows a remote attacker to cause a heap-buffer overflow, leading to a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1832,7 +1832,7 @@
     },
     {
       "CVE": "CVE-2023-52429",
-      "Description": "dm_table_create in drivers/md/dm-table.c in the Linux kernel through 6.7.4 can attempt to (in alloc_targets) allocate more than INT_MAX bytes, and crash, because of a missing check for struct dm_ioctl.target_count.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1852,7 +1852,7 @@
     },
     {
       "CVE": "CVE-2023-52437",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1872,7 +1872,7 @@
     },
     {
       "CVE": "CVE-2023-52439",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nuio: Fix use-after-free in uio_open\n\ncore-1\t\t\t\tcore-2\n-------------------------------------------------------\nuio_unregister_device\t\tuio_open\n\t\t\t\tidev = idr_find()\ndevice_unregister(\u0026idev-\u003edev)\nput_device(\u0026idev-\u003edev)\nuio_device_release\n\t\t\t\tget_device(\u0026idev-\u003edev)\nkfree(idev)\nuio_free_minor(minor)\n\t\t\t\tuio_release\n\t\t\t\tput_device(\u0026idev-\u003edev)\n\t\t\t\tkfree(idev)\n-------------------------------------------------------\n\nIn the core-1 uio_unregister_device(), the device_unregister will kfree\nidev when the idev-\u003edev kobject ref is 1. But after core-1\ndevice_unregister, put_device and before doing kfree, the core-2 may\nget_device. Then:\n1. After core-1 kfree idev, the core-2 will do use-after-free for idev.\n2. When core-2 do uio_release and put_device, the idev will be double\n   freed.\n\nTo address this issue, we can get idev atomic \u0026 inc idev reference with\nminor_lock.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1892,7 +1892,7 @@
     },
     {
       "CVE": "CVE-2023-52443",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: avoid crash when parsed profile name is empty\n\nWhen processing a packed profile in unpack_profile() described like\n\n \"profile :ns::samba-dcerpcd /usr/lib*/samba/{,samba/}samba-dcerpcd {...}\"\n\na string \":samba-dcerpcd\" is unpacked as a fully-qualified name and then\npassed to aa_splitn_fqname().\n\naa_splitn_fqname() treats \":samba-dcerpcd\" as only containing a namespace.\nThus it returns NULL for tmpname, meanwhile tmpns is non-NULL. Later\naa_alloc_profile() crashes as the new profile name is NULL now.\n\ngeneral protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] PREEMPT SMP KASAN NOPTI\nKASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]\nCPU: 6 PID: 1657 Comm: apparmor_parser Not tainted 6.7.0-rc2-dirty #16\nHardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.2-3-gd478f380-rebuilt.opensuse.org 04/01/2014\nRIP: 0010:strlen+0x1e/0xa0\nCall Trace:\n \u003cTASK\u003e\n ? strlen+0x1e/0xa0\n aa_policy_init+0x1bb/0x230\n aa_alloc_profile+0xb1/0x480\n unpack_profile+0x3bc/0x4960\n aa_unpack+0x309/0x15e0\n aa_replace_profiles+0x213/0x33c0\n policy_update+0x261/0x370\n profile_replace+0x20e/0x2a0\n vfs_write+0x2af/0xe00\n ksys_write+0x126/0x250\n do_syscall_64+0x46/0xf0\n entry_SYSCALL_64_after_hwframe+0x6e/0x76\n \u003c/TASK\u003e\n---[ end trace 0000000000000000 ]---\nRIP: 0010:strlen+0x1e/0xa0\n\nIt seems such behaviour of aa_splitn_fqname() is expected and checked in\nother places where it is called (e.g. aa_remove_profiles). Well, there\nis an explicit comment \"a ns name without a following profile is allowed\"\ninside.\n\nAFAICS, nothing can prevent unpacked \"name\" to be in form like\n\":samba-dcerpcd\" - it is passed from userspace.\n\nDeny the whole profile set replacement in such case and inform user with\nEPROTO and an explaining message.\n\nFound by Linux Verification Center (linuxtesting.org).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1912,7 +1912,7 @@
     },
     {
       "CVE": "CVE-2023-52445",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: pvrusb2: fix use after free on context disconnection\n\nUpon module load, a kthread is created targeting the\npvr2_context_thread_func function, which may call pvr2_context_destroy\nand thus call kfree() on the context object. However, that might happen\nbefore the usb hub_event handler is able to notify the driver. This\npatch adds a sanity check before the invalid read reported by syzbot,\nwithin the context disconnection call stack.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1932,7 +1932,7 @@
     },
     {
       "CVE": "CVE-2023-52447",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Defer the free of inner map when necessary\n\nWhen updating or deleting an inner map in map array or map htab, the map\nmay still be accessed by non-sleepable program or sleepable program.\nHowever bpf_map_fd_put_ptr() decreases the ref-counter of the inner map\ndirectly through bpf_map_put(), if the ref-counter is the last one\n(which is true for most cases), the inner map will be freed by\nops-\u003emap_free() in a kworker. But for now, most .map_free() callbacks\ndon't use synchronize_rcu() or its variants to wait for the elapse of a\nRCU grace period, so after the invocation of ops-\u003emap_free completes,\nthe bpf program which is accessing the inner map may incur\nuse-after-free problem.\n\nFix the free of inner map by invoking bpf_map_free_deferred() after both\none RCU grace period and one tasks trace RCU grace period if the inner\nmap has been removed from the outer map before. The deferment is\naccomplished by using call_rcu() or call_rcu_tasks_trace() when\nreleasing the last ref-counter of bpf map. The newly-added rcu_head\nfield in bpf_map shares the same storage space with work field to\nreduce the size of bpf_map.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1952,7 +1952,7 @@
     },
     {
       "CVE": "CVE-2023-52448",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ngfs2: Fix kernel NULL pointer dereference in gfs2_rgrp_dump\n\nSyzkaller has reported a NULL pointer dereference when accessing\nrgd-\u003erd_rgl in gfs2_rgrp_dump().  This can happen when creating\nrgd-\u003erd_gl fails in read_rindex_entry().  Add a NULL pointer check in\ngfs2_rgrp_dump() to prevent that.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1972,7 +1972,7 @@
     },
     {
       "CVE": "CVE-2023-52449",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmtd: Fix gluebi NULL pointer dereference caused by ftl notifier\n\nIf both ftl.ko and gluebi.ko are loaded, the notifier of ftl\ntriggers NULL pointer dereference when trying to access\n'gluebi-\u003edesc' in gluebi_read().\n\nubi_gluebi_init\n  ubi_register_volume_notifier\n    ubi_enumerate_volumes\n      ubi_notify_all\n        gluebi_notify    nb-\u003enotifier_call()\n          gluebi_create\n            mtd_device_register\n              mtd_device_parse_register\n                add_mtd_device\n                  blktrans_notify_add   not-\u003eadd()\n                    ftl_add_mtd         tr-\u003eadd_mtd()\n                      scan_header\n                        mtd_read\n                          mtd_read_oob\n                            mtd_read_oob_std\n                              gluebi_read   mtd-\u003eread()\n                                gluebi-\u003edesc - NULL\n\nDetailed reproduction information available at the Link [1],\n\nIn the normal case, obtain gluebi-\u003edesc in the gluebi_get_device(),\nand access gluebi-\u003edesc in the gluebi_read(). However,\ngluebi_get_device() is not executed in advance in the\nftl_add_mtd() process, which leads to NULL pointer dereference.\n\nThe solution for the gluebi module is to run jffs2 on the UBI\nvolume without considering working with ftl or mtdblock [2].\nTherefore, this problem can be avoided by preventing gluebi from\ncreating the mtdblock device after creating mtd partition of the\ntype MTD_UBIVOLUME.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -1992,7 +1992,7 @@
     },
     {
       "CVE": "CVE-2023-52451",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/pseries/memhp: Fix access beyond end of drmem array\n\ndlpar_memory_remove_by_index() may access beyond the bounds of the\ndrmem lmb array when the LMB lookup fails to match an entry with the\ngiven DRC index. When the search fails, the cursor is left pointing to\n\u0026drmem_info-\u003elmbs[drmem_info-\u003en_lmbs], which is one element past the\nlast valid entry in the array. The debug message at the end of the\nfunction then dereferences this pointer:\n\n        pr_debug(\"Failed to hot-remove memory at %llx\\n\",\n                 lmb-\u003ebase_addr);\n\nThis was found by inspection and confirmed with KASAN:\n\n  pseries-hotplug-mem: Attempting to hot-remove LMB, drc index 1234\n  ==================================================================\n  BUG: KASAN: slab-out-of-bounds in dlpar_memory+0x298/0x1658\n  Read of size 8 at addr c000000364e97fd0 by task bash/949\n\n  dump_stack_lvl+0xa4/0xfc (unreliable)\n  print_report+0x214/0x63c\n  kasan_report+0x140/0x2e0\n  __asan_load8+0xa8/0xe0\n  dlpar_memory+0x298/0x1658\n  handle_dlpar_errorlog+0x130/0x1d0\n  dlpar_store+0x18c/0x3e0\n  kobj_attr_store+0x68/0xa0\n  sysfs_kf_write+0xc4/0x110\n  kernfs_fop_write_iter+0x26c/0x390\n  vfs_write+0x2d4/0x4e0\n  ksys_write+0xac/0x1a0\n  system_call_exception+0x268/0x530\n  system_call_vectored_common+0x15c/0x2ec\n\n  Allocated by task 1:\n   kasan_save_stack+0x48/0x80\n   kasan_set_track+0x34/0x50\n   kasan_save_alloc_info+0x34/0x50\n   __kasan_kmalloc+0xd0/0x120\n   __kmalloc+0x8c/0x320\n   kmalloc_array.constprop.0+0x48/0x5c\n   drmem_init+0x2a0/0x41c\n   do_one_initcall+0xe0/0x5c0\n   kernel_init_freeable+0x4ec/0x5a0\n   kernel_init+0x30/0x1e0\n   ret_from_kernel_user_thread+0x14/0x1c\n\n  The buggy address belongs to the object at c000000364e80000\n   which belongs to the cache kmalloc-128k of size 131072\n  The buggy address is located 0 bytes to the right of\n   allocated 98256-byte region [c000000364e80000, c000000364e97fd0)\n\n  ==================================================================\n  pseries-hotplug-mem: Failed to hot-remove memory at 0\n\nLog failed lookups with a separate message and dereference the\ncursor only when it points to a valid entry.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2012,7 +2012,7 @@
     },
     {
       "CVE": "CVE-2023-52452",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix accesses to uninit stack slots\n\nPrivileged programs are supposed to be able to read uninitialized stack\nmemory (ever since 6715df8d5) but, before this patch, these accesses\nwere permitted inconsistently. In particular, accesses were permitted\nabove state-\u003eallocated_stack, but not below it. In other words, if the\nstack was already \"large enough\", the access was permitted, but\notherwise the access was rejected instead of being allowed to \"grow the\nstack\". This undesired rejection was happening in two places:\n- in check_stack_slot_within_bounds()\n- in check_stack_range_initialized()\nThis patch arranges for these accesses to be permitted. A bunch of tests\nthat were relying on the old rejection had to change; all of them were\nchanged to add also run unprivileged, in which case the old behavior\npersists. One tests couldn't be updated - global_func16 - because it\ncan't run unprivileged for other reasons.\n\nThis patch also fixes the tracking of the stack size for variable-offset\nreads. This second fix is bundled in the same commit as the first one\nbecause they're inter-related. Before this patch, writes to the stack\nusing registers containing a variable offset (as opposed to registers\nwith fixed, known values) were not properly contributing to the\nfunction's needed stack size. As a result, it was possible for a program\nto verify, but then to attempt to read out-of-bounds data at runtime\nbecause a too small stack had been allocated for it.\n\nEach function tracks the size of the stack it needs in\nbpf_subprog_info.stack_depth, which is maintained by\nupdate_stack_depth(). For regular memory accesses, check_mem_access()\nwas calling update_state_depth() but it was passing in only the fixed\npart of the offset register, ignoring the variable offset. This was\nincorrect; the minimum possible value of that register should be used\ninstead.\n\nThis tracking is now fixed by centralizing the tracking of stack size in\ngrow_stack_state(), and by lifting the calls to grow_stack_state() to\ncheck_stack_access_within_bounds() as suggested by Andrii. The code is\nnow simpler and more convincingly tracks the correct maximum stack size.\ncheck_stack_range_initialized() can now rely on enough stack having been\nallocated for the access; this helps with the fix for the first issue.\n\nA few tests were changed to also check the stack depth computation. The\none that fails without this patch is verifier_var_off:stack_write_priv_vs_unpriv.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2032,7 +2032,7 @@
     },
     {
       "CVE": "CVE-2023-52456",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nserial: imx: fix tx statemachine deadlock\n\nWhen using the serial port as RS485 port, the tx statemachine is used to\ncontrol the RTS pin to drive the RS485 transceiver TX_EN pin. When the\nTTY port is closed in the middle of a transmission (for instance during\nuserland application crash), imx_uart_shutdown disables the interface\nand disables the Transmission Complete interrupt. afer that,\nimx_uart_stop_tx bails on an incomplete transmission, to be retriggered\nby the TC interrupt. This interrupt is disabled and therefore the tx\nstatemachine never transitions out of SEND. The statemachine is in\ndeadlock now, and the TX_EN remains low, making the interface useless.\n\nimx_uart_stop_tx now checks for incomplete transmission AND whether TC\ninterrupts are enabled before bailing to be retriggered. This makes sure\nthe state machine handling is reached, and is properly set to\nWAIT_AFTER_SEND.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2052,7 +2052,7 @@
     },
     {
       "CVE": "CVE-2023-52457",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nserial: 8250: omap: Don't skip resource freeing if pm_runtime_resume_and_get() failed\n\nReturning an error code from .remove() makes the driver core emit the\nlittle helpful error message:\n\n\tremove callback returned a non-zero value. This will be ignored.\n\nand then remove the device anyhow. So all resources that were not freed\nare leaked in this case. Skipping serial8250_unregister_port() has the\npotential to keep enough of the UART around to trigger a use-after-free.\n\nSo replace the error return (and with it the little helpful error\nmessage) by a more useful error message and continue to cleanup.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2072,7 +2072,7 @@
     },
     {
       "CVE": "CVE-2023-52463",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nefivarfs: force RO when remounting if SetVariable is not supported\n\nIf SetVariable at runtime is not supported by the firmware we never assign\na callback for that function. At the same time mount the efivarfs as\nRO so no one can call that.  However, we never check the permission flags\nwhen someone remounts the filesystem as RW. As a result this leads to a\ncrash looking like this:\n\n$ mount -o remount,rw /sys/firmware/efi/efivars\n$ efi-updatevar -f PK.auth PK\n\n[  303.279166] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000\n[  303.280482] Mem abort info:\n[  303.280854]   ESR = 0x0000000086000004\n[  303.281338]   EC = 0x21: IABT (current EL), IL = 32 bits\n[  303.282016]   SET = 0, FnV = 0\n[  303.282414]   EA = 0, S1PTW = 0\n[  303.282821]   FSC = 0x04: level 0 translation fault\n[  303.283771] user pgtable: 4k pages, 48-bit VAs, pgdp=000000004258c000\n[  303.284913] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000\n[  303.286076] Internal error: Oops: 0000000086000004 [#1] PREEMPT SMP\n[  303.286936] Modules linked in: qrtr tpm_tis tpm_tis_core crct10dif_ce arm_smccc_trng rng_core drm fuse ip_tables x_tables ipv6\n[  303.288586] CPU: 1 PID: 755 Comm: efi-updatevar Not tainted 6.3.0-rc1-00108-gc7d0c4695c68 #1\n[  303.289748] Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2023.04-00627-g88336918701d 04/01/2023\n[  303.291150] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)\n[  303.292123] pc : 0x0\n[  303.292443] lr : efivar_set_variable_locked+0x74/0xec\n[  303.293156] sp : ffff800008673c10\n[  303.293619] x29: ffff800008673c10 x28: ffff0000037e8000 x27: 0000000000000000\n[  303.294592] x26: 0000000000000800 x25: ffff000002467400 x24: 0000000000000027\n[  303.295572] x23: ffffd49ea9832000 x22: ffff0000020c9800 x21: ffff000002467000\n[  303.296566] x20: 0000000000000001 x19: 00000000000007fc x18: 0000000000000000\n[  303.297531] x17: 0000000000000000 x16: 0000000000000000 x15: 0000aaaac807ab54\n[  303.298495] x14: ed37489f673633c0 x13: 71c45c606de13f80 x12: 47464259e219acf4\n[  303.299453] x11: ffff000002af7b01 x10: 0000000000000003 x9 : 0000000000000002\n[  303.300431] x8 : 0000000000000010 x7 : ffffd49ea8973230 x6 : 0000000000a85201\n[  303.301412] x5 : 0000000000000000 x4 : ffff0000020c9800 x3 : 00000000000007fc\n[  303.302370] x2 : 0000000000000027 x1 : ffff000002467400 x0 : ffff000002467000\n[  303.303341] Call trace:\n[  303.303679]  0x0\n[  303.303938]  efivar_entry_set_get_size+0x98/0x16c\n[  303.304585]  efivarfs_file_write+0xd0/0x1a4\n[  303.305148]  vfs_write+0xc4/0x2e4\n[  303.305601]  ksys_write+0x70/0x104\n[  303.306073]  __arm64_sys_write+0x1c/0x28\n[  303.306622]  invoke_syscall+0x48/0x114\n[  303.307156]  el0_svc_common.constprop.0+0x44/0xec\n[  303.307803]  do_el0_svc+0x38/0x98\n[  303.308268]  el0_svc+0x2c/0x84\n[  303.308702]  el0t_64_sync_handler+0xf4/0x120\n[  303.309293]  el0t_64_sync+0x190/0x194\n[  303.309794] Code: ???????? ???????? ???????? ???????? (????????)\n[  303.310612] ---[ end trace 0000000000000000 ]---\n\nFix this by adding a .reconfigure() function to the fs operations which\nwe can use to check the requested flags and deny anything that's not RO\nif the firmware doesn't implement SetVariable at runtime.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2092,7 +2092,7 @@
     },
     {
       "CVE": "CVE-2023-52464",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nEDAC/thunderx: Fix possible out-of-bounds string access\n\nEnabling -Wstringop-overflow globally exposes a warning for a common bug\nin the usage of strncat():\n\n  drivers/edac/thunderx_edac.c: In function 'thunderx_ocx_com_threaded_isr':\n  drivers/edac/thunderx_edac.c:1136:17: error: 'strncat' specified bound 1024 equals destination size [-Werror=stringop-overflow=]\n   1136 |                 strncat(msg, other, OCX_MESSAGE_SIZE);\n        |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   ...\n   1145 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n   ...\n   1150 |                                 strncat(msg, other, OCX_MESSAGE_SIZE);\n\n   ...\n\nApparently the author of this driver expected strncat() to behave the\nway that strlcat() does, which uses the size of the destination buffer\nas its third argument rather than the length of the source buffer. The\nresult is that there is no check on the size of the allocated buffer.\n\nChange it to strlcat().\n\n  [ bp: Trim compiler output, fixup commit message. ]",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2112,7 +2112,7 @@
     },
     {
       "CVE": "CVE-2023-52475",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: powermate - fix use-after-free in powermate_config_complete\n\nsyzbot has found a use-after-free bug [1] in the powermate driver. This\nhappens when the device is disconnected, which leads to a memory free from\nthe powermate_device struct.  When an asynchronous control message\ncompletes after the kfree and its callback is invoked, the lock does not\nexist anymore and hence the bug.\n\nUse usb_kill_urb() on pm-\u003econfig to cancel any in-progress requests upon\ndevice disconnection.\n\n[1] https://syzkaller.appspot.com/bug?extid=0434ac83f907a1dbdd1e",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2132,7 +2132,7 @@
     },
     {
       "CVE": "CVE-2023-52478",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nHID: logitech-hidpp: Fix kernel crash on receiver USB disconnect\n\nhidpp_connect_event() has *four* time-of-check vs time-of-use (TOCTOU)\nraces when it races with itself.\n\nhidpp_connect_event() primarily runs from a workqueue but it also runs\non probe() and if a \"device-connected\" packet is received by the hw\nwhen the thread running hidpp_connect_event() from probe() is waiting on\nthe hw, then a second thread running hidpp_connect_event() will be\nstarted from the workqueue.\n\nThis opens the following races (note the below code is simplified):\n\n1. Retrieving + printing the protocol (harmless race):\n\n\tif (!hidpp-\u003eprotocol_major) {\n\t\thidpp_root_get_protocol_version()\n\t\thidpp-\u003eprotocol_major = response.rap.params[0];\n\t}\n\nWe can actually see this race hit in the dmesg in the abrt output\nattached to rhbz#2227968:\n\n[ 3064.624215] logitech-hidpp-device 0003:046D:4071.0049: HID++ 4.5 device connected.\n[ 3064.658184] logitech-hidpp-device 0003:046D:4071.0049: HID++ 4.5 device connected.\n\nTesting with extra logging added has shown that after this the 2 threads\ntake turn grabbing the hw access mutex (send_mutex) so they ping-pong\nthrough all the other TOCTOU cases managing to hit all of them:\n\n2. Updating the name to the HIDPP name (harmless race):\n\n\tif (hidpp-\u003ename == hdev-\u003ename) {\n\t\t...\n\t\thidpp-\u003ename = new_name;\n\t}\n\n3. Initializing the power_supply class for the battery (problematic!):\n\nhidpp_initialize_battery()\n{\n        if (hidpp-\u003ebattery.ps)\n                return 0;\n\n\tprobe_battery(); /* Blocks, threads take turns executing this */\n\n\thidpp-\u003ebattery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp-\u003ebattery.ps =\n\t\tdevm_power_supply_register(\u0026hidpp-\u003ehid_dev-\u003edev,\n\t\t\t\t\t   \u0026hidpp-\u003ebattery.desc, cfg);\n}\n\n4. Creating delayed input_device (potentially problematic):\n\n\tif (hidpp-\u003edelayed_input)\n\t\treturn;\n\n\thidpp-\u003edelayed_input = hidpp_allocate_input(hdev);\n\nThe really big problem here is 3. Hitting the race leads to the following\nsequence:\n\n\thidpp-\u003ebattery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp-\u003ebattery.ps =\n\t\tdevm_power_supply_register(\u0026hidpp-\u003ehid_dev-\u003edev,\n\t\t\t\t\t   \u0026hidpp-\u003ebattery.desc, cfg);\n\n\t...\n\n\thidpp-\u003ebattery.desc.properties =\n\t\tdevm_kmemdup(dev, hidpp_battery_props, cnt, GFP_KERNEL);\n\n\thidpp-\u003ebattery.ps =\n\t\tdevm_power_supply_register(\u0026hidpp-\u003ehid_dev-\u003edev,\n\t\t\t\t\t   \u0026hidpp-\u003ebattery.desc, cfg);\n\nSo now we have registered 2 power supplies for the same battery,\nwhich looks a bit weird from userspace's pov but this is not even\nthe really big problem.\n\nNotice how:\n\n1. This is all devm-maganaged\n2. The hidpp-\u003ebattery.desc struct is shared between the 2 power supplies\n3. hidpp-\u003ebattery.desc.properties points to the result from the second\n   devm_kmemdup()\n\nThis causes a use after free scenario on USB disconnect of the receiver:\n1. The last registered power supply class device gets unregistered\n2. The memory from the last devm_kmemdup() call gets freed,\n   hidpp-\u003ebattery.desc.properties now points to freed memory\n3. The first registered power supply class device gets unregistered,\n   this involves sending a remove uevent to userspace which invokes\n   power_supply_uevent() to fill the uevent data\n4. power_supply_uevent() uses hidpp-\u003ebattery.desc.properties which\n   now points to freed memory leading to backtraces like this one:\n\nSep 22 20:01:35 eric kernel: BUG: unable to handle page fault for address: ffffb2140e017f08\n...\nSep 22 20:01:35 eric kernel: Workqueue: usb_hub_wq hub_event\nSep 22 20:01:35 eric kernel: RIP: 0010:power_supply_uevent+0xee/0x1d0\n...\nSep 22 20:01:35 eric kernel:  ? asm_exc_page_fault+0x26/0x30\nSep 22 20:01:35 eric kernel:  ? power_supply_uevent+0xee/0x1d0\nSep 22 20:01:35 eric kernel:  ? power_supply_uevent+0x10d/0x1d0\nSep 22 20:01:35 eric kernel:  dev_uevent+0x10f/0x2d0\nSep 22 20:01:35 eric kernel:  kobject_uevent_env+0x291/0x680\nSep 22 20:01:35 eric kernel:  \n---truncated---",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2152,7 +2152,7 @@
     },
     {
       "CVE": "CVE-2023-5388",
-      "Description": "NSS was susceptible to a timing side-channel attack when performing RSA decryption. This attack could potentially allow an attacker to recover the private data. This vulnerability affects Firefox \u003c 124, Firefox ESR \u003c 115.9, and Thunderbird \u003c 115.9.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2175,7 +2175,7 @@
     },
     {
       "CVE": "CVE-2023-5517",
-      "Description": "A flaw in query-handling code can cause `named` to exit prematurely with an assertion failure when:\n\n  - `nxdomain-redirect \u003cdomain\u003e;` is configured, and\n  - the resolver receives a PTR query for an RFC 1918 address that would normally result in an authoritative NXDOMAIN response.\nThis issue affects BIND 9 versions 9.12.0 through 9.16.45, 9.18.0 through 9.18.21, 9.19.0 through 9.19.19, 9.16.8-S1 through 9.16.45-S1, and 9.18.11-S1 through 9.18.21-S1.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2196,7 +2196,7 @@
     },
     {
       "CVE": "CVE-2023-5679",
-      "Description": "A bad interaction between DNS64 and serve-stale may cause `named` to crash with an assertion failure during recursive resolution, when both of these features are enabled.\nThis issue affects BIND 9 versions 9.16.12 through 9.16.45, 9.18.0 through 9.18.21, 9.19.0 through 9.19.19, 9.16.12-S1 through 9.16.45-S1, and 9.18.11-S1 through 9.18.21-S1.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2217,7 +2217,7 @@
     },
     {
       "CVE": "CVE-2023-5981",
-      "Description": "A vulnerability was found that the response times to malformed ciphertexts in RSA-PSK ClientKeyExchange differ from response times of ciphertexts with correct PKCS#1 v1.5 padding.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2237,7 +2237,7 @@
     },
     {
       "CVE": "CVE-2023-6004",
-      "Description": "A flaw was found in libssh. By utilizing the ProxyCommand or ProxyJump feature, users can exploit unchecked hostname syntax on the client. This issue may allow an attacker to inject malicious code into the command of the features mentioned through the hostname parameter.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2259,7 +2259,7 @@
     },
     {
       "CVE": "CVE-2023-6040",
-      "Description": "An out-of-bounds access vulnerability involving netfilter was reported and fixed as: f1082dd31fe4 (netfilter: nf_tables: Reject tables of unsupported family); While creating a new netfilter table, lack of a safeguard against invalid nf_tables family (pf) values within `nf_tables_newtable` function enables an attacker to achieve out-of-bounds access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2279,7 +2279,7 @@
     },
     {
       "CVE": "CVE-2023-6121",
-      "Description": "An out-of-bounds read vulnerability was found in the NVMe-oF/TCP subsystem in the Linux kernel. This issue may allow a remote attacker to send a crafted TCP packet, triggering a heap-based buffer overflow that results in kmalloc data being printed and potentially leaked to the kernel ring buffer (dmesg).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2299,7 +2299,7 @@
     },
     {
       "CVE": "CVE-2023-6356",
-      "Description": "A flaw was found in the Linux kernel's NVMe driver. This issue may allow an unauthenticated malicious actor to send a set of crafted TCP packages when using NVMe over TCP, leading the NVMe driver to a NULL pointer dereference in the NVMe driver and causing kernel panic and a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2319,7 +2319,7 @@
     },
     {
       "CVE": "CVE-2023-6516",
-      "Description": "To keep its cache database efficient, `named` running as a recursive resolver occasionally attempts to clean up the database. It uses several methods, including some that are asynchronous: a small chunk of memory pointing to the cache element that can be cleaned up is first allocated and then queued for later processing. It was discovered that if the resolver is continuously processing query patterns triggering this type of cache-database maintenance, `named` may not be able to handle the cleanup events in a timely manner. This in turn enables the list of queued cleanup events to grow infinitely large over time, allowing the configured `max-cache-size` limit to be significantly exceeded.\nThis issue affects BIND 9 versions 9.16.0 through 9.16.45 and 9.16.8-S1 through 9.16.45-S1.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2340,7 +2340,7 @@
     },
     {
       "CVE": "CVE-2023-6531",
-      "Description": "A use-after-free flaw was found in the Linux Kernel due to a race problem in the unix garbage collector's deletion of SKB races with unix_stream_read_generic() on the socket that the SKB is queued on.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2360,7 +2360,7 @@
     },
     {
       "CVE": "CVE-2023-6535",
-      "Description": "A flaw was found in the Linux kernel's NVMe driver. This issue may allow an unauthenticated malicious actor to send a set of crafted TCP packages when using NVMe over TCP, leading the NVMe driver to a NULL pointer dereference in the NVMe driver, causing kernel panic and a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2380,7 +2380,7 @@
     },
     {
       "CVE": "CVE-2023-6536",
-      "Description": "A flaw was found in the Linux kernel's NVMe driver. This issue may allow an unauthenticated malicious actor to send a set of crafted TCP packages when using NVMe over TCP, leading the NVMe driver to a NULL pointer dereference in the NVMe driver, causing kernel panic and a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2400,7 +2400,7 @@
     },
     {
       "CVE": "CVE-2023-6546",
-      "Description": "A race condition was found in the GSM 0710 tty multiplexor in the Linux kernel. This issue occurs when two threads execute the GSMIOC_SETCONF ioctl on the same tty file descriptor with the gsm line discipline enabled, and can lead to a use-after-free problem on a struct gsm_dlci while restarting the gsm mux. This could allow a local unprivileged user to escalate their privileges on the system.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2420,7 +2420,7 @@
     },
     {
       "CVE": "CVE-2023-6597",
-      "Description": "An issue was found in the CPython `tempfile.TemporaryDirectory` class affecting versions 3.12.1, 3.11.7, 3.10.13, 3.9.18, and 3.8.18 and prior.\n\nThe tempfile.TemporaryDirectory class would dereference symlinks during cleanup of permissions-related errors. This means users which can run privileged programs are potentially able to modify permissions of files referenced by symlinks in some circumstances.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2441,7 +2441,7 @@
     },
     {
       "CVE": "CVE-2023-6606",
-      "Description": "An out-of-bounds read vulnerability was found in smbCalcSize in fs/smb/client/netmisc.c in the Linux Kernel. This issue could allow a local attacker to crash the system or leak internal kernel information.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2461,7 +2461,7 @@
     },
     {
       "CVE": "CVE-2023-6610",
-      "Description": "An out-of-bounds read vulnerability was found in smb2_dump_detail in fs/smb/client/smb2ops.c in the Linux Kernel. This issue could allow a local attacker to crash the system or leak internal kernel information.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2481,7 +2481,7 @@
     },
     {
       "CVE": "CVE-2023-6622",
-      "Description": "A null pointer dereference vulnerability was found in nft_dynset_init() in net/netfilter/nft_dynset.c in nf_tables in the Linux kernel. This issue may allow a local attacker with CAP_NET_ADMIN user privilege to trigger a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2501,7 +2501,7 @@
     },
     {
       "CVE": "CVE-2023-6816",
-      "Description": "A flaw was found in X.Org server. Both DeviceFocusEvent and the XIQueryPointer reply contain a bit for each logical button currently down. Buttons can be arbitrarily mapped to any value up to 255, but the X.Org Server was only allocating space for the device's particular number of buttons, leading to a heap overflow if a bigger value was used.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2522,7 +2522,7 @@
     },
     {
       "CVE": "CVE-2023-6817",
-      "Description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe function nft_pipapo_walk did not skip inactive elements during set walk which could lead double deactivations of PIPAPO (Pile Packet Policies) elements, leading to use-after-free.\n\nWe recommend upgrading past commit 317eb9685095678f2c9f5a8189de698c5354316a.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2542,7 +2542,7 @@
     },
     {
       "CVE": "CVE-2023-6915",
-      "Description": "A Null pointer dereference problem was found in ida_free in lib/idr.c in the Linux Kernel. This issue may allow an attacker using this library to cause a denial of service problem due to a missing check at a function return.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2562,7 +2562,7 @@
     },
     {
       "CVE": "CVE-2023-6918",
-      "Description": "A flaw was found in the libssh implements abstract layer for message digest (MD) operations implemented by different supported crypto backends. The return values from these were not properly checked, which could cause low-memory situations failures, NULL dereferences, crashes, or usage of the uninitialized memory as an input for the KDF. In this case, non-matching keys will result in decryption/integrity failures, terminating the connection.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2584,7 +2584,7 @@
     },
     {
       "CVE": "CVE-2023-6931",
-      "Description": "A heap out-of-bounds write vulnerability in the Linux kernel's Performance Events system component can be exploited to achieve local privilege escalation.\n\nA perf_event's read_size can overflow, leading to an heap out-of-bounds increment or write in perf_read_group().\n\nWe recommend upgrading past commit 382c27f4ed28f803b1f1473ac2d8db0afc795a1b.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2604,7 +2604,7 @@
     },
     {
       "CVE": "CVE-2023-6932",
-      "Description": "A use-after-free vulnerability in the Linux kernel's ipv4: igmp component can be exploited to achieve local privilege escalation.\n\nA race condition can be exploited to cause a timer be mistakenly registered on a RCU read locked object which is freed by another thread.\n\nWe recommend upgrading past commit e2b706c691905fe78468c361aaabc719d0a496f1.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2624,7 +2624,7 @@
     },
     {
       "CVE": "CVE-2023-7207",
-      "Description": "Debian's cpio contains a path traversal vulnerability. This issue was introduced by reverting CVE-2015-1197 patches which had caused a regression in --no-absolute-filenames. Upstream has since provided a proper fix to --no-absolute-filenames.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2644,7 +2644,7 @@
     },
     {
       "CVE": "CVE-2024-0229",
-      "Description": "An out-of-bounds memory access flaw was found in the X.Org server. This issue can be triggered when a device frozen by a sync grab is reattached to a different master device. This issue may lead to an application crash, local privilege escalation (if the server runs with extended privileges), or remote code execution in SSH X11 forwarding environments.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2665,7 +2665,7 @@
     },
     {
       "CVE": "CVE-2024-0340",
-      "Description": "A vulnerability was found in vhost_new_msg in drivers/vhost/vhost.c in the Linux kernel, which does not properly initialize memory in messages passed between virtual guests and the host operating system in the vhost/vhost.c:vhost_new_msg() function. This issue can allow local privileged users to read some kernel memory contents when reading from the /dev/vhost-net device file.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2685,7 +2685,7 @@
     },
     {
       "CVE": "CVE-2024-0408",
-      "Description": "A flaw was found in the X.Org server. The GLX PBuffer code does not call the XACE hook when creating the buffer, leaving it unlabeled. When the client issues another request to access that resource (as with a GetGeometry) or when it creates another resource that needs to access that buffer, such as a GC, the XSELINUX code will try to use an object that was never labeled and crash because the SID is NULL.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2706,7 +2706,7 @@
     },
     {
       "CVE": "CVE-2024-0409",
-      "Description": "A flaw was found in the X.Org server. The cursor code in both Xephyr and Xwayland uses the wrong type of private at creation. It uses the cursor bits type with the cursor as private, and when initiating the cursor, that overwrites the XSELINUX context.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2727,7 +2727,7 @@
     },
     {
       "CVE": "CVE-2024-0553",
-      "Description": "A vulnerability was found in GnuTLS. The response times to malformed ciphertexts in RSA-PSK ClientKeyExchange differ from the response times of ciphertexts with correct PKCS#1 v1.5 padding. This issue may allow a remote attacker to perform a timing side-channel attack in the RSA-PSK key exchange, potentially leading to the leakage of sensitive data. CVE-2024-0553 is designated as an incomplete resolution for CVE-2023-5981.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2747,7 +2747,7 @@
     },
     {
       "CVE": "CVE-2024-0565",
-      "Description": "An out-of-bounds memory read flaw was found in receive_encrypted_standard in fs/smb/client/smb2ops.c in the SMB Client sub-component in the Linux Kernel. This issue occurs due to integer underflow on the memcpy length, leading to a denial of service.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2767,7 +2767,7 @@
     },
     {
       "CVE": "CVE-2024-0567",
-      "Description": "A vulnerability was found in GnuTLS, where a cockpit (which uses gnuTLS) rejects a certificate chain with distributed trust. This issue occurs when validating a certificate chain with cockpit-certificate-ensure. This flaw allows an unauthenticated, remote client or attacker to initiate a denial of service attack.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2787,7 +2787,7 @@
     },
     {
       "CVE": "CVE-2024-0607",
-      "Description": "A flaw was found in the Netfilter subsystem in the Linux kernel. The issue is in the nft_byteorder_eval() function, where the code iterates through a loop and writes to the `dst` array. On each iteration, 8 bytes are written, but `dst` is an array of u32, so each element only has space for 4 bytes. That means every iteration overwrites part of the previous element corrupting this array of u32. This flaw allows a local user to cause a denial of service or potentially break NetFilter functionality.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2807,7 +2807,7 @@
     },
     {
       "CVE": "CVE-2024-0641",
-      "Description": "A denial of service vulnerability was found in tipc_crypto_key_revoke in net/tipc/crypto.c in the Linux kernel's TIPC subsystem. This flaw allows guests with local user privileges to trigger a deadlock and potentially crash the system.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2827,7 +2827,7 @@
     },
     {
       "CVE": "CVE-2024-0727",
-      "Description": "Issue summary: Processing a maliciously formatted PKCS12 file may lead OpenSSL\nto crash leading to a potential Denial of Service attack\n\nImpact summary: Applications loading files in the PKCS12 format from untrusted\nsources might terminate abruptly.\n\nA file in PKCS12 format can contain certificates and keys and may come from an\nuntrusted source. The PKCS12 specification allows certain fields to be NULL, but\nOpenSSL does not correctly check for this case. This can lead to a NULL pointer\ndereference that results in OpenSSL crashing. If an application processes PKCS12\nfiles from an untrusted source using the OpenSSL APIs then that application will\nbe vulnerable to this issue.\n\nOpenSSL APIs that are vulnerable to this are: PKCS12_parse(),\nPKCS12_unpack_p7data(), PKCS12_unpack_p7encdata(), PKCS12_unpack_authsafes()\nand PKCS12_newpass().\n\nWe have also fixed a similar issue in SMIME_write_PKCS7(). However since this\nfunction is related to writing data we do not consider it security significant.\n\nThe FIPS modules in 3.2, 3.1 and 3.0 are not affected by this issue.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2849,7 +2849,7 @@
     },
     {
       "CVE": "CVE-2024-0775",
-      "Description": "A use-after-free flaw was found in the __ext4_remount in fs/ext4/super.c in ext4 in the Linux kernel. This flaw allows a local user to cause an information leak problem while freeing the old quota file names before a potential failure, leading to a use-after-free.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2869,7 +2869,7 @@
     },
     {
       "CVE": "CVE-2024-1085",
-      "Description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_setelem_catchall_deactivate() function checks whether the catch-all set element is active in the current generation instead of the next generation before freeing it, but only flags it inactive in the next generation, making it possible to free the element multiple times, leading to a double free vulnerability.\n\nWe recommend upgrading past commit b1db244ffd041a49ecc9618e8feb6b5c1afcdaa7.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2889,7 +2889,7 @@
     },
     {
       "CVE": "CVE-2024-1086",
-      "Description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\n\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2909,7 +2909,7 @@
     },
     {
       "CVE": "CVE-2024-1151",
-      "Description": "A vulnerability was reported in the Open vSwitch sub-component in the Linux Kernel. The flaw occurs when a recursive operation of code push recursively calls into the code block. The OVS module does not validate the stack depth, pushing too many frames and causing a stack overflow. As a result, this can lead to a crash or other related issues.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2929,7 +2929,7 @@
     },
     {
       "CVE": "CVE-2024-20918",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21, 17.0.9, 21.0.1; Oracle GraalVM for JDK: 17.0.9, 21.0.1; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data as well as  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 7.4 (Confidentiality and Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2951,7 +2951,7 @@
     },
     {
       "CVE": "CVE-2024-20919",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21, 17.0.9, 21.0.1; Oracle GraalVM for JDK: 17.0.9, 21.0.1; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can only be exploited by supplying data to APIs in the specified Component without using Untrusted Java Web Start applications or Untrusted Java applets, such as through a web service. CVSS 3.1 Base Score 5.9 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2973,7 +2973,7 @@
     },
     {
       "CVE": "CVE-2024-20921",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21, 17.0.9, 21.0.1; Oracle GraalVM for JDK: 17.0.9, 21.0.1; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 5.9 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -2995,7 +2995,7 @@
     },
     {
       "CVE": "CVE-2024-20926",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Scripting).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21; Oracle GraalVM for JDK: 17.0.9; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 5.9 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3017,7 +3017,7 @@
     },
     {
       "CVE": "CVE-2024-20932",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Security).  Supported versions that are affected are Oracle Java SE: 17.0.9; Oracle GraalVM for JDK: 17.0.9; Oracle GraalVM Enterprise Edition: 21.3.8 and  22.3.4. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 7.5 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3039,7 +3039,7 @@
     },
     {
       "CVE": "CVE-2024-20945",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Security).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21, 17.0.9, 21.0.1; Oracle GraalVM for JDK: 17.0.9, 21.0.1; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows low privileged attacker with logon to the infrastructure where Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition executes to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 4.7 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3061,7 +3061,7 @@
     },
     {
       "CVE": "CVE-2024-20952",
-      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: Security).  Supported versions that are affected are Oracle Java SE: 8u391, 8u391-perf, 11.0.21, 17.0.9, 21.0.1; Oracle GraalVM for JDK: 17.0.9, 21.0.1; Oracle GraalVM Enterprise Edition: 20.3.12, 21.3.8 and  22.3.4. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data as well as  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 7.4 (Confidentiality and Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N).",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3083,7 +3083,7 @@
     },
     {
       "CVE": "CVE-2024-21626",
-      "Description": "runc is a CLI tool for spawning and running containers on Linux according to the OCI specification. In runc 1.1.11 and earlier, due to an internal file descriptor leak, an attacker could cause a newly-spawned container process (from runc exec) to have a working directory in the host filesystem namespace, allowing for a container escape by giving access to the host filesystem (\"attack 2\"). The same attack could be used by a malicious image to allow a container process to gain access to the host filesystem through runc run (\"attack 1\"). Variants of attacks 1 and 2 could be also be used to overwrite semi-arbitrary host binaries, allowing for complete container escapes (\"attack 3a\" and \"attack 3b\"). runc 1.1.12 includes patches for this issue. ",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3103,7 +3103,7 @@
     },
     {
       "CVE": "CVE-2024-21885",
-      "Description": "A flaw was found in X.Org server. In the XISendDeviceHierarchyEvent function, it is possible to exceed the allocated array length when certain new device IDs are added to the xXIHierarchyInfo struct. This can trigger a heap buffer overflow condition, which may lead to an application crash or remote code execution in SSH X11 forwarding environments.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3124,7 +3124,7 @@
     },
     {
       "CVE": "CVE-2024-21886",
-      "Description": "A heap buffer overflow flaw was found in the DisableDevice function in the X.Org server. This issue may lead to an application crash or, in some circumstances, remote code execution in SSH X11 forwarding environments.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3145,7 +3145,7 @@
     },
     {
       "CVE": "CVE-2024-23651",
-      "Description": "BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. Two malicious build steps running in parallel sharing the same cache mounts with subpaths could cause a race condition that can lead to files from the host system being accessible to the build container. The issue has been fixed in v0.12.5. Workarounds include, avoiding using BuildKit frontend from an untrusted source or building an untrusted Dockerfile containing cache mounts with --mount=type=cache,source=... options.\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3165,7 +3165,7 @@
     },
     {
       "CVE": "CVE-2024-23652",
-      "Description": "BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. A malicious BuildKit frontend or Dockerfile using RUN --mount could trick the feature that removes empty files created for the mountpoints into removing a file outside the container, from the host system. The issue has been fixed in v0.12.5. Workarounds include avoiding using BuildKit frontends from an untrusted source or building an untrusted Dockerfile containing RUN --mount feature.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3185,7 +3185,7 @@
     },
     {
       "CVE": "CVE-2024-23653",
-      "Description": "BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. In addition to running containers as build steps, BuildKit also provides APIs for running interactive containers based on built images. It was possible to use these APIs to ask BuildKit to run a container with elevated privileges. Normally, running such containers is only allowed if special `security.insecure` entitlement is enabled both by buildkitd configuration and allowed by the user initializing the build request. The issue has been fixed in v0.12.5 . Avoid using BuildKit frontends from untrusted sources. \n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3205,7 +3205,7 @@
     },
     {
       "CVE": "CVE-2024-23849",
-      "Description": "In rds_recv_track_latency in net/rds/af_rds.c in the Linux kernel through 6.7.1, there is an off-by-one error for an RDS_MSG_RX_DGRAM_TRACE_MAX comparison, resulting in out-of-bounds access.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3225,7 +3225,7 @@
     },
     {
       "CVE": "CVE-2024-23850",
-      "Description": "In btrfs_get_root_ref in fs/btrfs/disk-io.c in the Linux kernel through 6.7.1, there can be an assertion failure and crash because a subvolume can be read out too soon after its root item is inserted upon subvolume creation.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3245,7 +3245,7 @@
     },
     {
       "CVE": "CVE-2024-24860",
-      "Description": "A race condition was found in the Linux kernel's bluetooth device driver in {min,max}_key_size_set() function. This can result in a null pointer dereference issue, possibly leading to a kernel panic or denial of service issue.\n\n\n\n\n",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3265,7 +3265,7 @@
     },
     {
       "CVE": "CVE-2024-25062",
-      "Description": "An issue was discovered in libxml2 before 2.11.7 and 2.12.x before 2.12.5. When using the XML Reader interface with DTD validation and XInclude expansion enabled, processing crafted XML documents can lead to an xmlValidatePopElement use-after-free.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3287,7 +3287,7 @@
     },
     {
       "CVE": "CVE-2024-25744",
-      "Description": "In the Linux kernel before 6.6.7, an untrusted VMM can trigger int80 syscall handling at any given point. This is related to arch/x86/coco/tdx/tdx.c and arch/x86/mm/mem_encrypt_amd.c.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3307,7 +3307,7 @@
     },
     {
       "CVE": "CVE-2024-26585",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntls: fix race between tx work scheduling and socket close\n\nSimilarly to previous commit, the submitting thread (recvmsg/sendmsg)\nmay exit as soon as the async crypto handler calls complete().\nReorder scheduling the work before calling complete().\nThis seems more logical in the first place, as it's\nthe inverse order of what the submitting thread will do.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3327,7 +3327,7 @@
     },
     {
       "CVE": "CVE-2024-26586",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmlxsw: spectrum_acl_tcam: Fix stack corruption\n\nWhen tc filters are first added to a net device, the corresponding local\nport gets bound to an ACL group in the device. The group contains a list\nof ACLs. In turn, each ACL points to a different TCAM region where the\nfilters are stored. During forwarding, the ACLs are sequentially\nevaluated until a match is found.\n\nOne reason to place filters in different regions is when they are added\nwith decreasing priorities and in an alternating order so that two\nconsecutive filters can never fit in the same region because of their\nkey usage.\n\nIn Spectrum-2 and newer ASICs the firmware started to report that the\nmaximum number of ACLs in a group is more than 16, but the layout of the\nregister that configures ACL groups (PAGT) was not updated to account\nfor that. It is therefore possible to hit stack corruption [1] in the\nrare case where more than 16 ACLs in a group are required.\n\nFix by limiting the maximum ACL group size to the minimum between what\nthe firmware reports and the maximum ACLs that fit in the PAGT register.\n\nAdd a test case to make sure the machine does not crash when this\ncondition is hit.\n\n[1]\nKernel panic - not syncing: stack-protector: Kernel stack is corrupted in: mlxsw_sp_acl_tcam_group_update+0x116/0x120\n[...]\n dump_stack_lvl+0x36/0x50\n panic+0x305/0x330\n __stack_chk_fail+0x15/0x20\n mlxsw_sp_acl_tcam_group_update+0x116/0x120\n mlxsw_sp_acl_tcam_group_region_attach+0x69/0x110\n mlxsw_sp_acl_tcam_vchunk_get+0x492/0xa20\n mlxsw_sp_acl_tcam_ventry_add+0x25/0xe0\n mlxsw_sp_acl_rule_add+0x47/0x240\n mlxsw_sp_flower_replace+0x1a9/0x1d0\n tc_setup_cb_add+0xdc/0x1c0\n fl_hw_replace_filter+0x146/0x1f0\n fl_change+0xc17/0x1360\n tc_new_tfilter+0x472/0xb90\n rtnetlink_rcv_msg+0x313/0x3b0\n netlink_rcv_skb+0x58/0x100\n netlink_unicast+0x244/0x390\n netlink_sendmsg+0x1e4/0x440\n ____sys_sendmsg+0x164/0x260\n ___sys_sendmsg+0x9a/0xe0\n __sys_sendmsg+0x7a/0xc0\n do_syscall_64+0x40/0xe0\n entry_SYSCALL_64_after_hwframe+0x63/0x6b",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3347,7 +3347,7 @@
     },
     {
       "CVE": "CVE-2024-26589",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Reject variable offset alu on PTR_TO_FLOW_KEYS\n\nFor PTR_TO_FLOW_KEYS, check_flow_keys_access() only uses fixed off\nfor validation. However, variable offset ptr alu is not prohibited\nfor this ptr kind. So the variable offset is not checked.\n\nThe following prog is accepted:\n\n  func#0 @0\n  0: R1=ctx() R10=fp0\n  0: (bf) r6 = r1                       ; R1=ctx() R6_w=ctx()\n  1: (79) r7 = *(u64 *)(r6 +144)        ; R6_w=ctx() R7_w=flow_keys()\n  2: (b7) r8 = 1024                     ; R8_w=1024\n  3: (37) r8 /= 1                       ; R8_w=scalar()\n  4: (57) r8 \u0026= 1024                    ; R8_w=scalar(smin=smin32=0,\n  smax=umax=smax32=umax32=1024,var_off=(0x0; 0x400))\n  5: (0f) r7 += r8\n  mark_precise: frame0: last_idx 5 first_idx 0 subseq_idx -1\n  mark_precise: frame0: regs=r8 stack= before 4: (57) r8 \u0026= 1024\n  mark_precise: frame0: regs=r8 stack= before 3: (37) r8 /= 1\n  mark_precise: frame0: regs=r8 stack= before 2: (b7) r8 = 1024\n  6: R7_w=flow_keys(smin=smin32=0,smax=umax=smax32=umax32=1024,var_off\n  =(0x0; 0x400)) R8_w=scalar(smin=smin32=0,smax=umax=smax32=umax32=1024,\n  var_off=(0x0; 0x400))\n  6: (79) r0 = *(u64 *)(r7 +0)          ; R0_w=scalar()\n  7: (95) exit\n\nThis prog loads flow_keys to r7, and adds the variable offset r8\nto r7, and finally causes out-of-bounds access:\n\n  BUG: unable to handle page fault for address: ffffc90014c80038\n  [...]\n  Call Trace:\n   \u003cTASK\u003e\n   bpf_dispatcher_nop_func include/linux/bpf.h:1231 [inline]\n   __bpf_prog_run include/linux/filter.h:651 [inline]\n   bpf_prog_run include/linux/filter.h:658 [inline]\n   bpf_prog_run_pin_on_cpu include/linux/filter.h:675 [inline]\n   bpf_flow_dissect+0x15f/0x350 net/core/flow_dissector.c:991\n   bpf_prog_test_run_flow_dissector+0x39d/0x620 net/bpf/test_run.c:1359\n   bpf_prog_test_run kernel/bpf/syscall.c:4107 [inline]\n   __sys_bpf+0xf8f/0x4560 kernel/bpf/syscall.c:5475\n   __do_sys_bpf kernel/bpf/syscall.c:5561 [inline]\n   __se_sys_bpf kernel/bpf/syscall.c:5559 [inline]\n   __x64_sys_bpf+0x73/0xb0 kernel/bpf/syscall.c:5559\n   do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n   do_syscall_64+0x3f/0x110 arch/x86/entry/common.c:83\n   entry_SYSCALL_64_after_hwframe+0x63/0x6b\n\nFix this by rejecting ptr alu with variable offset on flow_keys.\nApplying the patch rejects the program with \"R7 pointer arithmetic\non flow_keys prohibited\".",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3367,7 +3367,7 @@
     },
     {
       "CVE": "CVE-2024-26591",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix re-attachment branch in bpf_tracing_prog_attach\n\nThe following case can cause a crash due to missing attach_btf:\n\n1) load rawtp program\n2) load fentry program with rawtp as target_fd\n3) create tracing link for fentry program with target_fd = 0\n4) repeat 3\n\nIn the end we have:\n\n- prog-\u003eaux-\u003edst_trampoline == NULL\n- tgt_prog == NULL (because we did not provide target_fd to link_create)\n- prog-\u003eaux-\u003eattach_btf == NULL (the program was loaded with attach_prog_fd=X)\n- the program was loaded for tgt_prog but we have no way to find out which one\n\n    BUG: kernel NULL pointer dereference, address: 0000000000000058\n    Call Trace:\n     \u003cTASK\u003e\n     ? __die+0x20/0x70\n     ? page_fault_oops+0x15b/0x430\n     ? fixup_exception+0x22/0x330\n     ? exc_page_fault+0x6f/0x170\n     ? asm_exc_page_fault+0x22/0x30\n     ? bpf_tracing_prog_attach+0x279/0x560\n     ? btf_obj_id+0x5/0x10\n     bpf_tracing_prog_attach+0x439/0x560\n     __sys_bpf+0x1cf4/0x2de0\n     __x64_sys_bpf+0x1c/0x30\n     do_syscall_64+0x41/0xf0\n     entry_SYSCALL_64_after_hwframe+0x6e/0x76\n\nReturn -EINVAL in this situation.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3387,7 +3387,7 @@
     },
     {
       "CVE": "CVE-2024-26593",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ni2c: i801: Fix block process call transactions\n\nAccording to the Intel datasheets, software must reset the block\nbuffer index twice for block process call transactions: once before\nwriting the outgoing data to the buffer, and once again before\nreading the incoming data from the buffer.\n\nThe driver is currently missing the second reset, causing the wrong\nportion of the block buffer to be read.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3407,7 +3407,7 @@
     },
     {
       "CVE": "CVE-2024-26595",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmlxsw: spectrum_acl_tcam: Fix NULL pointer dereference in error path\n\nWhen calling mlxsw_sp_acl_tcam_region_destroy() from an error path after\nfailing to attach the region to an ACL group, we hit a NULL pointer\ndereference upon 'region-\u003egroup-\u003etcam' [1].\n\nFix by retrieving the 'tcam' pointer using mlxsw_sp_acl_to_tcam().\n\n[1]\nBUG: kernel NULL pointer dereference, address: 0000000000000000\n[...]\nRIP: 0010:mlxsw_sp_acl_tcam_region_destroy+0xa0/0xd0\n[...]\nCall Trace:\n mlxsw_sp_acl_tcam_vchunk_get+0x88b/0xa20\n mlxsw_sp_acl_tcam_ventry_add+0x25/0xe0\n mlxsw_sp_acl_rule_add+0x47/0x240\n mlxsw_sp_flower_replace+0x1a9/0x1d0\n tc_setup_cb_add+0xdc/0x1c0\n fl_hw_replace_filter+0x146/0x1f0\n fl_change+0xc17/0x1360\n tc_new_tfilter+0x472/0xb90\n rtnetlink_rcv_msg+0x313/0x3b0\n netlink_rcv_skb+0x58/0x100\n netlink_unicast+0x244/0x390\n netlink_sendmsg+0x1e4/0x440\n ____sys_sendmsg+0x164/0x260\n ___sys_sendmsg+0x9a/0xe0\n __sys_sendmsg+0x7a/0xc0\n do_syscall_64+0x40/0xe0\n entry_SYSCALL_64_after_hwframe+0x63/0x6b",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3427,7 +3427,7 @@
     },
     {
       "CVE": "CVE-2024-26598",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: arm64: vgic-its: Avoid potential UAF in LPI translation cache\n\nThere is a potential UAF scenario in the case of an LPI translation\ncache hit racing with an operation that invalidates the cache, such\nas a DISCARD ITS command. The root of the problem is that\nvgic_its_check_cache() does not elevate the refcount on the vgic_irq\nbefore dropping the lock that serializes refcount changes.\n\nHave vgic_its_check_cache() raise the refcount on the returned vgic_irq\nand add the corresponding decrement after queueing the interrupt.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3447,7 +3447,7 @@
     },
     {
       "CVE": "CVE-2024-26602",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched/membarrier: reduce the ability to hammer on sys_membarrier\n\nOn some systems, sys_membarrier can be very expensive, causing overall\nslowdowns for everything.  So put a lock on the path in order to\nserialize the accesses to prevent the ability for this to be called at\ntoo high of a frequency and saturate the machine.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3467,7 +3467,7 @@
     },
     {
       "CVE": "CVE-2024-26603",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nx86/fpu: Stop relying on userspace for info to fault in xsave buffer\n\nBefore this change, the expected size of the user space buffer was\ntaken from fx_sw-\u003exstate_size. fx_sw-\u003exstate_size can be changed\nfrom user-space, so it is possible construct a sigreturn frame where:\n\n * fx_sw-\u003exstate_size is smaller than the size required by valid bits in\n   fx_sw-\u003exfeatures.\n * user-space unmaps parts of the sigrame fpu buffer so that not all of\n   the buffer required by xrstor is accessible.\n\nIn this case, xrstor tries to restore and accesses the unmapped area\nwhich results in a fault. But fault_in_readable succeeds because buf +\nfx_sw-\u003exstate_size is within the still mapped area, so it goes back and\ntries xrstor again. It will spin in this loop forever.\n\nInstead, fault in the maximum size which can be touched by XRSTOR (taken\nfrom fpstate-\u003euser_size).\n\n[ dhansen: tweak subject / changelog ]",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -3487,7 +3487,7 @@
     },
     {
       "CVE": "CVE-2024-26622",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntomoyo: fix UAF write bug in tomoyo_write_control()\n\nSince tomoyo_write_control() updates head-\u003ewrite_buf when write()\nof long lines is requested, we need to fetch head-\u003ewrite_buf after\nhead-\u003eio_sem is held.  Otherwise, concurrent write() requests can\ncause use-after-free-write and double-free problems.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
