@@ -1,0 +1,1287 @@
+{
+  "Title": "Security update for the Linux Kernel",
+  "Tracking": {
+    "ID": "SUSE-SU-2025:0555-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2025-02-14T15:25:28Z",
+    "CurrentReleaseDate": "2025-02-14T15:25:28Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2025-02-14T15:25:28Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for the Linux Kernel",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "The SUSE Linux Enterprise 15 SP4 RT kernel was updated to receive various security bugfixes.\n\n\nThe following security bugs were fixed:\n\n- CVE-2024-50199: mm/swapfile: skip HugeTLB pages for unuse_vma (bsc#1233112).\n- CVE-2024-53104: media: uvcvideo: Skip parsing frames of type UVC_VS_UNDEFINED in uvc_parse_format (bsc#1234025).\n- CVE-2024-53166: block, bfq: fix bfqq uaf in bfq_limit_depth() (bsc#1234884).\n- CVE-2024-53177: smb: prevent use-after-free due to open_cached_dir error paths (bsc#1234896).\n- CVE-2024-56600: net: inet6: do not leave a dangling sk pointer in inet6_create() (bsc#1235217).\n- CVE-2024-56601: net: inet: do not leave a dangling sk pointer in inet_create() (bsc#1235230).\n- CVE-2024-56602: net: ieee802154: do not leave a dangling sk pointer in ieee802154_create() (bsc#1235521).\n- CVE-2024-56623: scsi: qla2xxx: Fix use after free on unload (bsc#1235466).\n- CVE-2024-56631: scsi: sg: Fix slab-use-after-free read in sg_release() (bsc#1235480).\n- CVE-2024-56642: tipc: Fix use-after-free of kernel socket in cleanup_bearer() (bsc#1235433).\n- CVE-2024-56645: can: j1939: j1939_session_new(): fix skb reference counting (bsc#1235134).\n- CVE-2024-56648: net: hsr: avoid potential out-of-bound access in fill_frame_info() (bsc#1235451).\n- CVE-2024-56650: netfilter: x_tables: fix LED ID check in led_tg_check() (bsc#1235430).\n- CVE-2024-56658: net: defer final 'struct net' free in netns dismantle (bsc#1235441).\n- CVE-2024-56664: bpf, sockmap: Fix race between element replace and close() (bsc#1235249).\n- CVE-2024-56704: 9p/xen: fix release of IRQ (bsc#1235584).\n- CVE-2024-56759: btrfs: fix use-after-free when COWing tree bock and tracing is enabled (bsc#1235645).\n- CVE-2024-57791: net/smc: check return value of sock_recvmsg when draining clc data (bsc#1235759).\n- CVE-2024-57792: power: supply: gpio-charger: Fix set charge current limits (bsc#1235764).\n- CVE-2024-57798: drm/dp_mst: Ensure mst_primary pointer is valid in drm_dp_mst_handle_up_req() (bsc#1235818).\n- CVE-2024-57849: s390/cpum_sf: Handle CPU hotplug remove during sampling (bsc#1235814).\n- CVE-2024-57893: ALSA: seq: oss: Fix races at processing SysEx messages (bsc#1235920).\n- CVE-2024-57897: drm/amdkfd: Correct the migration DMA map direction (bsc#1235969).\n\nThe following non-security bugs were fixed:\n\n- NFS: Adjust the amount of readahead performed by NFS readdir (bsc#1231847).\n- NFS: Do not flush the readdir cache in nfs_dentry_iput() (bsc#1231847).\n- NFS: Improve heuristic for readdirplus (bsc#1231847).\n- NFS: Trigger the 'ls -l' readdir heuristic sooner (bsc#1231847).\n- tipc: fix NULL deref in cleanup_bearer() (bsc#1235433).\n- x86/static-call: Remove early_boot_irqs_disabled check to fix Xen PVH dom0 (git-fixes).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2025-555,SUSE-SLE-Micro-5.3-2025-555,SUSE-SLE-Micro-5.4-2025-555",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "kernel-rt-5.14.21-150400.15.109.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-source-rt-5.14.21-150400.15.109.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-rt-5.14.21-150400.15.109.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kernel-source-rt-5.14.21-150400.15.109.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.4",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2025/suse-su-20250555-1/",
+      "Description": "Link for SUSE-SU-2025:0555-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2025-February/020353.html",
+      "Description": "E-Mail link for SUSE-SU-2025:0555-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1230697",
+      "Description": "SUSE Bug 1230697"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1231847",
+      "Description": "SUSE Bug 1231847"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1233112",
+      "Description": "SUSE Bug 1233112"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1233642",
+      "Description": "SUSE Bug 1233642"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1234025",
+      "Description": "SUSE Bug 1234025"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1234690",
+      "Description": "SUSE Bug 1234690"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1234884",
+      "Description": "SUSE Bug 1234884"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1234896",
+      "Description": "SUSE Bug 1234896"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1234931",
+      "Description": "SUSE Bug 1234931"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235134",
+      "Description": "SUSE Bug 1235134"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235217",
+      "Description": "SUSE Bug 1235217"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235230",
+      "Description": "SUSE Bug 1235230"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235249",
+      "Description": "SUSE Bug 1235249"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235430",
+      "Description": "SUSE Bug 1235430"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235433",
+      "Description": "SUSE Bug 1235433"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235441",
+      "Description": "SUSE Bug 1235441"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235451",
+      "Description": "SUSE Bug 1235451"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235466",
+      "Description": "SUSE Bug 1235466"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235480",
+      "Description": "SUSE Bug 1235480"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235521",
+      "Description": "SUSE Bug 1235521"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235584",
+      "Description": "SUSE Bug 1235584"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235645",
+      "Description": "SUSE Bug 1235645"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235723",
+      "Description": "SUSE Bug 1235723"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235759",
+      "Description": "SUSE Bug 1235759"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235764",
+      "Description": "SUSE Bug 1235764"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235814",
+      "Description": "SUSE Bug 1235814"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235818",
+      "Description": "SUSE Bug 1235818"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235920",
+      "Description": "SUSE Bug 1235920"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1235969",
+      "Description": "SUSE Bug 1235969"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1236628",
+      "Description": "SUSE Bug 1236628"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-50199/",
+      "Description": "SUSE CVE CVE-2024-50199 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-53095/",
+      "Description": "SUSE CVE CVE-2024-53095 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-53104/",
+      "Description": "SUSE CVE CVE-2024-53104 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-53144/",
+      "Description": "SUSE CVE CVE-2024-53144 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-53166/",
+      "Description": "SUSE CVE CVE-2024-53166 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-53177/",
+      "Description": "SUSE CVE CVE-2024-53177 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-54680/",
+      "Description": "SUSE CVE CVE-2024-54680 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56600/",
+      "Description": "SUSE CVE CVE-2024-56600 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56601/",
+      "Description": "SUSE CVE CVE-2024-56601 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56602/",
+      "Description": "SUSE CVE CVE-2024-56602 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56623/",
+      "Description": "SUSE CVE CVE-2024-56623 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56631/",
+      "Description": "SUSE CVE CVE-2024-56631 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56642/",
+      "Description": "SUSE CVE CVE-2024-56642 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56645/",
+      "Description": "SUSE CVE CVE-2024-56645 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56648/",
+      "Description": "SUSE CVE CVE-2024-56648 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56650/",
+      "Description": "SUSE CVE CVE-2024-56650 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56658/",
+      "Description": "SUSE CVE CVE-2024-56658 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56661/",
+      "Description": "SUSE CVE CVE-2024-56661 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56664/",
+      "Description": "SUSE CVE CVE-2024-56664 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56704/",
+      "Description": "SUSE CVE CVE-2024-56704 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-56759/",
+      "Description": "SUSE CVE CVE-2024-56759 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57791/",
+      "Description": "SUSE CVE CVE-2024-57791 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57792/",
+      "Description": "SUSE CVE CVE-2024-57792 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57798/",
+      "Description": "SUSE CVE CVE-2024-57798 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57849/",
+      "Description": "SUSE CVE CVE-2024-57849 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57893/",
+      "Description": "SUSE CVE CVE-2024-57893 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-57897/",
+      "Description": "SUSE CVE CVE-2024-57897 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-8805/",
+      "Description": "SUSE CVE CVE-2024-8805 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-50199",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-50199.html",
+          "Description": "CVE-2024-50199"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1233112",
+          "Description": "SUSE Bug 1233112"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-53095",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-53095.html",
+          "Description": "CVE-2024-53095"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1233642",
+          "Description": "SUSE Bug 1233642"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-53104",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-53104.html",
+          "Description": "CVE-2024-53104"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234025",
+          "Description": "SUSE Bug 1234025"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1236783",
+          "Description": "SUSE Bug 1236783"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-53144",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-53144.html",
+          "Description": "CVE-2024-53144"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234690",
+          "Description": "SUSE Bug 1234690"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-53166",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-53166.html",
+          "Description": "CVE-2024-53166"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234884",
+          "Description": "SUSE Bug 1234884"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234885",
+          "Description": "SUSE Bug 1234885"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-53177",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-53177.html",
+          "Description": "CVE-2024-53177"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234896",
+          "Description": "SUSE Bug 1234896"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235103",
+          "Description": "SUSE Bug 1235103"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-54680",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-54680.html",
+          "Description": "CVE-2024-54680"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235723",
+          "Description": "SUSE Bug 1235723"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56600",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56600.html",
+          "Description": "CVE-2024-56600"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235217",
+          "Description": "SUSE Bug 1235217"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235218",
+          "Description": "SUSE Bug 1235218"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56601",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56601.html",
+          "Description": "CVE-2024-56601"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235230",
+          "Description": "SUSE Bug 1235230"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235231",
+          "Description": "SUSE Bug 1235231"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56602",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56602.html",
+          "Description": "CVE-2024-56602"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235521",
+          "Description": "SUSE Bug 1235521"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235522",
+          "Description": "SUSE Bug 1235522"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56623",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56623.html",
+          "Description": "CVE-2024-56623"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235466",
+          "Description": "SUSE Bug 1235466"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235468",
+          "Description": "SUSE Bug 1235468"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56631",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56631.html",
+          "Description": "CVE-2024-56631"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235480",
+          "Description": "SUSE Bug 1235480"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235482",
+          "Description": "SUSE Bug 1235482"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56642",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56642.html",
+          "Description": "CVE-2024-56642"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235433",
+          "Description": "SUSE Bug 1235433"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235434",
+          "Description": "SUSE Bug 1235434"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56645",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56645.html",
+          "Description": "CVE-2024-56645"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235134",
+          "Description": "SUSE Bug 1235134"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235135",
+          "Description": "SUSE Bug 1235135"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56648",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56648.html",
+          "Description": "CVE-2024-56648"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235451",
+          "Description": "SUSE Bug 1235451"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235452",
+          "Description": "SUSE Bug 1235452"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56650",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56650.html",
+          "Description": "CVE-2024-56650"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235430",
+          "Description": "SUSE Bug 1235430"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235431",
+          "Description": "SUSE Bug 1235431"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56658",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56658.html",
+          "Description": "CVE-2024-56658"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235441",
+          "Description": "SUSE Bug 1235441"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235442",
+          "Description": "SUSE Bug 1235442"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56661",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56661.html",
+          "Description": "CVE-2024-56661"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1234931",
+          "Description": "SUSE Bug 1234931"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56664",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56664.html",
+          "Description": "CVE-2024-56664"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235249",
+          "Description": "SUSE Bug 1235249"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235250",
+          "Description": "SUSE Bug 1235250"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56704",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56704.html",
+          "Description": "CVE-2024-56704"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235584",
+          "Description": "SUSE Bug 1235584"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-56759",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-56759.html",
+          "Description": "CVE-2024-56759"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235645",
+          "Description": "SUSE Bug 1235645"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1236569",
+          "Description": "SUSE Bug 1236569"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57791",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57791.html",
+          "Description": "CVE-2024-57791"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235759",
+          "Description": "SUSE Bug 1235759"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235760",
+          "Description": "SUSE Bug 1235760"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57792",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57792.html",
+          "Description": "CVE-2024-57792"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235764",
+          "Description": "SUSE Bug 1235764"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1236568",
+          "Description": "SUSE Bug 1236568"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57798",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57798.html",
+          "Description": "CVE-2024-57798"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235818",
+          "Description": "SUSE Bug 1235818"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235819",
+          "Description": "SUSE Bug 1235819"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57849",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57849.html",
+          "Description": "CVE-2024-57849"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235814",
+          "Description": "SUSE Bug 1235814"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235815",
+          "Description": "SUSE Bug 1235815"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57893",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57893.html",
+          "Description": "CVE-2024-57893"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235920",
+          "Description": "SUSE Bug 1235920"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235921",
+          "Description": "SUSE Bug 1235921"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-57897",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-57897.html",
+          "Description": "CVE-2024-57897"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1235969",
+          "Description": "SUSE Bug 1235969"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-8805",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-8805.html",
+          "Description": "CVE-2024-8805"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1230697",
+          "Description": "SUSE Bug 1230697"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-5.14.21-150400.15.109.1",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-5.14.21-150400.15.109.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
