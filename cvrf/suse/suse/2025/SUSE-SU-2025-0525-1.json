@@ -350,7 +350,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2023-3128",
-      "Description": "unknown",
+      "Description": "Grafana is validating Azure AD accounts based on the email claim. \n\nOn Azure AD, the profile email field is not unique and can be easily modified. \n\nThis leads to account takeover and authentication bypass when Azure AD OAuth is configured with a multi-tenant app. \n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -415,7 +415,7 @@
     },
     {
       "CVE": "CVE-2023-6152",
-      "Description": "unknown",
+      "Description": "A user changing their email after signing up and verifying it can change it without verification in profile settings.\n\nThe configuration option \"verify_email_enabled\" will only validate email only on sign up.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -480,7 +480,7 @@
     },
     {
       "CVE": "CVE-2024-22037",
-      "Description": "unknown",
+      "Description": "The uyuni-server-attestation systemd service needs a database_password environment variable. This file has 640 permission, and cannot be shown users, but the environment is still exposed by systemd to non-privileged users.",
       "Threats": [
         {
           "Type": "Impact",
@@ -545,7 +545,7 @@
     },
     {
       "CVE": "CVE-2024-45337",
-      "Description": "unknown",
+      "Description": "Applications and libraries which misuse the ServerConfig.PublicKeyCallback callback may be susceptible to an authorization bypass. The documentation for ServerConfig.PublicKeyCallback says that \"A call to this function does not guarantee that the key offered is in fact used to authenticate.\" Specifically, the SSH protocol allows clients to inquire about whether a public key is acceptable before proving control of the corresponding private key. PublicKeyCallback may be called with multiple keys, and the order in which the keys were provided cannot be used to infer which key the client successfully authenticated with, if any. Some applications, which store the key(s) passed to PublicKeyCallback (or derived information) and make security relevant determinations based on it once the connection is established, may make incorrect assumptions. For example, an attacker may send public keys A and B, and then authenticate with A. PublicKeyCallback would be called only twice, first with A and then with B. A vulnerable application may then make authorization decisions based on key B for which the attacker does not actually control the private key. Since this API is widely misused, as a partial mitigation golang.org/x/cry...@v0.31.0 enforces the property that, when successfully authenticating via public key, the last key passed to ServerConfig.PublicKeyCallback will be the key used to authenticate the connection. PublicKeyCallback will now be called multiple times with the same key, if necessary. Note that the client may still not control the last key passed to PublicKeyCallback if the connection is then authenticated with a different method, such as PasswordCallback, KeyboardInteractiveCallback, or NoClientAuth. Users should be using the Extensions field of the Permissions return value from the various authentication callbacks to record data associated with the authentication attempt instead of referencing external state. Once the connection is established the state corresponding to the successful authentication attempt can be retrieved via the ServerConn.Permissions field. Note that some third-party libraries misuse the Permissions type by sharing it across authentication attempts; users of third-party libraries should refer to the relevant projects for guidance.",
       "Threats": [
         {
           "Type": "Impact",
@@ -610,7 +610,7 @@
     },
     {
       "CVE": "CVE-2024-51744",
-      "Description": "unknown",
+      "Description": "golang-jwt is a Go implementation of JSON Web Tokens. Unclear documentation of the error behavior in `ParseWithClaims` can lead to situation where users are potentially not checking errors in the way they should be. Especially, if a token is both expired and invalid, the errors returned by `ParseWithClaims` return both error codes. If users only check for the `jwt.ErrTokenExpired ` using `error.Is`, they will ignore the embedded `jwt.ErrTokenSignatureInvalid` and thus potentially accept invalid tokens. A fix has been back-ported with the error handling logic from the `v5` branch to the `v4` branch. In this logic, the `ParseWithClaims` function will immediately return in \"dangerous\" situations (e.g., an invalid signature), limiting the combined errors only to situations where the signature is valid, but further validation failed (e.g., if the signature is valid, but is expired AND has the wrong audience). This fix is part of the 4.5.1 release. We are aware that this changes the behaviour of an established function and is not 100 % backwards compatible, so updating to 4.5.1 might break your code. In case you cannot update to 4.5.0, please make sure that you are properly checking for all errors (\"dangerous\" ones first), so that you are not running in the case detailed above.",
       "Threats": [
         {
           "Type": "Impact",
@@ -675,7 +675,7 @@
     },
     {
       "CVE": "CVE-2024-6837",
-      "Description": "unknown",
+      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
       "Threats": [
         {
           "Type": "Impact",
@@ -740,7 +740,7 @@
     },
     {
       "CVE": "CVE-2024-8118",
-      "Description": "unknown",
+      "Description": "In Grafana, the wrong permission is applied to the alert rule write API endpoint, allowing users with permission to write external alert instances to also write alert rules.",
       "Threats": [
         {
           "Type": "Impact",
