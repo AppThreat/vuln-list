@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:40:57Z",
+        "Date": "2025-02-19T12:55:31Z",
         "Description": "current"
       }
     ]
@@ -5048,7 +5048,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2019-20916",
-      "Description": "unknown",
+      "Description": "The pip package before 19.2 for Python allows Directory Traversal when a URL is given in an install command, because a Content-Disposition header can have ../ in a filename, as demonstrated by overwriting the /root/.ssh/authorized_keys file. This occurs in _download_http_url in _internal/download.py.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5072,7 +5072,7 @@
     },
     {
       "CVE": "CVE-2019-25013",
-      "Description": "unknown",
+      "Description": "The iconv feature in the GNU C Library (aka glibc or libc6) through 2.32, when processing invalid multi-byte input sequences in the EUC-KR encoding, may have a buffer over-read.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5101,7 +5101,7 @@
     },
     {
       "CVE": "CVE-2020-14803",
-      "Description": "unknown",
+      "Description": "Vulnerability in the Java SE product of Oracle Java SE (component: Libraries). Supported versions that are affected are Java SE: 11.0.8 and 15. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Java SE. Successful attacks of this vulnerability can result in unauthorized read access to a subset of Java SE accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 5.3 (Confidentiality impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N).",
       "Threats": [
         {
           "Type": "Impact",
@@ -5126,7 +5126,7 @@
     },
     {
       "CVE": "CVE-2020-15157",
-      "Description": "unknown",
+      "Description": "In containerd (an industry-standard container runtime) before version 1.2.14 there is a credential leaking vulnerability. If a container image manifest in the OCI Image format or Docker Image V2 Schema 2 format includes a URL for the location of a specific image layer (otherwise known as a \"foreign layer\"), the default containerd resolver will follow that URL to attempt to download it. In v1.2.x but not 1.3.0 or later, the default containerd resolver will provide its authentication credentials if the server where the URL is located presents an HTTP 401 status code along with registry-specific HTTP headers. If an attacker publishes a public image with a manifest that directs one of the layers to be fetched from a web server they control and they trick a user or system into pulling the image, they can obtain the credentials used for pulling that image. In some cases, this may be the user's username and password for the registry. In other cases, this may be the credentials attached to the cloud virtual instance which can grant access to other cloud resources in the account. The default containerd resolver is used by the cri-containerd plugin (which can be used by Kubernetes), the ctr development tool, and other client programs that have explicitly linked against it. This vulnerability has been fixed in containerd 1.2.14. containerd 1.3 and later are not affected. If you are using containerd 1.3 or later, you are not affected. If you are using cri-containerd in the 1.2 series or prior, you should ensure you only pull images from trusted sources. Other container runtimes built on top of containerd but not using the default resolver (such as Docker) are not affected.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5149,7 +5149,7 @@
     },
     {
       "CVE": "CVE-2020-15257",
-      "Description": "unknown",
+      "Description": "containerd is an industry-standard container runtime and is available as a daemon for Linux and Windows. In containerd before versions 1.3.9 and 1.4.3, the containerd-shim API is improperly exposed to host network containers. Access controls for the shim's API socket verified that the connecting process had an effective UID of 0, but did not otherwise restrict access to the abstract Unix domain socket. This would allow malicious containers running in the same network namespace as the shim, with an effective UID of 0 but otherwise reduced privileges, to cause new processes to be run with elevated privileges. This vulnerability has been fixed in containerd 1.3.9 and 1.4.3. Users should update to these versions as soon as they are released. It should be noted that containers started with an old version of containerd-shim should be stopped and restarted, as running containers will continue to be vulnerable even after an upgrade. If you are not providing the ability for untrusted users to start containers in the same network namespace as the shim (typically the \"host\" network namespace, for example with docker run --net=host or hostNetwork: true in a Kubernetes pod) and run with an effective UID of 0, you are not vulnerable to this issue. If you are running containers with a vulnerable configuration, you can deny access to all abstract sockets with AppArmor by adding a line similar to deny unix addr=@**, to your policy. It is best practice to run containers with a reduced set of privileges, with a non-zero UID, and with isolated namespaces. The containerd maintainers strongly advise against sharing namespaces with the host. Reducing the set of isolation mechanisms used for a container necessarily increases that container's privilege, regardless of what container runtime is used for running that container.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5173,7 +5173,7 @@
     },
     {
       "CVE": "CVE-2020-25211",
-      "Description": "unknown",
+      "Description": "In the Linux kernel through 5.8.7, local attackers able to inject conntrack netlink configuration could overflow a local buffer, causing crashes or triggering use of incorrect protocol numbers in ctnetlink_parse_tuple_filter in net/netfilter/nf_conntrack_netlink.c, aka CID-1cc5ef91d2ff.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5196,7 +5196,7 @@
     },
     {
       "CVE": "CVE-2020-25632",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. The rmmod implementation allows the unloading of a module used as a dependency without checking if any other dependent module is still loaded leading to a use-after-free scenario. This could allow arbitrary code to be executed or a bypass of Secure Boot protections. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5221,7 +5221,7 @@
     },
     {
       "CVE": "CVE-2020-25639",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference flaw was found in the Linux kernel's GPU Nouveau driver functionality in versions prior to 5.12-rc1 in the way the user calls ioctl DRM_IOCTL_NOUVEAU_CHANNEL_ALLOC. This flaw allows a local user to crash the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5244,7 +5244,7 @@
     },
     {
       "CVE": "CVE-2020-25647",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. During USB device initialization, descriptors are read with very little bounds checking and assumes the USB device is providing sane values. If properly exploited, an attacker could trigger memory corruption leading to arbitrary code execution allowing a bypass of the Secure Boot mechanism. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5269,7 +5269,7 @@
     },
     {
       "CVE": "CVE-2020-27221",
-      "Description": "unknown",
+      "Description": "In Eclipse OpenJ9 up to and including version 0.23, there is potential for a stack-based buffer overflow when the virtual machine or JNI natives are converting from UTF-8 characters to platform encoding.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5294,7 +5294,7 @@
     },
     {
       "CVE": "CVE-2020-27618",
-      "Description": "unknown",
+      "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid multi-byte input sequences in IBM1364, IBM1371, IBM1388, IBM1390, and IBM1399 encodings, fails to advance the input state, which could lead to an infinite loop in applications, resulting in a denial of service, a different vulnerability from CVE-2016-10228.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5323,7 +5323,7 @@
     },
     {
       "CVE": "CVE-2020-27673",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 5.9.1, as used with Xen through 4.14.x. Guest OS users can cause a denial of service (host OS hang) via a high rate of events to dom0, aka CID-e99502f76271.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5346,7 +5346,7 @@
     },
     {
       "CVE": "CVE-2020-27675",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 5.9.1, as used with Xen through 4.14.x. drivers/xen/events/events_base.c allows event-channel removal during the event-handling loop (a race condition). This can cause a use-after-free or NULL pointer dereference, as demonstrated by a dom0 crash via events for an in-reconfiguration paravirtualized device, aka CID-073d0552ead5.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5369,7 +5369,7 @@
     },
     {
       "CVE": "CVE-2020-27749",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. Variable names present are expanded in the supplied command line into their corresponding variable contents, using a 1kB stack buffer for temporary storage, without sufficient bounds checking. If the function is called with a command line that references a variable with a sufficiently large payload, it is possible to overflow the stack buffer, corrupt the stack frame and control execution which could also circumvent Secure Boot protections. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5394,7 +5394,7 @@
     },
     {
       "CVE": "CVE-2020-27779",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. The cutmem command does not honor secure boot locking allowing an privileged attacker to remove address ranges from memory creating an opportunity to circumvent SecureBoot protections after proper triage about grub's memory layout. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5419,7 +5419,7 @@
     },
     {
       "CVE": "CVE-2020-27786",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel's implementation of MIDI, where an attacker with a local account and the permissions to issue ioctl commands to midi devices could trigger a use-after-free issue. A write to this specific memory while freed and before use causes the flow of execution to change and possibly allow for memory corruption or privilege escalation. The highest threat from this vulnerability is to confidentiality, integrity, as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5442,7 +5442,7 @@
     },
     {
       "CVE": "CVE-2020-27835",
-      "Description": "unknown",
+      "Description": "A use after free in the Linux kernel infiniband hfi1 driver in versions prior to 5.10-rc6 was found in the way user calls Ioctl after open dev file and fork. A local user could use this flaw to crash the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5465,7 +5465,7 @@
     },
     {
       "CVE": "CVE-2020-29562",
-      "Description": "unknown",
+      "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.30 to 2.32, when converting UCS4 text containing an irreversible character, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5494,7 +5494,7 @@
     },
     {
       "CVE": "CVE-2020-29568",
-      "Description": "unknown",
+      "Description": "An issue was discovered in Xen through 4.14.x. Some OSes (such as Linux, FreeBSD, and NetBSD) are processing watch events using a single thread. If the events are received faster than the thread is able to handle, they will get queued. As the queue is unbounded, a guest may be able to trigger an OOM in the backend. All systems with a FreeBSD, Linux, or NetBSD (any version) dom0 are vulnerable.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5517,7 +5517,7 @@
     },
     {
       "CVE": "CVE-2020-29569",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 5.10.1, as used with Xen through 4.14.x. The Linux kernel PV block backend expects the kernel thread handler to reset ring-\u003exenblkd to NULL when stopped. However, the handler may not have time to run if the frontend quickly toggles between the states connect and disconnect. As a consequence, the block backend may re-use a pointer after it was freed. A misbehaving guest can trigger a dom0 crash by continuously connecting / disconnecting a block frontend. Privilege escalation and information leaks cannot be ruled out. This only affects systems with a Linux blkback.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5540,7 +5540,7 @@
     },
     {
       "CVE": "CVE-2020-29573",
-      "Description": "unknown",
+      "Description": "sysdeps/i386/ldbl2mpn.c in the GNU C Library (aka glibc or libc6) before 2.23 on x86 targets has a stack-based buffer overflow if the input to any of the printf family of functions is an 80-bit long double with a non-canonical bit pattern, as seen when passing a \\x00\\x04\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x04 value to sprintf. NOTE: the issue does not affect glibc by default in 2016 or later (i.e., 2.23 or later) because of commits made in 2015 for inlining of C99 math functions through use of GCC built-ins. In other words, the reference to 2.23 is intentional despite the mention of \"Fixed for glibc 2.33\" in the 26649 reference.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5569,7 +5569,7 @@
     },
     {
       "CVE": "CVE-2020-36242",
-      "Description": "unknown",
+      "Description": "In the cryptography package before 3.3.2 for Python, certain sequences of update calls to symmetrically encrypt multi-GB values could result in an integer overflow and buffer overflow, as demonstrated by the Fernet class.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5592,7 +5592,7 @@
     },
     {
       "CVE": "CVE-2020-8625",
-      "Description": "unknown",
+      "Description": "BIND servers are vulnerable if they are running an affected version and are configured to use GSS-TSIG features. In a configuration which uses BIND's default settings the vulnerable code path is not exposed, but a server can be rendered vulnerable by explicitly setting valid values for the tkey-gssapi-keytab or tkey-gssapi-credentialconfiguration options. Although the default configuration is not vulnerable, GSS-TSIG is frequently used in networks where BIND is integrated with Samba, as well as in mixed-server environments that combine BIND servers with Active Directory domain controllers. The most likely outcome of a successful exploitation of the vulnerability is a crash of the named process. However, remote code execution, while unproven, is theoretically possible. Affects: BIND 9.5.0 -\u003e 9.11.27, 9.12.0 -\u003e 9.16.11, and versions BIND 9.11.3-S1 -\u003e 9.11.27-S1 and 9.16.8-S1 -\u003e 9.16.11-S1 of BIND Supported Preview Edition. Also release versions 9.17.0 -\u003e 9.17.1 of the BIND 9.17 development branch",
       "Threats": [
         {
           "Type": "Impact",
@@ -5623,7 +5623,7 @@
     },
     {
       "CVE": "CVE-2021-0342",
-      "Description": "unknown",
+      "Description": "In tun_get_user of tun.c, there is possible memory corruption due to a use after free. This could lead to local escalation of privilege with System execution privileges required. User interaction is not required for exploitation. Product: Android; Versions: Android kernel; Android ID: A-146554327.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5646,7 +5646,7 @@
     },
     {
       "CVE": "CVE-2021-20177",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel's implementation of string matching within a packet. A privileged user (with root or CAP_NET_ADMIN) when inserting iptables rules could insert a rule which can panic the system. Kernel before kernel 5.5-rc1 is affected.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5669,7 +5669,7 @@
     },
     {
       "CVE": "CVE-2021-20225",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. The option parser allows an attacker to write past the end of a heap-allocated buffer by calling certain commands with a large number of specific short forms of options. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5694,7 +5694,7 @@
     },
     {
       "CVE": "CVE-2021-20233",
-      "Description": "unknown",
+      "Description": "A flaw was found in grub2 in versions prior to 2.06. Setparam_prefix() in the menu rendering code performs a length calculation on the assumption that expressing a quoted single quote will require 3 characters, while it actually requires 4 characters which allows an attacker to corrupt memory by one byte for each quote in the input. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5719,7 +5719,7 @@
     },
     {
       "CVE": "CVE-2021-21284",
-      "Description": "unknown",
+      "Description": "In Docker before versions 9.03.15, 20.10.3 there is a vulnerability involving the --userns-remap option in which access to remapped root allows privilege escalation to real root. When using \"--userns-remap\", if the root user in the remapped namespace has access to the host filesystem they can modify files under \"/var/lib/docker/\u003cremapping\u003e\" that cause writing files with extended privileges. Versions 20.10.3 and 19.03.15 contain patches that prevent privilege escalation from remapped user.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5742,7 +5742,7 @@
     },
     {
       "CVE": "CVE-2021-26720",
-      "Description": "unknown",
+      "Description": "avahi-daemon-check-dns.sh in the Debian avahi package through 0.8-4 is executed as root via /etc/network/if-up.d/avahi-daemon, and allows a local attacker to cause a denial of service or create arbitrary empty files via a symlink attack on files under /run/avahi-daemon. NOTE: this only affects the packaging for Debian GNU/Linux (used indirectly by SUSE), not the upstream Avahi product.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5768,7 +5768,7 @@
     },
     {
       "CVE": "CVE-2021-26937",
-      "Description": "unknown",
+      "Description": "encoding.c in GNU Screen through 4.8.0 allows remote attackers to cause a denial of service (invalid write access and application crash) or possibly have unspecified other impact via a crafted UTF-8 character sequence.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5791,7 +5791,7 @@
     },
     {
       "CVE": "CVE-2021-3177",
-      "Description": "unknown",
+      "Description": "Python 3.x through 3.9.1 has a buffer overflow in PyCArg_repr in _ctypes/callproc.c, which may lead to remote code execution in certain Python applications that accept floating-point numbers as untrusted input, as demonstrated by a 1e300 argument to c_double.from_param. This occurs because sprintf is used unsafely.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5815,7 +5815,7 @@
     },
     {
       "CVE": "CVE-2021-3326",
-      "Description": "unknown",
+      "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid input sequences in the ISO-2022-JP-3 encoding, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5844,7 +5844,7 @@
     },
     {
       "CVE": "CVE-2021-3347",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 5.10.11. PI futexes have a kernel stack use-after-free during fault handling, allowing local users to execute code in the kernel, aka CID-34b1a1ce1458.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5867,7 +5867,7 @@
     },
     {
       "CVE": "CVE-2021-3348",
-      "Description": "unknown",
+      "Description": "nbd_add_socket in drivers/block/nbd.c in the Linux kernel through 5.10.12 has an ndb_queue_rq use-after-free that could be triggered by local attackers (with access to the nbd device) via an I/O request at a certain point during device setup, aka CID-b98e762e3d71.",
       "Threats": [
         {
           "Type": "Impact",

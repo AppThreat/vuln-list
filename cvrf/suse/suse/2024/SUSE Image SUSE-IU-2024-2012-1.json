@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:45:34Z",
+        "Date": "2025-02-19T12:59:48Z",
         "Description": "current"
       }
     ]
@@ -238,7 +238,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2024-10524",
-      "Description": "unknown",
+      "Description": "Applications that use Wget to access a remote resource using shorthand URLs and pass arbitrary user credentials in the URL are vulnerable. In these cases attackers can enter crafted credentials which will cause Wget to access an arbitrary host.",
       "Threats": [
         {
           "Type": "Impact",
@@ -258,7 +258,7 @@
     },
     {
       "CVE": "CVE-2024-11053",
-      "Description": "unknown",
+      "Description": "When asked to both use a `.netrc` file for credentials and to follow HTTP\nredirects, curl could leak the password used for the first host to the\nfollowed-to host under certain circumstances.\n\nThis flaw only manifests itself if the netrc file has an entry that matches\nthe redirect target hostname but the entry either omits just the password or\nomits both login and password.",
       "Threats": [
         {
           "Type": "Impact",
@@ -278,7 +278,7 @@
     },
     {
       "CVE": "CVE-2024-11168",
-      "Description": "unknown",
+      "Description": "The urllib.parse.urlsplit() and urlparse() functions improperly validated bracketed hosts (`[]`), allowing hosts that weren't IPv6 or IPvFuture. This behavior was not conformant to RFC 3986 and potentially enabled SSRF if a URL is processed by more than one URL parser.",
       "Threats": [
         {
           "Type": "Impact",
@@ -298,7 +298,7 @@
     },
     {
       "CVE": "CVE-2024-24806",
-      "Description": "unknown",
+      "Description": "libuv is a multi-platform support library with a focus on asynchronous I/O. The `uv_getaddrinfo` function in `src/unix/getaddrinfo.c` (and its windows counterpart `src/win/getaddrinfo.c`), truncates hostnames to 256 characters before calling `getaddrinfo`. This behavior can be exploited to create addresses like `0x00007f000001`, which are considered valid by `getaddrinfo` and could allow an attacker to craft payloads that resolve to unintended IP addresses, bypassing developer checks. The vulnerability arises due to how the `hostname_ascii` variable (with a length of 256 bytes) is handled in `uv_getaddrinfo` and subsequently in `uv__idna_toascii`. When the hostname exceeds 256 characters, it gets truncated without a terminating null byte. As a result attackers may be able to access internal APIs or for websites (similar to MySpace) that allows users to have `username.example.com` pages. Internal services that crawl or cache these user pages can be exposed to SSRF attacks if a malicious user chooses a long vulnerable username. This issue has been addressed in release version 1.48.0. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -318,7 +318,7 @@
     },
     {
       "CVE": "CVE-2024-45817",
-      "Description": "unknown",
+      "Description": "In x86's APIC (Advanced Programmable Interrupt Controller) architecture,\nerror conditions are reported in a status register.  Furthermore, the OS\ncan opt to receive an interrupt when a new error occurs.\n\nIt is possible to configure the error interrupt with an illegal vector,\nwhich generates an error when an error interrupt is raised.\n\nThis case causes Xen to recurse through vlapic_error().  The recursion\nitself is bounded; errors accumulate in the the status register and only\ngenerate an interrupt when a new status bit becomes set.\n\nHowever, the lock protecting this state in Xen will try to be taken\nrecursively, and deadlock.",
       "Threats": [
         {
           "Type": "Impact",
@@ -338,7 +338,7 @@
     },
     {
       "CVE": "CVE-2024-45818",
-      "Description": "unknown",
+      "Description": "The hypervisor contains code to accelerate VGA memory accesses for HVM\nguests, when the (virtual) VGA is in \"standard\" mode.  Locking involved\nthere has an unusual discipline, leaving a lock acquired past the\nreturn from the function that acquired it.  This behavior results in a\nproblem when emulating an instruction with two memory accesses, both of\nwhich touch VGA memory (plus some further constraints which aren't\nrelevant here).  When emulating the 2nd access, the lock that is already\nbeing held would be attempted to be re-acquired, resulting in a\ndeadlock.\n\nThis deadlock was already found when the code was first introduced, but\nwas analysed incorrectly and the fix was incomplete.  Analysis in light\nof the new finding cannot find a way to make the existing locking\ndiscipline work.\n\nIn staging, this logic has all been removed because it was discovered\nto be accidentally disabled since Xen 4.7.  Therefore, we are fixing the\nlocking problem by backporting the removal of most of the feature.  Note\nthat even with the feature disabled, the lock would still be acquired\nfor any accesses to the VGA MMIO region.",
       "Threats": [
         {
           "Type": "Impact",
@@ -358,7 +358,7 @@
     },
     {
       "CVE": "CVE-2024-45819",
-      "Description": "unknown",
+      "Description": "PVH guests have their ACPI tables constructed by the toolstack.  The\nconstruction involves building the tables in local memory, which are\nthen copied into guest memory.  While actually used parts of the local\nmemory are filled in correctly, excess space that is being allocated is\nleft with its prior contents.",
       "Threats": [
         {
           "Type": "Impact",
@@ -378,7 +378,7 @@
     },
     {
       "CVE": "CVE-2024-52533",
-      "Description": "unknown",
+      "Description": "gio/gsocks4aproxy.c in GNOME GLib before 2.82.1 has an off-by-one error and resultant buffer overflow because SOCKS4_CONN_MSG_LEN is not sufficient for a trailing '\\0' character.",
       "Threats": [
         {
           "Type": "Impact",
@@ -402,7 +402,7 @@
     },
     {
       "CVE": "CVE-2024-52616",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Avahi-daemon, where it initializes DNS transaction IDs randomly only once at startup, incrementing them sequentially after that. This predictable behavior facilitates DNS spoofing attacks, allowing attackers to guess transaction IDs.",
       "Threats": [
         {
           "Type": "Impact",
@@ -423,7 +423,7 @@
     },
     {
       "CVE": "CVE-2024-54661",
-      "Description": "unknown",
+      "Description": "readline.sh in socat before1.8.0.2 relies on the /tmp/$USER/stderr2 file.",
       "Threats": [
         {
           "Type": "Impact",

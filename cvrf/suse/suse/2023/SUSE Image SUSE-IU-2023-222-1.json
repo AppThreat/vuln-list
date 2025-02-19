@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:42:04Z",
+        "Date": "2025-02-19T12:56:38Z",
         "Description": "current"
       }
     ]
@@ -303,7 +303,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2022-23471",
-      "Description": "unknown",
+      "Description": "containerd is an open source container runtime. A bug was found in containerd's CRI implementation where a user can exhaust memory on the host. In the CRI stream server, a goroutine is launched to handle terminal resize events if a TTY is requested. If the user's process fails to launch due to, for example, a faulty command, the goroutine will be stuck waiting to send without a receiver, resulting in a memory leak. Kubernetes and crictl can both be configured to use containerd's CRI implementation and the stream server is used for handling container IO. This bug has been fixed in containerd 1.6.12 and 1.5.16.  Users should update to these versions to resolve the issue. Users unable to upgrade should ensure that only trusted images and commands are used and that only trusted users have permissions to execute commands in running containers. ",
       "Threats": [
         {
           "Type": "Impact",
@@ -324,7 +324,7 @@
     },
     {
       "CVE": "CVE-2022-28737",
-      "Description": "unknown",
+      "Description": "There's a possible overflow in handle_image() when shim tries to load and execute crafted EFI executables; The handle_image() function takes into account the SizeOfRawData field from each section to be loaded. An attacker can leverage this to perform out-of-bound writes into memory. Arbitrary code execution is not discarded in such scenario.",
       "Threats": [
         {
           "Type": "Impact",
@@ -344,7 +344,7 @@
     },
     {
       "CVE": "CVE-2022-32746",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Samba AD LDAP server. The AD DC database audit logging module can access LDAP message values freed by a preceding database module, resulting in a use-after-free issue. This issue is only possible when modifying certain privileged attributes, such as userAccountControl.",
       "Threats": [
         {
           "Type": "Impact",
@@ -364,7 +364,7 @@
     },
     {
       "CVE": "CVE-2022-3523",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in Linux Kernel. It has been classified as problematic. Affected is an unknown function of the file mm/memory.c of the component Driver Handler. The manipulation leads to use after free. It is possible to launch the attack remotely. It is recommended to apply a patch to fix this issue. The identifier of this vulnerability is VDB-211020.",
       "Threats": [
         {
           "Type": "Impact",
@@ -384,7 +384,7 @@
     },
     {
       "CVE": "CVE-2022-36109",
-      "Description": "unknown",
+      "Description": "Moby is an open-source project created by Docker to enable software containerization. A bug was found in Moby (Docker Engine) where supplementary groups are not set up properly. If an attacker has direct access to a container and manipulates their supplementary group access, they may be able to use supplementary group access to bypass primary group restrictions in some cases, potentially gaining access to sensitive information or gaining the ability to execute code in that container.  This bug is fixed in Moby (Docker Engine) 20.10.18. Running containers should be stopped and restarted for the permissions to be fixed. For users unable to upgrade, this problem can be worked around by not using the `\"USER $USERNAME\"` Dockerfile instruction. Instead by calling `ENTRYPOINT [\"su\", \"-\", \"user\"]` the supplementary groups will be set up properly.",
       "Threats": [
         {
           "Type": "Impact",
@@ -404,7 +404,7 @@
     },
     {
       "CVE": "CVE-2022-36280",
-      "Description": "unknown",
+      "Description": "An out-of-bounds(OOB) memory access vulnerability was found in vmwgfx driver in drivers/gpu/vmxgfx/vmxgfx_kms.c in GPU component in the Linux kernel with device file '/dev/dri/renderD128 (or Dxxx)'. This flaw allows a local attacker with a user account on the system to gain privilege, causing a denial of service(DoS).",
       "Threats": [
         {
           "Type": "Impact",
@@ -424,7 +424,7 @@
     },
     {
       "CVE": "CVE-2022-38096",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference vulnerability was found in vmwgfx driver in drivers/gpu/vmxgfx/vmxgfx_execbuf.c in GPU component of Linux kernel with device file '/dev/dri/renderD128 (or Dxxx)'. This flaw allows a local attacker with a user account on the system to gain privilege, causing a denial of service(DoS).",
       "Threats": [
         {
           "Type": "Impact",
@@ -444,7 +444,7 @@
     },
     {
       "CVE": "CVE-2022-42331",
-      "Description": "unknown",
+      "Description": "x86: speculative vulnerability in 32bit SYSCALL path Due to an oversight in the very original Spectre/Meltdown security work (XSA-254), one entrypath performs its speculation-safety actions too late. In some configurations, there is an unprotected RET instruction which can be attacked with a variety of speculative attacks.",
       "Threats": [
         {
           "Type": "Impact",
@@ -464,7 +464,7 @@
     },
     {
       "CVE": "CVE-2022-42332",
-      "Description": "unknown",
+      "Description": "x86 shadow plus log-dirty mode use-after-free In environments where host assisted address translation is necessary but Hardware Assisted Paging (HAP) is unavailable, Xen will run guests in so called shadow mode. Shadow mode maintains a pool of memory used for both shadow page tables as well as auxiliary data structures. To migrate or snapshot guests, Xen additionally runs them in so called log-dirty mode. The data structures needed by the log-dirty tracking are part of aformentioned auxiliary data. In order to keep error handling efforts within reasonable bounds, for operations which may require memory allocations shadow mode logic ensures up front that enough memory is available for the worst case requirements. Unfortunately, while page table memory is properly accounted for on the code path requiring the potential establishing of new shadows, demands by the log-dirty infrastructure were not taken into consideration. As a result, just established shadow page tables could be freed again immediately, while other code is still accessing them on the assumption that they would remain allocated.",
       "Threats": [
         {
           "Type": "Impact",
@@ -484,7 +484,7 @@
     },
     {
       "CVE": "CVE-2022-42333",
-      "Description": "unknown",
+      "Description": "x86/HVM pinned cache attributes mis-handling T[his CNA information record relates to multiple CVEs; the text explains which aspects/vulnerabilities correspond to which CVE.] To allow cachability control for HVM guests with passed through devices, an interface exists to explicitly override defaults which would otherwise be put in place. While not exposed to the affected guests themselves, the interface specifically exists for domains controlling such guests. This interface may therefore be used by not fully privileged entities, e.g. qemu running deprivileged in Dom0 or qemu running in a so called stub-domain. With this exposure it is an issue that - the number of the such controlled regions was unbounded (CVE-2022-42333), - installation and removal of such regions was not properly serialized (CVE-2022-42334).",
       "Threats": [
         {
           "Type": "Impact",
@@ -504,7 +504,7 @@
     },
     {
       "CVE": "CVE-2022-4899",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in zstd v1.4.10, where an attacker can supply empty string as an argument to the command line tool to cause buffer overrun.",
       "Threats": [
         {
           "Type": "Impact",
@@ -525,7 +525,7 @@
     },
     {
       "CVE": "CVE-2023-0045",
-      "Description": "The current implementation of the prctl syscall does not issue an IBPB immediately during the syscall. The ib_prctl_set  function updates the Thread Information Flags (TIFs) for the task and updates the SPEC_CTRL MSR on the function __speculation_ctrl_update, but the IBPB is only issued on the next schedule, when the TIF bits are checked. This leaves the victim vulnerable to values already injected on the BTB, prior to the prctl syscall.  The patch that added the support for the conditional mitigation via prctl (ib_prctl_set) dates back to the kernel 4.9.176.\n\nWe recommend upgrading past commit a664ec9158eeddd75121d39c9a0758016097fa96\n\n",
+      "Description": "The current implementation of the prctl syscall does not issue an IBPB immediately during the syscall. The ib_prctl_set   function updates the Thread Information Flags (TIFs) for the task and updates the SPEC_CTRL MSR on the function __speculation_ctrl_update, but the IBPB is only issued on the next schedule, when the TIF bits are checked. This leaves the victim vulnerable to values already injected on the BTB, prior to the prctl syscall.   The patch that added the support for the conditional mitigation via prctl (ib_prctl_set) dates back to the kernel 4.9.176.\n\nWe recommend upgrading past commit  a664ec9158eeddd75121d39c9a0758016097fa96\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -545,7 +545,7 @@
     },
     {
       "CVE": "CVE-2023-0225",
-      "Description": "unknown",
+      "Description": "A flaw was found in Samba. An incomplete access check on dnsHostName allows authenticated but otherwise unprivileged users to delete this attribute from any object in the directory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -566,7 +566,7 @@
     },
     {
       "CVE": "CVE-2023-0461",
-      "Description": "There is a use-after-free vulnerability in the Linux Kernel which can be exploited to achieve local privilege escalation. To reach the vulnerability kernel configuration flag CONFIG_TLS or CONFIG_XFRM_ESPINTCP has to be configured, but the operation does not require any privilege.\n\nThere is a use-after-free bug of icsk_ulp_data of a struct inet_connection_sock.\n\nWhen CONFIG_TLS is enabled, user can install a tls context (struct tls_context) on a connected tcp socket. The context is not cleared if this socket is disconnected and reused as a listener. If a new socket is created from the listener, the context is inherited and vulnerable.\n\nThe setsockopt TCP_ULP operation does not require any privilege.\n\nWe recommend upgrading past commit 2c02d41d71f90a5168391b6a5f2954112ba2307c",
+      "Description": "There is a use-after-free vulnerability in the Linux Kernel which can be exploited to achieve local privilege escalation. To reach the vulnerability kernel configuration flag CONFIG_TLS  or CONFIG_XFRM_ESPINTCP  has to be configured, but the operation does not require any privilege.\n\nThere is a use-after-free bug of icsk_ulp_data  of a struct inet_connection_sock.\n\nWhen CONFIG_TLS  is enabled, user can install a tls context (struct tls_context) on a connected tcp socket. The context is not cleared if this socket is disconnected and reused as a listener. If a new socket is created from the listener, the context is inherited and vulnerable.\n\nThe setsockopt  TCP_ULP  operation does not require any privilege.\n\nWe recommend upgrading past commit  2c02d41d71f90a5168391b6a5f2954112ba2307c",
       "Threats": [
         {
           "Type": "Impact",
@@ -586,7 +586,7 @@
     },
     {
       "CVE": "CVE-2023-0464",
-      "Description": "unknown",
+      "Description": "A security vulnerability has been identified in all supported versions\n\nof OpenSSL related to the verification of X.509 certificate chains\nthat include policy constraints.  Attackers may be able to exploit this\nvulnerability by creating a malicious certificate chain that triggers\nexponential use of computational resources, leading to a denial-of-service\n(DoS) attack on affected systems.\n\nPolicy processing is disabled by default but can be enabled by passing\nthe `-policy' argument to the command line utilities or by calling the\n`X509_VERIFY_PARAM_set1_policies()' function.",
       "Threats": [
         {
           "Type": "Impact",
@@ -607,7 +607,7 @@
     },
     {
       "CVE": "CVE-2023-0512",
-      "Description": "unknown",
+      "Description": "Divide By Zero in GitHub repository vim/vim prior to 9.0.1247.",
       "Threats": [
         {
           "Type": "Impact",
@@ -628,7 +628,7 @@
     },
     {
       "CVE": "CVE-2023-0597",
-      "Description": "unknown",
+      "Description": "A flaw possibility of memory leak in the Linux kernel cpu_entry_area mapping of X86 CPU data to memory was found in the way user can guess location of exception stack(s) or other important data. A local user could use this flaw to get access to some important data with expected location in memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -648,7 +648,7 @@
     },
     {
       "CVE": "CVE-2023-0614",
-      "Description": "unknown",
+      "Description": "The fix in 4.6.16, 4.7.9, 4.8.4 and 4.9.7 for CVE-2018-10919 Confidential attribute disclosure vi LDAP filters was insufficient and an attacker may be able to obtain confidential BitLocker recovery keys from a Samba AD DC.",
       "Threats": [
         {
           "Type": "Impact",
@@ -670,7 +670,7 @@
     },
     {
       "CVE": "CVE-2023-0687",
-      "Description": "unknown",
+      "Description": "** DISPUTED ** A vulnerability was found in GNU C Library 2.38. It has been declared as critical. This vulnerability affects the function __monstartup of the file gmon.c of the component Call Graph Monitor. The manipulation leads to buffer overflow. It is recommended to apply a patch to fix this issue. VDB-220246 is the identifier assigned to this vulnerability. NOTE: The real existence of this vulnerability is still doubted at the moment. The inputs that induce this vulnerability are basically addresses of the running application that is built with gmon enabled. It's basically trusted input or input that needs an actual security flaw to be compromised or controlled.",
       "Threats": [
         {
           "Type": "Impact",
@@ -695,7 +695,7 @@
     },
     {
       "CVE": "CVE-2023-0922",
-      "Description": "unknown",
+      "Description": "The Samba AD DC administration tool, when operating against a remote LDAP server, will by default send new or reset passwords over a signed-only connection.",
       "Threats": [
         {
           "Type": "Impact",
@@ -716,7 +716,7 @@
     },
     {
       "CVE": "CVE-2023-1075",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux Kernel. The tls_is_tx_ready() incorrectly checks for list emptiness, potentially accessing a type confused entry to the list_head, leaking the last byte of the confused field that overlaps with rec-\u003etx_ready.",
       "Threats": [
         {
           "Type": "Impact",
@@ -736,7 +736,7 @@
     },
     {
       "CVE": "CVE-2023-1076",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux Kernel. The tun/tap sockets have their socket UID hardcoded to 0 due to a type confusion in their initialization function. While it will be often correct, as tuntap devices require CAP_NET_ADMIN, it may not always be the case, e.g., a non-root user only having that capability. This would make tun/tap sockets being incorrectly treated in filtering/routing decisions, possibly bypassing network filters.",
       "Threats": [
         {
           "Type": "Impact",
@@ -756,7 +756,7 @@
     },
     {
       "CVE": "CVE-2023-1078",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux Kernel in RDS (Reliable Datagram Sockets) protocol. The rds_rm_zerocopy_callback() uses list_entry() on the head of a list causing a type confusion. Local user can trigger this with rds_message_put(). Type confusion leads to `struct rds_msg_zcopy_info *info` actually points to something else that is potentially controlled by local user. It is known how to trigger this, which causes an out of bounds access, and a lock corruption.",
       "Threats": [
         {
           "Type": "Impact",
@@ -776,7 +776,7 @@
     },
     {
       "CVE": "CVE-2023-1095",
-      "Description": "unknown",
+      "Description": "In nf_tables_updtable, if nf_tables_table_enable returns an error, nft_trans_destroy is called to free the transaction object. nft_trans_destroy() calls list_del(), but the transaction was never placed on a list -- the list head is all zeroes, this results in a NULL pointer dereference.",
       "Threats": [
         {
           "Type": "Impact",
@@ -796,7 +796,7 @@
     },
     {
       "CVE": "CVE-2023-1118",
-      "Description": "unknown",
+      "Description": "A flaw use after free in the Linux kernel integrated infrared receiver/transceiver driver was found in the way user detaching rc device. A local user could use this flaw to crash the system or potentially escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -816,7 +816,7 @@
     },
     {
       "CVE": "CVE-2023-1127",
-      "Description": "unknown",
+      "Description": "Divide By Zero in GitHub repository vim/vim prior to 9.0.1367.",
       "Threats": [
         {
           "Type": "Impact",
@@ -837,7 +837,7 @@
     },
     {
       "CVE": "CVE-2023-1170",
-      "Description": "unknown",
+      "Description": "Heap-based Buffer Overflow in GitHub repository vim/vim prior to 9.0.1376.",
       "Threats": [
         {
           "Type": "Impact",
@@ -858,7 +858,7 @@
     },
     {
       "CVE": "CVE-2023-1175",
-      "Description": "unknown",
+      "Description": "Incorrect Calculation of Buffer Size in GitHub repository vim/vim prior to 9.0.1378.",
       "Threats": [
         {
           "Type": "Impact",
@@ -879,7 +879,7 @@
     },
     {
       "CVE": "CVE-2023-22995",
-      "Description": "unknown",
+      "Description": "In the Linux kernel before 5.17, an error path in dwc3_qcom_acpi_register_core in drivers/usb/dwc3/dwc3-qcom.c lacks certain platform_device_put and kfree calls.",
       "Threats": [
         {
           "Type": "Impact",
@@ -899,7 +899,7 @@
     },
     {
       "CVE": "CVE-2023-22998",
-      "Description": "unknown",
+      "Description": "In the Linux kernel before 6.0.3, drivers/gpu/drm/virtio/virtgpu_object.c misinterprets the drm_gem_shmem_get_sg_table return value (expects it to be NULL in the error case, whereas it is actually an error pointer).",
       "Threats": [
         {
           "Type": "Impact",
@@ -919,7 +919,7 @@
     },
     {
       "CVE": "CVE-2023-23000",
-      "Description": "unknown",
+      "Description": "In the Linux kernel before 5.17, drivers/phy/tegra/xusb.c mishandles the tegra_xusb_find_port_node return value. Callers expect NULL in the error case, but an error pointer is used.",
       "Threats": [
         {
           "Type": "Impact",
@@ -939,7 +939,7 @@
     },
     {
       "CVE": "CVE-2023-23004",
-      "Description": "unknown",
+      "Description": "In the Linux kernel before 5.19, drivers/gpu/drm/arm/malidp_planes.c misinterprets the get_sg_table return value (expects it to be NULL in the error case, whereas it is actually an error pointer).",
       "Threats": [
         {
           "Type": "Impact",
@@ -959,7 +959,7 @@
     },
     {
       "CVE": "CVE-2023-23559",
-      "Description": "unknown",
+      "Description": "In rndis_query_oid in drivers/net/wireless/rndis_wlan.c in the Linux kernel through 6.1.5, there is an integer overflow in an addition.",
       "Threats": [
         {
           "Type": "Impact",
@@ -979,7 +979,7 @@
     },
     {
       "CVE": "CVE-2023-24329",
-      "Description": "unknown",
+      "Description": "An issue in the urllib.parse component of Python before 3.11.4 allows attackers to bypass blocklisting methods by supplying a URL that starts with blank characters.",
       "Threats": [
         {
           "Type": "Impact",
@@ -999,7 +999,7 @@
     },
     {
       "CVE": "CVE-2023-25012",
-      "Description": "unknown",
+      "Description": "The Linux kernel through 6.1.9 has a Use-After-Free in bigben_remove in drivers/hid/hid-bigbenff.c via a crafted USB device because the LED controllers remain registered for too long.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1019,7 +1019,7 @@
     },
     {
       "CVE": "CVE-2023-26545",
-      "Description": "unknown",
+      "Description": "In the Linux kernel before 6.1.13, there is a double free in net/mpls/af_mpls.c upon an allocation failure (for registering the sysctl table under a new location) during the renaming of a device.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1039,7 +1039,7 @@
     },
     {
       "CVE": "CVE-2023-27320",
-      "Description": "unknown",
+      "Description": "Sudo before 1.9.13p2 has a double free in the per-command chroot feature.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1059,7 +1059,7 @@
     },
     {
       "CVE": "CVE-2023-27533",
-      "Description": "unknown",
+      "Description": "A vulnerability in input validation exists in curl \u003c8.0 during communication using the TELNET protocol may allow an attacker to pass on maliciously crafted user name and \"telnet options\" during server negotiation. The lack of proper input scrubbing allows an attacker to send content or perform option negotiation without the application's intent. This vulnerability could be exploited if an application allows user input, thereby enabling attackers to execute arbitrary code on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1080,7 +1080,7 @@
     },
     {
       "CVE": "CVE-2023-27534",
-      "Description": "unknown",
+      "Description": "A path traversal vulnerability exists in curl \u003c8.0.0 SFTP implementation causes the tilde (~) character to be wrongly replaced when used as a prefix in the first path element, in addition to its intended use as the first element to indicate a path relative to the user's home directory. Attackers can exploit this flaw to bypass filtering or execute arbitrary code by crafting a path like /~2/foo while accessing a server with a specific user.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1101,7 +1101,7 @@
     },
     {
       "CVE": "CVE-2023-27535",
-      "Description": "unknown",
+      "Description": "An authentication bypass vulnerability exists in libcurl \u003c8.0.0 in the FTP connection reuse feature that can result in wrong credentials being used during subsequent transfers. Previously created connections are kept in a connection pool for reuse if they match the current setup. However, certain FTP settings such as CURLOPT_FTP_ACCOUNT, CURLOPT_FTP_ALTERNATIVE_TO_USER, CURLOPT_FTP_SSL_CCC, and CURLOPT_USE_SSL were not included in the configuration match checks, causing them to match too easily. This could lead to libcurl using the wrong credentials when performing a transfer, potentially allowing unauthorized access to sensitive information.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1122,7 +1122,7 @@
     },
     {
       "CVE": "CVE-2023-27536",
-      "Description": "unknown",
+      "Description": "An authentication bypass vulnerability exists libcurl \u003c8.0.0 in the connection reuse feature which can reuse previously established connections with incorrect user permissions due to a failure to check for changes in the CURLOPT_GSSAPI_DELEGATION option. This vulnerability affects krb5/kerberos/negotiate/GSSAPI transfers and could potentially result in unauthorized access to sensitive information. The safest option is to not reuse connections if the CURLOPT_GSSAPI_DELEGATION option has been changed.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1143,7 +1143,7 @@
     },
     {
       "CVE": "CVE-2023-27538",
-      "Description": "unknown",
+      "Description": "An authentication bypass vulnerability exists in libcurl prior to v8.0.0 where it reuses a previously established SSH connection despite the fact that an SSH option was modified, which should have prevented reuse. libcurl maintains a pool of previously used connections to reuse them for subsequent transfers if the configurations match. However, two SSH settings were omitted from the configuration check, allowing them to match easily, potentially leading to the reuse of an inappropriate connection.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1164,7 +1164,7 @@
     },
     {
       "CVE": "CVE-2023-28328",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference flaw was found in the az6027 driver in drivers/media/usb/dev-usb/az6027.c in the Linux Kernel. The message from user space is not checked properly before transferring into the device. This flaw allows a local user to crash the system or potentially cause a denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1184,7 +1184,7 @@
     },
     {
       "CVE": "CVE-2023-28486",
-      "Description": "unknown",
+      "Description": "Sudo before 1.9.13 does not escape control characters in log messages.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1204,7 +1204,7 @@
     },
     {
       "CVE": "CVE-2023-28487",
-      "Description": "unknown",
+      "Description": "Sudo before 1.9.13 does not escape control characters in sudoreplay output.",
       "Threats": [
         {
           "Type": "Impact",

@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:45:08Z",
+        "Date": "2025-02-19T12:59:29Z",
         "Description": "current"
       }
     ]
@@ -133,7 +133,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2023-50782",
-      "Description": "unknown",
+      "Description": "A flaw was found in the python-cryptography package. This issue may allow a remote attacker to decrypt captured messages in TLS servers that use RSA key exchanges, which may lead to exposure of confidential or sensitive data.",
       "Threats": [
         {
           "Type": "Impact",
@@ -154,7 +154,7 @@
     },
     {
       "CVE": "CVE-2024-9287",
-      "Description": "unknown",
+      "Description": "A vulnerability has been found in the CPython `venv` module and CLI where path names provided when creating a virtual environment were not quoted properly, allowing the creator to inject commands into virtual environment \"activation\" scripts (ie \"source venv/bin/activate\"). This means that attacker-controlled virtual environments are able to run commands when the virtual environment is activated. Virtual environments which are not created by an attacker or which aren't activated before being used (ie \"./venv/bin/python\") are not affected.",
       "Threats": [
         {
           "Type": "Impact",
@@ -174,7 +174,7 @@
     },
     {
       "CVE": "CVE-2024-9681",
-      "Description": "unknown",
+      "Description": "When curl is asked to use HSTS, the expiry time for a subdomain might\noverwrite a parent domain's cache entry, making it end sooner or later than\notherwise intended.\n\nThis affects curl using applications that enable HSTS and use URLs with the\ninsecure `HTTP://` scheme and perform transfers with hosts like\n`x.example.com` as well as `example.com` where the first host is a subdomain\nof the second host.\n\n(The HSTS cache either needs to have been populated manually or there needs to\nhave been previous HTTPS accesses done as the cache needs to have entries for\nthe domains involved to trigger this problem.)\n\nWhen `x.example.com` responds with `Strict-Transport-Security:` headers, this\nbug can make the subdomain's expiry timeout *bleed over* and get set for the\nparent domain `example.com` in curl's HSTS cache.\n\nThe result of a triggered bug is that HTTP accesses to `example.com` get\nconverted to HTTPS for a different period of time than what was asked for by\nthe origin server. If `example.com` for example stops supporting HTTPS at its\nexpiry time, curl might then fail to access `http://example.com` until the\n(wrongly set) timeout expires. This bug can also expire the parent's entry\n*earlier*, thus making curl inadvertently switch back to insecure HTTP earlier\nthan otherwise intended.",
       "Threats": [
         {
           "Type": "Impact",

@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:42:13Z",
+        "Date": "2025-02-19T12:56:45Z",
         "Description": "current"
       }
     ]
@@ -958,7 +958,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2020-22218",
-      "Description": "unknown",
+      "Description": "An issue was discovered in function _libssh2_packet_add in libssh2 1.10.0 allows attackers to access out of bounds memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -978,7 +978,7 @@
     },
     {
       "CVE": "CVE-2020-25697",
-      "Description": "unknown",
+      "Description": "A privilege escalation flaw was found in the Xorg-x11-server due to a lack of authentication for X11 clients. This flaw allows an attacker to take control of an X application by impersonating the server it is expecting to connect to.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1001,7 +1001,7 @@
     },
     {
       "CVE": "CVE-2020-25720",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in Samba where a delegated administrator with permission to create objects in Active Directory can write to all attributes of the newly created object, including security-sensitive attributes, even after the object's creation. This issue occurs because the administrator owns the object due to the lack of an Access Control List (ACL) at the time of creation and later being recognized as the 'creator owner.' The retained significant rights of the delegated administrator may not be well understood, potentially leading to unintended privilege escalation or security risks.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1024,7 +1024,7 @@
     },
     {
       "CVE": "CVE-2022-2127",
-      "Description": "unknown",
+      "Description": "An out-of-bounds read vulnerability was found in Samba due to insufficient length checks in winbindd_pam_auth_crap.c. When performing NTLM authentication, the client replies to cryptographic challenges back to the server. These replies have variable lengths, and Winbind fails to check the lan manager response length. When Winbind is used for NTLM authentication, a maliciously crafted request can trigger an out-of-bounds read in Winbind, possibly resulting in a crash.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1047,7 +1047,7 @@
     },
     {
       "CVE": "CVE-2022-24903",
-      "Description": "unknown",
+      "Description": "Rsyslog is a rocket-fast system for log processing. Modules for TCP syslog reception have a potential heap buffer overflow when octet-counted framing is used. This can result in a segfault or some other malfunction. As of our understanding, this vulnerability can not be used for remote code execution. But there may still be a slight chance for experts to do that. The bug occurs when the octet count is read. While there is a check for the maximum number of octets, digits are written to a heap buffer even when the octet count is over the maximum, This can be used to overrun the memory buffer. However, once the sequence of digits stop, no additional characters can be added to the buffer. In our opinion, this makes remote exploits impossible or at least highly complex. Octet-counted framing is one of two potential framing modes. It is relatively uncommon, but enabled by default on receivers. Modules `imtcp`, `imptcp`, `imgssapi`, and `imhttp` are used for regular syslog message reception. It is best practice not to directly expose them to the public. When this practice is followed, the risk is considerably lower. Module `imdiag` is a diagnostics module primarily intended for testbench runs. We do not expect it to be present on any production installation. Octet-counted framing is not very common. Usually, it needs to be specifically enabled at senders. If users do not need it, they can turn it off for the most important modules. This will mitigate the vulnerability.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1070,7 +1070,7 @@
     },
     {
       "CVE": "CVE-2022-40133",
-      "Description": "unknown",
+      "Description": "A use-after-free(UAF) vulnerability was found in function 'vmw_execbuf_tie_context' in drivers/gpu/vmxgfx/vmxgfx_execbuf.c in Linux kernel's vmwgfx driver with device file '/dev/dri/renderD128 (or Dxxx)'. This flaw allows a local attacker with a user account on the system to gain privilege, causing a denial of service(DoS).",
       "Threats": [
         {
           "Type": "Impact",
@@ -1090,7 +1090,7 @@
     },
     {
       "CVE": "CVE-2022-40609",
-      "Description": "unknown",
+      "Description": "IBM SDK, Java Technology Edition 7.1.5.18 and 8.0.8.0 could allow a remote attacker to execute arbitrary code on the system, caused by an unsafe deserialization flaw. By sending specially-crafted data, an attacker could exploit this vulnerability to execute arbitrary code on the system.  IBM X-Force ID:  236069.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1112,7 +1112,7 @@
     },
     {
       "CVE": "CVE-2022-40982",
-      "Description": "unknown",
+      "Description": "Information exposure through microarchitectural state after transient execution in certain vector execution units for some Intel(R) Processors may allow an authenticated user to potentially enable information disclosure via local access.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1133,7 +1133,7 @@
     },
     {
       "CVE": "CVE-2022-41409",
-      "Description": "unknown",
+      "Description": "Integer overflow vulnerability in pcre2test before 10.41 allows attackers to cause a denial of service or other unspecified impacts via negative input.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1153,7 +1153,7 @@
     },
     {
       "CVE": "CVE-2022-4269",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel Traffic Control (TC) subsystem. Using a specific networking configuration (redirecting egress packets to ingress using TC action \"mirred\") a local unprivileged user could trigger a CPU soft lockup (ABBA deadlock) when the transport protocol in use (TCP or SCTP) does a retransmission, resulting in a denial of service condition.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1173,7 +1173,7 @@
     },
     {
       "CVE": "CVE-2022-4304",
-      "Description": "unknown",
+      "Description": "A timing based side channel exists in the OpenSSL RSA Decryption implementation\nwhich could be sufficient to recover a plaintext across a network in a\nBleichenbacher style attack. To achieve a successful decryption an attacker\nwould have to be able to send a very large number of trial messages for\ndecryption. The vulnerability affects all RSA padding modes: PKCS#1 v1.5,\nRSA-OEAP and RSASVE.\n\nFor example, in a TLS connection, RSA is commonly used by a client to send an\nencrypted pre-master secret to the server. An attacker that had observed a\ngenuine connection between a client and a server could use this flaw to send\ntrial messages to the server and record the time taken to process them. After a\nsufficiently large number of messages the attacker could recover the pre-master\nsecret used for the original connection and thus be able to decrypt the\napplication data sent over that connection.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1195,7 +1195,7 @@
     },
     {
       "CVE": "CVE-2022-45884",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-core/dvbdev.c has a use-after-free, related to dvb_register_device dynamically allocating fops.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1215,7 +1215,7 @@
     },
     {
       "CVE": "CVE-2022-45885",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-core/dvb_frontend.c has a race condition that can cause a use-after-free when a device is disconnected.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1235,7 +1235,7 @@
     },
     {
       "CVE": "CVE-2022-45886",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.0.9. drivers/media/dvb-core/dvb_net.c has a .disconnect versus dvb_device_open race condition that leads to a use-after-free.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1255,7 +1255,7 @@
     },
     {
       "CVE": "CVE-2022-45887",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.0.9. drivers/media/usb/ttusb-dec/ttusb_dec.c has a memory leak because of the lack of a dvb_frontend_detach call.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1275,7 +1275,7 @@
     },
     {
       "CVE": "CVE-2022-45919",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.0.10. In drivers/media/dvb-core/dvb_ca_en50221.c, a use-after-free can occur is there is a disconnect after an open, because of the lack of a wait_event.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1295,7 +1295,7 @@
     },
     {
       "CVE": "CVE-2023-0459",
-      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit 74e19ef0ff8061ef55957c3abd71614ef0f42f47",
+      "Description": "Copy_from_user on 64-bit versions of the Linux kernel does not implement the __uaccess_begin_nospec allowing a user to bypass the \"access_ok\" check and pass a kernel pointer to copy_from_user(). This would allow an attacker to leak information. We recommend upgrading beyond commit  74e19ef0ff8061ef55957c3abd71614ef0f42f47",
       "Threats": [
         {
           "Type": "Impact",
@@ -1315,7 +1315,7 @@
     },
     {
       "CVE": "CVE-2023-0464",
-      "Description": "unknown",
+      "Description": "A security vulnerability has been identified in all supported versions\n\nof OpenSSL related to the verification of X.509 certificate chains\nthat include policy constraints.  Attackers may be able to exploit this\nvulnerability by creating a malicious certificate chain that triggers\nexponential use of computational resources, leading to a denial-of-service\n(DoS) attack on affected systems.\n\nPolicy processing is disabled by default but can be enabled by passing\nthe `-policy' argument to the command line utilities or by calling the\n`X509_VERIFY_PARAM_set1_policies()' function.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1337,7 +1337,7 @@
     },
     {
       "CVE": "CVE-2023-0465",
-      "Description": "unknown",
+      "Description": "Applications that use a non-default option when verifying certificates may be\nvulnerable to an attack from a malicious CA to circumvent certain checks.\n\nInvalid certificate policies in leaf certificates are silently ignored by\nOpenSSL and other certificate policy checks are skipped for that certificate.\nA malicious CA could use this to deliberately assert invalid certificate policies\nin order to circumvent policy checking on the certificate altogether.\n\nPolicy processing is disabled by default but can be enabled by passing\nthe `-policy' argument to the command line utilities or by calling the\n`X509_VERIFY_PARAM_set1_policies()' function.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1359,7 +1359,7 @@
     },
     {
       "CVE": "CVE-2023-1077",
-      "Description": "unknown",
+      "Description": "In the Linux kernel, pick_next_rt_entity() may return a type confused entry, not detected by the BUG_ON condition, as the confused entry will not be NULL, but list_head.The buggy error condition would lead to a type confused entry with the list head,which would then be used as a type confused sched_rt_entity,causing memory corruption.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1379,7 +1379,7 @@
     },
     {
       "CVE": "CVE-2023-1079",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel. A use-after-free may be triggered in asus_kbd_backlight_set when plugging/disconnecting in a malicious USB device, which advertises itself as an Asus device. Similarly to the previous known CVE-2023-25012, but in asus devices, the work_struct may be scheduled by the LED controller while the device is disconnecting, triggering a use-after-free on the struct asus_kbd_leds *led structure. A malicious USB device may exploit the issue to cause memory corruption with controlled data.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1399,7 +1399,7 @@
     },
     {
       "CVE": "CVE-2023-1249",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in the Linux kernel's core dump subsystem. This flaw allows a local user to crash the system. Only if patch 390031c94211 (\"coredump: Use the vma snapshot in fill_files_note\") not applied yet, then kernel could be affected.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1419,7 +1419,7 @@
     },
     {
       "CVE": "CVE-2023-1382",
-      "Description": "unknown",
+      "Description": "A data race flaw was found in the Linux kernel, between where con is allocated and con-\u003esock is set. This issue leads to a NULL pointer dereference when accessing con-\u003esock-\u003esk in net/tipc/topsrv.c in the tipc protocol in the Linux kernel.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1439,7 +1439,7 @@
     },
     {
       "CVE": "CVE-2023-1829",
-      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation. The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure. A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
+      "Description": "A use-after-free vulnerability in the Linux Kernel traffic control index filter (tcindex) can be exploited to achieve local privilege escalation.  The tcindex_delete function which does not properly deactivate filters in case of a perfect hashes while deleting the underlying structure which can later lead to double freeing the structure.  A local attacker user can use this vulnerability to elevate its privileges to root.\nWe recommend upgrading past commit 8c710f75256bb3cf05ac7b1672c82b92c43f3d28.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1459,7 +1459,7 @@
     },
     {
       "CVE": "CVE-2023-2002",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in the HCI sockets implementation due to a missing capability check in net/bluetooth/hci_sock.c in the Linux Kernel. This flaw allows an attacker to unauthorized execution of management commands, compromising the confidentiality, integrity, and availability of Bluetooth communication.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1479,7 +1479,7 @@
     },
     {
       "CVE": "CVE-2023-2004",
-      "Description": "unknown",
+      "Description": "** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. ConsultIDs: none. Reason: This candidate was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1500,7 +1500,7 @@
     },
     {
       "CVE": "CVE-2023-2007",
-      "Description": "unknown",
+      "Description": "The specific flaw exists within the DPT I2O Controller driver. The issue results from the lack of proper locking when performing operations on an object. An attacker can leverage this in conjunction with other vulnerabilities to escalate privileges and execute arbitrary code in the context of the kernel.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1520,7 +1520,7 @@
     },
     {
       "CVE": "CVE-2023-20569",
-      "Description": "unknown",
+      "Description": "\n\n\nA side channel vulnerability on some of the AMD CPUs may allow an attacker to influence the return address prediction. This may result in speculative execution at an attacker-controlled address, potentially leading to information disclosure.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1541,7 +1541,7 @@
     },
     {
       "CVE": "CVE-2023-20588",
-      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality. \n\n\n\n\n\n\n\n",
+      "Description": "\nA division-by-zero error on some AMD processors can potentially return speculative data resulting in loss of confidentiality.  \n\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1561,7 +1561,7 @@
     },
     {
       "CVE": "CVE-2023-20593",
-      "Description": "unknown",
+      "Description": "\nAn issue in \"Zen 2\" CPUs, under specific microarchitectural circumstances, may allow an attacker to potentially access sensitive information.\n\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1582,7 +1582,7 @@
     },
     {
       "CVE": "CVE-2023-21102",
-      "Description": "unknown",
+      "Description": "In __efi_rt_asm_wrapper of efi-rt-wrapper.S, there is a possible bypass of shadow stack protection due to a logic error in the code. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-260821414References: Upstream kernel",
       "Threats": [
         {
           "Type": "Impact",
@@ -1602,7 +1602,7 @@
     },
     {
       "CVE": "CVE-2023-21106",
-      "Description": "unknown",
+      "Description": "In adreno_set_param of adreno_gpu.c, there is a possible memory corruption due to a double free. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.Product: AndroidVersions: Android kernelAndroid ID: A-265016072References: Upstream kernel",
       "Threats": [
         {
           "Type": "Impact",
@@ -1622,7 +1622,7 @@
     },
     {
       "CVE": "CVE-2023-21400",
-      "Description": "unknown",
+      "Description": "In multiple functions  of io_uring.c, there is a possible kernel memory corruption due to improper locking. This could lead to local escalation of privilege in the kernel with System execution privileges needed. User interaction is not needed for exploitation.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1642,7 +1642,7 @@
     },
     {
       "CVE": "CVE-2023-2156",
-      "Description": "unknown",
+      "Description": "A flaw was found in the networking subsystem of the Linux kernel within the handling of the RPL protocol. This issue results from the lack of proper handling of user-supplied data, which can lead to an assertion failure. This may allow an unauthenticated remote attacker to create a denial of service condition on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1662,7 +1662,7 @@
     },
     {
       "CVE": "CVE-2023-2162",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability was found in iscsi_sw_tcp_session_create in drivers/scsi/iscsi_tcp.c in SCSI sub-component in the Linux Kernel. In this flaw an attacker could leak kernel internal information.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1682,7 +1682,7 @@
     },
     {
       "CVE": "CVE-2023-2166",
-      "Description": "unknown",
+      "Description": "A null pointer dereference issue was found in can protocol in net/can/af_can.c in the Linux before Linux. ml_priv may not be initialized in the receive path of CAN frames. A local user could use this flaw to crash the system or potentially cause a denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1702,7 +1702,7 @@
     },
     {
       "CVE": "CVE-2023-22006",
-      "Description": "unknown",
+      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK product of Oracle Java SE (component: Networking).  Supported versions that are affected are Oracle Java SE: 11.0.19, 17.0.7, 20.0.1; Oracle GraalVM Enterprise Edition: 20.3.10, 21.3.6, 22.3.2; Oracle GraalVM for JDK: 17.0.7 and  20.0.1. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK.  Successful attacks require human interaction from a person other than the attacker. Successful attacks of this vulnerability can result in  unauthorized update, insert or delete access to some of Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 3.1 (Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N).",
       "Threats": [
         {
           "Type": "Impact",
@@ -1724,7 +1724,7 @@
     },
     {
       "CVE": "CVE-2023-22036",
-      "Description": "unknown",
+      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK product of Oracle Java SE (component: Utility).  Supported versions that are affected are Oracle Java SE: 11.0.19, 17.0.7, 20.0.1; Oracle GraalVM Enterprise Edition: 20.3.10, 21.3.6, 22.3.2; Oracle GraalVM for JDK: 17.0.7 and  20.0.1. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK.  Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L).",
       "Threats": [
         {
           "Type": "Impact",
@@ -1746,7 +1746,7 @@
     },
     {
       "CVE": "CVE-2023-22041",
-      "Description": "unknown",
+      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u371-perf, 11.0.19, 17.0.7, 20.0.1; Oracle GraalVM Enterprise Edition: 20.3.10, 21.3.6, 22.3.2; Oracle GraalVM for JDK: 17.0.7 and  20.0.1. Difficult to exploit vulnerability allows unauthenticated attacker with logon to the infrastructure where Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK executes to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK accessible data. Note: This vulnerability applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. This vulnerability does not apply to Java deployments, typically in servers, that load and run only trusted code (e.g., code installed by an administrator). CVSS 3.1 Base Score 5.1 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N).",
       "Threats": [
         {
           "Type": "Impact",
@@ -1768,7 +1768,7 @@
     },
     {
       "CVE": "CVE-2023-22045",
-      "Description": "unknown",
+      "Description": "Vulnerability in the Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK product of Oracle Java SE (component: Hotspot).  Supported versions that are affected are Oracle Java SE: 8u371, 8u371-perf, 11.0.19, 17.0.7, 20.0.1; Oracle GraalVM Enterprise Edition: 20.3.10, 21.3.6, 22.3.2; Oracle GraalVM for JDK: 17.0.7 and  20.0.1. Difficult to exploit vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK.  Successful attacks of this vulnerability can result in  unauthorized read access to a subset of Oracle Java SE, Oracle GraalVM Enterprise Edition, Oracle GraalVM for JDK accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 3.7 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N).",
       "Threats": [
         {
           "Type": "Impact",
@@ -1790,7 +1790,7 @@
     },
     {
       "CVE": "CVE-2023-2269",
-      "Description": "unknown",
+      "Description": "A denial of service problem was found, due to a possible recursive locking scenario, resulting in a deadlock in table_clear in drivers/md/dm-ioctl.c in the Linux Kernel Device Mapper-Multipathing sub-component.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1810,7 +1810,7 @@
     },
     {
       "CVE": "CVE-2023-2426",
-      "Description": "unknown",
+      "Description": "Use of Out-of-range Pointer Offset in GitHub repository vim/vim prior to 9.0.1499.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1831,7 +1831,7 @@
     },
     {
       "CVE": "CVE-2023-2430",
-      "Description": "unknown",
+      "Description": "A vulnerability was found due to missing lock for IOPOLL flaw in io_cqring_event_overflow() in io_uring.c in Linux Kernel. This flaw allows a local attacker with user privilege to trigger a Denial of Service threat.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1851,7 +1851,7 @@
     },
     {
       "CVE": "CVE-2023-2602",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in the pthread_create() function in libcap. This issue may allow a malicious actor to use cause __real_pthread_create() to return an error, which can exhaust the process memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1871,7 +1871,7 @@
     },
     {
       "CVE": "CVE-2023-2603",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in libcap. This issue occurs in the _libcap_strdup() function and can lead to an integer overflow if the input string is close to 4GiB.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1891,7 +1891,7 @@
     },
     {
       "CVE": "CVE-2023-2609",
-      "Description": "unknown",
+      "Description": "NULL Pointer Dereference in GitHub repository vim/vim prior to 9.0.1531.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1912,7 +1912,7 @@
     },
     {
       "CVE": "CVE-2023-2610",
-      "Description": "unknown",
+      "Description": "Integer Overflow or Wraparound in GitHub repository vim/vim prior to 9.0.1532.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1933,7 +1933,7 @@
     },
     {
       "CVE": "CVE-2023-26112",
-      "Description": "unknown",
+      "Description": "All versions of the package configobj are vulnerable to Regular Expression Denial of Service (ReDoS) via the validate function, using (.+?)\\((.*)\\).\n\n**Note:** This is only exploitable in the case of a developer, putting the offending value in a server side configuration file.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -1953,7 +1953,7 @@
     },
     {
       "CVE": "CVE-2023-2650",
-      "Description": "unknown",
+      "Description": "Issue summary: Processing some specially crafted ASN.1 object identifiers or\ndata containing them may be very slow.\n\nImpact summary: Applications that use OBJ_obj2txt() directly, or use any of\nthe OpenSSL subsystems OCSP, PKCS7/SMIME, CMS, CMP/CRMF or TS with no message\nsize limit may experience notable to very long delays when processing those\nmessages, which may lead to a Denial of Service.\n\nAn OBJECT IDENTIFIER is composed of a series of numbers - sub-identifiers -\nmost of which have no size limit.  OBJ_obj2txt() may be used to translate\nan ASN.1 OBJECT IDENTIFIER given in DER encoding form (using the OpenSSL\ntype ASN1_OBJECT) to its canonical numeric text form, which are the\nsub-identifiers of the OBJECT IDENTIFIER in decimal form, separated by\nperiods.\n\nWhen one of the sub-identifiers in the OBJECT IDENTIFIER is very large\n(these are sizes that are seen as absurdly large, taking up tens or hundreds\nof KiBs), the translation to a decimal number in text may take a very long\ntime.  The time complexity is O(n^2) with 'n' being the size of the\nsub-identifiers in bytes (*).\n\nWith OpenSSL 3.0, support to fetch cryptographic algorithms using names /\nidentifiers in string form was introduced.  This includes using OBJECT\nIDENTIFIERs in canonical numeric text form as identifiers for fetching\nalgorithms.\n\nSuch OBJECT IDENTIFIERs may be received through the ASN.1 structure\nAlgorithmIdentifier, which is commonly used in multiple protocols to specify\nwhat cryptographic algorithm should be used to sign or verify, encrypt or\ndecrypt, or digest passed data.\n\nApplications that call OBJ_obj2txt() directly with untrusted data are\naffected, with any version of OpenSSL.  If the use is for the mere purpose\nof display, the severity is considered low.\n\nIn OpenSSL 3.0 and newer, this affects the subsystems OCSP, PKCS7/SMIME,\nCMS, CMP/CRMF or TS.  It also impacts anything that processes X.509\ncertificates, including simple things like verifying its signature.\n\nThe impact on TLS is relatively low, because all versions of OpenSSL have a\n100KiB limit on the peer's certificate chain.  Additionally, this only\nimpacts clients, or servers that have explicitly enabled client\nauthentication.\n\nIn OpenSSL 1.1.1 and 1.0.2, this only affects displaying diverse objects,\nsuch as X.509 certificates.  This is assumed to not happen in such a way\nthat it would cause a Denial of Service, so these versions are considered\nnot affected by this issue in such a way that it would be cause for concern,\nand the severity is therefore considered low.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1975,7 +1975,7 @@
     },
     {
       "CVE": "CVE-2023-2828",
-      "Description": "unknown",
+      "Description": "Every `named` instance configured to run as a recursive resolver maintains a cache database holding the responses to the queries it has recently sent to authoritative servers. The size limit for that cache database can be configured using the `max-cache-size` statement in the configuration file; it defaults to 90% of the total amount of memory available on the host. When the size of the cache reaches 7/8 of the configured limit, a cache-cleaning algorithm starts to remove expired and/or least-recently used RRsets from the cache, to keep memory use below the configured limit.\n\nIt has been discovered that the effectiveness of the cache-cleaning algorithm used in `named` can be severely diminished by querying the resolver for specific RRsets in a certain order, effectively allowing the configured `max-cache-size` limit to be significantly exceeded.\nThis issue affects BIND 9 versions 9.11.0 through 9.16.41, 9.18.0 through 9.18.15, 9.19.0 through 9.19.13, 9.11.3-S1 through 9.16.41-S1, and 9.18.11-S1 through 9.18.15-S1.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1996,7 +1996,7 @@
     },
     {
       "CVE": "CVE-2023-28410",
-      "Description": "unknown",
+      "Description": "Improper restriction of operations within the bounds of a memory buffer in some Intel(R) i915 Graphics drivers for linux before kernel version 6.2.10 may allow an authenticated user to potentially enable escalation of privilege via local access.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2016,7 +2016,7 @@
     },
     {
       "CVE": "CVE-2023-28840",
-      "Description": "unknown",
+      "Description": "Moby is an open source container framework developed by Docker Inc. that is distributed as Docker, Mirantis Container Runtime, and various other downstream projects/products. The Moby daemon component (`dockerd`), which is developed as moby/moby, is commonly referred to as *Docker*.\n\nSwarm Mode, which is compiled in and delivered by default in dockerd and is thus present in most major Moby downstreams, is a simple, built-in container orchestrator that is implemented through a combination of SwarmKit and supporting network code.\n\nThe overlay network driver is a core feature of Swarm Mode, providing isolated virtual LANs that allow communication between containers and services across the cluster. This driver is an implementation/user of VXLAN, which encapsulates link-layer (Ethernet) frames in UDP datagrams that tag the frame with a VXLAN Network ID (VNI) that identifies the originating overlay network. In addition, the overlay network driver supports an optional, off-by-default encrypted mode, which is especially useful when VXLAN packets traverses an untrusted network between nodes.\n\nEncrypted overlay networks function by encapsulating the VXLAN datagrams through the use of the IPsec Encapsulating Security Payload protocol in Transport mode. By deploying IPSec encapsulation, encrypted overlay networks gain the additional properties of source authentication through cryptographic proof, data integrity through check-summing, and confidentiality through encryption.\n\nWhen setting an endpoint up on an encrypted overlay network, Moby installs three iptables (Linux kernel firewall) rules that enforce both incoming and outgoing IPSec. These rules rely on the u32 iptables extension provided by the xt_u32 kernel module to directly filter on a VXLAN packet's VNI field, so that IPSec guarantees can be enforced on encrypted overlay networks without interfering with other overlay networks or other users of VXLAN.\n\nTwo iptables rules serve to filter incoming VXLAN datagrams with a VNI that corresponds to an encrypted network and discards unencrypted datagrams. The rules are appended to the end of the INPUT filter chain, following any rules that have been previously set by the system administrator. Administrator-set rules take precedence over the rules Moby sets to discard unencrypted VXLAN datagrams, which can potentially admit unencrypted datagrams that should have been discarded.\n\nThe injection of arbitrary Ethernet frames can enable a Denial of Service attack. A sophisticated attacker may be able to establish a UDP or TCP connection by way of the container's outbound gateway that would otherwise be blocked by a stateful firewall, or carry out other escalations beyond simple injection by smuggling packets into the overlay network.\n\nPatches are available in Moby releases 23.0.3 and 20.10.24. As Mirantis Container Runtime's 20.10 releases are numbered differently, users of that platform should update to 20.10.16.\n\nSome workarounds are available. Close the VXLAN port (by default, UDP port 4789) to incoming traffic at the Internet boundary to prevent all VXLAN packet injection, and/or ensure that the `xt_u32` kernel module is available on all nodes of the Swarm cluster.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2036,7 +2036,7 @@
     },
     {
       "CVE": "CVE-2023-28841",
-      "Description": "unknown",
+      "Description": "Moby is an open source container framework developed by Docker Inc. that is distributed as Docker, Mirantis Container Runtime, and various other downstream projects/products. The Moby daemon component (`dockerd`), which is developed as moby/moby is commonly referred to as *Docker*.\n\nSwarm Mode, which is compiled in and delivered by default in `dockerd` and is thus present in most major Moby downstreams, is a simple, built-in container orchestrator that is implemented through a combination of SwarmKit and supporting network code.\n\nThe `overlay` network driver is a core feature of Swarm Mode, providing isolated virtual LANs that allow communication between containers and services across the cluster. This driver is an implementation/user of VXLAN, which encapsulates link-layer (Ethernet) frames in UDP datagrams that tag the frame with the VXLAN metadata, including a VXLAN Network ID (VNI) that identifies the originating overlay network. In addition, the overlay network driver supports an optional, off-by-default encrypted mode, which is especially useful when VXLAN packets traverses an untrusted network between nodes.\n\nEncrypted overlay networks function by encapsulating the VXLAN datagrams through the use of the IPsec Encapsulating Security Payload protocol in Transport mode. By deploying IPSec encapsulation, encrypted overlay networks gain the additional properties of source authentication through cryptographic proof, data integrity through check-summing, and confidentiality through encryption.\n\nWhen setting an endpoint up on an encrypted overlay network, Moby installs three iptables (Linux kernel firewall) rules that enforce both incoming and outgoing IPSec. These rules rely on the `u32` iptables extension provided by the `xt_u32` kernel module to directly filter on a VXLAN packet's VNI field, so that IPSec guarantees can be enforced on encrypted overlay networks without interfering with other overlay networks or other users of VXLAN.\n\nAn iptables rule designates outgoing VXLAN datagrams with a VNI that corresponds to an encrypted overlay network for IPsec encapsulation.\n\nEncrypted overlay networks on affected platforms silently transmit unencrypted data. As a result, `overlay` networks may appear to be functional, passing traffic as expected, but without any of the expected confidentiality or data integrity guarantees.\n\nIt is possible for an attacker sitting in a trusted position on the network to read all of the application traffic that is moving across the overlay network, resulting in unexpected secrets or user data disclosure. Thus, because many database protocols, internal APIs, etc. are not protected by a second layer of encryption, a user may use Swarm encrypted overlay networks to provide confidentiality, which due to this vulnerability this is no longer guaranteed.\n\nPatches are available in Moby releases 23.0.3, and 20.10.24. As Mirantis Container Runtime's 20.10 releases are numbered differently, users of that platform should update to 20.10.16.\n\nSome workarounds are available. Close the VXLAN port (by default, UDP port 4789) to outgoing traffic at the Internet boundary in order to prevent unintentionally leaking unencrypted traffic over the Internet, and/or ensure that the `xt_u32` kernel module is available on all nodes of the Swarm cluster.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2056,7 +2056,7 @@
     },
     {
       "CVE": "CVE-2023-28842",
-      "Description": "unknown",
+      "Description": "Moby) is an open source container framework developed by Docker Inc. that is distributed as Docker, Mirantis Container Runtime, and various other downstream projects/products. The Moby daemon component (`dockerd`), which is developed as moby/moby is commonly referred to as *Docker*.\n\nSwarm Mode, which is compiled in and delivered by default in `dockerd` and is thus present in most major Moby downstreams, is a simple, built-in container orchestrator that is implemented through a combination of SwarmKit and supporting network code.\n\nThe `overlay` network driver is a core feature of Swarm Mode, providing isolated virtual LANs that allow communication between containers and services across the cluster. This driver is an implementation/user of VXLAN, which encapsulates link-layer (Ethernet) frames in UDP datagrams that tag the frame with the VXLAN metadata, including a VXLAN Network ID (VNI) that identifies the originating overlay network. In addition, the overlay network driver supports an optional, off-by-default encrypted mode, which is especially useful when VXLAN packets traverses an untrusted network between nodes.\n\nEncrypted overlay networks function by encapsulating the VXLAN datagrams through the use of the IPsec Encapsulating Security Payload protocol in Transport mode. By deploying IPSec encapsulation, encrypted overlay networks gain the additional properties of source authentication through cryptographic proof, data integrity through check-summing, and confidentiality through encryption.\n\nWhen setting an endpoint up on an encrypted overlay network, Moby installs three iptables (Linux kernel firewall) rules that enforce both incoming and outgoing IPSec. These rules rely on the `u32` iptables extension provided by the `xt_u32` kernel module to directly filter on a VXLAN packet's VNI field, so that IPSec guarantees can be enforced on encrypted overlay networks without interfering with other overlay networks or other users of VXLAN.\n\nThe `overlay` driver dynamically and lazily defines the kernel configuration for the VXLAN network on each node as containers are attached and detached. Routes and encryption parameters are only defined for destination nodes that participate in the network. The iptables rules that prevent encrypted overlay networks from accepting unencrypted packets are not created until a peer is available with which to communicate.\n\nEncrypted overlay networks silently accept cleartext VXLAN datagrams that are tagged with the VNI of an encrypted overlay network. As a result, it is possible to inject arbitrary Ethernet frames into the encrypted overlay network by encapsulating them in VXLAN datagrams. The implications of this can be quite dire, and GHSA-vwm3-crmr-xfxw should be referenced for a deeper exploration.\n\nPatches are available in Moby releases 23.0.3, and 20.10.24. As Mirantis Container Runtime's 20.10 releases are numbered differently, users of that platform should update to 20.10.16.\n\nSome workarounds are available. In multi-node clusters, deploy a global 'pause' container for each encrypted overlay network, on every node. For a single-node cluster, do not use overlay networks of any sort. Bridge networks provide the same connectivity on a single node and have no multi-node features. The Swarm ingress feature is implemented using an overlay network, but can be disabled by publishing ports in `host` mode instead of `ingress` mode (allowing the use of an external load balancer), and removing the `ingress` network. If encrypted overlay networks are in exclusive use, block UDP port 4789 from traffic that has not been validated by IPSec.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2076,7 +2076,7 @@
     },
     {
       "CVE": "CVE-2023-28866",
-      "Description": "unknown",
+      "Description": "In the Linux kernel through 6.2.8, net/bluetooth/hci_sync.c allows out-of-bounds access because amp_init1[] and amp_init2[] are supposed to have an intentionally invalid element, but do not.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2096,7 +2096,7 @@
     },
     {
       "CVE": "CVE-2023-2911",
-      "Description": "unknown",
+      "Description": "If the `recursive-clients` quota is reached on a BIND 9 resolver configured with both `stale-answer-enable yes;` and `stale-answer-client-timeout 0;`, a sequence of serve-stale-related lookups could cause `named` to loop and terminate unexpectedly due to a stack overflow.\nThis issue affects BIND 9 versions 9.16.33 through 9.16.41, 9.18.7 through 9.18.15, 9.16.33-S1 through 9.16.41-S1, and 9.18.11-S1 through 9.18.15-S1.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2117,7 +2117,7 @@
     },
     {
       "CVE": "CVE-2023-2985",
-      "Description": "unknown",
+      "Description": "A use after free flaw was found in hfsplus_put_super in fs/hfsplus/super.c in the Linux Kernel. This flaw could allow a local user to cause a denial of service problem.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2137,7 +2137,7 @@
     },
     {
       "CVE": "CVE-2023-3006",
-      "Description": "unknown",
+      "Description": "A known cache speculation vulnerability, known as Branch History Injection (BHI) or Spectre-BHB, becomes actual again for the new hw AmpereOne. Spectre-BHB is similar to Spectre v2, except that malicious code uses the shared branch history (stored in the CPU Branch History Buffer, or BHB) to influence mispredicted branches within the victim's hardware context. Once that occurs, speculation caused by the mispredicted branches can cause cache allocation. This issue leads to obtaining information that should not be accessible.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2157,7 +2157,7 @@
     },
     {
       "CVE": "CVE-2023-30456",
-      "Description": "unknown",
+      "Description": "An issue was discovered in arch/x86/kvm/vmx/nested.c in the Linux kernel before 6.2.8. nVMX on x86_64 lacks consistency checks for CR0 and CR4.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2177,7 +2177,7 @@
     },
     {
       "CVE": "CVE-2023-3090",
-      "Description": "A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.\n\nThe out-of-bounds write is caused by missing skb-\u003ecb  initialization in the ipvlan network driver. The vulnerability is reachable if CONFIG_IPVLAN is enabled.\n\n\nWe recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.\n\n",
+      "Description": "A heap out-of-bounds write vulnerability in the Linux Kernel ipvlan network driver can be exploited to achieve local privilege escalation.\n\nThe out-of-bounds write is caused by missing skb-\u003ecb  initialization in the ipvlan network driver. The vulnerability is reachable if  CONFIG_IPVLAN is enabled.\n\n\nWe recommend upgrading past commit 90cbed5247439a966b645b34eb0a2e037836ea8e.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -2197,7 +2197,7 @@
     },
     {
       "CVE": "CVE-2023-31083",
-      "Description": "unknown",
+      "Description": "An issue was discovered in drivers/bluetooth/hci_ldisc.c in the Linux kernel 6.2. In hci_uart_tty_ioctl, there is a race condition between HCIUARTSETPROTO and HCIUARTGETPROTO. HCI_UART_PROTO_SET is set before hu-\u003eproto is set. A NULL pointer dereference may occur.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2217,7 +2217,7 @@
     },
     {
       "CVE": "CVE-2023-31084",
-      "Description": "unknown",
+      "Description": "An issue was discovered in drivers/media/dvb-core/dvb_frontend.c in the Linux kernel 6.2. There is a blocking operation when a task is in !TASK_RUNNING. In dvb_frontend_get_event, wait_event_interruptible is called; the condition is dvb_frontend_test_event(fepriv,events). In dvb_frontend_test_event, down(\u0026fepriv-\u003esem) is called. However, wait_event_interruptible would put the process to sleep, and down(\u0026fepriv-\u003esem) may block the process.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2237,7 +2237,7 @@
     },
     {
       "CVE": "CVE-2023-3111",
-      "Description": "unknown",
+      "Description": "A use after free vulnerability was found in prepare_to_relocate in fs/btrfs/relocation.c in btrfs in the Linux Kernel. This possible flaw can be triggered by calling btrfs_ioctl_balance() before calling btrfs_ioctl_defrag().",
       "Threats": [
         {
           "Type": "Impact",
@@ -2257,7 +2257,7 @@
     },
     {
       "CVE": "CVE-2023-31248",
-      "Description": "unknown",
+      "Description": "Linux Kernel nftables Use-After-Free Local Privilege Escalation Vulnerability; `nft_chain_lookup_byid()` failed to check whether a chain was active and CAP_NET_ADMIN is in any user or network namespace",
       "Threats": [
         {
           "Type": "Impact",
@@ -2277,7 +2277,7 @@
     },
     {
       "CVE": "CVE-2023-3138",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in libX11. The security flaw occurs because the functions in src/InitExt.c in libX11 do not check that the values provided for the Request, Event, or Error IDs are within the bounds of the arrays that those functions write to, using those IDs as array indexes. They trust that they were called with values provided by an Xserver adhering to the bounds specified in the X11 protocol, as all X servers provided by X.Org do. As the protocol only specifies a single byte for these values, an out-of-bounds value provided by a malicious server (or a malicious proxy-in-the-middle) can only overwrite other portions of the Display structure and not write outside the bounds of the Display structure itself, possibly causing the client to crash with this memory corruption.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2301,7 +2301,7 @@
     },
     {
       "CVE": "CVE-2023-3141",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in r592_remove in drivers/memstick/host/r592.c in media access in the Linux Kernel. This flaw allows a local attacker to crash the system at device disconnect, possibly leading to a kernel information leak.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2321,7 +2321,7 @@
     },
     {
       "CVE": "CVE-2023-31436",
-      "Description": "unknown",
+      "Description": "qfq_change_class in net/sched/sch_qfq.c in the Linux kernel before 6.2.13 allows an out-of-bounds write because lmax can exceed QFQ_MIN_LMAX.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2341,7 +2341,7 @@
     },
     {
       "CVE": "CVE-2023-31484",
-      "Description": "unknown",
+      "Description": "CPAN.pm before 2.35 does not verify TLS certificates when downloading distributions over HTTPS.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2362,7 +2362,7 @@
     },
     {
       "CVE": "CVE-2023-3161",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Framebuffer Console (fbcon) in the Linux Kernel. When providing font-\u003ewidth and font-\u003eheight greater than 32 to fbcon_set_font, since there are no checks in place, a shift-out-of-bounds occurs leading to undefined behavior and possible denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2382,7 +2382,7 @@
     },
     {
       "CVE": "CVE-2023-32001",
-      "Description": "unknown",
+      "Description": "** REJECT ** We issued this CVE pre-maturely, as we have subsequently realized that this issue points out a problem that there really is no safe measures around or protections for.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2405,7 +2405,7 @@
     },
     {
       "CVE": "CVE-2023-3212",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference issue was found in the gfs2 file system in the Linux kernel. It occurs on corrupt gfs2 file systems when the evict code tries to reference the journal descriptor structure after it has been freed and set to NULL. A privileged local user could use this flaw to cause a kernel panic.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2425,7 +2425,7 @@
     },
     {
       "CVE": "CVE-2023-3220",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel through 6.1-rc8. dpu_crtc_atomic_check in drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c lacks check of the return value of kzalloc() and will cause the NULL Pointer Dereference.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2445,7 +2445,7 @@
     },
     {
       "CVE": "CVE-2023-32233",
-      "Description": "unknown",
+      "Description": "In the Linux kernel through 6.3.1, a use-after-free in Netfilter nf_tables when processing batch requests can be abused to perform arbitrary read and write operations on kernel memory. Unprivileged local users can obtain root privileges. This occurs because anonymous sets are mishandled.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2465,7 +2465,7 @@
     },
     {
       "CVE": "CVE-2023-32360",
-      "Description": "unknown",
+      "Description": "An authentication issue was addressed with improved state management. This issue is fixed in macOS Big Sur 11.7.7, macOS Monterey 12.6.6, macOS Ventura 13.4. An unauthenticated user may be able to access recently printed documents.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2486,7 +2486,7 @@
     },
     {
       "CVE": "CVE-2023-3268",
-      "Description": "unknown",
+      "Description": "An out of bounds (OOB) memory access flaw was found in the Linux kernel in relay_file_read_start_pos in kernel/relay.c in the relayfs. This flaw could allow a local attacker to crash the system or leak kernel internal information.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2506,7 +2506,7 @@
     },
     {
       "CVE": "CVE-2023-32681",
-      "Description": "unknown",
+      "Description": "Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `rebuild_proxies` to reattach the `Proxy-Authorization` header to requests. For HTTP connections sent through the tunnel, the proxy will identify the header in the request itself and remove it prior to forwarding to the destination server. However when sent over HTTPS, the `Proxy-Authorization` header must be sent in the CONNECT request as the proxy has no visibility into the tunneled request. This results in Requests forwarding proxy credentials to the destination server unintentionally, allowing a malicious actor to potentially exfiltrate sensitive information. This issue has been patched in version 2.31.0.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -2526,7 +2526,7 @@
     },
     {
       "CVE": "CVE-2023-33288",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel before 6.2.9. A use-after-free was found in bq24190_remove in drivers/power/supply/bq24190_charger.c. It could allow a local attacker to crash the system due to a race condition.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2546,7 +2546,7 @@
     },
     {
       "CVE": "CVE-2023-33460",
-      "Description": "unknown",
+      "Description": "There's a memory leak in yajl 2.1.0 with use of yajl_tree_parse function. which will cause out-of-memory in server and cause crash.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2566,7 +2566,7 @@
     },
     {
       "CVE": "CVE-2023-3347",
-      "Description": "unknown",
+      "Description": "A vulnerability was found in Samba's SMB2 packet signing mechanism. The SMB2 packet signing is not enforced if an admin configured \"server signing = required\" or for SMB2 connections to Domain Controllers where SMB2 packet signing is mandatory. This flaw allows an attacker to perform attacks, such as a man-in-the-middle attack, by intercepting the network traffic and modifying the SMB2 messages between client and server, affecting the integrity of the data.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2589,7 +2589,7 @@
     },
     {
       "CVE": "CVE-2023-3357",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference flaw was found in the Linux kernel AMD Sensor Fusion Hub driver. This flaw allows a local user to crash the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2609,7 +2609,7 @@
     },
     {
       "CVE": "CVE-2023-3358",
-      "Description": "unknown",
+      "Description": "A null pointer dereference was found in the Linux kernel's Integrated Sensor Hub (ISH) driver. This issue could allow a local user to crash the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2629,7 +2629,7 @@
     },
     {
       "CVE": "CVE-2023-3389",
-      "Description": "A use-after-free vulnerability in the Linux Kernel io_uring subsystem can be exploited to achieve local privilege escalation.\n\nRacing a io_uring cancel poll request with a linked timeout can cause a UAF in a hrtimer.\n\nWe recommend upgrading past commit ef7dfac51d8ed961b742218f526bd589f3900a59 (4716c73b188566865bdd79c3a6709696a224ac04 for 5.10 stable and 0e388fce7aec40992eadee654193cad345d62663 for 5.15 stable).\n\n",
+      "Description": "A use-after-free vulnerability in the Linux Kernel io_uring subsystem can be exploited to achieve local privilege escalation.\n\nRacing a io_uring cancel poll request with a linked timeout can cause a UAF in a hrtimer.\n\nWe recommend upgrading past commit ef7dfac51d8ed961b742218f526bd589f3900a59 (4716c73b188566865bdd79c3a6709696a224ac04 for 5.10 stable and  0e388fce7aec40992eadee654193cad345d62663 for 5.15 stable).\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -2649,7 +2649,7 @@
     },
     {
       "CVE": "CVE-2023-3390",
-      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit 1240eb93f0616b21c675416516ff3d74798fdc97.",
+      "Description": "A use-after-free vulnerability was found in the Linux kernel's netfilter subsystem in net/netfilter/nf_tables_api.c.\n\nMishandled error handling with NFT_MSG_NEWRULE makes it possible to use a dangling pointer in the same transaction causing a use-after-free vulnerability. This flaw allows a local attacker with user access to cause a privilege escalation issue.\n\nWe recommend upgrading past commit  1240eb93f0616b21c675416516ff3d74798fdc97.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2669,7 +2669,7 @@
     },
     {
       "CVE": "CVE-2023-33951",
-      "Description": "unknown",
+      "Description": "A race condition vulnerability was found in the vmwgfx driver in the Linux kernel. The flaw exists within the handling of GEM objects. The issue results from improper locking when performing operations on an object. This flaw allows a local privileged user to disclose information in the context of the kernel.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2689,7 +2689,7 @@
     },
     {
       "CVE": "CVE-2023-34241",
-      "Description": "unknown",
+      "Description": "OpenPrinting CUPS is a standards-based, open source printing system for Linux and other Unix-like operating systems. Starting in version 2.0.0 and prior to version 2.4.6, CUPS logs data of free memory to the logging service AFTER the connection has been closed, when it should have logged the data right before. This is a use-after-free bug that impacts the entire cupsd process.\n\nThe exact cause of this issue is the function `httpClose(con-\u003ehttp)` being called in `scheduler/client.c`. The problem is that httpClose always, provided its argument is not null, frees the pointer at the end of the call, only for cupsdLogClient to pass the pointer to httpGetHostname. This issue happens in function `cupsdAcceptClient` if LogLevel is warn or higher and in two scenarios: there is a double-lookup for the IP Address (HostNameLookups Double is set in `cupsd.conf`) which fails to resolve, or if CUPS is compiled with TCP wrappers and the connection is refused by rules from `/etc/hosts.allow` and `/etc/hosts.deny`.\n\nVersion 2.4.6 has a patch for this issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2710,7 +2710,7 @@
     },
     {
       "CVE": "CVE-2023-34319",
-      "Description": "unknown",
+      "Description": "The fix for XSA-423 added logic to Linux'es netback driver to deal with\na frontend splitting a packet in a way such that not all of the headers\nwould come in one piece.  Unfortunately the logic introduced there\ndidn't account for the extreme case of the entire packet being split\ninto as many pieces as permitted by the protocol, yet still being\nsmaller than the area that's specially dealt with to keep all (possible)\nheaders together.  Such an unusual packet would therefore trigger a\nbuffer overrun in the driver.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -2730,7 +2730,7 @@
     },
     {
       "CVE": "CVE-2023-3446",
-      "Description": "unknown",
+      "Description": "Issue summary: Checking excessively long DH keys or parameters may be very slow.\n\nImpact summary: Applications that use the functions DH_check(), DH_check_ex()\nor EVP_PKEY_param_check() to check a DH key or DH parameters may experience long\ndelays. Where the key or parameters that are being checked have been obtained\nfrom an untrusted source this may lead to a Denial of Service.\n\nThe function DH_check() performs various checks on DH parameters. One of those\nchecks confirms that the modulus ('p' parameter) is not too large. Trying to use\na very large modulus is slow and OpenSSL will not normally use a modulus which\nis over 10,000 bits in length.\n\nHowever the DH_check() function checks numerous aspects of the key or parameters\nthat have been supplied. Some of those checks use the supplied modulus value\neven if it has already been found to be too large.\n\nAn application that calls DH_check() and supplies a key or parameters obtained\nfrom an untrusted source could be vulernable to a Denial of Service attack.\n\nThe function DH_check() is itself called by a number of other OpenSSL functions.\nAn application calling any of those other functions may similarly be affected.\nThe other functions affected by this are DH_check_ex() and\nEVP_PKEY_param_check().\n\nAlso vulnerable are the OpenSSL dhparam and pkeyparam command line applications\nwhen using the '-check' option.\n\nThe OpenSSL SSL/TLS implementation is not affected by this issue.\nThe OpenSSL 3.0 and 3.1 FIPS providers are not affected by this issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2752,7 +2752,7 @@
     },
     {
       "CVE": "CVE-2023-34966",
-      "Description": "unknown",
+      "Description": "An infinite loop vulnerability was found in Samba's mdssvc RPC service for Spotlight. When parsing Spotlight mdssvc RPC packets sent by the client, the core unmarshalling function sl_unpack_loop() did not validate a field in the network packet that contains the count of elements in an array-like structure. By passing 0 as the count value, the attacked function will run in an endless loop consuming 100% CPU. This flaw allows an attacker to issue a malformed RPC request, triggering an infinite loop, resulting in a denial of service condition.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2775,7 +2775,7 @@
     },
     {
       "CVE": "CVE-2023-34967",
-      "Description": "unknown",
+      "Description": "A Type Confusion vulnerability was found in Samba's mdssvc RPC service for Spotlight. When parsing Spotlight mdssvc RPC packets, one encoded data structure is a key-value style dictionary where the keys are character strings, and the values can be any of the supported types in the mdssvc protocol. Due to a lack of type checking in callers of the dalloc_value_for_key() function, which returns the object associated with a key, a caller may trigger a crash in talloc_get_size() when talloc detects that the passed-in pointer is not a valid talloc pointer. With an RPC worker process shared among multiple client connections, a malicious client or attacker can trigger a process crash in a shared RPC mdssvc worker process, affecting all other clients this worker serves.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2798,7 +2798,7 @@
     },
     {
       "CVE": "CVE-2023-34968",
-      "Description": "unknown",
+      "Description": "A path disclosure vulnerability was found in Samba. As part of the Spotlight protocol, Samba discloses the server-side absolute path of shares, files, and directories in the results for search queries. This flaw allows a malicious client or an attacker with a targeted RPC request to view the information that is part of the disclosed path.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2821,7 +2821,7 @@
     },
     {
       "CVE": "CVE-2023-34969",
-      "Description": "unknown",
+      "Description": "D-Bus before 1.15.6 sometimes allows unprivileged users to crash dbus-daemon. If a privileged user with control over the dbus-daemon is using the org.freedesktop.DBus.Monitoring interface to monitor message bus traffic, then an unprivileged user with the ability to connect to the same dbus-daemon can cause a dbus-daemon crash under some circumstances via an unreplyable message. When done on the well-known system bus, this is a denial-of-service vulnerability. The fixed versions are 1.12.28, 1.14.8, and 1.15.6.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2843,7 +2843,7 @@
     },
     {
       "CVE": "CVE-2023-35001",
-      "Description": "unknown",
+      "Description": "Linux Kernel nftables Out-Of-Bounds Read/Write Vulnerability; nft_byteorder poorly handled vm register contents when CAP_NET_ADMIN is in any user or network namespace",
       "Threats": [
         {
           "Type": "Impact",
@@ -2863,7 +2863,7 @@
     },
     {
       "CVE": "CVE-2023-3567",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in vcs_read in drivers/tty/vt/vc_screen.c in vc_screen in the Linux Kernel. This issue may allow an attacker with local user access to cause a system crash or leak internal kernel information.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2883,7 +2883,7 @@
     },
     {
       "CVE": "CVE-2023-35788",
-      "Description": "unknown",
+      "Description": "An issue was discovered in fl_set_geneve_opt in net/sched/cls_flower.c in the Linux kernel before 6.3.7. It allows an out-of-bounds write in the flower classifier code via TCA_FLOWER_KEY_ENC_OPTS_GENEVE packets. This may result in denial of service or privilege escalation.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2903,7 +2903,7 @@
     },
     {
       "CVE": "CVE-2023-35823",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in saa7134_finidev in drivers/media/pci/saa7134/saa7134-core.c.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2923,7 +2923,7 @@
     },
     {
       "CVE": "CVE-2023-35828",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in renesas_usb3_remove in drivers/usb/gadget/udc/renesas_usb3.c.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2943,7 +2943,7 @@
     },
     {
       "CVE": "CVE-2023-35829",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the Linux kernel before 6.3.2. A use-after-free was found in rkvdec_remove in drivers/staging/media/rkvdec/rkvdec.c.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2963,7 +2963,7 @@
     },
     {
       "CVE": "CVE-2023-36054",
-      "Description": "unknown",
+      "Description": "lib/kadm5/kadm_rpc_xdr.c in MIT Kerberos 5 (aka krb5) before 1.20.2 and 1.21.x before 1.21.1 frees an uninitialized pointer. A remote authenticated user can trigger a kadmind crash. This occurs because _xdr_kadm5_principal_ent_rec does not validate the relationship between n_key_data and the key_data array count.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2985,7 +2985,7 @@
     },
     {
       "CVE": "CVE-2023-3609",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability in the Linux kernel's net/sched: cls_u32 component can be exploited to achieve local privilege escalation.\n\nIf tcf_change_indev() fails, u32_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.\n\nWe recommend upgrading past commit 04c55383fa5689357bcdd2c8036725a55ed632bc.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3005,7 +3005,7 @@
     },
     {
       "CVE": "CVE-2023-3610",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nFlaw in the error handling of bound chains causes a use-after-free in the abort path of NFT_MSG_NEWRULE. The vulnerability requires CAP_NET_ADMIN to be triggered.\n\nWe recommend upgrading past commit 4bedf9eee016286c835e3d8fa981ddece5338795.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3025,7 +3025,7 @@
     },
     {
       "CVE": "CVE-2023-3611",
-      "Description": "unknown",
+      "Description": "An out-of-bounds write vulnerability in the Linux kernel's net/sched: sch_qfq component can be exploited to achieve local privilege escalation.\n\nThe qfq_change_agg() function in net/sched/sch_qfq.c allows an out-of-bounds write because lmax is updated according to packet sizes without bounds checks.\n\nWe recommend upgrading past commit 3e337087c3b5805fe0b8a46ba622a962880b5d64.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3045,7 +3045,7 @@
     },
     {
       "CVE": "CVE-2023-37453",
-      "Description": "unknown",
+      "Description": "An issue was discovered in the USB subsystem in the Linux kernel through 6.4.2. There is an out-of-bounds and crash in read_descriptors in drivers/usb/core/sysfs.c.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3065,7 +3065,7 @@
     },
     {
       "CVE": "CVE-2023-3772",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel's IP framework for transforming packets (XFRM subsystem). This issue may allow a malicious user with CAP_NET_ADMIN privileges to directly dereference a NULL pointer in xfrm_update_ae_params(), leading to a possible kernel crash and denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3085,7 +3085,7 @@
     },
     {
       "CVE": "CVE-2023-3776",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability in the Linux kernel's net/sched: cls_fw component can be exploited to achieve local privilege escalation.\n\nIf tcf_change_indev() fails, fw_set_parms() will immediately return an error after incrementing or decrementing the reference counter in tcf_bind_filter(). If an attacker can control the reference counter and set it to zero, they can cause the reference to be freed, leading to a use-after-free vulnerability.\n\nWe recommend upgrading past commit 0323bce598eea038714f941ce2b22541c46d488f.\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3105,7 +3105,7 @@
     },
     {
       "CVE": "CVE-2023-3812",
-      "Description": "unknown",
+      "Description": "An out-of-bounds memory access flaw was found in the Linux kernel's TUN/TAP device driver functionality in how a user generates a malicious (too big) networking packet when napi frags is enabled. This flaw allows a local user to crash or potentially escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3125,7 +3125,7 @@
     },
     {
       "CVE": "CVE-2023-3817",
-      "Description": "unknown",
+      "Description": "Issue summary: Checking excessively long DH keys or parameters may be very slow.\n\nImpact summary: Applications that use the functions DH_check(), DH_check_ex()\nor EVP_PKEY_param_check() to check a DH key or DH parameters may experience long\ndelays. Where the key or parameters that are being checked have been obtained\nfrom an untrusted source this may lead to a Denial of Service.\n\nThe function DH_check() performs various checks on DH parameters. After fixing\nCVE-2023-3446 it was discovered that a large q parameter value can also trigger\nan overly long computation during some of these checks. A correct q value,\nif present, cannot be larger than the modulus p parameter, thus it is\nunnecessary to perform these checks if q is larger than p.\n\nAn application that calls DH_check() and supplies a key or parameters obtained\nfrom an untrusted source could be vulnerable to a Denial of Service attack.\n\nThe function DH_check() is itself called by a number of other OpenSSL functions.\nAn application calling any of those other functions may similarly be affected.\nThe other functions affected by this are DH_check_ex() and\nEVP_PKEY_param_check().\n\nAlso vulnerable are the OpenSSL dhparam and pkeyparam command line applications\nwhen using the \"-check\" option.\n\nThe OpenSSL SSL/TLS implementation is not affected by this issue.\n\nThe OpenSSL 3.0 and 3.1 FIPS providers are not affected by this issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3147,7 +3147,7 @@
     },
     {
       "CVE": "CVE-2023-38408",
-      "Description": "unknown",
+      "Description": "The PKCS#11 feature in ssh-agent in OpenSSH before 9.3p2 has an insufficiently trustworthy search path, leading to remote code execution if an agent is forwarded to an attacker-controlled system. (Code in /usr/lib is not necessarily safe for loading into ssh-agent.) NOTE: this issue exists because of an incomplete fix for CVE-2016-10009.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3170,7 +3170,7 @@
     },
     {
       "CVE": "CVE-2023-38409",
-      "Description": "unknown",
+      "Description": "An issue was discovered in set_con2fb_map in drivers/video/fbdev/core/fbcon.c in the Linux kernel before 6.2.12. Because an assignment occurs only for the first vc, the fbcon_registered_fb and fbcon_display arrays can be desynchronized in fbcon_mode_deleted (the con2fb_map points at the old fb_info).",
       "Threats": [
         {
           "Type": "Impact",
@@ -3190,7 +3190,7 @@
     },
     {
       "CVE": "CVE-2023-3863",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in nfc_llcp_find_local in net/nfc/llcp_core.c in NFC in the Linux kernel. This flaw allows a local user with special privileges to impact a kernel information leak issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3210,7 +3210,7 @@
     },
     {
       "CVE": "CVE-2023-39615",
-      "Description": "unknown",
+      "Description": "** DISPUTED ** Xmlsoft Libxml2 v2.11.0 was discovered to contain an out-of-bounds read via the xmlSAX2StartElement() function at /libxml2/SAX2.c. This vulnerability allows attackers to cause a Denial of Service (DoS) via supplying a crafted XML file. NOTE: the vendor's position is that the product does not support the legacy SAX1 interface with custom callbacks; there is a crash even without crafted input.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3232,7 +3232,7 @@
     },
     {
       "CVE": "CVE-2023-4004",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in the Linux kernel's netfilter in the way a user triggers the nft_pipapo_remove function with the element, without a NFT_SET_EXT_KEY_END. This issue could allow a local user to crash the system or potentially escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3252,7 +3252,7 @@
     },
     {
       "CVE": "CVE-2023-4016",
-      "Description": "unknown",
+      "Description": "Under some circumstances, this weakness allows a user who has access to run the \"ps\" utility on a machine, the ability to write almost unlimited amounts of unfiltered data into the process heap.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3273,7 +3273,7 @@
     },
     {
       "CVE": "CVE-2023-40283",
-      "Description": "unknown",
+      "Description": "An issue was discovered in l2cap_sock_release in net/bluetooth/l2cap_sock.c in the Linux kernel before 6.4.10. There is a use-after-free because the children of an sk are mishandled.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3293,7 +3293,7 @@
     },
     {
       "CVE": "CVE-2023-4039",
-      "Description": "unknown",
+      "Description": "** DISPUTED ** \n\n**DISPUTED**A failure in the -fstack-protector feature in GCC-based toolchains \nthat target AArch64 allows an attacker to exploit an existing buffer \noverflow in dynamically-sized local variables in your application \nwithout this being detected. This stack-protector failure only applies \nto C99-style dynamically-sized local variables or those created using \nalloca(). The stack-protector operates as intended for statically-sized \nlocal variables.\n\nThe default behavior when the stack-protector \ndetects an overflow is to terminate your application, resulting in \ncontrolled loss of availability. An attacker who can exploit a buffer \noverflow without triggering the stack-protector might be able to change \nprogram flow control to cause an uncontrolled loss of availability or to\n go further and affect confidentiality or integrity. NOTE: The GCC project argues that this is a missed hardening bug and not a vulnerability by itself.\n\n\n\n\n\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3321,7 +3321,7 @@
     },
     {
       "CVE": "CVE-2023-4128",
-      "Description": "unknown",
+      "Description": "** REJECT ** DO NOT USE THIS CVE RECORD. ConsultIDs: CVE-2023-4206, CVE-2023-4207, CVE-2023-4208.  Reason: This record is a duplicate of CVE-2023-4206, CVE-2023-4207, CVE-2023-4208. Notes: All CVE users should reference CVE-2023-4206, CVE-2023-4207, CVE-2023-4208 instead of this record. All references and descriptions in this record have been removed to prevent accidental usage.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3341,7 +3341,7 @@
     },
     {
       "CVE": "CVE-2023-4133",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability was found in the cxgb4 driver in the Linux kernel. The bug occurs when the cxgb4 device is detaching due to a possible rearming of the flower_stats_timer from the work queue. This flaw allows a local user to crash the system, causing a denial of service condition.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3361,7 +3361,7 @@
     },
     {
       "CVE": "CVE-2023-4134",
-      "Description": "unknown",
+      "Description": "A use-after-free vulnerability was found in the cyttsp4_core driver in the Linux kernel. This issue occurs in the device cleanup routine due to a possible rearming of the watchdog_timer from the workqueue. This could allow a local user to crash the system, causing a denial of service.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3381,7 +3381,7 @@
     },
     {
       "CVE": "CVE-2023-4147",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in the Linux kernel's Netfilter functionality when adding a rule with NFTA_RULE_CHAIN_ID. This flaw allows a local user to crash or escalate their privileges on the system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3401,7 +3401,7 @@
     },
     {
       "CVE": "CVE-2023-4156",
-      "Description": "unknown",
+      "Description": "A heap out-of-bounds read flaw was found in builtin.c in the gawk package. This issue may lead to a crash and could be used to read sensitive information.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3421,7 +3421,7 @@
     },
     {
       "CVE": "CVE-2023-4194",
-      "Description": "unknown",
+      "Description": "A flaw was found in the Linux kernel's TUN/TAP functionality. This issue could allow a local user to bypass network filters and gain unauthorized access to some resources. The original patches fixing CVE-2023-1076 are incorrect or incomplete. The problem is that the following upstream commits - a096ccca6e50 (\"tun: tun_chr_open(): correctly initialize socket uid\"), - 66b2c338adce (\"tap: tap_open(): correctly initialize socket uid\"), pass \"inode-\u003ei_uid\" to sock_init_data_uid() as the last parameter and that turns out to not be accurate.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3441,7 +3441,7 @@
     },
     {
       "CVE": "CVE-2023-4273",
-      "Description": "unknown",
+      "Description": "A flaw was found in the exFAT driver of the Linux kernel. The vulnerability exists in the implementation of the file name reconstruction function, which is responsible for reading file name entries from a directory index and merging file name parts belonging to one file into a single long file name. Since the file name characters are copied into a stack variable, a local privileged attacker could use this flaw to overflow the kernel stack.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3461,7 +3461,7 @@
     },
     {
       "CVE": "CVE-2023-4387",
-      "Description": "unknown",
+      "Description": "A use-after-free flaw was found in vmxnet3_rq_alloc_rx_buf in drivers/net/vmxnet3/vmxnet3_drv.c in VMware's vmxnet3 ethernet NIC driver in the Linux Kernel. This issue could allow a local attacker to crash the system due to a double-free while cleaning up vmxnet3_rq_cleanup_all, which could also lead to a kernel information leak problem.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3481,7 +3481,7 @@
     },
     {
       "CVE": "CVE-2023-4459",
-      "Description": "unknown",
+      "Description": "A NULL pointer dereference flaw was found in vmxnet3_rq_cleanup in drivers/net/vmxnet3/vmxnet3_drv.c in the networking sub-component in vmxnet3 in the Linux Kernel. This issue may allow a local attacker with normal user privilege to cause a denial of service due to a missing sanity check during cleanup.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3501,7 +3501,7 @@
     },
     {
       "CVE": "CVE-2023-4504",
-      "Description": "unknown",
+      "Description": "Due to failure in validating the length provided by an attacker-crafted PPD PostScript document, CUPS and libppd are susceptible to a heap-based buffer overflow and possibly code execution. This issue has been fixed in CUPS version 2.4.7, released in September of 2023.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -3522,7 +3522,7 @@
     },
     {
       "CVE": "CVE-2023-4563",
-      "Description": "unknown",
+      "Description": "** REJECT ** This was assigned as a duplicate of CVE-2023-4244.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3542,7 +3542,7 @@
     },
     {
       "CVE": "CVE-2023-4569",
-      "Description": "unknown",
+      "Description": "A memory leak flaw was found in nft_set_catchall_flush in net/netfilter/nf_tables_api.c in the Linux Kernel. This issue may allow a local attacker to cause double-deactivations of catchall elements, which can result in a memory leak.",
       "Threats": [
         {
           "Type": "Impact",
