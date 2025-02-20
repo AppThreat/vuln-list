@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-02-15T12:48:39Z",
+        "Date": "2025-02-20T13:42:11Z",
         "Description": "current"
       }
     ]
@@ -243,7 +243,7 @@
   "Vulnerabilities": [
     {
       "CVE": "CVE-2013-4235",
-      "Description": "unknown",
+      "Description": "shadow: TOCTOU (time-of-check time-of-use) race condition when copying and removing directory trees",
       "Threats": [
         {
           "Type": "Impact",
@@ -267,7 +267,7 @@
     },
     {
       "CVE": "CVE-2019-13225",
-      "Description": "unknown",
+      "Description": "A NULL Pointer Dereference in match_at() in regexec.c in Oniguruma 6.9.2 allows attackers to potentially cause denial of service by providing a crafted regular expression. Oniguruma issues often affect Ruby, as well as common optional libraries for PHP and Rust.",
       "Threats": [
         {
           "Type": "Impact",
@@ -290,7 +290,7 @@
     },
     {
       "CVE": "CVE-2023-46842",
-      "Description": "unknown",
+      "Description": "Unlike 32-bit PV guests, HVM guests may switch freely between 64-bit and\nother modes.  This in particular means that they may set registers used\nto pass 32-bit-mode hypercall arguments to values outside of the range\n32-bit code would be able to set them to.\n\nWhen processing of hypercalls takes a considerable amount of time,\nthe hypervisor may choose to invoke a hypercall continuation.  Doing so\ninvolves putting (perhaps updated) hypercall arguments in respective\nregisters.  For guests not running in 64-bit mode this further involves\na certain amount of translation of the values.\n\nUnfortunately internal sanity checking of these translated values\nassumes high halves of registers to always be clear when invoking a\nhypercall.  When this is found not to be the case, it triggers a\nconsistency check in the hypervisor and causes a crash.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -310,7 +310,7 @@
     },
     {
       "CVE": "CVE-2023-52425",
-      "Description": "unknown",
+      "Description": "libexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.",
       "Threats": [
         {
           "Type": "Impact",
@@ -330,7 +330,7 @@
     },
     {
       "CVE": "CVE-2023-5388",
-      "Description": "unknown",
+      "Description": "NSS was susceptible to a timing side-channel attack when performing RSA decryption. This attack could potentially allow an attacker to recover the private data. This vulnerability affects Firefox \u003c 124, Firefox ESR \u003c 115.9, and Thunderbird \u003c 115.9.",
       "Threats": [
         {
           "Type": "Impact",
@@ -350,7 +350,7 @@
     },
     {
       "CVE": "CVE-2024-31143",
-      "Description": "unknown",
+      "Description": "An optional feature of PCI MSI called \"Multiple Message\" allows a\ndevice to use multiple consecutive interrupt vectors.  Unlike for MSI-X,\nthe setting up of these consecutive vectors needs to happen all in one\ngo.  In this handling an error path could be taken in different\nsituations, with or without a particular lock held.  This error path\nwrongly releases the lock even when it is not currently held.\n",
       "Threats": [
         {
           "Type": "Impact",
@@ -370,7 +370,7 @@
     },
     {
       "CVE": "CVE-2024-34459",
-      "Description": "unknown",
+      "Description": "An issue was discovered in xmllint (from libxml2) before 2.11.8 and 2.12.x before 2.12.7. Formatting error messages with xmllint --htmlout can result in a buffer over-read in xmlHTMLPrintFileContext in xmllint.c.",
       "Threats": [
         {
           "Type": "Impact",
@@ -390,7 +390,7 @@
     },
     {
       "CVE": "CVE-2024-37370",
-      "Description": "unknown",
+      "Description": "In MIT Kerberos 5 (aka krb5) before 1.21.3, an attacker can modify the plaintext Extra Count field of a confidential GSS krb5 wrap token, causing the unwrapped token to appear truncated to the application.",
       "Threats": [
         {
           "Type": "Impact",
@@ -411,7 +411,7 @@
     },
     {
       "CVE": "CVE-2024-37371",
-      "Description": "unknown",
+      "Description": "In MIT Kerberos 5 (aka krb5) before 1.21.3, an attacker can cause invalid memory reads during GSS message token handling by sending message tokens with invalid length fields.",
       "Threats": [
         {
           "Type": "Impact",
@@ -432,7 +432,7 @@
     },
     {
       "CVE": "CVE-2024-37891",
-      "Description": "unknown",
+      "Description": " urllib3 is a user-friendly HTTP client library for Python. When using urllib3's proxy support with `ProxyManager`, the `Proxy-Authorization` header is only sent to the configured proxy, as expected. However, when sending HTTP requests *without* using urllib3's proxy support, it's possible to accidentally configure the `Proxy-Authorization` header even though it won't have any effect as the request is not using a forwarding proxy or a tunneling proxy. In those cases, urllib3 doesn't treat the `Proxy-Authorization` HTTP header as one carrying authentication material and thus doesn't strip the header on cross-origin redirects. Because this is a highly unlikely scenario, we believe the severity of this vulnerability is low for almost all users. Out of an abundance of caution urllib3 will automatically strip the `Proxy-Authorization` header during cross-origin redirects to avoid the small chance that users are doing this on accident. Users should use urllib3's proxy support or disable automatic redirects to achieve safe processing of the `Proxy-Authorization` header, but we still decided to strip the header by default in order to further protect users who aren't using the correct approach. We believe the number of usages affected by this advisory is low. It requires all of the following to be true to be exploited: 1. Setting the `Proxy-Authorization` header without using urllib3's built-in proxy support. 2. Not disabling HTTP redirects. 3. Either not using an HTTPS origin server or for the proxy or target origin to redirect to a malicious origin. Users are advised to update to either version 1.26.19 or version 2.2.2. Users unable to upgrade may use the `Proxy-Authorization` header with urllib3's `ProxyManager`, disable HTTP redirects using `redirects=False` when sending requests, or not user the `Proxy-Authorization` header as mitigations.",
       "Threats": [
         {
           "Type": "Impact",
@@ -452,7 +452,7 @@
     },
     {
       "CVE": "CVE-2024-41110",
-      "Description": "unknown",
+      "Description": "Moby is an open-source project created by Docker for software containerization. A security vulnerability has been detected in certain versions of Docker Engine, which could allow an attacker to bypass authorization plugins (AuthZ) under specific circumstances. The base likelihood of this being exploited is low.\n\nUsing a specially-crafted API request, an Engine API client could make the daemon forward the request or response to an authorization plugin without the body. In certain circumstances, the authorization plugin may allow a request which it would have otherwise denied if the body had been forwarded to it.\n\nA security issue was discovered In 2018, where an attacker could bypass AuthZ plugins using a specially crafted API request. This could lead to unauthorized actions, including privilege escalation. Although this issue was fixed in Docker Engine v18.09.1 in January 2019, the fix was not carried forward to later major versions, resulting in a regression. Anyone who depends on authorization plugins that introspect the request and/or response body to make access control decisions is potentially impacted.\n\nDocker EE v19.03.x and all versions of Mirantis Container Runtime are not vulnerable.\n\ndocker-ce v27.1.1 containes patches to fix the vulnerability. Patches have also been merged into the master, 19.03, 20.0, 23.0, 24.0, 25.0, 26.0, and 26.1 release branches. If one is unable to upgrade immediately, avoid using AuthZ plugins and/or restrict access to the Docker API to trusted parties, following the principle of least privilege.",
       "Threats": [
         {
           "Type": "Impact",
