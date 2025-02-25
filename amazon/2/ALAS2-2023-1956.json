@@ -5,10 +5,10 @@
     "date": "2023-02-17 00:12:00"
   },
   "updated": {
-    "date": "2023-02-22 01:53:00"
+    "date": "2025-02-11 23:16:00"
   },
   "severity": "important",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2021-43818:\n\tThere's a flaw in python-lxml's HTML Cleaner component, which is responsible for sanitizing HTML and Javascript. An attacker who is able to submit a crafted payload to a web service using python-lxml's HTML Cleaner may be able to trigger script execution in clients such as web browsers. This can occur because the HTML Cleaner did not remove scripts within SVG images in data URLs such as \u003cimg src=\u003e. XSS can result in impacts to the integrity and availability of the web page, as well as a potential impact to data confidentiality in some circumstances.\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2021-43818:\n\tThere's a flaw in python-lxml's HTML Cleaner component, which is responsible for sanitizing HTML and Javascript. An attacker who is able to submit a crafted payload to a web service using python-lxml's HTML Cleaner may be able to trigger script execution in clients such as web browsers. This can occur because the HTML Cleaner did not remove scripts within SVG images in data URLs such as \u003cimg src=\u003e. XSS can result in impacts to the integrity and availability of the web page, as well as a potential impact to data confidentiality in some circumstances.\n\nCVE-2018-19787:\n\tAn issue was discovered in lxml before 4.2.5. lxml/html/clean.py in the lxml.html.clean module does not remove javascript: URLs that use escaping, allowing a remote attacker to conduct XSS attacks, as demonstrated by \"j a v a s c r i p t:\" in Internet Explorer. This is a similar issue to CVE-2014-3146.\n",
   "packages": [
     {
       "name": "python-lxml",
@@ -69,12 +69,18 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19787",
+      "id": "CVE-2018-19787",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43818",
       "id": "CVE-2021-43818",
       "type": "cve"
     }
   ],
   "cveids": [
+    "CVE-2018-19787",
     "CVE-2021-43818"
   ]
 }

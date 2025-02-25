@@ -5,7 +5,7 @@
     "date": "2025-01-30 22:56:00"
   },
   "updated": {
-    "date": "2025-01-30 22:56:00"
+    "date": "2025-02-04 11:02:00"
   },
   "severity": "important",
   "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2024-47613:\n\tGStreamer is a library for constructing graphs of media-handling components. A null pointer dereference vulnerability has been identified in `gst_gdk_pixbuf_dec_flush` within `gstgdkpixbufdec.c`. This function invokes `memcpy`, using `out_pix` as the destination address. `out_pix` is expected to point to the frame 0 from the frame structure, which is read from the input file. However, in certain situations, it can points to a NULL frame, causing the subsequent call to `memcpy` to attempt writing to the null address (0x00), leading to a null pointer dereference. This vulnerability can result in a Denial of Service (DoS) by triggering a segmentation fault (SEGV). This vulnerability is fixed in 1.24.10.\n\nCVE-2024-47537:\n\tGStreamer is a library for constructing graphs of media-handling components. The program attempts to reallocate the memory pointed to by stream-\u003esamples to accommodate stream-\u003en_samples + samples_count elements of type QtDemuxSample. The problem is that samples_count is read from the input file. And if this value is big enough, this can lead to an integer overflow during the addition. As a consequence, g_try_renew might allocate memory for a significantly smaller number of elements than intended. Following this, the program iterates through samples_count elements and attempts to write samples_count number of elements, potentially exceeding the actual allocated memory size and causing an OOB-write. This vulnerability is fixed in 1.24.10.\n",
