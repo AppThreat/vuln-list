@@ -5,10 +5,10 @@
     "date": "2025-01-21 23:11:00"
   },
   "updated": {
-    "date": "2025-02-19 23:10:00"
+    "date": "2025-02-26 19:34:00"
   },
   "severity": "Important",
-  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-56751:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nipv6: release nexthop on device removal\n\nThe CI is hitting some aperiodic hangup at device removal time in the\npmtu.sh self-test:\n\nunregister_netdevice: waiting for veth_A-R1 to become free. Usage count = 6\nref_tracker: veth_A-R1@ffff888013df15d8 has 1/5 users at\n\tdst_init+0x84/0x4a0\n\tdst_alloc+0x97/0x150\n\tip6_dst_alloc+0x23/0x90\n\tip6_rt_pcpu_alloc+0x1e6/0x520\n\tip6_pol_route+0x56f/0x840\n\tfib6_rule_lookup+0x334/0x630\n\tip6_route_output_flags+0x259/0x480\n\tip6_dst_lookup_tail.constprop.0+0x5c2/0x940\n\tip6_dst_lookup_flow+0x88/0x190\n\tudp_tunnel6_dst_lookup+0x2a7/0x4c0\n\tvxlan_xmit_one+0xbde/0x4a50 [vxlan]\n\tvxlan_xmit+0x9ad/0xf20 [vxlan]\n\tdev_hard_start_xmit+0x10e/0x360\n\t__dev_queue_xmit+0xf95/0x18c0\n\tarp_solicit+0x4a2/0xe00\n\tneigh_probe+0xaa/0xf0\n\nWhile the first suspect is the dst_cache, explicitly tracking the dst\nowing the last device reference via probes proved such dst is held by\nthe nexthop in the originating fib6_info.\n\nSimilar to commit f5b51fe804ec (\"ipv6: route: purge exception on\nremoval\"), we need to explicitly release the originating fib info when\ndisconnecting a to-be-removed device from a live ipv6 dst: move the\nfib6_info cleanup into ip6_dst_ifdown().\n\nTested running:\n\n./pmtu.sh cleanup_ipv6_exception\n\nin a tight loop for more than 400 iterations with no spat, running an\nunpatched kernel  I observed a splat every ~10 iterations.\n\nCVE-2024-56672:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nblk-cgroup: Fix UAF in blkcg_unpin_online()\n\nCVE-2024-56658:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: defer final 'struct net' free in netns dismantle\n\nCVE-2024-56642:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntipc: Fix use-after-free of kernel socket in cleanup_bearer().\n\nCVE-2024-56606:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naf_packet: avoid erroring out after sock_init_data() in packet_create()\n\nCVE-2024-56600:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: inet6: do not leave a dangling sk pointer in inet6_create()\n\nCVE-2024-53206:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp: Fix use-after-free of nreq in reqsk_timer_handler().\n\nCVE-2024-50258:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: fix crash when config small gso_max_size/gso_ipv4_max_size\n\nCVE-2024-50248:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nntfs3: Add bounds checking to mi_enum_attr()\n\nCVE-2024-50146:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet/mlx5e: Don't call cleanup on profile rollback failure\n\nCVE-2024-50121:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: cancel nfsd_shrinker_work using sync mode in nfs4_state_shutdown_net\n\nCVE-2024-50055:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndriver core: bus: Fix double free in driver API bus_register()\n\nCVE-2024-49934:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nfs/inode: Prevent dump_mapping() accessing invalid dentry.d_name.name\n\nCVE-2024-49926:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nrcu-tasks: Fix access non-existent percpu rtpcp variable in rcu_tasks_need_gpcb()\n\nCVE-2024-49861:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix helper writes to read-only maps\n\nCVE-2024-47745:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nmm: call the security_mmap_file() LSM hook in remap_file_pages()\n\nCVE-2024-42252:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nclosures: Change BUG_ON() to WARN_ON()\n\nCVE-2024-41014:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nxfs: add bounds checking to xlog_recover_process_data\n\nCVE-2024-27407:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nfs/ntfs3: Fixed overflow check in mi_enum_attr()\n",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2024-57798:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndrm/dp_mst: Ensure mst_primary pointer is valid in drm_dp_mst_handle_up_req()\n\nCVE-2024-56751:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nipv6: release nexthop on device removal\n\nThe CI is hitting some aperiodic hangup at device removal time in the\npmtu.sh self-test:\n\nunregister_netdevice: waiting for veth_A-R1 to become free. Usage count = 6\nref_tracker: veth_A-R1@ffff888013df15d8 has 1/5 users at\n\tdst_init+0x84/0x4a0\n\tdst_alloc+0x97/0x150\n\tip6_dst_alloc+0x23/0x90\n\tip6_rt_pcpu_alloc+0x1e6/0x520\n\tip6_pol_route+0x56f/0x840\n\tfib6_rule_lookup+0x334/0x630\n\tip6_route_output_flags+0x259/0x480\n\tip6_dst_lookup_tail.constprop.0+0x5c2/0x940\n\tip6_dst_lookup_flow+0x88/0x190\n\tudp_tunnel6_dst_lookup+0x2a7/0x4c0\n\tvxlan_xmit_one+0xbde/0x4a50 [vxlan]\n\tvxlan_xmit+0x9ad/0xf20 [vxlan]\n\tdev_hard_start_xmit+0x10e/0x360\n\t__dev_queue_xmit+0xf95/0x18c0\n\tarp_solicit+0x4a2/0xe00\n\tneigh_probe+0xaa/0xf0\n\nWhile the first suspect is the dst_cache, explicitly tracking the dst\nowing the last device reference via probes proved such dst is held by\nthe nexthop in the originating fib6_info.\n\nSimilar to commit f5b51fe804ec (\"ipv6: route: purge exception on\nremoval\"), we need to explicitly release the originating fib info when\ndisconnecting a to-be-removed device from a live ipv6 dst: move the\nfib6_info cleanup into ip6_dst_ifdown().\n\nTested running:\n\n./pmtu.sh cleanup_ipv6_exception\n\nin a tight loop for more than 400 iterations with no spat, running an\nunpatched kernel  I observed a splat every ~10 iterations.\n\nCVE-2024-56672:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nblk-cgroup: Fix UAF in blkcg_unpin_online()\n\nCVE-2024-56658:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: defer final 'struct net' free in netns dismantle\n\nCVE-2024-56642:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntipc: Fix use-after-free of kernel socket in cleanup_bearer().\n\nCVE-2024-56606:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naf_packet: avoid erroring out after sock_init_data() in packet_create()\n\nCVE-2024-56600:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: inet6: do not leave a dangling sk pointer in inet6_create()\n\nCVE-2024-56582:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbtrfs: fix use-after-free in btrfs_encoded_read_endio()\n\nCVE-2024-56581:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbtrfs: ref-verify: fix use-after-free after invalid ref action\n\nCVE-2024-53206:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ntcp: Fix use-after-free of nreq in reqsk_timer_handler().\n\nCVE-2024-53173:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nNFSv4.0: Fix a use-after-free problem in the asynchronous open()\n\nCVE-2024-50275:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\narm64/sve: Discard stale CPU state when handling SVE traps\n\nCVE-2024-50258:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: fix crash when config small gso_max_size/gso_ipv4_max_size\n\nCVE-2024-50248:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nntfs3: Add bounds checking to mi_enum_attr()\n\nCVE-2024-50146:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet/mlx5e: Don't call cleanup on profile rollback failure\n\nCVE-2024-50121:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnfsd: cancel nfsd_shrinker_work using sync mode in nfs4_state_shutdown_net\n\nCVE-2024-50055:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndriver core: bus: Fix double free in driver API bus_register()\n\nCVE-2024-49934:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nfs/inode: Prevent dump_mapping() accessing invalid dentry.d_name.name\n\nCVE-2024-49926:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nrcu-tasks: Fix access non-existent percpu rtpcp variable in rcu_tasks_need_gpcb()\n\nCVE-2024-49861:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix helper writes to read-only maps\n\nCVE-2024-47745:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nmm: call the security_mmap_file() LSM hook in remap_file_pages()\n\nCVE-2024-42252:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nclosures: Change BUG_ON() to WARN_ON()\n\nCVE-2024-41014:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nxfs: add bounds checking to xlog_recover_process_data\n\nCVE-2024-27407:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nfs/ntfs3: Fixed overflow check in mi_enum_attr()\n",
   "packages": [
     {
       "name": "kernel-libbpf-devel",
@@ -393,8 +393,28 @@
       "type": "cve"
     },
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50275",
+      "id": "CVE-2024-50275",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53173",
+      "id": "CVE-2024-53173",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53206",
       "id": "CVE-2024-53206",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56581",
+      "id": "CVE-2024-56581",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56582",
+      "id": "CVE-2024-56582",
       "type": "cve"
     },
     {
@@ -426,6 +446,11 @@
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56751",
       "id": "CVE-2024-56751",
       "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-57798",
+      "id": "CVE-2024-57798",
+      "type": "cve"
     }
   ],
   "cveids": [
@@ -441,12 +466,17 @@
     "CVE-2024-50146",
     "CVE-2024-50248",
     "CVE-2024-50258",
+    "CVE-2024-50275",
+    "CVE-2024-53173",
     "CVE-2024-53206",
+    "CVE-2024-56581",
+    "CVE-2024-56582",
     "CVE-2024-56600",
     "CVE-2024-56606",
     "CVE-2024-56642",
     "CVE-2024-56658",
     "CVE-2024-56672",
-    "CVE-2024-56751"
+    "CVE-2024-56751",
+    "CVE-2024-57798"
   ]
 }
