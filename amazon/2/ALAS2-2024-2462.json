@@ -5,10 +5,10 @@
     "date": "2024-02-15 03:52:00"
   },
   "updated": {
-    "date": "2024-02-19 17:36:00"
+    "date": "2025-02-26 22:35:00"
   },
   "severity": "important",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2023-2454:\n\tThis enabled an attacker having database-level CREATE privilege to execute arbitrary code as the bootstrap superuser. Database owners have that right by default, and explicit grants may extend it to other users.\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2023-2455:\n\tWhile CVE-2016-2193 fixed most interaction between row security and user ID changes, it missed a scenario involving function inlining. This leads to potentially incorrect policies being applied in cases where role-specific policies are used and a given query is planned under one role and then executed under other roles. This scenario can happen under security definer functions or when a common user and query is planned initially and then re-used across multiple SET ROLEs. Applying an incorrect policy may permit a user to complete otherwise-forbidden reads and modifications. This affects only databases that have used CREATE POLICY to define a row security policy.\n\nCVE-2023-2454:\n\tThis enabled an attacker having database-level CREATE privilege to execute arbitrary code as the bootstrap superuser. Database owners have that right by default, and explicit grants may extend it to other users.\n",
   "packages": [
     {
       "name": "postgresql",
@@ -328,9 +328,15 @@
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2454",
       "id": "CVE-2023-2454",
       "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2455",
+      "id": "CVE-2023-2455",
+      "type": "cve"
     }
   ],
   "cveids": [
-    "CVE-2023-2454"
+    "CVE-2023-2454",
+    "CVE-2023-2455"
   ]
 }
