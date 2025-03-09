@@ -424,7 +424,7 @@
     },
     {
       "CVE": "CVE-2024-45778",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A stack overflow flaw was found when reading a BFS file system. A crafted BFS filesystem may lead to an uncontrolled loop, causing grub2 to crash.",
       "Threats": [
         {
           "Type": "Impact",
@@ -471,7 +471,7 @@
     },
     {
       "CVE": "CVE-2024-45779",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "An integer overflow flaw was found in the BFS file system driver in grub2. When reading a file with an indirect extent map, grub2 fails to validate the number of extent entries to be read. A crafted or corrupted BFS filesystem may cause an integer overflow during the file reading, leading to a heap of bounds read. As a consequence, sensitive data may be leaked, or grub2 will crash.",
       "Threats": [
         {
           "Type": "Impact",
@@ -518,7 +518,7 @@
     },
     {
       "CVE": "CVE-2024-45780",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in grub2. When reading tar files, grub2 allocates an internal buffer for the file name. However, it fails to properly verify the allocation against possible integer overflows. It's possible to cause the allocation length to overflow with a crafted tar file, leading to a heap out-of-bounds write. This flaw eventually allows an attacker to circumvent secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -612,7 +612,7 @@
     },
     {
       "CVE": "CVE-2024-45782",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in the HFS filesystem. When reading an HFS volume's name at grub_fs_mount(), the HFS filesystem driver performs a strcpy() using the user-provided volume name as input without properly validating the volume name's length. This issue may read to a heap-based out-of-bounds writer, impacting grub's sensitive data integrity and eventually leading to a secure boot protection bypass.",
       "Threats": [
         {
           "Type": "Impact",
@@ -894,7 +894,7 @@
     },
     {
       "CVE": "CVE-2025-0678",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in grub2. When reading data from a squash4 filesystem, grub's squash4 fs module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciously crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the direct_read() will perform a heap based out-of-bounds write during data reading. This flaw may be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution, by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -941,7 +941,7 @@
     },
     {
       "CVE": "CVE-2025-0684",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in grub2. When performing a symlink lookup from a reiserfs filesystem, grub's reiserfs fs module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_reiserfs_read_symlink() will call grub_reiserfs_read_real() with a overflown length parameter, leading to a heap based out-of-bounds write during data reading. This flaw may be leveraged to corrupt grub's internal critical data and can result in arbitrary code execution, by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -988,7 +988,7 @@
     },
     {
       "CVE": "CVE-2025-0685",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in grub2. When reading data from a jfs filesystem, grub's jfs filesystem module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_jfs_lookup_symlink() function will write past the internal buffer length during grub_jfs_read_file(). This issue can be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution, by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1035,7 +1035,7 @@
     },
     {
       "CVE": "CVE-2025-0686",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "A flaw was found in grub2. When performing a symlink lookup from a romfs filesystem, grub's romfs filesystem module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciously crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_romfs_read_symlink() may cause out-of-bounds writes when the calling grub_disk_read() function. This issue may be leveraged to corrupt grub's internal critical data and can result in arbitrary code execution by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1082,7 +1082,7 @@
     },
     {
       "CVE": "CVE-2025-0689",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "When reading data from disk, the grub's UDF filesystem module utilizes the user controlled data length metadata to allocate its internal buffers. In certain scenarios, while iterating through disk sectors, it assumes the read size from the disk is always smaller than the allocated buffer size which is not guaranteed. A crafted filesystem image may lead to a heap-based buffer overflow resulting in critical data to be corrupted, resulting in the risk of arbitrary code execution by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1223,7 +1223,7 @@
     },
     {
       "CVE": "CVE-2025-1125",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "When reading data from a hfs filesystem, grub's hfs filesystem module uses user-controlled parameters from the filesystem metadata to calculate the internal buffers size, however it misses to properly check for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculation to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result the hfsplus_open_compressed_real() function will write past of the internal buffer length. This flaw may be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution by-passing secure boot protections.",
       "Threats": [
         {
           "Type": "Impact",
