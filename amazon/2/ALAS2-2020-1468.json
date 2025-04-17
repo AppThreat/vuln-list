@@ -5,10 +5,10 @@
     "date": "2020-07-21 16:34:00"
   },
   "updated": {
-    "date": "2020-07-21 20:57:00"
+    "date": "2025-04-08 23:17:00"
   },
   "severity": "important",
-  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2020-12421:\n\tWhen performing add-on updates, certificate chains terminating in non-built-in-roots were rejected (even if they were legitimately added by an administrator.) This could have caused add-ons to become out-of-date silently without notification to the user. This vulnerability affects Firefox ESR \u003c 68.10, Firefox \u003c 78, and Thunderbird \u003c 68.10.0.\n1853018: CVE-2020-12421 Mozilla: Add-On updates did not respect the same certificate trust rules as software updates\n\nCVE-2020-12420:\n\tWhen trying to connect to a STUN server, a race condition could have caused a use-after-free of a pointer, leading to memory corruption and a potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 68.10, Firefox \u003c 78, and Thunderbird \u003c 68.10.0.\n1853017: CVE-2020-12420 Mozilla: Use-After-Free when trying to connect to a STUN server\n\nCVE-2020-12419:\n\tWhen processing callbacks that occurred during window flushing in the parent process, the associated window may die; causing a use-after-free condition. This could have led to memory corruption and a potentially exploitable crash. This vulnerability affects Firefox ESR \u003c 68.10, Firefox \u003c 78, and Thunderbird \u003c 68.10.0.\n1853016: CVE-2020-12419 Mozilla: Use-after-free in nsGlobalWindowInner\n\nCVE-2020-12418:\n\tManipulating individual parts of a URL object could have caused an out-of-bounds read, leaking process memory to malicious JavaScript. This vulnerability affects Firefox ESR \u003c 68.10, Firefox \u003c 78, and Thunderbird \u003c 68.10.0.\n1853015: CVE-2020-12418 Mozilla: Information disclosure due to manipulated URL object\n\nCVE-2020-12417:\n\tDue to confusion about ValueTags on JavaScript Objects, an object may pass through the type barrier, resulting in memory corruption and a potentially exploitable crash. *Note: this issue only affects Firefox on ARM64 platforms.* This vulnerability affects Firefox ESR \u003c 68.10, Firefox \u003c 78, and Thunderbird \u003c 68.10.0.\n1853014: CVE-2020-12417 Mozilla: Memory corruption due to missing sign-extension for ValueTags on ARM64\n",
+  "description": "Package updates are available for Amazon Linux 2 that fix the following vulnerabilities:\nCVE-2020-12421:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nWhen performing add-on updates, certificate chains terminating in non-built-in-roots were rejected (even if they were legitimately added by an administrator.) This could have caused add-ons to become out-of-date silently without notification to the user.\n\nCVE-2020-12420:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nWhen trying to connect to a STUN server, a race condition could have caused a use-after-free of a pointer, leading to memory corruption and a potentially exploitable crash.\n\nCVE-2020-12419:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nWhen processing callbacks that occurred during window flushing in the parent process, the associated window may die; causing a use-after-free condition. This could have led to memory corruption and a potentially exploitable crash.\n\nCVE-2020-12418:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nManipulating individual parts of a URL object could have caused an out-of-bounds read, leaking process memory to malicious JavaScript.\n\nCVE-2020-12417:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nDue to confusion about ValueTags on JavaScript Objects, an object may pass through the type barrier, resulting in memory corruption and a potentially exploitable crash.\n\nCVE-2020-12410:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nMozilla developers reported memory safety bugs present in Firefox 76 and Firefox ESR 68.8. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code.\n\nCVE-2020-12406:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nMozilla developer Iain Ireland discovered a missing type check during unboxed objects removal, resulting in a crash. We presume that with enough effort that it could be exploited to run arbitrary code.\n\nCVE-2020-12405:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nWhen browsing a malicious page, a race condition in our SharedWorkerService could occur and lead to a potentially exploitable crash.\n\nCVE-2020-12398:\n\tThe Mozilla Foundation Security Advisory describes this flaw as:\n\nIf Thunderbird is configured to use STARTTLS for an IMAP server, and the server sends a PREAUTH response, then Thunderbird will continue with an unencrypted connection, causing email data to be sent without protection.\n",
   "packages": [
     {
       "name": "thunderbird",
@@ -28,6 +28,26 @@
     }
   ],
   "references": [
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12398",
+      "id": "CVE-2020-12398",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12405",
+      "id": "CVE-2020-12405",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12406",
+      "id": "CVE-2020-12406",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12410",
+      "id": "CVE-2020-12410",
+      "type": "cve"
+    },
     {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12417",
       "id": "CVE-2020-12417",
@@ -55,6 +75,10 @@
     }
   ],
   "cveids": [
+    "CVE-2020-12398",
+    "CVE-2020-12405",
+    "CVE-2020-12406",
+    "CVE-2020-12410",
     "CVE-2020-12417",
     "CVE-2020-12418",
     "CVE-2020-12419",
