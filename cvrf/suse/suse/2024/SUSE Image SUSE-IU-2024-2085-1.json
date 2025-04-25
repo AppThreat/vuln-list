@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-04-23T13:35:06Z",
+        "Date": "2025-04-25T13:47:23Z",
         "Description": "current"
       }
     ]
@@ -3828,7 +3828,7 @@
     },
     {
       "CVE": "CVE-2024-49995",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ntipc: guard against string buffer overrun\n\nSmatch reports that copying media_name and if_name to name_parts may\noverwrite the destination.\n\n .../bearer.c:166 bearer_name_validate() error: strcpy() 'media_name' too large for 'name_parts-\u003emedia_name' (32 vs 16)\n .../bearer.c:167 bearer_name_validate() error: strcpy() 'if_name' too large for 'name_parts-\u003eif_name' (1010102 vs 16)\n\nThis does seem to be the case so guard against this possibility by using\nstrscpy() and failing if truncation occurs.\n\nIntroduced by commit b97bf3fd8f6a (\"[TIPC] Initial merge\")\n\nCompile tested only.",
+      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
