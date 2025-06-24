@@ -5,10 +5,10 @@
     "date": "2023-03-30 21:11:00"
   },
   "updated": {
-    "date": "2024-02-01 17:56:00"
+    "date": "2025-06-19 04:31:00"
   },
   "severity": "Important",
-  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2023-30456:\n\tAn issue was discovered in arch/x86/kvm/vmx/nested.c in the Linux kernel before 6.2.8. nVMX on x86_64 lacks consistency checks for CR0 and CR4.\n\nCVE-2023-28466:\n\tdo_tls_getsockopt in net/tls/tls_main.c in the Linux kernel through 6.2.6 lacks a lock_sock call, leading to a race condition (with a resultant use-after-free or NULL pointer dereference).\n\nCVE-2023-2235:\n\tA use-after-free vulnerability in the Linux Kernel Performance Events system can be exploited to achieve local privilege escalation.\n\nThe perf_group_detach function did not check the event's siblings' attach_state before calling add_event_to_groups(), but remove_on_exec made it possible to call list_del_event() on before detaching from their group, making it possible to use a dangling pointer causing a use-after-free vulnerability.\n\nWe recommend upgrading past commit fd0815f632c24878e325821943edccc7fde947a2.\n",
+  "description": "Package updates are available for Amazon Linux 2023 that fix the following vulnerabilities:\nCVE-2023-53140:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nscsi: core: Remove the /proc/scsi/${proc_name} directory earlier\n\nCVE-2023-53136:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\naf_unix: fix struct pid leaks in OOB support\n\nCVE-2023-53133:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nbpf, sockmap: Fix an infinite loop error when len is 0 in tcp_bpf_recvmsg_parser()\n\nCVE-2023-53109:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nnet: tunnels: annotate lockless accesses to dev-\u003eneeded_headroom\n\nCVE-2023-53107:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nveth: Fix use after free in XDP_REDIRECT\n\nCVE-2023-53101:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: zero i_disksize when initializing the bootloader inode\n\nCVE-2023-53100:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: fix WARNING in ext4_update_inline_data\n\nCVE-2023-53095:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\ndrm/ttm: Fix a NULL pointer dereference\n\nCVE-2023-53091:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: update s_journal_inum if it changes after journal replay\n\nCVE-2023-53089:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\next4: fix task hung in ext4_xattr_delete_inode\n\nCVE-2023-53075:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nftrace: Fix invalid address access in lookup_rec() when index is 0\n\nCVE-2023-30456:\n\tAn issue was discovered in arch/x86/kvm/vmx/nested.c in the Linux kernel before 6.2.8. nVMX on x86_64 lacks consistency checks for CR0 and CR4.\n\nCVE-2023-28466:\n\tdo_tls_getsockopt in net/tls/tls_main.c in the Linux kernel through 6.2.6 lacks a lock_sock call, leading to a race condition (with a resultant use-after-free or NULL pointer dereference).\n\nCVE-2023-2235:\n\tA use-after-free vulnerability in the Linux Kernel Performance Events system can be exploited to achieve local privilege escalation.\n\nThe perf_group_detach function did not check the event's siblings' attach_state before calling add_event_to_groups(), but remove_on_exec made it possible to call list_del_event() on before detaching from their group, making it possible to use a dangling pointer causing a use-after-free vulnerability.\n\nWe recommend upgrading past commit fd0815f632c24878e325821943edccc7fde947a2.\n\nCVE-2022-49932:\n\tIn the Linux kernel, the following vulnerability has been resolved:\n\nKVM: VMX: Do _all_ initialization before exposing /dev/kvm to userspace\n",
   "packages": [
     {
       "name": "kernel-tools-devel",
@@ -309,6 +309,11 @@
   ],
   "references": [
     {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-49932",
+      "id": "CVE-2022-49932",
+      "type": "cve"
+    },
+    {
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2235",
       "id": "CVE-2023-2235",
       "type": "cve"
@@ -322,11 +327,78 @@
       "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30456",
       "id": "CVE-2023-30456",
       "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53075",
+      "id": "CVE-2023-53075",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53089",
+      "id": "CVE-2023-53089",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53091",
+      "id": "CVE-2023-53091",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53095",
+      "id": "CVE-2023-53095",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53100",
+      "id": "CVE-2023-53100",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53101",
+      "id": "CVE-2023-53101",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53107",
+      "id": "CVE-2023-53107",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53109",
+      "id": "CVE-2023-53109",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53133",
+      "id": "CVE-2023-53133",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53136",
+      "id": "CVE-2023-53136",
+      "type": "cve"
+    },
+    {
+      "href": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-53140",
+      "id": "CVE-2023-53140",
+      "type": "cve"
     }
   ],
   "cveids": [
+    "CVE-2022-49932",
     "CVE-2023-2235",
     "CVE-2023-28466",
-    "CVE-2023-30456"
+    "CVE-2023-30456",
+    "CVE-2023-53075",
+    "CVE-2023-53089",
+    "CVE-2023-53091",
+    "CVE-2023-53095",
+    "CVE-2023-53100",
+    "CVE-2023-53101",
+    "CVE-2023-53107",
+    "CVE-2023-53109",
+    "CVE-2023-53133",
+    "CVE-2023-53136",
+    "CVE-2023-53140"
   ]
 }
