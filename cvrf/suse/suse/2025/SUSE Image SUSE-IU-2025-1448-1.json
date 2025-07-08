@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-07-02T13:40:18Z",
+        "Date": "2025-07-08T20:23:59Z",
         "Description": "current"
       }
     ]
@@ -1119,7 +1119,7 @@
     },
     {
       "CVE": "CVE-2024-47220",
-      "Description": "** DISPUTED ** An issue was discovered in the WEBrick toolkit through 1.8.1 for Ruby. It allows HTTP request smuggling by providing both a Content-Length header and a Transfer-Encoding header, e.g., \"GET /admin HTTP/1.1\\r\\n\" inside of a \"POST /user HTTP/1.1\\r\\n\" request. NOTE: the supplier's position is \"Webrick should not be used in production.\"",
+      "Description": "An issue was discovered in the WEBrick toolkit through 1.8.1 for Ruby. It allows HTTP request smuggling by providing both a Content-Length header and a Transfer-Encoding header, e.g., \"GET /admin HTTP/1.1\\r\\n\" inside of a \"POST /user HTTP/1.1\\r\\n\" request. NOTE: the supplier's position is \"Webrick should not be used in production.\"",
       "Threats": [
         {
           "Type": "Impact",
@@ -1181,7 +1181,7 @@
     },
     {
       "CVE": "CVE-2024-49571",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: check iparea_offset and ipv6_prefixes_cnt when receiving proposal msg\n\nWhen receiving proposal msg in server, the field iparea_offset\nand the field ipv6_prefixes_cnt in proposal msg are from the\nremote client and can not be fully trusted. Especially the\nfield iparea_offset, once exceed the max value, there has the\nchance to access wrong address, and crash may happen.\n\nThis patch checks iparea_offset and ipv6_prefixes_cnt before using them.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1481,11 +1481,11 @@
     },
     {
       "CVE": "CVE-2024-53057",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: stop qdisc_tree_reduce_backlog on TC_H_ROOT\n\nIn qdisc_tree_reduce_backlog, Qdiscs with major handle ffff: are assumed\nto be either root or ingress. This assumption is bogus since it's valid\nto create egress qdiscs with major handle ffff:\nBudimir Markovic found that for qdiscs like DRR that maintain an active\nclass list, it will cause a UAF with a dangling class pointer.\n\nIn 066a3b5b2346, the concern was to avoid iterating over the ingress\nqdisc since its parent is itself. The proper fix is to stop when parent\nTC_H_ROOT is reached because the only way to retrieve ingress is when a\nhierarchy which does not contain a ffff: major handle call into\nqdisc_lookup with TC_H_MAJ(TC_H_ROOT).\n\nIn the scenario where major ffff: is an egress qdisc in any of the tree\nlevels, the updates will also propagate to TC_H_ROOT, which then the\niteration must stop.\n\n\n net/sched/sch_api.c | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1501,7 +1501,7 @@
     },
     {
       "CVE": "CVE-2024-53063",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: dvbdev: prevent the risk of out of memory access\n\nThe dvbdev contains a static variable used to store dvb minors.\n\nThe behavior of it depends if CONFIG_DVB_DYNAMIC_MINORS is set\nor not. When not set, dvb_register_device() won't check for\nboundaries, as it will rely that a previous call to\ndvb_register_adapter() would already be enforcing it.\n\nOn a similar way, dvb_device_open() uses the assumption\nthat the register functions already did the needed checks.\n\nThis can be fragile if some device ends using different\ncalls. This also generate warnings on static check analysers\nlike Coverity.\n\nSo, add explicit guards to prevent potential risk of OOM issues.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1801,7 +1801,7 @@
     },
     {
       "CVE": "CVE-2024-57807",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: megaraid_sas: Fix for a potential deadlock\n\nThis fixes a 'possible circular locking dependency detected' warning\n      CPU0                    CPU1\n      ----                    ----\n lock(\u0026instance-\u003ereset_mutex);\n                              lock(\u0026shost-\u003escan_mutex);\n                              lock(\u0026instance-\u003ereset_mutex);\n lock(\u0026shost-\u003escan_mutex);\n\nFix this by temporarily releasing the reset_mutex.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1885,7 +1885,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1921,7 +1921,7 @@
     },
     {
       "CVE": "CVE-2024-57974",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nudp: Deal with race between UDP socket address change and rehash\n\nIf a UDP socket changes its local address while it's receiving\ndatagrams, as a result of connect(), there is a period during which\na lookup operation might fail to find it, after the address is changed\nbut before the secondary hash (port and address) and the four-tuple\nhash (local and remote ports and addresses) are updated.\n\nSecondary hash chains were introduced by commit 30fff9231fad (\"udp:\nbind() optimisation\") and, as a result, a rehash operation became\nneeded to make a bound socket reachable again after a connect().\n\nThis operation was introduced by commit 719f835853a9 (\"udp: add\nrehash on connect()\") which isn't however a complete fix: the\nsocket will be found once the rehashing completes, but not while\nit's pending.\n\nThis is noticeable with a socat(1) server in UDP4-LISTEN mode, and a\nclient sending datagrams to it. After the server receives the first\ndatagram (cf. _xioopen_ipdgram_listen()), it issues a connect() to\nthe address of the sender, in order to set up a directed flow.\n\nNow, if the client, running on a different CPU thread, happens to\nsend a (subsequent) datagram while the server's socket changes its\naddress, but is not rehashed yet, this will result in a failed\nlookup and a port unreachable error delivered to the client, as\napparent from the following reproducer:\n\n  LEN=$(($(cat /proc/sys/net/core/wmem_default) / 4))\n  dd if=/dev/urandom bs=1 count=${LEN} of=tmp.in\n\n  while :; do\n  \ttaskset -c 1 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,trunc \u0026\n  \tsleep 0.1 || sleep 1\n  \ttaskset -c 2 socat OPEN:tmp.in UDP4:localhost:1337,shut-null\n  \twait\n  done\n\nwhere the client will eventually get ECONNREFUSED on a write()\n(typically the second or third one of a given iteration):\n\n  2024/11/13 21:28:23 socat[46901] E write(6, 0x556db2e3c000, 8192): Connection refused\n\nThis issue was first observed as a seldom failure in Podman's tests\nchecking UDP functionality while using pasta(1) to connect the\ncontainer's network namespace, which leads us to a reproducer with\nthe lookup error resulting in an ICMP packet on a tap device:\n\n  LOCAL_ADDR=\"$(ip -j -4 addr show|jq -rM '.[] | .addr_info[0] | select(.scope == \"global\").local')\"\n\n  while :; do\n  \t./pasta --config-net -p pasta.pcap -u 1337 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,trunc \u0026\n  \tsleep 0.2 || sleep 1\n  \tsocat OPEN:tmp.in UDP4:${LOCAL_ADDR}:1337,shut-null\n  \twait\n  \tcmp tmp.in tmp.out\n  done\n\nOnce this fails:\n\n  tmp.in tmp.out differ: char 8193, line 29\n\nwe can finally have a look at what's going on:\n\n  $ tshark -r pasta.pcap\n      1   0.000000           :: ? ff02::16     ICMPv6 110 Multicast Listener Report Message v2\n      2   0.168690 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      3   0.168767 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      4   0.168806 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      5   0.168827 c6:47:05:8d:dc:04 ? Broadcast    ARP 42 Who has 88.198.0.161? Tell 88.198.0.164\n      6   0.168851 9a:55:9a:55:9a:55 ? c6:47:05:8d:dc:04 ARP 42 88.198.0.161 is at 9a:55:9a:55:9a:55\n      7   0.168875 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      8   0.168896 88.198.0.164 ? 88.198.0.161 ICMP 590 Destination unreachable (Port unreachable)\n      9   0.168926 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n     10   0.168959 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n     11   0.168989 88.198.0.161 ? 88.198.0.164 UDP 4138 60260 ? 1337 Len=4096\n     12   0.169010 88.198.0.161 ? 88.198.0.164 UDP 42 60260 ? 1337 Len=0\n\nOn the third datagram received, the network namespace of the container\ninitiates an ARP lookup to deliver the ICMP message.\n\nIn another variant of this reproducer, starting the client with:\n\n  strace -f pasta --config-net -u 1337 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,tru\n---truncated---",
       "Threats": [
         {
           "Type": "Impact",
@@ -3185,7 +3185,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -3741,7 +3741,7 @@
     },
     {
       "CVE": "CVE-2025-21755",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3765,7 +3765,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -6325,7 +6325,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -6921,7 +6921,7 @@
     },
     {
       "CVE": "CVE-2025-22029",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7753,7 +7753,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,

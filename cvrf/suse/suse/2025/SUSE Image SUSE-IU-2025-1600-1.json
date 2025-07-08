@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-07-02T13:41:45Z",
+        "Date": "2025-07-08T20:26:49Z",
         "Description": "current"
       }
     ]
@@ -175,7 +175,7 @@
     },
     {
       "CVE": "CVE-2024-47081",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "Requests is a HTTP library. Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs. Users should upgrade to version 2.32.4 to receive a fix. For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on one's Requests Session.",
       "Threats": [
         {
           "Type": "Impact",
@@ -377,7 +377,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1345,7 +1345,7 @@
     },
     {
       "CVE": "CVE-2025-37782",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nhfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key\n\nSyzbot reported an issue in hfs subsystem:\n\nBUG: KASAN: slab-out-of-bounds in memcpy_from_page include/linux/highmem.h:423 [inline]\nBUG: KASAN: slab-out-of-bounds in hfs_bnode_read fs/hfs/bnode.c:35 [inline]\nBUG: KASAN: slab-out-of-bounds in hfs_bnode_read_key+0x314/0x450 fs/hfs/bnode.c:70\nWrite of size 94 at addr ffff8880123cd100 by task syz-executor237/5102\n\nCall Trace:\n \u003cTASK\u003e\n __dump_stack lib/dump_stack.c:94 [inline]\n dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120\n print_address_description mm/kasan/report.c:377 [inline]\n print_report+0x169/0x550 mm/kasan/report.c:488\n kasan_report+0x143/0x180 mm/kasan/report.c:601\n kasan_check_range+0x282/0x290 mm/kasan/generic.c:189\n __asan_memcpy+0x40/0x70 mm/kasan/shadow.c:106\n memcpy_from_page include/linux/highmem.h:423 [inline]\n hfs_bnode_read fs/hfs/bnode.c:35 [inline]\n hfs_bnode_read_key+0x314/0x450 fs/hfs/bnode.c:70\n hfs_brec_insert+0x7f3/0xbd0 fs/hfs/brec.c:159\n hfs_cat_create+0x41d/0xa50 fs/hfs/catalog.c:118\n hfs_mkdir+0x6c/0xe0 fs/hfs/dir.c:232\n vfs_mkdir+0x2f9/0x4f0 fs/namei.c:4257\n do_mkdirat+0x264/0x3a0 fs/namei.c:4280\n __do_sys_mkdir fs/namei.c:4300 [inline]\n __se_sys_mkdir fs/namei.c:4298 [inline]\n __x64_sys_mkdir+0x6c/0x80 fs/namei.c:4298\n do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fbdd6057a99\n\nAdd a check for key length in hfs_bnode_read_key to prevent\nout-of-bounds memory access. If the key length is invalid, the\nkey buffer is cleared, improving stability and reliability.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1493,7 +1493,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1525,7 +1525,7 @@
     },
     {
       "CVE": "CVE-2025-37804",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",

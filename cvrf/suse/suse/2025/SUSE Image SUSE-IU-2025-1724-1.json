@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-07-02T13:42:19Z",
+        "Date": "2025-07-08T20:27:58Z",
         "Description": "current"
       }
     ]
@@ -829,7 +829,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -2175,7 +2175,7 @@
     },
     {
       "CVE": "CVE-2024-49571",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/smc: check iparea_offset and ipv6_prefixes_cnt when receiving proposal msg\n\nWhen receiving proposal msg in server, the field iparea_offset\nand the field ipv6_prefixes_cnt in proposal msg are from the\nremote client and can not be fully trusted. Especially the\nfield iparea_offset, once exceed the max value, there has the\nchance to access wrong address, and crash may happen.\n\nThis patch checks iparea_offset and ipv6_prefixes_cnt before using them.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2193,7 +2193,7 @@
     },
     {
       "CVE": "CVE-2024-49854",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nblock, bfq: fix uaf for accessing waker_bfqq after splitting\n\nAfter commit 42c306ed7233 (\"block, bfq: don't break merge chain in\nbfq_split_bfqq()\"), if the current procress is the last holder of bfqq,\nthe bfqq can be freed after bfq_split_bfqq(). Hence recored the bfqq and\nthen access bfqq-\u003ewaker_bfqq may trigger UAF. What's more, the waker_bfqq\nmay in the merge chain of bfqq, hence just recored waker_bfqq is still\nnot safe.\n\nFix the problem by adding a helper bfq_waker_bfqq() to check if\nbfqq-\u003ewaker_bfqq is in the merge chain, and current procress is the only\nholder.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2391,7 +2391,7 @@
     },
     {
       "CVE": "CVE-2024-50016",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2409,7 +2409,7 @@
     },
     {
       "CVE": "CVE-2024-50018",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2913,7 +2913,7 @@
     },
     {
       "CVE": "CVE-2024-50228",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3165,7 +3165,7 @@
     },
     {
       "CVE": "CVE-2024-53050",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/i915/hdcp: Add encoder check in hdcp2_get_capability\n\nAdd encoder check in intel_hdcp2_get_capability to avoid\nnull pointer error.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3183,11 +3183,11 @@
     },
     {
       "CVE": "CVE-2024-53057",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: stop qdisc_tree_reduce_backlog on TC_H_ROOT\n\nIn qdisc_tree_reduce_backlog, Qdiscs with major handle ffff: are assumed\nto be either root or ingress. This assumption is bogus since it's valid\nto create egress qdiscs with major handle ffff:\nBudimir Markovic found that for qdiscs like DRR that maintain an active\nclass list, it will cause a UAF with a dangling class pointer.\n\nIn 066a3b5b2346, the concern was to avoid iterating over the ingress\nqdisc since its parent is itself. The proper fix is to stop when parent\nTC_H_ROOT is reached because the only way to retrieve ingress is when a\nhierarchy which does not contain a ffff: major handle call into\nqdisc_lookup with TC_H_MAJ(TC_H_ROOT).\n\nIn the scenario where major ffff: is an egress qdisc in any of the tree\nlevels, the updates will also propagate to TC_H_ROOT, which then the\niteration must stop.\n\n\n net/sched/sch_api.c | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -3201,7 +3201,7 @@
     },
     {
       "CVE": "CVE-2024-53063",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: dvbdev: prevent the risk of out of memory access\n\nThe dvbdev contains a static variable used to store dvb minors.\n\nThe behavior of it depends if CONFIG_DVB_DYNAMIC_MINORS is set\nor not. When not set, dvb_register_device() won't check for\nboundaries, as it will rely that a previous call to\ndvb_register_adapter() would already be enforcing it.\n\nOn a similar way, dvb_device_open() uses the assumption\nthat the register functions already did the needed checks.\n\nThis can be fragile if some device ends using different\ncalls. This also generate warnings on static check analysers\nlike Coverity.\n\nSo, add explicit guards to prevent potential risk of OOM issues.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3219,7 +3219,7 @@
     },
     {
       "CVE": "CVE-2024-53064",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nidpf: fix idpf_vc_core_init error path\n\nIn an event where the platform running the device control plane\nis rebooted, reset is detected on the driver. It releases\nall the resources and waits for the reset to complete. Once the\nreset is done, it tries to build the resources back. At this\ntime if the device control plane is not yet started, then\nthe driver timeouts on the virtchnl message and retries to\nestablish the mailbox again.\n\nIn the retry flow, mailbox is deinitialized but the mailbox\nworkqueue is still alive and polling for the mailbox message.\nThis results in accessing the released control queue leading to\nnull-ptr-deref. Fix it by unrolling the work queue cancellation\nand mailbox deinitialization in the reverse order which they got\ninitialized.",
       "Threats": [
         {
           "Type": "Impact",
@@ -3511,7 +3511,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -3709,7 +3709,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -3921,7 +3921,7 @@
     },
     {
       "CVE": "CVE-2024-53159",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5001,7 +5001,7 @@
     },
     {
       "CVE": "CVE-2024-53690",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnilfs2: prevent use of deleted inode\n\nsyzbot reported a WARNING in nilfs_rmdir. [1]\n\nBecause the inode bitmap is corrupted, an inode with an inode number that\nshould exist as a \".nilfs\" file was reassigned by nilfs_mkdir for \"file0\",\ncausing an inode duplication during execution.  And this causes an\nunderflow of i_nlink in rmdir operations.\n\nThe inode is used twice by the same task to unmount and remove directories\n\".nilfs\" and \"file0\", it trigger warning in nilfs_rmdir.\n\nAvoid to this issue, check i_nlink in nilfs_iget(), if it is 0, it means\nthat this inode has been deleted, and iput is executed to reclaim it.\n\n[1]\nWARNING: CPU: 1 PID: 5824 at fs/inode.c:407 drop_nlink+0xc4/0x110 fs/inode.c:407\n...\nCall Trace:\n \u003cTASK\u003e\n nilfs_rmdir+0x1b0/0x250 fs/nilfs2/namei.c:342\n vfs_rmdir+0x3a3/0x510 fs/namei.c:4394\n do_rmdir+0x3b5/0x580 fs/namei.c:4453\n __do_sys_rmdir fs/namei.c:4472 [inline]\n __se_sys_rmdir fs/namei.c:4470 [inline]\n __x64_sys_rmdir+0x47/0x50 fs/namei.c:4470\n do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83\n entry_SYSCALL_64_after_hwframe+0x77/0x7f",
       "Threats": [
         {
           "Type": "Impact",
@@ -5145,7 +5145,7 @@
     },
     {
       "CVE": "CVE-2024-56369",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/modes: Avoid divide by zero harder in drm_mode_vrefresh()\n\ndrm_mode_vrefresh() is trying to avoid divide by zero\nby checking whether htotal or vtotal are zero. But we may\nstill end up with a div-by-zero of vtotal*htotal*...",
       "Threats": [
         {
           "Type": "Impact",
@@ -5163,7 +5163,7 @@
     },
     {
       "CVE": "CVE-2024-56372",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: tun: fix tun_napi_alloc_frags()\n\nsyzbot reported the following crash [1]\n\nIssue came with the blamed commit. Instead of going through\nall the iov components, we keep using the first one\nand end up with a malformed skb.\n\n[1]\n\nkernel BUG at net/core/skbuff.c:2849 !\nOops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN PTI\nCPU: 0 UID: 0 PID: 6230 Comm: syz-executor132 Not tainted 6.13.0-rc1-syzkaller-00407-g96b6fcc0ee41 #0\nHardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/25/2024\n RIP: 0010:__pskb_pull_tail+0x1568/0x1570 net/core/skbuff.c:2848\nCode: 38 c1 0f 8c 32 f1 ff ff 4c 89 f7 e8 92 96 74 f8 e9 25 f1 ff ff e8 e8 ae 09 f8 48 8b 5c 24 08 e9 eb fb ff ff e8 d9 ae 09 f8 90 \u003c0f\u003e 0b 66 0f 1f 44 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90\nRSP: 0018:ffffc90004cbef30 EFLAGS: 00010293\nRAX: ffffffff8995c347 RBX: 00000000fffffff2 RCX: ffff88802cf45a00\nRDX: 0000000000000000 RSI: 00000000fffffff2 RDI: 0000000000000000\nRBP: ffff88807df0c06a R08: ffffffff8995b084 R09: 1ffff1100fbe185c\nR10: dffffc0000000000 R11: ffffed100fbe185d R12: ffff888076e85d50\nR13: ffff888076e85c80 R14: ffff888076e85cf4 R15: ffff888076e85c80\nFS:  00007f0dca6ea6c0(0000) GS:ffff8880b8600000(0000) knlGS:0000000000000000\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007f0dca6ead58 CR3: 00000000119da000 CR4: 00000000003526f0\nDR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000\nDR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400\nCall Trace:\n \u003cTASK\u003e\n  skb_cow_data+0x2da/0xcb0 net/core/skbuff.c:5284\n  tipc_aead_decrypt net/tipc/crypto.c:894 [inline]\n  tipc_crypto_rcv+0x402/0x24e0 net/tipc/crypto.c:1844\n  tipc_rcv+0x57e/0x12a0 net/tipc/node.c:2109\n  tipc_l2_rcv_msg+0x2bd/0x450 net/tipc/bearer.c:668\n  __netif_receive_skb_list_ptype net/core/dev.c:5720 [inline]\n  __netif_receive_skb_list_core+0x8b7/0x980 net/core/dev.c:5762\n  __netif_receive_skb_list net/core/dev.c:5814 [inline]\n  netif_receive_skb_list_internal+0xa51/0xe30 net/core/dev.c:5905\n  gro_normal_list include/net/gro.h:515 [inline]\n  napi_complete_done+0x2b5/0x870 net/core/dev.c:6256\n  napi_complete include/linux/netdevice.h:567 [inline]\n  tun_get_user+0x2ea0/0x4890 drivers/net/tun.c:1982\n  tun_chr_write_iter+0x10d/0x1f0 drivers/net/tun.c:2057\n do_iter_readv_writev+0x600/0x880\n  vfs_writev+0x376/0xba0 fs/read_write.c:1050\n  do_writev+0x1b6/0x360 fs/read_write.c:1096\n  do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n  do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83\n entry_SYSCALL_64_after_hwframe+0x77/0x7f",
       "Threats": [
         {
           "Type": "Impact",
@@ -5199,7 +5199,7 @@
     },
     {
       "CVE": "CVE-2024-56531",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: caiaq: Use snd_card_free_when_closed() at disconnection\n\nThe USB disconnect callback is supposed to be short and not too-long\nwaiting.  OTOH, the current code uses snd_card_free() at\ndisconnection, but this waits for the close of all used fds, hence it\ncan take long.  It eventually blocks the upper layer USB ioctls, which\nmay trigger a soft lockup.\n\nAn easy workaround is to replace snd_card_free() with\nsnd_card_free_when_closed().  This variant returns immediately while\nthe release of resources is done asynchronously by the card device\nrelease at the last close.\n\nThis patch also splits the code to the disconnect and the free phases;\nthe former is called immediately at the USB disconnect callback while\nthe latter is called from the card destructor.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5217,7 +5217,7 @@
     },
     {
       "CVE": "CVE-2024-56532",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: us122l: Use snd_card_free_when_closed() at disconnection\n\nThe USB disconnect callback is supposed to be short and not too-long\nwaiting.  OTOH, the current code uses snd_card_free() at\ndisconnection, but this waits for the close of all used fds, hence it\ncan take long.  It eventually blocks the upper layer USB ioctls, which\nmay trigger a soft lockup.\n\nAn easy workaround is to replace snd_card_free() with\nsnd_card_free_when_closed().  This variant returns immediately while\nthe release of resources is done asynchronously by the card device\nrelease at the last close.\n\nThe loop of us122l-\u003emmap_count check is dropped as well.  The check is\nuseless for the asynchronous operation with *_when_closed().",
       "Threats": [
         {
           "Type": "Impact",
@@ -5235,7 +5235,7 @@
     },
     {
       "CVE": "CVE-2024-56533",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nALSA: usx2y: Use snd_card_free_when_closed() at disconnection\n\nThe USB disconnect callback is supposed to be short and not too-long\nwaiting.  OTOH, the current code uses snd_card_free() at\ndisconnection, but this waits for the close of all used fds, hence it\ncan take long.  It eventually blocks the upper layer USB ioctls, which\nmay trigger a soft lockup.\n\nAn easy workaround is to replace snd_card_free() with\nsnd_card_free_when_closed().  This variant returns immediately while\nthe release of resources is done asynchronously by the card device\nrelease at the last close.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5541,7 +5541,7 @@
     },
     {
       "CVE": "CVE-2024-56571",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7593,7 +7593,7 @@
     },
     {
       "CVE": "CVE-2024-56739",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nrtc: check if __rtc_read_time was successful in rtc_timer_do_work()\n\nIf the __rtc_read_time call fails,, the struct rtc_time tm; may contain\nuninitialized data, or an illegal date/time read from the RTC hardware.\n\nWhen calling rtc_tm_to_ktime later, the result may be a very large value\n(possibly KTIME_MAX). If there are periodic timers in rtc-\u003etimerqueue,\nthey will continually expire, may causing kernel softlockup.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7611,7 +7611,7 @@
     },
     {
       "CVE": "CVE-2024-56741",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7629,7 +7629,7 @@
     },
     {
       "CVE": "CVE-2024-56745",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nPCI: Fix reset_method_store() memory leak\n\nIn reset_method_store(), a string is allocated via kstrndup() and assigned\nto the local \"options\". options is then used in with strsep() to find\nspaces:\n\n  while ((name = strsep(\u0026options, \" \")) != NULL) {\n\nIf there are no remaining spaces, then options is set to NULL by strsep(),\nso the subsequent kfree(options) doesn't free the memory allocated via\nkstrndup().\n\nFix by using a separate tmp_options to iterate with strsep() so options is\npreserved.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7647,7 +7647,7 @@
     },
     {
       "CVE": "CVE-2024-56746",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nfbdev: sh7760fb: Fix a possible memory leak in sh7760fb_alloc_mem()\n\nWhen information such as info-\u003escreen_base is not ready, calling\nsh7760fb_free_mem() does not release memory correctly. Call\ndma_free_coherent() instead.",
       "Threats": [
         {
           "Type": "Impact",
@@ -7665,7 +7665,7 @@
     },
     {
       "CVE": "CVE-2024-56747",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: qedi: Fix a possible memory leak in qedi_alloc_and_init_sb()\n\nHook \"qedi_ops-\u003ecommon-\u003esb_init = qed_sb_init\" does not release the DMA\nmemory sb_virt when it fails. Add dma_free_coherent() to free it. This\nis the same way as qedr_alloc_mem_sb() and qede_alloc_mem_sb().",
       "Threats": [
         {
           "Type": "Impact",
@@ -7683,7 +7683,7 @@
     },
     {
       "CVE": "CVE-2024-56748",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: qedf: Fix a possible memory leak in qedf_alloc_and_init_sb()\n\nHook \"qed_ops-\u003ecommon-\u003esb_init = qed_sb_init\" does not release the DMA\nmemory sb_virt when it fails. Add dma_free_coherent() to free it. This\nis the same way as qedr_alloc_mem_sb() and qede_alloc_mem_sb().",
       "Threats": [
         {
           "Type": "Impact",
@@ -7719,7 +7719,7 @@
     },
     {
       "CVE": "CVE-2024-56752",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/nouveau/gr/gf100: Fix missing unlock in gf100_gr_chan_new()\n\nWhen the call to gf100_grctx_generate() fails, unlock gr-\u003efecs.mutex\nbefore returning the error.\n\nFixes smatch warning:\n\ndrivers/gpu/drm/nouveau/nvkm/engine/gr/gf100.c:480 gf100_gr_chan_new() warn: inconsistent returns '\u0026gr-\u003efecs.mutex'.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8115,7 +8115,7 @@
     },
     {
       "CVE": "CVE-2024-57792",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\npower: supply: gpio-charger: Fix set charge current limits\n\nFix set charge current limits for devices which allow to set the lowest\ncharge current limit to be greater zero. If requested charge current limit\nis below lowest limit, the index equals current_limit_map_size which leads\nto accessing memory beyond allocated memory.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8133,7 +8133,7 @@
     },
     {
       "CVE": "CVE-2024-57793",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nvirt: tdx-guest: Just leak decrypted memory on unrecoverable errors\n\nIn CoCo VMs it is possible for the untrusted host to cause\nset_memory_decrypted() to fail such that an error is returned\nand the resulting memory is shared. Callers need to take care\nto handle these errors to avoid returning decrypted (shared)\nmemory to the page allocator, which could lead to functional\nor security issues.\n\nLeak the decrypted memory when set_memory_decrypted() fails,\nand don't need to print an error since set_memory_decrypted()\nwill call WARN_ONCE().",
       "Threats": [
         {
           "Type": "Impact",
@@ -8169,7 +8169,7 @@
     },
     {
       "CVE": "CVE-2024-57798",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/dp_mst: Ensure mst_primary pointer is valid in drm_dp_mst_handle_up_req()\n\nWhile receiving an MST up request message from one thread in\ndrm_dp_mst_handle_up_req(), the MST topology could be removed from\nanother thread via drm_dp_mst_topology_mgr_set_mst(false), freeing\nmst_primary and setting drm_dp_mst_topology_mgr::mst_primary to NULL.\nThis could lead to a NULL deref/use-after-free of mst_primary in\ndrm_dp_mst_handle_up_req().\n\nAvoid the above by holding a reference for mst_primary in\ndrm_dp_mst_handle_up_req() while it's used.\n\nv2: Fix kfreeing the request if getting an mst_primary reference fails.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8241,7 +8241,7 @@
     },
     {
       "CVE": "CVE-2024-57807",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nscsi: megaraid_sas: Fix for a potential deadlock\n\nThis fixes a 'possible circular locking dependency detected' warning\n      CPU0                    CPU1\n      ----                    ----\n lock(\u0026instance-\u003ereset_mutex);\n                              lock(\u0026shost-\u003escan_mutex);\n                              lock(\u0026instance-\u003ereset_mutex);\n lock(\u0026shost-\u003escan_mutex);\n\nFix this by temporarily releasing the reset_mutex.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8349,7 +8349,7 @@
     },
     {
       "CVE": "CVE-2024-57857",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/siw: Remove direct link to net_device\n\nDo not manage a per device direct link to net_device. Rely\non associated ib_devices net_device management, not doubling\nthe effort locally. A badly managed local link to net_device\nwas causing a 'KASAN: slab-use-after-free' exception during\nsiw_query_port() call.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8781,7 +8781,7 @@
     },
     {
       "CVE": "CVE-2024-57915",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -8799,7 +8799,7 @@
     },
     {
       "CVE": "CVE-2024-57916",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nmisc: microchip: pci1xxxx: Resolve kernel panic during GPIO IRQ handling\n\nResolve kernel panic caused by improper handling of IRQs while\naccessing GPIO values. This is done by replacing generic_handle_irq with\nhandle_nested_irq.",
       "Threats": [
         {
           "Type": "Impact",
@@ -9055,7 +9055,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -9105,7 +9105,7 @@
     },
     {
       "CVE": "CVE-2024-57974",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nudp: Deal with race between UDP socket address change and rehash\n\nIf a UDP socket changes its local address while it's receiving\ndatagrams, as a result of connect(), there is a period during which\na lookup operation might fail to find it, after the address is changed\nbut before the secondary hash (port and address) and the four-tuple\nhash (local and remote ports and addresses) are updated.\n\nSecondary hash chains were introduced by commit 30fff9231fad (\"udp:\nbind() optimisation\") and, as a result, a rehash operation became\nneeded to make a bound socket reachable again after a connect().\n\nThis operation was introduced by commit 719f835853a9 (\"udp: add\nrehash on connect()\") which isn't however a complete fix: the\nsocket will be found once the rehashing completes, but not while\nit's pending.\n\nThis is noticeable with a socat(1) server in UDP4-LISTEN mode, and a\nclient sending datagrams to it. After the server receives the first\ndatagram (cf. _xioopen_ipdgram_listen()), it issues a connect() to\nthe address of the sender, in order to set up a directed flow.\n\nNow, if the client, running on a different CPU thread, happens to\nsend a (subsequent) datagram while the server's socket changes its\naddress, but is not rehashed yet, this will result in a failed\nlookup and a port unreachable error delivered to the client, as\napparent from the following reproducer:\n\n  LEN=$(($(cat /proc/sys/net/core/wmem_default) / 4))\n  dd if=/dev/urandom bs=1 count=${LEN} of=tmp.in\n\n  while :; do\n  \ttaskset -c 1 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,trunc \u0026\n  \tsleep 0.1 || sleep 1\n  \ttaskset -c 2 socat OPEN:tmp.in UDP4:localhost:1337,shut-null\n  \twait\n  done\n\nwhere the client will eventually get ECONNREFUSED on a write()\n(typically the second or third one of a given iteration):\n\n  2024/11/13 21:28:23 socat[46901] E write(6, 0x556db2e3c000, 8192): Connection refused\n\nThis issue was first observed as a seldom failure in Podman's tests\nchecking UDP functionality while using pasta(1) to connect the\ncontainer's network namespace, which leads us to a reproducer with\nthe lookup error resulting in an ICMP packet on a tap device:\n\n  LOCAL_ADDR=\"$(ip -j -4 addr show|jq -rM '.[] | .addr_info[0] | select(.scope == \"global\").local')\"\n\n  while :; do\n  \t./pasta --config-net -p pasta.pcap -u 1337 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,trunc \u0026\n  \tsleep 0.2 || sleep 1\n  \tsocat OPEN:tmp.in UDP4:${LOCAL_ADDR}:1337,shut-null\n  \twait\n  \tcmp tmp.in tmp.out\n  done\n\nOnce this fails:\n\n  tmp.in tmp.out differ: char 8193, line 29\n\nwe can finally have a look at what's going on:\n\n  $ tshark -r pasta.pcap\n      1   0.000000           :: ? ff02::16     ICMPv6 110 Multicast Listener Report Message v2\n      2   0.168690 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      3   0.168767 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      4   0.168806 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      5   0.168827 c6:47:05:8d:dc:04 ? Broadcast    ARP 42 Who has 88.198.0.161? Tell 88.198.0.164\n      6   0.168851 9a:55:9a:55:9a:55 ? c6:47:05:8d:dc:04 ARP 42 88.198.0.161 is at 9a:55:9a:55:9a:55\n      7   0.168875 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n      8   0.168896 88.198.0.164 ? 88.198.0.161 ICMP 590 Destination unreachable (Port unreachable)\n      9   0.168926 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n     10   0.168959 88.198.0.161 ? 88.198.0.164 UDP 8234 60260 ? 1337 Len=8192\n     11   0.168989 88.198.0.161 ? 88.198.0.164 UDP 4138 60260 ? 1337 Len=4096\n     12   0.169010 88.198.0.161 ? 88.198.0.164 UDP 42 60260 ? 1337 Len=0\n\nOn the third datagram received, the network namespace of the container\ninitiates an ARP lookup to deliver the ICMP message.\n\nIn another variant of this reproducer, starting the client with:\n\n  strace -f pasta --config-net -u 1337 socat UDP4-LISTEN:1337,null-eof OPEN:tmp.out,create,tru\n---truncated---",
       "Threats": [
         {
           "Type": "Impact",
@@ -11305,7 +11305,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -11323,7 +11323,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -11967,7 +11967,7 @@
     },
     {
       "CVE": "CVE-2025-21755",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -11989,7 +11989,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -14473,7 +14473,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -15063,7 +15063,7 @@
     },
     {
       "CVE": "CVE-2025-22029",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -16395,7 +16395,7 @@
     },
     {
       "CVE": "CVE-2025-24528",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "unknown",
       "Threats": [
         {
           "Type": "Impact",
@@ -16521,7 +16521,7 @@
     },
     {
       "CVE": "CVE-2025-27587",
-      "Description": "** RESERVED ** This candidate has been reserved by an organization or individual that will use it when announcing a new security problem. When the candidate has been publicized, the details for this candidate will be provided.",
+      "Description": "OpenSSL 3.0.0 through 3.3.2 on the PowerPC architecture is vulnerable to a Minerva attack, exploitable by measuring the time of signing of random messages using the EVP_DigestSign API, and then using the private key to extract the K value (nonce) from the signatures. Next, based on the bit size of the extracted nonce, one can compare the signing time of full-sized nonces to signatures that used smaller nonces, via statistical tests. There is a side-channel in the P-364 curve that allows private key extraction (also, there is a dependency between the bit size of K and the size of the side channel). NOTE: This CVE is disputed because the OpenSSL security policy explicitly notes that any side channels which require same physical system to be detected are outside of the threat model for the software. The timing signal is so small that it is infeasible to be detected without having the attacking process running on the same physical system.",
       "Threats": [
         {
           "Type": "Impact",
@@ -16543,7 +16543,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -17079,7 +17079,7 @@
     },
     {
       "CVE": "CVE-2025-37782",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nhfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key\n\nSyzbot reported an issue in hfs subsystem:\n\nBUG: KASAN: slab-out-of-bounds in memcpy_from_page include/linux/highmem.h:423 [inline]\nBUG: KASAN: slab-out-of-bounds in hfs_bnode_read fs/hfs/bnode.c:35 [inline]\nBUG: KASAN: slab-out-of-bounds in hfs_bnode_read_key+0x314/0x450 fs/hfs/bnode.c:70\nWrite of size 94 at addr ffff8880123cd100 by task syz-executor237/5102\n\nCall Trace:\n \u003cTASK\u003e\n __dump_stack lib/dump_stack.c:94 [inline]\n dump_stack_lvl+0x241/0x360 lib/dump_stack.c:120\n print_address_description mm/kasan/report.c:377 [inline]\n print_report+0x169/0x550 mm/kasan/report.c:488\n kasan_report+0x143/0x180 mm/kasan/report.c:601\n kasan_check_range+0x282/0x290 mm/kasan/generic.c:189\n __asan_memcpy+0x40/0x70 mm/kasan/shadow.c:106\n memcpy_from_page include/linux/highmem.h:423 [inline]\n hfs_bnode_read fs/hfs/bnode.c:35 [inline]\n hfs_bnode_read_key+0x314/0x450 fs/hfs/bnode.c:70\n hfs_brec_insert+0x7f3/0xbd0 fs/hfs/brec.c:159\n hfs_cat_create+0x41d/0xa50 fs/hfs/catalog.c:118\n hfs_mkdir+0x6c/0xe0 fs/hfs/dir.c:232\n vfs_mkdir+0x2f9/0x4f0 fs/namei.c:4257\n do_mkdirat+0x264/0x3a0 fs/namei.c:4280\n __do_sys_mkdir fs/namei.c:4300 [inline]\n __se_sys_mkdir fs/namei.c:4298 [inline]\n __x64_sys_mkdir+0x6c/0x80 fs/namei.c:4298\n do_syscall_x64 arch/x86/entry/common.c:52 [inline]\n do_syscall_64+0xf3/0x230 arch/x86/entry/common.c:83\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fbdd6057a99\n\nAdd a check for key length in hfs_bnode_read_key to prevent\nout-of-bounds memory access. If the key length is invalid, the\nkey buffer is cleared, improving stability and reliability.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -17263,7 +17263,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -17281,7 +17281,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -17367,7 +17367,7 @@
     },
     {
       "CVE": "CVE-2025-37804",
-      "Description": "** REJECT ** This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -19239,7 +19239,7 @@
     },
     {
       "CVE": "CVE-2025-6020",
-      "Description": "unknown",
+      "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
       "Threats": [
         {
           "Type": "Impact",
