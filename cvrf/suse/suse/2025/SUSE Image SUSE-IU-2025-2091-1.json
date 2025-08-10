@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-08-07T19:24:38Z",
+        "Date": "2025-08-10T16:51:07Z",
         "Description": "current"
       }
     ]
@@ -1494,7 +1494,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": null,
@@ -3456,7 +3456,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "low"
+          "Severity": "not set"
         }
       ],
       "References": null,
@@ -4068,7 +4068,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "low"
+          "Severity": "moderate"
         }
       ],
       "References": null,
@@ -4086,7 +4086,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "low"
+          "Severity": "moderate"
         }
       ],
       "References": null,
@@ -4874,7 +4874,7 @@
     },
     {
       "CVE": "CVE-2024-56337",
-      "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\n\nThe mitigation for CVE-2024-50379 was incomplete.\n\nUsers running Tomcat on a case insensitive file system with the default servlet write enabled (readonly initialisation \nparameter set to the non-default value of false) may need additional configuration to fully mitigate CVE-2024-50379 depending on which version of Java they are using with Tomcat:\n- running on Java 8 or Java 11: the system property  sun.io.useCanonCaches must be explicitly set to false (it defaults to true)\n- running on Java 17: the  system property sun.io.useCanonCaches, if set, must be set to false  (it defaults to false)\n- running on Java 21 onwards: no further configuration is required  (the system property and the problematic cache have been removed)\n\nTomcat 11.0.3, 10.1.35 and 9.0.99 onwards will include checks that  sun.io.useCanonCaches is set appropriately before allowing the default servlet to be write enabled on a case insensitive file system. Tomcat will also set  sun.io.useCanonCaches to false by default where it can.",
+      "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nThe mitigation for CVE-2024-50379 was incomplete.\n\nUsers running Tomcat on a case insensitive file system with the default servlet write enabled (readonly initialisation \nparameter set to the non-default value of false) may need additional configuration to fully mitigate CVE-2024-50379 depending on which version of Java they are using with Tomcat:\n- running on Java 8 or Java 11: the system property  sun.io.useCanonCaches must be explicitly set to false (it defaults to true)\n- running on Java 17: the  system property sun.io.useCanonCaches, if set, must be set to false  (it defaults to false)\n- running on Java 21 onwards: no further configuration is required  (the system property and the problematic cache have been removed)\n\nTomcat 11.0.3, 10.1.35 and 9.0.99 onwards will include checks that  sun.io.useCanonCaches is set appropriately before allowing the default servlet to be write enabled on a case insensitive file system. Tomcat will also set  sun.io.useCanonCaches to false by default where it can.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5846,7 +5846,7 @@
     },
     {
       "CVE": "CVE-2025-31650",
-      "Description": "Improper Input Validation vulnerability in Apache Tomcat. Incorrect error handling for some invalid HTTP priority headers resulted in incomplete clean-up of the failed request which created a memory leak. A large number of such requests could trigger an OutOfMemoryException resulting in a denial of service.\n\nThis issue affects Apache Tomcat: from 9.0.76 through 9.0.102, from 10.1.10 through 10.1.39, from 11.0.0-M2 through 11.0.5. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 9.0.104, 10.1.40 or 11.0.6 which fix the issue.",
+      "Description": "Improper Input Validation vulnerability in Apache Tomcat. Incorrect error handling for some invalid HTTP priority headers resulted in incomplete clean-up of the failed request which created a memory leak. A large number of such requests could trigger an OutOfMemoryException resulting in a denial of service.\n\nThis issue affects Apache Tomcat: from 9.0.76 through 9.0.102, from 10.1.10 through 10.1.39, from 11.0.0-M2 through 11.0.5.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.90 though 8.5.100.\n\n\nUsers are recommended to upgrade to version 9.0.104, 10.1.40 or 11.0.6 which fix the issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -5864,7 +5864,7 @@
     },
     {
       "CVE": "CVE-2025-31651",
-      "Description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in Apache Tomcat.  For a subset of unlikely rewrite rule configurations, it was possible \nfor a specially crafted request to bypass some rewrite rules. If those \nrewrite rules effectively enforced security constraints, those \nconstraints could be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.5, from 10.1.0-M1 through 10.1.39, from 9.0.0.M1 through 9.0.102. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version [FIXED_VERSION], which fixes the issue.",
+      "Description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in Apache Tomcat.  For a subset of unlikely rewrite rule configurations, it was possible \nfor a specially crafted request to bypass some rewrite rules. If those \nrewrite rules effectively enforced security constraints, those \nconstraints could be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.5, from 10.1.0-M1 through 10.1.39, from 9.0.0.M1 through 9.0.102.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version [FIXED_VERSION], which fixes the issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6134,7 +6134,7 @@
     },
     {
       "CVE": "CVE-2025-46701",
-      "Description": "Improper Handling of Case Sensitivity vulnerability in Apache Tomcat's GCI servlet allows security constraint bypass of security constraints that apply to the pathInfo component of a URI mapped to the CGI servlet.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.6, from 10.1.0-M1 through 10.1.40, from 9.0.0.M1 through 9.0.104. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.7, 10.1.41 or 9.0.105, which fixes the issue.",
+      "Description": "Improper Handling of Case Sensitivity vulnerability in Apache Tomcat's GCI servlet allows security constraint bypass of security constraints that apply to the pathInfo component of a URI mapped to the CGI servlet.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.6, from 10.1.0-M1 through 10.1.40, from 9.0.0.M1 through 9.0.104.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.7, 10.1.41 or 9.0.105, which fixes the issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6368,7 +6368,7 @@
     },
     {
       "CVE": "CVE-2025-48988",
-      "Description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+      "Description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 though 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -6386,7 +6386,7 @@
     },
     {
       "CVE": "CVE-2025-49125",
-      "Description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Apache Tomcat.   When using PreResources or PostResources mounted other than at the root of the web application, it was possible to access those resources via an unexpected path. That path was likely not to be protected by the same security constraints as the expected path, allowing those security constraints to be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105. Older, EOL versions may also be affected.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+      "Description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Apache Tomcat.   When using PreResources or PostResources mounted other than at the root of the web application, it was possible to access those resources via an unexpected path. That path was likely not to be protected by the same security constraints as the expected path, allowing those security constraints to be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\nThe following versions were EOL at the time the CVE was created but are \nknown to be affected: 8.5.0 through 8.5.100. Other, older, EOL versions \nmay also be affected.\n\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
       "Threats": [
         {
           "Type": "Impact",
