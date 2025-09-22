@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2025-09-21T16:42:57Z",
+        "Date": "2025-09-22T17:03:02Z",
         "Description": "current"
       }
     ]
@@ -7021,7 +7021,7 @@
     },
     {
       "CVE": "CVE-2025-22050",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusbnet:fix NPE during rx_complete\n\nMissing usbnet_going_away Check in Critical Path.\nThe usb_submit_urb function lacks a usbnet_going_away\nvalidation, whereas __usbnet_queue_skb includes this check.\n\nThis inconsistency creates a race condition where:\nA URB request may succeed, but the corresponding SKB data\nfails to be queued.\n\nSubsequent processes:\n(e.g., rx_complete → defer_bh → __skb_unlink(skb, list))\nattempt to access skb-\u003enext, triggering a NULL pointer\ndereference (Kernel Panic).",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nusbnet:fix NPE during rx_complete\n\nMissing usbnet_going_away Check in Critical Path.\nThe usb_submit_urb function lacks a usbnet_going_away\nvalidation, whereas __usbnet_queue_skb includes this check.\n\nThis inconsistency creates a race condition where:\nA URB request may succeed, but the corresponding SKB data\nfails to be queued.\n\nSubsequent processes:\n(e.g., rx_complete -\u003e defer_bh -\u003e __skb_unlink(skb, list))\nattempt to access skb-\u003enext, triggering a NULL pointer\ndereference (Kernel Panic).",
       "Threats": [
         {
           "Type": "Impact",
