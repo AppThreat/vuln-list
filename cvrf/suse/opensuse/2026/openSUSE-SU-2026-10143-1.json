@@ -1,0 +1,188 @@
+{
+  "Title": "traefik2-2.11.35-1.1 on GA media",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:10143-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-03T00:00:00Z",
+    "CurrentReleaseDate": "2026-02-03T00:00:00Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-03T00:00:00Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "traefik2-2.11.35-1.1 on GA media",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "These are all security issues fixed in the traefik2-2.11.35-1.1 package on the GA media of openSUSE Tumbleweed.",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Tumbleweed-2026-10143",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "traefik2-2.11.35-1.1",
+        "RelatesToProductReference": "openSUSE Tumbleweed",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-54386/",
+      "Description": "SUSE CVE CVE-2025-54386 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-58181/",
+      "Description": "SUSE CVE CVE-2025-58181 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-66490/",
+      "Description": "SUSE CVE CVE-2025-66490 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-22045/",
+      "Description": "SUSE CVE CVE-2026-22045 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-54386",
+      "Description": "Traefik is an HTTP reverse proxy and load balancer. In versions 2.11.27 and below, 3.0.0 through 3.4.4 and 3.5.0-rc1, a path traversal vulnerability was discovered in WASM Traefik's plugin installation mechanism. By supplying a maliciously crafted ZIP archive containing file paths with ../ sequences, an attacker can overwrite arbitrary files on the system outside of the intended plugin directory. This can lead to remote code execution (RCE), privilege escalation, persistence, or denial of service. This is fixed in versions 2.11.28, 3.4.5 and 3.5.0.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-54386.html",
+          "Description": "CVE-2025-54386"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1247524",
+          "Description": "SUSE Bug 1247524"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:traefik2-2.11.35-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-58181",
+      "Description": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-58181.html",
+          "Description": "CVE-2025-58181"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1253784",
+          "Description": "SUSE Bug 1253784"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:traefik2-2.11.35-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-66490",
+      "Description": "Traefik is an HTTP reverse proxy and load balancer. For versions prior to 2.11.32 and 2.11.31 through 3.6.2, requests using PathPrefix, Path or PathRegex matchers can bypass path normalization. When Traefik uses path-based routing, requests containing URL-encoded restricted characters (/, \\, Null, ;, ?, #) can bypass the middleware chain and reach unintended backends. For example, a request to http://mydomain.example.com/admin%2F could reach service-a without triggering my-security-middleware, bypassing security controls for the /admin/ path. This issue is fixed in versions 2.11.32 and 3.6.3.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-66490.html",
+          "Description": "CVE-2025-66490"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1254879",
+          "Description": "SUSE Bug 1254879"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:traefik2-2.11.35-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-22045",
+      "Description": "Traefik is an HTTP reverse proxy and load balancer. Prior to 2.11.35 and 3.6.7, there is a potential vulnerability in Traefik ACME TLS certificates' automatic generation: the ACME TLS-ALPN fast path can allow unauthenticated clients to tie up go routines and file descriptors indefinitely when the ACME TLS challenge is enabled. A malicious client can open many connections, send a minimal ClientHello with acme-tls/1, then stop responding, leading to denial of service of the entry point. The vulnerability is fixed in 2.11.35 and 3.6.7.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-22045.html",
+          "Description": "CVE-2026-22045"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256815",
+          "Description": "SUSE Bug 1256815"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:traefik2-2.11.35-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "Title": "Security update for cockpit-subscriptions",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20117-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-01-27T20:37:55Z",
+    "CurrentReleaseDate": "2026-01-27T20:37:55Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-01-27T20:37:55Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for cockpit-subscriptions",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for cockpit-subscriptions fixes the following issues:\n\nUpdate to version 12.1:\n\n- CVE-2025-64718: js-yaml: fixed prototype pollution in merge (bsc#1255425).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-202",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "cockpit-subscriptions-12.1-160000.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255425",
+      "Description": "SUSE Bug 1255425"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-64718/",
+      "Description": "SUSE CVE CVE-2025-64718 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-64718",
+      "Description": "js-yaml is a JavaScript YAML parser and dumper. In js-yaml before 4.1.1 and 3.14.2, it's possible for an attacker to modify the prototype of the result of a parsed yaml document via prototype pollution (`__proto__`). All users who parse untrusted yaml documents may be impacted. The problem is patched in js-yaml 4.1.1 and 3.14.2. Users can protect against this kind of attack on the server by using `node --disable-proto=delete` or `deno` (in Deno, pollution protection is on by default).",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-64718.html",
+          "Description": "CVE-2025-64718"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255407",
+          "Description": "SUSE Bug 1255407"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:cockpit-subscriptions-12.1-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

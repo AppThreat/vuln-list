@@ -1,0 +1,153 @@
+{
+  "Title": "Security update for udisks2",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20141-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-01-30T14:30:57Z",
+    "CurrentReleaseDate": "2026-01-30T14:30:57Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-01-30T14:30:57Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for udisks2",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for udisks2 fixes the following issues:\n\n- CVE-2025-8067: Fixed a missing bounds check that could lead to out-of-bounds\n  read in udisks daemon (bsc#1248502).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-226",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libudisks2-0-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libudisks2-0-devel-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libudisks2-0_btrfs-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libudisks2-0_lsm-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libudisks2-0_lvm2-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "typelib-1_0-UDisks-2_0-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udisks2-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udisks2-bash-completion-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udisks2-docs-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udisks2-lang-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udisks2-zsh-completion-2.10.1-160000.3.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1248502",
+      "Description": "SUSE Bug 1248502"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-8067/",
+      "Description": "SUSE CVE CVE-2025-8067 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-8067",
+      "Description": "A flaw was found in the Udisks daemon, where it allows unprivileged users to create loop devices using the D-BUS system. This is achieved via the loop device handler, which handles requests sent through the D-BUS interface. As two of the parameters of this handle, it receives the file descriptor list and index specifying the file where the loop device should be backed. The function itself validates the index value to ensure it isn't bigger than the maximum value allowed. However, it fails to validate the lower bound, allowing the index parameter to be a negative value. Under these circumstances, an attacker can cause the UDisks daemon to crash or perform a local privilege escalation by gaining access to files owned by privileged users.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-8067.html",
+          "Description": "CVE-2025-8067"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1248502",
+          "Description": "SUSE Bug 1248502"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:libudisks2-0-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:libudisks2-0-devel-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:libudisks2-0_btrfs-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:libudisks2-0_lsm-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:libudisks2-0_lvm2-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:typelib-1_0-UDisks-2_0-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:udisks2-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:udisks2-bash-completion-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:udisks2-docs-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:udisks2-lang-2.10.1-160000.3.1",
+            "openSUSE Leap 16.0:udisks2-zsh-completion-2.10.1-160000.3.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

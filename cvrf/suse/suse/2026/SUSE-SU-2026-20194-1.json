@@ -1,0 +1,705 @@
+{
+  "Title": "Security update for postgresql17 and postgresql18",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20194-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-01-29T13:17:41Z",
+    "CurrentReleaseDate": "2026-01-29T13:17:41Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-01-29T13:17:41Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for postgresql17 and postgresql18",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for postgresql17 and postgresql18 fixes the following issues:\n\nChanges in postgresql17, postgresql18:\n\nUpdate to 17.7:\n\n* https://www.postgresql.org/about/news/p-3171/\n* https://www.postgresql.org/docs/release/17.7/\n\n* bsc#1253332, CVE-2025-12817: Missing check for CREATE\n  privileges on the schema in CREATE STATISTICS allowed table\n  owners to create statistics in any schema, potentially leading\n  to unexpected naming conflicts.\n* bsc#1253333, CVE-2025-12818: Several places in libpq were not\n  sufficiently careful about computing the required size of a\n  memory allocation. Sufficiently large inputs could cause\n  integer overflow, resulting in an undersized buffer, which\n  would then lead to writing past the end of the buffer.\n\n\nPostgresql is shipped in version 18.1.\n\npgvector was updated to 0.8.1 to support postgresql18.\n\npgaudit was updated to support postgresql18.\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLES-16.0-216",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libecpg6-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpq5-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-contrib-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-devel-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-docs-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-plperl-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-plpython-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-pltcl-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-server-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-server-devel-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql13-pgaudit-1.5.3-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql13-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql14-pgaudit-1.6.3-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql14-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql15-pgaudit-1.7.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql15-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql16-pgaudit-16.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql16-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-contrib-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-devel-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-docs-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pgaudit-17.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-plperl-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-plpython-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pltcl-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-server-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-server-devel-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-contrib-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-devel-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-docs-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pgaudit-18.0-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-plperl-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-plpython-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pltcl-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-server-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-server-devel-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libecpg6-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpq5-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-contrib-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-devel-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-docs-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-plperl-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-plpython-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-pltcl-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-server-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql-server-devel-18-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql13-pgaudit-1.5.3-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql13-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql14-pgaudit-1.6.3-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql14-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql15-pgaudit-1.7.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql15-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql16-pgaudit-16.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql16-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-contrib-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-devel-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-docs-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pgaudit-17.1-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-plperl-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-plpython-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-pltcl-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-server-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql17-server-devel-17.7-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-contrib-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-devel-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-docs-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pgaudit-18.0-160000.3.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pgvector-0.8.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-plperl-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-plpython-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-pltcl-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-server-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "postgresql18-server-devel-18.1-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620194-1/",
+      "Description": "Link for SUSE-SU-2026:20194-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024023.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20194-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253332",
+      "Description": "SUSE Bug 1253332"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253333",
+      "Description": "SUSE Bug 1253333"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-12817/",
+      "Description": "SUSE CVE CVE-2025-12817 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-12818/",
+      "Description": "SUSE CVE CVE-2025-12818 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-12817",
+      "Description": "Missing authorization in PostgreSQL CREATE STATISTICS command allows a table owner to achieve denial of service against other CREATE STATISTICS users by creating in any schema.  A later CREATE STATISTICS for the same name, from a user having the CREATE privilege, would then fail.  Versions before PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 are affected.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-12817.html",
+          "Description": "CVE-2025-12817"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1253332",
+          "Description": "SUSE Bug 1253332"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:libecpg6-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:libpq5-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-contrib-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-docs-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-plperl-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-plpython-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-pltcl-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-server-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-server-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql13-pgaudit-1.5.3-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql13-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql14-pgaudit-1.6.3-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql14-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql15-pgaudit-1.7.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql15-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql16-pgaudit-16.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql16-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-contrib-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-docs-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pgaudit-17.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-plperl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-plpython-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pltcl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-server-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-server-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-contrib-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-docs-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pgaudit-18.0-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-plperl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-plpython-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pltcl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-server-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-server-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:libecpg6-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:libpq5-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-contrib-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-docs-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-plperl-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-plpython-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-pltcl-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-server-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-server-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql13-pgaudit-1.5.3-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql13-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql14-pgaudit-1.6.3-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql14-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql15-pgaudit-1.7.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql15-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql16-pgaudit-16.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql16-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-contrib-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-docs-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pgaudit-17.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-plperl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-plpython-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pltcl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-server-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-server-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-contrib-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-docs-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pgaudit-18.0-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-plperl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-plpython-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pltcl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-server-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-server-devel-18.1-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-12818",
+      "Description": "Integer wraparound in multiple PostgreSQL libpq client library functions allows an application input provider or network peer to cause libpq to undersize an allocation and write out-of-bounds by hundreds of megabytes.  This results in a segmentation fault for the application using libpq.  Versions before PostgreSQL 18.1, 17.7, 16.11, 15.15, 14.20, and 13.23 are affected.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-12818.html",
+          "Description": "CVE-2025-12818"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1253333",
+          "Description": "SUSE Bug 1253333"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:libecpg6-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:libpq5-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-contrib-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-docs-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-plperl-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-plpython-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-pltcl-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-server-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql-server-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql13-pgaudit-1.5.3-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql13-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql14-pgaudit-1.6.3-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql14-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql15-pgaudit-1.7.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql15-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql16-pgaudit-16.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql16-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-contrib-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-docs-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pgaudit-17.1-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-plperl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-plpython-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-pltcl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-server-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql17-server-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-contrib-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-docs-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pgaudit-18.0-160000.3.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-plperl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-plpython-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-pltcl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-server-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:postgresql18-server-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:libecpg6-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:libpq5-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-contrib-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-docs-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-plperl-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-plpython-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-pltcl-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-server-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql-server-devel-18-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql13-pgaudit-1.5.3-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql13-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql14-pgaudit-1.6.3-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql14-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql15-pgaudit-1.7.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql15-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql16-pgaudit-16.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql16-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-contrib-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-docs-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pgaudit-17.1-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-plperl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-plpython-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-pltcl-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-server-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql17-server-devel-17.7-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-contrib-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-devel-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-docs-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pgaudit-18.0-160000.3.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pgvector-0.8.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-plperl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-plpython-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-pltcl-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-server-18.1-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:postgresql18-server-devel-18.1-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
