@@ -1,0 +1,117 @@
+{
+  "Title": "Security update for dpdk",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20209-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-02T10:21:13Z",
+    "CurrentReleaseDate": "2026-02-02T10:21:13Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-02T10:21:13Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for dpdk",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for dpdk fixes the following issues:\n\nUpdate to version 24.11.4.\n\nSecurity issues fixed:\n\n- CVE-2025-23259: issue in the Poll Mode Driver (PMD) allows an attacker on a VM in the system to leak information and\n  cause a denial of service on the network interface (bsc#1254161).\n\nOther issues fixed:\n\n- Remove obsolete build option -Denable_kmods.\n- Add \"which\" as a build requirement.\n- Drop pesign and needssslcertforbuild because we don't build a kmp anymore (bsc#1247389).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SL-Micro-6.2-233",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "dpdk-24.11.4-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "dpdk-tools-24.11.4-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libdpdk-25-24.11.4-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.2",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620209-1/",
+      "Description": "Link for SUSE-SU-2026:20209-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024051.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20209-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1247389",
+      "Description": "SUSE Bug 1247389"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254161",
+      "Description": "SUSE Bug 1254161"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-23259/",
+      "Description": "SUSE CVE CVE-2025-23259 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-23259",
+      "Description": "NVIDIA Mellanox DPDK contains a vulnerability in Poll Mode Driver (PMD), where an attacker on a VM in the system might be able to cause information disclosure and denial of service on the network interface.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-23259.html",
+          "Description": "CVE-2025-23259"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1254161",
+          "Description": "SUSE Bug 1254161"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Micro 6.2:dpdk-24.11.4-160000.1.1",
+            "SUSE Linux Micro 6.2:dpdk-tools-24.11.4-160000.1.1",
+            "SUSE Linux Micro 6.2:libdpdk-25-24.11.4-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

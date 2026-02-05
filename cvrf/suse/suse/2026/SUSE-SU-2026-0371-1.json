@@ -1,0 +1,2111 @@
+{
+  "Title": "Security update for glibc",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0371-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-03T18:08:50Z",
+    "CurrentReleaseDate": "2026-02-03T18:08:50Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-03T18:08:50Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for glibc",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for glibc fixes the following issues:\n\nSecurity fixes:\n\t\n- CVE-2026-0861: Fixed inadequate size check in the memalign suite may result in an integer overflow (bsc#1256766).\n- CVE-2026-0915: Fixed uninitialized stack buffer used as DNS query name when net==0 in _nss_dns_getnetbyaddr_r (bsc#1256822).\n- CVE-2025-15281: Fixed uninitialized memory may cause the process abort (bsc#1257005).\n \nOther fixes:\n \n- NPTL: Optimize trylock for high cache contention workloads (bsc#1256437).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container private-registry/harbor-core:latest-2026-371,Container private-registry/harbor-exporter:latest-2026-371,Container private-registry/harbor-jobservice:latest-2026-371,Container private-registry/harbor-portal:latest-2026-371,Container private-registry/harbor-registry:latest-2026-371,Container private-registry/harbor-registryctl:latest-2026-371,Container private-registry/harbor-trivy-adapter:latest-2026-371,Image SLES15-SP6-2026-371,Image SLES15-SP6-Azure-3P-2026-371,Image SLES15-SP6-HPC-2026-371,Image SLES15-SP6-HPC-Azure-2026-371,Image SLES15-SP6-HPC-BYOS-2026-371,Image SLES15-SP6-HPC-BYOS-Azure-2026-371,Image SLES15-SP7-Azure-3P-2026-371,Image SLES15-SP7-BYOS-Azure-2026-371,Image SLES15-SP7-BYOS-GCE-2026-371,Image SLES15-SP7-CHOST-BYOS-Azure-2026-371,Image SLES15-SP7-CHOST-BYOS-GCE-2026-371,Image SLES15-SP7-CHOST-BYOS-GDC-2026-371,Image SLES15-SP7-CHOST-BYOS-SAP-CCloud-2026-371,Image SLES15-SP7-GCE-2026-371,Image SLES15-SP7-Hardened-BYOS-Azure-2026-371,Image SLES15-SP7-Hardened-BYOS-EC2-2026-371,Image SLES15-SP7-Hardened-BYOS-GCE-2026-371,Image SLES15-SP7-SAP-Azure-2026-371,Image SLES15-SP7-SAP-Azure-3P-2026-371,Image SLES15-SP7-SAP-BYOS-Azure-2026-371,Image SLES15-SP7-SAP-BYOS-EC2-2026-371,Image SLES15-SP7-SAP-BYOS-GCE-2026-371,Image SLES15-SP7-SAP-EC2-2026-371,Image SLES15-SP7-SAP-GCE-2026-371,Image SLES15-SP7-SAP-Hardened-Azure-2026-371,Image SLES15-SP7-SAP-Hardened-BYOS-Azure-2026-371,Image SLES15-SP7-SAP-Hardened-BYOS-GCE-2026-371,Image SLES15-SP7-SAP-Hardened-GCE-2026-371,Image pr_15_7-2026-371,SUSE-2026-371,SUSE-SLE-Module-Basesystem-15-SP7-2026-371,SUSE-SLE-Module-Development-Tools-15-SP7-2026-371,SUSE-SLE-Product-SLES-15-SP6-LTSS-2026-371,SUSE-SLE-Product-SLES_SAP-15-SP6-2026-371,openSUSE-SLE-15.6-2026-371",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-core:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-exporter:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-jobservice:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-portal:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-registry:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-registryctl:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Container private-registry/harbor-trivy-adapter:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP6-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image SLES15-SP7-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "Image pr_15_7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-extra-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-info-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-lang-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-profile-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-static-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-utils-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Development Tools 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-static-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-extra-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-info-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-lang-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-profile-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-utils-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-static-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-extra-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-info-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-lang-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-profile-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-utils-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-static-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-devel-static-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-extra-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-html-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-i18ndata-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-info-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-lang-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-locale-base-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-profile-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-profile-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-utils-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glibc-utils-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnsl1-32bit-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "nscd-2.38-150600.14.40.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260371-1/",
+      "Description": "Link for SUSE-SU-2026:0371-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024041.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0371-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256437",
+      "Description": "SUSE Bug 1256437"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256766",
+      "Description": "SUSE Bug 1256766"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256822",
+      "Description": "SUSE Bug 1256822"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257005",
+      "Description": "SUSE Bug 1257005"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-15281/",
+      "Description": "SUSE CVE CVE-2025-15281 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-0861/",
+      "Description": "SUSE CVE CVE-2026-0861 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-0915/",
+      "Description": "SUSE CVE CVE-2026-0915 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-15281",
+      "Description": "Calling wordexp with WRDE_REUSE in conjunction with WRDE_APPEND in the GNU C Library version 2.0 to version 2.42 may cause the interface to return uninitialized memory in the we_wordv member, which on subsequent calls to wordfree may abort the process.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-15281.html",
+          "Description": "CVE-2025-15281"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257005",
+          "Description": "SUSE Bug 1257005"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container private-registry/harbor-core:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-exporter:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-jobservice:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-portal:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registry:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registryctl:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-trivy-adapter:latest:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:nscd-2.38-150600.14.40.1",
+            "Image pr_15_7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:nscd-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-extra-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-html-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-i18ndata-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-info-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-lang-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:nscd-2.38-150600.14.40.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-0861",
+      "Description": "Passing too large an alignment to the memalign suite of functions (memalign, posix_memalign, aligned_alloc) in the GNU C Library version 2.30 to 2.42 may result in an integer overflow, which could consequently result in a heap corruption.\n\nNote that the attacker must have control over both, the size as well as the alignment arguments of the memalign function to be able to exploit this.  The size parameter must be close enough to PTRDIFF_MAX so as to overflow size_t along with the large alignment argument.  This limits the malicious inputs for the alignment for memalign to the range [1\u003c\u003c62+ 1, 1\u003c\u003c63] and exactly 1\u003c\u003c63 for posix_memalign and aligned_alloc.\n\nTypically the alignment argument passed to such functions is a known constrained quantity (e.g. page size, block size, struct sizes) and is not attacker controlled, because of which this may not be easily exploitable in practice.  An application bug could potentially result in the input alignment being too large, e.g. due to a different buffer overflow or integer overflow in the application or its dependent libraries, but that is again an uncommon usage pattern given typical sources of alignments.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-0861.html",
+          "Description": "CVE-2026-0861"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256766",
+          "Description": "SUSE Bug 1256766"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256913",
+          "Description": "SUSE Bug 1256913"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container private-registry/harbor-core:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-exporter:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-jobservice:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-portal:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registry:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registryctl:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-trivy-adapter:latest:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:nscd-2.38-150600.14.40.1",
+            "Image pr_15_7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:nscd-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-extra-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-html-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-i18ndata-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-info-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-lang-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:nscd-2.38-150600.14.40.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-0915",
+      "Description": "Calling getnetbyaddr or getnetbyaddr_r with a configured nsswitch.conf that specifies the library's DNS backend for networks and queries for a zero-valued network in the GNU C Library version 2.0 to version 2.42 can leak stack contents to the configured DNS resolver.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-0915.html",
+          "Description": "CVE-2026-0915"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256822",
+          "Description": "SUSE Bug 1256822"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container private-registry/harbor-core:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-exporter:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-jobservice:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-portal:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registry:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-registryctl:latest:glibc-2.38-150600.14.40.1",
+            "Container private-registry/harbor-trivy-adapter:latest:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC-BYOS:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-devel-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6-HPC:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP6:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-GDC:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-CHOST-BYOS-SAP-CCloud:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure-3P:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-EC2:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-Azure:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-BYOS-GCE:nscd-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-32bit-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-i18ndata-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:glibc-locale-base-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:libnsl1-2.38-150600.14.40.1",
+            "Image SLES15-SP7-SAP-Hardened-GCE:nscd-2.38-150600.14.40.1",
+            "Image pr_15_7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP7:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:nscd-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-devel-static-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-extra-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-i18ndata-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-info-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-lang-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-profile-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:glibc-utils-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnsl1-32bit-2.38-150600.14.40.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:nscd-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-devel-static-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-extra-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-html-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-i18ndata-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-info-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-lang-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-locale-base-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-profile-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:glibc-utils-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:libnsl1-32bit-2.38-150600.14.40.1",
+            "openSUSE Leap 15.6:nscd-2.38-150600.14.40.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

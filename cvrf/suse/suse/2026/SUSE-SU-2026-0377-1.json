@@ -1,0 +1,119 @@
+{
+  "Title": "Security update for libheif",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0377-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-04T07:37:59Z",
+    "CurrentReleaseDate": "2026-02-04T07:37:59Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-04T07:37:59Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for libheif",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for libheif fixes the following issues:\n\n- CVE-2025-68431: Fixed heap buffer over-read in `HeifPixelImage::overlay()` via crafted HEIF \n  that exercises the overlay image item (bsc#1255735)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-377,openSUSE-SLE-15.6-2026-377",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "gdk-pixbuf-loader-libheif-1.12.0-150400.3.17.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libheif-devel-1.12.0-150400.3.17.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libheif1-1.12.0-150400.3.17.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libheif1-32bit-1.12.0-150400.3.17.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260377-1/",
+      "Description": "Link for SUSE-SU-2026:0377-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024044.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0377-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255735",
+      "Description": "SUSE Bug 1255735"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-68431/",
+      "Description": "SUSE CVE CVE-2025-68431 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-68431",
+      "Description": "libheif is an HEIF and AVIF file format decoder and encoder. Prior to version 1.21.0, a crafted HEIF that exercises the overlay image item path triggers a heap buffer over-read in `HeifPixelImage::overlay()`. The function computes a negative row length (likely from an unclipped overlay rectangle or invalid offsets), which then underflows when converted to `size_t` and is passed to `memcpy`, causing a very large read past the end of the source plane and a crash. Version 1.21.0 contains a patch. As a workaround, avoid decoding images using `iovl` overlay boxes.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-68431.html",
+          "Description": "CVE-2025-68431"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255735",
+          "Description": "SUSE Bug 1255735"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 15.6:gdk-pixbuf-loader-libheif-1.12.0-150400.3.17.1",
+            "openSUSE Leap 15.6:libheif-devel-1.12.0-150400.3.17.1",
+            "openSUSE Leap 15.6:libheif1-1.12.0-150400.3.17.1",
+            "openSUSE Leap 15.6:libheif1-32bit-1.12.0-150400.3.17.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
