@@ -1,0 +1,138 @@
+{
+  "Title": "Security update for libsoup2",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0418-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-10T14:15:42Z",
+    "CurrentReleaseDate": "2026-02-10T14:15:42Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-10T14:15:42Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for libsoup2",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for libsoup2 fixes the following issues:\n\n- CVE-2026-1761: Check length of bytes read in soup_filter_input_stream_read_until to avoid a stack-based buffer\n  overflow (bsc#1257598).\n- CVE-2026-0716: improper bounds handling may allow out-of-bounds read (bsc#1256418).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-418,SUSE-SUSE-MicroOS-5.2-2026-418",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libsoup-2_4-1-2.68.4-150200.4.24.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.2",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260418-1/",
+      "Description": "Link for SUSE-SU-2026:0418-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024092.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0418-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256418",
+      "Description": "SUSE Bug 1256418"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257598",
+      "Description": "SUSE Bug 1257598"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-0716/",
+      "Description": "SUSE CVE CVE-2026-0716 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-1761/",
+      "Description": "SUSE CVE CVE-2026-1761 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2026-0716",
+      "Description": "A flaw was found in libsoup's WebSocket frame processing when handling incoming messages. If a non-default configuration is used where the maximum incoming payload size is unset, the library may read memory outside the intended bounds. This can cause unintended memory exposure or a crash. Applications using libsoup's WebSocket support with this configuration may be impacted.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-0716.html",
+          "Description": "CVE-2026-0716"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256418",
+          "Description": "SUSE Bug 1256418"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.2:libsoup-2_4-1-2.68.4-150200.4.24.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-1761",
+      "Description": "A flaw was found in libsoup. This stack-based buffer overflow vulnerability occurs during the parsing of multipart HTTP responses due to an incorrect length calculation. A remote attacker can exploit this by sending a specially crafted multipart HTTP response, which can lead to memory corruption. This issue may result in application crashes or arbitrary code execution in applications that process untrusted server responses, and it does not require authentication or user interaction.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-1761.html",
+          "Description": "CVE-2026-1761"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257598",
+          "Description": "SUSE Bug 1257598"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.2:libsoup-2_4-1-2.68.4-150200.4.24.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
