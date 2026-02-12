@@ -1,0 +1,145 @@
+{
+  "Title": "Security update for golang-github-prometheus-prometheus",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20232-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-05T10:43:17Z",
+    "CurrentReleaseDate": "2026-02-05T10:43:17Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-05T10:43:17Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for golang-github-prometheus-prometheus",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for golang-github-prometheus-prometheus fixes the following issues:\n\nUpdate to version 3.5.0:\n\nSecurity issues fixed:\n\n- CVE-2025-13465: prototype pollution in the _.unset and _.omit functions can lead to deletion of methods from global (bsc#1257329).\n- CVE-2025-12816: interpretation conflict vulnerability allowing bypassing cryptographic verifications (bsc#1255588).\n\nOther updates and bugfixes:\n\n- Update to 3.5.0 (jsc#PED-13824):\n\n  * [FEATURE] Remote-write: Add support for Azure Workload Identity\n    as an authentication method for the receiver.\n  * [FEATURE] PromQL: Add first_over_time(...) and\n    ts_of_first_over_time(...) behind feature flag.\n  * [FEATURE] Federation: Add support for native histograms with\n    custom buckets (NHCB).\n  * [ENHANCEMENT] PromQL: Add warn-level annotations for counter\n    reset conflicts in certain histogram operations.\n  * [ENHANCEMENT] UI: Add scrape interval and scrape timeout to\n    targets page.\n\n- Update to 3.4.0:\n\n  * Add unified AWS service discovery for ec2, lightsail and ecs services.\n  * [FEATURE] Native histograms are now a stable, but optional\n    feature.\n  * [FEATURE] UI: Show detailed relabeling steps for each\n    discovered target.\n  * [ENHANCEMENT] Alerting: Add \"unknown\" state for alerting rules\n    that haven't been evaluated yet.\n  * [BUGFIX] Scrape: Fix a bug where scrape cache would not be\n    cleared on startup.\n\n- Update to 3.3.0:\n\n  * [FEATURE] Spring Boot 3.3 includes support for the Prometheus\n    Client 1.x.\n  * [ENHANCEMENT] Dependency management for Dropwizard Metrics has\n    been removed.\n\n- Update to 3.2.0:\n\n  * [FEATURE] OAuth2: support jwt-bearer grant-type (RFC7523 3.1).\n  * [ENHANCEMENT] PromQL: Reconcile mismatched NHCB bounds in Add\n    and Sub.\n  * [BUGFIX] TSDB: Native Histogram Custom Bounds with a NaN\n    threshold are now rejected.\n\n- Update to 3.1.0:\n\n  * [FEATURE] Remote-write 2 (receiving): Update to 2.0-rc.4 spec.\n    \"created timestamp\" (CT) is now called \"start timestamp\" (ST).\n  * [BUGFIX] Mixin: Add static UID to the remote-write dashboard.\n\n- Update to 3.0.1:\n\n  * [BUGFIX] Promql: Make subqueries left open.\n  * [BUGFIX] Fix memory leak when query log is enabled.\n  * [BUGFIX] Support utf8 names on /v1/label/:name/values endpoint.\n\n- Update to 3.0.0:\n\n  * [CHANGE] Deprecated feature flags removed.\n  * [FEATURE] New UI.\n  * [FEATURE] Remote Write 2.0.\n  * [FEATURE] OpenTelemetry Support.\n  * [FEATURE] UTF-8 support is now stable and enabled by default.\n  * [FEATURE] OTLP Ingestion.\n  * [FEATURE] Native Histograms.\n  * [BUGFIX] PromQL: Fix count_values for histograms.\n  * [BUGFIX] TSDB: Fix race on stale values in headAppender.\n  * [BUGFIX] UI: Fix selector / series formatting for empty metric\n    names.\n\n- Update to 2.55.0:\n\n  * [FEATURE] PromQL: Add `last_over_time` function.\n  * [FEATURE] Agent: Add `prometheus_agent_build_info` metric.\n  * [ENHANCEMENT] PromQL: Optimise `group()` and `group by()`.\n  * [ENHANCEMENT] TSDB: Reduce memory usage when loading blocks.\n  * [BUGFIX] Scrape: Fix a bug where a target could be scraped\n    multiple times.\n\n- Update to 2.54.0:\n\n  * [CHANGE] Remote-Write: highest_timestamp_in_seconds and\n    queue_highest_sent_timestamp_seconds metrics now initialized to\n    0.\n  * [CHANGE] API: Split warnings from info annotations in API\n    response.\n  * [FEATURE] Remote-Write: Version 2.0 experimental, plus metadata\n    in WAL via feature flag.\n  * [FEATURE] PromQL: add limitk() and limit_ratio() aggregation\n    operators.\n  * [ENHANCEMENT] PromQL: Accept underscores in literal numbers.\n  * [ENHANCEMENT] PromQL: float literal numbers and durations are\n    now interchangeable (experimental).\n  * [ENHANCEMENT] PromQL (experimental native histograms): Optimize\n    histogram_count and histogram_sum functions.\n  * [BUGFIX] PromQL: Fix various issues with native histograms.\n  * [BUGFIX] TSDB: Fix race on stale values in headAppender.\n  * [BUGFIX] OTLP receiver: Allow colons in non-standard units.\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLES-16.0-243",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "golang-github-prometheus-prometheus-3.5.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-prometheus-prometheus-3.5.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620232-1/",
+      "Description": "Link for SUSE-SU-2026:20232-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024095.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20232-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255588",
+      "Description": "SUSE Bug 1255588"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257329",
+      "Description": "SUSE Bug 1257329"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-12816/",
+      "Description": "SUSE CVE CVE-2025-12816 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-13465/",
+      "Description": "SUSE CVE CVE-2025-13465 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-12816",
+      "Description": "An interpretation-conflict (CWE-436) vulnerability in node-forge versions 1.3.1 and earlier enables unauthenticated attackers to craft ASN.1 structures to desynchronize schema validations, yielding a semantic divergence that may bypass downstream cryptographic verifications and security decisions.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-12816.html",
+          "Description": "CVE-2025-12816"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255584",
+          "Description": "SUSE Bug 1255584"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:golang-github-prometheus-prometheus-3.5.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:golang-github-prometheus-prometheus-3.5.0-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13465",
+      "Description": "Lodash versions 4.0.0 through 4.17.22 are vulnerable to prototype pollution in the _.unset  and _.omit  functions. An attacker can pass crafted paths which cause Lodash to delete methods from global prototypes.\n\nThe issue permits deletion of properties but does not allow overwriting their original behavior.\n\nThis issue is patched on 4.17.23",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-13465.html",
+          "Description": "CVE-2025-13465"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257321",
+          "Description": "SUSE Bug 1257321"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:golang-github-prometheus-prometheus-3.5.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:golang-github-prometheus-prometheus-3.5.0-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

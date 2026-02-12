@@ -1,0 +1,147 @@
+{
+  "Title": "Security update for tailscale",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20192-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-10T21:45:05Z",
+    "CurrentReleaseDate": "2026-02-10T21:45:05Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-10T21:45:05Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for tailscale",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for tailscale fixes the following issues:\n\nChanges in tailscale:\n\n- Update to version 1.94.0:\n  * IS SET and NOT SET have been added as device posture operators\n  * India DERP Region City Name updated\n  * Custom DERP servers support GCP Certificate Manager\n  * Tailscale SSH authentication, when successful, results in LOGIN audit\n    messages being sent to the kernel audit subsystem\n  * Tailscale Peer Relay throughput is improved when the SO_REUSEPORT socket\n    option is supported on multi-core systems\n  * Tailscale Peer Relay server handshake transmission is guarded against\n    routing loops over Tailscale\n  * MagicDNS always resolves when using resolv.conf without a DNS manager\n  * tailscaled_peer_relay_forwarded_packets_total and\n    tailscaled_peer_relay_forwarded_bytes_total client metrics are available for\n    Tailscale Peer Relays\n  * Identity tokens are automatically generated for workload identities\n  * --audience flag added to tailscale up command to support auto generation of\n    ID tokens for workload identity\n  * tsnet nodes can host Tailscale Services\n  * The tailscale lock status -json command returns tailnet key authority (TKA)\n    data in a stable format\n  * Tailscale Peer Relays deliver improved throughput through monotonic time\n    comparison optimizations and reduced lock contention\n  * Tailscale Services virtual IPs are now automatically accepted by clients\n    across all platforms regardless of the status of the --accept-routes\n    feature\n\n- Update to version 1.94.0:\n  * derp/derpserver: add a unique sender cardinality estimate\n  * syncs: add means of declare locking assumptions for debug mode\n  * cmd/k8s-operator: add support for taiscale.com/http-redirect\n  * cmd/k8s-operator fix populateTLSSecret on tests\n  * feature/posture: log method and full URL for posture identity requests\n  * k8s-operator: Fix typos in egress-pod-readiness.go\n  * cmd/tailscale,ipn: add Unix socket support for serve\n  * client/systray: change systray to start after graphical.target\n  * cmd/k8s-operator: warn if users attempt to expose a headless Service\n  * cmd/tailscale/cli, util/qrcodes: format QR codes on Linux consoles\n  * tsnet: ensure funnel listener cleans up after itself when closed\n  * ipn/store/kubestore: don't load write replica certs in memory\n  * tsnet: allow for automatic ID token generation\n\n- Update to version 1.92.5:\n  * types/persist: omit Persist.AttestationKey based on IsZero\n  * disable hardware attestation for kubernetes\n  * allow opting out of ACME order replace extension\n- Update to version 1.92.4:\n  * nothing of importance\n\n- Update to version 1.92.3:\n  * WireGuard configuration that occurs automatically in the client, no longer\n    results in a panic\n\n- Update to version 1.92.2:\n  * cmd/derper: add GCP Certificate Manager support\n\n- Update to version 1.92.1:\n  * fix LocalBackend deadlock when packet arrives during profile switch\n  * wgengine: fix TSMP/ICMP callback leak\n- Update to version 1.92.0:\n  * no changelog provided\n- Update to version 1.90.9:\n  * tailscaled no longer deadlocks during event bursts\n  * The client no longer hangs after wake up\n\n- Update to version 1.90.8:\n  * tka: move RemoveAll() to CompactableChonk\n- Update to version 1.90.7:\n  * wgengine/magicsock: validate endpoint.derpAddr\n  * wgengine/magicsock: fix UDPRelayAllocReq/Resp deadlock\n  * net/udprelay: replace VNI pool with selection algorithm\n  * feature/relayserver,ipn/ipnlocal,net/udprelay: plumb DERPMap\n  * feature/relayserver: fix Shutdown() deadlock\n  * net/netmon: do not abandon a subscriber when exiting early\n  * tka: don't try to read AUMs which are partway through being written\n  * tka: rename a mutex to mu instead of single-letter l\n  * ipn/ipnlocal: use an in-memory TKA store if FS is unavailable\n\n- Update to version 1.90.6:\n  * Routes no longer stall and fail to apply when updated repeatedly in a short\n    period of time\n  * Tailscale SSH no longer hangs for 10s when connecting to tsrecorder. This\n    affected tailnets that use Tailscale SSH recording\n\n- Update to version 1.90.4:\n  * deadlock issue no longer occurs in the client when checking\n    for the network to be available\n  * tailscaled no longer sporadically panics when a\n    Trusted Platform Module (TPM) device is present\n\n- Update to version 1.90.3:\n  * tailscaled shuts down as expected and without panic\n  * tailscaled starts up as expected in a no router configuration environment\n\n- Update to version 1.90.2:\n  * util/linuxfw: fix 32-bit arm regression with iptables\n  * health: compare warnable codes to avoid errors on release branch\n  * feature/tpm: check TPM family data for compatibility\n\n- Upate to version 1.90.1:\n  * Clients can use configured DNS resolvers for all domains\n  * Node keys will be renewed seamlessly\n  * Unnecessary path discovery packets over DERP servers are suppressed\n  * Node key sealing is GA (generally available) and enabled by default\n\n- update to version 1.88.3:\n  * cmd/tailscale/cli: add ts2021 debug flag to set a dial plan\n  * control/controlhttp: simplify, fix race dialing, remove priority concept\n- update to version 1.88.2:\n  * k8s-operator: reset service status before append\n- require the minimum go version directly, in comparison to using the golang(API)\n  symbol\n\n- update to version 1.88.1:\n  * Tailscale CLI prompts users to confirm impactful actions\n  * Tailscale SSH works as expected when using an IP address instead of a\n    hostname and MagicDNS is disabled\n  * fixed: Taildrive sharing when su not present\n  * Taildrive files remain consistently accessible\n  * new: Tailscale tray GUI\n  * DERP IPs changed for Singapore and Tokyo\n- Fixing CVE-2025-58058, bsc#1248920\n\n- update to version 1.86.5:\n  * cmd/k8s-proxy,k8s-operator: fix serve config for userspace mode\n- update to version 1.86.4:\n  * nothing of relevance\n- update to version 1.86.3:\n  * nothing of relevance\n\n- update to version 1.86.2:\n  * A deadlock issue that may have occurred in the client\n  * An occasional crash when establishing a new port mapping with a gateway or\n    firewall\n\n- update to version 1.86.0:\n  * tsStateEncrypted device posture attribute for checking whether the\n    Tailscale client state is encrypted at rest\n  * Cross-site request forgery (CSRF) issue that may have resulted in a log in\n    error when accessing the web interface\n  * Recommended exit node when the previously recommended exit node is offline\n  * tailscale up --exit-node=auto:any and tailscale set --exit-node=auto:any\n    CLI commands track the recommended exit node and automatically switches to\n    it when available exit nodes or network conditions change\n  * tailscaled CLI command flag --encrypt-state encrypts the node state file on\n    the disk using trusted platform module (TPM)\n\n- update to 1.84.3:\n  * ipn/ipnlocal: Update hostinfo to control on service config change\n\n- update to 1.84.2:\n  * Re-enable setting —accept-dns by using TS_EXTRA_ARGS. This issue resulted\n    from stricter CLI arguments parsing introduced in Tailscale v1.84.0\n\n- update to 1.84.1:\n  * net/dns: cache dns.Config for reuse when compileConfig fails\n\n- update to 1.84.0:\n  * The --reason flag is added to the tailscale down command\n  * ReconnectAfter policy setting, which configures the maximum period of time\n    between a user disconnecting Tailscale and the client automatically\n    reconnecting\n  * Tailscale CLI commands throw an error if multiple of the same flag are detected\n  * Network connectivity issues when creating a new profile or switching\n    profiles while using an exit node\n  * DNS-over-TCP fallback works correctly with upstream servers reachable only\n    via the tailnet\n\n- update to 1.82.5:\n  * A panic issue related to CUBIC congestion control in userspace mode is resolved.\n\n- update to 1.82.0:\n  * DERP functionality within the client supports certificate pinning for\n    self-signed IP address certificates for those unable to use Let's Encrypt\n    or WebPKI certificates.\n  * Go is updated to version 1.24.1\n  * NAT traversal code uses the DERP connection that a packet arrived on as an\n    ultimate fallback route if no other information is available\n  * Captive portal detection reliability is improved on some in-flight Wi-Fi networks\n  * Port mapping success rate is improved\n  * Helsinki is added as a DERP region.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-packagehub-119",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "tailscale-1.94.1-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "tailscale-bash-completion-1.94.1-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "tailscale-fish-completion-1.94.1-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "tailscale-zsh-completion-1.94.1-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1248920",
+      "Description": "SUSE Bug 1248920"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-22869/",
+      "Description": "SUSE CVE CVE-2025-22869 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-58058/",
+      "Description": "SUSE CVE CVE-2025-58058 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-22869",
+      "Description": "SSH servers which implement file transfer protocols are vulnerable to a denial of service attack from clients which complete the key exchange slowly, or not at all, causing pending content to be read into memory, but never transmitted.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-22869.html",
+          "Description": "CVE-2025-22869"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1239322",
+          "Description": "SUSE Bug 1239322"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:tailscale-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-bash-completion-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-fish-completion-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-zsh-completion-1.94.1-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-58058",
+      "Description": "xz is a pure golang package for reading and writing xz-compressed files. Prior to version 0.5.14, it is possible to put data in front of an LZMA-encoded byte stream without detecting the situation while reading the header. This can lead to increased memory consumption because the current implementation allocates the full decoding buffer directly after reading the header. The LZMA header doesn't include a magic number or has a checksum to detect such an issue according to the specification. Note that the code recognizes the issue later while reading the stream, but at this time the memory allocation has already been done. This issue has been patched in version 0.5.14.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-58058.html",
+          "Description": "CVE-2025-58058"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1248889",
+          "Description": "SUSE Bug 1248889"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:tailscale-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-bash-completion-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-fish-completion-1.94.1-bp160.1.1",
+            "openSUSE Leap 16.0:tailscale-zsh-completion-1.94.1-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

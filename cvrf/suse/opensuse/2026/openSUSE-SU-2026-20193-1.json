@@ -1,0 +1,331 @@
+{
+  "Title": "Security update for orthanc, gdcm, orthanc-authorization, orthanc-dicomweb, orthanc-gdcm, orthanc-indexer, orthanc-mysql, orthanc-neuro, orthanc-postgresql, orthanc-python, orthanc-stl, orthanc-tcia, orthanc-wsi, python-pyorthanc",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20193-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-10T22:29:40Z",
+    "CurrentReleaseDate": "2026-02-10T22:29:40Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-10T22:29:40Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for orthanc, gdcm, orthanc-authorization, orthanc-dicomweb, orthanc-gdcm, orthanc-indexer, orthanc-mysql, orthanc-neuro, orthanc-postgresql, orthanc-python, orthanc-stl, orthanc-tcia, orthanc-wsi, python-pyorthanc",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for orthanc, gdcm, orthanc-authorization, orthanc-dicomweb, orthanc-gdcm, orthanc-indexer, orthanc-mysql, orthanc-neuro, orthanc-postgresql, orthanc-python, orthanc-stl, orthanc-tcia, orthanc-wsi, python-pyorthanc fixes the following issues:\n\nChanges in orthanc:\n\n- dcmtk 370 breaks TW build\n\n- switch to lua 5.4\n\n- patch out boost component system from framework\n\n- version 1.12.10\n  ' long changelog - see NEWS for details\n\n- apply boost patch to source tree\n\n- Stop trying to pull libboost_system-devel in all orthanc packages.\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\n- version 1.12.9\n  * long changelog - see NEWS for details\n\nChanges in gdcm:\n\n- apply fix for poppler 25.10 build error\n\nChanges in orthanc-authorization:\n\n- version 0.10.3\n  * New default permissions for worklists\n  * New default permissions for tools/metrics-prometheus\n  * New default permissions for tools/generate-uid\n\n- version 0.10.2\n  * New default permissions to add/delete modalities through the Rest API\n    https://discourse.orthanc-server.org/t/managing-modalities-using-the-rest-api-and-keycloak/6137\n  * New standard configuration \"stl\"\n\n- remove libboost_system-devel for TW (removed in boost 1.89)-\n\n- version 0.10.1\n  * Fix audit-logs export in CSV format.\n  * New configuration \"ExtraPermissions\" to ADD new permissions to\n    the default \"Permissions\" entries.\n  * Improved handling of \"Anonymous\" user profiles (when no auth-tokens\n    are provided):  The plugin will now request the auth-service to\n    get an anonymous user profile even if there are no auth-tokens in the\n    HTTP request.\n  * The User profile can now contain a \"groups\" field if the auth-service\n    provides it.\n  * The User profile can now contain an \"id\" field if the auth-service\n    provides it.\n  * New experimental feature: audit-logs\n    - Enabled by the \"EnableAuditLogs\" configuration.\n    - Audit-logs are currently handled by the PostgreSQL plugin and can be\n      browsed through the route /auth/audit-logs.\n    - New default permission \"audit-logs\" to grant access to the\n      \"/auth/audit-logs\" route.\n  * Fix: The \"server-id\" field is now included in all requests sent to the\n    auth-service.\n\nChanges in orthanc-dicomweb:\n\n- version 1.22\n  * framework2.diff added for compatibilty with Orthanc framework \u003c= 1.12.10\n  * Fixed a possible deadlock when using \"WadoRsLoaderThreadsCount\" \u003e 1 when the HTTP\n    client disconnects while downloading the response.\n  * Fixed \"Success: Success\" errors when trying to send resources synchronously to a remote DICOMweb\n    server while the Orthanc job engine was busy with other tasks.\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\n- version 1.21\n  * New configuration \"WadoRsLoaderThreadsCount\" to configure how many threads are loading\n    files from the storage when answering to a WADO-RS query.  A value \u003e 1 is meaningful\n    only if the storage is a distributed network storage (e.g object storage plugin).\n    A value of 0 means reading and writing are performed in sequence (default behaviour).\n  * New configuration \"EnablePerformanceLogs\" to display performance logs.  Currently\n    only showing the time required to execute a WADO-RS query.  For example:\n    WADO-RS: elapsed: 26106623 us, rate: 14.86 instances/s, 155.23Mbps\n  * Fix false errors logs generated e.g when OHIF requests the /dicom-web/studies/../metadata route:\n    \"dicom-web:/Configuration.cpp:643] Unsupported return MIME type: application/dicom+json, multipart/related; type=application/octet-stream; transfer-syntax=*, will return DICOM+JSON\"\n\nChanges in orthanc-gdcm:\n\n- version 1.8\n  * Prevent transcoding of DICOM images with empty\n    SharedFunctionalGroupsSequence (5200,9229), as this might crash GDCM.\n  * The built-in Orthanc transcoder being usually more stable, the default\n    value of the \"RestrictTransferSyntaxes\" configuration has been updated\n    to configure the GDCM plugin for J2K transfer syntaxes only since these\n    transfer syntaxes are currently not supported by the built-in Orthanc\n    transcoder.\n    - If \"RestrictTransferSyntaxes\" is not specified in your configuration,\n      it is now equivalent to\n        \"RestrictTransferSyntaxes\" : [\n          \"1.2.840.10008.1.2.4.90\",   // JPEG 2000 Image Compression (Lossless Only)\n          \"1.2.840.10008.1.2.4.91\",   // JPEG 2000 Image Compression\n          \"1.2.840.10008.1.2.4.92\",   // JPEG 2000 Part 2 Multicomponent Image Compression (Lossless Only)\n          \"1.2.840.10008.1.2.4.93\"    // JPEG 2000 Part 2 Multicomponent Image Compression\n        ]\n      which was the recommended configuration.\n    - If \"RestrictTransferSyntaxes\" is defined but empty, the GDCM plugin will\n      now be used to transcode ALL transfer syntaxes (this was the default\n      behaviour up to version 1.7)\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\n- version 1.7\n  * Upgrade to GDCM 3.0.24 for static builds. Fixes:\n    - CVE-2024-22373: https://nvd.nist.gov/vuln/detail/CVE-2024-22373\n    - CVE-2024-22391: https://nvd.nist.gov/vuln/detail/CVE-2024-22391\n    - CVE-2024-25569: https://nvd.nist.gov/vuln/detail/CVE-2024-25569\n\nChanges in orthanc-indexer:\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in orthanc-mysql:\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in orthanc-neuro:\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in orthanc-postgresql:\n\n- version 10.0\n  * update mainly providing new Reserve and Acknowledge primitives\n    for Queues in plugins\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\n- version 9.0\n  * DB-scheme rev. 6 - check Orthanc book\n\n- version 8.0\n  * no changelog provided\n  * New DB scheme\n\nChanges in orthanc-python:\n\n- version 7.0\n  * The \"orthanc.pyi\" stub is now excluded from the \"install\" step during the build\n  * Wrapped new SCP callbacks:\n    - RegisterFindCallback2()\n    - RegisterMoveCallback3()\n    - RegisterWorklistCallback2()\n    - RegisterStorageCommitmentScpCallback2()\n  * Wrapped new Queues methods:\n    - ReserveQueueValue()\n    - AcknowledgeQueueValue()\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\n- remove /usr/orthanc.pyi - unneeded\n\n- version 6.0\n  * The auto-generation of the Python wrapper is now part of the build,\n    to exploit the ORTHANC_PLUGIN_SINCE_SDK macro. This provides backward\n    compatibility with the SDK that is actually installed on the system\n  * Added Windows builder for Python 3.13\n  * Added Docker-based builder scripts for Debian 13 (trixie)\n\nChanges in orthanc-stl:\n\n- patch out libboost-system to fix build error\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in orthanc-tcia:\n\n- version 1.3\n  * Replaced default base URL of TCIA REST API from\n    \"https://services.cancerimagingarchive.net/services/v4/TCIA/query\" to\n    \"https://nbia.cancerimagingarchive.net/nbia-api/services/v4\"\n  * Added configuration option \"BaseUrl\" to manually configure the base URL\n  * Fix for newer versions of the NBIA cart file format\n  * Upgrade to Orthanc framework 1.12.3\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in orthanc-wsi:\n\n- fix build error w framework 1.12.10\n\n- version 3.3\n  * OrthancWSIDicomizer:\n    - New option \"--encoding\" to specify the specific character set of DICOM instances\n    - Placeholder tags are now automatically inserted when the \"--dataset\" option\n      provides incomplete data, ensuring the generated DICOM instances remain valid\n    - The version of the DICOM-izer is available in DICOM tag \"SoftwareVersions\"\n    - ImagedVolumeWidth and ImagedVolumeHeight are swapped with respect to releases \u003c= 3.2:\n      https://discourse.orthanc-server.org/t/5912\n  * Viewer plugin:\n    - Added rotation button in the viewer\n    - The viewer displays a label if the \"description\" GET parameter is provided\n    - Upgraded to OpenLayers 10.6.1\n\n- remove libboost_system-devel for TW (removed in boost 1.89)\n\nChanges in python-pyorthanc:\n\n- version 1.22.1\n  * no changelog provided\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-packagehub-120",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "gdcm-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "gdcm-applications-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "gdcm-devel-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "gdcm-examples-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgdcm3_0-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libsocketxx1_2-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-1.12.10-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-authorization-0.10.3-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-devel-1.12.10-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-dicomweb-1.22-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-doc-1.12.10-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-gdcm-1.8-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-indexer-1.0-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-mysql-5.2-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-neuro-1.1-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-postgresql-10.0-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-python-7.0-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-source-1.12.10-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-stl-1.2-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-tcia-1.3-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "orthanc-wsi-3.3-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-gdcm-3.0.24-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python313-pyorthanc-1.22.1-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-22373/",
+      "Description": "SUSE CVE CVE-2024-22373 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-22391/",
+      "Description": "SUSE CVE CVE-2024-22391 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-25569/",
+      "Description": "SUSE CVE CVE-2024-25569 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-22373",
+      "Description": "An out-of-bounds write vulnerability exists in the JPEG2000Codec::DecodeByStreamsCommon functionality of Mathieu Malaterre Grassroot DICOM 3.0.23. A specially crafted DICOM file can lead to a heap buffer overflow. An attacker can provide a malicious file to trigger this vulnerability.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-22373.html",
+          "Description": "CVE-2024-22373"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1223398",
+          "Description": "SUSE Bug 1223398"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-applications-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-devel-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-examples-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libgdcm3_0-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libsocketxx1_2-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-authorization-0.10.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-devel-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-dicomweb-1.22-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-doc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-gdcm-1.8-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-indexer-1.0-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-mysql-5.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-neuro-1.1-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-postgresql-10.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-python-7.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-source-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-stl-1.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-tcia-1.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-wsi-3.3-bp160.1.1",
+            "openSUSE Leap 16.0:python3-gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:python313-pyorthanc-1.22.1-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-22391",
+      "Description": "A heap-based buffer overflow vulnerability exists in the LookupTable::SetLUT functionality of Mathieu Malaterre Grassroot DICOM 3.0.23. A specially crafted malformed file can lead to memory corruption. An attacker can provide a malicious file to trigger this vulnerability.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-22391.html",
+          "Description": "CVE-2024-22391"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1223400",
+          "Description": "SUSE Bug 1223400"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-applications-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-devel-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-examples-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libgdcm3_0-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libsocketxx1_2-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-authorization-0.10.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-devel-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-dicomweb-1.22-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-doc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-gdcm-1.8-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-indexer-1.0-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-mysql-5.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-neuro-1.1-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-postgresql-10.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-python-7.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-source-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-stl-1.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-tcia-1.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-wsi-3.3-bp160.1.1",
+            "openSUSE Leap 16.0:python3-gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:python313-pyorthanc-1.22.1-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-25569",
+      "Description": "An out-of-bounds read vulnerability exists in the RAWCodec::DecodeBytes functionality of Mathieu Malaterre Grassroot DICOM 3.0.23. A specially crafted DICOM file can lead to an out-of-bounds read. An attacker can provide a malicious file to trigger this vulnerability.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-25569.html",
+          "Description": "CVE-2024-25569"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1223401",
+          "Description": "SUSE Bug 1223401"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-applications-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-devel-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:gdcm-examples-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libgdcm3_0-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:libsocketxx1_2-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-authorization-0.10.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-devel-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-dicomweb-1.22-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-doc-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-gdcm-1.8-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-indexer-1.0-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-mysql-5.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-neuro-1.1-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-postgresql-10.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-python-7.0-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-source-1.12.10-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-stl-1.2-bp160.2.1",
+            "openSUSE Leap 16.0:orthanc-tcia-1.3-bp160.1.1",
+            "openSUSE Leap 16.0:orthanc-wsi-3.3-bp160.1.1",
+            "openSUSE Leap 16.0:python3-gdcm-3.0.24-bp160.2.1",
+            "openSUSE Leap 16.0:python313-pyorthanc-1.22.1-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
