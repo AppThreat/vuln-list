@@ -1,0 +1,153 @@
+{
+  "Title": "Security update for kubevirt, virt-api-container, virt-controller-container, virt-exportproxy-container, virt-exportserver-container, virt-handler-container, virt-launcher-container, virt-libguestfs-tools-container, virt-operator-container, virt-pr-helper-container, virt-synchronization-controller-container",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0479-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-12T15:34:08Z",
+    "CurrentReleaseDate": "2026-02-12T15:34:08Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-12T15:34:08Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for kubevirt, virt-api-container, virt-controller-container, virt-exportproxy-container, virt-exportserver-container, virt-handler-container, virt-launcher-container, virt-libguestfs-tools-container, virt-operator-container, virt-pr-helper-container, virt-synchronization-controller-container",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for kubevirt, virt-api-container, virt-controller-container, virt-exportproxy-container, virt-exportserver-container, virt-handler-container, virt-launcher-container, virt-libguestfs-tools-container, virt-operator-container, virt-pr-helper-container, virt-synchronization-controller-container fixes the following issues:\n\nUpdate to version 1.7.0. (bsc#1257128)\n\n  Release notes https://github.com/kubevirt/kubevirt/releases/tag/v1.7.0\n\n- CVE-2025-64435: Fixes logic flaw in the virt-controller can lead to incorrect status updates and potentially causing a DoS (bsc#1253189 )\n- CVE-2024-45310: Fixes kubevirt vendored github.com/opencontainers/runc/libcontainer/utils: runc can be tricked into creating empty files/directories on host bsc#1257422 \n\n- Upstream now uses stateless firmware for CoCo VMs.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-479,SUSE-SLE-Module-Containers-15-SP7-2026-479",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "kubevirt-manifests-1.7.0-150700.3.16.2",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kubevirt-virtctl-1.7.0-150700.3.16.2",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260479-1/",
+      "Description": "Link for SUSE-SU-2026:0479-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024146.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0479-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253189",
+      "Description": "SUSE Bug 1253189"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257128",
+      "Description": "SUSE Bug 1257128"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257422",
+      "Description": "SUSE Bug 1257422"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-45310/",
+      "Description": "SUSE CVE CVE-2024-45310 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-64435/",
+      "Description": "SUSE CVE CVE-2025-64435 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-45310",
+      "Description": "runc is a CLI tool for spawning and running containers according to the OCI specification. runc 1.1.13 and earlier, as well as 1.2.0-rc2 and earlier, can be tricked into creating empty files or directories in arbitrary locations in the host filesystem by sharing a volume between two containers and exploiting a race with `os.MkdirAll`. While this could be used to create empty files, existing files would not be truncated. An attacker must have the ability to start containers using some kind of custom volume configuration. Containers using user namespaces are still affected, but the scope of places an attacker can create inodes can be significantly reduced. Sufficiently strict LSM policies (SELinux/Apparmor) can also in principle block this attack -- we suspect the industry standard SELinux policy may restrict this attack's scope but the exact scope of protection hasn't been analysed. This is exploitable using runc directly as well as through Docker and Kubernetes. The issue is fixed in runc v1.1.14 and v1.2.0-rc3.\n\nSome workarounds are available. Using user namespaces restricts this attack fairly significantly such that the attacker can only create inodes in directories that the remapped root user/group has write access to. Unless the root user is remapped to an actual\nuser on the host (such as with rootless containers that don't use `/etc/sub[ug]id`), this in practice means that an attacker would only be able to create inodes in world-writable directories. A strict enough SELinux or AppArmor policy could in principle also restrict the scope if a specific label is applied to the runc runtime, though neither the extent to which the standard existing policies block this attack nor what exact policies are needed to sufficiently restrict this attack have been thoroughly tested.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-45310.html",
+          "Description": "CVE-2024-45310"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1230092",
+          "Description": "SUSE Bug 1230092"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257413",
+          "Description": "SUSE Bug 1257413"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-1.7.0-150700.3.16.2",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-1.7.0-150700.3.16.2"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-64435",
+      "Description": "KubeVirt is a virtual machine management add-on for Kubernetes. Prior to 1.7.0-beta.0, a logic flaw in the virt-controller allows an attacker to disrupt the control over a running VMI by creating a pod with the same labels as the legitimate virt-launcher pod associated with the VMI. This can mislead the virt-controller into associating the fake pod with the VMI, resulting in incorrect status updates and potentially causing a DoS (Denial-of-Service). This vulnerability is fixed in 1.7.0-beta.0.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-64435.html",
+          "Description": "CVE-2025-64435"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1253189",
+          "Description": "SUSE Bug 1253189"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-1.7.0-150700.3.16.2",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-1.7.0-150700.3.16.2"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

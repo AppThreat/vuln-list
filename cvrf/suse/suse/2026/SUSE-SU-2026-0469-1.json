@@ -1,0 +1,101 @@
+{
+  "Title": "Security update for libsoup",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0469-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-12T11:21:36Z",
+    "CurrentReleaseDate": "2026-02-12T11:21:36Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-12T11:21:36Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for libsoup",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for libsoup fixes the following issues:\n\n- CVE-2025-4476: null pointer dereference may lead to denial of service (bsc#1243422).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-469,SUSE-SUSE-MicroOS-5.2-2026-469",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libsoup-2_4-1-2.68.4-150200.4.27.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.2",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260469-1/",
+      "Description": "Link for SUSE-SU-2026:0469-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024144.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0469-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1243422",
+      "Description": "SUSE Bug 1243422"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-4476/",
+      "Description": "SUSE CVE CVE-2025-4476 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-4476",
+      "Description": "A denial-of-service vulnerability has been identified in the libsoup HTTP client library. This flaw can be triggered when a libsoup client receives a 401 (Unauthorized) HTTP response containing a specifically crafted domain parameter within the WWW-Authenticate header. Processing this malformed header can lead to a crash of the client application using libsoup. An attacker could exploit this by setting up a malicious HTTP server. If a user's application using the vulnerable libsoup library connects to this malicious server, it could result in a denial-of-service. Successful exploitation requires tricking a user's client application into connecting to the attacker's malicious server.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-4476.html",
+          "Description": "CVE-2025-4476"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1243422",
+          "Description": "SUSE Bug 1243422"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.2:libsoup-2_4-1-2.68.4-150200.4.27.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

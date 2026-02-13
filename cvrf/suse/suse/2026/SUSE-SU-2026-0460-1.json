@@ -1,0 +1,155 @@
+{
+  "Title": "Security update for python-wheel",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0460-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-11T23:30:06Z",
+    "CurrentReleaseDate": "2026-02-11T23:30:06Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-11T23:30:06Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for python-wheel",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for python-wheel fixes the following issues:\n\n- CVE-2026-24049: Fixed absent path sanitization can cause arbitrary file permission modification (bsc#1257100).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-460,SUSE-SLE-Module-Public-Cloud-15-SP4-2026-460,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2026-460,SUSE-SLE-Product-HPC-15-SP4-LTSS-2026-460,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2026-460,SUSE-SLE-Product-HPC-15-SP5-LTSS-2026-460,SUSE-SLE-Product-SLES-15-SP4-LTSS-2026-460,SUSE-SLE-Product-SLES-15-SP5-LTSS-2026-460,SUSE-SLE-Product-SLES_SAP-15-SP4-2026-460,SUSE-SLE-Product-SLES_SAP-15-SP5-2026-460,openSUSE-SLE-15.6-2026-460",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-wheel-0.40.0-150400.13.10.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260460-1/",
+      "Description": "Link for SUSE-SU-2026:0460-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024131.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0460-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257100",
+      "Description": "SUSE Bug 1257100"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-24049/",
+      "Description": "SUSE CVE CVE-2026-24049 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2026-24049",
+      "Description": "wheel is a command line tool for manipulating Python wheel files, as defined in PEP 427. In versions 0.40.0 through 0.46.1, the unpack function is vulnerable to file permission modification through mishandling of file permissions after extraction. The logic blindly trusts the filename from the archive header for the chmod operation, even though the extraction process itself might have sanitized the path. Attackers can craft a malicious wheel file that, when unpacked, changes the permissions of critical system files (e.g., /etc/passwd, SSH keys, config files), allowing for Privilege Escalation or arbitrary code execution by modifying now-writable scripts. This issue has been fixed in version 0.46.2.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-24049.html",
+          "Description": "CVE-2026-24049"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257100",
+          "Description": "SUSE Bug 1257100"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:python311-wheel-0.40.0-150400.13.10.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:python311-wheel-0.40.0-150400.13.10.1",
+            "openSUSE Leap 15.6:python311-wheel-0.40.0-150400.13.10.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
