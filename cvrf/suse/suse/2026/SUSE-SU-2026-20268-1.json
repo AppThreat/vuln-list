@@ -1,0 +1,101 @@
+{
+  "Title": "Security update for abseil-cpp",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20268-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-01-20T09:41:09Z",
+    "CurrentReleaseDate": "2026-01-20T09:41:09Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-01-20T09:41:09Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for abseil-cpp",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for abseil-cpp fixes the following issues:\n\nUpdate to version 20230802.3:\n\n- CVE-2025-0838: Fixed potential integer overflow in hash container create/resize (#1813) (bsc#1237543).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLE-Micro-6.0-565",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libabsl2308_0_0-20230802.3-1.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620268-1/",
+      "Description": "Link for SUSE-SU-2026:20268-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024209.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20268-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1237543",
+      "Description": "SUSE Bug 1237543"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-0838/",
+      "Description": "SUSE CVE CVE-2025-0838 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-0838",
+      "Description": "There exists a heap buffer overflow vulnerable in Abseil-cpp. The sized constructors, reserve(), and rehash() methods of absl::{flat,node}hash{set,map} did not impose an upper bound on their size argument. As a result, it was possible for a caller to pass a very large size that would cause an integer overflow when computing the size of the container's backing store, and a subsequent out-of-bounds memory write. Subsequent accesses to the container might also access out-of-bounds memory. We recommend upgrading past commit 5a0e2cb5e3958dd90bb8569a2766622cb74d90c1",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-0838.html",
+          "Description": "CVE-2025-0838"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1237543",
+          "Description": "SUSE Bug 1237543"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Micro 6.0:libabsl2308_0_0-20230802.3-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

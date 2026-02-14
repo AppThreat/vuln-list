@@ -1,0 +1,119 @@
+{
+  "Title": "Security update for cargo-auditable",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0514-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-13T14:57:18Z",
+    "CurrentReleaseDate": "2026-02-13T14:57:18Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-13T14:57:18Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for cargo-auditable",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for cargo-auditable fixes the following issues:\n\nUpdate to version 0.7.2~0.\n\nSecurity issues fixed:\n\n- CVE-2026-25727: parsing of user-provided input by the RFC 2822 date parser can lead to stack exhaustion\n  (bsc#1257906).\n\nOther updates and bugfixes:\n\n- Update to version 0.7.2~0:\n\n  * mention cargo-dist in README\n  * commit Cargo.lock\n  * bump which dev-dependency to 8.0.0\n  * bump object to 0.37\n  * Upgrade cargo_metadata to 0.23\n  * Expand the set of dist platforms in config\n\n- Update to version 0.7.1~0:\n\n  * Out out of unhelpful clippy lint\n  * Satisfy clippy\n  * Do not assume --crate-name and --out-dir are present in the rustc command, but show warnings if they aren't\n  * Run apt-get update before trying to install packages\n  * run `cargo dist init` on dist 0.30\n  * Drop allow-dirty from dist config, should no longer be needed\n  * Reorder paragraphs in README\n  * Note the maintenance transition for the go extraction library\n  * Editing pass on the adopters: scanners\n  * clarify Docker support\n  * Cargo clippy fix\n  * Add Wolfi OS and Chainguard to adopters\n  * Update mentions around Anchore tooling\n  * README and documentation updates for nightly\n  * Bump dependency version in rust-audit-info\n  * More work on docs\n  * Nicer formatting on format revision documentation\n  * Bump versions\n  * regenerate JSON schema\n  * cargo fmt\n  * Document format field\n  * Make it more clear that RawVersionInfo is private\n  * Add format field to the serialized data\n  * cargo clippy fix\n  * Add special handling for proc macros to treat them as the build dependencies they are\n  * Add a test to ensure proc macros are reported as build dependencies\n  * Add a test fixture for a crate with a proc macro dependency\n  * parse fully qualified package ID specs from SBOMs\n  * select first discovered SBOM file\n  * cargo sbom integration\n  * Get rid of unmaintained wee_alloc in test code to make people's scanners misled by GHSA chill out\n  * Don't fail plan workflow due to manually changed release.yml\n  * Bump Ubuntu version to hopefully fix release.yml workflow\n  * Add test for stripped binary\n  * Bump version to 0.6.7\n  * Populate changelog\n  * README.md: add auditable2cdx, more consistency in text\n  * Placate clippy\n  * Do not emit -Wl if a bare linker is in use\n  * Get rid of a compiler warning\n  * Add bare linker detection function\n  * drop boilerplate from test that's no longer relevant\n  * Add support for recovering rustc codegen options\n  * More lenient parsing of rustc arguments\n  * More descriptive error message in case rustc is killed abruptly\n  * change formatting to fit rustfmt\n  * More descriptive error message in case cargo is killed\n  * Update REPLACING_CARGO.md to fix #195\n  * Clarify osv-scanner support in README\n  * Include the command required to view metadata\n  * Mention wasm-tools support\n  * Switch from broken generic cache action to a Rust-specific one\n  * Fill in various fields in auditable2cdx Cargo.toml\n  * Include osv-scanner in the list, with a caveat\n  * Add link to blint repo to README\n  * Mention that blint supports our data\n  * Consolidate target definitions\n  * Account for WASM test dependencies changing, commit the Cargo.lock so they would stop doing that\n  * Migrate to a maintained toolchain action\n  * Fix author specification\n  * Add link to repository to resolverver Cargo.toml\n  * Bump resolverver to 0.1.0\n  * Add resolverver crate to the tree\n\n- Update to version 0.6.6~0:\n\n  * Note the `object` upgrade in the changelog\n  * Upgrade cyclonedx-bom from 0.5 to 0.8 in auditable-cyclonedx\n  * Upgrade object crate from 0.30 to 0.36 to reduce dependency footprint\n  * Update dependencies in the lock file\n  * Populate changelog\n  * apply clippy lint\n  * add another --emit parsing test\n  * shorter code with cargo fmt\n  * Actually fix cargo-c compatibility\n  * Attempt to fix cargo-capi incompatibility\n  * Refactoring in preparation for fixes\n  * Also read the --emit flag to rustc\n  * Fill in changelogs\n  * Bump versions\n  * Drop cfg'd out tests\n  * Drop obsolete doc line\n  * Move dependency cycle tests from auditable-serde to cargo-auditable crate\n  * Remove cargo_metadata from auditable-serde API surface.\n  * Apply clippy lint\n  * Upgrade miniz_oxide to 0.8.0\n  * Insulate our semver from miniz_oxide semver\n  * Add support for Rust 2024 edition\n  * Update tests\n  * More robust OS detection for riscv feature detection\n  * bump version\n  * update changelog for auditable-extract 0.3.5\n  * Fix wasm component auditable data extraction\n  * Update blocker description in README.md\n  * Add openSUSE to adopters\n  * Update list of know adopters\n  * Fix detection of `riscv64-linux-android` target features\n  * Silence noisy lint\n  * Bump version requirement in rust-audit-info\n  * Fill in changelogs\n  * Bump semver of auditable-info\n  * Drop obsolete comment now that wasm is enabled by default\n  * Remove dependency on cargo-lock\n  * Brag about adoption in the README\n  * Don't use LTO for cargo-dist builds to make them consistent with `cargo install` etc\n  * Also build musl binaries\n  * dist: update dist config for future releases\n  * dist(cargo-auditable): ignore auditable2cdx for now\n  * chore: add cargo-dist\n\n- Update to version 0.6.4~0:\n\n  * Release cargo-auditable v0.6.4\n  * Correctly attribute changelog file addition in changelog\n  * Add changelog for auditable-extract\n  * Verify various feature combinations in CI\n  * Upgrade wasmparser to remove dependencies with `unsafe`\n  * Add LoongArch support\n  * cargo fmt\n  * Move doc headers to README.md and point rustdoc to them, so that we have nice crates.io pages\n  * Expand on the note about WebAssembly parsing\n  * Populate changelogs\n  * Resume bragging about all dependencies being safe, now that there is a caveat below\n  * drop fuzz Cargo.lock to always fuzz against latest versions\n  * Bump `cargo auditable` version\n  * Mention WASM support in README\n  * Revert 'Be super duper extra sure both MinGW and MSVC are tested on CI'\n  * Be super duper extra sure both MinGW and MSVC are tested on CI\n  * Add wasm32 targets to CI for more platforms\n  * Don't pass --target twice in tests\n  * Install WASM toolchain in CI\n  * cargo fmt\n  * Add WASM end-to-end test\n  * cargo fmt\n  * Update documentation to mention the WASM feature\n  * cargo fmt\n  * Plumb WASM parsing feature through the whole stack\n  * Make WASM parsing an optional, non-default feature\n  * Add a fuzzing harness for WASM parsing\n  * Rewritten WASM parsing to avoid heap allocations\n  * Initial WASM extraction support\n  * Nicer assertion\n  * Drop obsolete comment\n  * Clarify that embedding the compiler version has shipped.\n  * Fixed section name for WASM\n  * Unified and more robust platform detection. Fixed wasm build process\n  * Initial WASM support\n  * More robust platform detection for picking the binary format\n  * Fix Windows CI to run both -msvc and -gnu\n  * Use the correct link.exe flag for preserving the specified symbol even if it is unused\n  * Fix Windows\n  * Fix tests on Rust 1.77\n  * Placate clippy\n  * Oopps, I meant components field\n  * Also remove the dependencies field if empty\n  * Use serde_json with order preservation feature to get a more compressible JSON after workarounds\n  * Work around cyclonedx-bom limitations to produce minified JSON\n  * Also record the dependency kind\n  * cyclonedx-bom: also record PURL\n  * Also write the dependency tree\n  * Clear the serial number in the minimal CycloneDX variant\n  * Prototype impl of auditable2cdx\n  * Fill in auditable2cdx dependencies\n  * Initial auditable2cdx boilerplace\n  * add #![forbid(unsafe_code)]\n  * Initial implementation of auditable-to-cyclonedx conversion\n  * Add the necessary dependencies to auditable-cyclonedx\n  * Initial dummy package for auditable-cyclonedx\n\n- Update to version 0.6.2~0:\n\n  * Update the lockfile\n  * New releases of cargo-auditable and auditable-serde\n  * Use a separate project for the custom rustc path tests. Fixes intermittent test failures due to race conditions\n  * Revert 'add commit hashes to git sources'\n  * Fix cyclic dependency graph being encoded\n  * Revert 'An unsuccessful attempt to fix cycles caused by dev-dependencies'\n  * An unsuccessful attempt to fix cycles caused by dev-dependencies\n  * Fix typo\n  * Add comment\n  * Add a test for an issue with cyclic dependencies reported at https://github.com/rustsec/rustsec/issues/1043\n  * Fix auditable-serde example not building\n  * upgrade dependency miniz_oxide to 0.6.0\n  * fix formatting errors\n  * apply clippy lints for --all-features\n  * improve the internal docs and comments\n  * apply clippy lints\n  * add missing sources for one of test fixtures\n  * add commit hashes to git sources\n  * Run all tests on CI\n  * cargo fmt\n  * Run `cargo clean` in tests to get rid of stale binaries\n  * Fix date in changelog\n  * Populate changelog\n  * Bump auditable-info version in rust-audit-info\n  * Add auditable-info changelog\n  * Bump versions following cargo-lock bump\n  * auditable-serde: bump `cargo-lock` to v9\n  * switch to UNRELEASED\n  * Update CHANGELOG.md\n  * Print a better error if calling rustc fails\n  * Drop unused import\n  * placate Clippy\n  * Don't inject audit info if --print argument is passed to rustc\n  * Reflect the version change in Cargo.lock\n  * Remove space from keywords\n  * bump version to 0.6.1\n  * Fix date in changelog\n  * Update CHANGELOG.md\n  * Add publish=false\n  * Commit the generated manpage\n  * Add the code for generating a manpage; rather rudimentary so far, but it's a starting point\n  * Explain relation to supply chain attacks\n  * Add keywords to the Cargo manifest\n  * Revert 'generate a man page for cargo auditable'\n  * fix formatting\n  * fix review feedback, relocate file to under OUT_DIR, don't use anyhow and also commit the lock file\n  * generate a man page for cargo auditable\n  * Add Clippy suppression\n  * placate clippy\n  * commit Cargo.lock\n  * Sync to latest object file writing code from rustc\n  * Fix examples in docs\n  * Allow redundant field names\n  * Apply clippy suggestion: match -\u003e if let\n  * Check for clippy and format in CI\n  * Apply clippy suggestions\n  * Run CI with --locked\n\n- Update to version 0.6.0~0:\n\n  * README and documentation improvements \n  * Read the rustc path passed by Cargo; fixes #90\n  * Read location of Cargo from the environment variable Cargo sets for third-party subcommands\n  * Add a note on sccache version compatibility to CHANGELOG.md\n  * Panic on compilation commands where we fail to parse the arguments instead of silently ignoring the error\n  * Specifying the binary-scanning feature is no longer needed\n  * Pass options such as --offline to `cargo metadata`\n  * Pass on arguments from `cargo auditable` invocation to the rustc wrapper; prep work towards fixing #83\n  * Bump rust-audit-info to 0.5.2\n  * Bump auditable-serde version to 0.5.2\n  * Correctly fill in the source even in dependency entries when converting to cargo-lock data format\n  * Drop the roundtrip through str in semver::Version\n  * Release auditable-info 0.6.1\n  * Bump all the version requirements for things depending on auditable-info\n  * Fix audit_info_from_slice function signature\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-514,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2026-514,SUSE-SLE-Product-HPC-15-SP4-LTSS-2026-514,SUSE-SLE-Product-SLES-15-SP4-LTSS-2026-514,SUSE-SLE-Product-SLES_SAP-15-SP4-2026-514",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "cargo-auditable-0.7.2~0-150300.7.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "cargo-auditable-0.7.2~0-150300.7.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "cargo-auditable-0.7.2~0-150300.7.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "cargo-auditable-0.7.2~0-150300.7.6.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260514-1/",
+      "Description": "Link for SUSE-SU-2026:0514-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024235.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0514-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257906",
+      "Description": "SUSE Bug 1257906"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-25727/",
+      "Description": "SUSE CVE CVE-2026-25727 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2026-25727",
+      "Description": "time provides date and time handling in Rust. From 0.3.6 to before 0.3.47, when user-provided input is provided to any type that parses with the RFC 2822 format, a denial of service attack via stack exhaustion is possible. The attack relies on formally deprecated and rarely-used features that are part of the RFC 2822 format used in a malicious manner. Ordinary, non-malicious input will never encounter this scenario. A limit to the depth of recursion was added in v0.3.47. From this version, an error will be returned rather than exhausting the stack.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-25727.html",
+          "Description": "CVE-2026-25727"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257901",
+          "Description": "SUSE Bug 1257901"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cargo-auditable-0.7.2~0-150300.7.6.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cargo-auditable-0.7.2~0-150300.7.6.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cargo-auditable-0.7.2~0-150300.7.6.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cargo-auditable-0.7.2~0-150300.7.6.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
