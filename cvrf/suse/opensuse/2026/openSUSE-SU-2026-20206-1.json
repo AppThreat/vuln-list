@@ -1,0 +1,130 @@
+{
+  "Title": "Security update for kepler",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20206-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-13T08:53:10Z",
+    "CurrentReleaseDate": "2026-02-13T08:53:10Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-13T08:53:10Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for kepler",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for kepler fixes the following issues:\n\nUpdate to version 0.11.3.\n\nSecurity issues fixed:\n\n- CVE-2025-47911: golang.org/x/net/html: quadratic complexity algorithms used when parsing untrusted HTML documents\n  (bsc#1251427).\n- CVE-2025-58190: golang.org/x/net/html: excessive memory consumption by `html.ParseFragment` when processing specially\n  crafted input (bsc#1251632).\n\nOther updates and bugfixes:\n\n- Version 0.11.2:\n  * Fix: Fix node power metrics for Virtual Machines.\n  * Fix: Resolve an issue with pod energy metrics when a container has no usage.\n\n- Version 0.11.1:\n  * Fix: Added missing serviceaccount in the Helm chart.\n\n- Version 0.11.0:\n  * Feature: Added support for platform power metrics (AC).\n  * Feature: Introduced experimental support for trained power models.\n  * Fix: Improved the accuracy of power estimation for Virtual Machines.\n  * Breaking Change: Metrics related to `kepler_vm_` have been refactored.\n\n- Version 0.10.1:\n  * Feature: Added support for the ARM64 architecture.\n  * Fix: Addressed issues when running on Virtual Machines without RAPL.\n  * Fix: Includes several other bug fixes and stability improvements.\n\n- Version 0.10.0:\n  * Breaking Change: This is a major rewrite with significant architectural changes.\n  * Breaking Change: Legacy versions (0.9.0 and earlier) are now frozen, with no new features or bug fixes.\n  * Breaking Change: The configuration format has been updated.\n  * Breaking Change: The Kepler Model Server is not compatible with this version and above.\n  * Feature: New modular architecture for better extensibility.\n  * Feature: Enhanced performance and accuracy with dynamic detection of RAPL zones.\n  * Feature: Reduced security requirements, no longer needing CAP_SYS_ADMIN or CAP_BPF capabilities.\n  * Fix: Significantly reduced resource usage.\n\n- Version 0.9.0:\n  * Note: This is the final legacy release.\n  * Feature: Added support for GPU power monitoring.\n  * Feature: Introduced a model server for training power models.\n\n- Version 0.8.2:\n  * Fix: Addressed a bug in RAPL power calculation on multi-socket systems.\n\n- Version 0.8.1:\n  * Fix: This version includes multiple bug fixes and stability improvements.\n\n- Version 0.8.0:\n  * Feature: Introduced a new estimator framework.\n  * Breaking Change: The API is backward incompatible with previous versions.\n\n- Version 0.7.12:\n  * Fix: This version includes multiple bug fixes and stability improvements.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-261",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "kepler-0.11.3-160000.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251427",
+      "Description": "SUSE Bug 1251427"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251632",
+      "Description": "SUSE Bug 1251632"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-47911/",
+      "Description": "SUSE CVE CVE-2025-47911 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-58190/",
+      "Description": "SUSE CVE CVE-2025-58190 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-47911",
+      "Description": "The html.Parse function in golang.org/x/net/html has quadratic parsing complexity when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-47911.html",
+          "Description": "CVE-2025-47911"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1251308",
+          "Description": "SUSE Bug 1251308"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:kepler-0.11.3-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-58190",
+      "Description": "The html.Parse function in golang.org/x/net/html has an infinite parsing loop when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-58190.html",
+          "Description": "CVE-2025-58190"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1251309",
+          "Description": "SUSE Bug 1251309"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:kepler-0.11.3-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
