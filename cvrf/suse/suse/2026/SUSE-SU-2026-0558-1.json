@@ -1,0 +1,467 @@
+{
+  "Title": "Security update for libnvidia-container",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0558-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-16T11:42:25Z",
+    "CurrentReleaseDate": "2026-02-16T11:42:25Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-16T11:42:25Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for libnvidia-container",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for libnvidia-container fixes the following issues:\n\nUpdate to version 1.18.0.\n\nSecurity issues fixed:\n\n- CVE-2024-0132: time-of-check time-of-use (TOCTOU) race condition in default configuration via specifically\n  crafted container image (bsc#1231033).\n- CVE-2024-0133: data tampering in host file system via specially crafted container image (bsc#1231032).\n\nOther updates and bugfixes:\n\n- updated to 1.18.0\n  \n  - Add clock_gettime to allowed syscalls\n  - Fix pointer accessing local variable out of scope\n  - Require version match between libnvidia-container-tools and libnvidia-container1\n  - Add libnvidia-gpucomp.so to the list of compute libs\n  - Use VERSION_ prefix for version parts in makefiles\n  - Add additional logging\n  - Do not discard container flags when --cuda-compat-mode is not specified\n  - Remove unneeded --no-cntlibs argument from list command\n  - Add cuda-compat-mode flag to configure command\n  - Skip files when user has insufficient permissions\n  - Fix building with Go 1.24\n  - Add no-cntlibs CLI option to nvidia-container-cli\n  - Fix always using fallback\n  - Add fallback for systems without memfd_create()\n  - Create virtual copy of host ldconfig binary before calling fexecve()\n  - Fix some typos in text.\n\n- update nvidia modprobe to expected 550.54.14.\n- remove services\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-558,SUSE-SLE-Module-Containers-15-SP7-2026-558,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2026-558,SUSE-SLE-Product-HPC-15-SP4-LTSS-2026-558,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2026-558,SUSE-SLE-Product-HPC-15-SP5-LTSS-2026-558,SUSE-SLE-Product-SLES-15-SP4-LTSS-2026-558,SUSE-SLE-Product-SLES-15-SP5-LTSS-2026-558,SUSE-SLE-Product-SLES-15-SP6-LTSS-2026-558,SUSE-SLE-Product-SLES_SAP-15-SP4-2026-558,SUSE-SLE-Product-SLES_SAP-15-SP5-2026-558,SUSE-SLE-Product-SLES_SAP-15-SP6-2026-558,openSUSE-SLE-15.6-2026-558",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for Containers 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-devel-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-static-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container-tools-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libnvidia-container1-1.18.0-150200.5.9.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260558-1/",
+      "Description": "Link for SUSE-SU-2026:0558-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024273.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0558-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1231032",
+      "Description": "SUSE Bug 1231032"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1231033",
+      "Description": "SUSE Bug 1231033"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-0132/",
+      "Description": "SUSE CVE CVE-2024-0132 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-0133/",
+      "Description": "SUSE CVE CVE-2024-0133 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-0132",
+      "Description": "NVIDIA Container Toolkit 1.16.1 or earlier contains a Time-of-check Time-of-Use (TOCTOU) vulnerability when used with default configuration where a specifically crafted container image may gain access to the host file system. This does not impact use cases where CDI is used. A successful exploit of this vulnerability may lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-0132.html",
+          "Description": "CVE-2024-0132"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1231033",
+          "Description": "SUSE Bug 1231033"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container1-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container1-1.18.0-150200.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-0133",
+      "Description": "NVIDIA Container Toolkit 1.16.1 or earlier contains a vulnerability in the default mode of operation allowing a specially crafted container image to create empty files on the host file system. This does not impact use cases where CDI is used. A successful exploit of this vulnerability may lead to data tampering.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-0133.html",
+          "Description": "CVE-2024-0133"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1231032",
+          "Description": "SUSE Bug 1231032"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libnvidia-container1-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libnvidia-container1-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-devel-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-static-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container-tools-1.18.0-150200.5.9.1",
+            "openSUSE Leap 15.6:libnvidia-container1-1.18.0-150200.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

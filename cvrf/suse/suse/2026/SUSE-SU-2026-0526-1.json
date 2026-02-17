@@ -1,0 +1,236 @@
+{
+  "Title": "Security update for the Linux Kernel (Live Patch 35 for SUSE Linux Enterprise 15 SP4)",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0526-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-14T19:33:43Z",
+    "CurrentReleaseDate": "2026-02-14T19:33:43Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-14T19:33:43Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for the Linux Kernel (Live Patch 35 for SUSE Linux Enterprise 15 SP4)",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "\nThis update for the SUSE Linux Enterprise kernel 5.14.21-150400.24.147 fixes various security issues\n\nThe following security issues were fixed:\n\n- CVE-2023-53321: wifi: mac80211_hwsim: drop short frames (bsc#1250314).\n- CVE-2025-38111: net/mdiobus: Fix potential out-of-bounds read/write access (bsc#1249455).\n- CVE-2025-38352: posix-cpu-timers: fix race between handle_posix_cpu_timers() and posix_cpu_timer_del() (bsc#1249205).\n- CVE-2025-39742: RDMA: hfi1: fix possible divide-by-zero in find_hw_thread_mask() (bsc#1249480).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-526,SUSE-SLE-Module-Live-Patching-15-SP4-2026-526",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "kernel-livepatch-5_14_21-150400_24_147-default-19-150400.2.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Live Patching 15 SP4",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260526-1/",
+      "Description": "Link for SUSE-SU-2026:0526-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024253.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0526-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249205",
+      "Description": "SUSE Bug 1249205"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249455",
+      "Description": "SUSE Bug 1249455"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249480",
+      "Description": "SUSE Bug 1249480"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1250314",
+      "Description": "SUSE Bug 1250314"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2023-53321/",
+      "Description": "SUSE CVE CVE-2023-53321 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-38111/",
+      "Description": "SUSE CVE CVE-2025-38111 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-38352/",
+      "Description": "SUSE CVE CVE-2025-38352 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-39742/",
+      "Description": "SUSE CVE CVE-2025-39742 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2023-53321",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mac80211_hwsim: drop short frames\n\nWhile technically some control frames like ACK are shorter and\nend after Address 1, such frames shouldn't be forwarded through\nwmediumd or similar userspace, so require the full 3-address\nheader to avoid accessing invalid memory if shorter frames are\npassed in.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2023-53321.html",
+          "Description": "CVE-2023-53321"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1250313",
+          "Description": "SUSE Bug 1250313"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1250314",
+          "Description": "SUSE Bug 1250314"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Live Patching 15 SP4:kernel-livepatch-5_14_21-150400_24_147-default-19-150400.2.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-38111",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/mdiobus: Fix potential out-of-bounds read/write access\n\nWhen using publicly available tools like 'mdio-tools' to read/write data\nfrom/to network interface and its PHY via mdiobus, there is no verification of\nparameters passed to the ioctl and it accepts any mdio address.\nCurrently there is support for 32 addresses in kernel via PHY_MAX_ADDR define,\nbut it is possible to pass higher value than that via ioctl.\nWhile read/write operation should generally fail in this case,\nmdiobus provides stats array, where wrong address may allow out-of-bounds\nread/write.\n\nFix that by adding address verification before read/write operation.\nWhile this excludes this access from any statistics, it improves security of\nread/write operation.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-38111.html",
+          "Description": "CVE-2025-38111"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1245666",
+          "Description": "SUSE Bug 1245666"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1249455",
+          "Description": "SUSE Bug 1249455"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Live Patching 15 SP4:kernel-livepatch-5_14_21-150400_24_147-default-19-150400.2.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-38352",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nposix-cpu-timers: fix race between handle_posix_cpu_timers() and posix_cpu_timer_del()\n\nIf an exiting non-autoreaping task has already passed exit_notify() and\ncalls handle_posix_cpu_timers() from IRQ, it can be reaped by its parent\nor debugger right after unlock_task_sighand().\n\nIf a concurrent posix_cpu_timer_del() runs at that moment, it won't be\nable to detect timer-\u003eit.cpu.firing != 0: cpu_timer_task_rcu() and/or\nlock_task_sighand() will fail.\n\nAdd the tsk-\u003eexit_state check into run_posix_cpu_timers() to fix this.\n\nThis fix is not needed if CONFIG_POSIX_CPU_TIMERS_TASK_WORK=y, because\nexit_task_work() is called before exit_notify(). But the check still\nmakes sense, task_work_add(\u0026tsk-\u003eposix_cputimers_work.work) will fail\nanyway in this case.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-38352.html",
+          "Description": "CVE-2025-38352"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1246911",
+          "Description": "SUSE Bug 1246911"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1249205",
+          "Description": "SUSE Bug 1249205"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Live Patching 15 SP4:kernel-livepatch-5_14_21-150400_24_147-default-19-150400.2.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-39742",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA: hfi1: fix possible divide-by-zero in find_hw_thread_mask()\n\nThe function divides number of online CPUs by num_core_siblings, and\nlater checks the divider by zero. This implies a possibility to get\nand divide-by-zero runtime error. Fix it by moving the check prior to\ndivision. This also helps to save one indentation level.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-39742.html",
+          "Description": "CVE-2025-39742"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1247374",
+          "Description": "SUSE Bug 1247374"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1249479",
+          "Description": "SUSE Bug 1249479"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1249480",
+          "Description": "SUSE Bug 1249480"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1253291",
+          "Description": "SUSE Bug 1253291"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Live Patching 15 SP4:kernel-livepatch-5_14_21-150400_24_147-default-19-150400.2.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
