@@ -1,0 +1,129 @@
+{
+  "Title": "mupdf-1.27.1-1.1 on GA media",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:10214-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-17T00:00:00Z",
+    "CurrentReleaseDate": "2026-02-17T00:00:00Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-17T00:00:00Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "mupdf-1.27.1-1.1 on GA media",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "These are all security issues fixed in the mupdf-1.27.1-1.1 package on the GA media of openSUSE Tumbleweed.",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Tumbleweed-2026-10214",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "mupdf-1.27.1-1.1",
+        "RelatesToProductReference": "openSUSE Tumbleweed",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mupdf-devel-static-1.27.1-1.1",
+        "RelatesToProductReference": "openSUSE Tumbleweed",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-55780/",
+      "Description": "SUSE CVE CVE-2025-55780 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-25556/",
+      "Description": "SUSE CVE CVE-2026-25556 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-55780",
+      "Description": "A null pointer dereference occurs in the function break_word_for_overflow_wrap() in MuPDF 1.26.4 when rendering a malformed EPUB document. Specifically, the function calls fz_html_split_flow() to split a FLOW_WORD node, but does not check if node-\u003enext is valid before accessing node-\u003enext-\u003eoverflow_wrap, resulting in a crash if the split fails or returns a partial node chain.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-55780.html",
+          "Description": "CVE-2025-55780"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1250443",
+          "Description": "SUSE Bug 1250443"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:mupdf-1.27.1-1.1",
+            "openSUSE Tumbleweed:mupdf-devel-static-1.27.1-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-25556",
+      "Description": "MuPDF versions 1.23.0 through 1.27.0 contain a double-free vulnerability in fz_fill_pixmap_from_display_list() when an exception occurs during display list rendering. The function accepts a caller-owned fz_pixmap pointer but incorrectly drops the pixmap in its error handling path before rethrowing the exception. Callers (including the barcode decoding path in fz_decode_barcode_from_display_list) also drop the same pixmap in cleanup, resulting in a double-free that can corrupt the heap and crash the process. This issue affects applications that enable and use MuPDF barcode decoding and can be triggered by processing crafted input that causes a rendering-time error while decoding barcodes.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-25556.html",
+          "Description": "CVE-2026-25556"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257944",
+          "Description": "SUSE Bug 1257944"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Tumbleweed:mupdf-1.27.1-1.1",
+            "openSUSE Tumbleweed:mupdf-devel-static-1.27.1-1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

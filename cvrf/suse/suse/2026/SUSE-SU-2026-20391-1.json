@@ -1,0 +1,109 @@
+{
+  "Title": "Security update for the Linux Kernel (Live Patch 5 for SUSE Linux Enterprise Micro 6.0)",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20391-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-01-29T10:42:53Z",
+    "CurrentReleaseDate": "2026-01-29T10:42:53Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-01-29T10:42:53Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for the Linux Kernel (Live Patch 5 for SUSE Linux Enterprise Micro 6.0)",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "\nThis update for the SUSE Linux Enterprise kernel 6.4.0-25.1 fixes one security issue\n\nThe following security issue was fixed:\n\n- CVE-2025-38588: ipv6: prevent infinite loop in rt6_nlmsg_size() (bsc#1249241).\n\nThe following non security issue was fixed:\n\n- fix addr_bit_set() issue on big-endian machines (bsc#1256928).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLE-Micro-6.1-kernel-255",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "kernel-livepatch-6_4_0-25-default-14-1.2",
+        "RelatesToProductReference": "SUSE Linux Micro 6.1",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620391-1/",
+      "Description": "Link for SUSE-SU-2026:20391-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024301.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20391-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249241",
+      "Description": "SUSE Bug 1249241"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256928",
+      "Description": "SUSE Bug 1256928"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-38588/",
+      "Description": "SUSE CVE CVE-2025-38588 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-38588",
+      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: prevent infinite loop in rt6_nlmsg_size()\n\nWhile testing prior patch, I was able to trigger\nan infinite loop in rt6_nlmsg_size() in the following place:\n\nlist_for_each_entry_rcu(sibling, \u0026f6i-\u003efib6_siblings,\n\t\t\tfib6_siblings) {\n\trt6_nh_nlmsg_size(sibling-\u003efib6_nh, \u0026nexthop_len);\n}\n\nThis is because fib6_del_route() and fib6_add_rt2node()\nuses list_del_rcu(), which can confuse rcu readers,\nbecause they might no longer see the head of the list.\n\nRestart the loop if f6i-\u003efib6_nsiblings is zero.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-38588.html",
+          "Description": "CVE-2025-38588"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1248368",
+          "Description": "SUSE Bug 1248368"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1249241",
+          "Description": "SUSE Bug 1249241"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Micro 6.1:kernel-livepatch-6_4_0-25-default-14-1.2"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
