@@ -1,0 +1,113 @@
+{
+  "Title": "Security update for libpcap",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0575-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-18T09:10:46Z",
+    "CurrentReleaseDate": "2026-02-18T09:10:46Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-18T09:10:46Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for libpcap",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for libpcap fixes the following issues:\n\n- CVE-2025-11961: missing validation of provided MAC-48 address string in `pcap_ether_aton()` can lead to out-of-bounds\n  read and write (bsc#1255765).\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-575,SUSE-SLE-Micro-5.3-2026-575,SUSE-SLE-Micro-5.4-2026-575,SUSE-SLE-Micro-5.5-2026-575",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libpcap1-1.10.1-150400.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.3",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpcap1-1.10.1-150400.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.4",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpcap1-1.10.1-150400.3.9.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.5",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260575-1/",
+      "Description": "Link for SUSE-SU-2026:0575-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024350.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0575-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255765",
+      "Description": "SUSE Bug 1255765"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-11961/",
+      "Description": "SUSE CVE CVE-2025-11961 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-11961",
+      "Description": "pcap_ether_aton() is an auxiliary function in libpcap, it takes a string argument and returns a fixed-size allocated buffer.  The string argument must be a well-formed MAC-48 address in one of the supported formats, but this requirement has been poorly documented.  If an application calls the function with an argument that deviates from the expected format, the function can read data beyond the end of the provided string and write data beyond the end of the allocated buffer.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "low"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-11961.html",
+          "Description": "CVE-2025-11961"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255765",
+          "Description": "SUSE Bug 1255765"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Micro 5.3:libpcap1-1.10.1-150400.3.9.1",
+            "SUSE Linux Enterprise Micro 5.4:libpcap1-1.10.1-150400.3.9.1",
+            "SUSE Linux Enterprise Micro 5.5:libpcap1-1.10.1-150400.3.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

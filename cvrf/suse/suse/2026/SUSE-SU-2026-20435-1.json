@@ -1,0 +1,257 @@
+{
+  "Title": "Security update for fontforge",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20435-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-14T21:30:08Z",
+    "CurrentReleaseDate": "2026-02-14T21:30:08Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-14T21:30:08Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for fontforge",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for fontforge fixes the following issues:\n\nUpdate to version 20251009.\n\nSecurity issues fixed:\n\n- CVE-2025-15279: remote code execution via heap-based buffer overflow in BMP file parsing (bsc#1256013).\n- CVE-2025-15269: remote code execution via use-after-free in SFD file parsing (bsc#1256032).\n- CVE-2025-15275: arbitrary code execution via SFD file parsing buffer overflow (bsc#1256025).\n- CVE-2025-50949: memory leak in function DlgCreate8 (bsc#1252652).\n\nOther updates and bugfixes:\n\n- fix multiple crashes in Multiple Masters.\n- fix crash for content over 32767 characters in GDraw multiline text field.\n- fix crash on Up/Down\n- fix crash in Metrics View.\n- fix UFO crash for empty contours.\n- fix crash issue in allmarkglyphs.\n\n- Version update to 20251009:\n\n  * Update documentation for py scripts (#5180)\n  * Update GitHub CI runners (#5328)\n  * Update po files from Croudin sources. (#5330)\n  * Use consistent Python in MacOS GitHub runner (#5331)\n  * Fix CI for Windows GitHub runner (#5335)\n  * Fix lookup flags parsing (#5338)\n  * Fixes (#5332): glyph file names uXXXXX (#5333)\n  * make harmonization robust and avoid zero handles after harmonization (#5262)\n  * Quiet strict prototypes warnings. (#5313)\n  * Fix crash in parsegvar() due to insufficient buffer (#5339)\n  * Handle failed iconv conversion. Unhandled execution path was UB, causing a segfault for me (#5329)\n  * Fix CMake function _get_git_version() (#5342)\n  * Don't require individual tuple encapsulation in fontforge.font.bitmapSizes setter (#5138)\n  * nltransform of anchor points (#5345)\n  * Fix generateFontPostHook being called instead of generateFontPreHook (#5226)\n  * Always set usDefaultChar to 0 (.notdef) (#5242)\n  * add font attributes, method to Python docs (#5353)\n  * fix segfault triggered by Python del c[i:j] (#5352)\n  * Autoselect internal WOFF2 format (#5346)\n  * Fix typos in the FAQ (#5355)\n  * add font.style_set_names attribute to Python API (#5354)\n  * Bulk tester (#5365)\n  * Fix Splinefont shell invocation (#5367)\n  * Fix the lists of Windows language IDs (#5359)\n  * Support suplementary planes in SFD (emojis etc.) (#5364)\n  * Remove psaltnames for multi-code-point names (#5305)\n  * doc: added missing sudo to installation instructions (#5300)\n  * Fix data corruption on SFD reading (#5380)\n  * Compare vertical metrics check when generating TTC (#5372)\n  * Treat FT_PIXEL_MODE_MONO as 2 grey levels (#5379)\n  * Don't attempt to copy anchors into NULL font (#5405)\n  * Fix export of supplementary plane characters in font name to TTF (#5396)\n  * Defer crowdin update to the end of the pipeline (#5409)\n  * Fix generated feature file bugs (#5384)\n  * crowdin: update to java 17 (#5447)\n  * Remove assert from Python script processor (#5410)\n  * Use sysconfig for Python module locations (#5423)\n  * Use PyConfig API on Python 3.8 (#5404)\n  * Fix resource leak in unParseTTInstrs (#5476)\n  * Only install GUI-specific files if ENABLE_GUI is set (#5451)\n  * add math device tables to Python API (#5348)\n  * Update CI runner to macOS 13 (#5482)\n  * Allow hyphen and special characters in Feature File glyph names (#5358)\n  * Fix Python font.appendSFNTName() function (#5494)\n  * Update mm.c (#5386)\n  * Warning rollup (probably some hidden bugs!) from clang trunk (#5492)\n  * Fix function PyFFFont_addSmallCaps. (#5519)\n  * Make SmallCaps() create symbols (#5517)\n  * Segfault fix and complete implementation of \"Don't generate FFTM tables\" (#5509)\n  * Modernize fixed pitch flag computation (#5506)\n  * fix memleak in function utf7toutf8_copy (#5495)\n  * Avoid crashes in Python scripts when objects are accessed in invalid state (#5483)\n  * Fix CI for Ubuntu 24 (#5531)\n  * Bump GitHub CI runner to Ubuntu 22 (#5551)\n  * Fix memory corruption in SFUnicodeRanges() (#5537)\n  * Add contour draw option to H.Metrics. (#5496)\n  * Fix scaling of references in CharView (#5558)\n  * Fix TTF validation on load for fixed pitch fonts (#5562)\n  * Performance fixes for GSUB/GPOS dumps (#5547)\n  * Simple GTK-based dialog with CSS appearance support (#5546)\n  * Support Harfbuzz in Metrics View (#5522)\n  * Update po files from crowdin translations (#5575)\n  * Be more clever about label text in gtextfield (#5583)\n  * Add minimal support for GDEF version 1.3 (#5584)\n  * Sanitize messages from python (#5589)\n  * Fix a crash caused by deleting a glyph with vertical kerning pairs. (#5592)\n  * THEME -\u003e GUI_THEME (#5596)\n  * Update po translations from Crowdin (#5593)\n  * Upgrade to Unicode 16.0.0 (#5594)\n  * Fix Linux AppImage (#5599)\n  * Upgrade to Unicode 17.0.0 and extend the language and script lists (#5618)\n  * Remove X11 and non-Cairo drawing backends (#5612)\n  * Add macOS dependency setup script (#5563)\n  * Fix hotkeys in BitmapView (#5626)\n  * Manually install Inno Setup 6 (#5621)\n  * Remove cv-\u003eback_img_out_of_date and cv-\u003ebackimgs (#5625)\n  * fix spelling \"bt\" -\u003e \"but\" (#5636)\n  * Fix typos in Python module docs (#5634)\n\n- Version update to 20230101+git59.770356c9b:\n\n  * Add contour draw option to H.Metrics. (#5496)\n  * Fix memory corruption in SFUnicodeRanges() (#5537)\n  * Bump GitHub CI runner to Ubuntu 22 (#5551)\n  * Fix CI for Ubuntu 24 (#5531)\n  * Avoid crashes in Python scripts when objects are accessed in\n    invalid state (#5483)\n  * fix memleak in function utf7toutf8_copy (#5495)\n  * Modernize fixed pitch flag computation (#5506)\n  * Segfault fix and complete implementation of \"Don't generate\n    FFTM tables\" (#5509)\n  * Make SmallCaps() translate symbols, too.  Update\n    documentation accordingly. (#5517)\n  * Fix function PyFFFont_addSmallCaps. (#5519)\n  * Warning rollup (probably some hidden bugs!) from clang trunk\n    (#5492)\n  * Update mm.c (#5386)\n  * fix memleak in function DlgCreate8 (#5491)\n  * Fix Python font.appendSFNTName() function (#5494)\n  * Allow hyphen and special characters in Feature File glyph names\n    (#5358)\n  * Update CI runner to macOS 13 (#5482)\n  * add math device tables to Python API (#5348)\n  * Only install GUI-specific files if ENABLE_GUI is set (#5451)\n  * Fix resource leak in unParseTTInstrs (#5476)\n  * Use PyConfig API on Python 3.8 (#5404)\n  * Use sysconfig for Python module locations (#5423)\n  * More crowdin fix\n  * Python script shall trigger no asserts (#5410)\n  * crowdin: update to java 17 (#5447)\n  * try fix crowdin\n  * Fix generated feature file bugs (#5384)\n  * Defer crowdin update to the end of the pipeline (#5409)\n  * Fix export of supplementary plane characters in font name to\n    TTF (#5396)\n  * Don't attempt to copy anchors into NULL font (#5405)\n  * Treat FT_PIXEL_MODE_MONO as 2 grey levels (#5379)\n  * Compare vertical metrics check when generating TTC (#5372)\n  * Fix data corruption on SFD reading (#5380)\n  * doc: added missing sudo to installation instructions (#5300)\n  * Remove `psaltnames` for multi-code-point names (#5305)\n  * Support suplementary planes in SFD (emojis etc.) (#5364)\n  * Fix the lists of Windows language IDs (#5359)\n  * fix splinefont shell command injection (#5367)\n  * Bulk tester (#5365)\n  * add `font.style_set_names` attribute to Python API (#5354)\n  * Fix typos in the FAQ (#5355)\n  * Autoselect internal WOFF2 format (#5346)\n  * fix segfault triggered by Python `del c[i:j]` (#5352)\n  * add `font` attributes, method to Python docs (#5353)\n  * Always set `usDefaultChar` to 0 (.notdef) (#5242)\n  * Fix generateFontPostHook being called instead of\n    generateFontPreHook (#5226)\n  * nltransform of anchor points (#5345)\n  * Don't require individual tuple encapsulation in\n    fontforge.font.bitmapSizes setter (#5138)\n  * Fix CMake function _get_git_version() (#5342)\n  * Handle failed iconv conversion. Unhandled execution path was\n    UB, causing a segfault for me (#5329)\n  * Fix crash in parsegvar() due to insufficient buffer (#5339)\n  * Quiet strict prototypes warnings. (#5313)\n  * harmonizing can now no longer produce zero handles, the\n    computation of harmonization is now numerically robust (#5262)\n  * Fix glyph file names uXXXXX (#5333)\n  * Fix lookup flags parsing (#5338)\n  * Duplicate libfontforge.dll for \"py\" and \"pyhook\" tests. (#5335)\n  * Use consistent Python in MacOS GitHub runner (#5331)\n  * Update po files from Croudin sources after fixing problems\n  * Fix GinHub CI runners (#5328)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLES-16.0-286",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "fontforge-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fontforge-devel-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fontforge-doc-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fontforge-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fontforge-devel-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fontforge-doc-20251009-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620435-1/",
+      "Description": "Link for SUSE-SU-2026:20435-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024340.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20435-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1252652",
+      "Description": "SUSE Bug 1252652"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256013",
+      "Description": "SUSE Bug 1256013"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256025",
+      "Description": "SUSE Bug 1256025"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256032",
+      "Description": "SUSE Bug 1256032"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-15269/",
+      "Description": "SUSE CVE CVE-2025-15269 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-15275/",
+      "Description": "SUSE CVE CVE-2025-15275 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-15279/",
+      "Description": "SUSE CVE CVE-2025-15279 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-50949/",
+      "Description": "SUSE CVE CVE-2025-50949 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-15269",
+      "Description": "FontForge SFD File Parsing Use-After-Free Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of FontForge. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of SFD files. The issue results from the lack of validating the existence of an object prior to performing operations on the object. An attacker can leverage this vulnerability to execute code in the context of the current user. Was ZDI-CAN-28564.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-15269.html",
+          "Description": "CVE-2025-15269"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256032",
+          "Description": "SUSE Bug 1256032"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-doc-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-doc-20251009-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-15275",
+      "Description": "FontForge SFD File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of FontForge. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of SFD files. The issue results from the lack of proper validation of the length of user-supplied data prior to copying it to a heap-based buffer. An attacker can leverage this vulnerability to execute code in the context of the current user. Was ZDI-CAN-28543.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-15275.html",
+          "Description": "CVE-2025-15275"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256025",
+          "Description": "SUSE Bug 1256025"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-doc-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-doc-20251009-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-15279",
+      "Description": "FontForge GUtils BMP File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of FontForge. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of pixels within BMP files. The issue results from the lack of proper validation of the length of user-supplied data prior to copying it to a heap-based buffer. An attacker can leverage this vulnerability to execute code in the context of the current user. Was ZDI-CAN-27517.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-15279.html",
+          "Description": "CVE-2025-15279"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256013",
+          "Description": "SUSE Bug 1256013"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-doc-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-doc-20251009-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-50949",
+      "Description": "FontForge v20230101 was discovered to contain a memory leak via the component DlgCreate8.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-50949.html",
+          "Description": "CVE-2025-50949"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1252652",
+          "Description": "SUSE Bug 1252652"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:fontforge-doc-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-devel-20251009-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:fontforge-doc-20251009-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "Title": "Security update for openCryptoki",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:20434-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-13T17:44:22Z",
+    "CurrentReleaseDate": "2026-02-13T17:44:22Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-13T17:44:22Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for openCryptoki",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for openCryptoki fixes the following issues:\n\nUpgrade openCryptoki to 3.26 (jsc#PED-14609)\n\nSecurity fixes:\n\n - CVE-2026-22791: supplying malformed compressed EC public key can lead to heap corruption or denial-of-service (bsc#1256673).\n - CVE-2026-23893: Privilege Escalation or Data Exposure via Symlink Following (bsc#1257116).\n\nOther fixes:\n\n  * Soft: Add support for RSA keys up to 16K bits.\n  * CCA: Add support for RSA keys up to 8K bits (requires CCA v8.4 or v7.6 or later).\n  * p11sak: Add support for generating RSA keys up to 16K bits.\n  * Soft/ICA: Add support for SHA512/224 and SHA512/256 key derivation mechanism (CKM_SHA512_224_KEY_DERIVATION and CKM_SHA512_256_KEY_DERIVATION).\n  * Soft/ICA/CCA/EP11: Add support for SHA-HMAC key types CKK_SHAxxx_HMAC and key gen mechanisms CKM_SHAxxx_KEY_GEN.\n  * p11sak: Add support for SHA-HMAC key types and key generation.\n  * p11sak: Add support for key wrap and unwrap commands to export and import private and secret keys by means of key wrapping/unwrapping\n    with various key wrapping mechanism.\n  * p11kmip: Add support for using an HSM-protected TLS client key via a PKCS#11 provider.\n  * p11sak: Add support for exporting non-sensitive private keys to password protected PEM files.\n  * Add support for canceling an operation via NULL mechanism pointer at C_XxxInit() call as an alternative to C_SessionCancel() (PKCS#11 v3.0).\n  * EP11: Add support for pairing friendly BLS12-381 EC curve for sign/verify using CKM_IBM_ECDSA_OTHER and signature/public key aggregation using CKM_IBM_EC_AGGREGATE.\n  * p11sak: Add support for generating BLS12-381 EC keys.\n  * EP11: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires an EP11 host library v4.2 or later, and\n    a CEX8P crypto card with firmware v9.6 or later on IBM z17, and v8.39 or later on IBM z16).\n  * CCA: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires CCA v8.4 or later).\n  * Soft: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires OpenSSL 3.5 or later, or the OQS-provider must be configured).\n  * p11sak: Add support for IBM-specific ML-DSA and ML-KEM key types.\n  * Bug fixes.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLES-16.0-284",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "openCryptoki-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openCryptoki-64bit-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openCryptoki-devel-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openCryptoki-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openCryptoki-64bit-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openCryptoki-devel-3.26.0-160000.1.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP applications 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-202620434-1/",
+      "Description": "Link for SUSE-SU-2026:20434-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024341.html",
+      "Description": "E-Mail link for SUSE-SU-2026:20434-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256673",
+      "Description": "SUSE Bug 1256673"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1257116",
+      "Description": "SUSE Bug 1257116"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-22791/",
+      "Description": "SUSE CVE CVE-2026-22791 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-23893/",
+      "Description": "SUSE CVE CVE-2026-23893 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2026-22791",
+      "Description": "openCryptoki is a PKCS#11 library and tools for Linux and AIX. In 3.25.0 and 3.26.0, there is a heap buffer overflow vulnerability in the CKM_ECDH_AES_KEY_WRAP implementation allows an attacker with local access to cause out-of-bounds writes in the host process by supplying a compressed EC public key and invoking C_WrapKey. This can lead to heap corruption, or denial-of-service.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-22791.html",
+          "Description": "CVE-2026-22791"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256673",
+          "Description": "SUSE Bug 1256673"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-3.26.0-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-23893",
+      "Description": "openCryptoki is a PKCS#11 library and provides tooling for Linux and AIX. Versions 2.3.2 and above are vulnerable to symlink-following when running in privileged contexts. A token-group user can redirect file operations to arbitrary filesystem targets by planting symlinks in group-writable token directories, resulting in privilege escalation or data exposure. Token and lock directories are 0770 (group-writable for token users), so any token-group member can plant files and symlinks inside them. When run as root, the base code handling token directory file access, as well as several openCryptoki tools used for administrative purposes, may reset ownership or permissions on existing files inside the token directories. An attacker with token-group membership can exploit the system when an administrator runs a PKCS#11 application or administrative tool that performs chown on files inside the token directory during normal maintenance. This issue is fixed in commit 5e6e4b4, but has not been included in a released version at the time of publication.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-23893.html",
+          "Description": "CVE-2026-23893"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1257116",
+          "Description": "SUSE Bug 1257116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-3.26.0-160000.1.1",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-3.26.0-160000.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
