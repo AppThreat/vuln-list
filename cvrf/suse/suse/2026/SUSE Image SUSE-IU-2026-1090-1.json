@@ -1,0 +1,1158 @@
+{
+  "Title": "SUSE-IU-2026:1090-1",
+  "Tracking": {
+    "ID": "SUSE Image SUSE-IU-2026:1090-1",
+    "Status": "Interim",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-19T01:00:00Z",
+    "CurrentReleaseDate": "2026-02-19T01:00:00Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-20T14:07:21Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Image update for SUSE-IU-2026:1090-1 / google/sle-micro-6-1-byos-v20260219-arm64",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This image update for google/sle-micro-6-1-byos-v20260219-arm64 contains the following changes:\nPackage 000release-packages:SL-Micro-release was updated:\n\nPackage cloud-netconfig:gce was updated:\n\n- Update to version 1.16  + Fix query of default CLOUD_NETCONFIG_MANAGE (bsc#1253223\n  + Fix variable names in the README\n\nPackage cockpit-podman was updated:\n\nPackage curl was updated:\n\n- Security fix: [bsc#1256105, CVE-2025-14017]  * call ldap_init() before setting the options\n  * Add patch curl-CVE-2025-14017.patch\n\n- Security fixes:\n  * [bsc#1255731, CVE-2025-14524] if redirected, require permission to use bearer\n  * [bsc#1255734, CVE-2025-15224] require private key or user-agent for public key auth\n  * [bsc#1255732, CVE-2025-14819] toggling CURLSSLOPT_NO_PARTIALCHAIN makes a different CA cache\n  * [bsc#1255733, CVE-2025-15079] set both knownhosts options to the same file\n  * Add patches:\n  - curl-CVE-2025-14524.patch\n  - curl-CVE-2025-15224.patch\n  - curl-CVE-2025-14819.patch\n  - curl-CVE-2025-15079.patch\n\n- Security fix: [bsc#1253757, CVE-2025-11563]\n  * curl: wcurl path traversal with percent-encoded slashes\n  * Add curl-CVE-2025-11563.patch\n\nPackage glib2 was updated:\n\n- Add CVE fixes:  + glib2-CVE-2026-1484.patch (bsc#1257355 CVE-2026-1484\n    glgo#GNOME/glib!4979).\n  + glib2-CVE-2026-1485.patch (bsc#1257354 CVE-2026-1485\n    glgo#GNOME/glib!4981).\n  + glib2-CVE-2026-1489.patch (bsc#1257353 CVE-2026-1489\n    glgo#GNOME/glib!4984).\n\n- Add glib2-CVE-2026-0988.patch: fix a potential integer overflow\n  in g_buffered_input_stream_peek (bsc#1257049 CVE-2026-0988\n  glgo#GNOME/glib#3851).\n\n- Add CVE fixes:\n  + glib2-CVE-2025-13601-1.patch, glib2-CVE-2025-13601-2.patch\n    (bsc#1254297 CVE-2025-13601 glgo#GNOME/glib#3827).\n  + glib2-CVE-2025-14087-1.patch, glib2-CVE-2025-14087-2.patch,\n    glib2-CVE-2025-14087-3.patch (bsc#1254662 CVE-2025-14087\n    glgo#GNOME/glib#3834).\n  + glib2-CVE-2025-14512.patch (bsc#1254878 CVE-2025-14512\n    glgo#GNOME/glib#3845).\n\nPackage google-guest-configs was updated:\n\n- Update to version 20260116.00 (bsc#1256906)  * set_multiqueue: Only set XPS on \u0026quot;multinic accelerator platforms\u0026quot;\n\n- Update to version 20260112.00\n  * Make c4x a \u0026quot;multinic accelerator platform\u0026quot;\n  * Merge pull request #140 from a-r-n:xps-many-numa\n  * set_multiqueue xps: stop assuming 2 numa nodes\n  * Merge pull request #137 from a-r-n:a4x-pick\n  * Add IDPF irq setting; improve a4x-max performance\n  * Merge pull request #133 from a-r-n:master\n  * Allow test injection of the root directory and metadata server endpoint\n  * add nic naming support for connextx VF in baremetal\n  * bugfix for idpf only rename got skipped.\n  * add a4x-max to google_set_multiqueue is_multinic_accelerator_platform\n  * remove unnecessary link up and down\n  * fix inconsistent NIC index between smart NICs and GPU NICs.\n- Mark %{_modprobedir}/gce-blacklist.conf as %config(noreplace) (bsc#1198323)\n\n- Update to version 20251014.00\n  * No public description\n\n- Update to version 20250913.00\n  * Swap guest-config rule from checking the build VM OS to taking\n    in a variable for target version\n- from version 20250905.00\n  * No public description\n- from version 20250826.00\n  * Merge pull request #119 from bk202:master\n  * Moved tx/rx IRQ logging after assignment\n  * Fix core assignment in set_irq_range\n  * Correct IRQ tx/rx affinity core assignment\n\n- Update to version 20250807.00\n  * Merge pull request #96 from rjschwei:noDupMetaData\n  * Avoid duplicate entries for the metadata server in /etc/hosts\n- Drop ggc-no-dup-metasrv-entry.patch, merged upstream\n\n- Update to version 20250709.00\n  * Add comments in scripts to document the behavior in google\n    hostname setting.\n  * Always use primary NIC IP for NetworkManager dispatcher hook.\n- from version 20250626.00\n  * Fix spelling error: \u0026quot;explicilty\u0026quot; -\u0026gt; \u0026quot;explicitly\u0026quot;\n\n- Update to version 20250605.00\n  * Merge pull request (#112) from bk202:liujoh_416067717\n  * Added comment to the bitmap conversion functions\n  * Remove IRQ affinity overwrite to XPS affinity\n  * Update XPS affinity to assign the remaining unassigned CPUs\n    to the last queue when populating the last queue\n  * Fix set_xps_affinity to correctly parse cpus array\n  * Update XPS CPU assignment logic\n  * Update CPU assignment algorithm in XPS affinity\n  * Remove commented code\n  * Update XPS affinity vCPU distribution algorithm s.t. the vCPUs assigned\n    to a queue are on the same core - fixed IRQ affinity on NUMA1 not using\n    the correct bind_cores_index\n  * Fixed NUMA comparison error in set_xps_affinity\n  * Update XPS affinity setup to be NUMA aware and support 64 bit CPU mask\n    calculation\n- from version 20250604.00\n  * Merge pull request (#114) from bk202:liujoh_irq_affinity_bug_fix\n  * Bug fix: bind_cores_begin -\u0026gt; bind_cores_index\n  * Name smart NICs in lexicographic order\n- Run %postun to modify %{_sysconfdir}/sysconfig/network/ifcfg-eth0\n  during uninstall only to avoid removal of POST_UP_SCRIPT on upgrade\n\n- Check that %{_sysconfdir}/sysconfig/network/ifcfg-eth0 actually\n  exists before making any modifications to it (bsc#1241112)\n\n- Update to version 20250516.00\n  * Merge pull request #109 from xiliuxyz:master\n  * Remove unused fset\n  * Remove unused lines\n  * Update google_set_multiqueue to unpack IRQ ranges before core assignment\n\n- Update to version 20250501.00\n  * Configure local domain as route only domain to support cloud dns local\n    domain but avoid adding it to the search path.\n- from version 20250409.00\n  * Change RDMA test condition to ensure renaming race conditions can be\n    detected. If such a case is detected the script will err and exit rather\n    than returning a name. Udev accepts this and continues as though the rule\n    was not triggered in such a case.\n- from version 20250328.00\n  * Merge pull request #105 from dorileo:revert-ubuntu-hostname-hooks\n  * Revert \u0026quot;Include systemd-networkd hook in Ubuntu packaging (#77)\u0026quot;\n- from version 20250326.00\n  * Merge pull request #104 from xiliuxyz:master\n  * Merge pull request #1 from xiliuxyz/xiliuxyz-patch-1\n  * Update google_set_multiqueue to check pnic_ids\n- from version 20250221.00\n  * Merge pull request #103 from a-r-n:master\n  * Make google_set_multiqueue aware A4X is multinic_accelerator_platform\n- from version 20250207.00\n  * Merge pull request #102 from xiliuxyz:master\n  * Update google_set_multiqueue to adapt A4 platform\n  * Merge branch 'GoogleCloudPlatform:master' into master\n  * Fix IS_A3_PLATFORM syntax\n  * Fix IS_A3_PLATFORM syntax\n  * Correct IS_A3_PLATFORM to save is_a3_platform results\n  * Remove excess empty line.\n  * Store is_a3_platform results into a global variable to avoid redundant curl calls\n  * Skip tx affinity binding on non-gvnic interfaces only on A3 platforms.\n  * Skip tx affinity binding on non-gvnic interfaces\n  * Update comments for get_vcpu_ranges_on_accelerator_platform\n    to reflect the expected vcpu ranges\n  * rename get_vcpu_ranges to get_vcpu_ranges_on_accelerator_platform\n  * Avoid IRQ binding on vCPU 0\n  * Fix returned value for get_vcpu_ranges\n  * Update get_vcpu_ranges to read from sys file instead of hardcoded value\n  * Update google_set_multiqueue\n  * Update google_set_multiqueue to set vCPU ranges based on platform\n  * Merge branch 'GoogleCloudPlatform:master' into master\n  * Add comment for handling IRQ binding on non-gvnic devices\n  * Remove excess empty line.\n  * Update is_gvnic to include gvnic driver checks\n  * Merge branch 'master' into master\n  * revert removed echo lines\n  * Update google_set_multiqueue to skip set_irq if nic is not a gvnic device.\n  * Update google_set_multiqueue to enable on A3Ultra family\n- from version 20250124.00\n  * Merge pull request #88 from zmarano:nvme\n  * Fix missing files. This is a no-op.\n  * No public description\n  * Also force virtio_scsi.\n- from version 20250116.00\n  * Add GPL-2 to licensing information (#98)\n- from version 20250107.00\n  * Restore IDPF devices for renaming rules (#95)\n- from version 20241213.00\n  * Remove Pat from owners file. (#97)\n\nPackage gpg2 was updated:\n\n- Security fix [bsc#1257396, CVE-2026-24882]  - gpg2: stack-based buffer overflow in TPM2 PKDECRYPT for TPM-backed RSA and ECC keys\n  - Added gnupg-CVE-2026-24882.patch\n\n- Security fix [bsc#1256389] (gpg.fail/filename)\n  * Added gnupg-accepts-path-separators-literal-data.patch\n  * GnuPG Accepts Path Separators and Path Traversals in Literal Data\n\n- Security fix: [bsc#1255715, CVE-2025-68973] (gpg.fail/memcpy)\n  * gpg: Fix possible memory corruption in the armor parser [T7906]\n  * Add gnupg-CVE-2025-68973.patch\n\n- Security fix: [bsc#1256246] (gpg.fail/sha1)\n  * gpg: Avoid potential downgrade to SHA1 in 3rd party key signatures [T7904]\n  * Add gnupg-gpg-Avoid-potential-downgrade-to-SHA1-in-3rd-party-keysig.patch\n\n- Security fix: [bsc#1256244] (gpg.fail/detached)\n  * gpg: Error out on unverified output for non-detached signatures [T7903]\n  * Add gnupg-gpg-Error-out-on-unverified-output-for-non-detached-signatures.patch\n\n- Security fix: [bsc#1256243]\n  * gpg2 agent: Fix a memory leak\n  * Add patch gnupg-agent-memleak.patch\n\n- Security fix: [bsc#1256390] (gpg.fail/notdash)\n  * gpg2: Cleartext Signature Forgery in the NotDashEscaped header\n    implementation in GnuPG\n  * Add patch gnupg-notdash-escape.patch\n\nPackage grub2 was updated:\n\n- Optimize PBKDF2 to reduce the decryption time (bsc#1248516)  * 0001-lib-crypto-Introduce-new-HMAC-functions-to-reuse-buf.patch\n  * 0002-lib-pbkdf2-Optimize-PBKDF2-by-reusing-HMAC-handle.patch\n  * 0001-kern-misc-Implement-faster-grub_memcpy-for-aligned-b.patch\n\nPackage kmod was updated:\n\n- man: modprobe.d: document the config file order handling (bsc#1253741)  * man-modprobe.d-document-the-config-file-order-handling.patch\n\nPackage util-linux:systemd was updated:\n\n- Fix heap buffer overread in setpwnam() when processing 256-byte  usernames (bsc#1254666, CVE-2025-14104,\n  util-linux-CVE-2025-14104-1.patch,\n  util-linux-CVE-2025-14104-2.patch).\n\n- lscpu: Add support for NVIDIA Olympus arm64 core (jsc#PED-13682,\n  util-linux-lscpu-add-arm64-NVIDIA-Olympus.patch).\n\nPackage util-linux was updated:\n\n- Fix heap buffer overread in setpwnam() when processing 256-byte  usernames (bsc#1254666, CVE-2025-14104,\n  util-linux-CVE-2025-14104-1.patch,\n  util-linux-CVE-2025-14104-2.patch).\n\n- lscpu: Add support for NVIDIA Olympus arm64 core (jsc#PED-13682,\n  util-linux-lscpu-add-arm64-NVIDIA-Olympus.patch).\n\nPackage expat was updated:\n\n- security update- added patches\n  CVE-2026-24515 [bsc#1257144], NULL dereference (CWE-476) due to function XML_ExternalEntityParserCreate() failing to copy the encoding handler data passed to XML_SetUnknownEncodingHandler() from the parent to the subparser\n  * expat-CVE-2026-24515.patch\n  CVE-2026-25210 [bsc#1257496], lack of buffer size check can lead to an integer overflow\n  * expat-CVE-2026-25210.patch\n\nPackage gnutls was updated:\n\n- Security fix bsc#1254132 CVE-2025-9820  * Fix buffer overflow in gnutls_pkcs11_token_init\n  * Added gnutls-CVE-2025-9820.patch\n\nPackage openssl-3 was updated:\n\n- Security fixes:  * Missing ASN1_TYPE validation in PKCS#12 parsing\n  - openssl-CVE-2026-22795.patch [bsc#1256839, CVE-2026-22795]\n  * ASN1_TYPE Type Confusion in the PKCS7_digest_from_attributes() function\n  - openssl-CVE-2026-22795.patch [bsc#1256840, CVE-2026-22796]\n  * Missing ASN1_TYPE validation in TS_RESP_verify_response() function\n  - openssl-CVE-2025-69420.patch [bsc#1256837, CVE-2025-69420]\n  * NULL Pointer Dereference in PKCS12_item_decrypt_d2i_ex function\n  - openssl-CVE-2025-69421.patch [bsc#1256838, CVE-2025-69421]\n  * Out of bounds write in PKCS12_get_friendlyname() UTF-8 conversion\n  - openssl-CVE-2025-69419.patch [bsc#1256836, CVE-2025-69419]\n  * Heap out-of-bounds write in BIO_f_linebuffer on short writes\n  - openssl-CVE-2025-68160.patch [bsc#1256834, CVE-2025-68160]\n  * Unauthenticated/unencrypted trailing bytes with low-level OCB function calls\n  - openssl-CVE-2025-69418.patch [bsc#1256835, CVE-2025-69418]\n  * Stack buffer overflow in CMS AuthEnvelopedData parsing\n  - openssl-CVE-2025-15467.patch [bsc#1256830, CVE-2025-15467]\n  - openssl-CVE-2025-15467-comments.patch\n  - openssl-CVE-2025-15467-test.patch\n\nPackage libpng16 was updated:\n\n- security update- added patches\n  CVE-2025-66293 [bsc#1254480], LIBPNG out-of-bounds read in png_image_read_composite\n  * libpng16-CVE-2025-66293-1.patch\n  * libpng16-CVE-2025-66293-2.patch\n\n- security update\n- added patches\n  CVE-2025-64505 [bsc#1254157], heap buffer over-read in `png_do_quantize` via malformed palette index\n  * libpng16-CVE-2025-64505.patch\n  CVE-2025-64506 [bsc#1254158], heap buffer over-read in `png_write_image_8bit` with 8-bit input and `convert_to_8bit` enabled\n  * libpng16-CVE-2025-64506.patch\n  CVE-2025-64720 [bsc#1254159], buffer overflow in `png_image_read_composite` via incorrect palette premultiplication\n  * libpng16-CVE-2025-64720.patch\n  CVE-2025-65018 [bsc#1254160], heap buffer overflow in `png_combine_row` triggered via `png_image_finish_read`\n  * libpng16-CVE-2025-65018.patch\n\nPackage python311:base was updated:\n\n- Add CVE-2025-13836-http-resp-cont-len.patch (bsc#1254400,  CVE-2025-13836) to prevent reading an HTTP response from\n  a server, if no read amount is specified, with using\n  Content-Length per default as the length.\n- Add CVE-2025-12084-minidom-quad-search.patch prevent quadratic\n  behavior in node ID cache clearing (CVE-2025-12084,\n  bsc#1254997).\n- Add CVE-2025-13837-plistlib-mailicious-length.patch protect\n  against OOM when loading malicious content (CVE-2025-13837,\n  bsc#1254401).\n\n- Add CVE-2025-6075-expandvars-perf-degrad.patch avoid simple\n  quadratic complexity vulnerabilities of os.path.expandvars()\n  (CVE-2025-6075, bsc#1252974).\n- Readjusted patches:\n  - CVE-2023-52425-libexpat-2.6.0-backport.patch\n  - CVE-2023-52425-remove-reparse_deferral-tests.patch\n  - fix_configure_rst.patch\n  - skip_if_buildbot-extend.patch\n\n- Update to 3.11.14:\n  - Security\n  - gh-139700: Check consistency of the zip64 end of central\n    directory record. Support records with âzip64 extensible dataâ\n    if there are no bytes prepended to the ZIP file\n    (CVE-2025-8291, bsc#1251305).\n  - gh-139400: xml.parsers.expat: Make sure that parent Expat\n    parsers are only garbage-collected once they are no longer\n    referenced by subparsers created by\n    ExternalEntityParserCreate(). Patch by Sebastian Pipping.\n  - gh-135661: Fix parsing start and end tags in\n    html.parser.HTMLParser according to the HTML5 standard.\n  * Whitespaces no longer accepted between \u0026lt;/ and the tag name. E.g.\n    \u0026lt;/ script\u0026gt; does not end the script section.\n  * Vertical tabulation (\\v) and non-ASCII whitespaces no longer\n    recognized as whitespaces. The only whitespaces are \\t\\n\\r\\f and\n    space.\n  * Null character (U+0000) no longer ends the tag name.\n  * Attributes and slashes after the tag name in end tags are now\n    ignored, instead of terminating after the first \u0026gt; in quoted\n    attribute value. E.g. \u0026lt;/script/foo=\u0026quot;\u0026gt;\u0026quot;/\u0026gt;.\n  * Multiple slashes and whitespaces between the last attribute and\n    closing \u0026gt; are now ignored in both start and end tags. E.g. \u0026lt;a\n    foo=bar/ //\u0026gt;.\n  * Multiple = between attribute name and value are no longer\n    collapsed. E.g. \u0026lt;a foo==bar\u0026gt; produces attribute âfooâ with value\n    â=barâ.\n  - gh-135661: Fix CDATA section parsing in html.parser.HTMLParser\n    according to the HTML5 standard: ] ]\u0026gt; and ]] \u0026gt; no longer end the\n    CDATA section. Add private method _set_support_cdata() which can\n    be used to specify how to parse \u0026lt;[CDATA[ â as a CDATA section in\n    foreign content (SVG or MathML) or as a bogus comment in the\n    HTML namespace.\n  - gh-102555: Fix comment parsing in html.parser.HTMLParser\n    according to the HTML5 standard. --!\u0026gt; now ends the comment. -- \u0026gt;\n    no longer ends the comment. Support abnormally ended empty\n    comments \u0026lt;--\u0026gt; and \u0026lt;---\u0026gt;.\n  - gh-135462: Fix quadratic complexity in processing specially\n    crafted input in html.parser.HTMLParser. End-of-file errors are\n    now handled according to the HTML5 specs â comments and\n    declarations are automatically closed, tags are ignored.\n  - gh-118350: Fix support of escapable raw text mode (elements\n    âtextareaâ and âtitleâ) in html.parser.HTMLParser.\n  - gh-86155: html.parser.HTMLParser.close() no longer loses data\n    when the \u0026lt;script\u0026gt; tag is not closed. Patch by Waylan Limberg.\n  - Library\n  - gh-139312: Upgrade bundled libexpat to 2.7.3\n  - gh-138998: Update bundled libexpat to 2.7.2\n  - gh-130577: tarfile now validates archives to ensure member\n    offsets are non-negative. (Contributed by Alexander Enrique\n    Urieles Nieto in gh-130577.)\n  - gh-135374: Update the bundled copy of setuptools to 79.0.1.\n- Drop upstreamed patches:\n  - CVE-2025-8194-tarfile-no-neg-offsets.patch\n  - CVE-2025-6069-quad-complex-HTMLParser.patch\n\n- Add gh139257-Support-docutils-0.22.patch to fix build with latest\n  docutils (\u0026gt;=0.22) gh#python/cpython#139257\n\n- Drop AppStream buildrequires and don't run appstreamcli validate\n  as part of the build process: the appdata.xml is not updated by\n  source directly, so we have more contol. Having Appstream or the\n  deprecated appstream-glib result in a build cycle.\n\n- Require AppStream to validate appdata file instead of deprecated\n  appstream-glib.\n- Update idle3.appdata.xml to pass the more pedantic appstreamcli.\n\nPackage libsolv was updated:\n\n- fixed rare crash in the handling of allowuninstall in combination  with forcebest updates\n- new pool_satisfieddep_map feature to test if a set of packages\n  satisfies a dependency\n- bump version to 0.7.35\n\nPackage systemd was updated:\n\n- Name libsystemd-{shared,core} based on the major version of systemd and the  package release number (bsc#1228081 bsc#1256427)\n  This way, both the old and new versions of the shared libraries will be\n  present during the update. This should prevent issues during package updates\n  when incompatible changes are introduced in the new versions of the shared\n  libraries.\n\n- Import commit 8bbac1d508acb8aa4e7262f47c7f4076b8350f72\n  8bbac1d508 detect-virt: bare-metal GCE only for x86 and i386 (bsc#1254293)\n\n- Import commit 9ecd16228492f44212e2771bec11ec78245b4094\n  9ecd162284 timer: rebase last_trigger timestamp if needed\n  cd4a9103ef timer: rebase the next elapse timestamp only if timer didn't already run\n  c3f4407e97 timer: don't run service immediately after restart of a timer (bsc#1254563)\n  05bcfe3295 test: check the next elapse timer timestamp after deserialization\n  fe8f656975 test: restarting elapsed timer shouldn't trigger the corresponding service\n  e4dd315b6c units: don't force the loading of the loop and dm_mod modules in systemd-repart.service (bsc#1248356)\n  b58e72215a units: add dep on systemd-logind.service by user@.service\n  97ceca445c detect-virt: add bare-metal support for GCE (bsc#1244449\n\n- Sync systemd-update-helper with the version shipped in Base:System\n  This includes the following changes:\n  - systemd-update-helper: do not stop or disable services when they are migrated\n    to other packages. This can occur during package renaming or splitting.\n  - systemd-update-helper: Fix invalid use of \u0026quot;break\u0026quot; in case statement\n  - systemd-update-helper: fix regression introduced when support for package\n    renaming/splitting was added (bsc#1245551)\n\n- systemd-update-helper: backport commit 2d0af8bc354f4a1429ce\n  Since user@.service has `Type=notify-reload` (making the reloading process\n  synchronous) and reloading implies reexecuting with `ReloadSignal=RTMIN+25`,\n  reexecuting user managers synchronously can be achieved with `systemctl reload\n  user@*.service\u0026quot; now.\n\n- systemd.spec: use %sysusers_generate_pre so that some systemd users are\n  already available in %pre. This is important because D-Bus automatically\n  reloads its configuration whenever new configuration files are installed,\n  i.e. between %pre and %post. (bsc#1248501)\n  No needs for systemd and udev packages as they are always installed during\n  the initial installation.\n\n- Split systemd-network into two new sub-packages: systemd-networkd and\n  systemd-resolved (bsc#1224386 jsc#PED-12669)\n\nPackage libtasn1 was updated:\n\n- Security fix: [bsc#1256341, CVE-2025-13151]  * Stack-based buffer overflow. The function asn1_expend_octet_string()\n    fails to validate the size of input data resulting in a buffer overflow.\n  * Add libtasn1-CVE-2025-13151.patch\n\nPackage libxml2 was updated:\n\n- Add patch libxml2-CVE-2026-0989.patch, to fix call stack exhaustion  leading to application crash due to RelaxNG parser not limiting the\n  recursion depth when resolving `\u0026lt;include\u0026gt;` directives\n  CVE-2026-0989, bsc#1256805, https://gitlab.gnome.org/GNOME/libxml2/-/merge_requests/374\n\nPackage libzypp was updated:\n\n- Prepare a legacy /etc/zypp/zypp.conf to be installed on old distros.  See the ZYPP.CONF(5) man page for details.\n- Fix runtime check for broken rpm --runposttrans (bsc#1257068)\n- version 17.38.2 (35)\n\n- Avoid libcurl-mini4 when building as it does not support ftp\n  protocol.\n- Translation: updated .pot file.\n- version 17.38.1 (35)\n\n- zypp.conf: follow the UAPI configuration file specification\n  (PED-14658)\n  In short terms it means we will no longer ship an\n  /etc/zypp/zypp.conf, but store our own defaults in\n  /usr/etc/zypp/zypp.conf. The systems administrator may choose to\n  keep a full copy in /etc/zypp/zypp.conf ignoring our config file\n  settings completely, or - the preferred way - to overwrite\n  specific settings via /etc/zypp/zypp.conf.d/*.conf overlay files.\n  See the ZYPP.CONF(5) man page for details.\n- cmake: correctly detect rpm6 (fixes #689)\n- Use 'zypp.tmp' as temp directory component to ease setting up\n  SELinux policies (bsc#1249435)\n- zyppng: Update Provider to current MediaCurl2 download\n  approach, drop Metalink ( fixes #682 )\n- version 17.38.0 (35)\n\nPackage podman was updated:\n\nPackage libxml2:python was updated:\n\n- Add patch libxml2-CVE-2026-0989.patch, to fix call stack exhaustion  leading to application crash due to RelaxNG parser not limiting the\n  recursion depth when resolving `\u0026lt;include\u0026gt;` directives\n  CVE-2026-0989, bsc#1256805, https://gitlab.gnome.org/GNOME/libxml2/-/merge_requests/374\n\nPackage python-urllib3 was updated:\n\n- Add security patches:  * CVE-2025-66471.patch (bsc#1254867)\n  * CVE-2025-66418.patch (bsc#1254866)\n\n- Add CVE-2026-21441.patch to fix excessive resource consumption\n  during decompression of data in HTTP redirect responses\n  (bsc#1256331, CVE-2026-21441)\n\nPackage python311 was updated:\n\n- Add CVE-2025-13836-http-resp-cont-len.patch (bsc#1254400,  CVE-2025-13836) to prevent reading an HTTP response from\n  a server, if no read amount is specified, with using\n  Content-Length per default as the length.\n- Add CVE-2025-12084-minidom-quad-search.patch prevent quadratic\n  behavior in node ID cache clearing (CVE-2025-12084,\n  bsc#1254997).\n- Add CVE-2025-13837-plistlib-mailicious-length.patch protect\n  against OOM when loading malicious content (CVE-2025-13837,\n  bsc#1254401).\n\n- Add CVE-2025-6075-expandvars-perf-degrad.patch avoid simple\n  quadratic complexity vulnerabilities of os.path.expandvars()\n  (CVE-2025-6075, bsc#1252974).\n- Readjusted patches:\n  - CVE-2023-52425-libexpat-2.6.0-backport.patch\n  - CVE-2023-52425-remove-reparse_deferral-tests.patch\n  - fix_configure_rst.patch\n  - skip_if_buildbot-extend.patch\n\n- Update to 3.11.14:\n  - Security\n  - gh-139700: Check consistency of the zip64 end of central\n    directory record. Support records with âzip64 extensible dataâ\n    if there are no bytes prepended to the ZIP file\n    (CVE-2025-8291, bsc#1251305).\n  - gh-139400: xml.parsers.expat: Make sure that parent Expat\n    parsers are only garbage-collected once they are no longer\n    referenced by subparsers created by\n    ExternalEntityParserCreate(). Patch by Sebastian Pipping.\n  - gh-135661: Fix parsing start and end tags in\n    html.parser.HTMLParser according to the HTML5 standard.\n  * Whitespaces no longer accepted between \u0026lt;/ and the tag name. E.g.\n    \u0026lt;/ script\u0026gt; does not end the script section.\n  * Vertical tabulation (\\v) and non-ASCII whitespaces no longer\n    recognized as whitespaces. The only whitespaces are \\t\\n\\r\\f and\n    space.\n  * Null character (U+0000) no longer ends the tag name.\n  * Attributes and slashes after the tag name in end tags are now\n    ignored, instead of terminating after the first \u0026gt; in quoted\n    attribute value. E.g. \u0026lt;/script/foo=\u0026quot;\u0026gt;\u0026quot;/\u0026gt;.\n  * Multiple slashes and whitespaces between the last attribute and\n    closing \u0026gt; are now ignored in both start and end tags. E.g. \u0026lt;a\n    foo=bar/ //\u0026gt;.\n  * Multiple = between attribute name and value are no longer\n    collapsed. E.g. \u0026lt;a foo==bar\u0026gt; produces attribute âfooâ with value\n    â=barâ.\n  - gh-135661: Fix CDATA section parsing in html.parser.HTMLParser\n    according to the HTML5 standard: ] ]\u0026gt; and ]] \u0026gt; no longer end the\n    CDATA section. Add private method _set_support_cdata() which can\n    be used to specify how to parse \u0026lt;[CDATA[ â as a CDATA section in\n    foreign content (SVG or MathML) or as a bogus comment in the\n    HTML namespace.\n  - gh-102555: Fix comment parsing in html.parser.HTMLParser\n    according to the HTML5 standard. --!\u0026gt; now ends the comment. -- \u0026gt;\n    no longer ends the comment. Support abnormally ended empty\n    comments \u0026lt;--\u0026gt; and \u0026lt;---\u0026gt;.\n  - gh-135462: Fix quadratic complexity in processing specially\n    crafted input in html.parser.HTMLParser. End-of-file errors are\n    now handled according to the HTML5 specs â comments and\n    declarations are automatically closed, tags are ignored.\n  - gh-118350: Fix support of escapable raw text mode (elements\n    âtextareaâ and âtitleâ) in html.parser.HTMLParser.\n  - gh-86155: html.parser.HTMLParser.close() no longer loses data\n    when the \u0026lt;script\u0026gt; tag is not closed. Patch by Waylan Limberg.\n  - Library\n  - gh-139312: Upgrade bundled libexpat to 2.7.3\n  - gh-138998: Update bundled libexpat to 2.7.2\n  - gh-130577: tarfile now validates archives to ensure member\n    offsets are non-negative. (Contributed by Alexander Enrique\n    Urieles Nieto in gh-130577.)\n  - gh-135374: Update the bundled copy of setuptools to 79.0.1.\n- Drop upstreamed patches:\n  - CVE-2025-8194-tarfile-no-neg-offsets.patch\n  - CVE-2025-6069-quad-complex-HTMLParser.patch\n\n- Add gh139257-Support-docutils-0.22.patch to fix build with latest\n  docutils (\u0026gt;=0.22) gh#python/cpython#139257\n\n- Drop AppStream buildrequires and don't run appstreamcli validate\n  as part of the build process: the appdata.xml is not updated by\n  source directly, so we have more contol. Having Appstream or the\n  deprecated appstream-glib result in a build cycle.\n\n- Require AppStream to validate appdata file instead of deprecated\n  appstream-glib.\n- Update idle3.appdata.xml to pass the more pedantic appstreamcli.\n\nPackage rsync was updated:\n\n- Security update (CVE-2025-10158, bsc#1254441): rsync: Out of  bounds array access via negative index\n  - Add rsync-CVE-2025-10158.patch\n\nPackage runc was updated:\n\n- Update to runc v1.3.4. Upstream changelog is available from  \u0026lt;https://github.com/opencontainers/runc/releases/tag/v1.3.4\u0026gt;. bsc#1254362\n\nPackage selinux-policy was updated:\n\n- Update to version 20241031+git17.66062d7a5:  * rsync: add rsync_exec_commands boolean and enable it by default (bsc#1231494, bsc#1255372)\n\n- Update to version 20241031+git15.e32e86fd5:\n  * Add a new type for systemd-ssh-issue PID files (bsc#1254889)\n  * Label /usr/lib/systemd/systemd-ssh-issue with systemd_ssh_issue_exec_t (bsc#1254889)\n\nPackage shim was updated:\n\n- shim-install: Add ca_string for SL Micro to update fallback loader  The fallback loader, /boot/efi/EFI/BOOT/bootaa64.efi or bootx64.efi,\n  cannot be upgraded by shim-install on SL Micro. The issue case is\n  SL Micro 6.0. It causes that system gets regression bug because it's\n  fallback to a old shim. So this patch adds ca_string to SL Micro.\n  (bsc#1254336)\n\n- Add DER format certificate files for the pretrans script to verify\n  that the necessary certificate is in the UEFI db\n  - openSUSE Secure Boot CA, 2013-2035\n    openSUSE_Secure_Boot_CA_2013.crt\n  - SUSE Linux Enterprise Secure Boot CA, 2013-2035\n    SUSE_Linux_Enterprise_Secure_Boot_CA_2013.crt\n  - Microsoft Corporation UEFI CA 2011, 2011-2026\n    Microsoft_Corporation_UEFI_CA_2011.crt\n  - Microsoft UEFI CA 2023, 2023-2038\n    Microsoft_UEFI_CA_2023.crt\n- shim.spec: Add a pretrans script to verify that the necessary certificate\n  is in the UEFI db.\n- Always put SUSE Linux Enterprise Secure Boot CA to target array.\n  (bsc#1254679)\n\n- Update to 16.1\n  - RPMs\n    shim-16.1-150300.4.31.1.x86_64.rpm\n    shim-debuginfo-16.1-150300.4.31.1.x86_64.rpm\n    shim-debugsource-16.1-150300.4.31.1.x86_64.rpm\n    shim-16.1-150300.4.31.1.aarch64.rpm\n    shim-debuginfo-16.1-150300.4.31.1.aarch64.rpm\n    shim-debugsource-16.1-150300.4.31.1.aarch64.rpm\n  - submitreq: https://build.suse.de/request/show/395247\n  - repo: https://build.suse.de/package/show/SUSE:Maintenance:39913/shim.SUSE_SLE-15-SP3_Update\n  - Patches (git log --oneline --reverse 16.0..16.1)\n    4040ec4 shim_start_image(): fix guid/handle pairing when uninstalling protocols\n    39c0aa1 str2ip6(): parsing of \u0026quot;uncompressed\u0026quot; ipv6 addresses\n    3133d19 test-mock-variables: make our filter list entries safer.\n    d44405e mock-variables: remove unused variable\n    0e8459f Update CI to use ubuntu-24.04 instead of ubuntu-20.04\n    d16a5a6 SbatLevel_Variable.txt: minor typo fix.\n    32804cf Realloc() needs one more byte for sprintf()\n    431d370 IPv6: Add more check to avoid multiple double colon and illegal char\n    5e4d93c Loader Proto: make freeing of bprop.buffer conditional.\n    33deac2 Prepare to move things from shim.c to verify.c\n    030e7df Move a bunch of stuff from shim.c to verify.c\n    f3ddda7 handle_image(): make verification conditional\n    774f226 Cache sections of a loaded image and sub-images from them.\n    eb0d20b loader-protocol: handle sub-section loading for UKIs\n    2f64bb9 loader-protocol: add workaround for EDK2 2025.02 page fault on FreePages\n    1abc7ca loader-protocol: NULL output variable in load_image on failure\n    fb77b44 Generate Authenticode for the entire PE file\n    b86b909 README: mention new loader protocol and interaction with UKIs\n    8522612 ci: add mkosi configuration and CI\n    9ebab84 mkosi workflow: fix the branch name for main.\n    72a4c41 shim: change automatically enable MOK_POLICY_REQUIRE_NX\n    a2f0dfa This is an organizational patch to move some things around in mok.c\n    54b9946 Update to the shim-16.1 branch of gnu-efi to get AsciiSPrint()\n    a5a6922 get_max_var_sz(): add more debugging for apple platforms\n    77a2922 Add a \u0026quot;VariableInfo\u0026quot; variable to mok-variables.\n    efc71c9 build: Avoid passing *FLAGS to sub-make\n    7670932 Fixes for 'make TOPDIR=... clean'\n    13ab598 add SbatLevel entry 2025051000 for PSA-2025-00012-1\n    617aed5 Update version to 16.1~rc1\n    d316ba8 format_variable_info(): fix wrong size test.\n    f5fad0e _do_sha256_sum(): Fix missing error check.\n    3a9734d doc: add howto for running mkosi locally\n    ced5f71 mkosi: remove spurious slashes from script\n    0076155 ci: update mkosi commit\n    5481105 fix http boot\n    121cddf loader-protocol: Handle UnloadImage after StartImage properly\n    6a1d1a9 loader-protocol: Fix memory leaks\n    27a5d22 gitignore: add more mkosi dirs and vscode dir\n    346ed15 mkosi: disable repository key check on Fedora\n    afc4955 Update version to 16.1\n  - 16.1 release note https://github.com/rhboot/shim/releases\n    shim_start_image(): fix guid/handle pairing when uninstalling protocols by @vathpela in #738\n    Fix uncompressed ipv6 netboot by @hrvach in #742\n    fix test segfaults caused by uninitialized memory by @Fabian-Gruenbichler in #739\n    Update CI to use ubuntu-24.04 instead of ubuntu-20.04 by @vathpela in #749\n    SbatLevel_Variable.txt: minor typo fix. by @vathpela in #751\n    Realloc() needs to allocate one more byte for sprintf() by @dennis-tseng99 in #746\n    IPv6: Add more check to avoid multiple double colon and illegal char by @dennis-tseng99 in #753\n    Loader proto v2 by @vathpela in #748\n    loader-protocol: add workaround for EDK2 2025.02 page fault on FreePages by @bluca in #750\n    Generate Authenticode for the entire PE file by @esnowberg in #604\n    README: mention new loader protocol and interaction with UKIs by @bluca in #755\n    ci: add mkosi configuration and CI by @bluca in #764\n    shim: change automatically enable MOK_POLICY_REQUIRE_NX by @vathpela in #761\n    Save var info by @vathpela in #763\n    build: Avoid passing *FLAGS to sub-make by @rosslagerwall in #758\n    Fixes for 'make TOPDIR=... clean' by @bluca in #762\n    add SbatLevel entry 2025051000 for PSA-2025-00012-1 by @Fabian-Gruenbichler in #766\n    Coverity fixes 20250804 by @vathpela in #767\n    ci: fixlets and docs for mkosi workflow by @bluca in #768\n    fix http boot by @jsetje in #770\n    Fix double free and leak in the loader protocol by @rosslagerwall in #769\n    gitignore: add more mkosi dirs and vscode dir by @bluca in #771\n  - Drop upstreamed patch:\n    The following patches are merged to 16.1\n  - shim-alloc-one-more-byte-for-sprintf.patch\n  - 32804cf5d9 Realloc() needs one more byte for sprintf()    [16.1]\n  - shim-change-automatically-enable-MOK_POLICY_REQUIRE_NX.patch (bsc#1205588)\n  - 72a4c41877 shim: change automatically enable MOK_POLICY_REQUIRE_NX [16.1]\n- Building MokManager.efi and fallback.efi with POST_PROCESS_PE_FLAGS=-n (bsc#1205588)\n- Building with the latest version of gcc in the codebase:\n  - The gcc13 can workaround dxe_get_mem_attrs() hsi_status problem\n  - We prefer that building shim with the latest version of gcc in codebase.\n  - Set the minimum version is gcc-13.\n  (bsc#1247432)\n- SLE shim should includes vendor-dbx-sles.esl instead of\n  vendor-dbx-opensuse.esl. Fixed it in shim.spec.\n\nPackage supportutils was updated:\n\n- Changes to version 3.2.12  + Optimized lsof usage and honors OPTION_OFILES (bsc#1232351, PR#274)\n  + Run in containers without errors (bsc#1245667, PR#272)\n  + Removed pmap PID from memory.txt (bsc#1246011, PR#263)\n  + Added missing /proc/pagetypeinfo to memory.txt (bsc#1246025, PR#264)\n  + Improved database perforce with kGraft patching (bsc#1249657, PR#273)\n  + Using last boot for journalctl for optimization (bsc#1250224, PR#287)\n  + Fixed extraction failures (bsc#1252318, PR#275)\n  + Update supportconfig.conf path in docs (bsc#1254425, PR#281)\n  + drm_sub_info: Catch error when dir doesn't exist (PR#265)\n  + Replace remaining `egrep` with `grep -E` (PR#261, PR#266)\n  + Add process affinity to slert logs (PR#269)\n  + Reintroduce cgroup statistics (and v2) (PR#270)\n  + Minor changes to basic-health-check: improve information level (PR#271)\n  + Collect important machine health counters (PR#276)\n  + powerpc: collect hot-pluggable PCI and PHB slots (PR#278)\n  + podman: collect podman disk usage (PR#279)\n  + Exclude binary files in crondir (PR#282)\n  + kexec/kdump: collect everything under /sys/kernel/kexec dir (PR#284)\n  + Use short-iso for journalctl (PR#288)\n\n- Changes to version 3.2.11\n  + Collect rsyslog frule files (bsc#1244003, pr#257)\n  + Remove proxy passwords (bsc#1244011, pr#257)\n  + Missing NetworkManager information (bsc#1241284, pr#257)\n  + Include agama logs bsc#1244937, pr#256)\n  + Additional NFS conf files (pr#253)\n  + New fadump sysfs files (pr#252)\n  + Fixed change log dates\n\nPackage suseconnect-ng was updated:\n\n- Update version to 1.20:  - Update error message for Public Cloud instances with registercloudguest\n    installed. SUSEConnect -d is disabled on PYAG and BYOS when the\n    registercloudguest command is available. (bsc#1230861)\n  - Enhanced SAP detected. Take TREX into account and remove empty values when\n    only /usr/sap but no installation exists (bsc#1241002)\n  - Fixed modules and extension link to point to version less documentation. (bsc#1239439)\n  - Fixed SAP instance detection (bsc#1244550)\n  - Remove link to extensions documentation (bsc#1239439)\n  - Migrate to the public library\n\n- Version 1.14 public library release\n  This version is only available on Github as a tag to release the\n  new golang public library which can be consumed without the need\n  to interface with SUSEConnect directly.\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "SL-Micro-release-6.1-slfo.1.12.10",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "cloud-netconfig-gce-1.16-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "cockpit-podman-91-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "curl-8.14.1-slfo.1.1_5.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "glib2-tools-2.78.6-slfo.1.1_6.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "google-guest-agent-20250116.00-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "google-guest-configs-20260116.00-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "google-osconfig-agent-20250416.02-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "gpg2-2.4.4-slfo.1.1_7.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-2.12-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-arm64-efi-2.12-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grub2-snapper-plugin-2.12-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "kmod-32-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "lastlog2-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libblkid1-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libcurl4-8.14.1-slfo.1.1_5.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libexpat1-2.7.1-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libfdisk1-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgio-2_0-0-2.78.6-slfo.1.1_6.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libglib-2_0-0-2.78.6-slfo.1.1_6.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgmodule-2_0-0-2.78.6-slfo.1.1_6.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgnutls30-3.8.3-slfo.1.1_5.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libgobject-2_0-0-2.78.6-slfo.1.1_6.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libkmod2-32-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "liblastlog2-2-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libmount1-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl3-3.1.4-slfo.1.1_8.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpng16-16-1.6.43-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libpython3_11-1_0-3.11.14-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libsmartcols1-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libsolv-tools-base-0.7.35-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libsystemd0-254.27-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libtasn1-6-4.19.0-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libudev1-254.27-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libuuid1-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libxml2-2-2.11.6-slfo.1.1_7.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libxml2-tools-2.11.6-slfo.1.1_7.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libzypp-17.38.2-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-3-3.1.4-slfo.1.1_8.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "podman-5.4.2-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-3.11.14-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-base-3.11.14-slfo.1.1_2.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-libxml2-2.11.6-slfo.1.1_7.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python311-urllib3-2.1.0-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "rsync-3.3.0-slfo.1.1_4.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "runc-1.3.4-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "selinux-policy-20241031+git17.66062d7a5-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "selinux-policy-targeted-20241031+git17.66062d7a5-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "shim-16.1-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "supportutils-3.2.12.2-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "suseconnect-ng-1.20.0-slfo.1.1_1.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "systemd-254.27-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "systemd-coredump-254.27-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "udev-254.27-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "util-linux-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "util-linux-systemd-2.40.4-slfo.1.1_3.1",
+        "RelatesToProductReference": "Public Cloud Image google/sle-micro-6-1-byos-v20260219-arm64",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://publiccloudimagechangeinfo.suse.com/google/sle-micro-6-1-byos-v20260219-arm64/",
+      "Description": "Public Cloud Image Info"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2023-52425",
+      "Description": "libexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-10158",
+      "Description": "A malicious client acting as the receiver of an rsync file transfer can trigger an out of bounds read of a heap based buffer, via a negative array index. The \n\nmalicious \n\nrsync client requires at least read access to the remote rsync module in order to trigger the issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-11563",
+      "Description": "unknown",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-12084",
+      "Description": "When building nested elements using xml.dom.minidom methods such as appendChild() that have a dependency on _clear_id_cache() the algorithm is quadratic. Availability can be impacted when building excessively nested documents.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13151",
+      "Description": "Stack-based buffer overflow in libtasn1 version: v4.20.0. The function fails to validate the size of input data resulting in a buffer overflow in asn1_expend_octet_string.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13465",
+      "Description": "Lodash versions 4.0.0 through 4.17.22 are vulnerable to prototype pollution in the _.unset  and _.omit  functions. An attacker can pass crafted paths which cause Lodash to delete methods from global prototypes.\n\nThe issue permits deletion of properties but does not allow overwriting their original behavior.\n\nThis issue is patched on 4.17.23",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13601",
+      "Description": "A heap-based buffer overflow problem was found in glib through an incorrect calculation of buffer size in the g_escape_uri_string() function. If the string to escape contains a very large number of unacceptable characters (which would need escaping), the calculation of the length of the escaped string could overflow, leading to a potential write off the end of the newly allocated string.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13836",
+      "Description": "When reading an HTTP response from a server, if no read amount is specified, the default behavior will be to use Content-Length. This allows a malicious server to cause the client to read large amounts of data into memory, potentially causing OOM or other DoS.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-13837",
+      "Description": "When loading a plist file, the plistlib module reads data in size specified by the file itself, meaning a malicious file can cause OOM and DoS issues",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14017",
+      "Description": "When doing multi-threaded LDAPS transfers (LDAP over TLS) with libcurl,\nchanging TLS options in one thread would inadvertently change them globally\nand therefore possibly also affect other concurrently setup transfers.\n\nDisabling certificate verification for a specific transfer could\nunintentionally disable the feature for other threads as well.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14087",
+      "Description": "A flaw was found in GLib (Gnome Lib). This vulnerability allows a remote attacker to cause heap corruption, leading to a denial of service or potential code execution via a buffer-underflow in the GVariant parser when processing maliciously crafted input strings.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14104",
+      "Description": "A flaw was found in util-linux. This vulnerability allows a heap buffer overread when processing 256-byte usernames, specifically within the `setpwnam()` function, affecting SUID (Set User ID) login-utils utilities writing to the password database.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14512",
+      "Description": "A flaw was found in glib. This vulnerability allows a heap buffer overflow and denial-of-service (DoS) via an integer overflow in GLib's GIO (GLib Input/Output) escape_byte_string() function when processing malicious file or remote filesystem attribute values.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14524",
+      "Description": "When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer\nperforms a cross-protocol redirect to a second URL that uses an IMAP, LDAP,\nPOP3 or SMTP scheme, curl might wrongly pass on the bearer token to the new\ntarget host.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-14819",
+      "Description": "When doing TLS related transfers with reused easy or multi handles and\naltering the  `CURLSSLOPT_NO_PARTIALCHAIN` option, libcurl could accidentally\nreuse a CA store cached in memory for which the partial chain option was\nreversed. Contrary to the user's wishes and expectations. This could make\nlibcurl find and accept a trust chain that it otherwise would not.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-15079",
+      "Description": "When doing SSH-based transfers using either SCP or SFTP, and setting the\nknown_hosts file, libcurl could still mistakenly accept connecting to hosts\n*not present* in the specified file if they were added as recognized in the\nlibssh *global* known_hosts file.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-15224",
+      "Description": "When doing SSH-based transfers using either SCP or SFTP, and asked to do\npublic key authentication, curl would wrongly still ask and authenticate using\na locally running SSH agent.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-15467",
+      "Description": "Issue summary: Parsing CMS AuthEnvelopedData message with maliciously\ncrafted AEAD parameters can trigger a stack buffer overflow.\n\nImpact summary: A stack buffer overflow may lead to a crash, causing Denial\nof Service, or potentially remote code execution.\n\nWhen parsing CMS AuthEnvelopedData structures that use AEAD ciphers such as\nAES-GCM, the IV (Initialization Vector) encoded in the ASN.1 parameters is\ncopied into a fixed-size stack buffer without verifying that its length fits\nthe destination. An attacker can supply a crafted CMS message with an\noversized IV, causing a stack-based out-of-bounds write before any\nauthentication or tag verification occurs.\n\nApplications and services that parse untrusted CMS or PKCS#7 content using\nAEAD ciphers (e.g., S/MIME AuthEnvelopedData with AES-GCM) are vulnerable.\nBecause the overflow occurs prior to authentication, no valid key material\nis required to trigger it. While exploitability to remote code execution\ndepends on platform and toolchain mitigations, the stack-based write\nprimitive represents a severe risk.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this\nissue, as the CMS implementation is outside the OpenSSL FIPS module\nboundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3 and 3.0 are vulnerable to this issue.\n\nOpenSSL 1.1.1 and 1.0.2 are not affected by this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "critical"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-6069",
+      "Description": "The html.parser.HTMLParser class had worse-case quadratic complexity when processing certain crafted malformed inputs potentially leading to amplified denial-of-service.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-6075",
+      "Description": "If the value passed to os.path.expandvars() is user-controlled a \nperformance degradation is possible when expanding environment \nvariables.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "low"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-64505",
+      "Description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. Prior to version 1.6.51, a heap buffer over-read vulnerability exists in libpng's png_do_quantize function when processing PNG files with malformed palette indices. The vulnerability occurs when palette_lookup array bounds are not validated against externally-supplied image data, allowing an attacker to craft a PNG file with out-of-range palette indices that trigger out-of-bounds memory access. This issue has been patched in version 1.6.51.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-64506",
+      "Description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, a heap buffer over-read vulnerability exists in libpng's png_write_image_8bit function when processing 8-bit images through the simplified write API with convert_to_8bit enabled. The vulnerability affects 8-bit grayscale+alpha, RGB/RGBA, and images with incomplete row data. A conditional guard incorrectly allows 8-bit input to enter code expecting 16-bit input, causing reads up to 2 bytes beyond allocated buffer boundaries. This issue has been patched in version 1.6.51.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-64720",
+      "Description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, an out-of-bounds read vulnerability exists in png_image_read_composite when processing palette images with PNG_FLAG_OPTIMIZE_ALPHA enabled. The palette compositing code in png_init_read_transformations incorrectly applies background compositing during premultiplication, violating the invariant component ≤ alpha x 257 required by the simplified PNG API. This issue has been patched in version 1.6.51.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-65018",
+      "Description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, there is a heap buffer overflow vulnerability in the libpng simplified API function png_image_finish_read when processing 16-bit interlaced PNGs with 8-bit output format. Attacker-crafted interlaced PNG files cause heap writes beyond allocated buffer bounds. This issue has been patched in version 1.6.51.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-66293",
+      "Description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. Prior to 1.6.52, an out-of-bounds read vulnerability in libpng's simplified API allows reading up to 1012 bytes beyond the png_sRGB_base[512] array when processing valid palette PNG images with partial transparency and gamma correction. The PNG files that trigger this vulnerability are valid per the PNG specification; the bug is in libpng's internal state management. Upgrade to libpng 1.6.52 or later.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-66418",
+      "Description": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-66471",
+      "Description": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-68160",
+      "Description": "Issue summary: Writing large, newline-free data into a BIO chain using the\nline-buffering filter where the next BIO performs short writes can trigger\na heap-based out-of-bounds write.\n\nImpact summary: This out-of-bounds write can cause memory corruption which\ntypically results in a crash, leading to Denial of Service for an application.\n\nThe line-buffering BIO filter (BIO_f_linebuffer) is not used by default in\nTLS/SSL data paths. In OpenSSL command-line applications, it is typically\nonly pushed onto stdout/stderr on VMS systems. Third-party applications that\nexplicitly use this filter with a BIO chain that can short-write and that\nwrite large, newline-free data influenced by an attacker would be affected.\nHowever, the circumstances where this could happen are unlikely to be under\nattacker control, and BIO_f_linebuffer is unlikely to be handling non-curated\ndata controlled by an attacker. For that reason the issue was assessed as\nLow severity.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this issue,\nas the BIO implementation is outside the OpenSSL FIPS module boundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0, 1.1.1 and 1.0.2 are vulnerable to this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-68973",
+      "Description": "In GnuPG before 2.4.9, armor_filter in g10/armor.c has two increments of an index variable where one is intended, leading to an out-of-bounds write for crafted input. (For ExtendedLTS, 2.2.51 and later are fixed versions.)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-69418",
+      "Description": "Issue summary: When using the low-level OCB API directly with AES-NI or\u003cbr\u003eother hardware-accelerated code paths, inputs whose length is not a multiple\u003cbr\u003eof 16 bytes can leave the final partial block unencrypted and unauthenticated.\u003cbr\u003e\u003cbr\u003eImpact summary: The trailing 1-15 bytes of a message may be exposed in\u003cbr\u003ecleartext on encryption and are not covered by the authentication tag,\u003cbr\u003eallowing an attacker to read or tamper with those bytes without detection.\u003cbr\u003e\u003cbr\u003eThe low-level OCB encrypt and decrypt routines in the hardware-accelerated\u003cbr\u003estream path process full 16-byte blocks but do not advance the input/output\u003cbr\u003epointers. The subsequent tail-handling code then operates on the original\u003cbr\u003ebase pointers, effectively reprocessing the beginning of the buffer while\u003cbr\u003eleaving the actual trailing bytes unprocessed. The authentication checksum\u003cbr\u003ealso excludes the true tail bytes.\u003cbr\u003e\u003cbr\u003eHowever, typical OpenSSL consumers using EVP are not affected because the\u003cbr\u003ehigher-level EVP and provider OCB implementations split inputs so that full\u003cbr\u003eblocks and trailing partial blocks are processed in separate calls, avoiding\u003cbr\u003ethe problematic code path. Additionally, TLS does not use OCB ciphersuites.\u003cbr\u003eThe vulnerability only affects applications that call the low-level\u003cbr\u003eCRYPTO_ocb128_encrypt() or CRYPTO_ocb128_decrypt() functions directly with\u003cbr\u003enon-block-aligned lengths in a single call on hardware-accelerated builds.\u003cbr\u003eFor these reasons the issue was assessed as Low severity.\u003cbr\u003e\u003cbr\u003eThe FIPS modules in 3.6, 3.5, 3.4, 3.3, 3.2, 3.1 and 3.0 are not affected\u003cbr\u003eby this issue, as OCB mode is not a FIPS-approved algorithm.\u003cbr\u003e\u003cbr\u003eOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 and 1.1.1 are vulnerable to this issue.\u003cbr\u003e\u003cbr\u003eOpenSSL 1.0.2 is not affected by this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-69419",
+      "Description": "Issue summary: Calling PKCS12_get_friendlyname() function on a maliciously\ncrafted PKCS#12 file with a BMPString (UTF-16BE) friendly name containing\nnon-ASCII BMP code point can trigger a one byte write before the allocated\nbuffer.\n\nImpact summary: The out-of-bounds write can cause a memory corruption\nwhich can have various consequences including a Denial of Service.\n\nThe OPENSSL_uni2utf8() function performs a two-pass conversion of a PKCS#12\nBMPString (UTF-16BE) to UTF-8. In the second pass, when emitting UTF-8 bytes,\nthe helper function bmp_to_utf8() incorrectly forwards the remaining UTF-16\nsource byte count as the destination buffer capacity to UTF8_putc(). For BMP\ncode points above U+07FF, UTF-8 requires three bytes, but the forwarded\ncapacity can be just two bytes. UTF8_putc() then returns -1, and this negative\nvalue is added to the output length without validation, causing the\nlength to become negative. The subsequent trailing NUL byte is then written\nat a negative offset, causing write outside of heap allocated buffer.\n\nThe vulnerability is reachable via the public PKCS12_get_friendlyname() API\nwhen parsing attacker-controlled PKCS#12 files. While PKCS12_parse() uses a\ndifferent code path that avoids this issue, PKCS12_get_friendlyname() directly\ninvokes the vulnerable function. Exploitation requires an attacker to provide\na malicious PKCS#12 file to be parsed by the application and the attacker\ncan just trigger a one zero byte write before the allocated buffer.\nFor that reason the issue was assessed as Low severity according to our\nSecurity Policy.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this issue,\nas the PKCS#12 implementation is outside the OpenSSL FIPS module boundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 and 1.1.1 are vulnerable to this issue.\n\nOpenSSL 1.0.2 is not affected by this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-69420",
+      "Description": "Issue summary: A type confusion vulnerability exists in the TimeStamp Response\nverification code where an ASN1_TYPE union member is accessed without first\nvalidating the type, causing an invalid or NULL pointer dereference when\nprocessing a malformed TimeStamp Response file.\n\nImpact summary: An application calling TS_RESP_verify_response() with a\nmalformed TimeStamp Response can be caused to dereference an invalid or\nNULL pointer when reading, resulting in a Denial of Service.\n\nThe functions ossl_ess_get_signing_cert() and ossl_ess_get_signing_cert_v2()\naccess the signing cert attribute value without validating its type.\nWhen the type is not V_ASN1_SEQUENCE, this results in accessing invalid memory\nthrough the ASN1_TYPE union, causing a crash.\n\nExploiting this vulnerability requires an attacker to provide a malformed\nTimeStamp Response to an application that verifies timestamp responses. The\nTimeStamp protocol (RFC 3161) is not widely used and the impact of the\nexploit is just a Denial of Service. For these reasons the issue was\nassessed as Low severity.\n\nThe FIPS modules in 3.5, 3.4, 3.3 and 3.0 are not affected by this issue,\nas the TimeStamp Response implementation is outside the OpenSSL FIPS module\nboundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 and 1.1.1 are vulnerable to this issue.\n\nOpenSSL 1.0.2 is not affected by this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-69421",
+      "Description": "Issue summary: Processing a malformed PKCS#12 file can trigger a NULL pointer\ndereference in the PKCS12_item_decrypt_d2i_ex() function.\n\nImpact summary: A NULL pointer dereference can trigger a crash which leads to\nDenial of Service for an application processing PKCS#12 files.\n\nThe PKCS12_item_decrypt_d2i_ex() function does not check whether the oct\nparameter is NULL before dereferencing it. When called from\nPKCS12_unpack_p7encdata() with a malformed PKCS#12 file, this parameter can\nbe NULL, causing a crash. The vulnerability is limited to Denial of Service\nand cannot be escalated to achieve code execution or memory disclosure.\n\nExploiting this issue requires an attacker to provide a malformed PKCS#12 file\nto an application that processes it. For that reason the issue was assessed as\nLow severity according to our Security Policy.\n\nThe FIPS modules in 3.6, 3.5, 3.4, 3.3 and 3.0 are not affected by this issue,\nas the PKCS#12 implementation is outside the OpenSSL FIPS module boundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0, 1.1.1 and 1.0.2 are vulnerable to this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-8194",
+      "Description": "There is a defect in the CPython \"tarfile\" module affecting the \"TarFile\" extraction and entry enumeration APIs. The tar implementation would process tar archives with negative offsets without error, resulting in an infinite loop and deadlock during the parsing of maliciously crafted tar archives. \n\nThis vulnerability can be mitigated by including the following patch after importing the \"tarfile\" module:   https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-8291",
+      "Description": "The 'zipfile' module would not check the validity of the ZIP64 End of\nCentral Directory (EOCD) Locator record offset value would not be used to\nlocate the ZIP64 EOCD record, instead the ZIP64 EOCD record would be\nassumed to be the previous record in the ZIP archive. This could be abused\nto create ZIP archives that are handled differently by the 'zipfile' module\ncompared to other ZIP implementations.\n\n\nRemediation maintains this behavior, but checks that the offset specified\nin the ZIP64 EOCD Locator record matches the expected value.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "low"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-9820",
+      "Description": "A flaw was found in the GnuTLS library, specifically in the gnutls_pkcs11_token_init() function that handles PKCS#11 token initialization. When a token label longer than expected is processed, the function writes past the end of a fixed-size stack buffer. This programming error can cause the application using GnuTLS to crash or, in certain conditions, be exploited for code execution. As a result, systems or applications relying on GnuTLS may be vulnerable to a denial of service or local privilege escalation attacks.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-0988",
+      "Description": "A flaw was found in glib. Missing validation of offset and count parameters in the g_buffered_input_stream_peek() function can lead to an integer overflow during length calculation. When specially crafted values are provided, this overflow results in an incorrect size being passed to memcpy(), triggering a buffer overflow. This can cause application crashes, leading to a Denial of Service (DoS).",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "low"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-0989",
+      "Description": "A flaw was identified in the RelaxNG parser of libxml2 related to how external schema inclusions are handled. The parser does not enforce a limit on inclusion depth when resolving nested \u003cinclude\u003e directives. Specially crafted or overly complex schemas can cause excessive recursion during parsing. This may lead to stack exhaustion and application crashes, creating a denial-of-service risk.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-1484",
+      "Description": "A flaw was found in the GLib Base64 encoding routine when processing very large input data. Due to incorrect use of integer types during length calculation, the library may miscalculate buffer boundaries. This can cause memory writes outside the allocated buffer. Applications that process untrusted or extremely large Base64 input using GLib may crash or behave unpredictably.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-1485",
+      "Description": "A flaw was found in Glib's content type parsing logic. This buffer underflow vulnerability occurs because the length of a header line is stored in a signed integer, which can lead to integer wraparound for very large inputs. This results in pointer underflow and out-of-bounds memory access. Exploitation requires a local user to install or process a specially crafted treemagic file, which can lead to local denial of service or application instability.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "low"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-1489",
+      "Description": "A flaw was found in GLib. An integer overflow vulnerability in its Unicode case conversion implementation can lead to memory corruption. By processing specially crafted and extremely large Unicode strings, an attacker could trigger an undersized memory allocation, resulting in out-of-bounds writes. This could cause applications utilizing GLib for string conversion to crash or become unstable.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-21441",
+      "Description": "urllib3 is an HTTP client library for Python. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption. Starting in version 1.22 and prior to version 2.6.3, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client. Applications and libraries are affected when they stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects. Users should upgrade to at least urllib3 v2.6.3, in which the library does not decode content of redirect responses when `preload_content=False`. If upgrading is not immediately possible, disable redirects by setting `redirect=False` for requests to untrusted source.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-22795",
+      "Description": "Issue summary: An invalid or NULL pointer dereference can happen in\nan application processing a malformed PKCS#12 file.\n\nImpact summary: An application processing a malformed PKCS#12 file can be\ncaused to dereference an invalid or NULL pointer on memory read, resulting\nin a Denial of Service.\n\nA type confusion vulnerability exists in PKCS#12 parsing code where\nan ASN1_TYPE union member is accessed without first validating the type,\ncausing an invalid pointer read.\n\nThe location is constrained to a 1-byte address space, meaning any\nattempted pointer manipulation can only target addresses between 0x00 and 0xFF.\nThis range corresponds to the zero page, which is unmapped on most modern\noperating systems and will reliably result in a crash, leading only to a\nDenial of Service. Exploiting this issue also requires a user or application\nto process a maliciously crafted PKCS#12 file. It is uncommon to accept\nuntrusted PKCS#12 files in applications as they are usually used to store\nprivate keys which are trusted by definition. For these reasons, the issue\nwas assessed as Low severity.\n\nThe FIPS modules in 3.5, 3.4, 3.3 and 3.0 are not affected by this issue,\nas the PKCS12 implementation is outside the OpenSSL FIPS module boundary.\n\nOpenSSL 3.6, 3.5, 3.4, 3.3, 3.0 and 1.1.1 are vulnerable to this issue.\n\nOpenSSL 1.0.2 is not affected by this issue.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-24515",
+      "Description": "In libexpat before 2.7.4, XML_ExternalEntityParserCreate does not copy unknown encoding handler user data.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-24882",
+      "Description": "In GnuPG before 2.5.17, a stack-based buffer overflow exists in tpm2daemon during handling of the PKDECRYPT command for TPM-backed RSA and ECC keys.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-25210",
+      "Description": "In libexpat before 2.7.4, the doContent function does not properly determine the buffer size bufSize because there is no integer overflow check for tag buffer reallocation.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": null,
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": null
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
