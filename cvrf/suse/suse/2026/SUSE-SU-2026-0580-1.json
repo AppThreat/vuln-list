@@ -1,0 +1,170 @@
+{
+  "Title": "Security update for apptainer",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0580-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-19T11:38:08Z",
+    "CurrentReleaseDate": "2026-02-19T11:38:08Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-19T11:38:08Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for apptainer",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for apptainer fixes the following issues:\n\n- CVE-2025-58190: Fixed a HTML parser misimplementation of a part of the HTML specification for table related tags. (bsc#1258048).\n- CVE-2025-47911: Fixed an issue where the HTML parser takes a very long time or even never returns. (bsc#1258047).\n  ",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-580,SUSE-SLE-Module-HPC-15-SP7-2026-580,openSUSE-SLE-15.6-2026-580",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "apptainer-1.4.5-150600.4.15.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for HPC 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apptainer-sle15_7-1.4.5-150600.4.15.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Module for HPC 15 SP7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apptainer-1.4.5-150600.4.15.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apptainer-leap-1.4.5-150600.4.15.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apptainer-sle15_6-1.4.5-150600.4.15.1",
+        "RelatesToProductReference": "openSUSE Leap 15.6",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260580-1/",
+      "Description": "Link for SUSE-SU-2026:0580-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024353.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0580-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253924",
+      "Description": "SUSE Bug 1253924"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258047",
+      "Description": "SUSE Bug 1258047"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258048",
+      "Description": "SUSE Bug 1258048"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-47911/",
+      "Description": "SUSE CVE CVE-2025-47911 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-58190/",
+      "Description": "SUSE CVE CVE-2025-58190 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-47911",
+      "Description": "The html.Parse function in golang.org/x/net/html has quadratic parsing complexity when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-47911.html",
+          "Description": "CVE-2025-47911"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1251308",
+          "Description": "SUSE Bug 1251308"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Module for HPC 15 SP7:apptainer-1.4.5-150600.4.15.1",
+            "SUSE Linux Enterprise Module for HPC 15 SP7:apptainer-sle15_7-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-leap-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-sle15_6-1.4.5-150600.4.15.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-58190",
+      "Description": "The html.Parse function in golang.org/x/net/html has an infinite parsing loop when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-58190.html",
+          "Description": "CVE-2025-58190"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1251309",
+          "Description": "SUSE Bug 1251309"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Enterprise Module for HPC 15 SP7:apptainer-1.4.5-150600.4.15.1",
+            "SUSE Linux Enterprise Module for HPC 15 SP7:apptainer-sle15_7-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-leap-1.4.5-150600.4.15.1",
+            "openSUSE Leap 15.6:apptainer-sle15_6-1.4.5-150600.4.15.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

@@ -1,0 +1,481 @@
+{
+  "Title": "Security update for chromium",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20248-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-19T02:43:57Z",
+    "CurrentReleaseDate": "2026-02-19T02:43:57Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-19T02:43:57Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for chromium",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for chromium fixes the following issues:\n\nChanges in chromium:\n\n- more fixes for desktop file, some variables were lowercased,\n  further adaptions in INSTALL script (boo#1258199)\n\n- also copy rollup into third_party/node/node_modules\n- stay on llvm-10 for swiftshader but bring a similar patch\n\n- drop use of rollup binaries and use rollup-3.x which does not\n  use prebuilt binaries (that fail at least on older ppc64le)\n  follow the approach of the debian packaging\n\n- update/resync ppc64le patches from fedora\n\n- fix INSTALL.sh again to replace the tags in desktop file,\n  appdata and manpage (boo#1258199) \n\n- Chromium 145.0.7632.75:\n  * CVE-2026-2441: Use after free in CSS (boo#1258185)\n\n- Chromium 145.0.7632.67:\n  * Revert a change in url_fixer that may have caused crashes\n\n- Chromium 145.0.7632.45 (boo#1258116)\n  * jpeg-xl support has been readded\n  * CVE-2026-2313: Use after free in CSS\n  * CVE-2026-2314: Heap buffer overflow in Codecs\n  * CVE-2026-2315: Inappropriate implementation in WebGPU\n  * CVE-2026-2316: Insufficient policy enforcement in Frames\n  * CVE-2026-2317: Inappropriate implementation in Animation\n  * CVE-2026-2318: Inappropriate implementation in PictureInPicture\n  * CVE-2026-2319: Race in DevTools\n  * CVE-2026-2320: Inappropriate implementation in File input\n  * CVE-2026-2321: Use after free in Ozone\n  * CVE-2026-2322: Inappropriate implementation in File input\n  * CVE-2026-2323: Inappropriate implementation in Downloads\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-packagehub-134",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "chromedriver-145.0.7632.75-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "chromium-145.0.7632.75-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258116",
+      "Description": "SUSE Bug 1258116"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258185",
+      "Description": "SUSE Bug 1258185"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258199",
+      "Description": "SUSE Bug 1258199"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2313/",
+      "Description": "SUSE CVE CVE-2026-2313 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2314/",
+      "Description": "SUSE CVE CVE-2026-2314 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2315/",
+      "Description": "SUSE CVE CVE-2026-2315 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2316/",
+      "Description": "SUSE CVE CVE-2026-2316 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2317/",
+      "Description": "SUSE CVE CVE-2026-2317 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2318/",
+      "Description": "SUSE CVE CVE-2026-2318 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2319/",
+      "Description": "SUSE CVE CVE-2026-2319 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2320/",
+      "Description": "SUSE CVE CVE-2026-2320 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2321/",
+      "Description": "SUSE CVE CVE-2026-2321 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2322/",
+      "Description": "SUSE CVE CVE-2026-2322 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2323/",
+      "Description": "SUSE CVE CVE-2026-2323 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2026-2441/",
+      "Description": "SUSE CVE CVE-2026-2441 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2026-2313",
+      "Description": "Use after free in CSS in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2313.html",
+          "Description": "CVE-2026-2313"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2314",
+      "Description": "Heap buffer overflow in Codecs in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2314.html",
+          "Description": "CVE-2026-2314"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2315",
+      "Description": "Inappropriate implementation in WebGPU in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to potentially perform out of bounds memory access via a crafted HTML page. (Chromium security severity: High)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2315.html",
+          "Description": "CVE-2026-2315"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2316",
+      "Description": "Insufficient policy enforcement in Frames in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to perform UI spoofing via a crafted HTML page. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2316.html",
+          "Description": "CVE-2026-2316"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2317",
+      "Description": "Inappropriate implementation in Animation in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to leak cross-origin data via a crafted HTML page. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2317.html",
+          "Description": "CVE-2026-2317"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2318",
+      "Description": "Inappropriate implementation in PictureInPicture in Google Chrome prior to 145.0.7632.45 allowed a remote attacker who convinced a user to engage in specific UI gestures to perform UI spoofing via a crafted HTML page. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2318.html",
+          "Description": "CVE-2026-2318"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2319",
+      "Description": "Race in DevTools in Google Chrome prior to 145.0.7632.45 allowed a remote attacker who convinced a user to engage in specific UI gestures and install a malicious extension to potentially exploit object corruption via a malicious file. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2319.html",
+          "Description": "CVE-2026-2319"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2320",
+      "Description": "Inappropriate implementation in File input in Google Chrome prior to 145.0.7632.45 allowed a remote attacker who convinced a user to engage in specific UI gestures to perform UI spoofing via a crafted HTML page. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2320.html",
+          "Description": "CVE-2026-2320"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2321",
+      "Description": "Use after free in Ozone in Google Chrome prior to 145.0.7632.45 allowed a remote attacker who convinced a user to engage in specific UI gestures to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: Medium)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2321.html",
+          "Description": "CVE-2026-2321"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2322",
+      "Description": "Inappropriate implementation in File input in Google Chrome prior to 145.0.7632.45 allowed a remote attacker who convinced a user to engage in specific UI gestures to perform UI spoofing via a crafted HTML page. (Chromium security severity: Low)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2322.html",
+          "Description": "CVE-2026-2322"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2323",
+      "Description": "Inappropriate implementation in Downloads in Google Chrome prior to 145.0.7632.45 allowed a remote attacker to perform UI spoofing via a crafted HTML page. (Chromium security severity: Low)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2323.html",
+          "Description": "CVE-2026-2323"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258116",
+          "Description": "SUSE Bug 1258116"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2026-2441",
+      "Description": "Use after free in CSS in Google Chrome prior to 145.0.7632.75 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2026-2441.html",
+          "Description": "CVE-2026-2441"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1258185",
+          "Description": "SUSE Bug 1258185"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:chromedriver-145.0.7632.75-bp160.1.1",
+            "openSUSE Leap 16.0:chromium-145.0.7632.75-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
