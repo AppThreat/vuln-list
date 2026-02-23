@@ -1,0 +1,93 @@
+{
+  "Title": "Security update for python-Authlib",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20257-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-19T13:21:50Z",
+    "CurrentReleaseDate": "2026-02-19T13:21:50Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-19T13:21:50Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for python-Authlib",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for python-Authlib fixes the following issues:\n\nChanges in python-Authlib:\n\n- CVE-2025-68158: Fixed 1-click account takeover in applications that use the Authlib library (bsc#1256414)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-packagehub-135",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "python313-Authlib-1.5.2-bp160.2.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1256414",
+      "Description": "SUSE Bug 1256414"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-68158/",
+      "Description": "SUSE CVE CVE-2025-68158 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-68158",
+      "Description": "Authlib is a Python library which builds OAuth and OpenID Connect servers. In version 1.6.5 and prior, cache-backed state/request-token storage is not tied to the initiating user session, so CSRF is possible for any attacker that has a valid state (easily obtainable via an attacker-initiated authentication flow). When a cache is supplied to the OAuth client registry, FrameworkIntegration.set_state_data writes the entire state blob under _state_{app}_{state}, and get_state_data ignores the caller's session altogether. This issue has been patched in version 1.6.6.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-68158.html",
+          "Description": "CVE-2025-68158"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1256414",
+          "Description": "SUSE Bug 1256414"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:python313-Authlib-1.5.2-bp160.2.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
