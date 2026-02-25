@@ -1,0 +1,162 @@
+{
+  "Title": "Security update for mosquitto",
+  "Tracking": {
+    "ID": "openSUSE-SU-2026:20260-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-23T18:17:43Z",
+    "CurrentReleaseDate": "2026-02-23T18:17:43Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-23T18:17:43Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for mosquitto",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for mosquitto fixes the following issues:\n\nChanges in mosquitto:\n\n- update to 2.0.23 (boo#1258671)\n  * Fix handling of disconnected sessions for `per_listener_settings\n    true`\n  * Check return values of openssl *_get_ex_data() and\n    *_set_ex_data() to prevent possible crash. This could occur only\n    in extremely unlikely situations\n  * Check return value of openssl ASN1_string_[get0_]data()\n    functions for NULL. This prevents a crash in case of incorrect\n    certificate handling in openssl\n  * Fix potential crash on startup if a malicious/corrupt\n    persistence file from mosquitto 1.5 or earlier is loaded\n  * Limit auto_id_prefix to 50 characters\n\n- Update to version 2.0.22\n  Broker\n  * Bridge: Fix idle_timeout never occurring for lazy bridges.\n  * Fix case where max_queued_messages = 0 was not treated as\n    unlimited.\n  * Fix --version exit code and output.\n  * Fix crash on receiving a $CONTROL message over a bridge, if\n    per_listener_settings is set true and the bridge is carrying\n    out topic remapping.\n  * Fix incorrect reference clock being selected on startup on\n    Linux. Closes #3238.\n  * Fix reporting of client disconnections being incorrectly\n    attributed to \"out of memory\".\n  * Fix compilation when using WITH_OLD_KEEPALIVE.\n  * Fix problems with secure websockets.\n  * Fix crash on exit when using WITH_EPOLL=no.\n  * Fix clients being incorrectly expired when they have\n    keepalive == max_keepalive. Closes #3226, #3286.\n  Dynamic security plugin\n  * Fix mismatch memory free when saving config which caused\n    memory tracking to be incorrect.\n  Client library\n  * Fix C++ symbols being removed when compiled with link time\n    optimisation.\n  * TLS error handling was incorrectly setting a protocol error\n    for non-TLS errors. This would cause the mosquitto_loop_start()\n    thread to exit if no broker was available on the first\n    connection attempt. This has been fixed. Closes #3258.\n  * Fix linker errors on some architectures using cmake.\n\n- Update to version 2.0.21\n  Broker\n  * Fix clients sending a RESERVED packet not being quickly\n    disconnected.\n  * Fix bind_interface producing an error when used with an\n    interface that has an IPv6 link-local address and no other\n    IPv6 addresses.\n  * Fix mismatched wrapped/unwrapped memory alloc/free in\n    properties.\n  * Fix allow_anonymous false not being applied in local only mode.\n  * Add retain_expiry_interval option to fix expired retained\n    message not being removed from memory if they are not\n    subscribed to.\n  * Produce an error if invalid combinations of\n    cafile/capath/certfile/keyfile are used.\n  * Backport keepalive checking from develop to fix problems in\n    current implementation.\n  Client library\n  * Fix potential deadlock in mosquitto_sub if -W is used.\n  Apps\n  * mosquitto_ctrl dynsec now also allows -i to specify a clientid\n    as well as -c. This matches the documentation which states -i.\n  Tests\n  * Fix 08-ssl-connect-cert-auth-expired and\n    08-ssl-connect-cert-auth-revoked tests when under load.\n\n- systemd service: Wait till the network got setup to avoid\n  startup failure.\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "openSUSE-Leap-16.0-packagehub-138",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libmosquitto1-2.0.23-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libmosquittopp1-2.0.23-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mosquitto-2.0.23-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mosquitto-clients-2.0.23-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mosquitto-devel-2.0.23-bp160.1.1",
+        "RelatesToProductReference": "openSUSE Leap 16.0",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1232635",
+      "Description": "SUSE Bug 1232635"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1232636",
+      "Description": "SUSE Bug 1232636"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1258671",
+      "Description": "SUSE Bug 1258671"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-10525/",
+      "Description": "SUSE CVE CVE-2024-10525 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-3935/",
+      "Description": "SUSE CVE CVE-2024-3935 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-10525",
+      "Description": "In Eclipse Mosquitto, from version 1.3.2 through 2.0.18, if a malicious broker sends a crafted SUBACK packet with no reason codes, a client using libmosquitto may make out of bounds memory access when acting in its on_subscribe callback. This affects the mosquitto_sub and mosquitto_rr clients.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "critical"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-10525.html",
+          "Description": "CVE-2024-10525"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1232636",
+          "Description": "SUSE Bug 1232636"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:libmosquitto1-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:libmosquittopp1-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-clients-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-devel-2.0.23-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2024-3935",
+      "Description": "In Eclipse Mosquito, versions from 2.0.0 through 2.0.18, if a Mosquitto broker is configured to create an outgoing bridge connection, and that bridge connection has an incoming topic configured that makes use of topic remapping, then if the remote connection sends a crafted PUBLISH packet to the broker a double free will occur with a subsequent crash of the broker.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "critical"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-3935.html",
+          "Description": "CVE-2024-3935"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1232635",
+          "Description": "SUSE Bug 1232635"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "openSUSE Leap 16.0:libmosquitto1-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:libmosquittopp1-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-clients-2.0.23-bp160.1.1",
+            "openSUSE Leap 16.0:mosquitto-devel-2.0.23-bp160.1.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
