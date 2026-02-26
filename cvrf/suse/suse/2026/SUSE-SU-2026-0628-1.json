@@ -1,0 +1,351 @@
+{
+  "Title": "Security update 5.1.2 for Multi-Linux Manager Client Tools",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0628-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-25T09:44:32Z",
+    "CurrentReleaseDate": "2026-02-25T09:44:32Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-25T09:44:32Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update 5.1.2 for Multi-Linux Manager Client Tools",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update fixes the following issues:\n\ngolang-github-QubitProducts-exporter_exporter:\n\n- Non-customer-facing optimization around source building\n\ngolang-github-boynux-squid_exporter:\n\n- Update to version 1.13.0 (jsc#PED-14971)\n  - Add support for squid-internal-mgr path for metrics.\n- Update to version 1.12.0\n  - Add TLS and basic authentication support for the web interface.\n- Update to version 1.11.0\n  - Allow adding custom labels to all metrics.\n- Update to version 1.10.0\n  - Add ability to configure the exporter using environment variables.\n  - Add support for Squid 6\n  - Add `squid_up` metric\n  - Add `squid_scrape_duration_seconds` metric\n  - Add `squid_scrape_error` metric\n- Update to version 1.9.0\n  - Add `process_open_fds` metric to monitor open file descriptors.\n  - Use `CAP_DAC_READ_SEARCH` capability to allow reading process information without running as root.\n- Update to version 1.8.0\n  - Add various service time metrics to provide more detailed performance data.\n- Update to version 1.7.0\n  - Add support for basic authentication against the Squid proxy.\n  - Fix `squid_client_http_requests_total` metric\n- Upstream changes for v1.9.0:\n  - Use `CAP_DAC_READ_SEARCH` capability to allow\n    reading process information without running as root.\n- Upstream changes for v1.8.0:\n  - Add various service time metrics to provide more detailed\n    performance data.\n- Upstream changes for v1.7.0:\n    Squid proxy.Update to version 1.10.0\n  - Add ability to configure the exporter using environment\n    variables.\n  - Add `process_open_fds` metric to monitor open file descriptors.\n  - Use `CAP_DAC_READ_SEARCH` capability to allow reading process\n    information without running as root.\n  - Add various service time metrics to provide more detailed\n    performance data.\n  - Add support for basic authentication against the Squid proxy.\n- Use current distro go default version.  Use auto-versioning\n  on SUSE as well.\n\ngolang-github-lusitaniae-apache_exporter:\n\n- Build without apparmor for openSUSE Leap 16, SLES 16 or newer\n- Update to version 1.0.10\n  * Update github.com/prometheus/client_golang to 1.21.1\n  * Update github.com/prometheus/common to 0.63.0\n  * Update github.com/prometheus/exporter-toolkit to 0.14.0\n- Update to version 1.0.9\n  * Update github.com/prometheus/client_golang to 1.20.4\n  * Update github.com/prometheus/common to 0.59.1\n  * Update github.com/prometheus/exporter-toolkit to 0.13.0\n  * Migrate logging to log/slog\n  * Fix signal handler logging\n\ngolang-github-prometheus-alertmanager:\n\n- Require gcc11-c++ for building with SLE 12\n\ngolang-github-prometheus-node_exporter:\n\n- Require gcc11-c++ for building with SLE 12\n\ngolang-github-prometheus-prometheus:\n\n- Security issues fixed:\n  * CVE-2025-12816: Interpretation conflict vulnerability allowing bypassing cryptographic verifications (bsc#1255588)\n\n- Update to 3.5.0 (jsc#PED-13824):\n  This is a Long-Term Support (LTS) release.\n  * [FEATURE] Remote-write: Add support for Azure Workload Identity as an authentication method for the receiver.\n  * [FEATURE] PromQL: Add first_over_time(...) and ts_of_first_over_time(...) behind feature flag.\n  * [FEATURE] Federation: Add support for native histograms with custom buckets (NHCB).\n  * [ENHANCEMENT] PromQL: Add warn-level annotations for counter reset conflicts in certain histogram operations.\n  * [ENHANCEMENT] UI: Add scrape interval and scrape timeout to targets page.\n- Update to 3.4.0:\n  * [FEATURE] SD: Add unified AWS service discovery for ec2, lightsail and ecs services.\n  * [FEATURE] Native histograms are now a stable, but optional feature.\n  * [FEATURE] UI: Show detailed relabeling steps for each discovered target.\n  * [ENHANCEMENT] Alerting: Add 'unknown' state for alerting rules that haven't been evaluated yet.\n  * [BUGFIX] Scrape: Fix a bug where scrape cache would not be cleared on startup.\n- Update to 3.3.0:\n  * [FEATURE] Spring Boot 3.3 includes support for the Prometheus Client 1.x.\n  * [ENHANCEMENT] Dependency management for Dropwizard Metrics has been removed.\n- Update to 3.2.0:\n  * [FEATURE] OAuth2: support jwt-bearer grant-type (RFC7523 3.1).\n  * [ENHANCEMENT] PromQL: Reconcile mismatched NHCB bounds in Add\n    and Sub.\n  * [BUGFIX] TSDB: Native Histogram Custom Bounds with a NaN\n    threshold are now rejected.\n- Update to 3.1.0:\n  * [FEATURE] Remote-write 2 (receiving): Update to 2.0-rc.4 spec.\n    'created timestamp' (CT) is now called 'start timestamp' (ST).\n  * [BUGFIX] Mixin: Add static UID to the remote-write dashboard.\n- Update to 3.0.1:\n  * [BUGFIX] Promql: Make subqueries left open.\n  * [BUGFIX] Fix memory leak when query log is enabled.\n  * [BUGFIX] Support utf8 names on /v1/label/:name/values endpoint.\n- Update to 3.0.0:\n  This release includes new features such as a brand new UI and\n  UTF-8 support enabled by default.\n  * [CHANGE] Deprecated feature flags removed.\n  * [FEATURE] New UI.\n  * [FEATURE] Remote Write 2.0.\n  * [FEATURE] OpenTelemetry Support.\n  * [FEATURE] UTF-8 support is now stable and enabled by default.\n  * [FEATURE] OTLP Ingestion.\n  * [FEATURE] Native Histograms.\n  * [BUGFIX] PromQL: Fix count_values for histograms.\n  * [BUGFIX] TSDB: Fix race on stale values in headAppender.\n  * [BUGFIX] UI: Fix selector / series formatting for empty metric\n    names.\n- Update to 2.55.0:\n  * [FEATURE] PromQL: Add `last_over_time` function.\n  * [FEATURE] Agent: Add `prometheus_agent_build_info` metric.\n  * [ENHANCEMENT] PromQL: Optimise `group()` and `group by()`.\n  * [ENHANCEMENT] TSDB: Reduce memory usage when loading blocks.\n  * [BUGFIX] Scrape: Fix a bug where a target could be scraped\n    multiple times.\n- Update to 2.54.0:\n  This release brings a release candidate of a major new version of\n  Remote Write: 2.0.\n  * [CHANGE] Remote-Write: highest_timestamp_in_seconds and queue_highest_sent_timestamp_seconds metrics now initialized\n    to 0.\n  * [CHANGE] API: Split warnings from info annotations in API response.\n  * [FEATURE] Remote-Write: Version 2.0 experimental, plus metadata\n    in WAL via feature flag.\n  * [FEATURE] PromQL: add limitk() and limit_ratio() aggregation\n    operators.\n  * [ENHANCEMENT] PromQL: Accept underscores in literal numbers.\n  * [ENHANCEMENT] PromQL: float literal numbers and durations are\n    now interchangeable (experimental).\n  * [ENHANCEMENT] PromQL (experimental native histograms): Optimize\n    histogram_count and histogram_sum functions.\n  * [BUGFIX] PromQL: Fix various issues with native histograms.\n  * [BUGFIX] OTLP receiver: Allow colons in non-standard units.\n- Require gcc11-c++ for building with SLE 12\n\ngrafana:\n\n- CVE-2025-68156: Fix potential DoS via unbounded recursion in builtin functions (bsc#1255340)\n\nmgr-push:\n\n- Version 5.1.5-0\n  * Non-customer-facing optimization and update\n\nprometheus-blackbox_exporter:\n\n- Non-customer-facing optimization and update\n\nrhnlib:\n\n- Version 5.1.4-0\n  * Non-customer-facing optimization and update  \n\nspacecmd:\n\n- Version 5.1.12-0\n  * Fix spacecmd binary file upload (bsc#1253659)\n  * Fix typo in spacecmd help ca-cert flag (bsc#1253174)\n  * Convert cached IDs to int (bsc#1251995)\n  * Fix methods in api namespace in spacecmd (bsc#1249532)\n  * Make caching code Py 2.7 compatible\n  * Use JSON instead of pickle for spacecmd\n    cache (bsc#1227579)\n  * Python 2.7 cannot re-raise exceptions\n\nspacewalk-client-tools:\n\n- Version 5.1.8-0\n  * Non-customer-facing optimization and update\n\nsupportutils-plugin-susemanager-client:\n\n- Version 5.1.5-0\n  * Non-customer-facing optimization and update\n\nuyuni-common-libs:\n\n- Version 5.1.5-0\n  * Non-customer-facing optimization and update\n\nuyuni-tools:\n\n- Version 5.1.24-0\n  * Actually use the --dbupgrade-tag parameter when computing the\n    image URL (bsc#1249400)\n  * Handle CA files with symlinks during migration (bsc#1251044)\n  * Adjust traefik exposed configuration for chart v27+ (bsc#1247721)\n  * Fix systemd object initialization in server rename. (bsc#1250981)\n  * Add SSL secrets to the db setup container during migration. (bsc#1250976)\n  * Fix images handling in mgrpxy support ptf (bsc#1250940)\n  * Fix helm upgrade parameters (bsc#1253966)\n  * Detect custom apache and squid config in the /etc/uyuni/proxy folder\n  * Add ssh tuning to configure sshd (bsc#1253738)\n  * Move the SSL checks at the beginning of the migration\n  * Remove cgroup mount for podman containers (bsc#1253347)\n  * Convert the traefik install time to local time (bsc#1251138)\n  * During migration, krb5.conf.d should be copied in /etc/rhn (bsc#1254478)\n  * Read env var from http conf file (bsc#1253282)\n  * Add --registry-host, --registry-user and --registry-password\n    to pull images from an authenticate registry\n  * Deprecate --registry\n  * Unify backup create and restore dryrun option case\n  * Fix calling of squid -z in mgrpxy cache clear (bsc#1247644)\n  * Always start database container even if enabled\n  * Remove extra ipv6 mapping and nftables workaround (bsc#1248848)\n  * Remove old PostgreSQL exporter environment file before migration\n  * Support config command parse correctly supportconfig output (bsc#1255781)\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-628,SUSE-MultiLinuxManagerTools-SLE-12-2026-628",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "golang-github-QubitProducts-exporter_exporter-0.4.0-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-boynux-squid_exporter-1.13.0-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-lusitaniae-apache_exporter-1.0.10-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-prometheus-alertmanager-0.28.1-120002.4.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-prometheus-node_exporter-1.9.1-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-prometheus-prometheus-3.5.0-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "grafana-11.5.10-120002.4.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgr-push-5.1.5-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgrctl-5.1.24-120002.3.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgrctl-bash-completion-5.1.24-120002.3.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgrctl-lang-5.1.24-120002.3.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgrctl-zsh-completion-5.1.24-120002.3.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "prometheus-blackbox_exporter-0.26.0-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-mgr-push-5.1.5-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-rhnlib-5.1.4-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-spacewalk-client-tools-5.1.8-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-uyuni-common-libs-5.1.5-120002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacecmd-5.1.12-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacewalk-client-tools-5.1.8-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "supportutils-plugin-susemanager-client-5.1.5-120002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools SLE-12",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260628-1/",
+      "Description": "Link for SUSE-SU-2026:0628-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024392.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0628-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1227579",
+      "Description": "SUSE Bug 1227579"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1247644",
+      "Description": "SUSE Bug 1247644"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1247721",
+      "Description": "SUSE Bug 1247721"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1248848",
+      "Description": "SUSE Bug 1248848"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249400",
+      "Description": "SUSE Bug 1249400"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249532",
+      "Description": "SUSE Bug 1249532"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1250940",
+      "Description": "SUSE Bug 1250940"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1250976",
+      "Description": "SUSE Bug 1250976"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1250981",
+      "Description": "SUSE Bug 1250981"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251044",
+      "Description": "SUSE Bug 1251044"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251138",
+      "Description": "SUSE Bug 1251138"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251995",
+      "Description": "SUSE Bug 1251995"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253174",
+      "Description": "SUSE Bug 1253174"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253282",
+      "Description": "SUSE Bug 1253282"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253347",
+      "Description": "SUSE Bug 1253347"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253659",
+      "Description": "SUSE Bug 1253659"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253738",
+      "Description": "SUSE Bug 1253738"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253966",
+      "Description": "SUSE Bug 1253966"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254478",
+      "Description": "SUSE Bug 1254478"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255340",
+      "Description": "SUSE Bug 1255340"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255588",
+      "Description": "SUSE Bug 1255588"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1255781",
+      "Description": "SUSE Bug 1255781"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-12816/",
+      "Description": "SUSE CVE CVE-2025-12816 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-68156/",
+      "Description": "SUSE CVE CVE-2025-68156 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-12816",
+      "Description": "An interpretation-conflict (CWE-436) vulnerability in node-forge versions 1.3.1 and earlier enables unauthenticated attackers to craft ASN.1 structures to desynchronize schema validations, yielding a semantic divergence that may bypass downstream cryptographic verifications and security decisions.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-12816.html",
+          "Description": "CVE-2025-12816"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255584",
+          "Description": "SUSE Bug 1255584"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0.4.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-1.13.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-1.0.10-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0.28.1-120002.4.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-1.9.1-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-prometheus-3.5.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-11.5.10-120002.4.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-5.1.5-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-blackbox_exporter-0.26.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-5.1.5-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-5.1.4-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-5.1.8-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-5.1.5-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-5.1.12-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-5.1.8-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-5.1.5-120002.3.6.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-68156",
+      "Description": "Expr is an expression language and expression evaluation for Go. Prior to version 1.17.7, several builtin functions in Expr, including `flatten`, `min`, `max`, `mean`, and `median`, perform recursive traversal over user-provided data structures without enforcing a maximum recursion depth. If the evaluation environment contains deeply nested or cyclic data structures, these functions may recurse indefinitely until exceed the Go runtime stack limit. This results in a stack overflow panic, causing the host application to crash. While exploitability depends on whether an attacker can influence or inject cyclic or pathologically deep data into the\nevaluation environment, this behavior represents a denial-of-service (DoS) risk and affects overall library robustness. Instead of returning a recoverable evaluation error, the process may terminate unexpectedly. In affected versions, evaluation of expressions that invoke certain builtin functions on untrusted or insufficiently validated data structures can lead to a process-level crash due to stack exhaustion. This issue is most relevant in scenarios where Expr is used to evaluate expressions against externally supplied or dynamically constructed environments; cyclic references (directly or indirectly) can be introduced into arrays, maps, or structs; and there are no application-level safeguards preventing deeply nested input data. In typical use cases with controlled, acyclic data, the issue may not manifest. However, when present, the resulting panic can be used to reliably crash the application, constituting a denial of service. The issue has been fixed in the v1.17.7 versions of Expr. The patch introduces a maximum recursion depth limit for affected builtin functions. When this limit is exceeded, evaluation aborts gracefully and returns a descriptive error instead of panicking. Additionally, the maximum depth can be customized by users via `builtin.MaxDepth`, allowing applications with legitimate deep structures to raise the limit in a controlled manner. Users are strongly encouraged to upgrade to the patched release, which includes both the recursion guard and comprehensive test coverage to prevent regressions. For users who cannot immediately upgrade, some mitigations are recommended. Ensure that evaluation environments cannot contain cyclic references, validate or sanitize externally supplied data structures before passing them to Expr, and/or wrap expression evaluation with panic recovery to prevent a full process crash (as a last-resort defensive measure). These workarounds reduce risk but do not fully eliminate the issue without the patch.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-68156.html",
+          "Description": "CVE-2025-68156"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1255330",
+          "Description": "SUSE Bug 1255330"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0.4.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-1.13.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-1.0.10-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0.28.1-120002.4.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-1.9.1-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-prometheus-3.5.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-11.5.10-120002.4.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-5.1.5-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-5.1.24-120002.3.9.1",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-blackbox_exporter-0.26.0-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-5.1.5-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-5.1.4-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-5.1.8-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-5.1.5-120002.3.3.1",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-5.1.12-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-5.1.8-120002.3.6.1",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-5.1.5-120002.3.6.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

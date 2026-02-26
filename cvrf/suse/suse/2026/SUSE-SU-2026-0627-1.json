@@ -1,0 +1,807 @@
+{
+  "Title": "Security update 5.1.2 for Multi-Linux Manager Client Tools",
+  "Tracking": {
+    "ID": "SUSE-SU-2026:0627-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2026-02-25T09:44:02Z",
+    "CurrentReleaseDate": "2026-02-25T09:44:02Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2026-02-25T09:44:02Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update 5.1.2 for Multi-Linux Manager Client Tools",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update fixes the following issues:\n\ngolang-github-QubitProducts-exporter_exporter:\n\n- Non-customer-facing optimization around source building\n\ngolang-github-lusitaniae-apache_exporter:\n\n- Build without apparmor for openSUSE Leap 16, SLES 16 or newer\n- Require Go 1.23 for building\n- Update to version 1.0.10\n  * Update github.com/prometheus/client_golang to 1.21.1\n  * Update github.com/prometheus/common to 0.63.0\n  * Update github.com/prometheus/exporter-toolkit to 0.14.0\n- Update to version 1.0.9\n  * Update github.com/prometheus/client_golang to 1.20.4\n  * Update github.com/prometheus/common to 0.59.1\n  * Update github.com/prometheus/exporter-toolkit to 0.13.0\n  * Migrate logging to log/slog\n  * Fix signal handler logging\n\nmgr-push:\n\n- Version 5.1.5-0\n  * Non-customer-facing optimization and update\n\nrhnlib:\n\n- Version 5.1.4-0\n  * Non-customer-facing optimization and update\n\nspacecmd:\n\n- Version 5.1.12-0\n  * Fix spacecmd binary file upload (bsc#1253659)\n  * Fix typo in spacecmd help ca-cert flag (bsc#1253174)\n  * Convert cached IDs to int (bsc#1251995)\n  * Fix methods in api namespace in spacecmd (bsc#1249532)\n  * Make caching code Py 2.7 compatible\n  * Use JSON instead of pickle for spacecmd\n    cache (bsc#1227579)\n  * Python 2.7 cannot re-raise exceptions\n\nspacewalk-client-tools:\n\n- Version 5.1.8-0\n  * Non-customer-facing optimization and update\n\nuyuni-common-libs:\n\n- Version 5.1.5-0\n  * Non-customer-facing optimization and update\n\nvenv-salt-minion:\n\n- Backport security patches for Salt vendored tornado:\n  * CVE-2025-67724: missing validation of supplied reason phrase (bsc#1254903)\n  * CVE-2025-67725: fix DoS via malicious HTTP request (bsc#1254905)\n  * CVE-2025-67726: fix HTTP header parameter parsing algorithm (bsc#1254904)\n- Make syntax in httputil_test compatible with Python 3.6\n- Fix KeyError in postgres module with PostgreSQL 17 (bsc#1254325)\n- Use internal deb classes instead of external aptsource lib\n- Speed up wheel key.finger call (bsc#1240532)\n- Simplify and speed up utils.find_json function (bsc#1246130)\n- Extend warn_until period to 2027\n\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-2026-627,SUSE-MultiLinuxManagerTools-RES-7-2026-627",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgr-push-5.1.5-70002.3.6.2",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-mgr-push-5.1.5-70002.3.6.2",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-rhnlib-5.1.4-70002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacecmd-5.1.12-70002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacewalk-client-tools-5.1.8-70002.3.6.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "venv-salt-minion-3006.0-70002.5.9.1",
+        "RelatesToProductReference": "SUSE Multi Linux Manager Tools RES-7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "fdupes-1.61-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-bin-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-docs-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-github-prometheus-promu-0.17.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-misc-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-src-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "golang-tests-1.22.9-70002.1.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "mgr-push-5.1.5-70002.3.6.2",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-mgr-push-5.1.5-70002.3.6.2",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-rhnlib-5.1.4-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundle-libzmq-4.3.5-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundle-zeromq-devel-4.3.5-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundle-zeromq-tools-4.3.5-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-appdirs-1.4.4-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-asn1crypto-1.5.1-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-atomicwrites-1.1.5-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-attrs-23.1.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-base-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-bcrypt-3.2.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-cffi-1.15.1-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-cryptography-3.3.2-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-cryptography-vectors-3.3.2-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-cssselect-1.2.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-curses-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-dbm-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-devel-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-docker-pycreds-0.4.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-docopt-0.6.2-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-idna-3.4-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-importlib-metadata-6.8.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-libs-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-looseversion-1.0.2-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-m2crypto-0.45.1-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-m2crypto-doc-0.45.1-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-more-itertools-9.1.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-paramiko-2.4.3-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-paramiko-doc-2.4.3-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-passlib-1.7.4-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-ptyprocess-0.7.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-py-1.11.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyasn1-0.5.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyasn1-modules-0.3.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pycparser-2.21-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyinotify-0.9.6-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pynacl-1.5.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyopenssl-23.2.0-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyparsing-3.0.9-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pysocks-1.7.1-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pytz-2023.3-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyzmq-25.1.2-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-pyzmq-devel-25.1.2-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-rpm-vercmp-0.1.2-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-simplejson-3.19.1-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-testsuite-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-tools-3.11.13-70002.4.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-tornado-6.3.2-70002.4.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "saltbundlepy-websocket-client-1.5.1-70002.3.3.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacecmd-5.1.12-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "spacewalk-client-tools-5.1.8-70002.3.6.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "venv-salt-minion-3006.0-70002.5.9.1",
+        "RelatesToProductReference": "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2026/suse-su-20260627-1/",
+      "Description": "Link for SUSE-SU-2026:0627-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024393.html",
+      "Description": "E-Mail link for SUSE-SU-2026:0627-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1227579",
+      "Description": "SUSE Bug 1227579"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1240532",
+      "Description": "SUSE Bug 1240532"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1246130",
+      "Description": "SUSE Bug 1246130"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1249532",
+      "Description": "SUSE Bug 1249532"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1251995",
+      "Description": "SUSE Bug 1251995"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253174",
+      "Description": "SUSE Bug 1253174"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1253659",
+      "Description": "SUSE Bug 1253659"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254325",
+      "Description": "SUSE Bug 1254325"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254903",
+      "Description": "SUSE Bug 1254903"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254904",
+      "Description": "SUSE Bug 1254904"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1254905",
+      "Description": "SUSE Bug 1254905"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-67724/",
+      "Description": "SUSE CVE CVE-2025-67724 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-67725/",
+      "Description": "SUSE CVE CVE-2025-67725 page"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-67726/",
+      "Description": "SUSE CVE CVE-2025-67726 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-67724",
+      "Description": "Tornado is a Python web framework and asynchronous networking library. In versions 6.5.2 and below, the supplied reason phrase is used unescaped in HTTP headers (where it could be used for header injection) or in HTML in the default error page (where it could be used for XSS) and can be exploited by passing untrusted or malicious data into the reason argument. Used by both RequestHandler.set_status and tornado.web.HTTPError, the argument is designed to allow applications to pass custom \"reason\" phrases (the \"Not Found\" in HTTP/1.1 404 Not Found) to the HTTP status line (mainly for non-standard status codes). This issue is fixed in version 6.5.3.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-67724.html",
+          "Description": "CVE-2025-67724"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1254903",
+          "Description": "SUSE Bug 1254903"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:venv-salt-minion-3006.0-70002.5.9.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:fdupes-1.61-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-bin-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-docs-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-prometheus-promu-0.17.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-misc-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-src-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-tests-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-libzmq-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-devel-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-tools-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-appdirs-1.4.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-asn1crypto-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-atomicwrites-1.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-attrs-23.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-base-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-bcrypt-3.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cffi-1.15.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-vectors-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cssselect-1.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-curses-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-dbm-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-devel-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docker-pycreds-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docopt-0.6.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-idna-3.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-importlib-metadata-6.8.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-libs-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-looseversion-1.0.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-doc-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-more-itertools-9.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-doc-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-passlib-1.7.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-ptyprocess-0.7.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-py-1.11.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-0.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-modules-0.3.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pycparser-2.21-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyinotify-0.9.6-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pynacl-1.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyopenssl-23.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyparsing-3.0.9-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pysocks-1.7.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pytz-2023.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-devel-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-rpm-vercmp-0.1.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-simplejson-3.19.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-testsuite-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tools-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tornado-6.3.2-70002.4.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-websocket-client-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:venv-salt-minion-3006.0-70002.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-67725",
+      "Description": "Tornado is a Python web framework and asynchronous networking library. In versions 6.5.2 and below, a single maliciously crafted HTTP request can block the server's event loop for an extended period, caused by the HTTPHeaders.add method. The function accumulates values using string concatenation when the same header name is repeated, causing a Denial of Service (DoS).  Due to Python string immutability, each concatenation copies the entire string, resulting in O(n^2) time complexity. The severity can vary from high if max_header_size has been increased from its default, to low if it has its default value of 64KB. This issue is fixed in version 6.5.3.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-67725.html",
+          "Description": "CVE-2025-67725"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1254905",
+          "Description": "SUSE Bug 1254905"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:venv-salt-minion-3006.0-70002.5.9.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:fdupes-1.61-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-bin-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-docs-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-prometheus-promu-0.17.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-misc-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-src-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-tests-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-libzmq-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-devel-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-tools-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-appdirs-1.4.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-asn1crypto-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-atomicwrites-1.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-attrs-23.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-base-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-bcrypt-3.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cffi-1.15.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-vectors-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cssselect-1.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-curses-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-dbm-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-devel-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docker-pycreds-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docopt-0.6.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-idna-3.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-importlib-metadata-6.8.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-libs-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-looseversion-1.0.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-doc-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-more-itertools-9.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-doc-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-passlib-1.7.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-ptyprocess-0.7.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-py-1.11.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-0.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-modules-0.3.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pycparser-2.21-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyinotify-0.9.6-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pynacl-1.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyopenssl-23.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyparsing-3.0.9-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pysocks-1.7.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pytz-2023.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-devel-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-rpm-vercmp-0.1.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-simplejson-3.19.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-testsuite-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tools-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tornado-6.3.2-70002.4.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-websocket-client-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:venv-salt-minion-3006.0-70002.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    },
+    {
+      "CVE": "CVE-2025-67726",
+      "Description": "Tornado is a Python web framework and asynchronous networking library. Versions 6.5.2 and below use an inefficient algorithm when parsing parameters for HTTP header values, potentially causing a DoS. The _parseparam function in httputil.py is used to parse specific HTTP header values, such as those in multipart/form-data and repeatedly calls string.count() within a nested loop while processing quoted semicolons. If an attacker sends a request with a large number of maliciously crafted parameters in a Content-Disposition header, the server's CPU usage increases quadratically (O(n^2)) during parsing. Due to Tornado's single event loop architecture, a single malicious request can cause the entire server to become unresponsive for an extended period. This issue is fixed in version 6.5.3.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "important"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-67726.html",
+          "Description": "CVE-2025-67726"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1254904",
+          "Description": "SUSE Bug 1254904"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE Multi Linux Manager Tools RES-7:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE Multi Linux Manager Tools RES-7:venv-salt-minion-3006.0-70002.5.9.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:fdupes-1.61-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-bin-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-docs-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-QubitProducts-exporter_exporter-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-lusitaniae-apache_exporter-1.0.10-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-github-prometheus-promu-0.17.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-misc-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-src-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:golang-tests-1.22.9-70002.1.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-mgr-push-5.1.5-70002.3.6.2",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-rhnlib-5.1.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:python2-uyuni-common-libs-5.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-libzmq-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-devel-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundle-zeromq-tools-4.3.5-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-appdirs-1.4.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-asn1crypto-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-atomicwrites-1.1.5-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-attrs-23.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-base-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-bcrypt-3.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cffi-1.15.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cryptography-vectors-3.3.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-cssselect-1.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-curses-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-dbm-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-devel-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docker-pycreds-0.4.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-docopt-0.6.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-idna-3.4-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-importlib-metadata-6.8.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-libs-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-looseversion-1.0.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-m2crypto-doc-0.45.1-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-more-itertools-9.1.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-paramiko-doc-2.4.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-passlib-1.7.4-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-ptyprocess-0.7.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-py-1.11.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-0.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyasn1-modules-0.3.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pycparser-2.21-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyinotify-0.9.6-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pynacl-1.5.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyopenssl-23.2.0-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyparsing-3.0.9-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pysocks-1.7.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pytz-2023.3-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-pyzmq-devel-25.1.2-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-rpm-vercmp-0.1.2-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-simplejson-3.19.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-testsuite-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tools-3.11.13-70002.4.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-tornado-6.3.2-70002.4.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:saltbundlepy-websocket-client-1.5.1-70002.3.3.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacecmd-5.1.12-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:spacewalk-client-tools-5.1.8-70002.3.6.1",
+            "SUSE:RES-7:Update:Products:MultiLinuxManagerTools:Update:venv-salt-minion-3006.0-70002.5.9.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
