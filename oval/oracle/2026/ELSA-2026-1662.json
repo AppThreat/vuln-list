@@ -1,0 +1,524 @@
+{
+  "Title": "ELSA-2026-1662:  kernel security update (MODERATE)",
+  "Description": "[4.18.0-553.100.1]\n- Update Oracle Linux certificates (Kevin Lyons)\n- Disable signing for aarch64 (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 \u003c= 15.3-1.0.3\n- Remove upstream reference during boot (Kevin Lyons) [Orabug: 34750652]\n- Add new Oracle Linux Driver Signing (key 1) certificate [Orabug: 37985772]\n\n[4.18.0-553.100.1]\n- IB/hfi1: Fix sdma.h tx-\u003enum_descs off-by-one error (Kamal Heib) [RHEL-138396] {CVE-2024-26766}\n\n[4.18.0-553.99.1]\n- fbdev: bitblit: bound-check glyph index in bit_putcs* (Jocelyn Falempe) [RHEL-136937] {CVE-2025-40322}\n- atm: clip: Fix infinite recursive call of clip_push(). (Guillaume Nault) [RHEL-137591] {CVE-2025-38459}\n- squashfs: fix memory leak in squashfs_fill_super (Abhi Das) [RHEL-138010] {CVE-2025-38415}\n- Squashfs: check return result of sb_min_blocksize (CKI Backport Bot) [RHEL-138010] {CVE-2025-38415}\n- usb: core: config: Prevent OOB read in SS endpoint companion parsing (CKI Backport Bot) [RHEL-137362] {CVE-2025-39760}\n- RDMA/rxe: Fix slab-use-after-free Read in rxe_queue_cleanup bug (CKI Backport Bot) [RHEL-137058] {CVE-2025-38024}\n\n[4.18.0-553.98.1]\n- vfs: use READ_ONCE() to access -\u003ei_link (Jay Shin) [RHEL-141790]\n- fold generic_readlink() into its only caller (Jay Shin) [RHEL-141790]\n- fs/proc: fix uaf in proc_readdir_de() (Pavel Reichl) [RHEL-137093] {CVE-2025-40271}\n- Backport 'create an empty changelog file when changing its name' (Alexandra Hajkova)\n- mptcp: fix race condition in mptcp_schedule_work() (Paolo Abeni) [RHEL-134443] {CVE-2025-40258}\n- mptcp: use mptcp_schedule_work instead of open-coding it (Paolo Abeni) [RHEL-134443]\n- tcp: fix a signed-integer-overflow bug in tcp_add_backlog() (Guillaume Nault) [RHEL-137976] {CVE-2022-50865}\n- tcp: minor optimization in tcp_add_backlog() (Guillaume Nault) [RHEL-137976] {CVE-2022-50865}\n- RDMA/core: Fix 'KASAN: slab-use-after-free Read in ib_register_device' problem (Kamal Heib) [RHEL-134347] {CVE-2025-38022}",
+  "Platform": [
+    "Oracle Linux 8"
+  ],
+  "References": [
+    {
+      "Source": "elsa",
+      "URI": "https://linux.oracle.com/errata/ELSA-2026-1662.html",
+      "ID": "ELSA-2026-1662"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2022-50865.html",
+      "ID": "CVE-2022-50865"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2024-26766.html",
+      "ID": "CVE-2024-26766"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38022.html",
+      "ID": "CVE-2025-38022"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38024.html",
+      "ID": "CVE-2025-38024"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38415.html",
+      "ID": "CVE-2025-38415"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38459.html",
+      "ID": "CVE-2025-38459"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-39760.html",
+      "ID": "CVE-2025-39760"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40258.html",
+      "ID": "CVE-2025-40258"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40271.html",
+      "ID": "CVE-2025-40271"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40322.html",
+      "ID": "CVE-2025-40322"
+    }
+  ],
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": [
+          {
+            "Operator": "AND",
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "bpftool is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "bpftool is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-cross-headers is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-cross-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-headers is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "perf is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "python3-perf is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "python3-perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ],
+                "Criterions": null
+              }
+            ],
+            "Criterions": [
+              {
+                "Comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "Operator": "AND",
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "bpftool is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "bpftool is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-abi-stablelists is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-abi-stablelists is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-core is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-core is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-cross-headers is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-cross-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-debug is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-core is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-debug-core is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-devel is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-debug-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-modules is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-debug-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-modules-extra is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-debug-modules-extra is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-devel is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-doc is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-doc is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-headers is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-modules is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-modules-extra is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-modules-extra is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "perf is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "python3-perf is earlier than 0:4.18.0-553.100.1.el8_10"
+                      },
+                      {
+                        "Comment": "python3-perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ],
+                "Criterions": null
+              }
+            ],
+            "Criterions": [
+              {
+                "Comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "Criterions": null
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  },
+  "Severity": "MODERATE",
+  "Cves": [
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2022-50865.html",
+      "Public": "20251230",
+      "CVSS3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "ID": "CVE-2022-50865"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2024-26766.html",
+      "Public": "20240403",
+      "CVSS3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+      "ID": "CVE-2024-26766"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38022.html",
+      "Public": "20250618",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-38022"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38024.html",
+      "Public": "20250618",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38024"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38415.html",
+      "Public": "20250725",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38415"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38459.html",
+      "Public": "20250725",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38459"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-39760.html",
+      "Public": "20250911",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-39760"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40258.html",
+      "Public": "20251204",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40258"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40271.html",
+      "Public": "20251206",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40271"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40322.html",
+      "Public": "20251208",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-40322"
+    }
+  ],
+  "Issued": {
+    "Date": "2026-02-02"
+  }
+}

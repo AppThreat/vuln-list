@@ -1,0 +1,728 @@
+{
+  "Title": "ELSA-2026-2212:  kernel security update (MODERATE)",
+  "Description": "[5.14.0-611.30.1]\n- Disable UKI signing [Orabug: 36571828]\n- Update Oracle Linux certificates (Kevin Lyons)\n- Disable signing for aarch64 (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 \u003c= 15.3-1.0.5]\n- Remove upstream reference during boot (Kevin Lyons) [Orabug: 34729535]\n- Add Oracle Linux IMA certificates\n- Add new Oracle Linux Driver Signing (key 1) certificate [Orabug: 37985764]\n\n[5.14.0-611.30.1]\n- io_uring/net: commit partial buffers on retry (Jeff Moyer) [RHEL-137329] {CVE-2025-38730}\n- io_uring/kbuf: add io_kbuf_commit() helper (Jeff Moyer) [RHEL-137329]\n- io_uring/kbuf: use 'bl' directly rather than req-\u003ebuf_list (Jeff Moyer) [RHEL-137329]\n- ice: prevent NULL deref in ice_lag_move_new_vf_nodes() (Michal Schmidt) [RHEL-143296]\n- net: openvswitch: Avoid needlessly taking the RTNL on vport destroy (Adrian Moreno) [RHEL-141404]\n- atm: clip: Fix infinite recursive call of clip_push(). (Guillaume Nault) [RHEL-137601] {CVE-2025-38459}\n- dpll: zl3073x: Remove unused dev wrappers (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Cache all output properties in zl3073x_out (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Cache all reference properties in zl3073x_ref (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Cache reference monitor status (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Split ref, out, and synth logic from core (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Store raw register values instead of parsed state (Ivan Vecera) [RHEL-139699]\n- dpll: fix device-id-get and pin-id-get to return errors properly (Ivan Vecera) [RHEL-139699]\n- dpll: spec: add missing module-name and clock-id to pin-get reply (Ivan Vecera) [RHEL-139699]\n- dpll: zl3073x: Allow to configure phase offset averaging factor (Ivan Vecera) [RHEL-139699]\n- dpll: add phase_offset_avg_factor_get/set callback ops (Ivan Vecera) [RHEL-139699]\n- dpll: add phase-offset-avg-factor device attribute to netlink spec (Ivan Vecera) [RHEL-139699]\n- dpll: fix clock quality level reporting (Ivan Vecera) [RHEL-139699]\n- dpll: add reference sync get/set (Ivan Vecera) [RHEL-139699]\n- dpll: add reference-sync netlink attribute (Ivan Vecera) [RHEL-139699]\n- dpll: remove documentation of rclk_dev_name (Ivan Vecera) [RHEL-139699]\n- net: use dst_dev_rcu() in sk_setup_caps() (Hangbin Liu) [RHEL-129084] {CVE-2025-40170}\n- ipv4: use RCU protection in ip_dst_mtu_maybe_forward() (Hangbin Liu) [RHEL-129084]\n- net: ipv4: Consolidate ipv4_mtu and ip_dst_mtu_maybe_forward (Hangbin Liu) [RHEL-129084]\n- ipv6: use RCU in ip6_xmit() (Hangbin Liu) [RHEL-129018] {CVE-2025-40135}\n- ipv6: use RCU in ip6_output() (Hangbin Liu) [RHEL-128982] {CVE-2025-40158}\n- net: dst: introduce dst-\u003edev_rcu (Hangbin Liu) [RHEL-128982]\n- ipv4: use RCU protection in __ip_rt_update_pmtu() (Hangbin Liu) [RHEL-128982]\n- net: Add locking to protect skb-\u003edev access in ip_output (Hangbin Liu) [RHEL-128982]\n- net: dst: add four helpers to annotate data-races around dst-\u003edev (Hangbin Liu) [RHEL-128982]\n- bpf: Fix mismatched RCU unlock flavour in bpf_out_neigh_v6 (Hangbin Liu) [RHEL-128982]\n- vrf: Fix lockdep splat in output path (Hangbin Liu) [RHEL-128982]\n- ipv6: remove nexthop_fib6_nh_bh() (Hangbin Liu) [RHEL-128982]\n- net: remove rcu_dereference_bh_rtnl() (Hangbin Liu) [RHEL-128982]\n- neighbour: switch to standard rcu, instead of rcu_bh (Hangbin Liu) [RHEL-128982]\n- ipv6: flowlabel: do not disable BH where not needed (Hangbin Liu) [RHEL-128982]\n- ipv6: remove one read_lock()/read_unlock() pair in rt6_check_neigh() (Hangbin Liu) [RHEL-128982]\n- neigh: introduce neigh_confirm() helper function (Hangbin Liu) [RHEL-128982]\n- net: bonding: update the slave array for broadcast mode (Hangbin Liu) [RHEL-132923]\n- net: bonding: add broadcast_neighbor netlink option (Hangbin Liu) [RHEL-132923]\n- net: bonding: add broadcast_neighbor option for 802.3ad (Hangbin Liu) [RHEL-132923]\n- vsock/vmci: Clear the vmci transport packet properly when initializing it (CKI Backport Bot) [RHEL-137697] {CVE-2025-38403}\n- ALSA: usb-audio: Fix potential overflow of PCM transfer buffer (CKI Backport Bot) [RHEL-136909] {CVE-2025-40269}\n- nvme: tcp: Fix compilation warning with W=1 (John Meneghini) [RHEL-129928]\n- nvme-tcp: Fix I/O queue cpu spreading for multiple controllers (John Meneghini) [RHEL-129928]\n\n[5.14.0-611.29.1]\n- squashfs: fix memory leak in squashfs_fill_super (Abhi Das) [RHEL-138015] {CVE-2025-38415}\n- Squashfs: check return result of sb_min_blocksize (CKI Backport Bot) [RHEL-138015] {CVE-2025-38415}\n- usb: core: config: Prevent OOB read in SS endpoint companion parsing (CKI Backport Bot) [RHEL-137364] {CVE-2025-39760}\n- RDMA/rxe: Fix slab-use-after-free Read in rxe_queue_cleanup bug (CKI Backport Bot) [RHEL-137069] {CVE-2025-38024}\n\n[5.14.0-611.28.1]\n- s390: Disable ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP (Luiz Capitulino) [RHEL-133337]\n- s390: mm: add stub for hugetlb_optimize_vmemmap_key (Luiz Capitulino) [RHEL-133337]\n- fs/proc: fix uaf in proc_readdir_de() (CKI Backport Bot) [RHEL-137098] {CVE-2025-40271}\n- Bluetooth: hci_sync: fix race in hci_cmd_sync_dequeue_once (CKI Backport Bot) [RHEL-136256] {CVE-2025-40318}\n- RDMA/core: Fix 'KASAN: slab-use-after-free Read in ib_register_device' problem (CKI Backport Bot) [RHEL-134352] {CVE-2025-38022}\n- cifs: Fix deadlock in cifs_writepages during reconnect (Paulo Alcantara) [RHEL-134234]\n- irqchip/gic-v2m: Prevent use after free of gicv2m_get_fwnode() (CKI Backport Bot) [RHEL-131974] {CVE-2025-37819}\n- net: openvswitch: fix nested key length validation in the set() action (CKI Backport Bot) [RHEL-131801] {CVE-2025-37789}\n- md: avoid repeated calls to del_gendisk (Nigel Croxon) [RHEL-126532]\n- md: delete mddev kobj before deleting gendisk kobj (Nigel Croxon) [RHEL-126532]\n- md: add legacy_async_del_gendisk mode (Nigel Croxon) [RHEL-126532]\n- md: Don't clear MD_CLOSING until mddev is freed (Nigel Croxon) [RHEL-126532]\n- md: fix create on open mddev lifetime regression (Nigel Croxon) [RHEL-126532]\n- md: call del_gendisk in control path (Nigel Croxon) [RHEL-126532]\n- Bluetooth: ISO: Fix possible UAF on iso_conn_free (CKI Backport Bot) [RHEL-128891] {CVE-2025-40141}",
+  "Platform": [
+    "Oracle Linux 9"
+  ],
+  "References": [
+    {
+      "Source": "elsa",
+      "URI": "https://linux.oracle.com/errata/ELSA-2026-2212.html",
+      "ID": "ELSA-2026-2212"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-37789.html",
+      "ID": "CVE-2025-37789"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-37819.html",
+      "ID": "CVE-2025-37819"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38022.html",
+      "ID": "CVE-2025-38022"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38024.html",
+      "ID": "CVE-2025-38024"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38403.html",
+      "ID": "CVE-2025-38403"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38415.html",
+      "ID": "CVE-2025-38415"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38459.html",
+      "ID": "CVE-2025-38459"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-38730.html",
+      "ID": "CVE-2025-38730"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-39760.html",
+      "ID": "CVE-2025-39760"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40135.html",
+      "ID": "CVE-2025-40135"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40141.html",
+      "ID": "CVE-2025-40141"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40158.html",
+      "ID": "CVE-2025-40158"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40170.html",
+      "ID": "CVE-2025-40170"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40269.html",
+      "ID": "CVE-2025-40269"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40271.html",
+      "ID": "CVE-2025-40271"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2025-40318.html",
+      "ID": "CVE-2025-40318"
+    }
+  ],
+  "Criteria": {
+    "Operator": "AND",
+    "Criterias": [
+      {
+        "Operator": "OR",
+        "Criterias": [
+          {
+            "Operator": "AND",
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-cross-headers is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-cross-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs-devel is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "libperf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "libperf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-headers is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "perf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "python3-perf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "python3-perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "rtla is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "rtla is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "rv is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "rv is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  }
+                ],
+                "Criterions": null
+              }
+            ],
+            "Criterions": [
+              {
+                "Comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "Operator": "AND",
+            "Criterias": [
+              {
+                "Operator": "OR",
+                "Criterias": [
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-devel is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-devel-matched is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-devel-matched is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-devel is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-devel-matched is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-devel-matched is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-doc is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-doc is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-headers is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "perf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "python3-perf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "python3-perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "rtla is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "rtla is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "rv is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "rv is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-cross-headers is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-cross-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs-devel is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "libperf is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "libperf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-abi-stablelists is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-abi-stablelists is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-core is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-core is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-modules is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-modules is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-modules-core is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-modules-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-modules-extra is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-modules-extra is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-debug-uki-virt is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-debug-uki-virt is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-modules is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-modules is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-modules-core is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-modules-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-modules-extra is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-modules-extra is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-tools-libs is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-tools-libs is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-uki-virt is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-uki-virt is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "Operator": "AND",
+                    "Criterias": null,
+                    "Criterions": [
+                      {
+                        "Comment": "kernel-uki-virt-addons is earlier than 0:5.14.0-611.30.1.el9_7"
+                      },
+                      {
+                        "Comment": "kernel-uki-virt-addons is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  }
+                ],
+                "Criterions": null
+              }
+            ],
+            "Criterions": [
+              {
+                "Comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "Criterions": null
+      }
+    ],
+    "Criterions": [
+      {
+        "Comment": "Oracle Linux 9 is installed"
+      }
+    ]
+  },
+  "Severity": "MODERATE",
+  "Cves": [
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-37789.html",
+      "Public": "20250501",
+      "CVSS3": "6.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+      "ID": "CVE-2025-37789"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-37819.html",
+      "Public": "20250508",
+      "CVSS3": "6.7/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-37819"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38022.html",
+      "Public": "20250618",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-38022"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38024.html",
+      "Public": "20250618",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38024"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38403.html",
+      "Public": "20250725",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-38403"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38415.html",
+      "Public": "20250725",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38415"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38459.html",
+      "Public": "20250725",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-38459"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-38730.html",
+      "Public": "20250904",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-38730"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-39760.html",
+      "Public": "20250911",
+      "CVSS3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+      "ID": "CVE-2025-39760"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40135.html",
+      "Public": "20251112",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40135"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40141.html",
+      "Public": "20251112",
+      "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:H",
+      "ID": "CVE-2025-40141"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40158.html",
+      "Public": "20251112",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40158"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40170.html",
+      "Public": "20251112",
+      "CVSS3": "7.4/CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40170"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40269.html",
+      "Public": "20251206",
+      "CVSS3": "7.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:H",
+      "ID": "CVE-2025-40269"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40271.html",
+      "Public": "20251206",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40271"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2025-40318.html",
+      "Public": "20251208",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2025-40318"
+    }
+  ],
+  "Issued": {
+    "Date": "2026-02-09"
+  }
+}

@@ -1,0 +1,915 @@
+{
+  "Title": "ELSA-2026-50318: Unbreakable Enterprise kernel security update (IMPORTANT)",
+  "Description": "[5.15.0-321.202.5.2]\n- net/tls: fix use-after-free in -EBUSY error path of tls_do_encryption (Muhammad Alifa Ramdhan)  [Orabug: 39543209]  {CVE-2026-31533}\n- net: fix fanout UAF in packet_release() via NETDEV_UP race (Yochai Eisenrich)  [Orabug: 39543208]  {CVE-2026-31504}\n- net: tap: NULL pointer derefence in dev_parse_header_protocol when skb-\u003edev is null (Cezar Bulinaru)  [Orabug: 39543201]  {CVE-2022-50073}\n- mptcp: fix slab-use-after-free in __inet_lookup_established (Jiayuan Chen)  [Orabug: 39543200]  {CVE-2026-31669}\n- batman-adv: hold claim backbone gateways by reference (Haoze Xie)  [Orabug: 39543197]  {CVE-2026-31657}\n- arm64: dts: pensando: drop elba penfw firmware node (Tom Saeger)  [Orabug: 39543196]",
+  "Platform": [
+    "Oracle Linux 8",
+    "Oracle Linux 9"
+  ],
+  "References": [
+    {
+      "Source": "elsa",
+      "URI": "https://linux.oracle.com/errata/ELSA-2026-50318.html",
+      "ID": "ELSA-2026-50318"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2022-50073.html",
+      "ID": "CVE-2022-50073"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2026-31504.html",
+      "ID": "CVE-2026-31504"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2026-31533.html",
+      "ID": "CVE-2026-31533"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2026-31657.html",
+      "ID": "CVE-2026-31657"
+    },
+    {
+      "Source": "CVE",
+      "URI": "https://linux.oracle.com/cve/CVE-2026-31669.html",
+      "ID": "CVE-2026-31669"
+    }
+  ],
+  "Criteria": {
+    "Operator": "OR",
+    "Criterias": [
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "bpftool is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "bpftool is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container-debug is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-core is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-core is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-core is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-core is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-devel is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-doc is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-doc is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules-extra is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      }
+                    ],
+                    "Criterions": null
+                  }
+                ],
+                "Criterions": [
+                  {
+                    "Comment": "Oracle Linux arch is aarch64"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "bpftool is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "bpftool is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container-debug is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-core is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-core is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-core is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-core is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-devel is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-doc is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-doc is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-321.202.5.2.el8uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules-extra is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      }
+                    ],
+                    "Criterions": null
+                  }
+                ],
+                "Criterions": [
+                  {
+                    "Comment": "Oracle Linux arch is x86_64"
+                  }
+                ]
+              }
+            ],
+            "Criterions": null
+          }
+        ],
+        "Criterions": [
+          {
+            "Comment": "Oracle Linux 8 is installed"
+          }
+        ]
+      },
+      {
+        "Operator": "AND",
+        "Criterias": [
+          {
+            "Operator": "OR",
+            "Criterias": [
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "bpftool is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "bpftool is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container-debug is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container-debug is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-core is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-core is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-core is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-core is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-devel is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-devel is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-devel is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-doc is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-doc is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules-extra is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek64k is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek64k is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek64k-core is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek64k-core is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek64k-devel is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek64k-devel is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek64k-modules is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek64k-modules is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek64k-modules-extra is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek64k-modules-extra is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      }
+                    ],
+                    "Criterions": null
+                  }
+                ],
+                "Criterions": [
+                  {
+                    "Comment": "Oracle Linux arch is aarch64"
+                  }
+                ]
+              },
+              {
+                "Operator": "AND",
+                "Criterias": [
+                  {
+                    "Operator": "OR",
+                    "Criterias": [
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "bpftool is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "bpftool is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-container-debug is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-container-debug is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-core is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-core is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-core is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-core is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-devel is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-devel is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-devel is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-doc is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-doc is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      },
+                      {
+                        "Operator": "AND",
+                        "Criterias": null,
+                        "Criterions": [
+                          {
+                            "Comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-321.202.5.2.el9uek"
+                          },
+                          {
+                            "Comment": "kernel-uek-modules-extra is signed with the Oracle Linux 9 key"
+                          }
+                        ]
+                      }
+                    ],
+                    "Criterions": null
+                  }
+                ],
+                "Criterions": [
+                  {
+                    "Comment": "Oracle Linux arch is x86_64"
+                  }
+                ]
+              }
+            ],
+            "Criterions": null
+          }
+        ],
+        "Criterions": [
+          {
+            "Comment": "Oracle Linux 9 is installed"
+          }
+        ]
+      }
+    ],
+    "Criterions": null
+  },
+  "Severity": "IMPORTANT",
+  "Cves": [
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2022-50073.html",
+      "Public": "20250618",
+      "CVSS3": "6.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+      "ID": "CVE-2022-50073"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2026-31504.html",
+      "Public": "20260422",
+      "CVSS3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2026-31504"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2026-31533.html",
+      "Public": "20260423",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2026-31533"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2026-31657.html",
+      "Public": "20260424",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2026-31657"
+    },
+    {
+      "Impact": "",
+      "Href": "https://linux.oracle.com/cve/CVE-2026-31669.html",
+      "Public": "20260424",
+      "CVSS3": "7.8/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "ID": "CVE-2026-31669"
+    }
+  ],
+  "Issued": {
+    "Date": "2026-06-15"
+  }
+}
