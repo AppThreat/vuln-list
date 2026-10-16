@@ -9,7 +9,7 @@
     "RevisionHistory": [
       {
         "Number": "1",
-        "Date": "2026-06-19T08:20:11Z",
+        "Date": "2026-10-13T17:36:57Z",
         "Description": "current"
       }
     ]
@@ -370,7 +370,7 @@
     },
     {
       "CVE": "CVE-2026-25707",
-      "Description": "unknown",
+      "Description": "A relative path traversal bug problem when processing repository metadata in libzypp before 17.38.10 could be used by remote attackers supplying repositories to overwrite files on the system, leading to denial of service or privilege escalation.",
       "Threats": [
         {
           "Type": "Impact",
@@ -406,7 +406,7 @@
     },
     {
       "CVE": "CVE-2026-31404",
-      "Description": "In the Linux kernel, the following vulnerability has been resolved:\n\nNFSD: Defer sub-object cleanup in export put callbacks\n\nsvc_export_put() calls path_put() and auth_domain_put() immediately\nwhen the last reference drops, before the RCU grace period. RCU\nreaders in e_show() and c_show() access both ex_path (via\nseq_path/d_path) and ex_client-\u003ename (via seq_escape) without\nholding a reference. If cache_clean removes the entry and drops the\nlast reference concurrently, the sub-objects are freed while still\nin use, producing a NULL pointer dereference in d_path.\n\nCommit 2530766492ec (\"nfsd: fix UAF when access ex_uuid or\nex_stats\") moved kfree of ex_uuid and ex_stats into the\ncall_rcu callback, but left path_put() and auth_domain_put() running\nbefore the grace period because both may sleep and call_rcu\ncallbacks execute in softirq context.\n\nReplace call_rcu/kfree_rcu with queue_rcu_work(), which defers the\ncallback until after the RCU grace period and executes it in process\ncontext where sleeping is permitted. This allows path_put() and\nauth_domain_put() to be moved into the deferred callback alongside\nthe other resource releases. Apply the same fix to expkey_put(),\nwhich has the identical pattern with ek_path and ek_client.\n\nA dedicated workqueue scopes the shutdown drain to only NFSD\nexport release work items; flushing the shared\nsystem_unbound_wq would stall on unrelated work from other\nsubsystems. nfsd_export_shutdown() uses rcu_barrier() followed\nby flush_workqueue() to ensure all deferred release callbacks\ncomplete before the export caches are destroyed.\n\nReviwed-by: Jeff Layton \u003cjlayton@kernel.org\u003e",
+      "Description": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
       "Threats": [
         {
           "Type": "Impact",
@@ -806,7 +806,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -968,7 +968,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1000,7 +1000,7 @@
     },
     {
       "CVE": "CVE-2026-42770",
-      "Description": "Issue summary: When EVP_PKEY_derive_set_peer() is called with a DHX (X9.42)\npeer key, the peer key is not properly checked for the subgroup membership.\n\nImpact summary: A malicious peer which presents an X9.42 key carrying the\nvictim's p and g parameters, a forged q = r (a small prime factor of the\ncofactor (p−1)/q_local), and a public value Y of order r can recover the\nvictim's private key after a small number of key exchange attempts.\n\nWhen EVP_PKEY_derive_set_peer() is called with a DHX (X9.42) peer key, the\nsubgroup membership check Y^q ≡ 1 (mod p) is performed using the peer's\nown q parameter, not the local key's q. The peer's domain parameters are\nthen matched against the domain parameters of the private key, but the value\nof q is not compared.\n\nA malicious peer who presents an X9.42 key carrying the victim's p, g,\na forged q = r (a small prime factor of the cofactor), and a public\nvalue Y of order r passes all checks. The shared secret then takes only\nr distinct values, leaking priv mod r. Repeating for each small-prime\nfactor of the cofactor and combining via CRT recovers the full private\nkey (Lim-Lee / small-subgroup-confinement attack).\n\nThe realistic attack surface is narrow: principally CMP deployments with\nlong-lived RA/CA DHX keys and bespoke enterprise or government applications\nusing X9.42 DHX static keys with interactive protocols and therefore this\nissue was assigned Low severity.\n\nThe FIPS modules in 4.0, 3.6, 3.5, 3.4, and 3.0 are affected by this\nissue.",
+      "Description": "Issue summary: When EVP_PKEY_derive_set_peer() is called with a DHX (X9.42)\npeer key, the peer key is not properly checked for the subgroup membership.\n\nImpact summary: A malicious peer which presents an X9.42 key carrying the\nvictim's p and g parameters, a forged q = r (a small prime factor of the\ncofactor (p−1)/q_local), and a public value Y of order r can recover the\nvictim's private key after a small number of key exchange attempts.\n\nWhen EVP_PKEY_derive_set_peer() is called with a DHX (X9.42) peer key, the\nsubgroup membership check Y^q ≡ 1 (mod p) is performed using the peer's\nown q parameter, not the local key's q. The peer's domain parameters are\nthen matched against the domain parameters of the private key, but the value\nof q is not compared.\n\nA malicious peer who presents an X9.42 key carrying the victim's p, g,\na forged q = r (a small prime factor of the cofactor), and a public\nvalue Y of order r passes all checks. The shared secret then takes only\nr distinct values, leaking priv mod r. Repeating for each small-prime\nfactor of the cofactor and combining via CRT recovers the full private\nkey (Lim-Lee / small-subgroup-confinement attack).\n\nThe realistic attack surface is narrow: principally CMP deployments with\nlong-lived RA/CA DHX keys and bespoke enterprise or government applications\nusing X9.42 DHX static keys with interactive protocols and therefore this\nissue was assigned Low severity.\n\nThe FIPS modules in 4.0, 3.6, 3.5, 3.4, 3.1.2 and 3.0 are affected by this\nissue.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1238,7 +1238,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "moderate"
+          "Severity": "important"
         }
       ],
       "References": null,
@@ -1756,7 +1756,7 @@
     },
     {
       "CVE": "CVE-2026-43961",
-      "Description": "unknown",
+      "Description": "A flaw was found in Vim's netrw plugin. A crafted filename containing quote characters and expression fragments can break out of the quoted context during mark/unmark operations, allowing arbitrary Vimscript execution. This can be leveraged to run shell commands with the privileges of the user running Vim.",
       "Threats": [
         {
           "Type": "Impact",
@@ -1792,7 +1792,7 @@
     },
     {
       "CVE": "CVE-2026-44941",
-      "Description": "unknown",
+      "Description": "A relative path traversal in the \"keyhint\" option in repomd.xml parsing of libzypp before 17.38.12 can be used by attackers able to supply a malicious repository to inject or overwrite files in the target system as root.",
       "Threats": [
         {
           "Type": "Impact",
@@ -2156,7 +2156,7 @@
       "Threats": [
         {
           "Type": "Impact",
-          "Severity": "important"
+          "Severity": "moderate"
         }
       ],
       "References": null,
@@ -2476,7 +2476,7 @@
     },
     {
       "CVE": "CVE-2026-48863",
-      "Description": "unknown",
+      "Description": "A flaw was found in libsolv. A stack-based buffer overflow vulnerability exists in the PGP verification component due to incorrect length handling when copying EdDSA 's' MPI into a stack buffer. A remote attacker could craft a malicious Ed25519 PGP signature with mismatched MPI lengths. Processing this crafted signature could lead to a denial of service in automated package or repository processing workflows.",
       "Threats": [
         {
           "Type": "Impact",

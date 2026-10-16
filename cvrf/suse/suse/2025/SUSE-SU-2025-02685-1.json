@@ -31,7 +31,7 @@
       "Type": "Legal Disclaimer"
     },
     {
-      "Text": "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest-2025-2685,Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest-2025-2685,Container suse/multi-linux-manager/5.1/x86_64/server:latest-2025-2685,Image SLES15-SP7-SAPCAL-Azure-2025-2685,Image SLES15-SP7-SAPCAL-EC2-2025-2685,Image SLES15-SP7-SAPCAL-GCE-2025-2685,Image proxy-httpd-image-2025-2685,Image server-image-2025-2685,SUSE-2025-2685,SUSE-SLE-Module-Basesystem-15-SP7-2025-2685,SUSE-SLE-Module-Packagehub-Subpackages-15-SP7-2025-2685,SUSE-SLE-Module-Server-Applications-15-SP7-2025-2685",
+      "Text": "Container bci/php-apache:latest-2025-2685,Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest-2025-2685,Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest-2025-2685,Container suse/multi-linux-manager/5.1/x86_64/server:latest-2025-2685,Container suse/registry:2.8-2025-2685,Image SLES15-SP7-SAPCAL-Azure-2025-2685,Image SLES15-SP7-SAPCAL-EC2-2025-2685,Image SLES15-SP7-SAPCAL-GCE-2025-2685,Image proxy-httpd-image-2025-2685,Image server-image-2025-2685,Image server-image-sles15sp7-2025-2685,SUSE-2025-2685,SUSE-SLE-Module-Basesystem-15-SP7-2025-2685,SUSE-SLE-Module-Packagehub-Subpackages-15-SP7-2025-2685,SUSE-SLE-Module-Server-Applications-15-SP7-2025-2685",
       "Title": "Patchnames",
       "Type": "Details"
     }
@@ -40,6 +40,16 @@
     "Relationships": [
       {
         "ProductReference": "apache2-2.4.62-150700.4.3.1",
+        "RelatesToProductReference": "Container bci/php-apache:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-prefork-2.4.62-150700.4.3.1",
+        "RelatesToProductReference": "Container bci/php-apache:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-2.4.62-150700.4.3.1",
         "RelatesToProductReference": "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest",
         "RelationType": "Default Component Of"
       },
@@ -66,6 +76,11 @@
       {
         "ProductReference": "apache2-prefork-2.4.62-150700.4.3.1",
         "RelatesToProductReference": "Container suse/multi-linux-manager/5.1/x86_64/server:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-utils-2.4.62-150700.4.3.1",
+        "RelatesToProductReference": "Container suse/registry:2.8",
         "RelationType": "Default Component Of"
       },
       {
@@ -116,6 +131,16 @@
       {
         "ProductReference": "apache2-prefork-2.4.62-150700.4.3.1",
         "RelatesToProductReference": "Image server-image",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-2.4.62-150700.4.3.1",
+        "RelatesToProductReference": "Image server-image-sles15sp7",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-prefork-2.4.62-150700.4.3.1",
+        "RelatesToProductReference": "Image server-image-sles15sp7",
         "RelationType": "Default Component Of"
       },
       {
@@ -252,12 +277,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -266,6 +294,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -306,12 +336,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -320,6 +353,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -360,12 +395,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -374,6 +412,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -414,12 +454,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -428,6 +471,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -468,12 +513,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -482,6 +530,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -522,12 +572,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -536,6 +589,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
@@ -576,12 +631,15 @@
         {
           "Type": "Fixed",
           "ProductID": [
+            "Container bci/php-apache:latest:apache2-2.4.62-150700.4.3.1",
+            "Container bci/php-apache:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-httpd:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/proxy-salt-broker:latest:apache2-prefork-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-2.4.62-150700.4.3.1",
             "Container suse/multi-linux-manager/5.1/x86_64/server:latest:apache2-prefork-2.4.62-150700.4.3.1",
+            "Container suse/registry:2.8:apache2-utils-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-Azure:apache2-prefork-2.4.62-150700.4.3.1",
             "Image SLES15-SP7-SAPCAL-EC2:apache2-2.4.62-150700.4.3.1",
@@ -590,6 +648,8 @@
             "Image SLES15-SP7-SAPCAL-GCE:apache2-prefork-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-2.4.62-150700.4.3.1",
             "Image proxy-httpd-image:apache2-prefork-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-2.4.62-150700.4.3.1",
+            "Image server-image-sles15sp7:apache2-prefork-2.4.62-150700.4.3.1",
             "Image server-image:apache2-2.4.62-150700.4.3.1",
             "Image server-image:apache2-prefork-2.4.62-150700.4.3.1",
             "SUSE Linux Enterprise Module for Basesystem 15 SP7:apache2-2.4.62-150700.4.3.1",
