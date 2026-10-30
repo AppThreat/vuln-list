@@ -60301,34 +60301,22 @@
       "any all"
     ],
     "Binary": [
-      "libball1.5-data, libball1.5, libball1.5-dev, libballview1.5, libballview1.5-dev, ballview, libball1.5-doc"
+      "ballview, ballview-data"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-builtusing, bison, cmake, flex, libboost-dev, libboost-iostreams-dev, libboost-thread-dev, libeigen3-dev, libgl-dev, libglew-dev, liblpsolve55-dev, libnsl-dev, libqt5opengl5-desktop-dev, libsvm-dev, libx11-dev, qtbase5-dev, qttools5-dev, qtwebengine5-dev [amd64 arm64 armhf i386 mips64el], tidy"
-    ],
-    "Build-Depends-Indep": [
-      "doxygen \u003c!nodoc\u003e, ghostscript \u003c!nodoc\u003e, graphviz \u003c!nodoc\u003e, texlive-fonts-recommended \u003c!nodoc\u003e, texlive-latex-base \u003c!nodoc\u003e, texlive-latex-extra \u003c!nodoc\u003e, texlive-latex-recommended \u003c!nodoc\u003e"
+      "debhelper-compat (= 14), dh-sequence-builtusing, bison, cmake, flex, imagemagick, libboost-iostreams-dev, libboost-thread-dev, libcups2-dev, libeigen3-dev, libfftw3-dev, libgl-dev, libglew-dev, liblpsolve55-dev, libnsl-dev, libopenbabel-dev, libsvm-dev, libtbb-dev [linux-any], qt6-svg-dev, qt6-tools-dev, qt6-webengine-dev [amd64 arm64 armhf i386]"
     ],
     "Checksums-Sha256": [
-      "d4554f33be2482027c44af3b96756d7b10598da1e1ed44b550d48b429fe7e193 3326 ball_1.5.0+git20220524.d85d2dd-5.dsc d8209c81107417f5d8ddef51080d98cd8af2a8dd2ed33c8c6b61418a997a0e0f 21353788 ball_1.5.0+git20220524.d85d2dd.orig.tar.xz edcc76bf524f730a02606c5c9fc32269a94c35078cc8dd0b57f93461d6d296ee 27640 ball_1.5.0+git20220524.d85d2dd-5.debian.tar.xz"
-    ],
-    "Dgit": [
-      "a2a6cd9d0f7a5acac7f329e209d5b84be53ff3f5 debian archive/debian/1.5.0+git20220524.d85d2dd-5 https://git.dgit.debian.org/ball"
+      "ff0cf4711355fd8b4d6f7c68bc2b2d9269fc18e20b9cef561f14504be3117c0f 2426 ball_1.7.4-2.dsc 5d4d038aed5ee2f73199a0172f536aff77ef24150e13ed2f87a5ba924ae19f39 39417077 ball_1.7.4.orig.tar.gz 2159a672a28876f885412a850810d928ce82d4881dbb38433bbb4b56c6cd0f50 20412 ball_1.7.4-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/b/ball"
     ],
     "Files": [
-      "941ab99d6eb528ed212c91f713c89a7f 3326 ball_1.5.0+git20220524.d85d2dd-5.dsc 17b927adb470454db592d11d4d911cf6 21353788 ball_1.5.0+git20220524.d85d2dd.orig.tar.xz 66e53243c685603c0096b471d229f222 27640 ball_1.5.0+git20220524.d85d2dd-5.debian.tar.xz"
+      "71f634f9b861cefd49361e938a74aa32 2426 ball_1.7.4-2.dsc 8b7622159c7a1845578e1cd654aaca3b 39417077 ball_1.7.4.orig.tar.gz 24f47d7328c96f476348f6dc71756f23 20412 ball_1.7.4-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
-    ],
-    "Git-Tag-Info": [
-      "tag=c020a35a9584e455efd4877fccc9c6d5f6e44df5 fp=bbbd45ea818ab86ff67e7285d3e17383cfa7ff06"
-    ],
-    "Git-Tag-Tagger": [
-      "Anton Gladky \u003cgladk@debian.org\u003e"
     ],
     "Homepage": [
       "http://www.ball-project.org/"
@@ -60340,7 +60328,7 @@
       "ball"
     ],
     "Package-List": [
-      "ballview deb science optional arch=any libball1.5 deb libs optional arch=any libball1.5-data deb science optional arch=all libball1.5-dev deb libdevel optional arch=any libball1.5-doc deb doc optional arch=all profile=!nodoc profile:v1=!nodoc libballview1.5 deb libs optional arch=any libballview1.5-dev deb libdevel optional arch=any"
+      "ballview deb science optional arch=any ballview-data deb science optional arch=all"
     ],
     "Priority": [
       "optional"
@@ -60355,7 +60343,7 @@
       "autopkgtest"
     ],
     "Testsuite-Triggers": [
-      "build-essential, pkgconf"
+      "build-essential, libboost-dev, pkgconf, qt6-base-dev"
     ],
     "Uploaders": [
       "Andreas Tille \u003ctille@debian.org\u003e, Steffen Moeller \u003cmoeller@debian.org\u003e"
@@ -60367,7 +60355,7 @@
       "https://salsa.debian.org/med-team/ball.git"
     ],
     "Version": [
-      "1.5.0+git20220524.d85d2dd-5"
+      "1.7.4-2"
     ]
   },
   {
@@ -86600,6 +86588,62 @@
       "any"
     ],
     "Binary": [
+      "bpftune, libbpftune0, libbpftune-dev, pcp-pmda-bpftune"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 13), python3-docutils, libbpf-dev, libcap-dev, clang, llvm, bpftool, libnl-3-dev, libnl-route-3-dev, iperf3"
+    ],
+    "Checksums-Sha256": [
+      "624063c034c9a49c322a36646772bd37b587213e3b3d6071c404915b18eca289 2222 bpftune_0.4.2.10.g4712347-1.dsc 804d58cd72b01e43368ac3459e7f3e49aeacd8c0b056460dc55b9fc33dec0c2f 894316 bpftune_0.4.2.10.g4712347.orig.tar.xz b54ca5f8cf9cbf23e918ef77b4bdc8678cdbde584d8f0f2061c9d09baa14afb8 4784 bpftune_0.4.2.10.g4712347-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/b/bpftune"
+    ],
+    "Files": [
+      "93428b5bc6ef0d514d80d3d9d54bb13e 2222 bpftune_0.4.2.10.g4712347-1.dsc cb2946f7f67b2c7ad91f5aeed137d7cf 894316 bpftune_0.4.2.10.g4712347.orig.tar.xz 46a4ade7295aea54f37dc27bf68be332 4784 bpftune_0.4.2.10.g4712347-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://github.com/oracle/bpftune/tree/main"
+    ],
+    "Maintainer": [
+      "Sudip Mukherjee \u003csudipm.mukherjee@gmail.com\u003e"
+    ],
+    "Package": [
+      "bpftune"
+    ],
+    "Package-List": [
+      "bpftune deb admin optional arch=any libbpftune-dev deb libdevel optional arch=any libbpftune0 deb libs optional arch=any pcp-pmda-bpftune deb admin optional arch=any"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "misc"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/debian/bpftune"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/debian/bpftune.git"
+    ],
+    "Version": [
+      "0.4.2.10.g4712347-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "any"
+    ],
+    "Binary": [
       "bpm-tools"
     ],
     "Build-Depends": [
@@ -96028,16 +96072,25 @@
       "cmake, debhelper-compat (= 13), googletest \u003c!nocheck\u003e, ninja-build"
     ],
     "Checksums-Sha256": [
-      "6b1e836677259e94cf74be61e579f517be424b33c8a426cc8c9a700dd895be0a 2245 c-ares_1.34.8-1.dsc c222b6d681096f9444d2c4863d2c1174019e27cacca0a4a5c114d36dd7d7bf78 1036098 c-ares_1.34.8.orig.tar.gz 06b5fefc70e74ba09f79454876a817ad30d4f648b5a5a175fb5b6c440a58edc0 265 c-ares_1.34.8.orig.tar.gz.asc a94195bb26cc3faaceccf85edb7b39b44973c18a353555c144c13cb1cc875aba 18664 c-ares_1.34.8-1.debian.tar.xz"
+      "00ea9f0ab65a9bc70e07e8edee5936d269aa100a0eece8a05ef581c4cad1e31f 2481 c-ares_1.34.9-1.dsc 9364b70a12eb59a06830fb488d9357f90100dff0d98b23ea3593a183d43e6f2f 1083895 c-ares_1.34.9.orig.tar.gz 47c70be87138c8b67c0d7dd5b14557a3f545a7047bd7c28ed5aab1b66aae2f84 265 c-ares_1.34.9.orig.tar.gz.asc 09ff3468804d49b87b8b0cf26d1b4d9e4c494fa36b649c8c8151ea7ca879f2b5 18616 c-ares_1.34.9-1.debian.tar.xz"
+    ],
+    "Dgit": [
+      "3809af954fc8846c693804892608a5da4f0a20e1 debian archive/debian/1.34.9-1 https://git.dgit.debian.org/c-ares"
     ],
     "Directory": [
       "pool/main/c/c-ares"
     ],
     "Files": [
-      "5b38d2c0856d814929759dd2c74df026 2245 c-ares_1.34.8-1.dsc a0568780ffe1476160a6bbb4b6737261 1036098 c-ares_1.34.8.orig.tar.gz 0694089ae248757ed9bb1496ee8dad8b 265 c-ares_1.34.8.orig.tar.gz.asc f4a0d3d55d33ddabf864193d4b1e2bd6 18664 c-ares_1.34.8-1.debian.tar.xz"
+      "057defa3d032ac53424d64623c1425aa 2481 c-ares_1.34.9-1.dsc 1d60941afcc95e5ae08f2d27001bb751 1083895 c-ares_1.34.9.orig.tar.gz 0b54ecbb31b1cbb88038f51fa693cee7 265 c-ares_1.34.9.orig.tar.gz.asc 24f315535ff4f53b5757a8aab5674a0a 18616 c-ares_1.34.9-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
+    ],
+    "Git-Tag-Info": [
+      "tag=a3ae077f855dfcbfbe936b40e55a33ea067f326a fp=05d0169c26e41593418129df199a64fadfb500ff"
+    ],
+    "Git-Tag-Tagger": [
+      "Gregor Jasny \u003cgjasny@googlemail.com\u003e"
     ],
     "Homepage": [
       "https://c-ares.org/"
@@ -96067,7 +96120,7 @@
       "https://salsa.debian.org/debian/c-ares.git"
     ],
     "Version": [
-      "1.34.8-1"
+      "1.34.9-1"
     ]
   },
   {
@@ -204197,19 +204250,28 @@
       "python3-django-render-block"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-python, python3-all, python3-django (\u003e= 2:2.2~), python3-jinja2, python3-setuptools"
+      "debhelper-compat (= 13), dh-python, pybuild-plugin-pyproject, python3-all, python3-django (\u003e= 2:2.2~), python3-jinja2, python3-setuptools"
     ],
     "Checksums-Sha256": [
-      "0c08c6e52a3b53dfa082aa67d0983e481cde1ea64649cfc42b721819f7eee6b8 2151 django-render-block_0.8.1-2.dsc edbc5d444cc50f3eb3387cf17f6f1014bf19d6018f680861cdeae9e0306003fa 9146 django-render-block_0.8.1.orig.tar.gz 55c24ffdaa3ba5552a6b5dabbc2528b494bf5b310b23387e59a91db216db04b2 2176 django-render-block_0.8.1-2.debian.tar.xz"
+      "781b563b0978c9033c9fad8c200e5d16f31890e30b0d84f69f4f3381fdad5fb3 2486 django-render-block_0.11-1.dsc 17886dd3bff222fe8a2f019509c6c53e0e4a38fe684e80d48e8697a879e1301b 12432 django-render-block_0.11.orig.tar.gz d2fa0b6d1d5ca339fe4bc477f1f6b373fab280bcf3a94de70cb5d94c3a9e6417 2276 django-render-block_0.11-1.debian.tar.xz"
+    ],
+    "Dgit": [
+      "37958dd01a747e27aa9336ee2669f8a2b05f7b2e debian archive/debian/0.11-1 https://git.dgit.debian.org/django-render-block"
     ],
     "Directory": [
       "pool/main/d/django-render-block"
     ],
     "Files": [
-      "483765d73943e34fae8eb3dbd8c7a0f1 2151 django-render-block_0.8.1-2.dsc ff6ffeea9d2a3d071a46335d551252fc 9146 django-render-block_0.8.1.orig.tar.gz b808efd5163bb532ba26f16cca7fa449 2176 django-render-block_0.8.1-2.debian.tar.xz"
+      "2c88b50f7e15dfc7be7012a4ba6344b5 2486 django-render-block_0.11-1.dsc ad15ae7038d858b8f8e586724778ccc5 12432 django-render-block_0.11.orig.tar.gz a96f42f28dd04bf34646304d804a171c 2276 django-render-block_0.11-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
+    ],
+    "Git-Tag-Info": [
+      "tag=1dc47a31544d479cdb6e20de14dadf6f63b77022 fp=ac0a4ff12611b6fccf01c111393587d97d86500b"
+    ],
+    "Git-Tag-Tagger": [
+      "Colin Watson \u003ccjwatson@debian.org\u003e"
     ],
     "Homepage": [
       "https://github.com/clokep/django-render-block"
@@ -204232,6 +204294,9 @@
     "Standards-Version": [
       "4.6.1"
     ],
+    "Testsuite": [
+      "autopkgtest-pkg-pybuild"
+    ],
     "Uploaders": [
       "Dominik George \u003cnatureshadow@debian.org\u003e"
     ],
@@ -204242,7 +204307,7 @@
       "https://salsa.debian.org/python-team/packages/django-render-block.git"
     ],
     "Version": [
-      "0.8.1-2"
+      "0.11-1"
     ]
   },
   {
@@ -318409,71 +318474,6 @@
   },
   {
     "Architecture": [
-      "any"
-    ],
-    "Binary": [
-      "freehsm-c"
-    ],
-    "Build-Depends": [
-      "debhelper-compat (= 14), libssl-dev, python3-all"
-    ],
-    "Checksums-Sha256": [
-      "fcb2b5c7d4e516ed9d75e88a4029c174d3e3a7b57091f0f4b965af002853ff27 2201 freehsm-c_2.0.0-1.dsc 57497ee165a4bd549e2da5d6ed73af0653d4a592948a9ad068ca959be7ac968b 4475508 freehsm-c_2.0.0.orig.tar.xz ac94e07c94c0cf18c2fa528982ed99c20cd0f0c4ed317423190a835d0fd16479 3544 freehsm-c_2.0.0-1.debian.tar.xz"
-    ],
-    "Dgit": [
-      "41b377325faed41d55525f7392d97dfc1392f591 debian archive/debian/2.0.0-1 https://git.dgit.debian.org/freehsm-c"
-    ],
-    "Directory": [
-      "pool/main/f/freehsm-c"
-    ],
-    "Files": [
-      "e8e14538ac4175a64c994837f183f5a2 2201 freehsm-c_2.0.0-1.dsc abf5bf0e98540fb5e61c7a0926429cc1 4475508 freehsm-c_2.0.0.orig.tar.xz 03be89299a6bba8ca9d84042426aa97a 3544 freehsm-c_2.0.0-1.debian.tar.xz"
-    ],
-    "Format": [
-      "3.0 (quilt)"
-    ],
-    "Git-Tag-Info": [
-      "tag=31f01756ab8e62cb77cf2d4c96efd096b5ae0b6f fp=a3cc9c870b9d310abad4cf2f51722b08fe4745a2"
-    ],
-    "Git-Tag-Tagger": [
-      "Simon Josefsson \u003csimon@josefsson.org\u003e"
-    ],
-    "Homepage": [
-      "https://github.com/afchine1337/freehsm-c"
-    ],
-    "Maintainer": [
-      "Debian Commons \u003cteam+debian@tracker.debian.org\u003e"
-    ],
-    "Package": [
-      "freehsm-c"
-    ],
-    "Package-List": [
-      "freehsm-c deb libs optional arch=any"
-    ],
-    "Priority": [
-      "optional"
-    ],
-    "Section": [
-      "libs"
-    ],
-    "Standards-Version": [
-      "4.7.4"
-    ],
-    "Uploaders": [
-      "Simon Josefsson \u003csimon@josefsson.org\u003e"
-    ],
-    "Vcs-Browser": [
-      "https://salsa.debian.org/debian/freehsm-c"
-    ],
-    "Vcs-Git": [
-      "https://salsa.debian.org/debian/freehsm-c.git"
-    ],
-    "Version": [
-      "2.0.0-1"
-    ]
-  },
-  {
-    "Architecture": [
       "all"
     ],
     "Binary": [
@@ -344932,7 +344932,7 @@
       "debhelper-compat (= 14), dh-sequence-python3, pybuild-plugin-pyproject, python3-all, python3-axisregistry (\u003e= 0.4.19) \u003c!nocheck\u003e, python3-bs4 \u003c!nocheck\u003e, python3-filelock \u003c!nocheck\u003e, python3-fontfeatures \u003c!nocheck\u003e, python3-fontmake \u003c!nocheck\u003e, python3-fonttools \u003c!nocheck\u003e, python3-gflanguages (\u003e= 0.7.8) \u003c!nocheck\u003e, python3-gfmetadata \u003c!nocheck\u003e, python3-gfsubsets \u003c!nocheck\u003e, python3-git \u003c!nocheck\u003e, python3-github \u003c!nocheck\u003e, python3-glyphsets \u003c!nocheck\u003e, python3-nanoemoji \u003c!nocheck\u003e, python3-networkx \u003c!nocheck\u003e, python3-ots \u003c!nocheck\u003e, python3-pil \u003c!nocheck\u003e, python3-protobuf \u003c!nocheck\u003e, python3-pygit2 \u003c!nocheck\u003e, python3-pytest \u003c!nocheck\u003e, python3-setuptools, python3-setuptools-scm, python3-strictyaml \u003c!nocheck\u003e, python3-tabulate \u003c!nocheck\u003e, python3-ttfautohint-py \u003c!nocheck\u003e, python3-unidecode \u003c!nocheck\u003e, python3-vharfbuzz \u003c!nocheck\u003e, python3-yaml \u003c!nocheck\u003e, ufomerge \u003c!nocheck\u003e"
     ],
     "Checksums-Sha256": [
-      "11bf35a13e8437b816c565d94fae0c769d21e4100e0ec4dbeb17e975264dc5cf 3189 gftools_0.10.1+dfsg-1.dsc 55587c70a009f45e15cc15a2af9f3f9fb0cf9cdd3217fdd308122a1e22ec855c 4763620 gftools_0.10.1+dfsg.orig.tar.xz 3a7236d1cf9d90a7343f39ccadb77ba8ead6a026ce61dba59df5116b22f40434 9484 gftools_0.10.1+dfsg-1.debian.tar.xz"
+      "f1767ff75fd0295f5c777337a1240cc5861b9051c0a69567964421a403adfa06 3242 gftools_0.10.4+dfsg-1.dsc 8137555251466a22a26a9c83ee6d70dde24ec9108f6fd4eccec91f7c77fb4d23 4764312 gftools_0.10.4+dfsg.orig.tar.xz 3196d66f4f40656717eaafdbaa472fdd488b8d3461acdc42762192b9087ce5b7 12164 gftools_0.10.4+dfsg-1.debian.tar.xz"
     ],
     "Description": [
       "Google Fonts Tools This project contains tools used for working with the Google Fonts collection, plus Google Fonts Glyph Set Documentation in the /encodings subdirectory. While these tools are primarily intended for contributors to the Google Fonts project, anyone who works with fonts could find them useful."
@@ -344941,7 +344941,7 @@
       "pool/main/g/gftools"
     ],
     "Files": [
-      "4b5416c350cf5d902709f82327e2733d 3189 gftools_0.10.1+dfsg-1.dsc f420d8e47df5b5b26e6cf383f04c3315 4763620 gftools_0.10.1+dfsg.orig.tar.xz c84a7c549f6c9d62caf4e3613c0eccb6 9484 gftools_0.10.1+dfsg-1.debian.tar.xz"
+      "4d54fc2bed6528bee3a055f086afb2be 3242 gftools_0.10.4+dfsg-1.dsc 8288ac5321ec320e186fded24b9c45f9 4764312 gftools_0.10.4+dfsg.orig.tar.xz 10d3f390eb3dd21280ffe023730b31c6 12164 gftools_0.10.4+dfsg-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -344967,6 +344967,12 @@
     "Standards-Version": [
       "4.7.4"
     ],
+    "Testsuite": [
+      "autopkgtest"
+    ],
+    "Testsuite-Triggers": [
+      "ffmpeg"
+    ],
     "Uploaders": [
       "Agathe Porte \u003cgagath@debian.org\u003e"
     ],
@@ -344977,7 +344983,7 @@
       "https://salsa.debian.org/fonts-team/gftools.git"
     ],
     "Version": [
-      "0.10.1+dfsg-1"
+      "0.10.4+dfsg-1"
     ]
   },
   {
@@ -347318,22 +347324,22 @@
       "debhelper-compat (= 13), ghc (\u003e= 8.4.3), cabal-install, libghc-mtl-dev (\u003e= 2.1.1), libghc-split-dev, libghc-data-default-dev, libghc-hslogger-dev, libghc-crypton-dev, libghc-crypton-connection-dev, libghc-crypton-x509-store-dev, libghc-memory-dev, libghc-deepseq-dev, libghc-attoparsec-dev, libghc-sandi-dev, libghc-utf8-string-dev, libghc-aws-dev (\u003e= 0.20), libghc-conduit-dev, libghc-resourcet-dev, libghc-quickcheck2-dev (\u003e= 2.10.0), libghc-monad-control-dev (\u003e= 0.3), libghc-transformers-dev, libghc-exceptions-dev (\u003e= 0.6), libghc-unix-compat-dev, libghc-dlist-dev, libghc-uuid-dev, libghc-aeson-dev, libghc-tagsoup-dev, libghc-tls-dev, libghc-unordered-containers-dev, libghc-ifelse-dev, libghc-bloomfilter-dev (\u003e= 2.0.0), libghc-edit-distance-dev, libghc-hinotify-dev (\u003e= 0.3.10) [linux-any], libghc-dbus-dev (\u003e= 0.10.7) [linux-any], libghc-fdo-notify-dev (\u003e= 0.3) [linux-any], libghc-yesod-dev (\u003e= 1.2.6.1) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-yesod-core-dev (\u003e= 1.2.19) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-yesod-form-dev (\u003e= 1.3.15) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-yesod-static-dev (\u003e= 1.2.4) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-shakespeare-dev (\u003e= 2.0.0) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-clientsession-dev [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-warp-dev (\u003e= 3.0.0.5) [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-warp-tls-dev [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-wai-dev [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-wai-extra-dev [i386 amd64 arm64 armel armhf kfreebsd-i386 kfreebsd-amd64 loong64 m68k mips mips64el mipsel powerpc ppc64el s390x riscv64], libghc-dav-dev (\u003e= 1.0), libghc-persistent-dev (\u003e= 2.8.1), libghc-persistent-template-dev, libghc-persistent-sqlite-dev (\u003e= 2.8.1), libghc-microlens-dev, libghc-stm-chans-dev, libghc-case-insensitive-dev, libghc-http-types-dev, libghc-http-conduit-dev, libghc-http-client-restricted-dev, libghc-blaze-builder-dev, libghc-crypto-api-dev, libghc-safesemaphore-dev, libghc-async-dev, libghc-monad-logger-dev, libghc-free-dev, libghc-feed-dev (\u003e= 1.0.0), libghc-regex-tdfa-dev, libghc-tasty-dev (\u003e= 0.7), libghc-tasty-hunit-dev, libghc-tasty-quickcheck-dev, libghc-tasty-rerun-dev, libghc-cabal-dev, libghc-ansi-terminal-dev, libghc-optparse-applicative-dev (\u003e= 0.11.0), libghc-torrent-dev, libghc-concurrent-output-dev, libghc-disk-free-space-dev, libghc-mountpoints-dev, libghc-magic-dev, libghc-socks-dev, libghc-vector-dev, libghc-unbounded-delays-dev, libghc-unliftio-core-dev, libghc-filepath-bytestring-dev, libghc-git-lfs-dev (\u003e= 1.2.0), libghc-criterion-dev, libghc-clock-dev, libghc-servant-dev, libghc-servant-server-dev, libghc-servant-client-dev, libghc-servant-client-core-dev, lsof [linux-any], ikiwiki, libimage-magick-perl, git (\u003e= 1:2.22), rsync, curl, openssh-client, git-remote-gcrypt (\u003e= 0.20130908-6), gnupg, gpg-agent"
     ],
     "Checksums-Sha256": [
-      "c0dd670e862cec5d7a13e6fe536cc143686b3a7568f60830c535ed6123f5975d 5983 git-annex_10.20261006-1.dsc 704d864830e1ffd5c93525e9a668c4472f06188db53fcfc15003b3312c2ca283 7402536 git-annex_10.20261006.orig.tar.xz bb538baa88aebf7d2cd41f93be5707590e291ddd961072714f8d8f6e410233d5 80472 git-annex_10.20261006-1.debian.tar.xz"
+      "97a7b9498d97824c940e620a47166f5872a591b106d9693d4a47cb1ab494414b 5983 git-annex_10.20261026-1.dsc 62f994ab7fca0abf6169511acb14c3d8f7e4650a57e83088bcf71d3785dfd615 7426360 git-annex_10.20261026.orig.tar.xz e1f4320abc5656ca172d45247722cf91a937ac777eb6960c3fd5776e9ed77afa 80472 git-annex_10.20261026-1.debian.tar.xz"
     ],
     "Dgit": [
-      "b2402368c194a8996aa1e9b41c7f61e5c9a363f2 debian archive/debian/10.20261006-1 https://git.dgit.debian.org/git-annex"
+      "714f3982ae4fa4c10384a26e12a233dfea96aef5 debian archive/debian/10.20261026-1 https://git.dgit.debian.org/git-annex"
     ],
     "Directory": [
       "pool/main/g/git-annex"
     ],
     "Files": [
-      "bc5a8f7b7558eea242de4af565301398 5983 git-annex_10.20261006-1.dsc b3517636c35001af541c468bbb6f7be6 7402536 git-annex_10.20261006.orig.tar.xz 8ff7a4099c0d682e5e7cd0ca552880ac 80472 git-annex_10.20261006-1.debian.tar.xz"
+      "a741df2fe3cfdc113a3731a491a63317 5983 git-annex_10.20261026-1.dsc 69166ee2514af80b718df8e9ee18c983 7426360 git-annex_10.20261026.orig.tar.xz 88f2b33d2ce6ebf8a460795ddf489d7c 80472 git-annex_10.20261026-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
     ],
     "Git-Tag-Info": [
-      "tag=4b08435e13a7f73ce9e67244d0ce351f42e5f304 fp=9b917007ae030e36e4fc248b695b7ae4bf066240"
+      "tag=0dbc86c45f4aa56fb5fd3e136f79b7c6b6ec396e fp=9b917007ae030e36e4fc248b695b7ae4bf066240"
     ],
     "Git-Tag-Tagger": [
       "Sean Whitton \u003cspwhitton@spwhitton.name\u003e"
@@ -347375,7 +347381,7 @@
       "https://salsa.debian.org/haskell-team/git-annex.git"
     ],
     "Version": [
-      "10.20261006-1"
+      "10.20261026-1"
     ]
   },
   {
@@ -348032,13 +348038,13 @@
       "debhelper-compat (= 13), dh-python, dh-sequence-python3, git \u003c!nocheck\u003e, python3-all, python3-colorama \u003c!nocheck\u003e, python3-parameterized \u003c!nocheck\u003e, python3-prompt-toolkit \u003c!nocheck\u003e, python3-setuptools"
     ],
     "Checksums-Sha256": [
-      "97b06a6e0fc862d234b494934822b5749b51b493565d74fc8efde9b3f4aedc24 2501 git-delete-merged-branches_7.6.1-1.dsc 7df795e28b425ec9784cf925c255341ebe0b720d312e62f191f56f7427558f34 37890 git-delete-merged-branches_7.6.1.orig.tar.gz 68628aca7e47e9df0683bb3175efffc4de80c4c91c38950023bfb92fa35bc0a8 3076 git-delete-merged-branches_7.6.1-1.debian.tar.xz"
+      "392eb8c16805defc5c567d5566b99fdba5a28ab3febf87d2a85de5243c9cdb74 2501 git-delete-merged-branches_7.7.0-1.dsc 4f43a96e23f0618b5e62bdcd64df6b54d79345a93ceb72abf4261ce92f26e88f 38223 git-delete-merged-branches_7.7.0.orig.tar.gz 4ca3ef3566c5cf6a1bd9088555a6c975fc9f9b1dce39e9e43075bf555f8fc9bb 3088 git-delete-merged-branches_7.7.0-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/g/git-delete-merged-branches"
     ],
     "Files": [
-      "0de31c9ec77859b48fcc3ceb3a2597d1 2501 git-delete-merged-branches_7.6.1-1.dsc 2bb8844758cd9afd6c9a38c009298e8d 37890 git-delete-merged-branches_7.6.1.orig.tar.gz bad1282e6e11af3022ff886d3fec9c86 3076 git-delete-merged-branches_7.6.1-1.debian.tar.xz"
+      "2c4f2b94c9aa2c80627ed0e76c5a8199 2501 git-delete-merged-branches_7.7.0-1.dsc 9332611f55c04c1914360d31d7128528 38223 git-delete-merged-branches_7.7.0.orig.tar.gz 45197e4ef63d0e2d049c6a12e6493042 3088 git-delete-merged-branches_7.7.0-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -348080,7 +348086,7 @@
       "https://salsa.debian.org/python-team/packages/git-delete-merged-branches.git"
     ],
     "Version": [
-      "7.6.1-1"
+      "7.7.0-1"
     ]
   },
   {
@@ -386114,6 +386120,9 @@
     "Directory": [
       "pool/main/g/golang-github-anchore-go-struct-converter"
     ],
+    "Extra-Source-Only": [
+      "yes"
+    ],
     "Files": [
       "1eb0bbd1d8552d517a48767bc87528aa 2960 golang-github-anchore-go-struct-converter_0.0~git20240925.a088364-2.dsc 70f4d1a396b052278fbf43f9040db27e 14236 golang-github-anchore-go-struct-converter_0.0~git20240925.a088364.orig.tar.xz eae08553fd09c6978b562d4287d7d01e 2228 golang-github-anchore-go-struct-converter_0.0~git20240925.a088364-2.debian.tar.xz"
     ],
@@ -386158,6 +386167,68 @@
     ],
     "Version": [
       "0.0~git20240925.a088364-2"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "golang-github-anchore-go-struct-converter-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-sequence-golang, golang-any (\u003e= 2:1.23~), golang-github-google-go-cmp-dev, golang-github-stretchr-testify-dev"
+    ],
+    "Checksums-Sha256": [
+      "38906c3eb8aba3c732e78e7b8e5d0be46c067da176878f3a421dc97004530b69 2495 golang-github-anchore-go-struct-converter_0.2.1-1.dsc b5085599380e769ee5caef2fa24e75663100dd50680896d0cb91f7d3fb0bfd59 19929 golang-github-anchore-go-struct-converter_0.2.1.orig.tar.gz d99f87131b440f4525aee72a5d077f69cdc62737be36a836efad6830b9486b8a 2740 golang-github-anchore-go-struct-converter_0.2.1-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-anchore-go-struct-converter"
+    ],
+    "Files": [
+      "0566491f780a4870796e3836f9aa395c 2495 golang-github-anchore-go-struct-converter_0.2.1-1.dsc 061cb4c83cbd07cd3f9418a3d57d3ee3 19929 golang-github-anchore-go-struct-converter_0.2.1.orig.tar.gz a05d2506c30ffeab959583591ae1ad86 2740 golang-github-anchore-go-struct-converter_0.2.1-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/anchore/go-struct-converter"
+    ],
+    "Homepage": [
+      "https://github.com/anchore/go-struct-converter"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-anchore-go-struct-converter"
+    ],
+    "Package-List": [
+      "golang-github-anchore-go-struct-converter-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "misc"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Simon Josefsson \u003csimon@josefsson.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-anchore-go-struct-converter"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-anchore-go-struct-converter.git"
+    ],
+    "Version": [
+      "0.2.1-1"
     ]
   },
   {
@@ -409085,65 +409156,6 @@
   },
   {
     "Architecture": [
-      "any"
-    ],
-    "Binary": [
-      "podman-toolbox"
-    ],
-    "Build-Depends": [
-      "debhelper-compat (= 13), apache2-utils \u003c!nocheck\u003e, bash-completion, bats \u003c!nocheck\u003e, fakeroot, go-md2man, golang-dbus-dev, golang-github-briandowns-spinner-dev, golang-github-docker-go-units-dev, golang-github-fatih-color-dev, golang-github-fsnotify-fsnotify-dev, golang-github-harrymichal-go-version-dev, golang-github-inconshreveable-mousetrap-dev, golang-github-konsorten-go-windows-terminal-sequences-dev, golang-github-mattn-go-colorable-dev, golang-github-sirupsen-logrus-dev, golang-github-spf13-cobra-dev, golang-github-spf13-pflag-dev, golang-github-stretchr-testify-dev (\u003e= 1.7.0~), golang-go, golang-golang-x-crypto-dev, golang-golang-x-sys-dev, libsubid-dev, meson, podman, pkgconf, skopeo \u003c!nocheck\u003e, shellcheck \u003c!nocheck\u003e, systemd-dev"
-    ],
-    "Checksums-Sha256": [
-      "babe5bba3bfb11adb4393a54027fb6e88683ee306f6766ee457cb30c8eb4c5ef 2567 golang-github-containers-toolbox_0.0.99.4-2.dsc 3d62c62a5543c0300fb728578c7c0e6f689b49d1e5d1da5994a11bb5940ea4bf 148144 golang-github-containers-toolbox_0.0.99.4.orig.tar.xz 16c0638d79d715c4992999570459c84fd9d6b5fc3a7ece5e5ad5f5b51e7ea875 8684 golang-github-containers-toolbox_0.0.99.4-2.debian.tar.xz"
-    ],
-    "Directory": [
-      "pool/main/g/golang-github-containers-toolbox"
-    ],
-    "Files": [
-      "a4b205f170002e74ac1ab7c9de57c909 2567 golang-github-containers-toolbox_0.0.99.4-2.dsc 1b2ad75e7a5fa8e59a962fcf1415f46d 148144 golang-github-containers-toolbox_0.0.99.4.orig.tar.xz c66945aa107838eed97290b2e2691ce3 8684 golang-github-containers-toolbox_0.0.99.4-2.debian.tar.xz"
-    ],
-    "Format": [
-      "3.0 (quilt)"
-    ],
-    "Go-Import-Path": [
-      "github.com/containers/toolbox"
-    ],
-    "Homepage": [
-      "https://containertoolbx.org/"
-    ],
-    "Maintainer": [
-      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
-    ],
-    "Package": [
-      "golang-github-containers-toolbox"
-    ],
-    "Package-List": [
-      "podman-toolbox deb utils optional arch=any"
-    ],
-    "Priority": [
-      "optional"
-    ],
-    "Section": [
-      "misc"
-    ],
-    "Standards-Version": [
-      "4.6.0"
-    ],
-    "Uploaders": [
-      "Andrej Shadura \u003candrewsh@debian.org\u003e, Hayley Hughes \u003chayley@foxes.systems\u003e,"
-    ],
-    "Vcs-Browser": [
-      "https://salsa.debian.org/debian/podman-toolbox"
-    ],
-    "Vcs-Git": [
-      "https://salsa.debian.org/debian/podman-toolbox.git"
-    ],
-    "Version": [
-      "0.0.99.4-2"
-    ]
-  },
-  {
-    "Architecture": [
       "any all"
     ],
     "Binary": [
@@ -421766,6 +421778,68 @@
       "all"
     ],
     "Binary": [
+      "golang-github-erikgeiser-promptkit-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 13), dh-sequence-golang, golang-any, golang-github-charmbracelet-bubbles-dev, golang-github-charmbracelet-bubbletea-dev, golang-github-charmbracelet-lipgloss-dev, golang-github-muesli-reflow-dev, golang-github-muesli-termenv-dev, golang-golang-x-term-dev"
+    ],
+    "Checksums-Sha256": [
+      "b1857d0d25b9e8520addf139916a3a0547ecfb1de0bdf7b3cf79726ad226730c 2548 golang-github-erikgeiser-promptkit_0.10.0-1.dsc 1ca54f4767a560042a538c38390269c0e1d301d5c97c3203bd26a11ae7864662 33467 golang-github-erikgeiser-promptkit_0.10.0.orig.tar.gz a84e45956ab5fddb664bd9fe9b5e5a8a791bcf146453acfb2a738607b28826c4 3168 golang-github-erikgeiser-promptkit_0.10.0-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-erikgeiser-promptkit"
+    ],
+    "Files": [
+      "fa060f11901ff080db90504f70c2f4a2 2548 golang-github-erikgeiser-promptkit_0.10.0-1.dsc 12448968fda9ff77a15bf703c5d47d14 33467 golang-github-erikgeiser-promptkit_0.10.0.orig.tar.gz 052a410b4ce8887da37d694d2f475952 3168 golang-github-erikgeiser-promptkit_0.10.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/erikgeiser/promptkit"
+    ],
+    "Homepage": [
+      "https://github.com/erikgeiser/promptkit"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-erikgeiser-promptkit"
+    ],
+    "Package-List": [
+      "golang-github-erikgeiser-promptkit-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Maytham Alsudany \u003cmaytham@debian.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-erikgeiser-promptkit"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-erikgeiser-promptkit.git"
+    ],
+    "Version": [
+      "0.10.0-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
       "golang-github-esiqveland-notify-dev"
     ],
     "Build-Depends": [
@@ -423014,6 +423088,68 @@
     ],
     "Version": [
       "0.0~git20150612.5443337-3"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "golang-github-facebookincubator-nvdtools-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-go, dpkg-build-api (= 1), golang-any, golang-github-stretchr-testify-dev"
+    ],
+    "Checksums-Sha256": [
+      "eb6f594ae625799fa8090779d371b6fd8208386026fb4adf9b5c8eb760c80565 2480 golang-github-facebookincubator-nvdtools_0.1.5+ds-1.dsc b557db9436fe0ce47c0d3ed19b711e2064b1c1af313bdb18b7348c8e80fb36e2 170280 golang-github-facebookincubator-nvdtools_0.1.5+ds.orig.tar.xz d964b3223f8ad344b8a41b6d63c13bced398ca8ff49591b6ce1113e99c4f0f06 4656 golang-github-facebookincubator-nvdtools_0.1.5+ds-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-facebookincubator-nvdtools"
+    ],
+    "Files": [
+      "39a82094844a8be98c3e70aeb1457d6d 2480 golang-github-facebookincubator-nvdtools_0.1.5+ds-1.dsc 06dd9e16b7ac4f5e687c1407b356866b 170280 golang-github-facebookincubator-nvdtools_0.1.5+ds.orig.tar.xz b983b8425fed1721beca746ac05e5eaa 4656 golang-github-facebookincubator-nvdtools_0.1.5+ds-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/facebookincubator/nvdtools"
+    ],
+    "Homepage": [
+      "https://github.com/facebookincubator/nvdtools"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-facebookincubator-nvdtools"
+    ],
+    "Package-List": [
+      "golang-github-facebookincubator-nvdtools-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Juan Manuel Méndez Rey \u003cjuan.mendezr@proton.me\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-facebookincubator-nvdtools"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-facebookincubator-nvdtools.git"
+    ],
+    "Version": [
+      "0.1.5+ds-1"
     ]
   },
   {
@@ -445924,71 +446060,6 @@
       "all"
     ],
     "Binary": [
-      "golang-github-harrymichal-go-version-dev"
-    ],
-    "Build-Depends": [
-      "debhelper-compat (= 14), dh-sequence-golang, dpkg-build-api (= 1), golang-any"
-    ],
-    "Checksums-Sha256": [
-      "15028f7dce5088b3c78d1c6f60f8d2ca40191a6a9478a0c4592dc4d3369d71b2 3005 golang-github-harrymichal-go-version_1.0.1-1.dsc f6d20c3012e290bd0228b821426a82ae0b31dfc4a0cbc4b4ba2f1721bb04412b 10320 golang-github-harrymichal-go-version_1.0.1.orig.tar.xz 4746a1c777d34cfa9d3b46361fb113fcf90abd427ef25f459b4726eff4311821 2836 golang-github-harrymichal-go-version_1.0.1-1.debian.tar.xz"
-    ],
-    "Dgit": [
-      "d7b2c61d3550756b4eb1060f84fef6e396386730 debian archive/debian/1.0.1-1 https://git.dgit.debian.org/golang-github-harrymichal-go-version"
-    ],
-    "Directory": [
-      "pool/main/g/golang-github-harrymichal-go-version"
-    ],
-    "Files": [
-      "90a4995e7cc4e0ecc40634a6fb731ecf 3005 golang-github-harrymichal-go-version_1.0.1-1.dsc fe75aaa4c7b41cc49dd081e7262ae351 10320 golang-github-harrymichal-go-version_1.0.1.orig.tar.xz 447edcc6cc06c654f2efd1b7e63f22c0 2836 golang-github-harrymichal-go-version_1.0.1-1.debian.tar.xz"
-    ],
-    "Format": [
-      "3.0 (quilt)"
-    ],
-    "Go-Import-Path": [
-      "github.com/HarryMichal/go-version"
-    ],
-    "Homepage": [
-      "https://github.com/HarryMichal/go-version"
-    ],
-    "Maintainer": [
-      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
-    ],
-    "Package": [
-      "golang-github-harrymichal-go-version"
-    ],
-    "Package-List": [
-      "golang-github-harrymichal-go-version-dev deb golang optional arch=all"
-    ],
-    "Priority": [
-      "optional"
-    ],
-    "Section": [
-      "golang"
-    ],
-    "Standards-Version": [
-      "4.7.4"
-    ],
-    "Testsuite": [
-      "autopkgtest-pkg-go"
-    ],
-    "Uploaders": [
-      "Andrej Shadura \u003candrewsh@debian.org\u003e, Simon Josefsson \u003csimon@josefsson.org\u003e"
-    ],
-    "Vcs-Browser": [
-      "https://salsa.debian.org/go-team/packages/golang-github-harrymichal-go-version"
-    ],
-    "Vcs-Git": [
-      "https://salsa.debian.org/go-team/packages/golang-github-harrymichal-go-version.git"
-    ],
-    "Version": [
-      "1.0.1-1"
-    ]
-  },
-  {
-    "Architecture": [
-      "all"
-    ],
-    "Binary": [
       "golang-github-hashicorp-cli-dev"
     ],
     "Build-Depends": [
@@ -451992,6 +452063,68 @@
     ],
     "Version": [
       "1.3.0+ds-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "golang-github-intevation-jsonpath-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-go, dpkg-build-api (= 1), golang-any, golang-github-google-go-cmp-dev, golang-github-intevation-gval-dev, golang-gopkg-yaml.v3-dev"
+    ],
+    "Checksums-Sha256": [
+      "05ea7f36193e3a30c4c25ba94c6a65773fae9af7a8bb92c8a73807906d11cca4 2423 golang-github-intevation-jsonpath_0.2.1-1.dsc 0a18175a07b191453a520061c80db7add0d54e982e4fe8e0724817c3e70a04fc 26149 golang-github-intevation-jsonpath_0.2.1.orig.tar.gz 86122b7a1406a408ab45622b53abf0006a687692cb777c8b7b22e95566e789a4 3592 golang-github-intevation-jsonpath_0.2.1-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-intevation-jsonpath"
+    ],
+    "Files": [
+      "932be7d965947d536745f78d884bd499 2423 golang-github-intevation-jsonpath_0.2.1-1.dsc c15dd4ec308508993a493fb7d03b3d0e 26149 golang-github-intevation-jsonpath_0.2.1.orig.tar.gz d3e84664df855be5d493abc804981f56 3592 golang-github-intevation-jsonpath_0.2.1-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/Intevation/jsonpath"
+    ],
+    "Homepage": [
+      "https://github.com/Intevation/jsonpath"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-intevation-jsonpath"
+    ],
+    "Package-List": [
+      "golang-github-intevation-jsonpath-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Juan Manuel Méndez Rey \u003cjuan.mendezr@proton.me\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-intevation-jsonpath"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-intevation-jsonpath.git"
+    ],
+    "Version": [
+      "0.2.1-1"
     ]
   },
   {
@@ -463063,7 +463196,7 @@
       "golang-github-knqyf263-go-apk-version-dev deb golang optional arch=all"
     ],
     "Priority": [
-      "optional"
+      "extra"
     ],
     "Section": [
       "misc"
@@ -463125,7 +463258,7 @@
       "golang-github-knqyf263-go-rpm-version-dev deb golang optional arch=all"
     ],
     "Priority": [
-      "optional"
+      "extra"
     ],
     "Section": [
       "golang"
@@ -477104,6 +477237,68 @@
     ],
     "Version": [
       "1.0.1-3"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "golang-github-moby-moby-api-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-go, dpkg-build-api (= 1), golang-any, golang-github-docker-go-units-dev, golang-github-moby-docker-image-spec-dev, golang-github-opencontainers-go-digest-dev, golang-github-opencontainers-image-spec-dev, golang-pgregory-rapid-dev"
+    ],
+    "Checksums-Sha256": [
+      "e198f93f453a3e36bc51590092c07e296a596962be58920dc0f550e0c6191c9f 2450 golang-github-moby-moby-api_1.56.0-1.dsc 5c3fe5aeea943c3472f6c154ca3d02a440c7b187b56be51a16470f92d32cb0f4 211556 golang-github-moby-moby-api_1.56.0.orig.tar.xz 5b1d9aa9d4a07baa337adc9587a334c16a97d4ea91ee0d764fda5b0fb18a2488 4728 golang-github-moby-moby-api_1.56.0-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-moby-moby-api"
+    ],
+    "Files": [
+      "276cfc1d88cbbbe9455e6474c79823d0 2450 golang-github-moby-moby-api_1.56.0-1.dsc 97293233b191a37d550e20fcba4090de 211556 golang-github-moby-moby-api_1.56.0.orig.tar.xz 37a160dbabcd115d843f643fe0343a47 4728 golang-github-moby-moby-api_1.56.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/moby/moby/api"
+    ],
+    "Homepage": [
+      "https://github.com/moby/moby"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-moby-moby-api"
+    ],
+    "Package-List": [
+      "golang-github-moby-moby-api-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Juan Manuel Méndez Rey \u003cjuan.mendezr@proton.me\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-moby-moby-api"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-moby-moby-api.git"
+    ],
+    "Version": [
+      "1.56.0-1"
     ]
   },
   {
@@ -492885,6 +493080,68 @@
       "all"
     ],
     "Binary": [
+      "golang-github-piprate-json-gold-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-go, dpkg-build-api (= 1), golang-any, golang-github-pquerna-cachecontrol-dev, golang-github-stretchr-testify-dev"
+    ],
+    "Checksums-Sha256": [
+      "9bf49166df1948fe97e7feb07e31df189a8cda53ad7c50623ebf8a736ca7afba 2382 golang-github-piprate-json-gold_0.7.0-1.dsc e109511069ca8e6e922afe6e94ceb7ce74ce3c0014fc4ca37cb77ee82f7306ad 476386 golang-github-piprate-json-gold_0.7.0.orig.tar.gz 3cc5a2b7de0a6532964b84f079ab117a3e78f9cd86fb50c337ead215a913055d 6540 golang-github-piprate-json-gold_0.7.0-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-piprate-json-gold"
+    ],
+    "Files": [
+      "3bf10ea2feb9de30589b177241ce5fef 2382 golang-github-piprate-json-gold_0.7.0-1.dsc 36cf9e657e5321663d32834239809034 476386 golang-github-piprate-json-gold_0.7.0.orig.tar.gz e483a2c8b7ef1724e442a1b42470473c 6540 golang-github-piprate-json-gold_0.7.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/piprate/json-gold"
+    ],
+    "Homepage": [
+      "https://github.com/piprate/json-gold"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-piprate-json-gold"
+    ],
+    "Package-List": [
+      "golang-github-piprate-json-gold-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Juan Manuel Méndez Rey \u003cjuan.mendezr@proton.me\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-piprate-json-gold"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-piprate-json-gold.git"
+    ],
+    "Version": [
+      "0.7.0-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
       "golang-github-pires-go-proxyproto-dev"
     ],
     "Build-Depends": [
@@ -507133,6 +507390,68 @@
       "all"
     ],
     "Binary": [
+      "golang-github-smallnest-ringbuffer-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-go, dpkg-build-api (= 1), golang-any"
+    ],
+    "Checksums-Sha256": [
+      "a08f945929c183be23680fccf4baebab7fc42da2ade583b25d24d4c05cd13826 2342 golang-github-smallnest-ringbuffer_0.2.0-1.dsc be201b23eb9c3f25b25b612292246a8ef0f524edb7371efdb2bc4b82b9850f1c 90996 golang-github-smallnest-ringbuffer_0.2.0.orig.tar.xz 170e7d228a3a5e3e071c98a0a93a5d2e2bc652c7005a89d2596d57d2fcb70875 4072 golang-github-smallnest-ringbuffer_0.2.0-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-smallnest-ringbuffer"
+    ],
+    "Files": [
+      "290b952a7ea0644abde9172615572c5c 2342 golang-github-smallnest-ringbuffer_0.2.0-1.dsc 6c1fccbe1746ec158af20f0780a23282 90996 golang-github-smallnest-ringbuffer_0.2.0.orig.tar.xz 76a945ee2654328a92147d41d5887e97 4072 golang-github-smallnest-ringbuffer_0.2.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/smallnest/ringbuffer"
+    ],
+    "Homepage": [
+      "https://github.com/smallnest/ringbuffer"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-smallnest-ringbuffer"
+    ],
+    "Package-List": [
+      "golang-github-smallnest-ringbuffer-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Juan Manuel Méndez Rey \u003cjuan.mendezr@proton.me\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-smallnest-ringbuffer"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-smallnest-ringbuffer.git"
+    ],
+    "Version": [
+      "0.2.0-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
       "golang-github-smallstep-assert-dev"
     ],
     "Build-Depends": [
@@ -509582,6 +509901,9 @@
     "Directory": [
       "pool/main/g/golang-github-spdx-tools-golang"
     ],
+    "Extra-Source-Only": [
+      "yes"
+    ],
     "Files": [
       "f09338780a92c6dead0a1945944399ac 2879 golang-github-spdx-tools-golang_0.5.5-2.dsc 4194c68f19cb084d1f25487d1435cd78 385148 golang-github-spdx-tools-golang_0.5.5.orig.tar.gz b3c4a12de9b7e4df9d2a2fddd0a4626f 5728 golang-github-spdx-tools-golang_0.5.5-2.debian.tar.xz"
     ],
@@ -509626,6 +509948,68 @@
     ],
     "Version": [
       "0.5.5-2"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "golang-github-spdx-tools-golang-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-sequence-golang, golang-any (\u003e= 2:1.23~), golang-github-anchore-go-struct-converter-dev (\u003e= 0.2.0~rc2), golang-github-google-go-cmp-dev, golang-github-google-uuid-dev, golang-github-piprate-json-gold-dev, golang-github-spdx-gordf-dev, golang-github-stretchr-testify-dev, golang-k8s-sigs-yaml-dev"
+    ],
+    "Checksums-Sha256": [
+      "f296254f993f1d98957ce1c421f80e0fec83c0adbe77b6079ee45742300fb87a 2585 golang-github-spdx-tools-golang_0.6.0~rc4-1.dsc 01a5d6b3fd7e6a9a2080ffc497bf57706ad1bcb7de522e24d972fe0900cac03a 514450 golang-github-spdx-tools-golang_0.6.0~rc4.orig.tar.gz 7a8a5fc5c82134e6f00b11fc835103b907207cf42b7ecaef401b33571749d8c4 16920 golang-github-spdx-tools-golang_0.6.0~rc4-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-github-spdx-tools-golang"
+    ],
+    "Files": [
+      "1b9b42d27c64c00718927a36e866fcf4 2585 golang-github-spdx-tools-golang_0.6.0~rc4-1.dsc 4618da19f93cff4129a7b926292a6ac5 514450 golang-github-spdx-tools-golang_0.6.0~rc4.orig.tar.gz ccfabec4b470c43ebe2d34870a10b07e 16920 golang-github-spdx-tools-golang_0.6.0~rc4-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "github.com/spdx/tools-golang"
+    ],
+    "Homepage": [
+      "https://github.com/spdx/tools-golang"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-github-spdx-tools-golang"
+    ],
+    "Package-List": [
+      "golang-github-spdx-tools-golang-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "misc"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Simon Josefsson \u003csimon@josefsson.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-github-spdx-tools-golang"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-github-spdx-tools-golang.git"
+    ],
+    "Version": [
+      "0.6.0~rc4-1"
     ]
   },
   {
@@ -541882,6 +542266,68 @@
       "all"
     ],
     "Binary": [
+      "golang-gorm-driver-sqlite-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 13), dh-sequence-golang, golang-any, golang-github-mattn-go-sqlite3-dev, golang-gorm-gorm-dev"
+    ],
+    "Checksums-Sha256": [
+      "707abb26d2ae71573249be72aebd40fbfc3d95b3ead18e19522525b940d26d81 2265 golang-gorm-driver-sqlite_1.6.0-1.dsc f8b29c800869e41d041563579707673ef52dcd40ca1e3f5afea2b9c6c13c3e9b 14075 golang-gorm-driver-sqlite_1.6.0.orig.tar.gz 1749f14d29b51d241fcd2643e969a4784e82816bb22d71c3bc17a2f7f46fb856 3092 golang-gorm-driver-sqlite_1.6.0-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/g/golang-gorm-driver-sqlite"
+    ],
+    "Files": [
+      "c716c6bea78ea5d1f7ad7750721e22cc 2265 golang-gorm-driver-sqlite_1.6.0-1.dsc 926088c3d00b496226d649125b511213 14075 golang-gorm-driver-sqlite_1.6.0.orig.tar.gz fd8619d8914bfa40d14d9952d5bc03b7 3092 golang-gorm-driver-sqlite_1.6.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Go-Import-Path": [
+      "gorm.io/driver/sqlite"
+    ],
+    "Homepage": [
+      "https://github.com/go-gorm/sqlite"
+    ],
+    "Maintainer": [
+      "Debian Go Packaging Team \u003cteam+pkg-go@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "golang-gorm-driver-sqlite"
+    ],
+    "Package-List": [
+      "golang-gorm-driver-sqlite-dev deb golang optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "golang"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-go"
+    ],
+    "Uploaders": [
+      "Maytham Alsudany \u003cmaytham@debian.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/go-team/packages/golang-gorm-driver-sqlite"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/go-team/packages/golang-gorm-driver-sqlite.git"
+    ],
+    "Version": [
+      "1.6.0-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
       "golang-gorm-gorm-dev"
     ],
     "Build-Depends": [
@@ -545988,19 +546434,28 @@
       "golang-mvdan-gofumpt-dev"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-golang, golang-any, golang-github-frankban-quicktest-dev, golang-github-google-go-cmp-dev, golang-golang-x-mod-dev, golang-golang-x-tools-dev"
+      "debhelper-compat (= 13), dh-sequence-golang, golang-any, golang-github-go-quicktest-qt-dev, golang-github-rogpeppe-go-internal-dev, golang-golang-x-mod-dev, golang-golang-x-sync-dev, golang-golang-x-sys-dev, golang-golang-x-tools-dev"
     ],
     "Checksums-Sha256": [
-      "a39925fddd808482d218b9c8cb071b76e9af6177682d7d63f27b70de7609909a 2291 golang-mvdan-gofumpt_0.6.0-2.dsc 26a7c8dce1f153d250e7d36665cf7fab3776aee83248f94be4ebbad23fcaddc4 100704 golang-mvdan-gofumpt_0.6.0.orig.tar.gz 452575e749a36a99245afcbc7ec83fc96f99cfe5c3c35759c8eba42c8288dd26 2952 golang-mvdan-gofumpt_0.6.0-2.debian.tar.xz"
+      "1bba8c6b93fa3ce791a30b2babf180d9e0d79f7a15ea6931d75904b43f083092 2611 golang-mvdan-gofumpt_0.12.0-1.dsc d285725b96bc51fd87736891d9944e27b7520a32381a92cfed69dc6abcec7a69 94444 golang-mvdan-gofumpt_0.12.0.orig.tar.xz 4d099cf85c770885497016b0aa0616a6ef89e1422eec8bffc7a0dce7d4e07d2e 3052 golang-mvdan-gofumpt_0.12.0-1.debian.tar.xz"
+    ],
+    "Dgit": [
+      "c8b800405039c9a2f82aea5c67c5608c6f9906de debian archive/debian/0.12.0-1 https://git.dgit.debian.org/golang-mvdan-gofumpt"
     ],
     "Directory": [
       "pool/main/g/golang-mvdan-gofumpt"
     ],
     "Files": [
-      "25e43568066c894c60ed71872121a79e 2291 golang-mvdan-gofumpt_0.6.0-2.dsc b0abd6b06072a860b6e94fee370d34bc 100704 golang-mvdan-gofumpt_0.6.0.orig.tar.gz 3e39cb7520bdaef7d2d283c3ff094426 2952 golang-mvdan-gofumpt_0.6.0-2.debian.tar.xz"
+      "914ffdab0f953c42a863f43bff7d30c8 2611 golang-mvdan-gofumpt_0.12.0-1.dsc bbf928bc0a5e5b4276162fd9a773ce24 94444 golang-mvdan-gofumpt_0.12.0.orig.tar.xz 1fb381e5c8ec10dbac06c3a52cf32756 3052 golang-mvdan-gofumpt_0.12.0-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
+    ],
+    "Git-Tag-Info": [
+      "tag=d823e4bed484abcdeeb1883be224a4d21f6bdcdf fp=d1cb8f39bc5ded24c5d2c78c1302f1f036ebeb19"
+    ],
+    "Git-Tag-Tagger": [
+      "Dr. Tobias Quathamer \u003ctoddy@debian.org\u003e"
     ],
     "Go-Import-Path": [
       "mvdan.cc/gofumpt"
@@ -546024,7 +546479,7 @@
       "golang"
     ],
     "Standards-Version": [
-      "4.6.2"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest-pkg-go"
@@ -546039,7 +546494,7 @@
       "https://salsa.debian.org/go-team/packages/golang-mvdan-gofumpt.git"
     ],
     "Version": [
-      "0.6.0-2"
+      "0.12.0-1"
     ]
   },
   {
@@ -552538,16 +552993,16 @@
       "gopls"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-golang, golang-any (\u003e= 2:1.26~), golang-github-fatih-camelcase-dev, golang-github-fsnotify-fsnotify-dev, golang-github-google-go-cmp-dev, golang-github-segmentio-encoding-dev, golang-golang-x-mod-dev (\u003e= 0.18.0), golang-golang-x-oauth2-dev, golang-golang-x-sync-dev (\u003e= 0.7.0), golang-golang-x-text-dev (\u003e= 0.16.0), golang-golang-x-vuln-dev (\u003e= 1.0.4), golang-gopkg-yaml.v3-dev (\u003e= 3.0.1), golang-honnef-go-tools-dev (\u003e= 2026.1), golang-mvdan-gofumpt-dev (\u003e= 0.6.0), golang-mvdan-xurls-dev (\u003e= 2.5.0)"
+      "debhelper-compat (= 13), dh-sequence-golang, golang-any (\u003e= 2:1.26~), golang-github-fatih-camelcase-dev, golang-github-fsnotify-fsnotify-dev, golang-github-google-go-cmp-dev, golang-github-segmentio-encoding-dev, golang-golang-x-mod-dev (\u003e= 0.18.0), golang-golang-x-oauth2-dev, golang-golang-x-sync-dev (\u003e= 0.7.0), golang-golang-x-text-dev (\u003e= 0.16.0), golang-golang-x-vuln-dev (\u003e= 1.0.4), golang-gopkg-yaml.v3-dev (\u003e= 3.0.1), golang-honnef-go-tools-dev (\u003e= 2026.1), golang-mvdan-gofumpt-dev (\u003e= 0.12.0), golang-mvdan-xurls-dev (\u003e= 2.5.0)"
     ],
     "Checksums-Sha256": [
-      "5025c333ab115fcb5726e7d4a244171f89deab418bd955979554cd0edba20a89 2682 gopls_0.22.0+ds-2.dsc cd58bfae8c92d3777172d52f0b7b17f9f872213219bdd29dd2babca3b4092aff 7417184 gopls_0.22.0+ds.orig.tar.xz 02382e837906dd72e7680587fbce5a91ed3b516988501fcdb30f596ebb189b63 332056 gopls_0.22.0+ds-2.debian.tar.xz"
+      "6b73771d8089f30a8b08488036f8f7e88a578d5038df190d81c527f37c3ddf55 2683 gopls_0.24.0+ds-1.dsc 278c8ef37117acca02bbd40b28222e02dace43444897418db3f026d78bf72c4f 7589428 gopls_0.24.0+ds.orig.tar.xz 689d8e66a7141e1ba3373480d9610e665e3fdb5bc22038cdf7b43e37f73ff77a 329588 gopls_0.24.0+ds-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/g/gopls"
     ],
     "Files": [
-      "9baaaaab7c36fcee4577d49a880ecb7e 2682 gopls_0.22.0+ds-2.dsc 49b5d073210f8fc72f54db68958b3f3d 7417184 gopls_0.22.0+ds.orig.tar.xz b9ba75d3922e0dececf7799cadfacfa0 332056 gopls_0.22.0+ds-2.debian.tar.xz"
+      "3b91aa90609307b977a89bbce2a15c45 2683 gopls_0.24.0+ds-1.dsc 9b8fb8c6c54842654981fc942ef1c6a5 7589428 gopls_0.24.0+ds.orig.tar.xz b9277de3bbe852fa682af6074ceea6fb 329588 gopls_0.24.0+ds-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -552589,7 +553044,7 @@
       "https://salsa.debian.org/go-team/packages/golang-golang-x-tools.git -b gopls/debian/sid"
     ],
     "Version": [
-      "2:0.22.0+ds-2"
+      "2:0.24.0+ds-1"
     ]
   },
   {
@@ -759198,13 +759653,13 @@
       "debhelper-compat (= 12), dh-python, dh-sequence-installsysusers, libjs-bootstrap, libjs-jquery, libjs-jquery-flot, libjs-jquery-typeahead, mkdocs-material, po-debconf, python3, python3-setuptools, python3-sphinx, python3-yaml"
     ],
     "Checksums-Sha256": [
-      "97e5c394a2a1c93b28e6c5739b4a4bdddcb2d13e8d271e7c6dc264118dfe8a6c 2961 lava_2026.09-1.dsc 92b3b1cda44926c3af90d96e1ee66bf675a0b89a0cd8f621cddc261e8702eda2 9027529 lava_2026.09.orig.tar.gz 9e7cede22dc3b6cf2ad756b0eef6ba4448681036add6f9cea3e079d767d8e22e 96812 lava_2026.09-1.debian.tar.xz"
+      "3a6a014f40ce516a19e8dd564d301ada4b219196919f4b88cd8fa5576cce3cb0 2961 lava_2026.10-1.dsc 00431dd944c79c8f7a04dceebc4ec766bd89da789fadf55702d11a473a4f63b1 9123092 lava_2026.10.orig.tar.gz 71ab4d94659332e3434fd3a25f204f7fe75313959298e2fac65841e51033db21 98220 lava_2026.10-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/l/lava"
     ],
     "Files": [
-      "22e30309c840a53ec58a41691a747898 2961 lava_2026.09-1.dsc db025142d165677bb6997677fbb91474 9027529 lava_2026.09.orig.tar.gz e34ed14f9ab49f71be07a3208c73368e 96812 lava_2026.09-1.debian.tar.xz"
+      "41749692300d9c6a0dbf11ec61aa2680 2961 lava_2026.10-1.dsc 0baedbd2114b9bf06cf248bec2f654da 9123092 lava_2026.10.orig.tar.gz 74586bbb86280e2c1f1bf8aa6e49a3e3 98220 lava_2026.10-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -759246,7 +759701,7 @@
       "https://salsa.debian.org/python-team/packages/lava.git"
     ],
     "Version": [
-      "2026.09-1"
+      "2026.10-1"
     ]
   },
   {
@@ -954013,6 +954468,68 @@
   },
   {
     "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "libmio-dev"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-sequence-single-binary, cmake"
+    ],
+    "Checksums-Sha256": [
+      "cf0bb4dc06b93bd8d89f6ca9d5264160c99b2d77bd8b4174f67877336eaa025e 2149 libmio_1.1.0~git20230303.8b6b7d8-1.dsc ee6cefb536420f7eb9b1d02e1b5e67d162686bfbd28d3e408bbc6e1997d1859a 21888 libmio_1.1.0~git20230303.8b6b7d8.orig.tar.xz 0dd57eccf3a194faf19578a1a5aeff892e20ed96a1313ae60cf8b5849bbc7703 3288 libmio_1.1.0~git20230303.8b6b7d8-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/libm/libmio"
+    ],
+    "Files": [
+      "c5e4a29fbadcd2d34eeeed12334c33f4 2149 libmio_1.1.0~git20230303.8b6b7d8-1.dsc 191a0f075bd5a5067901a5bc1f4676db 21888 libmio_1.1.0~git20230303.8b6b7d8.orig.tar.xz c1d9834a45b987e006f9c2487c749c0a 3288 libmio_1.1.0~git20230303.8b6b7d8-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://github.com/vimpunk/mio"
+    ],
+    "Maintainer": [
+      "Debian Med Packaging Team \u003cdebian-med-packaging@lists.alioth.debian.org\u003e"
+    ],
+    "Package": [
+      "libmio"
+    ],
+    "Package-List": [
+      "libmio-dev deb libdevel optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "libdevel"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest"
+    ],
+    "Testsuite-Triggers": [
+      "build-essential"
+    ],
+    "Uploaders": [
+      "Andreas Tille \u003ctille@debian.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/med-team/libmio"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/med-team/libmio.git"
+    ],
+    "Version": [
+      "1.1.0~git20230303.8b6b7d8-1"
+    ]
+  },
+  {
+    "Architecture": [
       "any all"
     ],
     "Binary": [
@@ -1047370,6 +1047887,9 @@
     "Directory": [
       "pool/main/libs/libssw"
     ],
+    "Extra-Source-Only": [
+      "yes"
+    ],
     "Files": [
       "3bbe5ba3629d441fcdcdebe7c8c8e474 2393 libssw_1.1-16.dsc d968cd252eaa21552725829e1da94de2 12325368 libssw_1.1.orig.tar.gz 24364fafeb5eaabb902841eb4c7279a3 54400 libssw_1.1-16.debian.tar.xz"
     ],
@@ -1047414,6 +1047934,68 @@
     ],
     "Version": [
       "1.1-16"
+    ]
+  },
+  {
+    "Architecture": [
+      "any"
+    ],
+    "Binary": [
+      "libssw1, libssw-dev, libssw-java, ssw-align"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), default-jdk-headless \u003c!nojava\u003e, help2man, javahelper \u003c!nojava\u003e, libsimde-dev, maven-repo-helper \u003c!nojava\u003e, zlib1g-dev"
+    ],
+    "Checksums-Sha256": [
+      "17cde253794b69db1bb57364f847327f6cacdcec1e3e43b079b5802433a9835e 2403 libssw_1.2.5-4.dsc b294c0cb6f0f3d578db11b4112a88b20583b9d4190b0a9cf04d83bb6a8704d9a 12384395 libssw_1.2.5.orig.tar.gz 11daf20519c1af26c31f0b4369c8d52830aacb82e829f8fa56183f4b27321ff9 55232 libssw_1.2.5-4.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/libs/libssw"
+    ],
+    "Files": [
+      "0cd1c09ed052d832849add1670392a34 2403 libssw_1.2.5-4.dsc ec2f83cae4d4e6f4356d6edb9b60e659 12384395 libssw_1.2.5.orig.tar.gz 39f8d8963aabbf60da07a17be82692a2 55232 libssw_1.2.5-4.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library"
+    ],
+    "Maintainer": [
+      "Debian Med Packaging Team \u003cdebian-med-packaging@lists.alioth.debian.org\u003e"
+    ],
+    "Package": [
+      "libssw"
+    ],
+    "Package-List": [
+      "libssw-dev deb libdevel optional arch=any libssw-java deb java optional arch=any profile=!nojava profile:v1=!nojava libssw1 deb libs optional arch=any ssw-align deb science optional arch=any"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "misc"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest"
+    ],
+    "Testsuite-Triggers": [
+      "build-essential, default-jdk-headless, zlib1g-dev"
+    ],
+    "Uploaders": [
+      "Sascha Steinbiss \u003csatta@debian.org\u003e, Michael R. Crusoe \u003ccrusoe@debian.org\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/med-team/libssw"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/med-team/libssw.git"
+    ],
+    "Version": [
+      "1.2.5-4"
     ]
   },
   {
@@ -1097866,16 +1098448,16 @@
       "libvcflib2, libvcflib-dev, libvcflib-tools"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), architecture-is-64-bit, architecture-is-little-endian, cmake, discount \u003c!nodoc\u003e, libtabixpp-dev, libbz2-dev, libdisorder-dev, libhts-dev, libsmithwaterman-dev, libssw-dev, libfastahack-dev, libwfa2-dev, pkgconf, libgtest-dev \u003c!nocheck\u003e, python3-dev, python3-pybind11"
+      "debhelper-compat (= 14), architecture-is-64-bit, architecture-is-little-endian, cmake, discount \u003c!nodoc\u003e, libbz2-dev, libdisorder-dev, libfastahack-dev, libgtest-dev \u003c!nocheck\u003e, libhts-dev, liblzma-dev, libsmithwaterman-dev, libssw-dev, libtabixpp-dev, libwfa2-dev, pkgconf, python3-dev, python3-pybind11, zlib1g-dev"
     ],
     "Checksums-Sha256": [
-      "30c2438a746dfc95bc2db8165a9451479c993d1c497b5c8e20e0c06729d724f9 2038 libvcflib_1.0.12+dfsg-2.dsc d8872d3b6f9dae11b0f69f4fca0a65ae777f89a64805504f7dc66320957c444b 9046576 libvcflib_1.0.12+dfsg.orig.tar.xz 7f40e8b883e376d4a2e48b9b3ac0729b45cdce4dcc620058aacb4ec0bd6cfbd6 74932 libvcflib_1.0.12+dfsg-2.debian.tar.xz"
+      "ce6d89de9126bf028dd82c7a9dee48df6b44dd091ee05b0277b6e524a4721445 2433 libvcflib_1.0.15+dfsg-1.dsc d17004ea56054817b82e73a36c35206642732acd9f227f73f527002c751d18dd 9051292 libvcflib_1.0.15+dfsg.orig.tar.xz 0eab1fc0d7a784408b84b5e5db60b331fa533e149fcfb9f3eede2fc0552ea0be 74916 libvcflib_1.0.15+dfsg-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/libv/libvcflib"
     ],
     "Files": [
-      "279df7717f7fa066e52902024a7f01cc 2038 libvcflib_1.0.12+dfsg-2.dsc b1ca4ffaf8b6974083546585893f4b8a 9046576 libvcflib_1.0.12+dfsg.orig.tar.xz 5e9635a9e36c67b077da6c43f3f6a123 74932 libvcflib_1.0.12+dfsg-2.debian.tar.xz"
+      "f236f822f0c73f9e1abcbb2232a20564 2433 libvcflib_1.0.15+dfsg-1.dsc 7c91e2c5d5eb954e62134813699fc8fb 9051292 libvcflib_1.0.15+dfsg.orig.tar.xz d4d7014a25a159615e3bcd0fa434de52 74916 libvcflib_1.0.15+dfsg-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1097899,7 +1098481,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.7.3"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest"
@@ -1097914,7 +1098496,7 @@
       "https://salsa.debian.org/med-team/libvcflib.git"
     ],
     "Version": [
-      "1.0.12+dfsg-2"
+      "1.0.15+dfsg-1"
     ]
   },
   {
@@ -1113749,13 +1114331,13 @@
       "perl"
     ],
     "Checksums-Sha256": [
-      "d6317321e481ceb021ccedce3350d2f382ed3042d17c29ae6e59fcf4c01b862b 2237 libxml-parser-easytree-perl_0.01-2.dsc 022a5747520c8dad3e9b1f28e1f7f201996ebcc6573e780eb47df61c10dd5bb6 3229 libxml-parser-easytree-perl_0.01.orig.tar.gz eb0e995ed28a80977e8f4bad226695c6a594ade3fea2f8ccd93dfab623609070 2136 libxml-parser-easytree-perl_0.01-2.debian.tar.xz"
+      "1445a308afeea26697ec394fb3bddeaed545df555a2bf7a54cdd4f9e0fa2d737 2236 libxml-parser-easytree-perl_0.01-3.dsc 022a5747520c8dad3e9b1f28e1f7f201996ebcc6573e780eb47df61c10dd5bb6 3229 libxml-parser-easytree-perl_0.01.orig.tar.gz 8cc0a929c9d4867270320d4cda56c1edaa9689bf7f9f547ad07cb4152c98873d 2212 libxml-parser-easytree-perl_0.01-3.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/libx/libxml-parser-easytree-perl"
     ],
     "Files": [
-      "8b3ee5839e58d82cdfa580f6c6174564 2237 libxml-parser-easytree-perl_0.01-2.dsc f5221737a572a97b3187dade3a1f4191 3229 libxml-parser-easytree-perl_0.01.orig.tar.gz 114a5b5d0d83a3c33cfde419fffd6a00 2136 libxml-parser-easytree-perl_0.01-2.debian.tar.xz"
+      "473be08dc6cacd3b586c9af36e91968d 2236 libxml-parser-easytree-perl_0.01-3.dsc f5221737a572a97b3187dade3a1f4191 3229 libxml-parser-easytree-perl_0.01.orig.tar.gz e6ba8a72bfc77f384329a3ae72768375 2212 libxml-parser-easytree-perl_0.01-3.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1113770,7 +1114352,7 @@
       "libxml-parser-easytree-perl"
     ],
     "Package-List": [
-      "libxml-parser-easytree-perl deb perl optional arch=all"
+      "libxml-parser-easytree-perl deb perl unknown arch=all"
     ],
     "Priority": [
       "optional"
@@ -1113779,7 +1114361,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.6.0"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest-pkg-perl"
@@ -1113794,7 +1114376,7 @@
       "https://salsa.debian.org/perl-team/modules/packages/libxml-parser-easytree-perl.git"
     ],
     "Version": [
-      "0.01-2"
+      "0.01-3"
     ]
   },
   {
@@ -1184308,62 +1184890,6 @@
   },
   {
     "Architecture": [
-      "any all"
-    ],
-    "Binary": [
-      "minexpert2, minexpert2-doc, minexpert3, minexpert3-doc"
-    ],
-    "Build-Depends": [
-      "debhelper-compat (= 13), dpkg-dev (\u003e= 1.21.22), librsvg2-bin, libgomp1, qt6-base-dev, qt6-declarative-dev, qt6-svg-dev, qt6-5compat-dev, libxkbcommon-x11-dev, cmake, daps, libjs-jquery, libjs-highlight.js, texlive-fonts-extra, fonts-ebgaramond-extra, fonts-urw-base35, libqcustomplot-dev (\u003e= 2.1.0), libodsstream-dev (\u003e= 0.9.18), libpappsomspp-gui-dev (\u003e= 0.11.27), libxpertmassgui-dev (\u003e= 1.17.2), libquazip1-qt6-dev, libqscintilla2-qt6-dev, libisospec++-dev (\u003e= 2.3.1), libpwizlite-dev, libsqlite3-dev, libzstd-dev, liblzf-dev, zlib1g-dev, libeigen3-dev, libboost-dev, libboost-chrono-dev, libboost-container-dev, libboost-filesystem-dev, libboost-thread-dev, libboost-iostreams-dev, libboost-random-dev, docbook-xml, docbook-to-man"
-    ],
-    "Checksums-Sha256": [
-      "cd7bf1aecbdd5581a90b7076571ea548ce7849621efe46e9a94c11738db8632d 2836 minexpert3_12.3.2-1.dsc 1bb7a1130b2ea143d0ae4124fb8b9c5955358dc4a84cb1e3f0ed34ea9bbd1856 69733021 minexpert3_12.3.2.orig.tar.gz f3bea8bba611535f8928d4ec4de4d62c60b07d2bb4d00a586d56557e6704b2f6 290848 minexpert3_12.3.2-1.debian.tar.xz"
-    ],
-    "Directory": [
-      "pool/main/m/minexpert3"
-    ],
-    "Files": [
-      "330f798ff959c070a98effbff4b90513 2836 minexpert3_12.3.2-1.dsc ae76176728efb1cce97d323841dd3407 69733021 minexpert3_12.3.2.orig.tar.gz c3e048c1f4d3d8267598fdd2d81b9cf0 290848 minexpert3_12.3.2-1.debian.tar.xz"
-    ],
-    "Format": [
-      "3.0 (quilt)"
-    ],
-    "Homepage": [
-      "http://www.msxpertsuite.org/"
-    ],
-    "Maintainer": [
-      "The Debichem Group \u003cdebichem-devel@lists.alioth.debian.org\u003e"
-    ],
-    "Package": [
-      "minexpert3"
-    ],
-    "Package-List": [
-      "minexpert2 deb oldlibs optional arch=all minexpert2-doc deb oldlibs optional arch=all minexpert3 deb science optional arch=any minexpert3-doc deb doc optional arch=all"
-    ],
-    "Priority": [
-      "optional"
-    ],
-    "Section": [
-      "oldlibs"
-    ],
-    "Standards-Version": [
-      "4.7.2"
-    ],
-    "Uploaders": [
-      "Filippo Rusconi \u003clopippo@debian.org\u003e"
-    ],
-    "Vcs-Browser": [
-      "https://salsa.debian.org/debichem-team/minexpert3"
-    ],
-    "Vcs-Git": [
-      "https://salsa.debian.org/debichem-team/minexpert3.git"
-    ],
-    "Version": [
-      "12.3.2-1"
-    ]
-  },
-  {
-    "Architecture": [
       "any"
     ],
     "Binary": [
@@ -1185334,13 +1185860,13 @@
       "debhelper-compat (= 13), dh-exec, dh-golang, po-debconf, golang-any, golang-github-andybalholm-brotli-dev (\u003e= 1.1.0), golang-github-coreos-go-oidc-v3-dev, golang-github-go-webauthn-webauthn-dev, golang-github-lib-pq-dev, golang-github-prometheus-client-golang-dev, golang-github-puerkitobio-goquery-dev, golang-github-tdewolff-minify-dev, golang-golang-x-crypto-dev, golang-golang-x-image-dev, golang-golang-x-net-dev, golang-golang-x-oauth2-dev, golang-golang-x-term-dev, golang-golang-x-text-dev"
     ],
     "Checksums-Sha256": [
-      "328dd98f54ff1c5f4c599c41ee617eea8ea41e357bdeb76de9290852750c6199 2475 miniflux_2.3.3-1.dsc 8e143f371cf43f1da5c3acf3acaf5a62d0721ae5898e91834b7176e475244d20 982713 miniflux_2.3.3.orig.tar.gz 8a6fb0a31e1b4bb3ad77ecc56ac2edcb3394ebbc67175fd21c6e238a376e94e0 7040 miniflux_2.3.3-1.debian.tar.xz"
+      "5fd3e79786bd3edfe82f9e5102487170f94c92e8754d83d52e5ac4b34fff0d70 2478 miniflux_2.3.4-1.dsc de89ba3c523aab6e12c07fc3a704e7ba791c1d28f2fcbb3ed82de031ed8e1036 1001712 miniflux_2.3.4.orig.tar.gz 7a6f5cf408608591745d7895dbbd7511acf29218d37ea24bcd6358eeba5fe10a 7064 miniflux_2.3.4-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/m/miniflux"
     ],
     "Files": [
-      "3d7e45b9a8fb828d7581a6a288a953bb 2475 miniflux_2.3.3-1.dsc 642ae95965bad60035e0ba3343fa0d92 982713 miniflux_2.3.3.orig.tar.gz 137fddb22e346119f6acc858c88d5588 7040 miniflux_2.3.3-1.debian.tar.xz"
+      "0b841238eb5f94a3bbcccc8aac1e7e44 2478 miniflux_2.3.4-1.dsc 978f731a301cf03abfef095f420ccc08 1001712 miniflux_2.3.4.orig.tar.gz 48bf49028ca203d0825ac09cdb77aa26 7064 miniflux_2.3.4-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1185382,7 +1185908,7 @@
       "https://salsa.debian.org/go-team/packages/miniflux.git"
     ],
     "Version": [
-      "2.3.3-1"
+      "2.3.4-1"
     ]
   },
   {
@@ -1211064,16 +1211590,16 @@
       "musl, musl-dev, musl-tools"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), gcc-aarch64-linux-gnu [arm64], gcc-arm-linux-gnueabi [armel], gcc-arm-linux-gnueabihf [armhf], gcc-i686-linux-gnu [i386], gcc-loongarch64-linux-gnu [loong64], gcc-m68k-linux-gnu [m68k], gcc-mips-linux-gnu [mips], gcc-mips64el-linux-gnuabi64 [mips64el], gcc-mipsel-linux-gnu [mipsel], gcc-powerpc64le-linux-gnu [ppc64el], gcc-riscv64-linux-gnu [riscv64], gcc-s390x-linux-gnu [s390x], gcc-sh4-linux-gnu [sh4], gcc-x86-64-linux-gnu [amd64]"
+      "debhelper-compat (= 14), gcc-aarch64-linux-gnu [arm64], gcc-arm-linux-gnueabi [armel], gcc-arm-linux-gnueabihf [armhf], gcc-i686-linux-gnu [i386], gcc-loongarch64-linux-gnu [loong64], gcc-m68k-linux-gnu [m68k], gcc-mips-linux-gnu [mips], gcc-mips64el-linux-gnuabi64 [mips64el], gcc-mipsel-linux-gnu [mipsel], gcc-powerpc64le-linux-gnu [ppc64el], gcc-riscv64-linux-gnu [riscv64], gcc-s390x-linux-gnu [s390x], gcc-sh4-linux-gnu [sh4], gcc-x86-64-linux-gnu [amd64]"
     ],
     "Checksums-Sha256": [
-      "f6960e6ce8c65b961404c30926a94e9886320ab2fe2b866552f279300e635c6d 3643 musl_1.2.6-1.dsc d585fd3b613c66151fc3249e8ed44f77020cb5e6c1e635a616d3f9f82460512a 1082499 musl_1.2.6.orig.tar.gz 8a696228404cd4bae6379cf7538fc5d18c133b0ada54a41c1c6cef31d3c22ab6 490 musl_1.2.6.orig.tar.gz.asc d0785cb7d1b82c6e134a639ba0b17b26a4b0572ab049842065a70d43c23c2c68 27428 musl_1.2.6-1.debian.tar.xz"
+      "8e81be81fe1176240668f24de01a8c6f0005fd5c678a915360d6022dcbb2e4f7 3643 musl_1.2.6-2.dsc d585fd3b613c66151fc3249e8ed44f77020cb5e6c1e635a616d3f9f82460512a 1082499 musl_1.2.6.orig.tar.gz 8a696228404cd4bae6379cf7538fc5d18c133b0ada54a41c1c6cef31d3c22ab6 490 musl_1.2.6.orig.tar.gz.asc a01d837ef541178dbe58d30806d3995eaabdd9a02e5d06cf5873ab5b0c9c4159 29356 musl_1.2.6-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/m/musl"
     ],
     "Files": [
-      "a7db0418bf4b1ab149383bcca1f833f2 3643 musl_1.2.6-1.dsc d5eec260f2c89aefc9906715104b8327 1082499 musl_1.2.6.orig.tar.gz 0f42d2f1c5f665626ed9b7299e2823dc 490 musl_1.2.6.orig.tar.gz.asc e56a78c5a402c0c3cfb7d75602d2da3f 27428 musl_1.2.6-1.debian.tar.xz"
+      "2abb5adf21b5dac058630654ff09bf12 3643 musl_1.2.6-2.dsc d5eec260f2c89aefc9906715104b8327 1082499 musl_1.2.6.orig.tar.gz 0f42d2f1c5f665626ed9b7299e2823dc 490 musl_1.2.6.orig.tar.gz.asc f5e90434cb6f2120454a7ea9992cbcf0 29356 musl_1.2.6-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1211112,7 +1211638,7 @@
       "https://salsa.debian.org/reiner/musl.git"
     ],
     "Version": [
-      "1.2.6-1"
+      "1.2.6-2"
     ]
   },
   {
@@ -1231993,19 +1232519,16 @@
       "ngmlr"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), cmake, zlib1g-dev, libssw-dev, libtclap-dev, libhts-dev, libsimde-dev"
+      "debhelper-compat (= 14), cmake, libhts-dev, libsimde-dev, libssw-dev, libtclap-dev, zlib1g-dev"
     ],
     "Checksums-Sha256": [
-      "39cc52d00e2a1b18d76106633e9ed6e6228c9c5f1759a8dc192ef28a9e0b4d02 2355 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-4.dsc df7d9a0074b4d5d307258b8f23e1df2960f6af071bac07c41e64d38ef442592d 667893 ngmlr_0.2.7+git20210816.a2a31fb+dfsg.orig.tar.gz bb48314c37f5b9c6a29307c48dc4a0758da706c5cb1b6a79de8635f39c8d2a45 8840 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-4.debian.tar.xz"
-    ],
-    "Dgit": [
-      "9be3dfae1b4e57f21d882a75c22d1d14f88f15e5 debian archive/debian/0.2.7+git20210816.a2a31fb+dfsg-4 https://git.dgit.debian.org/ngmlr"
+      "29becfe4b03629b692c4142a52a2a7cfd8dceebb77abf969c0b214de7c27d88e 2215 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-5.dsc df7d9a0074b4d5d307258b8f23e1df2960f6af071bac07c41e64d38ef442592d 667893 ngmlr_0.2.7+git20210816.a2a31fb+dfsg.orig.tar.gz 2919e5f4ffb5557d5ff7284b7d7acde0d860c0ca14102b9b533c888b964035af 8896 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-5.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/n/ngmlr"
     ],
     "Files": [
-      "9bfa412f2f09e75f2665420836642bd4 2355 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-4.dsc 3f5470714ec6bf26aa5e24df22e66b92 667893 ngmlr_0.2.7+git20210816.a2a31fb+dfsg.orig.tar.gz 8ce017433f0079509157ad7b3a64e801 8840 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-4.debian.tar.xz"
+      "363468e685507b6f85361a9e13394d6e 2215 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-5.dsc 3f5470714ec6bf26aa5e24df22e66b92 667893 ngmlr_0.2.7+git20210816.a2a31fb+dfsg.orig.tar.gz af4133ad4aa9e0bf155f85585adb75bc 8896 ngmlr_0.2.7+git20210816.a2a31fb+dfsg-5.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1232029,7 +1232552,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.7.3"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest"
@@ -1232047,7 +1232570,7 @@
       "https://salsa.debian.org/med-team/ngmlr.git"
     ],
     "Version": [
-      "0.2.7+git20210816.a2a31fb+dfsg-4"
+      "0.2.7+git20210816.a2a31fb+dfsg-5"
     ]
   },
   {
@@ -1288325,62 +1288848,6 @@
       "all"
     ],
     "Binary": [
-      "node-lightgallery"
-    ],
-    "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-nodejs, cssmin, grunt, node-grunt-cli, node-grunt-contrib-clean, node-grunt-contrib-concat, node-grunt-contrib-copy, node-grunt-contrib-uglify, node-jquery, ruby-sass"
-    ],
-    "Checksums-Sha256": [
-      "9b62526b5c7729b249c56b7496fcef38da824ee9ebdfa1d79a150b2cfb40663e 2244 node-lightgallery_1.9.0+dfsg-1.dsc baa2c286d9f1c2a5368118d4f7c52151f1d2bb0f39825ddb6769e941b3534e3b 2737700 node-lightgallery_1.9.0+dfsg.orig.tar.xz e2deea683a0674ec3214ad9f6945202558a678c81c53674979e645418ca4eef9 4216 node-lightgallery_1.9.0+dfsg-1.debian.tar.xz"
-    ],
-    "Directory": [
-      "pool/main/n/node-lightgallery"
-    ],
-    "Files": [
-      "2adfc3683087eb317b0490cd4dd38b96 2244 node-lightgallery_1.9.0+dfsg-1.dsc 1f132696fbab547d0c6382d166ed6d07 2737700 node-lightgallery_1.9.0+dfsg.orig.tar.xz b100038fa2ad95d368d299497a78279f 4216 node-lightgallery_1.9.0+dfsg-1.debian.tar.xz"
-    ],
-    "Format": [
-      "3.0 (quilt)"
-    ],
-    "Homepage": [
-      "https://sachinchoolur.github.io/lightGallery/"
-    ],
-    "Maintainer": [
-      "Debian Javascript Maintainers \u003cpkg-javascript-devel@lists.alioth.debian.org\u003e"
-    ],
-    "Package": [
-      "node-lightgallery"
-    ],
-    "Package-List": [
-      "node-lightgallery deb javascript optional arch=all"
-    ],
-    "Priority": [
-      "extra"
-    ],
-    "Section": [
-      "misc"
-    ],
-    "Standards-Version": [
-      "4.6.0"
-    ],
-    "Uploaders": [
-      "Daniel Ring \u003cdring@wolfishly.me\u003e"
-    ],
-    "Vcs-Browser": [
-      "https://salsa.debian.org/js-team/node-lightgallery"
-    ],
-    "Vcs-Git": [
-      "https://salsa.debian.org/js-team/node-lightgallery.git"
-    ],
-    "Version": [
-      "1.9.0+dfsg-1"
-    ]
-  },
-  {
-    "Architecture": [
-      "all"
-    ],
-    "Binary": [
       "node-lilconfig"
     ],
     "Build-Depends": [
@@ -1313115,6 +1313582,68 @@
       "all"
     ],
     "Binary": [
+      "node-replit-codemirror-indentation-markers"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-nodejs, dh-sequence-nodejs-no-lerna, dh-sequence-single-binary, esbuild, node-rollup-plugin-json, node-rollup-plugin-node-resolve, rollup, node-typescript (\u003e= 5.6), node-rollup-plugin-dts, node-codemirror-language, node-codemirror-state, node-codemirror-view, node-crelt \u003c!nocheck\u003e, node-jsdom \u003c!nocheck\u003e"
+    ],
+    "Checksums-Sha256": [
+      "2634dd6a1e9e380cb57774f6c5bec0db2f2e634f822aec5c43d4d7cec0903e6b 2814 node-replit-codemirror-indentation-markers_6.5.3-1.dsc 7683e782886141a68cc93ce70a7ae2cc6fe7b7eb5f4c6b6e88c962b2b8b43894 103380 node-replit-codemirror-indentation-markers_6.5.3.orig.tar.xz ccc2a6f9d7571e0a67bf180e6150bbc7a1644e52990b62f20c8aedcbf0f78a6e 3668 node-replit-codemirror-indentation-markers_6.5.3-1.debian.tar.xz"
+    ],
+    "Dgit": [
+      "d615be918066a93951f8a34e2b57a67516050362 debian archive/debian/6.5.3-1 https://git.dgit.debian.org/node-replit-codemirror-indentation-markers"
+    ],
+    "Directory": [
+      "pool/main/n/node-replit-codemirror-indentation-markers"
+    ],
+    "Files": [
+      "0fd79f1a384eaeaf922a42b49f4f8ec3 2814 node-replit-codemirror-indentation-markers_6.5.3-1.dsc 5494bbc63e04f7d176b8feeed5bc0316 103380 node-replit-codemirror-indentation-markers_6.5.3.orig.tar.xz c11e6debc45c0af52ae8a50e9abf3f7c 3668 node-replit-codemirror-indentation-markers_6.5.3-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://github.com/replit/codemirror-indentation-markers"
+    ],
+    "Maintainer": [
+      "Home Assistant Team \u003cteam+homeassistant@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "node-replit-codemirror-indentation-markers"
+    ],
+    "Package-List": [
+      "node-replit-codemirror-indentation-markers deb javascript optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "javascript"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-nodejs"
+    ],
+    "Uploaders": [
+      "Edward Betts \u003cedward@4angle.com\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/homeassistant-team/js/node-replit-codemirror-indentation-markers"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/homeassistant-team/js/node-replit-codemirror-indentation-markers.git"
+    ],
+    "Version": [
+      "6.5.3-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
       "node-require-all"
     ],
     "Build-Depends": [
@@ -1327599,6 +1328128,68 @@
     ],
     "Version": [
       "4.0.1-1"
+    ]
+  },
+  {
+    "Architecture": [
+      "all"
+    ],
+    "Binary": [
+      "node-tinyqueue"
+    ],
+    "Build-Depends": [
+      "debhelper-compat (= 14), dh-nodejs, dh-sequence-nodejs-no-lerna, dh-sequence-single-binary"
+    ],
+    "Checksums-Sha256": [
+      "af4e6aa10fae4585402d79242456398e2fd7e660dbce5c68c6748723d22bdb75 2213 node-tinyqueue_3.0.0-1.dsc bd65b8bceb18c097eee86486c827259b502ab701f3825bd657e32bfd25b72de3 13168 node-tinyqueue_3.0.0.orig.tar.xz f763cb1eb2f9fceb24d94774cc9e5e3049da8642ff9c6a0ff295f1bd7f6854b2 1800 node-tinyqueue_3.0.0-1.debian.tar.xz"
+    ],
+    "Dgit": [
+      "71803fc5d33880e33abb3ba921e61c42af8d48c1 debian archive/debian/3.0.0-1 https://git.dgit.debian.org/node-tinyqueue"
+    ],
+    "Directory": [
+      "pool/main/n/node-tinyqueue"
+    ],
+    "Files": [
+      "1ec5b35d04c5dc1e5c621c9cd0a151a0 2213 node-tinyqueue_3.0.0-1.dsc dc82cee94990268d1408cb4ded38de7a 13168 node-tinyqueue_3.0.0.orig.tar.xz 2a8e31c07a34814f4af892226333bcb5 1800 node-tinyqueue_3.0.0-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://github.com/mourner/tinyqueue"
+    ],
+    "Maintainer": [
+      "Home Assistant Team \u003cteam+homeassistant@tracker.debian.org\u003e"
+    ],
+    "Package": [
+      "node-tinyqueue"
+    ],
+    "Package-List": [
+      "node-tinyqueue deb javascript optional arch=all"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "javascript"
+    ],
+    "Standards-Version": [
+      "4.7.4"
+    ],
+    "Testsuite": [
+      "autopkgtest-pkg-nodejs"
+    ],
+    "Uploaders": [
+      "Edward Betts \u003cedward@4angle.com\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://salsa.debian.org/homeassistant-team/js/node-tinyqueue"
+    ],
+    "Vcs-Git": [
+      "https://salsa.debian.org/homeassistant-team/js/node-tinyqueue.git"
+    ],
+    "Version": [
+      "3.0.0-1"
     ]
   },
   {
@@ -1412000,6 +1412591,62 @@
   },
   {
     "Architecture": [
+      "any all"
+    ],
+    "Binary": [
+      "pcp, pcp-conf, libpcp4-dev, libpcp3-dev, libpcp4, libpcp3, libpcp-gui2-dev, libpcp-gui2, libpcp-mmv1-dev, libpcp-mmv1, libpcp-pmda3-dev, libpcp-pmda3, libpcp-trace2-dev, libpcp-trace2, libpcp-import2-dev, libpcp-import1-dev, libpcp-import2, libpcp-import1, libpcp-web1-dev, libpcp-web1, libpcp-archive1-dev, libpcp-archive1, pcp-import-collectl2pcp, pcp-export-pcp2elasticsearch, pcp-export-pcp2graphite, pcp-export-pcp2influxdb, pcp-export-pcp2json, pcp-export-pcp2spark, pcp-export-pcp2xml, pcp-export-pcp2zabbix, pcp-export-zabbix-agent, pcp-doc, pcp-zeroconf, pcp-atop, pcp-dstat, pcp-htop, pcp-testsuite, python3-pcp, pcp-import-benchmarks, pcp-import-guidellm2pcp, pcp-gui, pcp-export-pcp2xlsx, pcp-pmda-infiniband, libpcp-pmda-perl, libpcp-import-perl, libpcp-logsummary-perl, libpcp-mmv-perl, pcp-import-sar2pcp, pcp-import-ganglia2pcp, pcp-import-mrtg2pcp, pcp-import-sheet2pcp, pcp-import-iostat2pcp"
+    ],
+    "Build-Depends": [
+      "bison, flex, gawk, procps, pkg-config, debhelper (\u003e= 11), perl (\u003e= 5.6), libreadline-dev | libreadline5-dev | libreadline-gplv2-dev, chrpath, libbsd-dev [kfreebsd-any], libkvm-dev [kfreebsd-any], python3-all, python3-dev, python3-setuptools, libsasl2-dev, libuv1-dev, libssl-dev, qtbase5-dev, qtbase5-dev-tools, libqt5svg5-dev, qtchooser, autotools-dev, zlib1g-dev, autoconf, libclass-dbi-perl, libdbd-mysql-perl, python3-psycopg2, dh-python, libpfm4-dev, libncurses-dev, python3-requests, libextutils-autoinstall-perl, libxml-tokeparser-perl, libjson-perl, libwww-perl, libnet-snmp-perl, liblzma-dev, systemd-dev, libsystemd-dev, clang, llvm, libibumad-dev, libibmad-dev, libibverbs-dev, libinih-dev, postfix, libxml-libxml-perl, libfile-slurp-perl, libyaml-libyaml-perl, python3-rtslib-fb, python3-libvirt, python3-lxml, libdrm-dev, python3-pymongo, python3-urllib3, libdbi-perl, python3-pyodbc, perl-xs-dev, manpages"
+    ],
+    "Checksums-Sha256": [
+      "0ad19eda4ff7a7320cf8ef8608b92e8b4feb956ceb7f519d976bf800775b1c79 6008 pcp_7.2.2-1.dsc d973588104108d13042a40ca2317ab7f8148280287e430fe5ddcf101e0ed6f8a 35375290 pcp_7.2.2.orig.tar.gz 02e2b79993cac9301f57f3fb88e3d6e8db63dfdd74eca763efa62f4c80f0f15f 33840 pcp_7.2.2-1.debian.tar.xz"
+    ],
+    "Directory": [
+      "pool/main/p/pcp"
+    ],
+    "Files": [
+      "bda0cbb1c683cb1f0cdec59428098b71 6008 pcp_7.2.2-1.dsc 2e18b74cb46f93f63bdb295a2ee008f4 35375290 pcp_7.2.2.orig.tar.gz f54bd44cc37f2687658d78d6543347f4 33840 pcp_7.2.2-1.debian.tar.xz"
+    ],
+    "Format": [
+      "3.0 (quilt)"
+    ],
+    "Homepage": [
+      "https://pcp.io"
+    ],
+    "Maintainer": [
+      "PCP Development Team \u003cpcp@groups.io\u003e"
+    ],
+    "Package": [
+      "pcp"
+    ],
+    "Package-List": [
+      "libpcp-archive1 deb libs optional arch=any libpcp-archive1-dev deb libdevel optional arch=any libpcp-gui2 deb libs optional arch=any libpcp-gui2-dev deb libdevel optional arch=any libpcp-import-perl deb perl optional arch=any libpcp-import1 deb oldlibs optional arch=any libpcp-import1-dev deb oldlibs optional arch=any libpcp-import2 deb libs optional arch=any libpcp-import2-dev deb libdevel optional arch=any libpcp-logsummary-perl deb perl optional arch=any libpcp-mmv-perl deb perl optional arch=any libpcp-mmv1 deb libs optional arch=any libpcp-mmv1-dev deb libdevel optional arch=any libpcp-pmda-perl deb perl optional arch=any libpcp-pmda3 deb libs optional arch=any libpcp-pmda3-dev deb libdevel optional arch=any libpcp-trace2 deb libs optional arch=any libpcp-trace2-dev deb libdevel optional arch=any libpcp-web1 deb libs optional arch=any libpcp-web1-dev deb libdevel optional arch=any libpcp3 deb oldlibs optional arch=any libpcp3-dev deb oldlibs optional arch=any libpcp4 deb libs optional arch=any libpcp4-dev deb libdevel optional arch=any pcp deb utils optional arch=any pcp-atop deb utils optional arch=any pcp-conf deb libs optional arch=any pcp-doc deb doc optional arch=all pcp-dstat deb utils optional arch=any pcp-export-pcp2elasticsearch deb utils optional arch=any pcp-export-pcp2graphite deb utils optional arch=any pcp-export-pcp2influxdb deb utils optional arch=any pcp-export-pcp2json deb utils optional arch=any pcp-export-pcp2spark deb utils optional arch=any pcp-export-pcp2xlsx deb utils optional arch=any pcp-export-pcp2xml deb utils optional arch=any pcp-export-pcp2zabbix deb utils optional arch=any pcp-export-zabbix-agent deb utils optional arch=any pcp-gui deb utils optional arch=any pcp-htop deb utils optional arch=any pcp-import-benchmarks deb utils optional arch=any pcp-import-collectl2pcp deb utils optional arch=any pcp-import-ganglia2pcp deb utils optional arch=all pcp-import-guidellm2pcp deb oldlibs optional arch=all pcp-import-iostat2pcp deb utils optional arch=all pcp-import-mrtg2pcp deb utils optional arch=all pcp-import-sar2pcp deb utils optional arch=all pcp-import-sheet2pcp deb utils optional arch=all pcp-pmda-infiniband deb utils optional arch=any pcp-testsuite deb utils optional arch=any pcp-zeroconf deb utils optional arch=any python3-pcp deb python optional arch=any"
+    ],
+    "Priority": [
+      "optional"
+    ],
+    "Section": [
+      "utils"
+    ],
+    "Standards-Version": [
+      "4.7.2"
+    ],
+    "Uploaders": [
+      "Nathan Scott \u003cnathans@debian.org\u003e, Ken McDonell \u003ckenj@kenj.id.au\u003e"
+    ],
+    "Vcs-Browser": [
+      "https://github.com/performancecopilot/pcp"
+    ],
+    "Vcs-Git": [
+      "https://github.com/performancecopilot/pcp.git"
+    ],
+    "Version": [
+      "7.2.2-1"
+    ]
+  },
+  {
+    "Architecture": [
       "any"
     ],
     "Binary": [
@@ -1433803,16 +1434450,16 @@
       "php-doctrine-inflector"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-phpcomposer, phpab, phpunit"
+      "debhelper-compat (= 14), dh-sequence-phpcomposer, phpab, phpunit"
     ],
     "Checksums-Sha256": [
-      "69525c4f56b91dcbf951bf84800fcc690485e75faffcce6420f476695628defd 1881 php-doctrine-inflector_2.1.0-1.dsc 7fb85c8122e220a3761d57c22198415a315112ddefbe230f202223aa62d19ecf 23948 php-doctrine-inflector_2.1.0.orig.tar.xz bf1f1b11c1512506727339bfa497f32af8fd0c466fcfa1026fda5452eed8ce5d 11260 php-doctrine-inflector_2.1.0-1.debian.tar.xz"
+      "267205245ed62808482b09d380d445e336334400de07d8028ef1f38a53f56baa 1881 php-doctrine-inflector_2.1.1-1.dsc 54658b90473f9b3f6cd693d2371ca77a3134592201df40013cc060c2aee4fae5 24232 php-doctrine-inflector_2.1.1.orig.tar.xz 163912fd4347d6da61a1e3a31394ae37aeb2176695a7bf2093610fd67df9e3d0 11832 php-doctrine-inflector_2.1.1-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/php-doctrine-inflector"
     ],
     "Files": [
-      "b41fd0eacda3289176b95abbd855eb6b 1881 php-doctrine-inflector_2.1.0-1.dsc 96fb73402d821cf4b523238b3ff3b819 23948 php-doctrine-inflector_2.1.0.orig.tar.xz ae16b198b8f935e7e9057c09b00b0ca9 11260 php-doctrine-inflector_2.1.0-1.debian.tar.xz"
+      "f5556a2dbb291652290810a59bb29852 1881 php-doctrine-inflector_2.1.1-1.dsc d423833ab32a1dc7f7a52f6521afa4a0 24232 php-doctrine-inflector_2.1.1.orig.tar.xz 7dbc2d7d431a5e8ee8981979e5bbb0cf 11832 php-doctrine-inflector_2.1.1-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1433836,7 +1434483,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.7.2"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest"
@@ -1433854,7 +1434501,7 @@
       "https://salsa.debian.org/php-team/pear/php-doctrine-inflector.git"
     ],
     "Version": [
-      "2.1.0-1"
+      "2.1.1-1"
     ]
   },
   {
@@ -1433865,16 +1434512,16 @@
       "php-doctrine-instantiator"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-phpcomposer, phpab, phpunit \u003c!nocheck\u003e"
+      "debhelper-compat (= 14), dh-sequence-phpcomposer, phpab, phpunit \u003c!nocheck\u003e"
     ],
     "Checksums-Sha256": [
-      "e50b81407f3d4934dd37eab727798b281c9523f42a1d8c74096f28e2a140ee7b 1967 php-doctrine-instantiator_2.1.0-1.dsc fe16240d3447912bda012f6241b15b290821f2ebffa2d8a8830f2803fa486bb8 10356 php-doctrine-instantiator_2.1.0.orig.tar.xz 2a810465d5392fa71fb4aac5c08db0f631ab4d753bdc1420d2ab34fe6d58d7a5 10364 php-doctrine-instantiator_2.1.0-1.debian.tar.xz"
+      "1865e485a0403e19ca8fdd1683cbf4490f128812b016311011392c01cdaf2188 1967 php-doctrine-instantiator_2.1.0-2.dsc fe16240d3447912bda012f6241b15b290821f2ebffa2d8a8830f2803fa486bb8 10356 php-doctrine-instantiator_2.1.0.orig.tar.xz 87ff5f91ffbf2a5454863af194781ebdf03b3afb62db9e72f3b7764eb97f3167 10716 php-doctrine-instantiator_2.1.0-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/php-doctrine-instantiator"
     ],
     "Files": [
-      "580b17c47080719acc4fbb4c6154ec38 1967 php-doctrine-instantiator_2.1.0-1.dsc 1621b2479601daf8521acc99f244a47f 10356 php-doctrine-instantiator_2.1.0.orig.tar.xz a9897cb4abc096d0f847af6d6a791b1a 10364 php-doctrine-instantiator_2.1.0-1.debian.tar.xz"
+      "94b7b1f500d8e3237382caab2e1b8ae0 1967 php-doctrine-instantiator_2.1.0-2.dsc 1621b2479601daf8521acc99f244a47f 10356 php-doctrine-instantiator_2.1.0.orig.tar.xz 71d23a024f706353fd86e9c20186be4e 10716 php-doctrine-instantiator_2.1.0-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1433898,7 +1434545,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.7.3"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest"
@@ -1433916,7 +1434563,7 @@
       "https://salsa.debian.org/php-team/pear/php-doctrine-instantiator.git"
     ],
     "Version": [
-      "2.1.0-1"
+      "2.1.0-2"
     ]
   },
   {
@@ -1444095,13 +1444742,13 @@
       "debhelper-compat (= 14), dh-sequence-phpcomposer, php-league-commonmark, php-symfony-var-dumper \u003c!nocheck\u003e, phpab, phpunit \u003c!nocheck\u003e"
     ],
     "Checksums-Sha256": [
-      "5cce72aff9f3c7c0f61b3439c9b80668e34bfe183d964d879d1db481a128dc8f 1982 php-tempest-highlight_2.29.0-1.dsc d3f3c0abd3b9939bac0221231fefc291248dc4f195c5808574b536ab79da151e 769648 php-tempest-highlight_2.29.0.orig.tar.xz 8af0d06ca7499eda69aefa58f9902e6b3739eff1700315ab14a39481e74447af 2924 php-tempest-highlight_2.29.0-1.debian.tar.xz"
+      "115137a24ccdb3314fb911a6bd4f864f433e4d575841deeff429f6f0398d2ea9 1982 php-tempest-highlight_2.30.0-1.dsc 445b7ecf37b14981444b3af527457f2f90eab76488b58aaaa8717b24b3e250b8 794132 php-tempest-highlight_2.30.0.orig.tar.xz 9d40bcecbf0c3991d9a48ef9d6c6367c9dae6738224b8596cbc955cbb1bb9bf3 3176 php-tempest-highlight_2.30.0-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/php-tempest-highlight"
     ],
     "Files": [
-      "a90db6f74a852d4d039504f0f614e730 1982 php-tempest-highlight_2.29.0-1.dsc e533a17fd7a94441d925553a6c201837 769648 php-tempest-highlight_2.29.0.orig.tar.xz 0e7f7c1eddcf4ff059942fb2760ec416 2924 php-tempest-highlight_2.29.0-1.debian.tar.xz"
+      "4940f06747502eac2295652e99ed1895 1982 php-tempest-highlight_2.30.0-1.dsc 98d331685e115645bb14a022faf7b505 794132 php-tempest-highlight_2.30.0.orig.tar.xz 94874ae435fd694f8e6c02c361e3f2f1 3176 php-tempest-highlight_2.30.0-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1444143,7 +1444790,7 @@
       "https://salsa.debian.org/php-team/pear/php-tempest-highlight.git"
     ],
     "Version": [
-      "2.29.0-1"
+      "2.30.0-1"
     ]
   },
   {
@@ -1445234,16 +1445881,16 @@
       "php-zend-code"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-phpcomposer, php-doctrine-annotations, php-laminas-stdlib, phpab, phpunit \u003c!nocheck\u003e"
+      "debhelper-compat (= 14), dh-sequence-phpcomposer, php-laminas-stdlib, phpab, phpunit \u003c!nocheck\u003e"
     ],
     "Checksums-Sha256": [
-      "fb6cda15551c31903808b88ef28927e403e53ab442fa7361beab1f48cf1f62cc 1874 php-zend-code_4.17.0-3.dsc 724e5fdf09933f03df86a79c11fb845b91d87df16c2cc59a0e902c223b922423 99184 php-zend-code_4.17.0.orig.tar.xz 598f2766fc36c1c9543009f7b31e4a56305090367e0bb2fffea89c6b13d9f59e 11708 php-zend-code_4.17.0-3.debian.tar.xz"
+      "7de2a5b46ddf91ec3577d6cf9421ff4572fc28ad272cc6d2bd5fa1a62e759352 1825 php-zend-code_4.18.0-1.dsc 41c3088ec74f6b5193a8e0443c9ffa265ebb7a5c5826545bdcba363552de772e 108040 php-zend-code_4.18.0.orig.tar.xz dd01bfd0607105c3913cae47d399f493cd74c4115a94893f63675194b67b133a 11856 php-zend-code_4.18.0-1.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/php-zend-code"
     ],
     "Files": [
-      "02258d260a4e4a36b9bfc9d7047a313f 1874 php-zend-code_4.17.0-3.dsc 0557d08f18881325b496579119dd370d 99184 php-zend-code_4.17.0.orig.tar.xz 7725374b4bf149e31937e35932dc218f 11708 php-zend-code_4.17.0-3.debian.tar.xz"
+      "a8d1b58eb53bc54a3d4f9f0d61d3e238 1825 php-zend-code_4.18.0-1.dsc a24513c52cc464b24dc80f745ffbc106 108040 php-zend-code_4.18.0.orig.tar.xz 1eafffa16664b54c1cc2b0163e3045b1 11856 php-zend-code_4.18.0-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1445273,7 +1445920,7 @@
       "autopkgtest"
     ],
     "Testsuite-Triggers": [
-      "php-doctrine-annotations, php-laminas-stdlib, phpab, phpunit, pkg-php-tools"
+      "php-laminas-stdlib, phpab, phpunit, pkg-php-tools"
     ],
     "Uploaders": [
       "David Prévot \u003ctaffit@debian.org\u003e"
@@ -1445285,7 +1445932,7 @@
       "https://salsa.debian.org/php-team/pear/php-zend-code.git"
     ],
     "Version": [
-      "4.17.0-3"
+      "4.18.0-1"
     ]
   },
   {
@@ -1503135,25 +1503782,25 @@
       "python3-pydantic-settings"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-sequence-python3, pybuild-plugin-pyproject, python3-all, python3-azure (\u003e= 20240522+git), python3-boto3, python3-dotenv (\u003e= 0.21.0~), python3-hatchling, python3-pydantic (\u003e= 2.9.0), python3-pytest \u003c!nocheck\u003e, python3-pytest-mock \u003c!nocheck\u003e, python3-setuptools, python3-typing-inspection, python3-yaml (\u003e= 6.0.1~)"
+      "debhelper-compat (= 13), dh-sequence-python3, pybuild-plugin-pyproject, python3-all, python3-azure (\u003e= 20240522+git), python3-boto3, python3-dotenv (\u003e= 0.21.0~), python3-hatchling, python3-pydantic (\u003e= 2.9.0), python3-pytest \u003c!nocheck\u003e, python3-pytest-examples \u003c!nocheck\u003e, python3-pytest-mock \u003c!nocheck\u003e, python3-setuptools, python3-typing-extensions, python3-typing-inspection, python3-yaml (\u003e= 6.0.1~)"
     ],
     "Checksums-Sha256": [
-      "a83a3310a5aa9c9ecf083d70ce4025ac620a01ff00e310e366e0d09d2a22f8e5 2801 pydantic-settings_2.15.0-2.dsc ff0ff81001743a280951cab5d8694e0ce32d8e0545952119691524a3a1c5d6f5 264273 pydantic-settings_2.15.0.orig.tar.gz 307e2ebd555719060e31e30a4ba39b4692a8f8143a1e78de2d2ccf5bc5fe1edd 5056 pydantic-settings_2.15.0-2.debian.tar.xz"
+      "52541ea5d2a64ffaaaab1969b68d6cb6622849fe077e07a659e280c61c842c68 2889 pydantic-settings_2.16.1-1.dsc 092fddf2899dc841df2ba0a077203b9c5691c5bed981a6392d8bfc7c36d47bb8 305793 pydantic-settings_2.16.1.orig.tar.gz 380aaddf31705e136235d4228e73990b87386283a103eb32e25654855dbd70be 3656 pydantic-settings_2.16.1-1.debian.tar.xz"
     ],
     "Dgit": [
-      "2d40174c36902d8664a08e84ab2d12936a87d7c2 debian archive/debian/2.15.0-2 https://git.dgit.debian.org/pydantic-settings"
+      "a28d16c0c6ec6535a08f9d33d3c1f2f6fc081b30 debian archive/debian/2.16.1-1 https://git.dgit.debian.org/pydantic-settings"
     ],
     "Directory": [
       "pool/main/p/pydantic-settings"
     ],
     "Files": [
-      "53c7ad2fbcf7c3a2db47ac831488606d 2801 pydantic-settings_2.15.0-2.dsc e85ca2ecf6259f7e81fb6efd110162f4 264273 pydantic-settings_2.15.0.orig.tar.gz 5218a20a69991a88b0166e79a1902b1b 5056 pydantic-settings_2.15.0-2.debian.tar.xz"
+      "197295c7426d9e09e0706bca1fcf85b7 2889 pydantic-settings_2.16.1-1.dsc eb3d6202fec0c4b8a2cbc746a842fded 305793 pydantic-settings_2.16.1.orig.tar.gz 0bb2c4dfb33f10d75ceb2f6f9ff858be 3656 pydantic-settings_2.16.1-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
     ],
     "Git-Tag-Info": [
-      "tag=1d4ca4a12f3db644a42189e34f1b64881a7e4e4b fp=ac0a4ff12611b6fccf01c111393587d97d86500b"
+      "tag=20d66c5822a80e1c53e032e8251d2795933fbfc9 fp=ac0a4ff12611b6fccf01c111393587d97d86500b"
     ],
     "Git-Tag-Tagger": [
       "Colin Watson \u003ccjwatson@debian.org\u003e"
@@ -1503183,7 +1503830,7 @@
       "autopkgtest"
     ],
     "Testsuite-Triggers": [
-      "python3-all, python3-azure, python3-boto3, python3-pytest, python3-pytest-mock"
+      "python3-all, python3-azure, python3-boto3, python3-pytest, python3-pytest-examples, python3-pytest-mock"
     ],
     "Uploaders": [
       "Drew Parsons \u003cdparsons@debian.org\u003e, Colin Watson \u003ccjwatson@debian.org\u003e"
@@ -1503195,7 +1503842,7 @@
       "https://salsa.debian.org/python-team/packages/pydantic-settings.git"
     ],
     "Version": [
-      "2.15.0-2"
+      "2.16.1-1"
     ]
   },
   {
@@ -1556906,19 +1557553,19 @@
       "python3-confluent-kafka"
     ],
     "Build-Depends": [
-      "debhelper-compat (= 13), dh-python, librdkafka-dev (\u003e= 2.12.1), pybuild-plugin-pyproject, python3-all-dev, python3-avro, python3-jsonschema, python3-orjson, python3-protobuf, python3-pyrsistent, python3-pytest, python3-pytest-asyncio, python3-pytest-timeout, python3-pytest-xdist, python3-requests, python3-requests-mock, python3-setuptools"
+      "debhelper-compat (= 13), dh-sequence-python3, pybuild-plugin-pyproject, python3-all-dev, python3-setuptools"
+    ],
+    "Build-Depends-Arch": [
+      "librdkafka-dev (\u003e= 2.12.1), python3-avro \u003c!nocheck\u003e, python3-jsonschema \u003c!nocheck\u003e, python3-orjson \u003c!nocheck\u003e, python3-protobuf \u003c!nocheck\u003e, python3-pyrsistent \u003c!nocheck\u003e, python3-pytest \u003c!nocheck\u003e, python3-pytest-asyncio \u003c!nocheck\u003e, python3-pytest-timeout \u003c!nocheck\u003e, python3-pytest-xdist \u003c!nocheck\u003e, python3-requests \u003c!nocheck\u003e, python3-requests-mock \u003c!nocheck\u003e"
     ],
     "Checksums-Sha256": [
-      "fb32206f8563fcf9197f0b1bd552facd89c1e1e0411a99bf13a36f987dc87fcb 2631 python-confluent-kafka_2.12.2-1.dsc 8317982200d3bc6302a5f724d982b4e8af5b72e85c83c0e973eadd45db1eab42 398624 python-confluent-kafka_2.12.2.orig.tar.xz 9291b1ec25442659ef5d538c4bb3fbbe799975db23b9456e74df53fca4283309 4232 python-confluent-kafka_2.12.2-1.debian.tar.xz"
-    ],
-    "Dgit": [
-      "846df34d5895d82538d0f7a1cc50c4705ca54396 debian archive/debian/2.12.2-1 https://git.dgit.debian.org/python-confluent-kafka"
+      "6b751c889ce5fe29b23618222d430f7e4a7cffb3b8ec50f8d9b7ce5b0b32768b 2676 python-confluent-kafka_2.12.2-2.dsc 8317982200d3bc6302a5f724d982b4e8af5b72e85c83c0e973eadd45db1eab42 398624 python-confluent-kafka_2.12.2.orig.tar.xz 6e398e87cf716a11b11aff42327301f560f8d124f348e2ee77c2a293c24edc54 4508 python-confluent-kafka_2.12.2-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/python-confluent-kafka"
     ],
     "Files": [
-      "e99f7f31b6205f49c4fae1cc79651a9a 2631 python-confluent-kafka_2.12.2-1.dsc 9dbdaa01c029c257f6e5e1ef2a2df65e 398624 python-confluent-kafka_2.12.2.orig.tar.xz ece5342bc283b8aec09c64be4bcbb366 4232 python-confluent-kafka_2.12.2-1.debian.tar.xz"
+      "c27cbffbbbfde4142a33427b26429843 2676 python-confluent-kafka_2.12.2-2.dsc 9dbdaa01c029c257f6e5e1ef2a2df65e 398624 python-confluent-kafka_2.12.2.orig.tar.xz 8d669175b96cf1edd783caf3e80e415f 4508 python-confluent-kafka_2.12.2-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1556942,13 +1557589,13 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.5.1"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest-pkg-pybuild"
     ],
     "Uploaders": [
-      "Christos Trochalakis \u003cctrochalakis@debian.org\u003e, Nicolas Dandrimont \u003colasd@debian.org\u003e,"
+      "Christos Trochalakis \u003cctrochalakis@debian.org\u003e, Nicolas Dandrimont \u003colasd@debian.org\u003e"
     ],
     "Vcs-Browser": [
       "https://salsa.debian.org/python-team/packages/python-confluent-kafka"
@@ -1556957,7 +1557604,7 @@
       "https://salsa.debian.org/python-team/packages/python-confluent-kafka.git"
     ],
     "Version": [
-      "2.12.2-1"
+      "2.12.2-2"
     ]
   },
   {
@@ -1564308,16 +1564955,25 @@
       "debhelper-compat (= 13), dh-sequence-python3, dh-sequence-sphinxdoc \u003c!nodoc\u003e, python3-all, python3-jsonpickle \u003c!nocheck\u003e, python3-pytest \u003c!nocheck\u003e, python3-requests \u003c!nocheck\u003e, python3-responses \u003c!nocheck\u003e, python3-setuptools, python3-sphinx \u003c!nodoc\u003e"
     ],
     "Checksums-Sha256": [
-      "50e04293dd36304ccc14c2543a91ef2fe46009c34e7cce4cbf4b67a07145813a 2394 python-digitalocean_1.17.0-2.dsc 9c9c788ae03a088d0c03a9a59ff7ac6c492caadd4942d4fc58795ee859fc228f 60261 python-digitalocean_1.17.0.orig.tar.gz 25867cba007289e69623f79bbe7897b1fa07492f5040f0ab502b9e60ac494102 4540 python-digitalocean_1.17.0-2.debian.tar.xz"
+      "07ea888216e3ec37a77f9e94e49b8d160b2c64ddb1c0e5b9897f0dd0bebe27f2 2685 python-digitalocean_1.17.0-3.dsc 9c9c788ae03a088d0c03a9a59ff7ac6c492caadd4942d4fc58795ee859fc228f 60261 python-digitalocean_1.17.0.orig.tar.gz 35b44336e99757442599d9a7eedcfb0a10fd2b38f81da3018a5cdac6755252bf 4600 python-digitalocean_1.17.0-3.debian.tar.xz"
+    ],
+    "Dgit": [
+      "d4bf756c470f91f0d1431d9d6220aeff299bae3e debian archive/debian/1.17.0-3 https://git.dgit.debian.org/python-digitalocean"
     ],
     "Directory": [
       "pool/main/p/python-digitalocean"
     ],
     "Files": [
-      "978a873e8b3479b75997d1d8943eb96d 2394 python-digitalocean_1.17.0-2.dsc 70ebcb5e0e67abe6aa302d84c3d6f5fb 60261 python-digitalocean_1.17.0.orig.tar.gz 0fd3b3a4748ff500805f5bdf88b38ed0 4540 python-digitalocean_1.17.0-2.debian.tar.xz"
+      "75a21728cedff659bcb2d3b14c9aa551 2685 python-digitalocean_1.17.0-3.dsc 70ebcb5e0e67abe6aa302d84c3d6f5fb 60261 python-digitalocean_1.17.0.orig.tar.gz f4e121ba1a4268e2a56d91b3eac1f9ba 4600 python-digitalocean_1.17.0-3.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
+    ],
+    "Git-Tag-Info": [
+      "tag=e2916a1c548e1e7fcd662ee9ac2e665b436312b9 fp=90e2d2c1ad146a1b7ebb891dbbc17ebb1396f2f7"
+    ],
+    "Git-Tag-Tagger": [
+      "Stuart Prescott \u003cstuart@debian.org\u003e"
     ],
     "Homepage": [
       "https://github.com/koalalorenzo/python-digitalocean"
@@ -1564340,6 +1564996,9 @@
     "Standards-Version": [
       "4.7.4"
     ],
+    "Testsuite": [
+      "autopkgtest-pkg-pybuild"
+    ],
     "Uploaders": [
       "Andrew Starr-Bochicchio \u003casb@debian.org\u003e"
     ],
@@ -1564350,7 +1565009,7 @@
       "https://salsa.debian.org/python-team/packages/python-digitalocean.git"
     ],
     "Version": [
-      "1.17.0-2"
+      "1.17.0-3"
     ]
   },
   {
@@ -1576721,19 +1577380,25 @@
       "debhelper-compat (= 13), dh-sequence-python3, pybuild-plugin-pyproject, python3-all, python3-fake-factory, python3-hatchling (\u003e= 1.27.0), python3-pytest"
     ],
     "Checksums-Sha256": [
-      "399cd3f5b4a45b3a318424de16443cfc1361d23606e688b4d7701c1b65dd8fc5 2298 python-evalidate_2.1.4-1.dsc 86b574117c839e7479b04efccd07eb2ef55669bfcbb2bbb59ea1bdf6d1c7d0ab 1190139 python-evalidate_2.1.4.orig.tar.gz 4e40ed6bfa432a2d1ff0507a570dfc395d8947adc52b0c22c315daea30f5d693 3060 python-evalidate_2.1.4-1.debian.tar.xz"
+      "161ac4bd2cd907f92a497784d6b3bbc4edaeb1c2d4ef0beebd6c60a7bb8b4c02 2446 python-evalidate_2.1.7-1.dsc 67636c9d4dcf0460ee259915b853b7798ed9b1738526f59a4569c99a9435be3e 15487 python-evalidate_2.1.7.orig.tar.gz d685d260c6febde32cce9e8ac1803cb378f223c1280181a9e63bad8fa5bb3ad8 3068 python-evalidate_2.1.7-1.debian.tar.xz"
     ],
     "Dgit": [
-      "919632f69b22b141dd7d41de9e83177ffb9088ca debian archive/debian/2.1.4-1 https://git.dgit.debian.org/python-evalidate"
+      "d3b88bc227fd410eb0e616be579fef47f168787e debian archive/debian/2.1.7-1 https://git.dgit.debian.org/python-evalidate"
     ],
     "Directory": [
       "pool/main/p/python-evalidate"
     ],
     "Files": [
-      "754ef202fa746c963233895e63c4b02e 2298 python-evalidate_2.1.4-1.dsc 4d1ac14704fa350ee999c3176d596a5c 1190139 python-evalidate_2.1.4.orig.tar.gz 8ef3028b18aaf60cfc5732215593a693 3060 python-evalidate_2.1.4-1.debian.tar.xz"
+      "f4acdeaeb88d9741d587e4a85aecb6b9 2446 python-evalidate_2.1.7-1.dsc d2a4a994f57f595f1db471d123093251 15487 python-evalidate_2.1.7.orig.tar.gz c1404e3399c5f52bb01114a3e7916bd9 3068 python-evalidate_2.1.7-1.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
+    ],
+    "Git-Tag-Info": [
+      "tag=cafb3170c4a02ece9c82a4da51c8f9a90b899fcc fp=ac0a4ff12611b6fccf01c111393587d97d86500b"
+    ],
+    "Git-Tag-Tagger": [
+      "Colin Watson \u003ccjwatson@debian.org\u003e"
     ],
     "Homepage": [
       "https://github.com/yaroslaff/evalidate"
@@ -1576769,7 +1577434,7 @@
       "https://salsa.debian.org/python-team/packages/python-evalidate.git"
     ],
     "Version": [
-      "2.1.4-1"
+      "2.1.7-1"
     ]
   },
   {
@@ -1576960,13 +1577625,13 @@
       "debhelper-compat (= 14), pybuild-plugin-pyproject, python3-all-dev, python3-mesonpy, python3-numpy, python3-numpy-dev, cython3, dh-python"
     ],
     "Checksums-Sha256": [
-      "be7722c9c49be790ebbbbef238b12092064e268bf16397fc0542512f2c0cd4a5 2307 python-ewah-bool-utils_1.3.2-1.dsc ed846b56b7f0864108a9aa8617af973ff7c3a36968d1e922afe52339d68c3273 72581 python-ewah-bool-utils_1.3.2.orig.tar.gz 8fafa4e986372f785fb4c577179ec02dc3d3532ef7ed80730a2b7b1e1334dd4b 3032 python-ewah-bool-utils_1.3.2-1.debian.tar.xz"
+      "ead08ab54742671a957099cf4a08dac0987fe91958cb7d4157f381a2e3a21fef 2307 python-ewah-bool-utils_1.3.2-2.dsc ed846b56b7f0864108a9aa8617af973ff7c3a36968d1e922afe52339d68c3273 72581 python-ewah-bool-utils_1.3.2.orig.tar.gz 2445f6b1aca765a6b26b8273fca248208b08a9daf4b1d665b735b0c7e0e30c90 3308 python-ewah-bool-utils_1.3.2-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/python-ewah-bool-utils"
     ],
     "Files": [
-      "779e7fb629aa7a520875481128999c87 2307 python-ewah-bool-utils_1.3.2-1.dsc 290324c387dc747718bb0508b80d4b9d 72581 python-ewah-bool-utils_1.3.2.orig.tar.gz ddde967735406cc50f5bdd59ca8e58a1 3032 python-ewah-bool-utils_1.3.2-1.debian.tar.xz"
+      "45f2f3525f18d842bac1edfab11a2357 2307 python-ewah-bool-utils_1.3.2-2.dsc 290324c387dc747718bb0508b80d4b9d 72581 python-ewah-bool-utils_1.3.2.orig.tar.gz a949ae29e33c65bd0e04dc8fd53ca84e 3308 python-ewah-bool-utils_1.3.2-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1577008,7 +1577673,7 @@
       "https://salsa.debian.org/python-team/packages/ewah-bool-utils.git"
     ],
     "Version": [
-      "1.3.2-1"
+      "1.3.2-2"
     ]
   },
   {
@@ -1660750,16 +1661415,16 @@
       "python3-suitesparse-graphblas"
     ],
     "Build-Depends": [
-      "cython3, debhelper-compat (= 13), dh-sequence-python3, libpython3-all-dev, libgraphblas-dev (\u003e= 7.4), python3-all, python3-cffi, python3-numpy, python3-pytest, python3-pytest-runner, python3-setuptools"
+      "cython3, debhelper-compat (= 13), dh-sequence-python3, libpython3-all-dev, libgraphblas-dev (\u003e= 7.4), python3-all, python3-cffi, python3-numpy, python3-pytest, python3-pytest-runner, python3-setuptools, python3-numpy-dev"
     ],
     "Checksums-Sha256": [
-      "695f5ad8f2509bb010c8e8530d33173c3fc4a99f3100fce710e459ecc66d7f11 2450 python-suitesparse-graphblas_7.4.0.0-3.dsc 8a745a60dfbe18ba0b4639b6e42465421c6d8a46913ac8e323f3e003a5ea3fba 103213 python-suitesparse-graphblas_7.4.0.0.orig.tar.gz ed3e3b919ea16c1b0de7489cf4bc4ee1f2ffaac313cfa6f53d32b5d63c29f0ed 2892 python-suitesparse-graphblas_7.4.0.0-3.debian.tar.xz"
+      "0b7119ae8f8d6729000c4a888ae081a218cab3681c329d170a1e7f78d6731459 2476 python-suitesparse-graphblas_7.4.0.0-4.dsc 8a745a60dfbe18ba0b4639b6e42465421c6d8a46913ac8e323f3e003a5ea3fba 103213 python-suitesparse-graphblas_7.4.0.0.orig.tar.gz e7d1b03e13575f5e093795bdab668048278020e0a7634cd3b89701d798419078 2944 python-suitesparse-graphblas_7.4.0.0-4.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/p/python-suitesparse-graphblas"
     ],
     "Files": [
-      "e49d9df76a8b858d52e53ec2702285ba 2450 python-suitesparse-graphblas_7.4.0.0-3.dsc f276cbc2fc5e25127210e76acafd6005 103213 python-suitesparse-graphblas_7.4.0.0.orig.tar.gz d4d479c146e1b5e75fcfe83ca2b835a5 2892 python-suitesparse-graphblas_7.4.0.0-3.debian.tar.xz"
+      "477b7898c05f6c0a42a4371273dedaee 2476 python-suitesparse-graphblas_7.4.0.0-4.dsc f276cbc2fc5e25127210e76acafd6005 103213 python-suitesparse-graphblas_7.4.0.0.orig.tar.gz 764cc2c45d7c37fa5ea7754757e575a3 2944 python-suitesparse-graphblas_7.4.0.0-4.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -1660768,7 +1661433,7 @@
       "https://github.com/GraphBLAS/python-suitesparse-graphblas"
     ],
     "Maintainer": [
-      "Debian Science Team \u003cdebian-science-maintainers@lists.alioth.debian.org\u003e"
+      "Debian Science Maintainers \u003cdebian-science-maintainers@lists.alioth.debian.org\u003e"
     ],
     "Package": [
       "python-suitesparse-graphblas"
@@ -1660783,7 +1661448,7 @@
       "misc"
     ],
     "Standards-Version": [
-      "4.7.3"
+      "4.7.4"
     ],
     "Testsuite": [
       "autopkgtest"
@@ -1660801,7 +1661466,7 @@
       "https://salsa.debian.org/science-team/python-suitesparse-graphblas.git"
     ],
     "Version": [
-      "7.4.0.0-3"
+      "7.4.0.0-4"
     ]
   },
   {
@@ -2218621,13 +2219286,13 @@
       "debhelper-compat (= 14), dh-sequence-python3, asciidoctor, bwa, clang-format, clang-tidy, clang-tools, cmake, libbam-dev, libbamtools-dev, libboost-thread-dev, libbz2-dev, libc++-dev, libgtest-dev, libhts-dev, libnlopt-cxx-dev, libnlopt-dev, libparallel-hashmap-dev, libspoa-dev, libssw-dev, libxxhash-dev, libzstd-dev, llvm-dev, lynx, python3-all, python3-joblib, python3-yaml, zlib1g-dev"
     ],
     "Checksums-Sha256": [
-      "c271fad480805663ad73507b6799f75804797da71bc407f96b53415924f40ea1 2529 spades_4.3.0+dfsg-1.dsc 51b2296dc650731c51730401535d287bbad5c69d3a409ee363cf5f70a9beaa11 8657552 spades_4.3.0+dfsg.orig.tar.xz 0929411eb946c68522b99d3be4a05cbda28f57b24d0e65aad40e2717abbef2cd 37424 spades_4.3.0+dfsg-1.debian.tar.xz"
+      "07f476a95163c8d054467004a555643c5ad901b55db3491638f7a5e3f6e91691 2529 spades_4.3.0+dfsg-2.dsc 51b2296dc650731c51730401535d287bbad5c69d3a409ee363cf5f70a9beaa11 8657552 spades_4.3.0+dfsg.orig.tar.xz eff0576e3269ece7c606d7240fe410ddd3dc6dce72fb2dea49fba0e14fd8e3b3 37992 spades_4.3.0+dfsg-2.debian.tar.xz"
     ],
     "Directory": [
       "pool/main/s/spades"
     ],
     "Files": [
-      "3d03c781f923e775d49aacbb493ffd3c 2529 spades_4.3.0+dfsg-1.dsc f8a7bf83a557b928abbf7635cc1e42bd 8657552 spades_4.3.0+dfsg.orig.tar.xz 9ad1f31447ce6438af7eff34d69bdcb8 37424 spades_4.3.0+dfsg-1.debian.tar.xz"
+      "abfda8d94fe6916d0a71008277e2ca9d 2529 spades_4.3.0+dfsg-2.dsc f8a7bf83a557b928abbf7635cc1e42bd 8657552 spades_4.3.0+dfsg.orig.tar.xz 3d133accea2bde3a9f1700cd790ee8b7 37992 spades_4.3.0+dfsg-2.debian.tar.xz"
     ],
     "Format": [
       "3.0 (quilt)"
@@ -2218669,7 +2219334,7 @@
       "https://salsa.debian.org/med-team/spades.git"
     ],
     "Version": [
-      "4.3.0+dfsg-1"
+      "4.3.0+dfsg-2"
     ]
   },
   {
